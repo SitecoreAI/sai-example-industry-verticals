@@ -1,0 +1,332 @@
+{
+  "$schema": "./content-snapshot.schema.json",
+  "description": "Westfield insurance demo content snapshot. Not part of Sitecore serialization or deployment. Deserialize manually when needed.",
+  "siteName": "westfield",
+  "language": "en",
+  "exportedAt": "2025-03-16",
+  "items": [
+    {
+      "itemId": "b931c276-ba59-4e5c-917a-ac6bae5af58d",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Hero Banners/Hero Banner Image",
+      "name": "Hero Banner Image",
+      "template": "Hero Banner",
+      "fields": {
+        "Title": "Reliable Insurance, Real Peace of Mind",
+        "Description": "<div class=\"ck-content\"><p>Since 1848, Westfield has provided insurance that protects what matters most to you. Our long-standing tradition of excellence, culture of caring, and innovative mindset come together to ensure that you are covered for today and the future.</p></div>"
+      }
+    },
+    {
+      "itemId": "6e5692a9-761d-4267-bdd3-b8c9cb7cf4c2",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Main Features",
+      "name": "Main Features",
+      "template": "Features",
+      "fields": {
+        "Title": "Coverage Crafted With You In Mind",
+        "Description": "From business and personal insurance to farm and surety bonds, we offer solutions designed to protect what matters most."
+      }
+    },
+    {
+      "itemId": "f8f70240-07cb-4a8c-b64f-23d55051ad9b",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Main Features/Feature 1",
+      "name": "Feature 1",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "Business Insurance",
+        "FeatureDescription": "Insurance for businesses large and small, designed to enhance operational efficiency and security."
+      }
+    },
+    {
+      "itemId": "2df72ae1-caf2-4463-9b7d-0d1a54560e3e",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Main Features/Feature 2",
+      "name": "Feature 2",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "Personal Insurance",
+        "FeatureDescription": "Customized coverage for your home, auto, and beyond, developed to protect your lifestyle."
+      }
+    },
+    {
+      "itemId": "e04e050c-e9a5-4657-8337-6939200fc0df",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Main Features/Feature 3",
+      "name": "Feature 3",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "Farm & Agribusiness",
+        "FeatureDescription": "Specialized coverages that address the unique challenges faced by the agricultural sector."
+      }
+    },
+    {
+      "itemId": "5a54fabc-6937-4b49-9a01-f592daa3ef3c",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Promo/Global Promo",
+      "name": "Global Promo",
+      "template": "Promo",
+      "fields": {
+        "PromoTitle": "Value Beyond the Policy",
+        "PromoDescription": "<p>We know you have a choice when it comes to your insurance. At Westfield, we bring together a rich legacy, financial strength, and a forward-thinking approach to offer you unparalleled service. With over $1.9 billion in direct written premium and an &ldquo;A&rdquo; rating from AM Best since 1934, you can depend on Westfield.</p>",
+        "PromoMoreInfo": "<link class=\"\" querystring=\"\" id=\"ED027EE2-9712-4691-80DB-428516B1D623\" anchor=\"\" target=\"\" title=\"\" linktype=\"internal\" text=\"Learn More About Westfield\" url=\"/industry-verticals/essential-living/Home/Inspiration\" />"
+      }
+    },
+    {
+      "itemId": "3873eae2-5959-449b-ac0f-bab4c95f07f9",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Section Wrappers/New Collection Wrapper",
+      "name": "New Collection Wrapper",
+      "template": "Section Wrapper",
+      "fields": {
+        "Title": "Manage Your Account",
+        "Description": "Pay your bill, file a claim, find an agent, or access MyWestfield&reg;&mdash;your one-stop portal for managing all your insurance needs with ease and convenience."
+      }
+    },
+    {
+      "itemId": "74b9f8c3-70df-47fe-99d9-c6823abddde8",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Features Features",
+      "name": "Features Features",
+      "template": "Features",
+      "fields": {
+        "Title": "Why Choose Westfield?",
+        "Description": "Financial strength, a legacy of trust since 1848, and a commitment to the communities we serve."
+      }
+    },
+    {
+      "itemId": "49248f8f-e48d-4029-8208-abed85d99b0e",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Features Features/Feature 1",
+      "name": "Feature 1",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "Financial Strength",
+        "FeatureDescription": "With over $1.9 billion in direct written premium and an A rating from AM Best since 1934, you can depend on Westfield."
+      }
+    },
+    {
+      "itemId": "1ae2a2a4-d299-4218-a00b-fa622fb17785",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Features Features/Feature 2",
+      "name": "Feature 2",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "A Legacy of Trust",
+        "FeatureDescription": "Since 1848, we've been helping generations navigate the unexpected with integrity, trust, knowledge, and respect."
+      }
+    },
+    {
+      "itemId": "088019ed-062d-4a7b-9bc3-2d961e9b13bd",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Features Features/Feature 3",
+      "name": "Feature 3",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "Community and Connection",
+        "FeatureDescription": "We believe insurance is about people. We commit to giving back and supporting the communities we serve."
+      }
+    },
+    {
+      "itemId": "fffb9b88-a3f8-4f0b-b8df-f342772f49d5",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Features/Features Features/Feature 4",
+      "name": "Feature 4",
+      "template": "Feature",
+      "fields": {
+        "FeatureTitle": "Find an Agent",
+        "FeatureDescription": "Connect with a local Westfield agent for personalized coverage and support when you need it."
+      }
+    },
+    {
+      "itemId": "0b1d221b-a2cc-4dc0-961a-d0780b09ca49",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Social Feeds/Social Feed Home",
+      "name": "Social Feed Home",
+      "template": "SocialFeed",
+      "fields": {
+        "Heading": "Connect With Westfield",
+        "Eyebrow": "Find us on Instagram @westfieldinsurance"
+      }
+    },
+    {
+      "itemId": "a89057f3-4575-40eb-8f9e-8be50bb20014",
+      "path": "/sitecore/content/industry-verticals/westfield/Data/Selected Products/New Collection",
+      "name": "New Collection",
+      "template": "Selected Products",
+      "fields": {
+        "Title": "Explore Our Coverage"
+      }
+    },
+    {
+      "itemId": "87378cb4-e006-400e-8fae-39aec747a0b2",
+      "path": "/sitecore/content/industry-verticals/westfield/Home",
+      "name": "Home",
+      "template": "Page",
+      "fields": {
+        "Title": "Home",
+        "metadataTitle": "Westfield Insurance | Protecting What Matters Most Since 1848",
+        "metadataDescription": "Since 1848, Westfield has provided insurance that protects what matters most. Business, home and auto, farm, and surety bonds."
+      }
+    },
+    {
+      "itemId": "b1930533-74c4-4fb8-8a4a-8c8ef023d8ce",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop",
+      "name": "Shop",
+      "template": "Page",
+      "fields": {
+        "Title": "Products & Services",
+        "Content": "<div class=\"ck-content\"><p>From business and personal insurance to farm and agribusiness and surety bonds, Westfield offers coverage crafted with you in mind. Find the right protection for your needs.</p></div>"
+      }
+    },
+    {
+      "itemId": "c4c9f33e-3d0f-4621-bfb2-b1f238b50c5b",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/About us",
+      "name": "About us",
+      "template": "Page",
+      "fields": {
+        "Title": "About Us",
+        "Content": "<div class=\"ck-content\"><p>A tradition of excellence since 1848. Discover how Westfield has grown into an A-rated insurance leader, committed to innovative, caring, and reliable service.</p></div>"
+      }
+    },
+    {
+      "itemId": "043417a4-e818-4527-a495-a791948b359e",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Contact",
+      "name": "Contact",
+      "template": "Page",
+      "fields": {
+        "Title": "Contact Us"
+      }
+    },
+    {
+      "itemId": "ed027ee2-9712-4691-80db-428516b1d623",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Inspiration",
+      "name": "Inspiration",
+      "template": "Page",
+      "fields": {
+        "Title": "Articles & Resources",
+        "Content": "<div class=\"ck-content\"><p>Insights and resources to help you understand your coverage and make informed decisions about protecting what matters most.</p></div>"
+      }
+    },
+    {
+      "itemId": "55bf358d-2148-4c92-aa4f-81f701b2c00e",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Offers",
+      "name": "Offers",
+      "template": "Page",
+      "fields": {
+        "Title": "Claims & Services",
+        "Content": "<div class=\"ck-content\"><p>File a claim, pay your bill, find an agent, or access MyWestfield. We make it simple to manage your insurance needs.</p></div>"
+      }
+    },
+    {
+      "itemId": "f56a798b-dd9e-425b-8dee-732993536099",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Checkout",
+      "name": "Checkout",
+      "template": "Page",
+      "fields": {
+        "Title": "Get a Quote",
+        "Content": "<div class=\"ck-content\"><p>Ready to protect what matters most? Connect with a Westfield agent to get a personalized quote for your business, home, auto, or farm.</p><p>Find an agent near you or contact us to get started.</p></div>"
+      }
+    },
+    {
+      "itemId": "8e12cd03-d81d-4752-aa07-01bb0facb7bd",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Furniture",
+      "name": "Furniture",
+      "template": "ProductCategoryPage",
+      "fields": {
+        "Title": "Business Insurance",
+        "CategoryName": "Business Insurance",
+        "Content": "<div class=\"ck-content\"><p>Insurance for businesses large and small, designed to enhance operational efficiency and security. From BOP and commercial auto to workers compensation and cyber.</p></div>"
+      }
+    },
+    {
+      "itemId": "b41423a0-c969-42a0-b6ff-331510d93198",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Lighting",
+      "name": "Lighting",
+      "template": "ProductCategoryPage",
+      "fields": {
+        "Title": "Home & Auto",
+        "CategoryName": "Home & Auto",
+        "Content": "<div class=\"ck-content\"><p>Customized coverage for your home, auto, and beyond. Homeowners, auto, home & auto bundle, umbrella, and more to protect your lifestyle.</p></div>"
+      }
+    },
+    {
+      "itemId": "c029e2d2-b1e2-46fe-9550-19e3d13fe058",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Accessories",
+      "name": "Accessories",
+      "template": "ProductCategoryPage",
+      "fields": {
+        "Title": "Farm & Agribusiness",
+        "CategoryName": "Farm & Agribusiness",
+        "Content": "<div class=\"ck-content\"><p>Specialized coverages that address the unique challenges faced by the agricultural sector. Protection for what matters most to your operation.</p></div>"
+      }
+    },
+    {
+      "itemId": "46c78806-22a0-43e3-a446-eb59971e941e",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Accessories/Amberlyn Vase",
+      "name": "Amberlyn Vase",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Business Owners Policy (BOP)",
+        "ShortDescription": "Comprehensive coverage that bundles property, liability, and business interruption protection for small to mid-size businesses. Designed to enhance operational efficiency and security."
+      }
+    },
+    {
+      "itemId": "06d6dda8-8524-4068-8137-68c63e996b54",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Accessories/Aurelia Vase",
+      "name": "Aurelia Vase",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Homeowners Insurance",
+        "ShortDescription": "Customized coverage for your home and property. Protect your dwelling, personal belongings, and liability with a policy developed for your lifestyle."
+      }
+    },
+    {
+      "itemId": "472f5747-ea29-4d54-b520-761a78e9cd34",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Furniture/Lumiere Sofa",
+      "name": "Lumiere Sofa",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Commercial Auto",
+        "ShortDescription": "Insurance for company vehicles and drivers. Protect your business on the road with coverage that meets your fleet size and usage needs."
+      }
+    },
+    {
+      "itemId": "7d9c0f17-206f-473b-b332-92bc1063dfa9",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Furniture/Haven Dining Table",
+      "name": "Haven Dining Table",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Workers Compensation",
+        "ShortDescription": "Coverage that helps protect your employees and your business when work-related injuries or illnesses occur. Stay compliant and support your team."
+      }
+    },
+    {
+      "itemId": "19cd1867-6c68-426d-af42-710c31a35b6d",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Accessories/Circa Boucle Pillow Duo",
+      "name": "Circa Boucle Pillow Duo",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Cyber Insurance",
+        "ShortDescription": "Help protect your business from cyber threats and data breaches. Coverage for response costs, notification, and recovery when the unexpected happens."
+      }
+    },
+    {
+      "itemId": "c376955e-804c-463b-9dc1-4c2335a7ee36",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Furniture/Linea Armchair",
+      "name": "Linea Armchair",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Surety Bonds",
+        "ShortDescription": "A broad range of surety bonds that ensure your projects and obligations are met with confidence. Built for contractors and businesses."
+      }
+    },
+    {
+      "itemId": "b0f95011-2bcd-4eac-b9f1-aa761ea7fc44",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Lighting/OroNova",
+      "name": "OroNova",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Umbrella Insurance",
+        "ShortDescription": "Extra liability protection above your home, auto, or business policies. Additional peace of mind when you need it most."
+      }
+    },
+    {
+      "itemId": "6aaa4559-3a6c-438d-9fd9-43ea368e9c3e",
+      "path": "/sitecore/content/industry-verticals/westfield/Home/Shop/Lighting/Seraphina Glow",
+      "name": "Seraphina Glow",
+      "template": "ProductPage",
+      "fields": {
+        "Title": "Farm & Agribusiness",
+        "ShortDescription": "Specialized coverages for the unique challenges of the agricultural sector. Protect your operation, equipment, and livelihood."
+      }
+    }
+  ]
+}

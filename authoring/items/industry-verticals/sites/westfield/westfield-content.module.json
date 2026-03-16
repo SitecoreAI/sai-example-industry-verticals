@@ -1,0 +1,21 @@
+{
+  "$schema": "../.sitecore/schemas/ModuleFile.schema.json",
+  "namespace": "Project.Westfield-Content",
+  "references": ["Project.IndustryVerticals"],
+  "items": {
+    "includes": [
+      {
+        "name": "westfield-home",
+        "path": "/sitecore/content/industry-verticals/westfield/Home",
+        "scope": "DescendantsOnly",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "westfield-data",
+        "path": "/sitecore/content/industry-verticals/westfield/Data",
+        "scope": "DescendantsOnly",
+        "allowedPushOperations": "CreateAndUpdate"
+      }
+    ]
+  }
+}

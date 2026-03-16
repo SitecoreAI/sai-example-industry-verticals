@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Westfield content snapshot",
+  "description": "Schema for field-only content snapshot; used for manual deserialization only.",
+  "type": "object",
+  "required": ["siteName", "language", "items"],
+  "properties": {
+    "description": { "type": "string" },
+    "siteName": { "type": "string", "const": "westfield" },
+    "language": { "type": "string" },
+    "exportedAt": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["itemId", "path", "fields"],
+        "properties": {
+          "itemId": { "type": "string" },
+          "path": { "type": "string" },
+          "name": { "type": "string" },
+          "template": { "type": "string" },
+          "fields": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
