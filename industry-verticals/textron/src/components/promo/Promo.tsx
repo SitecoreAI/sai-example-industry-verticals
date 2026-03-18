@@ -32,21 +32,23 @@ export const Default = (props: PromoProps): JSX.Element => {
 
   return (
     <section
-      className={`${props.params.styles || ''} py-10 lg:min-h-screen lg:py-16`}
+      className={`${props.params.styles || ''} py-0`}
       id={id ? id : undefined}
     >
-      <div className="container grid grid-cols-1 items-stretch gap-0 lg:h-screen lg:grid-cols-2 lg:gap-10">
-        {/* Image Section */}
-        <div className={`${isPromoReversed} relative h-full w-full lg:h-screen`}>
+      <div className="container grid grid-cols-1 items-start gap-0 lg:grid-cols-[minmax(0,416px)_1fr] lg:gap-10">
+        {/* Image Section - sized to image, no extra vertical space */}
+        <div
+          className={`${isPromoReversed} relative max-w-full w-full overflow-hidden lg:w-[416px]`}
+        >
           <ContentSdkImage
             field={props.fields.PromoImageOne}
-            className="h-full w-full object-cover"
+            className="h-auto w-full max-w-full object-contain"
           />
         </div>
 
         {/* Text Section */}
-        <div className="font-body relative flex flex-col py-10 lg:flex lg:h-screen lg:py-0">
-          <div className="lg:sticky lg:top-0 lg:h-fit">
+        <div className="font-body relative flex flex-col py-6 lg:flex lg:py-0 lg:pl-2">
+          <div>
             <div className="space-y-6">
               {(props.fields.PromoSubTitle?.value || isPageEditing) && (
                 <div className="text-foreground-light text-sm tracking-wide uppercase">

@@ -42,14 +42,14 @@ const HeroBannerCommon = ({
 
   return (
     <section
-      className={`component hero-banner ${styles} relative flex min-h-screen flex-col items-center py-10`}
+      className={`component hero-banner ${styles} relative flex flex-col items-center`}
       id={id}
     >
-      {/* Background Media */}
-      <div className="absolute inset-0 z-0">
+      {/* Hero image/video in flow so section height fits content */}
+      <div className="relative w-full overflow-hidden bg-background-muted aspect-[16/10] min-h-0">
         {!isPageEditing && fields?.Video?.value?.src ? (
           <video
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain object-top"
             autoPlay
             muted
             loop
@@ -61,7 +61,7 @@ const HeroBannerCommon = ({
         ) : (
           <ContentSdkImage
             field={fields.Image}
-            className="h-full w-full object-cover md:object-bottom"
+            className="h-full w-full object-contain object-top"
             priority
           />
         )}
@@ -73,7 +73,8 @@ const HeroBannerCommon = ({
         )}
       </div>
 
-      {children}
+      {/* Text panel - only as tall as its content */}
+      <div className="w-full shrink-0">{children}</div>
     </section>
   );
 };
@@ -85,19 +86,19 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
 
   return (
     <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
-      <div className="relative flex h-full w-full flex-grow items-end">
-        <div className="container mx-auto flex h-full items-end px-4 py-6">
+      <div className="relative flex w-full items-end">
+        <div className="container mx-auto px-4 py-6">
           <div
             className={`flex w-full ${
               reverseLayout ? 'justify-end text-right' : 'justify-start text-left'
             }`}
           >
             <div>
-              <h1 className="font-heading text-background-muted text-4xl tracking-tight capitalize lg:text-7xl">
+              <h1 className="font-heading text-foreground text-4xl tracking-tight capitalize lg:text-7xl">
                 <ContentSdkText field={fields.Title} />
               </h1>
 
-              <div className="text-background-muted text-md lg:text-xl">
+              <div className="text-foreground-light text-md lg:text-xl">
                 <ContentSdkRichText field={fields.Description} />
               </div>
             </div>
@@ -115,19 +116,19 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
 
   return (
     <HeroBannerCommon params={params} fields={fields} rendering={rendering} topContent>
-      <div className="relative flex h-full w-full flex-grow items-start">
-        <div className="container mx-auto flex h-full items-start">
+      <div className="relative flex w-full items-start">
+        <div className="container mx-auto px-4 py-6">
           <div
             className={`flex w-full ${
               reverseLayout ? 'justify-start text-left' : 'justify-end text-right'
             }`}
           >
-            <div className="">
-              <h1 className="font-heading text-background-muted text-4xl tracking-tight capitalize lg:text-7xl">
+            <div>
+              <h1 className="font-heading text-foreground text-4xl tracking-tight capitalize lg:text-7xl">
                 <ContentSdkText field={fields.Title} />
               </h1>
 
-              <div className="text-background-muted text-md lg:text-xl">
+              <div className="text-foreground-light text-md lg:text-xl">
                 <ContentSdkRichText field={fields.Description} />
               </div>
             </div>

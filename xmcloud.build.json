@@ -62,16 +62,6 @@
     "actions": {
       "scsModules": {
         "modules": [
-          "Project.Retail-Content",
-          "Project.Retail-Media",
-          "Project.Healthcare-Content",
-          "Project.Healthcare-Media",
-          "Project.Essentials-Content",
-          "Project.Essentials-Media",
-          "Project.Travel-Media",
-          "Project.Travel-Content",
-          "Project.Energy-Media",
-          "Project.Energy-Content"
         ]
       },
       "warmUpCm": {
