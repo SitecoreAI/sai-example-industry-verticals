@@ -1,20 +1,22 @@
 @theme {
-  --color-foreground: #2c2621;
-  --color-foreground-light: #948685;
+  /* Textron brand: corporate blue (Bahama Blue #004F85, dark blue #1F3469) */
+  --color-foreground: #1f3469;
+  --color-foreground-light: #5a6c7d;
 
-  --color-background: #fbfaf9;
-  --color-background-accent: #f9eee6;
-  --color-background-muted: #f5f2f1;
+  --color-background: #ffffff;
+  --color-background-accent: #e8eef3;
+  --color-background-muted: #f0f4f8;
 
-  --color-accent: #846854;
+  --color-accent: #004f85;
 
-  --color-success: #2ec1ac;
-  --color-danger: #e97171;
+  --color-success: #0d9488;
+  --color-danger: #dc2626;
 
-  --color-border: #846854;
+  --color-border: #c5d3e0;
 
-  --font-heading: 'Libre Baskerville', serif;
-  --font-body: 'Poppins', sans-serif;
+  /* Google Fonts: corporate sans-serif to match textron.com */
+  --font-heading: 'Source Sans 3', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
 
   --radius-base: 0rem;
 
