@@ -36,13 +36,13 @@ export const Default = (props: PromoProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="container grid grid-cols-1 items-start gap-0 lg:grid-cols-[minmax(0,416px)_1fr] lg:gap-10">
-        {/* Image Section - sized to image, no extra vertical space */}
+        {/* Image Section - fit image in frame without cropping */}
         <div
-          className={`${isPromoReversed} relative max-w-full w-full overflow-hidden lg:w-[416px]`}
+          className={`${isPromoReversed} relative h-[396px] w-full lg:w-[416px]`}
         >
           <ContentSdkImage
             field={props.fields.PromoImageOne}
-            className="h-auto w-full max-w-full object-contain"
+            className="h-full w-full object-contain object-center"
           />
         </div>
 
