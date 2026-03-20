@@ -46,7 +46,7 @@ const HeroBannerCommon = ({
       id={id}
     >
       {/* Hero image/video in flow so section height fits content */}
-      <div className="relative w-full overflow-hidden bg-background-muted aspect-[16/10] min-h-0">
+      <div className="bg-background-muted relative aspect-[16/10] min-h-0 w-full overflow-hidden">
         {!isPageEditing && fields?.Video?.value?.src ? (
           <video
             className="h-full w-full object-contain object-top"

@@ -31,15 +31,10 @@ export const Default = (props: PromoProps): JSX.Element => {
   const isPageEditing = page.mode.isEditing;
 
   return (
-    <section
-      className={`${props.params.styles || ''} py-0`}
-      id={id ? id : undefined}
-    >
+    <section className={`${props.params.styles || ''} py-0`} id={id ? id : undefined}>
       <div className="container grid grid-cols-1 items-start gap-0 lg:grid-cols-[minmax(0,416px)_1fr] lg:gap-10">
         {/* Image Section - fit image in frame without cropping */}
-        <div
-          className={`${isPromoReversed} relative h-[396px] w-full lg:w-[416px]`}
-        >
+        <div className={`${isPromoReversed} relative h-[396px] w-full lg:w-[416px]`}>
           <ContentSdkImage
             field={props.fields.PromoImageOne}
             className="h-full w-full object-contain object-center"
