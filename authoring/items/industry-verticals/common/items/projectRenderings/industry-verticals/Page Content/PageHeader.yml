@@ -1,4 +1,4 @@
-﻿---
+---
 ID: "6b69c658-ce00-476c-8a97-fa59f2def73b"
 Parent: "c8dc4bb6-bf94-4157-8ee6-c19cbfcb8a8a"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
@@ -16,6 +16,9 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: 
+- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
+  Hint: Datasource Template
+  Value: "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data"
 - ID: "7d8ae35f-9ed1-43b5-96a2-0a5f040d4e4e"
   Hint: Open Properties after Add
   Value: 0
@@ -25,6 +28,9 @@ SharedFields:
 - ID: "a3411ff6-c978-40aa-b059-a49b9ca2209b"
   Hint: Can select Page as a data source
   Value: 1
+- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
+  Hint: Datasource Location
+  Value: "query:$site/*[@@name='Data']|query:$sharedSites/*[@@name='Data']"
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
   Value: "{6AB9051B-06AC-481D-B44A-E08899368310}"
