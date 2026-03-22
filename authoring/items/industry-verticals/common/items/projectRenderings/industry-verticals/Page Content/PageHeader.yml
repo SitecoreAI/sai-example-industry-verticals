@@ -18,10 +18,10 @@ SharedFields:
   Value: |
     query PageHeaderQuery($datasource: String!, $language: String!) {
       datasource: item(path: $datasource, language: $language) {
-        title: field(name: "Title") {
+        pageTitle: field(name: "Page Title") {
           jsonValue
         }
-        content: field(name: "Content") {
+        pageContent: field(name: "Page Content") {
           jsonValue
         }
       }

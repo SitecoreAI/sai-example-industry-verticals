@@ -2,7 +2,7 @@
 ID: "fb09df2d-3dfe-4f4e-b7db-37d834d44f62"
 Parent: "e32f0354-4672-448c-aea8-0d8243aef286"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data/Content"
+Path: "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data/Page Content"
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
@@ -21,7 +21,7 @@ Languages:
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Content
+    Value: Page Content
   - ID: "30e85e5d-e00a-4864-b358-7624d511deb4"
     Hint: __Unversioned revision
     Value: "fb09df2d-3dfe-4f4e-b7db-37d834d44f62"

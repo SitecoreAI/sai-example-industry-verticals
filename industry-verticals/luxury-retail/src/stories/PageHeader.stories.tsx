@@ -29,8 +29,8 @@ export const Default: Story = {
     <PageHeader
       params={baseParams}
       fields={{
-        Title: createTextField('Lighting'),
-        Content: createRichTextField(1),
+        'Page Title': createTextField('Lighting'),
+        'Page Content': createRichTextField(1),
       }}
       rendering={{
         ...baseRendering,

@@ -9,13 +9,15 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 interface PageHeaderDatasource {
-  title?: { jsonValue?: TextField };
-  content?: { jsonValue?: RichTextField };
+  pageTitle?: { jsonValue?: TextField };
+  pageContent?: { jsonValue?: RichTextField };
 }
 
 interface Fields {
-  Title?: TextField;
-  Content?: RichTextField;
+  'Page Title'?: TextField;
+  'Page Content'?: RichTextField;
+  PageTitle?: TextField;
+  PageContent?: RichTextField;
   data?: {
     datasource?: PageHeaderDatasource | null;
   };
@@ -25,14 +27,22 @@ type PageContentProps = ComponentProps & {
   fields: Fields;
 };
 
+function flatPageTitle(fields: Fields | undefined): TextField | undefined {
+  return fields?.['Page Title'] ?? fields?.PageTitle;
+}
+
+function flatPageContent(fields: Fields | undefined): RichTextField | undefined {
+  return fields?.['Page Content'] ?? fields?.PageContent;
+}
+
 function resolvePageHeaderFields(fields: Fields | undefined): {
   title: TextField | undefined;
   content: RichTextField | undefined;
 } {
   const ds = fields?.data?.datasource;
   return {
-    title: ds?.title?.jsonValue ?? fields?.Title,
-    content: ds?.content?.jsonValue ?? fields?.Content,
+    title: ds?.pageTitle?.jsonValue ?? flatPageTitle(fields),
+    content: ds?.pageContent?.jsonValue ?? flatPageContent(fields),
   };
 }
 

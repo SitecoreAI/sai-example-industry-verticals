@@ -9,18 +9,20 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 /**
- * Integrated GraphQL (ComponentQuery on the rendering) returns datasource fields here.
- * Prefer this over top-level `fields.Title` / `fields.Content`, which can reflect the
- * context page when placeholder datasource context is enabled on the rendering.
+ * Integrated GraphQL (ComponentQuery) returns datasource fields under `data.datasource`.
+ * Template fields are named "Page Title" / "Page Content" to avoid clashing with route fields.
  */
 interface PageHeaderDatasource {
-  title?: { jsonValue?: TextField };
-  content?: { jsonValue?: RichTextField };
+  pageTitle?: { jsonValue?: TextField };
+  pageContent?: { jsonValue?: RichTextField };
 }
 
 interface Fields {
-  Title?: TextField;
-  Content?: RichTextField;
+  /** Layout service may use spaced names or PascalCase without spaces */
+  'Page Title'?: TextField;
+  'Page Content'?: RichTextField;
+  PageTitle?: TextField;
+  PageContent?: RichTextField;
   data?: {
     datasource?: PageHeaderDatasource | null;
   };
@@ -30,14 +32,22 @@ type PageContentProps = ComponentProps & {
   fields: Fields;
 };
 
+function flatPageTitle(fields: Fields | undefined): TextField | undefined {
+  return fields?.['Page Title'] ?? fields?.PageTitle;
+}
+
+function flatPageContent(fields: Fields | undefined): RichTextField | undefined {
+  return fields?.['Page Content'] ?? fields?.PageContent;
+}
+
 function resolvePageHeaderFields(fields: Fields | undefined): {
   title: TextField | undefined;
   content: RichTextField | undefined;
 } {
   const ds = fields?.data?.datasource;
   return {
-    title: ds?.title?.jsonValue ?? fields?.Title,
-    content: ds?.content?.jsonValue ?? fields?.Content,
+    title: ds?.pageTitle?.jsonValue ?? flatPageTitle(fields),
+    content: ds?.pageContent?.jsonValue ?? flatPageContent(fields),
   };
 }
 
