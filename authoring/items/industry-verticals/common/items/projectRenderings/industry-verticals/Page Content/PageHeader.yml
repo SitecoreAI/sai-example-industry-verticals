@@ -46,7 +46,7 @@ SharedFields:
   Value: "{6AB9051B-06AC-481D-B44A-E08899368310}"
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
+  Value: 
 - ID: "c39a90ce-0035-41bb-90f6-3c8a6ea87797"
   Hint: AddFieldEditorButton
   Value: 

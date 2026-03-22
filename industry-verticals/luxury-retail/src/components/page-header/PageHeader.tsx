@@ -9,8 +9,8 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 interface PageHeaderDatasource {
-  pageTitle?: { jsonValue?: TextField };
-  pageContent?: { jsonValue?: RichTextField };
+  pageTitle?: { jsonValue?: TextField } | TextField;
+  pageContent?: { jsonValue?: RichTextField } | RichTextField;
 }
 
 interface Fields {
@@ -18,31 +18,78 @@ interface Fields {
   'Page Content'?: RichTextField;
   PageTitle?: TextField;
   PageContent?: RichTextField;
-  data?: {
-    datasource?: PageHeaderDatasource | null;
-  };
+  pageTitle?: TextField;
+  pageContent?: RichTextField;
+  data?: Record<string, unknown> | null;
 }
 
 type PageContentProps = ComponentProps & {
   fields: Fields;
 };
 
+function unwrapTextField(
+  raw: { jsonValue?: TextField } | TextField | undefined | null,
+): TextField | undefined {
+  if (raw == null) return undefined;
+  if (typeof raw === 'object' && 'jsonValue' in raw && raw.jsonValue != null) {
+    return raw.jsonValue;
+  }
+  if (typeof raw === 'object' && 'value' in raw) {
+    return raw as TextField;
+  }
+  return undefined;
+}
+
+function unwrapRichTextField(
+  raw: { jsonValue?: RichTextField } | RichTextField | undefined | null,
+): RichTextField | undefined {
+  if (raw == null) return undefined;
+  if (typeof raw === 'object' && 'jsonValue' in raw && raw.jsonValue != null) {
+    return raw.jsonValue;
+  }
+  if (typeof raw === 'object' && 'value' in raw) {
+    return raw as RichTextField;
+  }
+  return undefined;
+}
+
+function getPageHeaderDatasource(fields: Fields | undefined): PageHeaderDatasource | null {
+  const data = fields?.data;
+  if (!data || typeof data !== 'object') return null;
+
+  const direct = data.datasource;
+  if (direct && typeof direct === 'object') {
+    return direct as PageHeaderDatasource;
+  }
+
+  for (const key of Object.keys(data)) {
+    const block = data[key];
+    if (block && typeof block === 'object' && 'datasource' in block) {
+      const ds = (block as { datasource: unknown }).datasource;
+      if (ds && typeof ds === 'object') {
+        return ds as PageHeaderDatasource;
+      }
+    }
+  }
+  return null;
+}
+
 function flatPageTitle(fields: Fields | undefined): TextField | undefined {
-  return fields?.['Page Title'] ?? fields?.PageTitle;
+  return fields?.['Page Title'] ?? fields?.PageTitle ?? fields?.pageTitle;
 }
 
 function flatPageContent(fields: Fields | undefined): RichTextField | undefined {
-  return fields?.['Page Content'] ?? fields?.PageContent;
+  return fields?.['Page Content'] ?? fields?.PageContent ?? fields?.pageContent;
 }
 
 function resolvePageHeaderFields(fields: Fields | undefined): {
   title: TextField | undefined;
   content: RichTextField | undefined;
 } {
-  const ds = fields?.data?.datasource;
+  const ds = getPageHeaderDatasource(fields);
   return {
-    title: ds?.pageTitle?.jsonValue ?? flatPageTitle(fields),
-    content: ds?.pageContent?.jsonValue ?? flatPageContent(fields),
+    title: unwrapTextField(ds?.pageTitle) ?? flatPageTitle(fields),
+    content: unwrapRichTextField(ds?.pageContent) ?? flatPageContent(fields),
   };
 }
 
