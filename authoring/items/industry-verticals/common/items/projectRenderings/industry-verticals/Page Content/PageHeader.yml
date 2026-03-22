@@ -15,7 +15,17 @@ SharedFields:
   Value: Office/32x32/document_orientation_landscape.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: 
+  Value: |
+    query PageHeaderQuery($datasource: String!, $language: String!) {
+      datasource: item(path: $datasource, language: $language) {
+        title: field(name: "Title") {
+          jsonValue
+        }
+        content: field(name: "Content") {
+          jsonValue
+        }
+      }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data"
@@ -45,7 +55,7 @@ SharedFields:
   Value: "4fa85d12-24a6-4dd8-848f-dafad8489f5e"
 - ID: "e829c217-5e94-4306-9c48-2634b094fdc2"
   Hint: OtherProperties
-  Value: IsRenderingsWithDynamicPlaceholders=true&UsePlaceholderDatasourceContext=true
+  Value: IsRenderingsWithDynamicPlaceholders=true
 Languages:
 - Language: "de-DE"
   Fields:

@@ -1,7 +1,6 @@
 import React, { JSX } from 'react';
 import {
   RichText,
-  useSitecore,
   RichTextField,
   TextField,
   Text,
@@ -9,21 +8,43 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 
+/**
+ * Integrated GraphQL (ComponentQuery on the rendering) returns datasource fields here.
+ * Prefer this over top-level `fields.Title` / `fields.Content`, which can reflect the
+ * context page when placeholder datasource context is enabled on the rendering.
+ */
+interface PageHeaderDatasource {
+  title?: { jsonValue?: TextField };
+  content?: { jsonValue?: RichTextField };
+}
+
 interface Fields {
-  Title: TextField;
-  Content: RichTextField;
+  Title?: TextField;
+  Content?: RichTextField;
+  data?: {
+    datasource?: PageHeaderDatasource | null;
+  };
 }
 
 type PageContentProps = ComponentProps & {
   fields: Fields;
 };
 
+function resolvePageHeaderFields(fields: Fields | undefined): {
+  title: TextField | undefined;
+  content: RichTextField | undefined;
+} {
+  const ds = fields?.data?.datasource;
+  return {
+    title: ds?.title?.jsonValue ?? fields?.Title,
+    content: ds?.content?.jsonValue ?? fields?.Content,
+  };
+}
+
 export const Default = ({ params, fields, rendering }: PageContentProps): JSX.Element => {
-  const { page } = useSitecore();
   const { styles, RenderingIdentifier: id } = params;
 
-  const title = fields?.Title ?? (page.layout.sitecore.route?.fields?.Title as TextField);
-  const content = fields?.Content ?? (page.layout.sitecore.route?.fields?.Content as RichTextField);
+  const { title, content } = resolvePageHeaderFields(fields);
   const searchbarPlaceholderKey = `page-header-searchbar-${params.DynamicPlaceholderId}`;
 
   return (

@@ -58,7 +58,7 @@ export const Default = (props: PromoProps): JSX.Element => {
               </div>
 
               {(props.fields.PromoMoreInfo?.value?.href || isPageEditing) && (
-                <Link field={props.fields.PromoMoreInfo} className="outline-btn !inline-flex" />
+                <Link field={props.fields.PromoMoreInfo} className="outline-btn" />
               )}
             </div>
           </div>
@@ -87,7 +87,7 @@ export const WithQuote = (props: PromoProps): JSX.Element => {
           </h2>
 
           {(props.fields.PromoMoreInfo?.value?.href || isPageEditing) && (
-            <Link field={props.fields.PromoMoreInfo} className="outline-btn !inline-flex" />
+            <Link field={props.fields.PromoMoreInfo} className="outline-btn" />
           )}
         </div>
       </div>
