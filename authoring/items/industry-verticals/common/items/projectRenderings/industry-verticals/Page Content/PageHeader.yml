@@ -30,7 +30,7 @@ SharedFields:
   Value: 1
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: "query:$site/*[@@name='Data']|query:$sharedSites/*[@@name='Data']"
+  Value: "query:./*[@@name='Data']|query:$site/*[@@name='Data']|query:$sharedSites/*[@@name='Data']"
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
   Value: "{6AB9051B-06AC-481D-B44A-E08899368310}"
@@ -45,7 +45,7 @@ SharedFields:
   Value: "4fa85d12-24a6-4dd8-848f-dafad8489f5e"
 - ID: "e829c217-5e94-4306-9c48-2634b094fdc2"
   Hint: OtherProperties
-  Value: IsRenderingsWithDynamicPlaceholders=true
+  Value: IsRenderingsWithDynamicPlaceholders=true&UsePlaceholderDatasourceContext=true
 Languages:
 - Language: "de-DE"
   Fields:

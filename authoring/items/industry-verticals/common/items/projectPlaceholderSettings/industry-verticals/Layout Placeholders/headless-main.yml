@@ -1,12 +1,15 @@
 ---
-ID: "d70cea1b-766c-4f69-a89e-38177d03bd93"
-Parent: "4fd88ff2-c04c-4dc0-b00f-33f7d2e10160"
-Template: "d2a6884c-04d5-4089-a64e-d27ca9d68d4c"
-Path: "/sitecore/content/industry-verticals/essential-living/Presentation/Placeholder Settings/Partial Design/Product Category Content"
+ID: "7e264f04-8d05-4315-bbdc-f93bc76442c8"
+Parent: "ab33a2fc-5a65-4672-856e-32dd2561e4de"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Layout Placeholders/headless-main"
 SharedFields:
 - ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
   Hint: Placeholder Key
-  Value: "sxa-product-category-content"
+  Value: "headless-main"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "7e264f04-8d05-4315-bbdc-f93bc76442c8"
 - ID: "e391b526-d0c5-439d-803e-17512eae6222"
   Hint: Allowed Controls
   Value: |
@@ -43,9 +46,6 @@ SharedFields:
     {E6C8038F-B3EA-46E4-9F2C-89C562CE21F5}
     {E874A406-4977-443B-8AFE-690812AFB5EF}
     {EB2E4FFD-2761-4653-B052-26A64D385227}
-- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
-  Hint: __Shared revision
-  Value: "955e3a2b-0005-4cec-b3d3-e612a93d4226"
 Languages:
 - Language: en
   Versions:
@@ -53,22 +53,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251114T112749Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\neli.kostadinova@sitecore.com
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\neli.kostadinova@sitecore.com
+      Value: 20260316T150000Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6588b0f4-64d8-488b-a13e-ffe9f6dcf89e"
+      Value: "7e264f04-8d05-4315-bbdc-f93bc76442c8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\neli.kostadinova@sitecore.com
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251114T112749Z
+      Value: 20260316T150000Z
