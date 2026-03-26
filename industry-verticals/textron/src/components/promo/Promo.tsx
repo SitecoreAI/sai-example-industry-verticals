@@ -39,7 +39,7 @@ export const Default = (props: PromoProps): JSX.Element => {
         >
           <ContentSdkImage
             field={props.fields.PromoImageOne}
-            className="h-full w-auto max-w-full object-contain object-center"
+            className="!h-auto !w-full !max-h-full object-contain object-center"
           />
         </div>
 
