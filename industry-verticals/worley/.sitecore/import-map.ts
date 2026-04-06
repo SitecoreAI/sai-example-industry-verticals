@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Keyboard, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { ChevronLeft, ChevronRight, Loader2, Check, Heart, Plus, Star, X, User, ShoppingCart, ArrowLeft, Globe, Menu } from 'lucide-react';
 import { ProductCard } from 'src/components/non-sitecore/ProductCard';
+import { CommonStyles } from '@/types/styleFlags';
 import InfiniteScroll from '@/shadcn/components/ui/infiniteScroll';
 import { ProductCard as ProductCard_f5c29266c91cfe4f66c8f4e91c1fad0bbbe159f9 } from '@/components/non-sitecore/ProductCard';
 import { useI18n } from 'next-localization';
@@ -142,6 +143,12 @@ const importMap = [
     module: 'src/components/non-sitecore/ProductCard',
     exports: [
       { name: 'ProductCard', value: ProductCard },
+    ]
+  },
+  {
+    module: '@/types/styleFlags',
+    exports: [
+      { name: 'CommonStyles', value: CommonStyles },
     ]
   },
   {

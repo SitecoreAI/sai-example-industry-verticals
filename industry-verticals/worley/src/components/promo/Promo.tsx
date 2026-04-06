@@ -11,7 +11,7 @@ import {
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { CommonStyles } from 'types/styleFlags';
+import { CommonStyles } from '@/types/styleFlags';
 
 /** Sitecore checkbox param `Reversed` (`1`/`0`) or style token `reversed` in `styles`. */
 function isPromoReversed(params: ComponentProps['params']): boolean {
