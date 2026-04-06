@@ -11,6 +11,13 @@ import {
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { CommonStyles } from 'types/styleFlags';
+
+/** Sitecore checkbox param `Reversed` (`1`/`0`) or style token `reversed` in `styles`. */
+function isPromoReversed(params: ComponentProps['params']): boolean {
+  const styles = `${params.styles ?? ''}`.toLowerCase();
+  return styles.includes(CommonStyles.Reversed) || params.Reversed === '1';
+}
 
 interface Fields {
   PromoImageOne: ImageField;
@@ -26,7 +33,7 @@ export type PromoProps = ComponentProps & {
 
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const isPromoReversed = props?.params?.styles?.includes('reversed') ? 'order-last' : '';
+  const imageOrderClass = isPromoReversed(props.params) ? 'order-last' : '';
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
 
@@ -34,7 +41,7 @@ export const Default = (props: PromoProps): JSX.Element => {
     <section className={`${props.params.styles || ''} py-10 lg:py-16`} id={id ? id : undefined}>
       <div className="container grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
         {/* Image Section — square crop, no full-viewport column height */}
-        <div className={`${isPromoReversed} relative aspect-square w-full overflow-hidden`}>
+        <div className={`${imageOrderClass} relative aspect-square w-full overflow-hidden`}>
           <ContentSdkImage field={props.fields.PromoImageOne} className="size-full object-cover" />
         </div>
 
@@ -67,7 +74,7 @@ export const Default = (props: PromoProps): JSX.Element => {
 
 export const WithQuote = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const isPromoReversed = props?.params?.styles?.includes('reversed');
+  const reversed = isPromoReversed(props.params);
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
 
@@ -76,7 +83,7 @@ export const WithQuote = (props: PromoProps): JSX.Element => {
       <div className="container">
         <div
           className={`flex flex-col space-y-5 ${
-            isPromoReversed ? 'items-end text-right' : 'items-start text-left'
+            reversed ? 'items-end text-right' : 'items-start text-left'
           } `}
         >
           <h2 className="font-heading text-foreground max-w-4xl text-4xl tracking-tight lg:text-7xl">
