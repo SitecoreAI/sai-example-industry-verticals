@@ -93,7 +93,7 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
             }`}
           >
             <div>
-              <h1 className="font-heading text-background-muted text-4xl tracking-tight capitalize lg:text-7xl">
+              <h1 className="font-heading text-background-muted text-4xl tracking-tight lg:text-7xl">
                 <ContentSdkText field={fields.Title} />
               </h1>
 
@@ -123,7 +123,7 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
             }`}
           >
             <div className="">
-              <h1 className="font-heading text-background-muted text-4xl tracking-tight capitalize lg:text-7xl">
+              <h1 className="font-heading text-background-muted text-4xl tracking-tight lg:text-7xl">
                 <ContentSdkText field={fields.Title} />
               </h1>
 

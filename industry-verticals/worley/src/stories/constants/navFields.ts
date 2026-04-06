@@ -27,71 +27,63 @@ export const navRoot = {
 
 export const topLevelPages = [
   {
-    ...createNavItem('Shop'),
+    ...createNavItem('Industries'),
     Styles: ['level1', 'item0', 'odd', 'first'],
     Children: [
       {
-        ...createNavItem('Furniture'),
+        ...createNavItem('Conventional energy'),
         Styles: ['level2', 'item0', 'odd', 'first'],
       },
       {
-        ...createNavItem('Lighting'),
+        ...createNavItem('Low carbon energy'),
         Styles: ['level2', 'item1', 'even'],
       },
       {
-        ...createNavItem('Accessories'),
+        ...createNavItem('Resources'),
         Styles: ['level2', 'item2', 'odd', 'last'],
       },
     ],
   },
   {
-    ...createNavItem('Inspiration'),
-    Styles: ['level1', 'item1', 'even'],
-  },
-  {
-    ...createNavItem('Offers'),
+    ...createNavItem('Solutions'),
     Styles: ['level1', 'item1', 'even'],
     Children: [
       {
-        ...createNavItem('Seasonal Picks'),
+        ...createNavItem('Project delivery'),
         Styles: ['level2', 'item0', 'odd', 'first'],
       },
       {
-        ...createNavItem('Bundles'),
-        Styles: ['level2', 'item1', 'even'],
-      },
-      {
-        ...createNavItem('Outlet'),
-        Styles: ['level2', 'item2', 'odd', 'last'],
+        ...createNavItem('Data centers'),
+        Styles: ['level2', 'item1', 'even', 'last'],
       },
     ],
+  },
+  {
+    ...createNavItem('Insights'),
+    Styles: ['level1', 'item2', 'odd', 'last'],
   },
 ];
 
 export const flatTopLevelPages = [
   {
-    ...createNavItem('Shop'),
+    ...createNavItem('Industries'),
     Styles: ['level0', 'item0', 'odd', 'first', 'flat-level1'],
   },
   {
-    ...createNavItem('Inspiration'),
+    ...createNavItem('Solutions'),
     Styles: ['level0', 'item1', 'even', 'flat-level1'],
   },
   {
-    ...createNavItem('Offers'),
-    Styles: ['level0', 'item1', 'even', 'flat-level1'],
+    ...createNavItem('Insights'),
+    Styles: ['level0', 'item2', 'odd', 'flat-level1'],
   },
   {
-    ...createNavItem('Seasonal Picks'),
+    ...createNavItem('About Worley'),
     Styles: ['level0', 'item0', 'odd', 'first', 'flat-level2'],
   },
   {
-    ...createNavItem('Bundles'),
-    Styles: ['level0', 'item1', 'even', 'flat-level2'],
-  },
-  {
-    ...createNavItem('Outlet'),
-    Styles: ['level0', 'item2', 'odd', 'last', 'flat-level2'],
+    ...createNavItem('Contact'),
+    Styles: ['level0', 'item1', 'even', 'last', 'flat-level2'],
   },
 ];
 

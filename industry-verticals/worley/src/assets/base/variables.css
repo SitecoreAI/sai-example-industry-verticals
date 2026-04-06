@@ -1,22 +1,29 @@
 @theme {
-  --color-foreground: #2c2621;
-  --color-foreground-light: #948685;
+  /*
+   * Worley Group — colors aligned with worley.com production CSS
+   * (Deep Sea, Sky Mist, Lush Green, Scorched Rose, Ivory; see /assets/worley/main3.css).
+   * Fonts: Google Fonts equivalents for site typography (Brother 1816 → Plus Jakarta Sans,
+   * Verdana → Source Sans 3).
+   */
+  --color-foreground: #003645;
+  --color-foreground-light: #66868f;
 
-  --color-background: #fbfaf9;
-  --color-background-accent: #f9eee6;
-  --color-background-muted: #f5f2f1;
+  --color-background: #faf8ef;
+  --color-background-accent: #e8f4f3;
+  --color-background-muted: #f0f4f5;
 
-  --color-accent: #846854;
+  --color-accent: #81d10b;
 
-  --color-success: #2ec1ac;
-  --color-danger: #e97171;
+  --color-success: #81d10b;
+  --color-danger: #f43a4f;
 
-  --color-border: #846854;
+  --color-border: #9daeb4;
 
-  --font-heading: 'Libre Baskerville', serif;
-  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
 
-  --radius-base: 0rem;
+  /* Worley UI uses rounded cards/buttons; keep a modest default radius */
+  --radius-base: 0.25rem;
 
   /*
   This does not show in the theme editor

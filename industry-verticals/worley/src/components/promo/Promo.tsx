@@ -31,22 +31,16 @@ export const Default = (props: PromoProps): JSX.Element => {
   const isPageEditing = page.mode.isEditing;
 
   return (
-    <section
-      className={`${props.params.styles || ''} py-10 lg:min-h-screen lg:py-16`}
-      id={id ? id : undefined}
-    >
-      <div className="container grid grid-cols-1 items-stretch gap-0 lg:h-screen lg:grid-cols-2 lg:gap-10">
-        {/* Image Section */}
-        <div className={`${isPromoReversed} relative h-full w-full lg:h-screen`}>
-          <ContentSdkImage
-            field={props.fields.PromoImageOne}
-            className="h-full w-full object-cover"
-          />
+    <section className={`${props.params.styles || ''} py-10 lg:py-16`} id={id ? id : undefined}>
+      <div className="container grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
+        {/* Image Section — square crop, no full-viewport column height */}
+        <div className={`${isPromoReversed} relative aspect-square w-full overflow-hidden`}>
+          <ContentSdkImage field={props.fields.PromoImageOne} className="size-full object-cover" />
         </div>
 
         {/* Text Section */}
-        <div className="font-body relative flex flex-col py-10 lg:flex lg:h-screen lg:py-0">
-          <div className="lg:sticky lg:top-0 lg:h-fit">
+        <div className="font-body relative flex flex-col">
+          <div className="lg:sticky lg:top-8 lg:h-fit">
             <div className="space-y-6">
               {(props.fields.PromoSubTitle?.value || isPageEditing) && (
                 <div className="text-foreground-light text-sm tracking-wide uppercase">
