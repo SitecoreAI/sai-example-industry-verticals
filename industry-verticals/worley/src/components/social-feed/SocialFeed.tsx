@@ -81,7 +81,7 @@ export const Default = (props: PromoProps): JSX.Element => {
   ];
 
   return (
-    <section className={`${props.params.styles} py-18`} id={id}>
+    <section className={`${props.params.styles} pt-0 pb-18`} id={id}>
       <div className="container space-y-8">
         <h2>
           <Text field={Heading} />
