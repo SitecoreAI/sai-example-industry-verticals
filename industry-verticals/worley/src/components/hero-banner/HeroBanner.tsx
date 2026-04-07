@@ -66,13 +66,13 @@ const HeroBannerCommon = ({
             priority
           />
         )}
-        {/* Bottom (or top) vignette: transparent → 50% foreground; linear, not full black */}
+        {/* Bottom (or top) vignette: transparent → 75% foreground; linear, not full black */}
         {!suppressGradient && (
           <div
             className={`pointer-events-none absolute inset-0 ${
               topContent
-                ? 'to-foreground/50 bg-gradient-to-t from-transparent'
-                : 'to-foreground/50 bg-gradient-to-b from-transparent'
+                ? 'to-foreground/75 bg-gradient-to-t from-transparent'
+                : 'to-foreground/75 bg-gradient-to-b from-transparent'
             }`}
             aria-hidden
           />
