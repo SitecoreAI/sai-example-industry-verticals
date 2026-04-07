@@ -26,7 +26,6 @@ const baseRendering = {
 };
 
 const baseFields = {
-  Eyebrow: createTextField('Find us on Instagram @essential_living'),
   Heading: createTextField('Be you on Instagram'),
   Image1: createImageField(),
   Image2: createImageField(),
@@ -34,18 +33,12 @@ const baseFields = {
   Image4: createImageField(),
   Image5: createImageField(),
   Image6: createImageField(),
-  Image7: createImageField(),
-  Image8: createImageField(),
-  Image9: createImageField(),
   Caption1: createTextField('@instagramUsername'),
   Caption2: createTextField('@instagramUsername'),
   Caption3: createTextField('@instagramUsername'),
   Caption4: createTextField('@instagramUsername'),
   Caption5: createTextField('@instagramUsername'),
   Caption6: createTextField('@instagramUsername'),
-  Caption7: createTextField('@instagramUsername'),
-  Caption8: createTextField('@instagramUsername'),
-  Caption9: createTextField('@instagramUsername'),
 };
 
 export const Default: Story = {

@@ -20,19 +20,12 @@ interface Fields {
   Image4: ImageField;
   Image5: ImageField;
   Image6: ImageField;
-  Image7: ImageField;
-  Image8: ImageField;
-  Image9: ImageField;
   Caption1: TextField;
   Caption2: TextField;
   Caption3: TextField;
   Caption4: TextField;
   Caption5: TextField;
   Caption6: TextField;
-  Caption7: TextField;
-  Caption8: TextField;
-  Caption9: TextField;
-  Eyebrow: Field<string>;
   Heading: Field<string>;
 }
 
@@ -63,7 +56,6 @@ export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const uid = useId();
   const {
-    Eyebrow,
     Heading,
     Image1,
     Image2,
@@ -71,18 +63,12 @@ export const Default = (props: PromoProps): JSX.Element => {
     Image4,
     Image5,
     Image6,
-    Image7,
-    Image8,
-    Image9,
     Caption1,
     Caption2,
     Caption3,
     Caption4,
     Caption5,
     Caption6,
-    Caption7,
-    Caption8,
-    Caption9,
   } = props.fields;
 
   const images = [
@@ -92,9 +78,6 @@ export const Default = (props: PromoProps): JSX.Element => {
     { image: Image4, caption: Caption4 },
     { image: Image5, caption: Caption5 },
     { image: Image6, caption: Caption6 },
-    { image: Image7, caption: Caption7 },
-    { image: Image8, caption: Caption8 },
-    { image: Image9, caption: Caption9 },
   ];
 
   return (
@@ -103,11 +86,8 @@ export const Default = (props: PromoProps): JSX.Element => {
         <h2>
           <Text field={Heading} />
         </h2>
-        <div className="flex flex-col gap-4 lg:flex-row lg:justify-between">
-          <p className="text-accent">
-            <Text field={Eyebrow} />
-          </p>
-          <div className="flex items-center justify-end gap-4">
+        <div className="flex justify-end">
+          <div className="flex items-center gap-4">
             <button className={`social-carousel-prev-${uid}`} name="previous" aria-label="Previous">
               <ChevronLeft className="size-4" />
             </button>
