@@ -28,7 +28,8 @@ const HeroBannerCommon = ({
   const { page } = useSitecore();
   const { styles, RenderingIdentifier: id } = params;
   const isPageEditing = page.mode.isEditing;
-  const hideGradientOverlay = styles?.includes('hide-gradient-overlay');
+  /** Opt out: add `no-hero-gradient` to rendering styles */
+  const suppressGradient = styles?.includes('no-hero-gradient');
 
   if (!fields) {
     return isPageEditing ? (
@@ -65,11 +66,14 @@ const HeroBannerCommon = ({
             priority
           />
         )}
-        {/* Gradient overlay */}
-        {hideGradientOverlay && (
+        {/* Bottom (or top) vignette: transparent → 50% foreground; linear, not full black */}
+        {!suppressGradient && (
           <div
-            className={`to-foreground/80 absolute inset-0 ${topContent ? 'bg-gradient-to-t' : 'bg-gradient-to-b'} from-transparent from-40%`}
-          ></div>
+            className={`pointer-events-none absolute inset-0 ${
+              topContent ? 'bg-gradient-to-t from-transparent to-foreground/50' : 'bg-gradient-to-b from-transparent to-foreground/50'
+            }`}
+            aria-hidden
+          />
         )}
       </div>
 
