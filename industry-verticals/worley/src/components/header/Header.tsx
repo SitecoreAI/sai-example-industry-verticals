@@ -14,7 +14,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
   const { styles, RenderingIdentifier: id, DynamicPlaceholderId } = props.params;
 
   return (
-    <div className={`component header bg-background shadow-sm ${styles}`} id={id}>
+    <div className={`component header ${styles}`} id={id}>
       <div className="container flex items-center gap-3 py-3 lg:gap-6">
         <div className="header-block *:shrink max-lg:w-full max-lg:justify-between">
           <Placeholder name={`header-left-${DynamicPlaceholderId}`} rendering={props.rendering} />
@@ -33,7 +33,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
               <button
                 type="button"
                 aria-label="Open menu"
-                className="text-foreground hover:text-foreground-light p-2 transition-colors"
+                className="p-2 text-white transition-colors hover:text-white/85"
               >
                 <Menu className="h-6 w-6" />
               </button>

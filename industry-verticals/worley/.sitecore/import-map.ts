@@ -16,7 +16,7 @@ import { faFacebookF, faInstagram, faLinkedin, faTwitter, faYoutube } from '@for
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Keyboard, Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { ChevronLeft, ChevronRight, Loader2, Check, Heart, Plus, Star, X, User, ShoppingCart, ArrowLeft, Globe, Menu } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2, Check, Heart, Plus, Star, X, User, ShoppingCart, Globe, Menu } from 'lucide-react';
 import { ProductCard } from 'src/components/non-sitecore/ProductCard';
 import InfiniteScroll from '@/shadcn/components/ui/infiniteScroll';
 import { ProductCard as ProductCard_f5c29266c91cfe4f66c8f4e91c1fad0bbbe159f9 } from '@/components/non-sitecore/ProductCard';
@@ -39,10 +39,9 @@ import { useCartAction } from '@/hooks/useCartAction';
 import { getCart } from '@/lib/cart';
 import { DrawerClose, Drawer, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { MiniCart } from 'src/components/non-sitecore/MiniCart';
-import { useClickAway } from '@/hooks/useClickAway';
 import { useStopResponsiveTransition } from '@/hooks/useStopResponsiveTransition';
 import { extractMediaUrl } from '@/helpers/extractMediaUrl';
-import { getLinkContent, getLinkField, isNavLevel, isNavRootItem, prepareFields } from '@/helpers/navHelpers';
+import { getLinkContent, getLinkField, isNavRootItem, prepareFields } from '@/helpers/navHelpers';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { localeOptions } from '@/constants/localeOptions';
@@ -133,7 +132,6 @@ const importMap = [
       { name: 'X', value: X },
       { name: 'User', value: User },
       { name: 'ShoppingCart', value: ShoppingCart },
-      { name: 'ArrowLeft', value: ArrowLeft },
       { name: 'Globe', value: Globe },
       { name: 'Menu', value: Menu },
     ]
@@ -277,12 +275,6 @@ const importMap = [
     ]
   },
   {
-    module: '@/hooks/useClickAway',
-    exports: [
-      { name: 'useClickAway', value: useClickAway },
-    ]
-  },
-  {
     module: '@/hooks/useStopResponsiveTransition',
     exports: [
       { name: 'useStopResponsiveTransition', value: useStopResponsiveTransition },
@@ -299,7 +291,6 @@ const importMap = [
     exports: [
       { name: 'getLinkContent', value: getLinkContent },
       { name: 'getLinkField', value: getLinkField },
-      { name: 'isNavLevel', value: isNavLevel },
       { name: 'isNavRootItem', value: isNavRootItem },
       { name: 'prepareFields', value: prepareFields },
     ]

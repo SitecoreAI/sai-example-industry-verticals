@@ -69,3 +69,48 @@
 .drawer-heading {
   @apply mt-7 mb-18 text-2xl;
 }
+
+/* Header & footer: shared chrome bar + white type (overrides .navigation-item / drawer triggers) */
+.component.header {
+  background-color: var(--color-chrome-bar);
+  @apply text-white shadow-sm;
+}
+
+.component.header .navigation-item {
+  @apply !text-white hover:!text-white/85;
+}
+
+.component.header .language-switcher button {
+  @apply !text-white hover:!text-white/85;
+}
+
+.component.header [data-slot='drawer-trigger'] {
+  @apply !text-white hover:!text-white/85 data-[state=open]:!text-white;
+}
+
+/* Link List (SecondaryNavigation) in header — match Navigation caption size (nav uses text-lg on menubar) */
+.component.header .link-list ul {
+  @apply text-lg;
+}
+
+.component.footer {
+  background-color: var(--color-chrome-bar);
+  @apply text-white;
+}
+
+.component.footer .navigation-item {
+  @apply !text-white hover:!text-white/85;
+}
+
+.component.footer a {
+  @apply !text-white hover:!text-white/85;
+}
+
+.component.footer .ck-content,
+.component.footer .ck-content a {
+  @apply !text-white;
+}
+
+.component.footer .ck-content a:hover {
+  @apply text-white/85;
+}

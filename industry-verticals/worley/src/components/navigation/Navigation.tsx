@@ -1,22 +1,13 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Link, TextField, useSitecore } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { ArrowLeft, X } from 'lucide-react';
-import { useClickAway } from '@/hooks/useClickAway';
 import { useStopResponsiveTransition } from '@/hooks/useStopResponsiveTransition';
 import { extractMediaUrl } from '@/helpers/extractMediaUrl';
-import {
-  getLinkContent,
-  getLinkField,
-  isNavLevel,
-  isNavRootItem,
-  prepareFields,
-} from '@/helpers/navHelpers';
+import { getLinkContent, getLinkField, isNavRootItem, prepareFields } from '@/helpers/navHelpers';
 import clsx from 'clsx';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
-import { Drawer, DrawerTrigger, DrawerContent, DrawerClose } from '@/shadcn/components/ui/drawer';
 
 export interface NavItemFields {
   Id: string;
@@ -47,37 +38,12 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
   isSimpleLayout,
 }) => {
   const { page } = useSitecore();
-  const [isActiveLocal, setIsActiveLocal] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
-  useClickAway(dropdownRef, () => setIsActiveLocal(false));
 
   const isRootItem = isNavRootItem(fields);
-  const isTopLevelPage = isNavLevel(fields, 1);
-
-  const hasChildren = !!fields.Children?.length;
   const isLogoRootItem = isRootItem && logoSrc;
-  const hasDropdownMenu = hasChildren && isTopLevelPage;
-
-  const clickHandler = (event: React.MouseEvent<HTMLElement>) => {
-    handleClick(event);
-    setIsActiveLocal(false);
-  };
-
-  const childrenMarkup = hasChildren
-    ? fields.Children!.map((child) => (
-        <NavigationListItem
-          key={child.Id}
-          fields={child}
-          handleClick={clickHandler}
-          isSimpleLayout={isSimpleLayout}
-          logoSrc={logoSrc}
-        />
-      ))
-    : null;
 
   return (
     <li
-      ref={dropdownRef}
       tabIndex={0}
       role="menuitem"
       className={clsx(
@@ -89,70 +55,20 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
       )}
     >
       <div className="">
-        {hasDropdownMenu ? (
-          // Drawer for items with children
-          <Drawer
-            open={isActiveLocal}
-            onOpenChange={(open) => setIsActiveLocal(open)}
-            direction="left"
-          >
-            <DrawerTrigger asChild>
-              <button
-                type="button"
-                aria-label={`Open submenu for ${fields.DisplayName}`}
-                className="navigation-item navigation-item-primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsActiveLocal((a) => !a);
-                }}
-              >
-                {getLinkContent(fields, logoSrc)}
-              </button>
-            </DrawerTrigger>
-
-            <DrawerContent className="bg-background-accent flex flex-col p-5 max-lg:!w-xl max-lg:!max-w-full">
-              <DrawerClose asChild className="hidden self-end lg:block">
-                <button aria-label="Close submenu">
-                  <X className="size-5" />
-                </button>
-              </DrawerClose>
-              <DrawerClose asChild className="lg:hidden">
-                <button aria-label="Close submenu">
-                  <ArrowLeft className="size-5" />
-                </button>
-              </DrawerClose>
-              <div className="px-12">
-                {logoSrc && (
-                  <img src={logoSrc} alt={fields.DisplayName} className="mt-14 mb-18 h-auto w-36" />
-                )}
-
-                <div className="text-foreground-light mb-6 text-sm font-medium">
-                  {getLinkContent(fields, logoSrc)}
-                </div>
-                <nav aria-label={`${fields.DisplayName} submenu`}>
-                  <ul className="flex flex-col gap-6">{childrenMarkup}</ul>
-                </nav>
-              </div>
-            </DrawerContent>
-          </Drawer>
-        ) : (
-          // Regular link for items without children
-          <Link
-            field={getLinkField(fields)}
-            editable={page.mode.isEditing}
-            onClick={clickHandler}
-            className="navigation-item navigation-item-primary"
-          >
-            {getLinkContent(fields, logoSrc)}
-          </Link>
-        )}
+        <Link
+          field={getLinkField(fields)}
+          editable={page.mode.isEditing}
+          onClick={handleClick}
+          className="navigation-item navigation-item-primary"
+        >
+          {getLinkContent(fields, logoSrc)}
+        </Link>
       </div>
     </li>
   );
 };
 
 export const Default = ({ params, fields }: NavigationProps) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { page } = useSitecore();
   const { styles, RenderingIdentifier: id, Logo: logoImage, SimpleLayout: simpleLayout } = params;
 
@@ -166,11 +82,10 @@ export const Default = ({ params, fields }: NavigationProps) => {
     );
   }
 
-  const handleToggleMenu = (event?: React.MouseEvent<HTMLElement>, forceState?: boolean) => {
+  const handleNavLinkClick = (event?: React.MouseEvent<HTMLElement>) => {
     if (event && page.mode.isEditing) {
       event.preventDefault();
     }
-    setIsMenuOpen(forceState ?? !isMenuOpen);
   };
 
   const isSimpleLayout = isParamEnabled(simpleLayout);
@@ -185,7 +100,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
       <NavigationListItem
         key={item.Id}
         fields={item}
-        handleClick={(event) => handleToggleMenu(event, false)}
+        handleClick={handleNavLinkClick}
         logoSrc={logoSrc}
         isSimpleLayout={!!isSimpleLayout}
       />

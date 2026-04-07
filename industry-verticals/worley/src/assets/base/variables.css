@@ -1,16 +1,19 @@
 @theme {
   /*
    * Worley Group — colors aligned with worley.com production CSS
-   * (Deep Sea, Sky Mist, Lush Green, Scorched Rose, Ivory; see /assets/worley/main3.css).
+   * (Deep Sea, Sky Mist, Lush Green, Scorched Rose; page chrome uses white; see /assets/worley/main3.css).
    * Fonts: Google Fonts equivalents for site typography (Brother 1816 → Plus Jakarta Sans,
    * Verdana → Source Sans 3).
    */
   --color-foreground: #003645;
   --color-foreground-light: #66868f;
 
-  --color-background: #faf8ef;
+  /* Header / footer bar (Worley deep sea) */
+  --color-chrome-bar: rgb(0, 32, 42);
+
+  --color-background: #ffffff;
   --color-background-accent: #e8f4f3;
-  --color-background-muted: #f0f4f5;
+  --color-background-muted: #ffffff;
 
   --color-accent: #81d10b;
 
