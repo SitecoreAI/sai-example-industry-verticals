@@ -15,8 +15,6 @@ export type ComponentProps = {
      * This value is calculated by the Placeholder component
      */
     styles?: string;
-    /** Sitecore checkbox rendering parameter (typically `1` / `0`). */
-    Reversed?: string;
     /**
      * The enabled placeholders for the rendering
      */
