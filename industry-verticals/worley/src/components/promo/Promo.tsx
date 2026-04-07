@@ -11,13 +11,8 @@ import {
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { isParamTruthy } from '@/helpers/isParamEnabled';
 import { CommonStyles } from '@/types/styleFlags';
-
-/** Sitecore checkbox param `Reversed` (`1`/`0`) or style token `reversed` in `styles`. */
-function isPromoReversed(params: ComponentProps['params']): boolean {
-  const styles = `${params.styles ?? ''}`.toLowerCase();
-  return styles.includes(CommonStyles.Reversed) || params.Reversed === '1';
-}
 
 interface Fields {
   PromoImageOne: ImageField;
@@ -31,22 +26,55 @@ export type PromoProps = ComponentProps & {
   fields: Fields;
 };
 
+type ParamBag = Record<string, string | undefined>;
+
+function mergePromoParamBag(props: PromoProps): ParamBag {
+  const fromRendering = props.rendering?.params as ParamBag | undefined;
+  const fromProps = props.params as ParamBag;
+  return { ...(fromRendering ?? {}), ...(fromProps ?? {}) };
+}
+
+function combinedStyleClassString(bag: ParamBag): string {
+  return [bag.styles, bag.Styles, bag.CSSStyles].filter(Boolean).join(' ').toLowerCase();
+}
+
+/**
+ * Image-right layout when:
+ * - Style token `reversed` appears on resolved class lists (`styles` / `Styles` / `CSSStyles`), or
+ * - Rendering checkbox `Reversed` / `reversed` is truthy (merged from `rendering.params` + `params`).
+ */
+function isPromoReversed(props: PromoProps): boolean {
+  const bag = mergePromoParamBag(props);
+  if (combinedStyleClassString(bag).includes(CommonStyles.Reversed)) return true;
+  if (isParamTruthy(bag.Reversed) || isParamTruthy(bag.reversed)) return true;
+  return false;
+}
+
+function sectionClassNames(props: PromoProps): string {
+  return mergePromoParamBag(props).styles ?? props.params.styles ?? '';
+}
+
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const imageOrderClass = isPromoReversed(props.params) ? 'order-last' : '';
+  const reversed = isPromoReversed(props);
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
+  const sectionStyles = sectionClassNames(props);
 
   return (
-    <section className={`${props.params.styles || ''} py-10 lg:py-16`} id={id ? id : undefined}>
+    <section className={`${sectionStyles} py-10 lg:py-16`} id={id ? id : undefined}>
       <div className="container grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
-        {/* Image Section — square crop, no full-viewport column height */}
-        <div className={`${imageOrderClass} relative aspect-square w-full overflow-hidden`}>
+        {/* Image Section — square crop; explicit columns at lg so reversal does not rely on `order` */}
+        <div
+          className={`relative aspect-square w-full overflow-hidden${reversed ? 'lg:col-start-2 lg:row-start-1' : ''}`}
+        >
           <ContentSdkImage field={props.fields.PromoImageOne} className="size-full object-cover" />
         </div>
 
         {/* Text Section */}
-        <div className="font-body relative flex flex-col">
+        <div
+          className={`font-body relative flex flex-col${reversed ? 'lg:col-start-1 lg:row-start-1' : ''}`}
+        >
           <div className="lg:sticky lg:top-8 lg:h-fit">
             <div className="space-y-6">
               {(props.fields.PromoSubTitle?.value || isPageEditing) && (
@@ -74,12 +102,12 @@ export const Default = (props: PromoProps): JSX.Element => {
 
 export const WithQuote = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const reversed = isPromoReversed(props.params);
+  const reversed = isPromoReversed(props);
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
 
   return (
-    <section className={`${props.params.styles || ''} py-10 lg:py-30`} id={id ? id : undefined}>
+    <section className={`${sectionClassNames(props)} py-10 lg:py-30`} id={id ? id : undefined}>
       <div className="container">
         <div
           className={`flex flex-col space-y-5 ${

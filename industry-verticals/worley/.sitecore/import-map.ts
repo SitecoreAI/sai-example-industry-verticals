@@ -18,11 +18,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Keyboard, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { ChevronLeft, ChevronRight, Loader2, Check, Heart, Plus, Star, X, User, ShoppingCart, ArrowLeft, Globe, Menu } from 'lucide-react';
 import { ProductCard } from 'src/components/non-sitecore/ProductCard';
+import { isParamTruthy, isParamEnabled } from '@/helpers/isParamEnabled';
 import { CommonStyles } from '@/types/styleFlags';
 import InfiniteScroll from '@/shadcn/components/ui/infiniteScroll';
 import { ProductCard as ProductCard_f5c29266c91cfe4f66c8f4e91c1fad0bbbe159f9 } from '@/components/non-sitecore/ProductCard';
 import { useI18n } from 'next-localization';
-import { isParamEnabled } from '@/helpers/isParamEnabled';
 import QuantityControl from 'src/components/non-sitecore/QuantityControl';
 import { ProductGallery } from 'src/components/non-sitecore/ProductGallery';
 import { ProductMetaDetals } from 'src/components/non-sitecore/ProductMetaDetails';
@@ -146,6 +146,13 @@ const importMap = [
     ]
   },
   {
+    module: '@/helpers/isParamEnabled',
+    exports: [
+      { name: 'isParamTruthy', value: isParamTruthy },
+      { name: 'isParamEnabled', value: isParamEnabled },
+    ]
+  },
+  {
     module: '@/types/styleFlags',
     exports: [
       { name: 'CommonStyles', value: CommonStyles },
@@ -167,12 +174,6 @@ const importMap = [
     module: 'next-localization',
     exports: [
       { name: 'useI18n', value: useI18n },
-    ]
-  },
-  {
-    module: '@/helpers/isParamEnabled',
-    exports: [
-      { name: 'isParamEnabled', value: isParamEnabled },
     ]
   },
   {
