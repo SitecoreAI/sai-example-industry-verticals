@@ -70,7 +70,9 @@ const HeroBannerCommon = ({
         {!suppressGradient && (
           <div
             className={`pointer-events-none absolute inset-0 ${
-              topContent ? 'bg-gradient-to-t from-transparent to-foreground/50' : 'bg-gradient-to-b from-transparent to-foreground/50'
+              topContent
+                ? 'to-foreground/50 bg-gradient-to-t from-transparent'
+                : 'to-foreground/50 bg-gradient-to-b from-transparent'
             }`}
             aria-hidden
           />
