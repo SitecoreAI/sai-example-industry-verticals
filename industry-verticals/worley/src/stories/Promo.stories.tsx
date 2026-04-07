@@ -58,7 +58,6 @@ const baseFields = {
   PromoImageOne: createImageField('placeholder'),
   PromoTitle: createTextField('Introducing the essence of nordic comfort'),
   PromoDescription: createRichTextField(1, 'paragraphs'),
-  PromoSubTitle: createTextField('Materials'),
   PromoMoreInfo: createLinkField('Explore More'),
 };
 

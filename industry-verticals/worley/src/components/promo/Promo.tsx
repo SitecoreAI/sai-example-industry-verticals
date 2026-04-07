@@ -16,7 +16,6 @@ interface Fields {
   PromoImageOne: ImageField;
   PromoTitle: Field<string>;
   PromoDescription: RichTextField;
-  PromoSubTitle: Field<string>;
   PromoMoreInfo: LinkField;
 }
 
@@ -42,12 +41,6 @@ export const Default = (props: PromoProps): JSX.Element => {
         <div className="font-body relative flex flex-col">
           <div className="lg:sticky lg:top-8 lg:h-fit">
             <div className="space-y-6">
-              {(props.fields.PromoSubTitle?.value || isPageEditing) && (
-                <div className="text-foreground-light text-sm tracking-wide uppercase">
-                  <Text field={props.fields.PromoSubTitle} />
-                </div>
-              )}
-
               <Text field={props.fields.PromoTitle} tag="h3" />
 
               <div className="text-foreground text-base lg:text-lg">
