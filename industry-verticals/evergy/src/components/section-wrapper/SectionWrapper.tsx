@@ -1,9 +1,17 @@
 import { ComponentProps } from '@/lib/component-props';
-import { Field, LinkField, Placeholder, Text } from '@sitecore-content-sdk/nextjs';
+import {
+  Field,
+  LinkField,
+  Placeholder,
+  RichText,
+  RichTextField,
+  Text,
+} from '@sitecore-content-sdk/nextjs';
 
 interface Fields {
   Title: Field<string>;
-  Description: Field<string>;
+  /** Stored as RTE in Sitecore; may contain markup (e.g. ck-content wrapper). */
+  Description: RichTextField;
   Link: LinkField;
 }
 
@@ -22,9 +30,9 @@ export const Default = ({ params, fields, rendering }: SectionWrapperProps) => {
           <h2>
             <Text field={fields.Title} />
           </h2>
-          <p className="text-foreground-light text-xl">
-            <Text field={fields.Description} />
-          </p>
+          <div className="text-foreground-light text-xl">
+            <RichText field={fields.Description} />
+          </div>
         </div>
       </div>
       <div>
