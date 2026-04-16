@@ -29,19 +29,19 @@ export const GRID_CONDITIONS_DATA = {
   },
   outages: [
     {
-      area: 'Houston Metro',
+      area: 'The Plaza',
       status: GRID_LABELS.outages.active,
     },
     {
-      area: 'Dallas-Fort Worth',
-      status: GRID_LABELS.outages.active,
-    },
-    {
-      area: 'Austin Area',
+      area: 'Leawood',
       status: GRID_LABELS.outages.restored,
     },
     {
-      area: 'San Antonio',
+      area: 'North Kansas City',
+      status: GRID_LABELS.outages.active,
+    },
+    {
+      area: 'Liberty',
       status: GRID_LABELS.outages.active,
     },
   ],
