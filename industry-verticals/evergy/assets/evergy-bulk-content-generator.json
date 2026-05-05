@@ -1,0 +1,672 @@
+{
+  "schema_version": "2.0",
+  "id": "evergy-bulk-content-generator",
+  "name": "Evergy Bulk Content Generator",
+  "description": "Evergy demo: generates channel-ready copy for residential and commercial & industrial audiences. Variants combine your selected channels with customer segment guidance and Evergy-styled HTML previews.",
+  "gettingStarted": {
+    "title": "Bulk Content Generator — Evergy",
+    "howItWorks": "Describe the program, campaign, or topic you need. Pick channels and audiences (for example residential vs. commercial & industrial). The workflow expands every combination and drafts on-brand Evergy messaging you can refine.",
+    "whatIsItFor": "Use this demo to show how one brief becomes many assets—social posts, email, and blog-style pieces—each tuned to Evergy’s residential households or business and industrial customers."
+  },
+  "inputs": [
+    {
+      "type": "prompt",
+      "label": "Content Requirements",
+      "minLines": 3,
+      "required": true,
+      "description": "Describe the content you want to generate",
+      "placeholder": "Example: Draft messaging for a summer peak energy campaign with tips for homes and load-management ideas for C&I customers…"
+    },
+    {
+      "type": "context",
+      "label": "Ground with context",
+      "required": false,
+      "description": "Optionally select artifacts or knowledge to provide additional context"
+    },
+    {
+      "type": "file-upload",
+      "label": "Add more context",
+      "required": false,
+      "description": "Please add any reference materials"
+    }
+  ],
+  "contextParameters": [
+    {
+      "key": "channels",
+      "type": "array",
+      "label": "Channels",
+      "options": [
+        {
+          "label": "LinkedIn",
+          "value": "linkedin",
+          "metadata": {
+            "dos": [
+              "Share industry insights",
+              "Use professional language",
+              "Include calls-to-action",
+              "Tag relevant people/companies"
+            ],
+            "donts": [
+              "Don't be overly salesy",
+              "Avoid casual slang",
+              "Don't use too many hashtags (3-5 max)"
+            ],
+            "schema": "linkedin_post_schema",
+            "toneOfVoice": "Professional yet approachable; suitable for Evergy industry and community presence",
+            "htmlTemplate": "linkedin_post_template",
+            "bestPractices": [
+              "Lead with value",
+              "Use data and insights",
+              "Include relevant hashtags",
+              "Ask engaging questions"
+            ],
+            "characterLimit": 3000
+          }
+        },
+        {
+          "label": "Twitter/X",
+          "value": "twitter",
+          "metadata": {
+            "dos": [
+              "Use hashtags strategically (1-2)",
+              "Include media when possible",
+              "Be timely and relevant"
+            ],
+            "donts": [
+              "Don't exceed character limit",
+              "Avoid walls of text",
+              "Don't overuse hashtags"
+            ],
+            "schema": "twitter_post_schema",
+            "toneOfVoice": "Concise and punchy, timely and engaging",
+            "htmlTemplate": "twitter_post_template",
+            "bestPractices": [
+              "Be concise",
+              "Use threads for longer content",
+              "Include visuals",
+              "Engage with trending topics"
+            ],
+            "characterLimit": 280
+          }
+        },
+        {
+          "label": "Instagram",
+          "value": "instagram",
+          "metadata": {
+            "dos": [
+              "Focus on visual appeal",
+              "Use authentic voice",
+              "Include call-to-action",
+              "Use Stories and Reels"
+            ],
+            "donts": [
+              "Don't be overly corporate",
+              "Avoid link-heavy captions",
+              "Don't use irrelevant hashtags"
+            ],
+            "schema": "instagram_post_schema",
+            "toneOfVoice": "Visual-first, authentic and inspiring",
+            "htmlTemplate": "instagram_post_template",
+            "bestPractices": [
+              "Lead with visuals",
+              "Use storytelling",
+              "Include relevant hashtags (10-30)",
+              "Use emojis appropriately"
+            ],
+            "characterLimit": 2200
+          }
+        },
+        {
+          "label": "Facebook",
+          "value": "facebook",
+          "metadata": {
+            "dos": [
+              "Use conversational tone",
+              "Include links with context",
+              "Respond to comments"
+            ],
+            "donts": [
+              "Don't be too formal",
+              "Avoid clickbait",
+              "Don't ignore engagement"
+            ],
+            "schema": "facebook_post_schema",
+            "toneOfVoice": "Friendly and community-focused, conversational",
+            "htmlTemplate": "facebook_post_template",
+            "bestPractices": [
+              "Encourage engagement",
+              "Use visuals and video",
+              "Ask questions",
+              "Create shareable content"
+            ],
+            "characterLimit": 63206
+          }
+        },
+        {
+          "label": "Email",
+          "value": "email",
+          "metadata": {
+            "dos": [
+              "Get to the point quickly",
+              "Use clear formatting",
+              "Include one primary CTA",
+              "Segment content"
+            ],
+            "donts": [
+              "Don't bury the lead",
+              "Avoid spam triggers",
+              "Don't have multiple CTAs",
+              "Don't use all caps"
+            ],
+            "schema": "email_content_schema",
+            "toneOfVoice": "Direct and trustworthy—utility email that respects the customer’s time",
+            "htmlTemplate": "email_content_template",
+            "bestPractices": [
+              "Strong subject line",
+              "Clear call-to-action",
+              "Personalization",
+              "Mobile-friendly"
+            ]
+          }
+        },
+        {
+          "label": "Blog",
+          "value": "blog",
+          "metadata": {
+            "dos": [
+              "Provide value and depth",
+              "Use proper formatting",
+              "Include meta description",
+              "Optimize for SEO"
+            ],
+            "donts": [
+              "Don't keyword stuff",
+              "Avoid thin content",
+              "Don't ignore readability"
+            ],
+            "schema": "blog_post_schema",
+            "toneOfVoice": "Informative and authoritative, SEO-optimized",
+            "htmlTemplate": "blog_post_template",
+            "bestPractices": [
+              "Use headers and structure",
+              "Include keywords naturally",
+              "Add internal/external links",
+              "Use visuals"
+            ]
+          }
+        }
+      ],
+      "required": false,
+      "description": "Channels for Evergy communications (social, email, long-form)."
+    },
+    {
+      "key": "audiences",
+      "type": "array",
+      "label": "Audiences",
+      "options": [
+        {
+          "label": "Residential",
+          "value": "residential",
+          "metadata": {
+            "dos": [
+              "Speak to home energy use, comfort, and monthly bills in plain language",
+              "Highlight rebates, efficiency programs, safety, and outage preparedness",
+              "Emphasize trusted local service for Kansas and Missouri communities"
+            ],
+            "donts": [
+              "Avoid unexplained rate or tariff jargon",
+              "Do not sound dismissive about high bills or outage stress",
+              "Do not imply coverage outside Evergy’s service footprint"
+            ],
+            "toneOfVoice": "Warm, clear, and neighborly—Evergy as a helpful partner for households",
+            "bestPractices": [
+              "Lead with the benefit (savings, reliability, safety)",
+              "Keep sentences short; use headings or bullets when the channel allows",
+              "Send readers to evergy.com or official Evergy channels for enrollment and terms"
+            ]
+          }
+        },
+        {
+          "label": "Commercial & industrial",
+          "value": "commercial_industrial",
+          "metadata": {
+            "dos": [
+              "Address reliability, load management, and total cost of energy",
+              "Reference demand response, business rates, and dedicated account support when relevant",
+              "Acknowledge sustainability, reporting, and efficiency goals for operations and finance teams"
+            ],
+            "donts": [
+              "Do not overpromise contract terms or guarantee regulatory outcomes",
+              "Avoid framing that only fits residential thermostats or home hacks",
+              "Do not speculate on grid conditions beyond general educational framing"
+            ],
+            "toneOfVoice": "Professional, precise, and partnership-oriented—Evergy as advisor to businesses",
+            "bestPractices": [
+              "Segment by stakeholder when useful: operations, finance, or sustainability",
+              "Use program and industry-standard language; cite evergy.com for business offers",
+              "Invite larger or complex opportunities to Evergy account teams where appropriate"
+            ]
+          }
+        }
+      ],
+      "required": false,
+      "description": "Residential customers vs. commercial & industrial accounts—voice and priorities aligned with how Evergy serves each segment."
+    }
+  ],
+  "schemas": [
+    {
+      "id": "linkedin_post_schema",
+      "name": "LinkedIn Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "headline",
+          "body",
+          "call_to_action",
+          "hashtags",
+          "mentions"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Main content (max 3000 characters)"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5,
+            "description": "Relevant hashtags (3-5 recommended)"
+          },
+          "headline": {
+            "type": "string",
+            "description": "Attention-grabbing headline or opening line"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "People or companies to tag"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Clear call-to-action"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for LinkedIn professional content"
+    },
+    {
+      "id": "twitter_post_schema",
+      "name": "Twitter/X Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "text",
+          "hashtags",
+          "thread"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 280,
+            "description": "Tweet content (max 280 characters)"
+          },
+          "thread": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional tweets for thread (optional)"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 2,
+            "description": "Hashtags (1-2 recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Twitter/X concise content"
+    },
+    {
+      "id": "instagram_post_schema",
+      "name": "Instagram Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "caption",
+          "image_description",
+          "hashtags",
+          "call_to_action"
+        ],
+        "properties": {
+          "caption": {
+            "type": "string",
+            "description": "Post caption (max 2200 characters)"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Relevant hashtags (10-30 recommended)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Call-to-action in caption"
+          },
+          "image_description": {
+            "type": "string",
+            "description": "Description of ideal image/visual"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Instagram visual-first content"
+    },
+    {
+      "id": "facebook_post_schema",
+      "name": "Facebook Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "text",
+          "question",
+          "call_to_action",
+          "link"
+        ],
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "URL to share (optional)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Post text content"
+          },
+          "question": {
+            "type": "string",
+            "description": "Engagement question (optional)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Call-to-action or link context"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Facebook community content"
+    },
+    {
+      "id": "email_content_schema",
+      "name": "Email Content Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "subject_line",
+          "body",
+          "call_to_action",
+          "preview_text",
+          "greeting",
+          "cta_url",
+          "closing"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Main email content"
+          },
+          "closing": {
+            "type": "string",
+            "description": "Email closing/signature"
+          },
+          "cta_url": {
+            "type": "string",
+            "description": "CTA button URL"
+          },
+          "greeting": {
+            "type": "string",
+            "description": "Email greeting"
+          },
+          "preview_text": {
+            "type": "string",
+            "description": "Preview/preheader text"
+          },
+          "subject_line": {
+            "type": "string",
+            "description": "Email subject line (50-60 characters recommended)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Primary CTA text"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for email marketing content"
+    },
+    {
+      "id": "blog_post_schema",
+      "name": "Blog Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "title",
+          "introduction",
+          "body",
+          "conclusion",
+          "meta_description",
+          "call_to_action",
+          "keywords"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Main content with headers and sections"
+          },
+          "title": {
+            "type": "string",
+            "description": "SEO-optimized blog title"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "SEO keywords"
+          },
+          "conclusion": {
+            "type": "string",
+            "description": "Closing paragraph"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "Opening paragraph/hook"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "CTA at end of post"
+          },
+          "meta_description": {
+            "type": "string",
+            "description": "Meta description (150-160 characters)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for blog content"
+    }
+  ],
+  "htmlTemplates": [
+    {
+      "id": "linkedin_post_template",
+      "name": "LinkedIn Post Template",
+      "template": "<div class=\"evergy-bcg\" style=\"font-family:'Roboto',Arial,Helvetica,sans-serif;color:#2a2a2a;max-width:640px;margin:0 auto;border:1px solid #e7e8eb;border-radius:8px;overflow:hidden;background:#ffffff;\">\n  <header style=\"background:#ffffff;padding:20px 24px;border-bottom:1px solid #e7e8eb;\">\n    <img src=\"https://evergy.sitecoresandbox.cloud/api/public/content/db42424791bf4365988df16b5f2399e7?v=e70a3d48\" alt=\"Evergy\" width=\"160\" style=\"max-width:160px;height:auto;display:block;\" />\n  </header>\n  <div style=\"padding:24px;background:#ffffff;border-left:4px solid #317cc0;\">\n    <div style=\"font-size:1.05rem;font-weight:700;color:#003353;margin-bottom:10px;line-height:1.35;\">{{headline}}</div>\n    <div style=\"font-size:0.95rem;line-height:1.55;margin-bottom:14px;color:#2a2a2a;\">{{body}}</div>\n    <div style=\"margin-bottom:14px;\">{{#each hashtags}}<span style=\"color:#004e9a;font-weight:600;margin-right:8px;\">#{{this}}</span> {{/each}}</div>\n    <div style=\"display:inline-block;background:#5a8226;color:#ffffff;padding:10px 18px;border-radius:4px;font-weight:600;font-size:0.9rem;\">{{call_to_action}}</div>\n    {{#if mentions}}<div style=\"margin-top:16px;font-size:0.875rem;color:#595959;\">{{#each mentions}}<span style=\"margin-right:8px;\">@{{this}}</span> {{/each}}</div>{{/if}}\n  </div>\n  <footer style=\"padding:14px 24px;background:#e7e8eb;font-size:12px;line-height:1.45;color:#595959;border-top:1px solid #d9edf6;\">Serving Kansas and Missouri with reliable energy. Official programs and terms: <a href=\"https://www.evergy.com\" style=\"color:#004e9a;font-weight:600;text-decoration:none;\">evergy.com</a></footer>\n</div>"
+    },
+    {
+      "id": "twitter_post_template",
+      "name": "Twitter/X Post Template",
+      "template": "<div class=\"evergy-bcg\" style=\"font-family:'Roboto',Arial,Helvetica,sans-serif;color:#2a2a2a;max-width:520px;margin:0 auto;border:1px solid #e7e8eb;border-radius:8px;overflow:hidden;background:#ffffff;\">\n  <header style=\"background:#ffffff;padding:16px 20px;border-bottom:1px solid #e7e8eb;\">\n    <img src=\"https://evergy.sitecoresandbox.cloud/api/public/content/db42424791bf4365988df16b5f2399e7?v=e70a3d48\" alt=\"Evergy\" width=\"140\" style=\"max-width:140px;height:auto;display:block;\" />\n  </header>\n  <div style=\"padding:20px;background:#ffffff;border-left:4px solid #317cc0;\">\n    <div style=\"font-size:0.95rem;line-height:1.45;color:#2a2a2a;\">{{text}}</div>\n    {{#if hashtags}}<div style=\"margin-top:12px;\">{{#each hashtags}}<span style=\"color:#004e9a;font-weight:600;margin-right:6px;\">#{{this}}</span> {{/each}}</div>{{/if}}\n    {{#if thread}}<div style=\"margin-top:14px;padding-top:14px;border-top:1px solid #e7e8eb;\">{{#each thread}}<div style=\"font-size:0.9rem;line-height:1.45;margin-bottom:10px;color:#2a2a2a;\">{{this}}</div>{{/each}}</div>{{/if}}\n  </div>\n  <footer style=\"padding:12px 20px;background:#e7e8eb;font-size:11px;color:#595959;\">evergy.com</footer>\n</div>"
+    },
+    {
+      "id": "instagram_post_template",
+      "name": "Instagram Post Template",
+      "template": "<div class=\"evergy-bcg\" style=\"font-family:'Roboto',Arial,Helvetica,sans-serif;color:#2a2a2a;max-width:420px;margin:0 auto;border:1px solid #e7e8eb;border-radius:12px;overflow:hidden;background:#ffffff;box-shadow:0 2px 8px rgba(0,51,83,0.08);\">\n  <header style=\"background:#ffffff;padding:18px 20px;border-bottom:1px solid #e7e8eb;display:flex;align-items:center;gap:12px;\">\n    <img src=\"https://evergy.sitecoresandbox.cloud/api/public/content/db42424791bf4365988df16b5f2399e7?v=e70a3d48\" alt=\"Evergy\" width=\"120\" style=\"max-width:120px;height:auto;display:block;\" />\n  </header>\n  <div style=\"padding:18px 20px;background:#d9edf6;\">\n    <div style=\"font-size:0.8rem;font-weight:600;color:#003353;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;\">Visual concept</div>\n    <div style=\"font-size:0.9rem;line-height:1.45;color:#2a2a2a;background:#ffffff;padding:12px;border-radius:6px;border:1px dashed #317cc0;\">{{image_description}}</div>\n  </div>\n  <div style=\"padding:18px 20px;\">\n    <div style=\"font-size:0.95rem;line-height:1.5;color:#2a2a2a;\">{{caption}}</div>\n    <div style=\"margin-top:12px;\">{{#each hashtags}}<span style=\"color:#004e9a;font-weight:600;margin-right:6px;\">#{{this}}</span> {{/each}}</div>\n    {{#if call_to_action}}<div style=\"margin-top:14px;display:inline-block;background:#5a8226;color:#ffffff;padding:8px 16px;border-radius:4px;font-weight:600;font-size:0.85rem;\">{{call_to_action}}</div>{{/if}}\n  </div>\n  <footer style=\"padding:10px 20px;background:#e7e8eb;font-size:11px;color:#595959;text-align:center;\">Energy that moves you forward</footer>\n</div>"
+    },
+    {
+      "id": "facebook_post_template",
+      "name": "Facebook Post Template",
+      "template": "<div class=\"evergy-bcg\" style=\"font-family:'Roboto',Arial,Helvetica,sans-serif;color:#2a2a2a;max-width:560px;margin:0 auto;border:1px solid #e7e8eb;border-radius:8px;overflow:hidden;background:#ffffff;\">\n  <header style=\"background:#ffffff;padding:18px 22px;border-bottom:1px solid #e7e8eb;\">\n    <img src=\"https://evergy.sitecoresandbox.cloud/api/public/content/db42424791bf4365988df16b5f2399e7?v=e70a3d48\" alt=\"Evergy\" width=\"150\" style=\"max-width:150px;height:auto;display:block;\" />\n  </header>\n  <div style=\"padding:22px;background:#ffffff;border-left:4px solid #317cc0;\">\n    <div style=\"font-size:1rem;line-height:1.55;color:#2a2a2a;\">{{text}}</div>\n    {{#if question}}<div style=\"margin-top:16px;padding:12px 14px;background:#d9edf6;border-radius:6px;font-size:0.95rem;color:#003353;font-weight:500;\">{{question}}</div>{{/if}}\n    {{#if link}}<div style=\"margin-top:16px;\"><a href=\"{{link}}\" style=\"display:inline-block;background:#5a8226;color:#ffffff;padding:10px 18px;border-radius:4px;font-weight:600;text-decoration:none;font-size:0.9rem;\">{{call_to_action}}</a></div>{{else}}<div style=\"margin-top:16px;display:inline-block;background:#5a8226;color:#ffffff;padding:10px 18px;border-radius:4px;font-weight:600;font-size:0.9rem;\">{{call_to_action}}</div>{{/if}}\n  </div>\n  <footer style=\"padding:12px 22px;background:#e7e8eb;font-size:12px;color:#595959;\">Learn more at evergy.com</footer>\n</div>"
+    },
+    {
+      "id": "email_content_template",
+      "name": "Email Content Template",
+      "template": "<div class=\"evergy-bcg\" style=\"font-family:'Roboto',Arial,Helvetica,sans-serif;color:#2a2a2a;max-width:600px;margin:0 auto;border:1px solid #e7e8eb;border-radius:8px;overflow:hidden;background:#ffffff;\">\n  <header style=\"background:#ffffff;padding:24px 28px;text-align:center;border-bottom:1px solid #e7e8eb;\">\n    <img src=\"https://evergy.sitecoresandbox.cloud/api/public/content/db42424791bf4365988df16b5f2399e7?v=e70a3d48\" alt=\"Evergy\" width=\"180\" style=\"max-width:180px;height:auto;display:block;margin:0 auto;\" />\n  </header>\n  <div style=\"padding:8px 28px 0;background:#d9edf6;\">\n    <div style=\"font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:#003353;font-weight:700;padding-top:12px;\">Subject line</div>\n    <div style=\"font-size:1.1rem;font-weight:700;color:#003353;padding:4px 0 12px;\">{{subject_line}}</div>\n    <div style=\"font-size:0.9rem;font-style:italic;color:#595959;padding-bottom:16px;border-bottom:1px solid #e7e8eb;\">{{preview_text}}</div>\n  </div>\n  <div style=\"padding:24px 28px 28px;background:#ffffff;\">\n    <p style=\"margin:0 0 16px;font-size:1rem;color:#2a2a2a;\">{{greeting}}</p>\n    <div style=\"font-size:0.95rem;line-height:1.6;color:#2a2a2a;margin-bottom:24px;\">{{body}}</div>\n    <div style=\"text-align:center;margin-bottom:24px;\">\n      <a href=\"{{cta_url}}\" style=\"display:inline-block;background:#5a8226;color:#ffffff;padding:14px 28px;text-decoration:none;border-radius:4px;font-weight:700;font-size:0.95rem;\">{{call_to_action}}</a>\n    </div>\n    <p style=\"margin:0;font-size:0.9rem;color:#595959;line-height:1.5;border-top:1px solid #e7e8eb;padding-top:20px;\">{{closing}}</p>\n  </div>\n  <footer style=\"padding:16px 28px;background:#e7e8eb;font-size:11px;line-height:1.5;color:#72808a;text-align:center;\">This preview is for demonstration. Evergy, Inc. · Kansas &amp; Missouri</footer>\n</div>"
+    },
+    {
+      "id": "blog_post_template",
+      "name": "Blog Post Template",
+      "template": "<article class=\"evergy-bcg\" style=\"font-family:'Roboto','Lora',Georgia,serif;color:#2a2a2a;max-width:720px;margin:0 auto;border:1px solid #e7e8eb;border-radius:8px;overflow:hidden;background:#ffffff;\">\n  <header style=\"background:#ffffff;padding:28px 32px;border-bottom:1px solid #e7e8eb;\">\n    <img src=\"https://evergy.sitecoresandbox.cloud/api/public/content/db42424791bf4365988df16b5f2399e7?v=e70a3d48\" alt=\"Evergy\" width=\"160\" style=\"max-width:160px;height:auto;display:block;margin-bottom:20px;\" />\n    <h1 style=\"margin:0;font-family:'Roboto',Arial,sans-serif;font-size:1.75rem;font-weight:700;line-height:1.25;color:#003353;letter-spacing:-0.02em;\">{{title}}</h1>\n    <p style=\"margin:12px 0 0;font-family:'Roboto',Arial,sans-serif;font-size:0.9rem;color:#595959;line-height:1.45;max-width:52ch;\">{{meta_description}}</p>\n  </header>\n  <div style=\"padding:28px 32px;background:#ffffff;border-top:4px solid #317cc0;\">\n    <div style=\"font-family:'Lora',Georgia,serif;font-size:1.05rem;line-height:1.65;margin-bottom:20px;color:#2a2a2a;\">{{introduction}}</div>\n    <div style=\"font-family:'Lora',Georgia,serif;font-size:1rem;line-height:1.65;color:#2a2a2a;margin-bottom:20px;\">{{body}}</div>\n    <div style=\"font-family:'Lora',Georgia,serif;font-size:1rem;line-height:1.65;margin-bottom:24px;color:#2a2a2a;padding:16px;background:#d9edf6;border-radius:6px;border-left:4px solid #5a8226;\">{{conclusion}}</div>\n    <div style=\"font-family:'Roboto',Arial,sans-serif;display:inline-block;background:#004e9a;color:#ffffff;padding:12px 22px;border-radius:4px;font-weight:600;font-size:0.95rem;\">{{call_to_action}}</div>\n    {{#if keywords}}<div style=\"margin-top:24px;font-family:'Roboto',Arial,sans-serif;font-size:0.8rem;color:#72808a;\">Topics: {{#each keywords}}<span style=\"color:#004e9a;font-weight:500;\">{{this}}</span>{{#unless @last}} · {{/unless}}{{/each}}</div>{{/if}}\n  </div>\n  <footer style=\"padding:14px 32px;background:#e7e8eb;font-size:12px;color:#595959;font-family:'Roboto',Arial,sans-serif;\">evergy.com — energy news and programs for homes and businesses</footer>\n</article>"
+    }
+  ],
+  "actions": [
+    {
+      "id": "initialize_flow",
+      "kind": "InitializeFlow",
+      "displayName": "Initialize",
+      "showToUser": false
+    },
+    {
+      "id": "retrieve_context_params",
+      "kind": "RetrieveContextParameterDocs",
+      "config": {
+        "outputVarName": "contextParameterDocuments",
+        "workflowTypeFilter": "account-enrichment",
+        "filterByCurrentFlow": true
+      },
+      "showToUser": false,
+      "displayName": "Retrieve Context Parameters"
+    },
+    {
+      "id": "extract_params",
+      "kind": "ExtractContextParams",
+      "config": {
+        "inputVarName": "__messages__",
+        "outputVarName": "contextParams"
+      },
+      "showToUser": false,
+      "displayName": "Extract Parameters"
+    },
+    {
+      "id": "review_params",
+      "kind": "ReviewContextParams",
+      "config": {
+        "inputVarName": "vars.contextParams",
+        "outputVarName": "reviewedContextParams"
+      },
+      "showToUser": true,
+      "displayName": "Review Parameters"
+    },
+    {
+      "id": "normalize_params",
+      "kind": "NormalizeParams",
+      "config": {
+        "inputVarName": "vars.reviewedContextParams",
+        "outputVarName": "normalizedParams"
+      },
+      "showToUser": false,
+      "displayName": "Normalize Parameters"
+    },
+    {
+      "id": "expand_variants",
+      "kind": "ExpandVariants",
+      "config": {
+        "inputVarName": "vars.normalizedParams",
+        "outputVarName": "variants",
+        "contextParamsVarName": "contextParameterDocuments"
+      },
+      "showToUser": false,
+      "displayName": "Expand Variants"
+    },
+    {
+      "id": "content_generation_loop",
+      "kind": "Foreach",
+      "index": "variantIndex",
+      "items": "=variants",
+      "value": "currentVariant",
+      "actions": [
+        {
+          "id": "extract_variant_structure",
+          "kind": "ExtractVariantStructure",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "structureKey": "channels",
+            "outputSchemaVarName": "structuredSchema",
+            "outputHtmlTemplateVarName": "htmlTemplate"
+          },
+          "showToUser": false,
+          "displayName": "Extract Structure"
+        },
+        {
+          "id": "compose_variant_message",
+          "kind": "ComposeMessageForVariant",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "systemPrompt": "You are helping Evergy, an electric utility serving Kansas and Missouri. Generate content that matches the user request, the selected channel format, and the audience (residential vs. commercial & industrial): use plain, trustworthy language for homes and professional, operations-aware language for businesses. Follow the option metadata (dos, donts, tone). Do not fabricate specific rates, deadlines, or program rules—use general educational framing and point to evergy.com for official details when needed.",
+            "outputVarName": "variantMessage",
+            "messageTemplate": "Generate content for: {variantDescription}",
+            "includeOptionDetails": true
+          },
+          "showToUser": false,
+          "displayName": "Compose Message"
+        },
+        {
+          "id": "generate_content",
+          "kind": "GenerateContent",
+          "config": {
+            "model": "workflow-fast-model",
+            "loopVarName": "loop_content_generation_loop",
+            "temperature": 0.7,
+            "artifactKind": "content_item",
+            "inputVarName": "vars.variantMessage",
+            "outputVarName": "generatedContent",
+            "htmlTemplateVar": "vars.htmlTemplate",
+            "structuredSchemaVar": "vars.structuredSchema"
+          },
+          "showToUser": true,
+          "displayName": "Generate Content"
+        },
+        {
+          "id": "save_document",
+          "kind": "SaveDocument",
+          "config": {
+            "kind": "content_item",
+            "titlePrefix": "Evergy",
+            "contentVarName": "vars.generatedContent",
+            "documentIdVarName": "vars.documentId",
+            "titleSuffixVarName": "vars.variantDescription"
+          },
+          "showToUser": false,
+          "displayName": "Save Document"
+        }
+      ],
+      "showToUser": false,
+      "displayName": "Generate Content for Each Variant"
+    },
+    {
+      "id": "workflow_end",
+      "kind": "WorkflowEnd",
+      "displayName": "Complete",
+      "showToUser": false
+    }
+  ],
+  "version": 2,
+  "is_active": true
+}
