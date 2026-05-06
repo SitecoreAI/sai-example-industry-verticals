@@ -1,7 +1,7 @@
 ---
-ID: "e7f8a9b0-c1d2-4345-e012-3456789abcde"
-Parent: "c3d4e5f6-a7b8-4901-c234-56789abcdef0"
-Template: "c3d4e5f6-a7b8-4901-c234-56789abcdef0"
+ID: "66ef23a6-2609-46d7-abf1-e040f9ca0dae"
+Parent: "f40d8d2a-8637-45ed-a32e-49d4df02e76f"
+Template: "f40d8d2a-8637-45ed-a32e-49d4df02e76f"
 Path: "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/__Standard Values"
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
