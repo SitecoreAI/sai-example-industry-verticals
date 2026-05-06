@@ -1,7 +1,7 @@
 ---
-ID: "cfh02005-a205-4025-b025-000000000025"
-Parent: "cfh02001-a201-4021-b021-000000000021"
-Template: "cfh02001-a201-4021-b021-000000000021"
+ID: "cfb02005-a205-4025-b025-000000000025"
+Parent: "cfb02001-a201-4021-b021-000000000021"
+Template: "cfb02001-a201-4021-b021-000000000021"
 Path: "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/__Standard Values"
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
