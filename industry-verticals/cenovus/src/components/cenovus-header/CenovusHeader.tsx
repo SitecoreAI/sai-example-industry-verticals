@@ -262,7 +262,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
               className="block shrink-0 text-[var(--color-foreground)] no-underline"
               aria-label={demoIntranetBrand.homeAriaLabel}
             >
-              {hasLogo ? (
+              {(isEditing && ds) || hasLogo ? (
                 <ContentSdkImage
                   field={logoField}
                   className="h-10 w-auto max-w-[200px] object-contain"
