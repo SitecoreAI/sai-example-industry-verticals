@@ -7,6 +7,10 @@ const nextConfig = {
   // Allow specifying a distinct distDir when concurrently running app in a container
   distDir: process.env.NEXTJS_DIST_DIR || '.next',
 
+  env: {
+    NEXT_PUBLIC_CENOVUS_SHOWCASE: process.env.NEXT_PUBLIC_CENOVUS_SHOWCASE ?? 'true',
+  },
+
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.

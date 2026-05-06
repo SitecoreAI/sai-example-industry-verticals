@@ -1,4 +1,5 @@
 import { IGQLTextField } from '@/types/igql';
+import { demoCompanyNews, shouldShowCenovusDemo } from '@/lib/cenovus-demo';
 import {
   ComponentParams,
   ComponentRendering,
@@ -10,6 +11,7 @@ import {
   Text,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
 interface CompanyNewsItem {
@@ -50,8 +52,62 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const seeAll = props.fields?.data?.datasource?.seeAllLink;
 
-  if (!isEditing && items.length === 0) {
+  const showDemo = shouldShowCenovusDemo(isEditing, items.length > 0);
+
+  if (!isEditing && items.length === 0 && !showDemo) {
     return null;
+  }
+
+  if (showDemo) {
+    return (
+      <section
+        className={`font-body text-foreground bg-[var(--color-background-accent)]/40 ${props.params.styles || ''}`}
+        id={id || undefined}
+      >
+        <div className="container py-12 lg:py-16">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
+            <div className="lg:col-span-4 xl:col-span-3">
+              <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
+                {demoCompanyNews.title}
+              </h2>
+              <div className="mt-6">
+                <NextLink
+                  href="#"
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                >
+                  {demoCompanyNews.seeAllLabel}
+                </NextLink>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 xl:col-span-9">
+              <ul className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
+                {demoCompanyNews.items.map((item) => (
+                  <li
+                    className="flex flex-col rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] p-5 shadow-sm"
+                    key={item.id}
+                  >
+                    <div className="text-foreground-light flex flex-wrap items-baseline gap-x-2 text-sm">
+                      <span>{item.date}</span>
+                      <span className="text-neutral-300">·</span>
+                      <span>{item.location}</span>
+                    </div>
+                    <h3 className="font-heading mt-2 text-lg leading-snug font-semibold text-[var(--color-foreground)] md:text-xl">
+                      {item.headline}
+                    </h3>
+                    <div
+                      className="text-foreground-light mt-3 line-clamp-4 text-sm leading-relaxed md:text-base [&_p]:mb-2 [&_p:last-child]:mb-0"
+                      dangerouslySetInnerHTML={{ __html: item.summary }}
+                    />
+                    <p className="text-foreground-light mt-4 text-xs">{item.author}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -63,7 +119,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
           <div className="lg:col-span-4 xl:col-span-3">
             {(sectionTitle?.jsonValue || isEditing) && (
-              <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] uppercase md:text-3xl">
+              <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
                 <Text field={sectionTitle?.jsonValue} />
               </h2>
             )}
@@ -72,7 +128,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
                 {seeAll?.jsonValue ? (
                   <Link
                     field={seeAll.jsonValue}
-                    className="inline-flex items-center text-sm font-semibold tracking-[0.12em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                    className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
                   />
                 ) : isEditing ? (
                   <p className="text-foreground-light text-sm">

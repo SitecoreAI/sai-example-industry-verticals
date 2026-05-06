@@ -60,3 +60,18 @@ body .ck.ck-editor__editable_inline {
 .stop-transition * {
   transition: none !important;
 }
+
+/*
+ * Cenovus default shell: avoid global flex-wrap on #header/#content/#footer
+ * breaking nested grid layouts; keep a vertical column layout.
+ */
+.cenovus-layout-shell #header,
+.cenovus-layout-shell #content,
+.cenovus-layout-shell #footer {
+  display: block;
+  flex-wrap: nowrap;
+}
+
+.cenovus-layout-shell main {
+  flex: 1 1 auto;
+}

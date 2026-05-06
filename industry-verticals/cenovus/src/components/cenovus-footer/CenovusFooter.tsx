@@ -15,6 +15,7 @@ import { ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
 import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
+import { demoFooter } from '@/lib/cenovus-demo';
 import { IGQLTextField } from '@/types/igql';
 
 interface FooterLinkItem {
@@ -114,7 +115,102 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   ];
 
   if (!isEditing && !ds) {
-    return null;
+    return (
+      <footer className={`font-body text-foreground ${styles}`} id={id || undefined}>
+        <div className="bg-[var(--color-background-muted)]">
+          <div className="container grid gap-10 py-12 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:py-16">
+            <div className="flex flex-col gap-4">
+              <NextLink
+                href="/"
+                className="inline-block max-w-[200px] shrink-0 no-underline"
+                aria-label="Cenovus Energy home"
+              >
+                <div className="font-heading leading-tight">
+                  <span className="text-2xl font-semibold text-[var(--color-brand-teal)] lowercase italic">
+                    cenovus
+                  </span>
+                  <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] text-[var(--color-accent)] uppercase">
+                    Energy
+                  </span>
+                </div>
+              </NextLink>
+            </div>
+            <div>
+              <h2 className="font-heading mb-4 text-base font-bold text-[var(--color-brand-teal)]">
+                {demoFooter.linksHeading}
+              </h2>
+              <ul className="flex flex-col gap-3">
+                {demoFooter.links.map((link) => (
+                  <li key={link.label}>
+                    <NextLink
+                      href={link.href}
+                      className="text-foreground-light hover:text-foreground text-sm underline-offset-4 transition-colors hover:underline"
+                    >
+                      {link.label}
+                    </NextLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h2 className="font-heading text-base font-bold text-[var(--color-brand-teal)]">
+                {demoFooter.supportHeading}
+              </h2>
+              <div
+                className="text-foreground-light text-sm leading-relaxed [&_strong]:text-[var(--color-foreground)]"
+                dangerouslySetInnerHTML={{ __html: demoFooter.supportHtml }}
+              />
+              <span className="font-heading mt-1 inline-flex items-center gap-2 text-sm font-bold tracking-wide text-[var(--color-accent)] uppercase">
+                {demoFooter.supportCta}
+                <ArrowRight className="size-4 shrink-0" aria-hidden />
+              </span>
+            </div>
+            <div className="flex flex-col gap-4">
+              <h2 className="font-heading text-base font-bold text-[var(--color-brand-teal)]">
+                {demoFooter.feedbackHeading}
+              </h2>
+              <p className="text-foreground-light text-sm">
+                Demo form — wireframe only (no submission).
+              </p>
+              <textarea
+                rows={5}
+                readOnly
+                placeholder="Your feedback"
+                className="border-border min-h-[120px] w-full resize-y rounded-lg border-0 bg-[var(--color-background)] p-4 text-sm shadow-inner"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="border-border border-t bg-[var(--color-brand-teal)]/10">
+          <div className="container flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-foreground-light text-xs sm:text-sm">{demoFooter.copyright}</p>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <NextLink
+                href="#"
+                className="border-border flex size-10 items-center justify-center rounded-full border bg-[var(--color-background)] text-[var(--color-brand-teal)] shadow-sm hover:opacity-90"
+                aria-label="Facebook"
+              >
+                <Facebook className="size-5" aria-hidden />
+              </NextLink>
+              <NextLink
+                href="#"
+                className="border-border flex size-10 items-center justify-center rounded-full border bg-[var(--color-background)] text-[var(--color-brand-teal)] shadow-sm hover:opacity-90"
+                aria-label="X (Twitter)"
+              >
+                <TwitterIcon className="size-5" aria-hidden />
+              </NextLink>
+              <NextLink
+                href="#"
+                className="border-border flex size-10 items-center justify-center rounded-full border bg-[var(--color-background)] text-[var(--color-brand-teal)] shadow-sm hover:opacity-90"
+                aria-label="Instagram"
+              >
+                <Instagram className="size-5" aria-hidden />
+              </NextLink>
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
   }
 
   return (

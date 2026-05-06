@@ -1,5 +1,9 @@
 @theme {
   /* Cenovus Energy–aligned palette: teal #005568, orange #b66721 */
+  --color-brand-teal: #005568;
+  --color-brand-teal-dark: #003d4d;
+  --color-brand-orange: #b66721;
+
   --color-foreground: #1d2527;
   --color-foreground-light: #5a6b6e;
 

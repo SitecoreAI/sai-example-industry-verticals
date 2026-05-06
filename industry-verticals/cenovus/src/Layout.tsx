@@ -3,7 +3,9 @@
  */
 import React, { JSX } from 'react';
 import Head from 'next/head';
+import clsx from 'clsx';
 import { Placeholder, Field, Page, ImageField } from '@sitecore-content-sdk/nextjs';
+import { isCenovusShowcaseShellEnabled } from '@/lib/cenovus-demo';
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'src/components/content-sdk/SitecoreStyles';
 import { DesignLibraryLayout } from './DesignLibraryLayout';
@@ -27,6 +29,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { route } = layout.sitecore;
   const fields = route?.fields as RouteFields;
   const mainClassPageEditing = mode.isEditing ? 'editing-mode' : 'prod-mode';
+  const showcaseShell = isCenovusShowcaseShellEnabled();
 
   const metaDescription =
     fields?.metadataDescription?.value?.toString() || fields?.pageSummary?.value?.toString() || '';
@@ -52,7 +55,12 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
       </Head>
 
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className={mainClassPageEditing}>
+      <div
+        className={clsx(
+          mainClassPageEditing,
+          showcaseShell && 'cenovus-layout-shell bg-background-muted flex min-h-screen flex-col'
+        )}
+      >
         {mode.isDesignLibrary ? (
           <DesignLibraryLayout />
         ) : (
@@ -60,8 +68,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
             <div id="header">
               {route && <Placeholder name="headless-header" rendering={route} />}
             </div>
-            <main>
-              <div id="content">
+            <main className="flex min-h-0 flex-1 flex-col">
+              <div id="content" className="flex min-h-0 flex-1 flex-col">
                 {route && <Placeholder name="headless-main" rendering={route} />}
               </div>
             </main>

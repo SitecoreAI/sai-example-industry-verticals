@@ -1,6 +1,7 @@
 'use client';
 
 import { IGQLTextField } from '@/types/igql';
+import { demoKeyDates, shouldShowCenovusDemo } from '@/lib/cenovus-demo';
 import {
   ComponentParams,
   ComponentRendering,
@@ -10,7 +11,8 @@ import {
   Text,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
-import React, { JSX, useCallback, useEffect, useMemo, useState } from 'react';
+import NextLink from 'next/link';
+import React, { JSX, useCallback, useEffect, useState } from 'react';
 
 const ITEMS_PER_PAGE = 7;
 
@@ -49,6 +51,8 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const viewAll = props.fields?.data?.datasource?.viewAllLink;
 
+  const showDemo = shouldShowCenovusDemo(isEditing, items.length > 0);
+
   const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -58,10 +62,8 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
     }
   }, [pageIndex, totalPages]);
 
-  const visibleItems = useMemo(() => {
-    const start = pageIndex * ITEMS_PER_PAGE;
-    return items.slice(start, start + ITEMS_PER_PAGE);
-  }, [items, pageIndex]);
+  const start = pageIndex * ITEMS_PER_PAGE;
+  const visibleItems = items.slice(start, start + ITEMS_PER_PAGE);
 
   const goPrev = useCallback(() => {
     if (totalPages < 2) return;
@@ -73,11 +75,46 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
     setPageIndex((p) => (p + 1) % totalPages);
   }, [totalPages]);
 
-  if (!isEditing && items.length === 0) {
+  if (!isEditing && items.length === 0 && !showDemo) {
     return null;
   }
 
   const showPager = items.length > ITEMS_PER_PAGE;
+
+  if (showDemo) {
+    return (
+      <section
+        className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+        id={id || undefined}
+      >
+        <div className="container max-w-none py-10 lg:max-w-none">
+          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm lg:p-8">
+            <h2 className="font-heading mb-6 border-b border-[var(--color-brand-teal)]/30 pb-3 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
+              Key dates
+            </h2>
+            <ul className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+              {demoKeyDates.map((row) => (
+                <li className="py-4 first:pt-0 last:pb-0" key={row.id}>
+                  <p className="text-base leading-snug font-medium text-[var(--color-foreground)]">
+                    {row.title}
+                  </p>
+                  <p className="text-foreground-light mt-1 text-sm">{row.date}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <NextLink
+                href="#"
+                className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+              >
+                View all dates
+              </NextLink>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
@@ -86,7 +123,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
     >
       <div className="container max-w-3xl py-10">
         {(sectionTitle?.jsonValue || isEditing) && (
-          <h2 className="font-heading mb-8 text-xl font-semibold tracking-[0.12em] uppercase md:text-2xl">
+          <h2 className="font-heading mb-8 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
             <Text field={sectionTitle?.jsonValue} />
           </h2>
         )}
@@ -120,7 +157,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
               {viewAll?.jsonValue ? (
                 <Link
                   field={viewAll.jsonValue}
-                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
                 />
               ) : isEditing ? (
                 <p className="text-foreground-light text-sm">

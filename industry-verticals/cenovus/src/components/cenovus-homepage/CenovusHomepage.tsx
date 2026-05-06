@@ -15,12 +15,12 @@ export const Default = ({ params, rendering }: ComponentProps): JSX.Element => {
 
   return (
     <div className="cenovus-homepage font-body flex flex-col gap-8 lg:gap-10" id={id || undefined}>
-      <div className="cenovus-main-hero-band mx-auto w-full max-w-[1600px]">
+      <div className="cenovus-main-hero-band mx-auto w-full max-w-[1600px] rounded-2xl bg-[var(--color-background-accent)]/35 px-2 py-4 shadow-sm sm:px-4 lg:py-6">
         <div className={cenovusMainTwoColumnBandGridClass}>
           <Placeholder name={CENOVUS_HOMEPAGE_HERO_BAND} rendering={rendering} />
         </div>
       </div>
-      <div className="cenovus-main-news-spotlights-band mx-auto w-full max-w-[1600px]">
+      <div className="cenovus-main-news-spotlights-band mx-auto w-full max-w-[1600px] rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] px-2 py-4 shadow-sm sm:px-4 lg:py-6">
         <div className={cenovusMainTwoColumnBandGridClass}>
           <Placeholder name={CENOVUS_HOMEPAGE_NEWS_SPOTLIGHTS_BAND} rendering={rendering} />
         </div>

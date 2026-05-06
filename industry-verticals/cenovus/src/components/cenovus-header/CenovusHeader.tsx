@@ -18,6 +18,8 @@ import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
+import { CenovusHeaderDemoChrome } from './CenovusHeaderDemoChrome';
+
 const REGION_OPTIONS = ['Calgary', 'Toronto', 'Vancouver', 'Edmonton'] as const;
 
 interface NavSubLink {
@@ -169,7 +171,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   ];
 
   if (!isEditing && !ds) {
-    return null;
+    return <CenovusHeaderDemoChrome id={id} styles={styles} />;
   }
 
   return (
@@ -178,6 +180,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       className={`font-body bg-background text-foreground shadow-sm ${styles}`}
       id={id || undefined}
     >
+      <div className="h-1 bg-[var(--color-brand-teal)]" aria-hidden />
       {/* Utility bar */}
       <div className="border-border border-b bg-[var(--color-background-muted)]/60">
         <div className="container flex flex-col gap-3 py-2 text-sm md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-2">
@@ -251,7 +254,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       </div>
 
       {/* Main row */}
-      <div className="container flex items-center gap-4 py-3 lg:gap-8">
+      <div className="border-border container flex items-center gap-4 border-b-4 border-[var(--color-brand-teal)] py-3 lg:gap-8">
         <div className="flex min-w-0 shrink-0 items-center gap-3 lg:gap-6">
           {(hasLogo || isEditing) && (
             <NextLink
