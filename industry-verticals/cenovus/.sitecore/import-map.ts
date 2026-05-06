@@ -52,6 +52,9 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
 import { pageView } from '@sitecore-cloudsdk/events/browser';
 import config from 'sitecore.config';
+import { demoSpotlights, shouldShowCenovusDemo, demoKeyDates, demoHeroSection, demoHeroSlides, demoHeaderUtility, demoIntranetBrand, demoNav, demoRegionDefault, demoRegions, demoFooter, demoCompanyNews, defaultBrandLogo } from '@/lib/cenovus-demo';
+import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
+import { CenovusHeaderDemoChrome } from 'src/components/cenovus-header/CenovusHeaderDemoChrome';
 
 const importMap = [
   {
@@ -364,6 +367,36 @@ const importMap = [
     module: 'sitecore.config',
     exports: [
       { name: 'default', value: config },
+    ]
+  },
+  {
+    module: '@/lib/cenovus-demo',
+    exports: [
+      { name: 'demoSpotlights', value: demoSpotlights },
+      { name: 'shouldShowCenovusDemo', value: shouldShowCenovusDemo },
+      { name: 'demoKeyDates', value: demoKeyDates },
+      { name: 'demoHeroSection', value: demoHeroSection },
+      { name: 'demoHeroSlides', value: demoHeroSlides },
+      { name: 'demoHeaderUtility', value: demoHeaderUtility },
+      { name: 'demoIntranetBrand', value: demoIntranetBrand },
+      { name: 'demoNav', value: demoNav },
+      { name: 'demoRegionDefault', value: demoRegionDefault },
+      { name: 'demoRegions', value: demoRegions },
+      { name: 'demoFooter', value: demoFooter },
+      { name: 'demoCompanyNews', value: demoCompanyNews },
+      { name: 'defaultBrandLogo', value: defaultBrandLogo },
+    ]
+  },
+  {
+    module: '@/components/cenovus-brand/CenovusBrandLogo',
+    exports: [
+      { name: 'CenovusBrandLogo', value: CenovusBrandLogo },
+    ]
+  },
+  {
+    module: 'src/components/cenovus-header/CenovusHeaderDemoChrome',
+    exports: [
+      { name: 'CenovusHeaderDemoChrome', value: CenovusHeaderDemoChrome },
     ]
   }
 ] as ImportEntry[];

@@ -78,14 +78,20 @@ export const demoNav = [
   },
 ] as const;
 
+export type DemoStockTicker = {
+  label: string;
+  trend: 'up' | 'down';
+  display: string;
+};
+
 export const demoHeaderUtility = {
   welcomeText: 'Fluor intranet — welcome',
   regionPrefix: 'Office',
   searchPlaceholder: 'Search directory, projects, policies…',
   stocks: [
-    { label: 'FLR', trend: 'up' as const, display: 'FLR $51.84' },
-    { label: 'SPX', trend: 'up' as const, display: 'S&P 500 5,926' },
-  ],
+    { label: 'FLR', trend: 'up', display: 'FLR $51.84' },
+    { label: 'SPX', trend: 'down', display: 'S&P 500 5,926' },
+  ] satisfies DemoStockTicker[],
   utilityLinks: [
     { label: 'Ethics helpline', href: '#' },
     { label: 'Workday', href: '#' },

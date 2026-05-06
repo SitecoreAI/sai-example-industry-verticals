@@ -33,11 +33,13 @@ import * as Container from 'src/components/container/Container';
 import * as ColumnSplitter from 'src/components/column-splitter/ColumnSplitter';
 import * as CenovusSpotlights from 'src/components/cenovus-spotlights/CenovusSpotlights';
 import * as CenovusKeyDates from 'src/components/cenovus-key-dates/CenovusKeyDates';
+import * as CenovusHomepage from 'src/components/cenovus-homepage/CenovusHomepage';
 import * as CenovusHomeHero from 'src/components/cenovus-home-hero/CenovusHomeHero';
+import * as CenovusHeaderDemoChrome from 'src/components/cenovus-header/CenovusHeaderDemoChrome';
 import * as CenovusHeader from 'src/components/cenovus-header/CenovusHeader';
 import * as CenovusFooter from 'src/components/cenovus-footer/CenovusFooter';
 import * as CenovusCompanyNews from 'src/components/cenovus-company-news/CenovusCompanyNews';
-import * as CenovusHomepage from 'src/components/cenovus-homepage/CenovusHomepage';
+import * as CenovusBrandLogo from 'src/components/cenovus-brand/CenovusBrandLogo';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['BYOCWrapper', BYOCWrapper],
@@ -72,11 +74,13 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ColumnSplitter', { ...ColumnSplitter }],
   ['CenovusSpotlights', { ...CenovusSpotlights }],
   ['CenovusKeyDates', { ...CenovusKeyDates, componentType: 'client' }],
+  ['CenovusHomepage', { ...CenovusHomepage }],
   ['CenovusHomeHero', { ...CenovusHomeHero, componentType: 'client' }],
+  ['CenovusHeaderDemoChrome', { ...CenovusHeaderDemoChrome, componentType: 'client' }],
   ['CenovusHeader', { ...CenovusHeader, componentType: 'client' }],
   ['CenovusFooter', { ...CenovusFooter }],
   ['CenovusCompanyNews', { ...CenovusCompanyNews }],
-  ['CenovusHomepage', { ...CenovusHomepage }],
+  ['CenovusBrandLogo', { ...CenovusBrandLogo }],
 ]);
 
 export default componentMap;
