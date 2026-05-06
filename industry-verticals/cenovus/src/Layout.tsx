@@ -57,21 +57,17 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
           <DesignLibraryLayout />
         ) : (
           <>
-            <header>
-              <div id="header">
-                {route && <Placeholder name="headless-header" rendering={route} />}
-              </div>
-            </header>
+            <div id="header">
+              {route && <Placeholder name="headless-header" rendering={route} />}
+            </div>
             <main>
               <div id="content">
                 {route && <Placeholder name="headless-main" rendering={route} />}
               </div>
             </main>
-            <footer>
-              <div id="footer">
-                {route && <Placeholder name="headless-footer" rendering={route} />}
-              </div>
-            </footer>
+            <div id="footer">
+              {route && <Placeholder name="headless-footer" rendering={route} />}
+            </div>
           </>
         )}
       </div>

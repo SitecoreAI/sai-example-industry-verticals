@@ -61,7 +61,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
     >
       <div className="container py-12 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
-          <header className="lg:col-span-4 xl:col-span-3">
+          <div className="lg:col-span-4 xl:col-span-3">
             {(sectionTitle?.jsonValue || isEditing) && (
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] uppercase md:text-3xl">
                 <Text field={sectionTitle?.jsonValue} />
@@ -81,7 +81,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
                 ) : null}
               </div>
             )}
-          </header>
+          </div>
 
           <div className="lg:col-span-8 xl:col-span-9">
             {!items.length && isEditing && (
