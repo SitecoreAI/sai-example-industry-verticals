@@ -22,10 +22,6 @@ interface RouteFields {
   ogImage?: ImageField;
 }
 
-/** Stacks on small screens; from lg: first rendering ~8/12 cols, second ~4/12; single child spans full row. */
-const cenovusMainTwoColumnBandGridClass =
-  'grid w-full grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start lg:gap-8 [&>*:nth-child(1)]:min-w-0 [&>*:nth-child(1)]:lg:col-span-8 [&>*:nth-child(2)]:min-w-0 [&>*:nth-child(2)]:lg:col-span-4 [&>*:only-child]:lg:col-span-12';
-
 const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { layout, mode } = page;
   const { route } = layout.sitecore;
@@ -68,21 +64,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
             </header>
             <main>
               <div id="content">
-                {route && (
-                  <div className="cenovus-main-hero-band mx-auto w-full max-w-[1600px]">
-                    <div className={cenovusMainTwoColumnBandGridClass}>
-                      <Placeholder name="headless-main-hero-band" rendering={route} />
-                    </div>
-                  </div>
-                )}
                 {route && <Placeholder name="headless-main" rendering={route} />}
-                {route && (
-                  <div className="cenovus-main-news-spotlights-band mx-auto w-full max-w-[1600px]">
-                    <div className={cenovusMainTwoColumnBandGridClass}>
-                      <Placeholder name="headless-main-news-spotlights-band" rendering={route} />
-                    </div>
-                  </div>
-                )}
               </div>
             </main>
             <footer>

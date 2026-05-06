@@ -1,17 +1,17 @@
 ---
-ID: "b9e4d3c2-6f5a-4b8e-9d7c-2e3f4a5b6c7d"
+ID: "c0f5e4d3-7a6b-4c9d-8e1f-3f4a5b6c7d8e"
 Parent: "a8f3c2e1-5d4b-4c7a-9e8f-1a2b3c4d5e6f"
 Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
-Path: "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Headless Main Hero Band"
+Path: "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Cenovus Homepage News Spotlights Band"
 SharedFields:
 - ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
   Hint: Placeholder Key
-  Value: "headless-main-hero-band"
+  Value: "cenovus-homepage-news-spotlights-band"
 - ID: "e391b526-d0c5-439d-803e-17512eae6222"
   Hint: Allowed Controls
   Value: |
-    {F9A0B1C2-D3E4-45F6-A7B8-C9D0E1F2A3B4}
-    {5A747B45-B8EA-4C34-B5E5-D98AEFA700FB}
+    {DEFA4B5C-D6E7-4890-ABCD-EF0123456789}
+    {EFF11020-A020-4020-B020-000000000020}
 Languages:
 - Language: en
   Versions:
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20260506T120000Z
+      Value: 20260506T140000Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "00000000-0000-0000-0000-000000000002"
+      Value: "00000000-0000-0000-0000-000000000003"
