@@ -166,9 +166,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
                     />
                   )}
                   {isEditing && !slide?.slideImage?.jsonValue?.value?.src && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-neutral-300 text-sm text-neutral-600">
-                      Slide image
-                    </div>
+                    <div className="absolute inset-0 bg-neutral-300/90" aria-hidden />
                   )}
                 </>
               )}
@@ -202,11 +200,6 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
           </div>
 
           <div className="flex flex-col justify-center border-t border-[var(--color-border)] bg-[var(--color-background-accent)] px-6 py-10 lg:col-span-4 lg:border-t-0 lg:border-l lg:px-10 lg:py-14">
-            {!slide && !showDemo && isEditing && (
-              <p className="text-sm text-neutral-500">
-                Add one or more Cenovus Home Hero Slide items.
-              </p>
-            )}
             {showDemo && demoSlide ? (
               <>
                 <h3 className="font-heading text-2xl leading-tight font-semibold tracking-tight text-[var(--color-brand-teal)] md:text-3xl">

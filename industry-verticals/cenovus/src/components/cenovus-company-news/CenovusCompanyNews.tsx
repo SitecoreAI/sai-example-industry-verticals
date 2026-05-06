@@ -123,28 +123,17 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
                 <Text field={sectionTitle?.jsonValue} />
               </h2>
             )}
-            {(seeAll?.jsonValue?.value?.href || isEditing) && (
+            {seeAll?.jsonValue && (
               <div className="mt-6">
-                {seeAll?.jsonValue ? (
-                  <Link
-                    field={seeAll.jsonValue}
-                    className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-                  />
-                ) : isEditing ? (
-                  <p className="text-foreground-light text-sm">
-                    Configure the See All link on the datasource.
-                  </p>
-                ) : null}
+                <Link
+                  field={seeAll.jsonValue}
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                />
               </div>
             )}
           </div>
 
           <div className="lg:col-span-8 xl:col-span-9">
-            {!items.length && isEditing && (
-              <p className="text-foreground-light text-sm">
-                Add Cenovus Company News Item entries under this datasource.
-              </p>
-            )}
             <ul className="grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
               {items.map((item) => {
                 const hasDate = Boolean(item.newsDate?.jsonValue?.value);

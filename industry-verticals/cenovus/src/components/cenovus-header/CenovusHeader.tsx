@@ -15,12 +15,11 @@ import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-r
 import NextLink from 'next/link';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
+import { demoIntranetBrand, demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
 import { CenovusHeaderDemoChrome } from './CenovusHeaderDemoChrome';
-
-const REGION_OPTIONS = ['Calgary', 'Toronto', 'Vancouver', 'Edmonton'] as const;
 
 interface NavSubLink {
   id: string;
@@ -135,7 +134,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const searchAction = searchUrlRaw.length > 0 ? searchUrlRaw : '/search';
 
   const regionDefault = String(ds?.regionName?.jsonValue?.value ?? '').trim();
-  const [selectedRegion, setSelectedRegion] = useState(regionDefault || REGION_OPTIONS[0]);
+  const [selectedRegion, setSelectedRegion] = useState(regionDefault || demoRegionDefault);
   useEffect(() => {
     if (regionDefault) {
       setSelectedRegion(regionDefault);
@@ -167,7 +166,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
     { label: 'integrity helpline', field: ds?.utilityIntegrity },
     { label: 'Workday', field: ds?.utilityWorkday },
     { label: 'SelfServe', field: ds?.utilitySelfServe },
-    { label: 'cenovus.com', field: ds?.utilityCenovusCom },
+    { label: 'fluor.com', field: ds?.utilityCenovusCom },
   ];
 
   if (!isEditing && !ds) {
@@ -214,7 +213,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
                   className="border-border absolute left-0 z-50 mt-1 min-w-[12rem] rounded-md border bg-[var(--color-background)] py-1 shadow-md"
                   role="listbox"
                 >
-                  {REGION_OPTIONS.map((r) => (
+                  {demoRegions.map((r) => (
                     <li key={r} role="option" aria-selected={r === selectedRegion}>
                       <button
                         type="button"
@@ -260,7 +259,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
             <NextLink
               href="/"
               className="block shrink-0 text-[var(--color-foreground)] no-underline"
-              aria-label="Cenovus Energy home"
+              aria-label={demoIntranetBrand.homeAriaLabel}
             >
               {hasLogo ? (
                 <ContentSdkImage
@@ -269,9 +268,11 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
                 />
               ) : (
                 <div className="font-heading flex flex-col leading-tight">
-                  <span className="text-2xl font-semibold lowercase italic">cenovus</span>
+                  <span className="text-2xl font-semibold lowercase italic">
+                    {demoIntranetBrand.wordmarkLine1}
+                  </span>
                   <span className="text-[0.65rem] font-normal tracking-[0.2em] uppercase">
-                    Energy
+                    {demoIntranetBrand.wordmarkLine2}
                   </span>
                 </div>
               )}
@@ -437,12 +438,6 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
           </Drawer>
         </div>
       </div>
-
-      {isEditing && !ds && (
-        <p className="text-foreground-light container py-2 text-sm">
-          Connect a Cenovus Header datasource (under Cenovus Header Folder in Data).
-        </p>
-      )}
     </header>
   );
 };

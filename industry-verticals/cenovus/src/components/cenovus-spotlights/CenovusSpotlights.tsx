@@ -110,12 +110,6 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
           </h2>
         )}
 
-        {!items.length && isEditing && (
-          <p className="text-foreground-light mb-6 text-sm">
-            Add Cenovus Spotlight Item entries under this datasource.
-          </p>
-        )}
-
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           {items.map((item) => {
             const imgField = item.spotlightImage?.jsonValue;

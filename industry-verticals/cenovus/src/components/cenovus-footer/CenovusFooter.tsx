@@ -15,7 +15,7 @@ import { ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
 import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
-import { demoFooter } from '@/lib/cenovus-demo';
+import { demoFooter, demoIntranetBrand } from '@/lib/cenovus-demo';
 import { IGQLTextField } from '@/types/igql';
 
 interface FooterLinkItem {
@@ -123,14 +123,14 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
               <NextLink
                 href="/"
                 className="inline-block max-w-[200px] shrink-0 no-underline"
-                aria-label="Cenovus Energy home"
+                aria-label={demoIntranetBrand.homeAriaLabel}
               >
                 <div className="font-heading leading-tight">
                   <span className="text-2xl font-semibold text-[var(--color-brand-teal)] lowercase italic">
-                    cenovus
+                    {demoIntranetBrand.wordmarkLine1}
                   </span>
                   <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] text-[var(--color-accent)] uppercase">
-                    Energy
+                    {demoIntranetBrand.wordmarkLine2}
                   </span>
                 </div>
               </NextLink>
@@ -169,9 +169,6 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
               <h2 className="font-heading text-base font-bold text-[var(--color-brand-teal)]">
                 {demoFooter.feedbackHeading}
               </h2>
-              <p className="text-foreground-light text-sm">
-                Demo form — wireframe only (no submission).
-              </p>
               <textarea
                 rows={5}
                 readOnly
@@ -223,7 +220,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
               <NextLink
                 href="/"
                 className="inline-block max-w-[200px] shrink-0 no-underline"
-                aria-label="Cenovus Energy home"
+                aria-label={demoIntranetBrand.homeAriaLabel}
               >
                 {hasLogo ? (
                   <ContentSdkImage
@@ -232,9 +229,11 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                   />
                 ) : (
                   <div className="font-heading leading-tight">
-                    <span className="text-2xl font-semibold lowercase italic">cenovus</span>
+                    <span className="text-2xl font-semibold lowercase italic">
+                      {demoIntranetBrand.wordmarkLine1}
+                    </span>
                     <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] uppercase">
-                      Energy
+                      {demoIntranetBrand.wordmarkLine2}
                     </span>
                   </div>
                 )}
@@ -263,9 +262,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                       <SitecoreLink
                         field={f}
                         className="text-foreground-light hover:text-foreground text-sm underline-offset-4 transition-colors hover:underline"
-                      >
-                        {!hasHref(f) && isEditing ? 'Footer link' : undefined}
-                      </SitecoreLink>
+                      />
                       {hasHref(f) && external && (
                         <ExternalLink
                           className="text-foreground-light size-3.5 shrink-0"
@@ -277,11 +274,6 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                 );
               })}
             </ul>
-            {!linkItems.length && isEditing && (
-              <p className="text-foreground-light text-sm">
-                Add Cenovus Footer Link Item entries under this datasource.
-              </p>
-            )}
           </div>
 
           {/* Support */}
@@ -296,19 +288,14 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                 <RichText field={ds?.supportBody?.jsonValue} />
               </div>
             )}
-            {(hasHref(ds?.supportCta?.jsonValue) || isEditing) &&
-              (ds?.supportCta?.jsonValue ? (
-                <SitecoreLink
-                  field={ds.supportCta.jsonValue}
-                  className="font-heading mt-1 inline-flex items-center gap-2 text-sm font-bold tracking-wide uppercase no-underline transition-opacity hover:opacity-80"
-                >
-                  <ArrowRight className="size-4 shrink-0" aria-hidden />
-                </SitecoreLink>
-              ) : isEditing ? (
-                <p className="text-foreground-light mt-1 text-sm">
-                  Configure Support CTA on the datasource.
-                </p>
-              ) : null)}
+            {ds?.supportCta?.jsonValue && (
+              <SitecoreLink
+                field={ds.supportCta.jsonValue}
+                className="font-heading mt-1 inline-flex items-center gap-2 text-sm font-bold tracking-wide uppercase no-underline transition-opacity hover:opacity-80"
+              >
+                <ArrowRight className="size-4 shrink-0" aria-hidden />
+              </SitecoreLink>
+            )}
           </div>
 
           {/* Feedback */}
@@ -350,15 +337,9 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                   placeholder={placeholder}
                   className="border-border focus-visible:ring-accent min-h-[120px] w-full resize-y rounded-lg border-0 bg-[var(--color-background)] p-4 text-sm text-[var(--color-foreground)] shadow-inner placeholder:text-[var(--color-foreground-light)] focus-visible:ring-2 focus-visible:outline-none"
                 />
-                {isEditing && (
-                  <p className="text-foreground-light text-xs">
-                    Set Feedback Form Action Url on the datasource to POST this form.
-                  </p>
-                )}
                 <button
                   type="button"
                   disabled
-                  title="Feedback endpoint is not configured"
                   className="font-heading inline-flex w-fit cursor-not-allowed items-center gap-2 self-start border-0 bg-transparent p-0 text-sm font-bold tracking-wide uppercase opacity-60"
                 >
                   {sendLabel}
@@ -408,12 +389,6 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
           </div>
         </div>
       </div>
-
-      {isEditing && !ds && (
-        <p className="text-foreground-light container py-4 text-sm">
-          Connect a Cenovus Footer datasource (under Cenovus Footer Folder in Data).
-        </p>
-      )}
     </footer>
   );
 };

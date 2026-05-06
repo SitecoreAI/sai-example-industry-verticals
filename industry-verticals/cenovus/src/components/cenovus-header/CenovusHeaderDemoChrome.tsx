@@ -1,6 +1,13 @@
 'use client';
 
-import { demoHeaderUtility, demoNav } from '@/lib/cenovus-demo';
+import {
+  demoHeaderUtility,
+  demoIntranetBrand,
+  demoNav,
+  demoRegionDefault,
+  demoRegions,
+  type DemoRegion,
+} from '@/lib/cenovus-demo';
 import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
 import NextLink from 'next/link';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
@@ -17,6 +24,7 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
   const searchAction = '/search';
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
   const [regionOpen, setRegionOpen] = useState(false);
+  const [selectedOffice, setSelectedOffice] = useState<DemoRegion>(demoRegionDefault);
   const shellRef = useRef<HTMLElement>(null);
 
   const closeAll = useCallback(() => {
@@ -58,7 +66,7 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
                 }}
               >
                 <span className="text-foreground-light">{demoHeaderUtility.regionPrefix}</span>
-                <span className="text-foreground font-semibold">Calgary</span>
+                <span className="text-foreground font-semibold">{selectedOffice}</span>
                 <ChevronDown className="size-4 shrink-0 opacity-70" aria-hidden />
               </button>
               {regionOpen && (
@@ -66,12 +74,15 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
                   className="border-border absolute left-0 z-50 mt-1 min-w-[12rem] rounded-md border bg-[var(--color-background)] py-1 shadow-md"
                   role="listbox"
                 >
-                  {(['Calgary', 'Toronto', 'Vancouver', 'Edmonton'] as const).map((r) => (
+                  {demoRegions.map((r) => (
                     <li key={r}>
                       <button
                         type="button"
                         className="hover:bg-background-accent block w-full px-3 py-2 text-left text-sm"
-                        onClick={() => setRegionOpen(false)}
+                        onClick={() => {
+                          setSelectedOffice(r);
+                          setRegionOpen(false);
+                        }}
                       >
                         {r}
                       </button>
@@ -122,14 +133,14 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
           <NextLink
             href="/"
             className="block shrink-0 text-[var(--color-foreground)] no-underline"
-            aria-label="Cenovus Energy home"
+            aria-label={demoIntranetBrand.homeAriaLabel}
           >
             <div className="font-heading flex flex-col leading-tight">
               <span className="text-2xl font-semibold text-[var(--color-brand-teal)] lowercase italic">
-                cenovus
+                {demoIntranetBrand.wordmarkLine1}
               </span>
               <span className="text-[0.65rem] font-normal tracking-[0.2em] text-[var(--color-accent)] uppercase">
-                Energy
+                {demoIntranetBrand.wordmarkLine2}
               </span>
             </div>
           </NextLink>

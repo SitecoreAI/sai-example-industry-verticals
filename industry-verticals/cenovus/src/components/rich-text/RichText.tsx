@@ -20,7 +20,7 @@ export const Default = ({ params, fields }: RichTextProps): JSX.Element => {
           <ContentSdkRichText field={fields.Text} />
         ) : (
           <span className="is-empty-hint border-border bg-background-accent/60 text-foreground-light inline-flex rounded-md border border-dashed px-4 py-6 text-sm">
-            Rich text — connect a datasource or add copy in Experience Editor.
+            Rich text
           </span>
         )}
       </div>

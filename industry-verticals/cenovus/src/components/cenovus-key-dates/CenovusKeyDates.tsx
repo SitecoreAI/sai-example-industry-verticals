@@ -128,12 +128,6 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
           </h2>
         )}
 
-        {!items.length && isEditing && (
-          <p className="text-foreground-light mb-6 text-sm">
-            Add Cenovus Key Date Item entries under this datasource.
-          </p>
-        )}
-
         <ul className="divide-y divide-neutral-200 border-y border-neutral-200">
           {visibleItems.map((row) => (
             <li className="py-5 first:pt-0 last:pb-0" key={row.id}>
@@ -152,18 +146,12 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
         </ul>
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {(viewAll?.jsonValue?.value?.href || isEditing) && (
+          {viewAll?.jsonValue && (
             <div>
-              {viewAll?.jsonValue ? (
-                <Link
-                  field={viewAll.jsonValue}
-                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-                />
-              ) : isEditing ? (
-                <p className="text-foreground-light text-sm">
-                  Configure the View All link on the datasource.
-                </p>
-              ) : null}
+              <Link
+                field={viewAll.jsonValue}
+                className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+              />
             </div>
           )}
 

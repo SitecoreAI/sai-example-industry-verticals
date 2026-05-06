@@ -1,5 +1,5 @@
 /**
- * Wireframe-style demo content for Cenovus when CMS datasources are empty.
+ * Wireframe-style demo content when CMS datasources are empty (Fluor intranet persona).
  * When editing in Pages, CMS fields take precedence.
  */
 
@@ -15,135 +15,147 @@ export function shouldShowCenovusDemo(isEditing: boolean, hasDatasourceContent: 
   return !isEditing && !hasDatasourceContent;
 }
 
+/** Text logo / aria when no image logo is configured (demo + CMS fallback). */
+export const demoIntranetBrand = {
+  homeAriaLabel: 'Fluor intranet home',
+  wordmarkLine1: 'fluor',
+  wordmarkLine2: 'Intranet',
+} as const;
+
+export const demoRegions = ['Dallas', 'Houston', 'Greenville', 'Aliso Viejo', 'London'] as const;
+export type DemoRegion = (typeof demoRegions)[number];
+export const demoRegionDefault: DemoRegion = 'Dallas';
+
 export const demoNav = [
   {
-    label: 'Safety & operations',
+    label: 'My work',
     href: '#',
     children: [
-      { label: 'Operations dashboard', href: '#' },
-      { label: 'Emergency procedures', href: '#' },
-      { label: 'Field updates', href: '#' },
+      { label: 'Timesheets & charge codes', href: '#' },
+      { label: 'Project controls dashboard', href: '#' },
+      { label: 'Drawing transmittals', href: '#' },
     ],
   },
   {
-    label: 'Tools & resources',
+    label: 'People & HR',
     href: '#',
     children: [
-      { label: 'Employee portal', href: '#' },
-      { label: 'IT service desk', href: '#' },
-      { label: 'Brand guidelines', href: '#' },
+      { label: 'Workday', href: '#' },
+      { label: 'Benefits & wellbeing', href: '#' },
+      { label: 'Learning @ Fluor', href: '#' },
     ],
   },
   {
-    label: 'Newsroom',
+    label: 'Digital workplace',
     href: '#',
     children: [
-      { label: 'Press releases', href: '#' },
-      { label: 'Media contacts', href: '#' },
+      { label: 'ServiceNow IT', href: '#' },
+      { label: 'Teams & collaboration', href: '#' },
+      { label: 'Cybersecurity alerts', href: '#' },
     ],
   },
   {
-    label: 'Careers',
+    label: 'Travel & expenses',
     href: '#',
     children: [],
   },
   {
-    label: 'Investors',
+    label: 'News & leadership',
     href: '#',
     children: [
-      { label: 'Quarterly results', href: '#' },
-      { label: 'Annual reports', href: '#' },
+      { label: 'Town hall replays', href: '#' },
+      { label: 'Executive messages', href: '#' },
     ],
   },
 ] as const;
 
 export const demoHeaderUtility = {
-  welcomeText: 'Employee hub — Calgary HQ',
-  regionPrefix: 'Region',
-  searchPlaceholder: 'Search people, policies, tools…',
+  welcomeText: 'Fluor intranet — welcome',
+  regionPrefix: 'Office',
+  searchPlaceholder: 'Search directory, projects, policies…',
   stocks: [
-    { label: 'CVE', trend: 'up' as const, display: 'CVE $28.42' },
-    { label: 'WTI', trend: 'down' as const, display: 'WTI $72.10' },
+    { label: 'FLR', trend: 'up' as const, display: 'FLR $51.84' },
+    { label: 'SPX', trend: 'up' as const, display: 'S&P 500 5,926' },
   ],
   utilityLinks: [
-    { label: 'Integrity helpline', href: '#' },
+    { label: 'Ethics helpline', href: '#' },
     { label: 'Workday', href: '#' },
-    { label: 'SelfServe', href: '#' },
-    { label: 'cenovus.com', href: '#', external: true },
+    { label: 'ServiceNow', href: '#' },
+    { label: 'fluor.com', href: '#', external: true },
   ],
 };
 
 export const demoHeroSection = {
-  title: 'How we create value',
+  title: 'Building a better world',
   description:
-    'Operational excellence, disciplined capital, and clear communication across our regions.',
+    'Your hub for projects, people, and policies—aligned with Fluor standards for safety, quality, and delivery.',
 };
 
 export const demoHeroSlides = [
   {
     id: 'demo-slide-1',
-    title: 'Town hall: Q2 priorities',
+    title: 'Global town hall — strategy & outlook',
     description:
-      '<p>Join leadership for updates on safety metrics, production outlook, and community partnerships.</p>',
-    date: '2026-06-15',
-    cta: 'Add to calendar',
+      '<p>Replay available for all regions. Q&amp;A summary posted to leadership channels.</p>',
+    date: '2026-06-04',
+    cta: 'Watch replay',
     gradient: 'from-[#005568] to-[#003d4d]',
   },
   {
     id: 'demo-slide-2',
-    title: 'Maintenance window — enterprise apps',
+    title: 'Scheduled maintenance: SAP & VPN',
     description:
-      '<p>Planned downtime Sunday 2:00–6:00 AM MT. VPN and SSO may be briefly unavailable.</p>',
-    date: '2026-06-22',
-    cta: 'Read bulletin',
+      '<p>Saturday 1:00–5:00 AM CT. Remote access may cycle briefly during the window.</p>',
+    date: '2026-06-14',
+    cta: 'Read IT bulletin',
     gradient: 'from-[#b66721] to-[#8a4e19]',
   },
 ];
 
 export const demoKeyDates = [
-  { id: 'kd1', title: 'Benefits enrolment opens', date: 'June 9 — July 4, 2026' },
-  { id: 'kd2', title: 'Corporate volunteer day', date: 'July 18, 2026' },
-  { id: 'kd3', title: 'Investor day (virtual)', date: 'August 6, 2026' },
-  { id: 'kd4', title: 'Town hall — Denver office', date: 'September 12, 2026' },
+  { id: 'kd1', title: 'Annual compliance attestation due', date: 'June 20, 2026' },
+  { id: 'kd2', title: 'Greenville office safety stand-down', date: 'July 9, 2026' },
+  { id: 'kd3', title: 'Mid-year performance conversations', date: 'July 21 — Aug 8, 2026' },
+  { id: 'kd4', title: 'Enterprise engineering summit (virtual)', date: 'September 3, 2026' },
 ];
 
 export const demoCompanyNews = {
-  title: 'Company news',
-  seeAllLabel: 'See all stories',
+  title: 'News & announcements',
+  seeAllLabel: 'View all',
   items: [
     {
       id: 'n1',
-      date: 'June 2, 2026',
-      location: 'Calgary',
-      headline: 'Cenovus publishes annual sustainability report',
+      date: 'June 3, 2026',
+      location: 'Irving',
+      headline: 'Fluor awarded FEED study for Gulf Coast chemical expansion',
       summary:
-        '<p>Highlights progress on emissions intensity, water stewardship, and Indigenous partnerships.</p>',
+        '<p>Multi-office execution with shared engineering centers in Houston and Manila.</p>',
       author: 'Corporate Communications',
     },
     {
       id: 'n2',
-      date: 'May 28, 2026',
-      location: 'Field',
-      headline: 'Safety milestone: 365 days LTI-free at Christina Lake',
-      summary:
-        '<p>Teams recognized for hazard identification and peer-to-peer coaching programs.</p>',
-      author: 'HSE Central',
+      date: 'May 29, 2026',
+      location: 'Greenville',
+      headline: 'Zero recordables milestone recognized at packaging facility project',
+      summary: '<p>Joint venture teams highlighted for field leadership and pre-job briefings.</p>',
+      author: 'HSE Operations',
     },
     {
       id: 'n3',
-      date: 'May 14, 2026',
-      location: 'Houston',
-      headline: 'Investor webcast replay available',
-      summary: '<p>Replay and slides from the latest guidance and balance sheet discussion.</p>',
+      date: 'May 16, 2026',
+      location: 'London',
+      headline: 'Investor call replay and slide deck posted',
+      summary: '<p>Guidance, backlog, and cash discussion from the latest quarterly webcast.</p>',
       author: 'Investor Relations',
     },
     {
       id: 'n4',
-      date: 'May 6, 2026',
-      location: 'Toronto',
-      headline: 'New partnership supports STEM scholarships',
-      summary: '<p>Funding for students in communities near operating assets.</p>',
-      author: 'Community Investment',
+      date: 'May 7, 2026',
+      location: 'Aliso Viejo',
+      headline: 'STEM scholarship recipients announced',
+      summary:
+        '<p>Partnerships with schools near major project sites for the upcoming academic year.</p>',
+      author: 'Community & Citizenship',
     },
   ],
 };
@@ -153,13 +165,13 @@ export const demoSpotlights = {
   items: [
     {
       id: 's1',
-      title: 'Digital field tickets pilot',
-      subtitle: 'Operations',
+      title: 'Advanced modularization pilot — Aliso Viejo',
+      subtitle: 'Innovation',
     },
     {
       id: 's2',
-      title: 'ERG spotlight: Pride network',
-      subtitle: 'People & culture',
+      title: 'Volunteer week: 2,400 hours served globally',
+      subtitle: 'Community',
     },
   ],
 };
@@ -167,15 +179,15 @@ export const demoSpotlights = {
 export const demoFooter = {
   linksHeading: 'Quick links',
   links: [
-    { label: 'Code of conduct', href: '#' },
-    { label: 'Privacy & data', href: '#' },
+    { label: 'Code of Business Conduct', href: '#' },
+    { label: 'Information security', href: '#' },
     { label: 'Accessibility', href: '#' },
-    { label: 'Supplier portal', href: '#' },
+    { label: 'Procurement portal', href: '#' },
   ],
   supportHeading: 'Need help?',
   supportHtml:
-    '<p>IT Service Desk <strong>403-555-0199</strong> · HR Connect <strong>1-888-555-0142</strong></p>',
+    '<p>IT Service Desk <strong>469-555-0140</strong> · HR Answers <strong>1-866-555-0193</strong></p>',
   supportCta: 'Visit support hub',
   feedbackHeading: 'Feedback',
-  copyright: '© 2026 Cenovus Energy Inc. Demo experience — not production content.',
+  copyright: '© 2026 Fluor Corporation',
 };
