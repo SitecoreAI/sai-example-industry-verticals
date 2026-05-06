@@ -15,6 +15,7 @@ import { ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
 import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
+import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { demoFooter, demoIntranetBrand } from '@/lib/cenovus-demo';
 import { IGQLTextField } from '@/types/igql';
 
@@ -125,15 +126,11 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                 className="inline-block max-w-[200px] shrink-0 no-underline"
                 aria-label={demoIntranetBrand.homeAriaLabel}
               >
-                <div className="font-heading leading-tight">
-                  <span className="text-2xl font-semibold text-[var(--color-brand-teal)] lowercase italic">
-                    {demoIntranetBrand.wordmarkLine1}
-                  </span>
-                  <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] text-[var(--color-accent)] uppercase">
-                    {demoIntranetBrand.wordmarkLine2}
-                  </span>
-                </div>
+                <CenovusBrandLogo className="h-auto max-h-14 w-full object-contain object-left" />
               </NextLink>
+              <p className="text-foreground-light max-w-[17rem] text-sm leading-relaxed">
+                {demoFooter.brandBlurb}
+              </p>
             </div>
             <div>
               <h2 className="font-heading mb-4 text-base font-bold text-[var(--color-brand-teal)]">
@@ -157,7 +154,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                 {demoFooter.supportHeading}
               </h2>
               <div
-                className="text-foreground-light text-sm leading-relaxed [&_strong]:text-[var(--color-foreground)]"
+                className="text-foreground-light text-sm leading-relaxed [&_p+p]:mt-3 [&_strong]:text-[var(--color-foreground)]"
                 dangerouslySetInnerHTML={{ __html: demoFooter.supportHtml }}
               />
               <span className="font-heading mt-1 inline-flex items-center gap-2 text-sm font-bold tracking-wide text-[var(--color-accent)] uppercase">
@@ -169,11 +166,14 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
               <h2 className="font-heading text-base font-bold text-[var(--color-brand-teal)]">
                 {demoFooter.feedbackHeading}
               </h2>
+              <p className="text-foreground-light text-sm leading-relaxed">
+                {demoFooter.feedbackIntro}
+              </p>
               <textarea
                 rows={5}
                 readOnly
-                placeholder="Your feedback"
-                className="border-border min-h-[120px] w-full resize-y rounded-lg border-0 bg-[var(--color-background)] p-4 text-sm shadow-inner"
+                placeholder={demoFooter.feedbackPlaceholder}
+                className="border-border min-h-[120px] w-full resize-y rounded-lg border-0 bg-[var(--color-background)] p-4 text-sm shadow-inner placeholder:text-[var(--color-foreground-light)]"
               />
             </div>
           </div>
@@ -228,14 +228,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                     className="h-auto max-h-14 w-full object-contain object-left"
                   />
                 ) : (
-                  <div className="font-heading leading-tight">
-                    <span className="text-2xl font-semibold lowercase italic">
-                      {demoIntranetBrand.wordmarkLine1}
-                    </span>
-                    <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] uppercase">
-                      {demoIntranetBrand.wordmarkLine2}
-                    </span>
-                  </div>
+                  <CenovusBrandLogo className="h-auto max-h-14 w-full object-contain object-left" />
                 )}
               </NextLink>
             )}

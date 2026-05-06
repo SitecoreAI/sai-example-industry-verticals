@@ -1,6 +1,6 @@
 /**
- * Wireframe-style demo content when CMS datasources are empty (Fluor intranet persona).
- * When editing in Pages, CMS fields take precedence.
+ * Fluor intranet sample content used when route components have no CMS datasource yet.
+ * In Experience Editor or Pages, authored fields replace this content.
  */
 
 /**
@@ -15,11 +15,20 @@ export function shouldShowCenovusDemo(isEditing: boolean, hasDatasourceContent: 
   return !isEditing && !hasDatasourceContent;
 }
 
-/** Text logo / aria when no image logo is configured (demo + CMS fallback). */
+/** Home link label on the header/footer logo (CMS image or default below). */
 export const demoIntranetBrand = {
-  homeAriaLabel: 'Fluor intranet home',
-  wordmarkLine1: 'fluor',
-  wordmarkLine2: 'Intranet',
+  homeAriaLabel: 'Cenovus intranet home',
+} as const;
+
+/**
+ * Default logo file in `/public` when no logo image is set in Sitecore.
+ * Replace `cenovus-logo.svg` or point `src` at your own asset (e.g. `.png`).
+ */
+export const defaultBrandLogo = {
+  src: '/cenovus-logo.svg',
+  width: 200,
+  height: 48,
+  alt: 'Cenovus',
 } as const;
 
 export const demoRegions = ['Dallas', 'Houston', 'Greenville', 'Aliso Viejo', 'London'] as const;
@@ -93,7 +102,7 @@ export const demoHeroSection = {
 
 export const demoHeroSlides = [
   {
-    id: 'demo-slide-1',
+    id: 'intranet-hero-1',
     title: 'Global town hall — strategy & outlook',
     description:
       '<p>Replay available for all regions. Q&amp;A summary posted to leadership channels.</p>',
@@ -102,7 +111,7 @@ export const demoHeroSlides = [
     gradient: 'from-[#005568] to-[#003d4d]',
   },
   {
-    id: 'demo-slide-2',
+    id: 'intranet-hero-2',
     title: 'Scheduled maintenance: SAP & VPN',
     description:
       '<p>Saturday 1:00–5:00 AM CT. Remote access may cycle briefly during the window.</p>',
@@ -177,17 +186,27 @@ export const demoSpotlights = {
 };
 
 export const demoFooter = {
-  linksHeading: 'Quick links',
+  /** Column under logo — matches typical intranet wireframe “brand + notice” stack. */
+  brandBlurb:
+    'Internal networks and tools for Cenovus employees and authorized contractors. Protect confidential information—do not forward externally without approval.',
+  linksHeading: 'Popular shortcuts',
   links: [
-    { label: 'Code of Business Conduct', href: '#' },
-    { label: 'Information security', href: '#' },
-    { label: 'Accessibility', href: '#' },
-    { label: 'Procurement portal', href: '#' },
+    { label: 'Workday (pay, time & absence)', href: '#' },
+    { label: 'IT service catalog & outages', href: '#' },
+    { label: 'Travel, corporate card & safety', href: '#' },
+    { label: 'Policies, standards & delegation of authority', href: '#' },
+    { label: 'Integrity Helpline & ethics resources', href: '#' },
+    { label: 'Operations readiness & JSA library', href: '#' },
   ],
-  supportHeading: 'Need help?',
-  supportHtml:
-    '<p>IT Service Desk <strong>469-555-0140</strong> · HR Answers <strong>1-866-555-0193</strong></p>',
-  supportCta: 'Visit support hub',
-  feedbackHeading: 'Feedback',
-  copyright: '© 2026 Fluor Corporation',
+  supportHeading: 'IT & HR support',
+  supportHtml: `<p><strong>IT Service Desk</strong> · Calgary <strong>403-769-5500</strong> · Toll-free <strong>1-855-555-0148</strong></p><p>Monday–Friday · 6:00 AM–6:00 PM MT · Critical production issues escalated after hours via on-call.</p><p><strong>HR Connect</strong> · Benefits, payroll & mobility <strong>1-888-555-0175</strong></p>`,
+  supportCta: 'Open the help & service hub',
+  feedbackHeading: 'Site feedback',
+  feedbackIntro:
+    'Tell us what would make this hub easier to use—broken links, confusing labels, or missing content. Messages are reviewed by Workplace Communications with the digital workplace team.',
+  feedbackPlaceholder:
+    'Describe the page, what you tried to do, and what would have helped (screenshots welcome in the full form).',
+  /** Bottom bar — corporate-style legal line plus copyright. */
+  copyright:
+    '© 2026 Cenovus Energy Inc. · Employees & authorized contractors · Confidential · Privacy · Accessibility · Terms of use',
 };

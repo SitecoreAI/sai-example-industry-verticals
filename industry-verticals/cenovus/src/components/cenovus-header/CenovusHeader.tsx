@@ -15,6 +15,7 @@ import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-r
 import NextLink from 'next/link';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
+import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { demoIntranetBrand, demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
@@ -267,14 +268,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
                   className="h-10 w-auto max-w-[200px] object-contain"
                 />
               ) : (
-                <div className="font-heading flex flex-col leading-tight">
-                  <span className="text-2xl font-semibold lowercase italic">
-                    {demoIntranetBrand.wordmarkLine1}
-                  </span>
-                  <span className="text-[0.65rem] font-normal tracking-[0.2em] uppercase">
-                    {demoIntranetBrand.wordmarkLine2}
-                  </span>
-                </div>
+                <CenovusBrandLogo className="h-10 w-auto max-w-[200px] object-contain" priority />
               )}
             </NextLink>
           )}

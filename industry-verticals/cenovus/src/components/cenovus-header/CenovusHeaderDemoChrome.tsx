@@ -1,5 +1,6 @@
 'use client';
 
+import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import {
   demoHeaderUtility,
   demoIntranetBrand,
@@ -19,7 +20,7 @@ type Props = {
   styles?: string;
 };
 
-/** Hardcoded wireframe header when no CMS datasource (demo). */
+/** Full intranet header layout when no CMS header datasource is connected. */
 export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element {
   const searchAction = '/search';
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
@@ -135,14 +136,7 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
             className="block shrink-0 text-[var(--color-foreground)] no-underline"
             aria-label={demoIntranetBrand.homeAriaLabel}
           >
-            <div className="font-heading flex flex-col leading-tight">
-              <span className="text-2xl font-semibold text-[var(--color-brand-teal)] lowercase italic">
-                {demoIntranetBrand.wordmarkLine1}
-              </span>
-              <span className="text-[0.65rem] font-normal tracking-[0.2em] text-[var(--color-accent)] uppercase">
-                {demoIntranetBrand.wordmarkLine2}
-              </span>
-            </div>
+            <CenovusBrandLogo className="h-10 w-auto max-w-[200px] object-contain" priority />
           </NextLink>
 
           <nav
