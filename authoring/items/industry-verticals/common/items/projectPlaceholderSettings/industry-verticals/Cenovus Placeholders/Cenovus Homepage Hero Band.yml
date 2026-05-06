@@ -6,7 +6,7 @@ Path: "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus 
 SharedFields:
 - ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
   Hint: Placeholder Key
-  Value: "cenovus-homepage-hero-band"
+  Value: "cenovus-homepage-hero-band-{*}"
 - ID: "e391b526-d0c5-439d-803e-17512eae6222"
   Hint: Allowed Controls
   Value: |

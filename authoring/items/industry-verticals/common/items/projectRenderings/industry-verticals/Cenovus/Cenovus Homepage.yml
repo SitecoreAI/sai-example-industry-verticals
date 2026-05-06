@@ -7,6 +7,11 @@ SharedFields:
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: CenovusHomepage
+- ID: "069a8361-b1cd-437c-8c32-a3be78941446"
+  Hint: Placeholders
+  Value: |
+    {B9E4D3C2-6F5A-4B8E-9D7C-2E3F4A5B6C7D}
+    {C0F5E4D3-7A6B-4C9D-8E1F-3F4A5B6C7D8E}
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/32x32/window_view.png

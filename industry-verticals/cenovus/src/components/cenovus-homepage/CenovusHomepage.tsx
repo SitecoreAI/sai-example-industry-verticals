@@ -6,9 +6,9 @@ import { ComponentProps } from 'lib/component-props';
 const cenovusMainTwoColumnBandGridClass =
   'grid w-full grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start lg:gap-8 [&>*:nth-child(1)]:min-w-0 [&>*:nth-child(1)]:lg:col-span-8 [&>*:nth-child(2)]:min-w-0 [&>*:nth-child(2)]:lg:col-span-4 [&>*:only-child]:lg:col-span-12';
 
-/** Nested placeholders for Sitecore layout (keys match Placeholder Settings). */
-export const CENOVUS_HOMEPAGE_HERO_BAND = 'cenovus-homepage-hero-band';
-export const CENOVUS_HOMEPAGE_NEWS_SPOTLIGHTS_BAND = 'cenovus-homepage-news-spotlights-band';
+/** Nested placeholders — keys match Placeholder Settings (dynamic suffix for EE/Pages). */
+export const CENOVUS_HOMEPAGE_HERO_BAND = 'cenovus-homepage-hero-band-{*}';
+export const CENOVUS_HOMEPAGE_NEWS_SPOTLIGHTS_BAND = 'cenovus-homepage-news-spotlights-band-{*}';
 
 export const Default = ({ params, rendering }: ComponentProps): JSX.Element => {
   const id = params.RenderingIdentifier;
