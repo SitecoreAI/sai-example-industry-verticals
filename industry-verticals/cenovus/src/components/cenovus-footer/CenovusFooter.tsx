@@ -83,7 +83,7 @@ function TwitterIcon({ className }: { className?: string }): JSX.Element {
   );
 }
 
-export const Default = (props: CenovusFooterProps): JSX.Element => {
+export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
   const { page } = useSitecore();
@@ -95,9 +95,10 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
   const logoField = ds?.logo?.jsonValue;
   const hasLogo = Boolean(logoField?.value?.src);
 
-  const formAction = ds?.feedbackFormAction?.jsonValue?.value?.trim() ?? '';
+  const formAction = String(ds?.feedbackFormAction?.jsonValue?.value ?? '').trim();
   const placeholder =
-    (ds?.feedbackPlaceholder?.jsonValue as TextField | undefined)?.value?.toString() || 'Your message';
+    (ds?.feedbackPlaceholder?.jsonValue as TextField | undefined)?.value?.toString() ||
+    'Your message';
   const sendLabel =
     (ds?.feedbackSendLabel?.jsonValue as TextField | undefined)?.value?.toString() || 'SEND →';
 
@@ -117,22 +118,28 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
   }
 
   return (
-    <footer
-      className={`font-body text-foreground ${styles}`}
-      id={id || undefined}
-    >
+    <footer className={`font-body text-foreground ${styles}`} id={id || undefined}>
       <div className="bg-[var(--color-background-muted)]">
         <div className="container grid gap-10 py-12 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:py-16">
           {/* Logo */}
           <div className="flex flex-col gap-4">
             {(hasLogo || isEditing) && (
-              <NextLink href="/" className="inline-block max-w-[200px] shrink-0 no-underline" aria-label="Cenovus Energy home">
+              <NextLink
+                href="/"
+                className="inline-block max-w-[200px] shrink-0 no-underline"
+                aria-label="Cenovus Energy home"
+              >
                 {hasLogo ? (
-                  <ContentSdkImage field={logoField} className="h-auto w-full max-h-14 object-contain object-left" />
+                  <ContentSdkImage
+                    field={logoField}
+                    className="h-auto max-h-14 w-full object-contain object-left"
+                  />
                 ) : (
                   <div className="font-heading leading-tight">
-                    <span className="text-2xl font-semibold italic lowercase">cenovus</span>
-                    <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] uppercase">Energy</span>
+                    <span className="text-2xl font-semibold lowercase italic">cenovus</span>
+                    <span className="mt-0.5 block text-[0.65rem] font-normal tracking-[0.2em] uppercase">
+                      Energy
+                    </span>
                   </div>
                 )}
               </NextLink>
@@ -164,7 +171,10 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
                         {!hasHref(f) && isEditing ? 'Footer link' : undefined}
                       </SitecoreLink>
                       {hasHref(f) && external && (
-                        <ExternalLink className="text-foreground-light size-3.5 shrink-0" aria-hidden />
+                        <ExternalLink
+                          className="text-foreground-light size-3.5 shrink-0"
+                          aria-hidden
+                        />
                       )}
                     </span>
                   </li>
@@ -172,7 +182,9 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
               })}
             </ul>
             {!linkItems.length && isEditing && (
-              <p className="text-foreground-light text-sm">Add Cenovus Footer Link Item entries under this datasource.</p>
+              <p className="text-foreground-light text-sm">
+                Add Cenovus Footer Link Item entries under this datasource.
+              </p>
             )}
           </div>
 
@@ -188,15 +200,19 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
                 <RichText field={ds?.supportBody?.jsonValue} />
               </div>
             )}
-            {(hasHref(ds?.supportCta?.jsonValue) || isEditing) && (
-              <SitecoreLink
-                field={ds?.supportCta?.jsonValue}
-                className="font-heading mt-1 inline-flex items-center gap-2 text-sm font-bold tracking-wide uppercase no-underline transition-opacity hover:opacity-80"
-              >
-                {!hasHref(ds?.supportCta?.jsonValue) && isEditing ? 'Support CTA' : undefined}
-                <ArrowRight className="size-4 shrink-0" aria-hidden />
-              </SitecoreLink>
-            )}
+            {(hasHref(ds?.supportCta?.jsonValue) || isEditing) &&
+              (ds?.supportCta?.jsonValue ? (
+                <SitecoreLink
+                  field={ds.supportCta.jsonValue}
+                  className="font-heading mt-1 inline-flex items-center gap-2 text-sm font-bold tracking-wide uppercase no-underline transition-opacity hover:opacity-80"
+                >
+                  <ArrowRight className="size-4 shrink-0" aria-hidden />
+                </SitecoreLink>
+              ) : isEditing ? (
+                <p className="text-foreground-light mt-1 text-sm">
+                  Configure Support CTA on the datasource.
+                </p>
+              ) : null)}
           </div>
 
           {/* Feedback */}
@@ -259,7 +275,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-neutral-400/25 border-border border-t">
+      <div className="border-border border-t bg-neutral-400/25">
         <div className="container flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
           {(ds?.copyrightLine?.jsonValue || isEditing) && (
             <p className="text-foreground-light text-xs sm:text-sm">
@@ -272,6 +288,16 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
               if (!hasHref(lf) && !isEditing) {
                 return null;
               }
+              if (!lf) {
+                return isEditing ? (
+                  <span
+                    key={key}
+                    className="border-border flex size-10 items-center justify-center rounded-full border bg-[var(--color-background)] text-[10px] font-medium text-[var(--color-foreground)] shadow-sm"
+                  >
+                    {label}
+                  </span>
+                ) : null;
+              }
               return (
                 <SitecoreLink
                   key={key}
@@ -279,11 +305,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element => {
                   className="border-border flex size-10 items-center justify-center rounded-full border bg-[var(--color-background)] text-[var(--color-foreground)] shadow-sm transition-opacity hover:opacity-90"
                   aria-label={label}
                 >
-                  {!hasHref(lf) && isEditing ? (
-                    <span className="text-[10px] font-medium">{label}</span>
-                  ) : (
-                    <Icon className="size-5" aria-hidden />
-                  )}
+                  <Icon className="size-5" aria-hidden />
                 </SitecoreLink>
               );
             })}

@@ -41,7 +41,7 @@ type CenovusCompanyNewsProps = {
   fields: Fields;
 };
 
-export const Default = (props: CenovusCompanyNewsProps): JSX.Element => {
+export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isEditing = page.mode.isEditing;
@@ -69,17 +69,25 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element => {
             )}
             {(seeAll?.jsonValue?.value?.href || isEditing) && (
               <div className="mt-6">
-                <Link
-                  field={seeAll?.jsonValue}
-                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-                />
+                {seeAll?.jsonValue ? (
+                  <Link
+                    field={seeAll.jsonValue}
+                    className="inline-flex items-center text-sm font-semibold tracking-[0.12em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                  />
+                ) : isEditing ? (
+                  <p className="text-foreground-light text-sm">
+                    Configure the See All link on the datasource.
+                  </p>
+                ) : null}
               </div>
             )}
           </header>
 
           <div className="lg:col-span-8 xl:col-span-9">
             {!items.length && isEditing && (
-              <p className="text-foreground-light text-sm">Add Cenovus Company News Item entries under this datasource.</p>
+              <p className="text-foreground-light text-sm">
+                Add Cenovus Company News Item entries under this datasource.
+              </p>
             )}
             <ul className="grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
               {items.map((item) => {
@@ -91,43 +99,43 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element => {
                   (isEditing && (item.newsDate?.jsonValue || item.location?.jsonValue));
 
                 return (
-                <li className="flex flex-col" key={item.id}>
-                  {showMeta && (
-                    <div className="text-foreground-light flex flex-wrap items-baseline gap-x-2 text-sm">
-                      {(hasDate || isEditing) && (
-                        <span>
-                          <Text field={item.newsDate?.jsonValue} />
-                        </span>
-                      )}
-                      {showSep && <span className="text-neutral-300">·</span>}
-                      {(hasLocation || isEditing) && (
-                        <span>
-                          <Text field={item.location?.jsonValue} />
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  <li className="flex flex-col" key={item.id}>
+                    {showMeta && (
+                      <div className="text-foreground-light flex flex-wrap items-baseline gap-x-2 text-sm">
+                        {(hasDate || isEditing) && (
+                          <span>
+                            <Text field={item.newsDate?.jsonValue} />
+                          </span>
+                        )}
+                        {showSep && <span className="text-neutral-300">·</span>}
+                        {(hasLocation || isEditing) && (
+                          <span>
+                            <Text field={item.location?.jsonValue} />
+                          </span>
+                        )}
+                      </div>
+                    )}
 
-                  {(item.headline?.jsonValue || isEditing) && (
-                    <h3
-                      className={`font-heading text-lg font-semibold leading-snug text-neutral-900 md:text-xl ${showMeta ? 'mt-2' : ''}`}
-                    >
-                      <Text field={item.headline?.jsonValue} />
-                    </h3>
-                  )}
+                    {(item.headline?.jsonValue || isEditing) && (
+                      <h3
+                        className={`font-heading text-lg leading-snug font-semibold text-neutral-900 md:text-xl ${showMeta ? 'mt-2' : ''}`}
+                      >
+                        <Text field={item.headline?.jsonValue} />
+                      </h3>
+                    )}
 
-                  {(item.summary?.jsonValue || isEditing) && (
-                    <div className="text-foreground-light mt-3 line-clamp-4 text-sm leading-relaxed md:text-base [&_p]:mb-2 [&_p:last-child]:mb-0">
-                      <ContentSdkRichText field={item.summary?.jsonValue} />
-                    </div>
-                  )}
+                    {(item.summary?.jsonValue || isEditing) && (
+                      <div className="text-foreground-light mt-3 line-clamp-4 text-sm leading-relaxed md:text-base [&_p]:mb-2 [&_p:last-child]:mb-0">
+                        <ContentSdkRichText field={item.summary?.jsonValue} />
+                      </div>
+                    )}
 
-                  {(item.author?.jsonValue?.value || isEditing) && (
-                    <p className="text-foreground-light mt-4 text-sm">
-                      <Text field={item.author?.jsonValue} />
-                    </p>
-                  )}
-                </li>
+                    {(item.author?.jsonValue?.value || isEditing) && (
+                      <p className="text-foreground-light mt-4 text-sm">
+                        <Text field={item.author?.jsonValue} />
+                      </p>
+                    )}
+                  </li>
                 );
               })}
             </ul>

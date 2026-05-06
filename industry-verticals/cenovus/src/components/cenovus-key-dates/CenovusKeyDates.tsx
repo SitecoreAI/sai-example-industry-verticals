@@ -40,7 +40,7 @@ type CenovusKeyDatesProps = {
   fields: Fields;
 };
 
-export const Default = (props: CenovusKeyDatesProps): JSX.Element => {
+export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isEditing = page.mode.isEditing;
@@ -92,14 +92,16 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element => {
         )}
 
         {!items.length && isEditing && (
-          <p className="text-foreground-light mb-6 text-sm">Add Cenovus Key Date Item entries under this datasource.</p>
+          <p className="text-foreground-light mb-6 text-sm">
+            Add Cenovus Key Date Item entries under this datasource.
+          </p>
         )}
 
         <ul className="divide-y divide-neutral-200 border-y border-neutral-200">
           {visibleItems.map((row) => (
             <li className="py-5 first:pt-0 last:pb-0" key={row.id}>
               {(row.eventTitle?.jsonValue || isEditing) && (
-                <p className="text-base font-medium leading-snug text-neutral-900">
+                <p className="text-base leading-snug font-medium text-neutral-900">
                   <Text field={row.eventTitle?.jsonValue} />
                 </p>
               )}
@@ -115,10 +117,16 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element => {
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           {(viewAll?.jsonValue?.value?.href || isEditing) && (
             <div>
-              <Link
-                field={viewAll?.jsonValue}
-                className="inline-flex items-center text-sm font-semibold tracking-[0.12em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-              />
+              {viewAll?.jsonValue ? (
+                <Link
+                  field={viewAll.jsonValue}
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                />
+              ) : isEditing ? (
+                <p className="text-foreground-light text-sm">
+                  Configure the View All link on the datasource.
+                </p>
+              ) : null}
             </div>
           )}
 

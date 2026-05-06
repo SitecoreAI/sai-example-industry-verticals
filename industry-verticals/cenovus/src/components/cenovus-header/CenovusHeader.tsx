@@ -74,7 +74,9 @@ function StockRow({
   textField?: IGQLTextField;
   trendField?: IGQLTextField;
 }): JSX.Element | null {
-  const raw = trendField?.jsonValue?.value?.trim().toLowerCase() ?? '';
+  const raw = String(trendField?.jsonValue?.value ?? '')
+    .trim()
+    .toLowerCase();
   const isDown = raw === 'down';
   const Icon = isDown ? TrendingDown : TrendingUp;
   const tone = isDown ? 'text-[var(--color-danger)]' : 'text-[var(--color-success)]';
@@ -100,6 +102,11 @@ function UtilityLinkRow({
   if (!hasLinkHref(linkField) && !isEditing) {
     return null;
   }
+  if (!linkField) {
+    return isEditing ? (
+      <span className="text-foreground-light text-xs underline-offset-4">{label}</span>
+    ) : null;
+  }
   return (
     <SitecoreLink
       field={linkField}
@@ -110,7 +117,7 @@ function UtilityLinkRow({
   );
 }
 
-export const Default = (props: CenovusHeaderProps): JSX.Element => {
+export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
   const { page } = useSitecore();
@@ -122,10 +129,10 @@ export const Default = (props: CenovusHeaderProps): JSX.Element => {
   const logoField = ds?.logo?.jsonValue;
   const hasLogo = Boolean(logoField?.value?.src);
 
-  const searchUrlRaw = ds?.searchUrl?.jsonValue?.value?.trim() ?? '';
+  const searchUrlRaw = String(ds?.searchUrl?.jsonValue?.value ?? '').trim();
   const searchAction = searchUrlRaw.length > 0 ? searchUrlRaw : '/search';
 
-  const regionDefault = ds?.regionName?.jsonValue?.value?.trim() ?? '';
+  const regionDefault = String(ds?.regionName?.jsonValue?.value ?? '').trim();
   const [selectedRegion, setSelectedRegion] = useState(regionDefault || REGION_OPTIONS[0]);
   useEffect(() => {
     if (regionDefault) {
@@ -253,11 +260,16 @@ export const Default = (props: CenovusHeaderProps): JSX.Element => {
               aria-label="Cenovus Energy home"
             >
               {hasLogo ? (
-                <ContentSdkImage field={logoField} className="h-10 w-auto max-w-[200px] object-contain" />
+                <ContentSdkImage
+                  field={logoField}
+                  className="h-10 w-auto max-w-[200px] object-contain"
+                />
               ) : (
                 <div className="font-heading flex flex-col leading-tight">
-                  <span className="text-2xl font-semibold italic lowercase">cenovus</span>
-                  <span className="text-[0.65rem] font-normal tracking-[0.2em] uppercase">Energy</span>
+                  <span className="text-2xl font-semibold lowercase italic">cenovus</span>
+                  <span className="text-[0.65rem] font-normal tracking-[0.2em] uppercase">
+                    Energy
+                  </span>
                 </div>
               )}
             </NextLink>
@@ -265,9 +277,13 @@ export const Default = (props: CenovusHeaderProps): JSX.Element => {
         </div>
 
         {/* Desktop nav */}
-        <nav className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex" aria-label="Primary">
+        <nav
+          className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex"
+          aria-label="Primary"
+        >
           {navItems.map((item) => {
-            const subs = item.children?.results?.filter((s) => hasLinkHref(s.subLink?.jsonValue)) ?? [];
+            const subs =
+              item.children?.results?.filter((s) => hasLinkHref(s.subLink?.jsonValue)) ?? [];
             const titleField = item.navItemTitle?.jsonValue;
             const parentLink = item.navItemLink?.jsonValue;
             const hasSubs = subs.length > 0;
@@ -349,7 +365,10 @@ export const Default = (props: CenovusHeaderProps): JSX.Element => {
                 placeholder={(ds?.searchPlaceholder?.jsonValue?.value as string) || 'Search'}
                 className="font-body border-border w-full min-w-0 rounded-full border-0 bg-[var(--color-background-muted)] py-2 pr-9 pl-3 text-sm"
               />
-              <Search className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2" aria-hidden />
+              <Search
+                className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2"
+                aria-hidden
+              />
             </label>
           </form>
 
@@ -375,7 +394,9 @@ export const Default = (props: CenovusHeaderProps): JSX.Element => {
                 </div>
                 <ul className="flex flex-col gap-4">
                   {navItems.map((item) => {
-                    const subs = item.children?.results?.filter((s) => hasLinkHref(s.subLink?.jsonValue)) ?? [];
+                    const subs =
+                      item.children?.results?.filter((s) => hasLinkHref(s.subLink?.jsonValue)) ??
+                      [];
                     const titleField = item.navItemTitle?.jsonValue;
                     const parentLink = item.navItemLink?.jsonValue;
                     return (

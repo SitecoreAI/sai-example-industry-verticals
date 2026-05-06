@@ -36,7 +36,7 @@ type CenovusSpotlightsProps = {
   fields: Fields;
 };
 
-export const Default = (props: CenovusSpotlightsProps): JSX.Element => {
+export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isEditing = page.mode.isEditing;
@@ -61,7 +61,9 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element => {
         )}
 
         {!items.length && isEditing && (
-          <p className="text-foreground-light mb-6 text-sm">Add Cenovus Spotlight Item entries under this datasource.</p>
+          <p className="text-foreground-light mb-6 text-sm">
+            Add Cenovus Spotlight Item entries under this datasource.
+          </p>
         )}
 
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
@@ -78,7 +80,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element => {
                 </div>
                 <div className="flex flex-1 flex-col justify-end p-4">
                   {(item.spotlightTitle?.jsonValue || isEditing) && (
-                    <p className="text-left text-base font-semibold leading-snug text-neutral-900">
+                    <p className="text-left text-base leading-snug font-semibold text-neutral-900">
                       <Text field={item.spotlightTitle?.jsonValue} />
                     </p>
                   )}
@@ -87,7 +89,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element => {
             ) : (
               <div className="rounded-lg bg-[#eeeeee] px-4 py-4 shadow-sm">
                 {(item.spotlightTitle?.jsonValue || isEditing) && (
-                  <p className="text-left text-base font-semibold leading-snug text-neutral-900">
+                  <p className="text-left text-base leading-snug font-semibold text-neutral-900">
                     <Text field={item.spotlightTitle?.jsonValue} />
                   </p>
                 )}

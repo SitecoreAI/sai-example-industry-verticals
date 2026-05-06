@@ -28,15 +28,15 @@ import * as HeroBanner from 'src/components/hero-banner/HeroBanner';
 import * as Header from 'src/components/header/Header';
 import * as Footer from 'src/components/footer/Footer';
 import * as Features from 'src/components/features/Features';
-import * as CenovusHomeHero from 'src/components/cenovus-home-hero/CenovusHomeHero';
-import * as CenovusKeyDates from 'src/components/cenovus-key-dates/CenovusKeyDates';
-import * as CenovusCompanyNews from 'src/components/cenovus-company-news/CenovusCompanyNews';
-import * as CenovusSpotlights from 'src/components/cenovus-spotlights/CenovusSpotlights';
-import * as CenovusHeader from 'src/components/cenovus-header/CenovusHeader';
-import * as CenovusFooter from 'src/components/cenovus-footer/CenovusFooter';
 import * as ContentBlock from 'src/components/content-block/ContentBlock';
 import * as Container from 'src/components/container/Container';
 import * as ColumnSplitter from 'src/components/column-splitter/ColumnSplitter';
+import * as CenovusSpotlights from 'src/components/cenovus-spotlights/CenovusSpotlights';
+import * as CenovusKeyDates from 'src/components/cenovus-key-dates/CenovusKeyDates';
+import * as CenovusHomeHero from 'src/components/cenovus-home-hero/CenovusHomeHero';
+import * as CenovusHeader from 'src/components/cenovus-header/CenovusHeader';
+import * as CenovusFooter from 'src/components/cenovus-footer/CenovusFooter';
+import * as CenovusCompanyNews from 'src/components/cenovus-company-news/CenovusCompanyNews';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['BYOCWrapper', BYOCWrapper],
@@ -66,15 +66,15 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Header', { ...Header, componentType: 'client' }],
   ['Footer', { ...Footer }],
   ['Features', { ...Features }],
-  ['CenovusHomeHero', { ...CenovusHomeHero, componentType: 'client' }],
-  ['CenovusKeyDates', { ...CenovusKeyDates, componentType: 'client' }],
-  ['CenovusCompanyNews', { ...CenovusCompanyNews }],
-  ['CenovusSpotlights', { ...CenovusSpotlights }],
-  ['CenovusHeader', { ...CenovusHeader, componentType: 'client' }],
-  ['CenovusFooter', { ...CenovusFooter }],
   ['ContentBlock', { ...ContentBlock }],
   ['Container', { ...Container }],
   ['ColumnSplitter', { ...ColumnSplitter }],
+  ['CenovusSpotlights', { ...CenovusSpotlights }],
+  ['CenovusKeyDates', { ...CenovusKeyDates, componentType: 'client' }],
+  ['CenovusHomeHero', { ...CenovusHomeHero, componentType: 'client' }],
+  ['CenovusHeader', { ...CenovusHeader, componentType: 'client' }],
+  ['CenovusFooter', { ...CenovusFooter }],
+  ['CenovusCompanyNews', { ...CenovusCompanyNews }],
 ]);
 
 export default componentMap;

@@ -56,7 +56,7 @@ function formatSlideDate(value: string | undefined): string {
   return value;
 }
 
-export const Default = (props: CenovusHomeHeroProps): JSX.Element => {
+export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isEditing = page.mode.isEditing;
@@ -88,7 +88,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element => {
 
   const dateDisplay = useMemo(
     () => formatSlideDate(slide?.slideDate?.jsonValue?.value as string | undefined),
-    [slide],
+    [slide]
   );
 
   if (!isEditing && total === 0) {
@@ -161,12 +161,14 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element => {
 
           <div className="flex flex-col justify-center bg-white px-6 py-10 lg:col-span-4 lg:px-10 lg:py-14">
             {!slide && isEditing && (
-              <p className="text-sm text-neutral-500">Add one or more Cenovus Home Hero Slide items.</p>
+              <p className="text-sm text-neutral-500">
+                Add one or more Cenovus Home Hero Slide items.
+              </p>
             )}
             {slide && (
               <>
                 {(slide.slideTitle?.jsonValue || isEditing) && (
-                  <h3 className="font-heading text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
+                  <h3 className="font-heading text-2xl leading-tight font-semibold tracking-tight md:text-3xl">
                     <Text field={slide.slideTitle.jsonValue} />
                   </h3>
                 )}
@@ -182,7 +184,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element => {
                   <div className="mt-8">
                     <Link
                       field={slide.slideLink.jsonValue}
-                      className="inline-flex items-center text-sm font-semibold uppercase tracking-[0.2em] underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                      className="inline-flex items-center text-sm font-semibold tracking-[0.2em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
                     />
                   </div>
                 )}
