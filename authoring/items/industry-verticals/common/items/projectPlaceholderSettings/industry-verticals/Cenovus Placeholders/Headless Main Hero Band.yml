@@ -1,0 +1,25 @@
+---
+ID: "b9e4d3c2-6f5a-4b8e-9d7c-2e3f4a5b6c7d"
+Parent: "a8f3c2e1-5d4b-4c7a-9e8f-1a2b3c4d5e6f"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Headless Main Hero Band"
+SharedFields:
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "headless-main-hero-band"
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Value: |
+    {F9A0B1C2-D3E4-45F6-A7B8-C9D0E1F2A3B4}
+    {5A747B45-B8EA-4C34-B5E5-D98AEFA700FB}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260506T120000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "00000000-0000-0000-0000-000000000002"
