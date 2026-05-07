@@ -46,6 +46,9 @@ interface Fields {
   };
 }
 
+/** Integrated GraphQL sometimes nests under `data`, sometimes exposes `datasource` at the fields root. */
+type IntegratedFooterFields = Fields & { datasource?: DatasourceFields };
+
 type CenovusFooterProps = {
   rendering: ComponentRendering & { params: ComponentParams };
   params: { [key: string]: string };
@@ -88,7 +91,8 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
 
-  const ds = props.fields?.data?.datasource;
+  const merged = (props.fields ?? props.rendering?.fields) as IntegratedFooterFields | undefined;
+  const ds = merged?.data?.datasource ?? merged?.datasource;
   const linkItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;

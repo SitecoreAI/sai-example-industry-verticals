@@ -55,6 +55,9 @@ interface Fields {
   };
 }
 
+/** Integrated GraphQL sometimes nests under `data`, sometimes exposes `datasource` at the fields root. */
+type IntegratedHeaderFields = Fields & { datasource?: DatasourceFields };
+
 type CenovusHeaderProps = {
   rendering: ComponentRendering & { params: ComponentParams };
   params: { [key: string]: string };
@@ -105,7 +108,8 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
 
-  const ds = props.fields?.data?.datasource;
+  const merged = (props.fields ?? props.rendering?.fields) as IntegratedHeaderFields | undefined;
+  const ds = merged?.data?.datasource ?? merged?.datasource;
   const navItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;
