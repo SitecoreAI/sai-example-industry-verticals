@@ -14,6 +14,7 @@ import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
 import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
 import { demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
+import { getIntegratedDatasource } from '@/lib/sitecore-integrated-fields';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
@@ -105,7 +106,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
 
-  const ds = props.fields?.data?.datasource;
+  const ds = getIntegratedDatasource<DatasourceFields>(props.fields);
   const navItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;

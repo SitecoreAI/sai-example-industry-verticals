@@ -15,6 +15,7 @@ import React, { JSX } from 'react';
 
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
+import { getIntegratedDatasource } from '@/lib/sitecore-integrated-fields';
 import { demoFooter, demoIntranetBrand } from '@/lib/cenovus-demo';
 import { IGQLTextField } from '@/types/igql';
 
@@ -88,7 +89,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
 
-  const ds = props.fields?.data?.datasource;
+  const ds = getIntegratedDatasource<DatasourceFields>(props.fields);
   const linkItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;
