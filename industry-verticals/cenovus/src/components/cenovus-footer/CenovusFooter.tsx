@@ -4,7 +4,6 @@ import {
   ImageField,
   Link as SitecoreLink,
   LinkField,
-  NextImage as ContentSdkImage,
   RichText,
   RichTextField,
   Text,
@@ -15,6 +14,7 @@ import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
+import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
 import { demoFooter, demoIntranetBrand } from '@/lib/cenovus-demo';
 import { IGQLTextField } from '@/types/igql';
 
@@ -212,17 +212,11 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
         <div className="container grid gap-10 py-12 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:py-16">
           {/* Logo */}
           <div className="flex flex-col gap-4">
-            <NextLink
-              href="/"
-              className="inline-block max-w-[200px] shrink-0 no-underline"
-              aria-label={demoIntranetBrand.homeAriaLabel}
-            >
-              <ContentSdkImage
-                field={logoField}
-                className="h-auto max-h-14 w-full object-contain object-left"
-                unoptimized
-              />
-            </NextLink>
+            <CenovusLogoField
+              field={logoField}
+              wrapperClassName="max-w-[200px]"
+              imgClassName="h-auto max-h-14 w-full object-contain object-left"
+            />
           </div>
 
           {/* Links */}

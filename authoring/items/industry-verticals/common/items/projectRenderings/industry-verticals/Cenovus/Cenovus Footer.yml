@@ -16,7 +16,9 @@ SharedFields:
     query CenovusFooterQuery($datasource: String!, $language: String!) {
       datasource: item(path: $datasource, language: $language) {
         logo: field(name: "Logo") {
-          jsonValue
+          ... on ImageField {
+            jsonValue
+          }
         }
         linksHeading: field(name: "LinksHeading") {
           jsonValue

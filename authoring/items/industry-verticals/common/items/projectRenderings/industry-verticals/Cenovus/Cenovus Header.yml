@@ -37,7 +37,9 @@ SharedFields:
           jsonValue
         }
         logo: field(name: "Logo") {
-          jsonValue
+          ... on ImageField {
+            jsonValue
+          }
         }
         stock1Text: field(name: "Stock1Text") {
           jsonValue

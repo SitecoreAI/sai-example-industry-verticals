@@ -7,14 +7,13 @@ import {
   ImageField,
   Link as SitecoreLink,
   LinkField,
-  NextImage as ContentSdkImage,
   Text,
 } from '@sitecore-content-sdk/nextjs';
 import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
-import NextLink from 'next/link';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
-import { demoIntranetBrand, demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
+import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
+import { demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
@@ -228,17 +227,11 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       {/* Main row */}
       <div className="border-border container flex items-center gap-4 border-b-4 border-[var(--color-brand-teal)] py-3 lg:gap-8">
         <div className="flex min-w-0 shrink-0 items-center gap-3 lg:gap-6">
-          <NextLink
-            href="/"
-            className="block shrink-0 text-[var(--color-foreground)] no-underline"
-            aria-label={demoIntranetBrand.homeAriaLabel}
-          >
-            <ContentSdkImage
-              field={logoField}
-              className="h-10 w-auto max-w-[200px] object-contain"
-              unoptimized
-            />
-          </NextLink>
+          <CenovusLogoField
+            field={logoField}
+            wrapperClassName="max-w-[200px]"
+            imgClassName="h-10 w-auto max-w-[200px] object-contain"
+          />
         </div>
 
         {/* Desktop nav */}
