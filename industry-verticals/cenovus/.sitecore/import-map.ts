@@ -54,6 +54,8 @@ import { pageView } from '@sitecore-cloudsdk/events/browser';
 import config from 'sitecore.config';
 import { demoSpotlights, shouldShowCenovusDemo, demoKeyDates, demoHeroSection, demoHeroSlides, demoHeaderUtility, demoIntranetBrand, demoNav, demoRegionDefault, demoRegions, demoFooter, demoCompanyNews, defaultBrandLogo } from '@/lib/cenovus-demo';
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
+import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
+import { getIntegratedDatasource } from '@/lib/sitecore-integrated-fields';
 import { CenovusHeaderDemoChrome } from 'src/components/cenovus-header/CenovusHeaderDemoChrome';
 
 const importMap = [
@@ -391,6 +393,18 @@ const importMap = [
     module: '@/components/cenovus-brand/CenovusBrandLogo',
     exports: [
       { name: 'CenovusBrandLogo', value: CenovusBrandLogo },
+    ]
+  },
+  {
+    module: '@/components/cenovus-brand/CenovusLogoField',
+    exports: [
+      { name: 'CenovusLogoField', value: CenovusLogoField },
+    ]
+  },
+  {
+    module: '@/lib/sitecore-integrated-fields',
+    exports: [
+      { name: 'getIntegratedDatasource', value: getIntegratedDatasource },
     ]
   },
   {
