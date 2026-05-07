@@ -52,7 +52,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const seeAll = props.fields?.data?.datasource?.seeAllLink;
 
-  const showDemo = shouldShowCenovusDemo(isEditing, items.length > 0);
+  const showDemo = shouldShowCenovusDemo();
 
   if (!isEditing && items.length === 0 && !showDemo) {
     return null;

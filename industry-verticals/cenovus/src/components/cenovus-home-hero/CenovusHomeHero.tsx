@@ -66,7 +66,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const sectionDescription = props.fields?.data?.datasource?.description;
 
-  const showDemo = shouldShowCenovusDemo(isEditing, slides.length > 0);
+  const showDemo = shouldShowCenovusDemo();
 
   const [index, setIndex] = useState(0);
   const total = slides.length;

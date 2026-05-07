@@ -1,6 +1,5 @@
 /**
- * Fluor intranet sample content used when route components have no CMS datasource yet.
- * In Experience Editor or Pages, authored fields replace this content.
+ * Fluor intranet sample content for the Cenovus demo vertical.
  */
 
 /**
@@ -11,8 +10,13 @@ export function isCenovusShowcaseShellEnabled(): boolean {
   return process.env.NEXT_PUBLIC_CENOVUS_SHOWCASE !== 'false';
 }
 
-export function shouldShowCenovusDemo(isEditing: boolean, hasDatasourceContent: boolean): boolean {
-  return !isEditing && !hasDatasourceContent;
+/**
+ * Whether bundled demo sections (hero, spotlights, news, key dates) should render.
+ * For this showcase site we always use Fluor sample content so Page Builder, preview,
+ * and delivery match—CMS datasource branches in those components are effectively unused.
+ */
+export function shouldShowCenovusDemo(): boolean {
+  return true;
 }
 
 /** Home link label on the header/footer logo (CMS image or default below). */

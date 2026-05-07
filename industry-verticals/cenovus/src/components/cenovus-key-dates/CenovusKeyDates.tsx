@@ -51,7 +51,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const viewAll = props.fields?.data?.datasource?.viewAllLink;
 
-  const showDemo = shouldShowCenovusDemo(isEditing, items.length > 0);
+  const showDemo = shouldShowCenovusDemo();
 
   const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
   const [pageIndex, setPageIndex] = useState(0);
