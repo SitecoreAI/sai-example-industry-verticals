@@ -17,6 +17,7 @@ import React, { JSX } from 'react';
 
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { demoFooter, demoIntranetBrand } from '@/lib/cenovus-demo';
+import { imageFieldHasRenderableSrc } from '@/lib/sitecore-image-field';
 import { IGQLTextField } from '@/types/igql';
 
 interface FooterLinkItem {
@@ -95,7 +96,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   const linkItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;
-  const hasLogo = Boolean(logoField?.value?.src);
+  const hasLogo = imageFieldHasRenderableSrc(logoField);
 
   const formAction = String(ds?.feedbackFormAction?.jsonValue?.value ?? '').trim();
   const placeholder =
@@ -226,6 +227,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
                   <ContentSdkImage
                     field={logoField}
                     className="h-auto max-h-14 w-full object-contain object-left"
+                    unoptimized
                   />
                 ) : (
                   <CenovusBrandLogo className="h-auto max-h-14 w-full object-contain object-left" />

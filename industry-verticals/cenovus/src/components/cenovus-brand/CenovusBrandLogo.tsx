@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { JSX } from 'react';
 
 import { defaultBrandLogo } from '@/lib/cenovus-demo';
@@ -8,15 +7,17 @@ export type CenovusBrandLogoProps = {
   priority?: boolean;
 };
 
+/** Plain img so public SVG is not tied to the Image optimizer or middleware edge cases. */
 export function CenovusBrandLogo({ className, priority }: CenovusBrandLogoProps): JSX.Element {
   return (
-    <Image
+    <img
       src={defaultBrandLogo.src}
       alt={defaultBrandLogo.alt}
       width={defaultBrandLogo.width}
       height={defaultBrandLogo.height}
       className={className}
-      priority={priority}
+      {...(priority ? { fetchPriority: 'high' as const } : {})}
+      decoding="async"
     />
   );
 }

@@ -46,6 +46,22 @@ const nextConfig = {
         hostname: 'starter-verticals-2.sitecoresandbox.cloud',
         port: '',
       },
+      // XM Cloud / Sitecore media hosts for next/image (matches picomatch hostname rules)
+      {
+        protocol: 'https',
+        hostname: '**.sitecoresandbox.cloud',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.sitecorecloud.io',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.sitecorecloud.net',
+        port: '',
+      },
     ],
   },
 

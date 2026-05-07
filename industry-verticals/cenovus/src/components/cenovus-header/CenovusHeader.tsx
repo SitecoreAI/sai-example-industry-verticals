@@ -17,6 +17,7 @@ import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { demoIntranetBrand, demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
+import { imageFieldHasRenderableSrc } from '@/lib/sitecore-image-field';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
@@ -129,7 +130,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const navItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;
-  const hasLogo = Boolean(logoField?.value?.src);
+  const hasLogo = imageFieldHasRenderableSrc(logoField);
 
   const searchUrlRaw = String(ds?.searchUrl?.jsonValue?.value ?? '').trim();
   const searchAction = searchUrlRaw.length > 0 ? searchUrlRaw : '/search';
@@ -266,6 +267,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
                 <ContentSdkImage
                   field={logoField}
                   className="h-10 w-auto max-w-[200px] object-contain"
+                  unoptimized
                 />
               ) : (
                 <CenovusBrandLogo className="h-10 w-auto max-w-[200px] object-contain" priority />
