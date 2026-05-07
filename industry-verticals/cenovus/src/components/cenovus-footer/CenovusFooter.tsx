@@ -9,7 +9,6 @@ import {
   RichTextField,
   Text,
   TextField,
-  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
 import NextLink from 'next/link';
@@ -17,7 +16,6 @@ import React, { JSX } from 'react';
 
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { demoFooter, demoIntranetBrand } from '@/lib/cenovus-demo';
-import { imageFieldHasRenderableSrc } from '@/lib/sitecore-image-field';
 import { IGQLTextField } from '@/types/igql';
 
 interface FooterLinkItem {
@@ -89,14 +87,11 @@ function TwitterIcon({ className }: { className?: string }): JSX.Element {
 export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
-  const { page } = useSitecore();
-  const isEditing = page.mode.isEditing;
 
   const ds = props.fields?.data?.datasource;
   const linkItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;
-  const hasLogo = imageFieldHasRenderableSrc(logoField);
 
   const formAction = String(ds?.feedbackFormAction?.jsonValue?.value ?? '').trim();
   const placeholder =
@@ -116,7 +111,7 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
     { key: 'ig', field: ds?.socialInstagram, Icon: Instagram, label: 'Instagram' },
   ];
 
-  if (!isEditing && !ds) {
+  if (!ds) {
     return (
       <footer className={`font-body text-foreground ${styles}`} id={id || undefined}>
         <div className="bg-[var(--color-background-muted)]">
@@ -217,40 +212,28 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
         <div className="container grid gap-10 py-12 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:py-16">
           {/* Logo */}
           <div className="flex flex-col gap-4">
-            {(hasLogo || isEditing) && (
-              <NextLink
-                href="/"
-                className="inline-block max-w-[200px] shrink-0 no-underline"
-                aria-label={demoIntranetBrand.homeAriaLabel}
-              >
-                {(isEditing && ds) || hasLogo ? (
-                  <ContentSdkImage
-                    field={logoField}
-                    className="h-auto max-h-14 w-full object-contain object-left"
-                    unoptimized
-                  />
-                ) : (
-                  <CenovusBrandLogo className="h-auto max-h-14 w-full object-contain object-left" />
-                )}
-              </NextLink>
-            )}
+            <NextLink
+              href="/"
+              className="inline-block max-w-[200px] shrink-0 no-underline"
+              aria-label={demoIntranetBrand.homeAriaLabel}
+            >
+              <ContentSdkImage
+                field={logoField}
+                className="h-auto max-h-14 w-full object-contain object-left"
+                unoptimized
+              />
+            </NextLink>
           </div>
 
           {/* Links */}
           <div>
-            {(ds?.linksHeading?.jsonValue || isEditing) && (
-              <h2 className="font-heading mb-4 text-base font-bold text-[var(--color-foreground)]">
-                <Text field={ds?.linksHeading?.jsonValue} />
-              </h2>
-            )}
+            <h2 className="font-heading mb-4 text-base font-bold text-[var(--color-foreground)]">
+              <Text field={ds?.linksHeading?.jsonValue} />
+            </h2>
             <ul className="flex flex-col gap-3">
               {linkItems.map((row) => {
                 const f = row.footerLink?.jsonValue;
                 const external = isExternalHref(f);
-                const show = hasHref(f) || isEditing;
-                if (!show) {
-                  return null;
-                }
                 return (
                   <li key={row.id}>
                     <span className="inline-flex items-center gap-2">
@@ -273,16 +256,12 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
 
           {/* Support */}
           <div className="flex flex-col gap-4">
-            {(ds?.supportHeading?.jsonValue || isEditing) && (
-              <h2 className="font-heading text-base font-bold text-[var(--color-foreground)]">
-                <Text field={ds?.supportHeading?.jsonValue} />
-              </h2>
-            )}
-            {(ds?.supportBody?.jsonValue || isEditing) && (
-              <div className="text-foreground-light text-sm leading-relaxed [&_a]:text-[var(--color-accent)] [&_a]:underline">
-                <RichText field={ds?.supportBody?.jsonValue} />
-              </div>
-            )}
+            <h2 className="font-heading text-base font-bold text-[var(--color-foreground)]">
+              <Text field={ds?.supportHeading?.jsonValue} />
+            </h2>
+            <div className="text-foreground-light text-sm leading-relaxed [&_a]:text-[var(--color-accent)] [&_a]:underline">
+              <RichText field={ds?.supportBody?.jsonValue} />
+            </div>
             {ds?.supportCta?.jsonValue && (
               <SitecoreLink
                 field={ds.supportCta.jsonValue}
@@ -295,11 +274,9 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
 
           {/* Feedback */}
           <div className="flex flex-col gap-4">
-            {(ds?.feedbackHeading?.jsonValue || isEditing) && (
-              <h2 className="font-heading text-base font-bold text-[var(--color-foreground)]">
-                <Text field={ds?.feedbackHeading?.jsonValue} />
-              </h2>
-            )}
+            <h2 className="font-heading text-base font-bold text-[var(--color-foreground)]">
+              <Text field={ds?.feedbackHeading?.jsonValue} />
+            </h2>
             {formAction.length > 0 ? (
               <form className="flex flex-col gap-3" action={formAction} method="post" noValidate>
                 <label className="sr-only" htmlFor={`${id || 'cenovus-footer'}-feedback`}>
@@ -349,26 +326,14 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
       {/* Bottom bar */}
       <div className="border-border border-t bg-neutral-400/25">
         <div className="container flex flex-col gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
-          {(ds?.copyrightLine?.jsonValue || isEditing) && (
-            <p className="text-foreground-light text-xs sm:text-sm">
-              <Text field={ds?.copyrightLine?.jsonValue} />
-            </p>
-          )}
+          <p className="text-foreground-light text-xs sm:text-sm">
+            <Text field={ds?.copyrightLine?.jsonValue} />
+          </p>
           <div className="flex items-center gap-3 sm:gap-4">
             {socialEntries.map(({ key, field, Icon, label }) => {
               const lf = field?.jsonValue;
-              if (!hasHref(lf) && !isEditing) {
-                return null;
-              }
               if (!lf) {
-                return isEditing ? (
-                  <span
-                    key={key}
-                    className="border-border flex size-10 items-center justify-center rounded-full border bg-[var(--color-background)] text-[10px] font-medium text-[var(--color-foreground)] shadow-sm"
-                  >
-                    {label}
-                  </span>
-                ) : null;
+                return null;
               }
               return (
                 <SitecoreLink

@@ -9,15 +9,12 @@ import {
   LinkField,
   NextImage as ContentSdkImage,
   Text,
-  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
 import NextLink from 'next/link';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
-import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
 import { demoIntranetBrand, demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
-import { imageFieldHasRenderableSrc } from '@/lib/sitecore-image-field';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
@@ -92,45 +89,27 @@ function StockRow({
   );
 }
 
-function UtilityLinkRow({
-  label,
-  field,
-  isEditing,
-}: {
-  label: string;
-  field?: { jsonValue: LinkField };
-  isEditing: boolean;
-}): JSX.Element | null {
+function UtilityLinkRow({ field }: { field?: { jsonValue: LinkField } }): JSX.Element | null {
   const linkField = field?.jsonValue;
-  if (!hasLinkHref(linkField) && !isEditing) {
-    return null;
-  }
   if (!linkField) {
-    return isEditing ? (
-      <span className="text-foreground-light text-xs underline-offset-4">{label}</span>
-    ) : null;
+    return null;
   }
   return (
     <SitecoreLink
       field={linkField}
       className="text-foreground-light hover:text-foreground text-xs underline-offset-4 transition-colors hover:underline"
-    >
-      {!hasLinkHref(linkField) ? label : undefined}
-    </SitecoreLink>
+    />
   );
 }
 
 export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
-  const { page } = useSitecore();
-  const isEditing = page.mode.isEditing;
 
   const ds = props.fields?.data?.datasource;
   const navItems = ds?.children?.results ?? [];
 
   const logoField = ds?.logo?.jsonValue;
-  const hasLogo = imageFieldHasRenderableSrc(logoField);
 
   const searchUrlRaw = String(ds?.searchUrl?.jsonValue?.value ?? '').trim();
   const searchAction = searchUrlRaw.length > 0 ? searchUrlRaw : '/search';
@@ -171,7 +150,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
     { label: 'fluor.com', field: ds?.utilityCenovusCom },
   ];
 
-  if (!isEditing && !ds) {
+  if (!ds) {
     return <CenovusHeaderDemoChrome id={id} styles={styles} />;
   }
 
@@ -186,11 +165,9 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       <div className="border-border border-b bg-[var(--color-background-muted)]/60">
         <div className="container flex flex-col gap-3 py-2 text-sm md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-2">
           <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
-            {(ds?.welcomeText?.jsonValue || isEditing) && (
-              <span className="text-foreground shrink-0">
-                <Text field={ds?.welcomeText?.jsonValue} />
-              </span>
-            )}
+            <span className="text-foreground shrink-0">
+              <Text field={ds?.welcomeText?.jsonValue} />
+            </span>
             <div className="relative">
               <button
                 type="button"
@@ -202,11 +179,9 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
                   setOpenMenuId(null);
                 }}
               >
-                {(ds?.regionPrefix?.jsonValue || isEditing) && (
-                  <span className="text-foreground-light">
-                    <Text field={ds?.regionPrefix?.jsonValue} />
-                  </span>
-                )}
+                <span className="text-foreground-light">
+                  <Text field={ds?.regionPrefix?.jsonValue} />
+                </span>
                 <span className="text-foreground font-semibold">{selectedRegion}</span>
                 <ChevronDown className="size-4 shrink-0 opacity-70" aria-hidden />
               </button>
@@ -235,12 +210,8 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 md:flex-1 md:justify-center">
-            {(ds?.stock1Text?.jsonValue || isEditing) && (
-              <StockRow textField={ds?.stock1Text} trendField={ds?.stock1Trend} />
-            )}
-            {(ds?.stock2Text?.jsonValue || isEditing) && (
-              <StockRow textField={ds?.stock2Text} trendField={ds?.stock2Trend} />
-            )}
+            <StockRow textField={ds?.stock1Text} trendField={ds?.stock1Trend} />
+            <StockRow textField={ds?.stock2Text} trendField={ds?.stock2Trend} />
           </div>
 
           <nav
@@ -248,7 +219,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
             aria-label="Utility links"
           >
             {utilityPairs.map(({ label, field }) => (
-              <UtilityLinkRow key={label} label={label} field={field} isEditing={isEditing} />
+              <UtilityLinkRow key={label} field={field} />
             ))}
           </nav>
         </div>
@@ -257,23 +228,17 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       {/* Main row */}
       <div className="border-border container flex items-center gap-4 border-b-4 border-[var(--color-brand-teal)] py-3 lg:gap-8">
         <div className="flex min-w-0 shrink-0 items-center gap-3 lg:gap-6">
-          {(hasLogo || isEditing) && (
-            <NextLink
-              href="/"
-              className="block shrink-0 text-[var(--color-foreground)] no-underline"
-              aria-label={demoIntranetBrand.homeAriaLabel}
-            >
-              {(isEditing && ds) || hasLogo ? (
-                <ContentSdkImage
-                  field={logoField}
-                  className="h-10 w-auto max-w-[200px] object-contain"
-                  unoptimized
-                />
-              ) : (
-                <CenovusBrandLogo className="h-10 w-auto max-w-[200px] object-contain" priority />
-              )}
-            </NextLink>
-          )}
+          <NextLink
+            href="/"
+            className="block shrink-0 text-[var(--color-foreground)] no-underline"
+            aria-label={demoIntranetBrand.homeAriaLabel}
+          >
+            <ContentSdkImage
+              field={logoField}
+              className="h-10 w-auto max-w-[200px] object-contain"
+              unoptimized
+            />
+          </NextLink>
         </div>
 
         {/* Desktop nav */}
@@ -327,7 +292,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
                   field={parentLink}
                   className="inline-flex items-center px-2 py-2 text-xs font-bold tracking-wide uppercase no-underline"
                 >
-                  {(titleField || isEditing) && <Text field={titleField} />}
+                  <Text field={titleField} />
                 </SitecoreLink>
               </div>
             );
