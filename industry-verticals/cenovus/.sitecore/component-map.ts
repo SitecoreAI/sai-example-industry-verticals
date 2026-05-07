@@ -39,7 +39,6 @@ import * as CenovusHeaderDemoChrome from 'src/components/cenovus-header/CenovusH
 import * as CenovusHeader from 'src/components/cenovus-header/CenovusHeader';
 import * as CenovusFooter from 'src/components/cenovus-footer/CenovusFooter';
 import * as CenovusCompanyNews from 'src/components/cenovus-company-news/CenovusCompanyNews';
-import * as CenovusLogoField from 'src/components/cenovus-brand/CenovusLogoField';
 import * as CenovusBrandLogo from 'src/components/cenovus-brand/CenovusBrandLogo';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
@@ -81,7 +80,6 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['CenovusHeader', { ...CenovusHeader, componentType: 'client' }],
   ['CenovusFooter', { ...CenovusFooter }],
   ['CenovusCompanyNews', { ...CenovusCompanyNews }],
-  ['CenovusLogoField', { ...CenovusLogoField }],
   ['CenovusBrandLogo', { ...CenovusBrandLogo }],
 ]);
 
