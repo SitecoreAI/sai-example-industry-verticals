@@ -21,14 +21,14 @@ export const demoIntranetBrand = {
 } as const;
 
 /**
- * Default logo file in `/public` when no logo image is set in Sitecore.
- * Replace `cenovus-logo.svg` or point `src` at your own asset (e.g. `.png`).
+ * Default logo when no CMS datasource / logo field is used (header/footer demo chrome).
+ * Served from Sitecore media; layout uses `object-contain` so intrinsic size is a hint only.
  */
 export const defaultBrandLogo = {
-  src: '/cenovus-logo.svg',
-  width: 200,
-  height: 48,
-  alt: 'Cenovus',
+  src: 'https://cenovus.sitecoresandbox.cloud/api/public/content/22f7e5f5540241c1994e1fcfb1ea98b0?v=fc87473d',
+  width: 320,
+  height: 80,
+  alt: 'Cenovus Energy Logo',
 } as const;
 
 export const demoRegions = ['Dallas', 'Houston', 'Greenville', 'Aliso Viejo', 'London'] as const;

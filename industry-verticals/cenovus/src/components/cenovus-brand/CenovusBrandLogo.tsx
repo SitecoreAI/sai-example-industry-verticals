@@ -7,7 +7,7 @@ export type CenovusBrandLogoProps = {
   priority?: boolean;
 };
 
-/** Plain img so public SVG is not tied to the Image optimizer or middleware edge cases. */
+/** Plain img so the default/fallback logo is not tied to the Next/Image optimizer. */
 export function CenovusBrandLogo({ className, priority }: CenovusBrandLogoProps): JSX.Element {
   return (
     <img
