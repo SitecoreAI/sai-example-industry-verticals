@@ -60,7 +60,10 @@ export const config = {
    * 3. /sitecore/api (Sitecore API routes)
    * 4. /- (Sitecore media)
    * 5. /healthz (Health check)
-   * 7. all root files inside /public
+   * 6. select /public root assets (favicon, brand logos — SVG logos load unoptimized and bypass _next/image)
    */
-  matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
+  matcher: [
+    '/',
+    '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg|cenovus-logo.svg).*)',
+  ],
 };
