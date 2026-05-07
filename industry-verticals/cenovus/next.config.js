@@ -46,22 +46,6 @@ const nextConfig = {
         hostname: 'starter-verticals-2.sitecoresandbox.cloud',
         port: '',
       },
-      // XM Cloud / Sitecore Edge media CDNs (picomatch-style hostnames for Next/Image)
-      {
-        protocol: 'https',
-        hostname: '**.sitecoresandbox.cloud',
-        port: '',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.sitecorecloud.io',
-        port: '',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.sitecorecloud.net',
-        port: '',
-      },
     ],
   },
 
