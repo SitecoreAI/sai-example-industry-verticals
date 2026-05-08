@@ -11,14 +11,13 @@ export function isCenovusShowcaseShellEnabled(): boolean {
 }
 
 /**
- * Whether bundled demo sections (hero, spotlights, news, key dates) should render.
- * Off while Sitecore editing so components render datasource-driven `Text` / `Link` / `RichText`
- * field components (required for Page Builder field chromes). Delivery/preview still use demo
- * unless `NEXT_PUBLIC_CENOVUS_SHOWCASE=false`.
+ * Whether bundled Fluor demo sections (hero, spotlights, news, key dates) should render.
+ * Always on in Page Builder / edit mode so the showcase fake content stays visible for demos.
+ * Outside the editor, demo follows `NEXT_PUBLIC_CENOVUS_SHOWCASE` (default on unless set to `false`).
  */
 export function shouldShowCenovusDemo(isEditing: boolean): boolean {
   if (isEditing) {
-    return false;
+    return true;
   }
   return process.env.NEXT_PUBLIC_CENOVUS_SHOWCASE !== 'false';
 }
