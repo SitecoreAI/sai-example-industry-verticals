@@ -14,6 +14,8 @@ import {
 import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
+const emptyLinkField = { value: {} } as LinkField;
+
 interface SpotlightItem {
   id: string;
   spotlightImage: { jsonValue: ImageField };
@@ -41,14 +43,14 @@ type CenovusSpotlightsProps = {
 export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
-  const isEditing = page.mode.isEditing;
+  const isPageEditing = page.mode.isEditing;
 
   const items = props.fields?.data?.datasource?.children?.results ?? [];
   const sectionTitle = props.fields?.data?.datasource?.title;
 
-  const showDemo = shouldShowCenovusDemo(isEditing);
+  const showDemo = shouldShowCenovusDemo(isPageEditing);
 
-  if (!isEditing && items.length === 0 && !showDemo) {
+  if (!isPageEditing && items.length === 0 && !showDemo) {
     return null;
   }
 
@@ -60,7 +62,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
       >
         <div className="w-full py-12 lg:py-16">
           <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
-            {sectionTitle?.jsonValue?.value || isEditing ? (
+            {sectionTitle?.jsonValue?.value ? (
               <Text field={sectionTitle?.jsonValue} />
             ) : (
               demoSpotlights.title
@@ -108,57 +110,44 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
       id={id || undefined}
     >
       <div className="w-full py-12 lg:py-16">
-        {(sectionTitle?.jsonValue || isEditing) && (
-          <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
-            <Text field={sectionTitle?.jsonValue} />
-          </h2>
-        )}
+        <Text
+          field={sectionTitle?.jsonValue}
+          tag="h2"
+          className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl"
+        />
 
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           {items.map((item) => {
             const imgField = item.spotlightImage?.jsonValue;
-            const hasImage = Boolean(imgField?.value?.src);
             const linkField = item.spotlightLink?.jsonValue;
-            const hasLink = Boolean(linkField?.value?.href);
 
-            const card = hasImage ? (
+            const card = (
               <div className="flex h-full min-h-[220px] flex-col overflow-hidden rounded-lg bg-[#eeeeee] shadow-sm">
                 <div className="relative aspect-[4/3] min-h-[160px] w-full bg-neutral-300/80">
                   <ContentSdkImage field={imgField} className="size-full object-cover" />
                 </div>
                 <div className="flex flex-1 flex-col justify-end p-4">
-                  {(item.spotlightTitle?.jsonValue || isEditing) && (
-                    <p className="text-left text-base leading-snug font-semibold text-neutral-900">
-                      <Text field={item.spotlightTitle?.jsonValue} />
-                    </p>
-                  )}
+                  <Text
+                    field={item.spotlightTitle?.jsonValue}
+                    tag="p"
+                    className="text-left text-base leading-snug font-semibold text-neutral-900"
+                  />
                 </div>
-              </div>
-            ) : (
-              <div className="rounded-lg bg-[#eeeeee] px-4 py-4 shadow-sm">
-                {(item.spotlightTitle?.jsonValue || isEditing) && (
-                  <p className="text-left text-base leading-snug font-semibold text-neutral-900">
-                    <Text field={item.spotlightTitle?.jsonValue} />
-                  </p>
-                )}
               </div>
             );
 
-            const linked =
-              hasLink || isEditing ? (
-                <Link
-                  field={linkField}
-                  className="block text-inherit no-underline transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
-                >
-                  {card}
-                </Link>
-              ) : (
-                card
-              );
-
             return (
               <li className="min-w-0" key={item.id}>
-                {linked}
+                {linkField?.value?.href || isPageEditing ? (
+                  <Link
+                    field={linkField ?? emptyLinkField}
+                    className="block text-inherit no-underline transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
               </li>
             );
           })}

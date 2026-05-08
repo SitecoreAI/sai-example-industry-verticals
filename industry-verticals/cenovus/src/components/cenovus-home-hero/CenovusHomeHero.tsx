@@ -17,6 +17,8 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import React, { JSX, useCallback, useEffect, useMemo, useState } from 'react';
 
+const emptyLinkField = { value: {} } as LinkField;
+
 interface HomeHeroSlide {
   id: string;
   slideImage: { jsonValue: ImageField };
@@ -60,13 +62,13 @@ function formatSlideDate(value: string | undefined): string {
 export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
-  const isEditing = page.mode.isEditing;
+  const isPageEditing = page.mode.isEditing;
 
   const slides = props.fields?.data?.datasource?.children?.results ?? [];
   const sectionTitle = props.fields?.data?.datasource?.title;
   const sectionDescription = props.fields?.data?.datasource?.description;
 
-  const showDemo = shouldShowCenovusDemo(isEditing);
+  const showDemo = shouldShowCenovusDemo(isPageEditing);
 
   const [index, setIndex] = useState(0);
   const total = slides.length;
@@ -111,12 +113,14 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
     [showDemo, demoSlide?.date]
   );
 
-  if (!isEditing && total === 0 && !showDemo) {
+  if (!isPageEditing && total === 0 && !showDemo) {
     return null;
   }
 
   const carouselCount = showDemo ? demoTotal : total;
   const carouselIndex = showDemo ? demoSafeIndex : safeIndex;
+
+  const slideLinkJson = slide?.slideLink?.jsonValue;
 
   return (
     <section
@@ -127,25 +131,27 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
         {(showDemo ||
           sectionTitle?.jsonValue?.value ||
           sectionDescription?.jsonValue?.value ||
-          isEditing) && (
+          isPageEditing) && (
           <div className="w-full py-8 pb-0">
-            {(showDemo || sectionTitle?.jsonValue?.value || isEditing) && (
+            {showDemo && !sectionTitle?.jsonValue?.value ? (
               <h2 className="font-heading text-3xl tracking-tight text-[var(--color-brand-teal)] md:text-4xl">
-                {sectionTitle?.jsonValue?.value || isEditing ? (
-                  <Text field={sectionTitle?.jsonValue} />
-                ) : (
-                  demoHeroSection.title
-                )}
+                {demoHeroSection.title}
               </h2>
+            ) : (
+              <Text
+                field={sectionTitle?.jsonValue}
+                tag="h2"
+                className="font-heading text-3xl tracking-tight text-[var(--color-brand-teal)] md:text-4xl"
+              />
             )}
-            {(showDemo || sectionDescription?.jsonValue?.value || isEditing) && (
+            {showDemo && !sectionDescription?.jsonValue?.value ? (
               <p className="text-foreground-light mt-2 max-w-3xl text-base md:text-lg">
-                {sectionDescription?.jsonValue?.value || isEditing ? (
-                  <Text field={sectionDescription?.jsonValue} />
-                ) : (
-                  demoHeroSection.description
-                )}
+                {demoHeroSection.description}
               </p>
+            ) : (
+              <div className="text-foreground-light mt-2 max-w-3xl text-base md:text-lg">
+                <Text field={sectionDescription?.jsonValue} />
+              </div>
             )}
           </div>
         )}
@@ -166,13 +172,13 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
                 </>
               ) : (
                 <>
-                  {slide?.slideImage?.jsonValue && (
+                  {slide && (
                     <ContentSdkImage
                       field={slide.slideImage.jsonValue}
                       className="absolute inset-0 size-full object-cover"
                     />
                   )}
-                  {isEditing && !slide?.slideImage?.jsonValue?.value?.src && (
+                  {isPageEditing && slide && !slide.slideImage?.jsonValue?.value?.src && (
                     <div className="absolute inset-0 bg-neutral-300/90" aria-hidden />
                   )}
                 </>
@@ -226,23 +232,21 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
             ) : (
               slide && (
                 <>
-                  {(slide.slideTitle?.jsonValue || isEditing) && (
-                    <h3 className="font-heading text-2xl leading-tight font-semibold tracking-tight md:text-3xl">
-                      <Text field={slide.slideTitle.jsonValue} />
-                    </h3>
-                  )}
-                  {(slide.slideDescription?.jsonValue || isEditing) && (
-                    <div className="text-foreground-light mt-4 text-base leading-relaxed">
-                      <ContentSdkRichText field={slide.slideDescription.jsonValue} />
-                    </div>
-                  )}
-                  {(dateDisplay || isEditing) && (
+                  <Text
+                    field={slide.slideTitle.jsonValue}
+                    tag="h3"
+                    className="font-heading text-2xl leading-tight font-semibold tracking-tight text-[var(--color-brand-teal)] md:text-3xl"
+                  />
+                  <div className="text-foreground-light mt-4 text-base leading-relaxed">
+                    <ContentSdkRichText field={slide.slideDescription.jsonValue} />
+                  </div>
+                  {(dateDisplay || isPageEditing) && (
                     <p className="text-foreground-light mt-4 text-sm">{dateDisplay || '\u00a0'}</p>
                   )}
-                  {(slide.slideLink?.jsonValue?.value?.href || isEditing) && (
+                  {(slideLinkJson?.value?.href || isPageEditing) && (
                     <div className="mt-8">
                       <Link
-                        field={slide.slideLink.jsonValue}
+                        field={slideLinkJson ?? emptyLinkField}
                         className="inline-flex items-center text-sm font-semibold tracking-[0.2em] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
                       />
                     </div>

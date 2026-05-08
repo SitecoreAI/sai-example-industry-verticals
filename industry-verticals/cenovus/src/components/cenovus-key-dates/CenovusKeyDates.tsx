@@ -16,6 +16,8 @@ import React, { JSX, useCallback, useEffect, useState } from 'react';
 
 const ITEMS_PER_PAGE = 7;
 
+const emptyLinkField = { value: {} } as LinkField;
+
 interface KeyDateItem {
   id: string;
   eventTitle: { jsonValue: Field<string> };
@@ -46,16 +48,15 @@ type CenovusKeyDatesProps = {
 export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
-  const isEditing = page.mode.isEditing;
+  const isPageEditing = page.mode.isEditing;
 
   const items = props.fields?.data?.datasource?.children?.results ?? [];
   const sectionTitle = props.fields?.data?.datasource?.title;
   const viewAllLabel = props.fields?.data?.datasource?.viewAllLabel;
   const viewAll = props.fields?.data?.datasource?.viewAllLink;
   const viewAllLinkJson = viewAll?.jsonValue;
-  const viewAllLinkField: LinkField = viewAllLinkJson ?? ({ value: {} } as LinkField);
 
-  const showDemo = shouldShowCenovusDemo(isEditing);
+  const showDemo = shouldShowCenovusDemo(isPageEditing);
 
   const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
   const [pageIndex, setPageIndex] = useState(0);
@@ -79,7 +80,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
     setPageIndex((p) => (p + 1) % totalPages);
   }, [totalPages]);
 
-  if (!isEditing && items.length === 0 && !showDemo) {
+  if (!isPageEditing && items.length === 0 && !showDemo) {
     return null;
   }
 
@@ -94,7 +95,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
         <div className="w-full py-10">
           <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm lg:p-8">
             <h2 className="font-heading mb-6 border-b border-[var(--color-brand-teal)]/30 pb-3 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
-              {sectionTitle?.jsonValue?.value || isEditing ? (
+              {sectionTitle?.jsonValue?.value ? (
                 <Text field={sectionTitle?.jsonValue} />
               ) : (
                 'Key dates'
@@ -137,45 +138,45 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
       id={id || undefined}
     >
       <div className="w-full py-10">
-        {(sectionTitle?.jsonValue || isEditing) && (
-          <h2 className="font-heading mb-8 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
-            <Text field={sectionTitle?.jsonValue} />
-          </h2>
-        )}
+        <Text
+          field={sectionTitle?.jsonValue}
+          tag="h2"
+          className="font-heading mb-8 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl"
+        />
 
         <ul className="divide-y divide-neutral-200 border-y border-neutral-200">
           {visibleItems.map((row) => (
             <li className="py-5 first:pt-0 last:pb-0" key={row.id}>
-              {(row.eventTitle?.jsonValue || isEditing) && (
-                <p className="text-base leading-snug font-medium text-neutral-900">
-                  <Text field={row.eventTitle?.jsonValue} />
-                </p>
-              )}
-              {(row.eventDate?.jsonValue?.value || isEditing) && (
-                <p className="text-foreground-light mt-1 text-sm">
-                  <Text field={row.eventDate?.jsonValue} />
-                </p>
+              <Text
+                field={row.eventTitle?.jsonValue}
+                tag="p"
+                className="text-base leading-snug font-medium text-neutral-900"
+              />
+              {(row.eventDate?.jsonValue?.value || isPageEditing) && (
+                <Text
+                  field={row.eventDate?.jsonValue}
+                  tag="p"
+                  className="text-foreground-light mt-1 text-sm"
+                />
               )}
             </li>
           ))}
         </ul>
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {(viewAll?.jsonValue || viewAllLabel?.jsonValue || isEditing) && (
-            <div className="flex flex-col gap-1">
-              {(viewAllLinkJson || isEditing) && (
-                <Link
-                  field={viewAllLinkField}
-                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-                />
-              )}
-              {(viewAllLabel?.jsonValue || isEditing) && !viewAllLinkJson?.value?.href && (
-                <span className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4">
-                  <Text field={viewAllLabel?.jsonValue} />
-                </span>
-              )}
-            </div>
-          )}
+          <div className="flex flex-col gap-1">
+            {(viewAllLinkJson?.value?.href || isPageEditing) && (
+              <Link
+                field={viewAllLinkJson ?? emptyLinkField}
+                className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+              />
+            )}
+            {!viewAllLinkJson?.value?.href && (viewAllLabel?.jsonValue?.value || isPageEditing) && (
+              <span className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4">
+                <Text field={viewAllLabel?.jsonValue} />
+              </span>
+            )}
+          </div>
 
           {showPager && (
             <div className="flex items-center gap-0 self-start bg-white px-1 py-1 text-neutral-900 shadow-sm sm:self-auto">
