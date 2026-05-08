@@ -53,7 +53,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   const viewAllLabel = props.fields?.data?.datasource?.viewAllLabel;
   const viewAll = props.fields?.data?.datasource?.viewAllLink;
 
-  const showDemo = shouldShowCenovusDemo();
+  const showDemo = shouldShowCenovusDemo(isEditing);
 
   const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
   const [pageIndex, setPageIndex] = useState(0);
@@ -159,12 +159,19 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
         </ul>
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {viewAll?.jsonValue && (
-            <div>
-              <Link
-                field={viewAll.jsonValue}
-                className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-              />
+          {(viewAll?.jsonValue || viewAllLabel?.jsonValue || isEditing) && (
+            <div className="flex flex-col gap-1">
+              {(viewAll?.jsonValue || isEditing) && (
+                <Link
+                  field={viewAll?.jsonValue}
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                />
+              )}
+              {(viewAllLabel?.jsonValue || isEditing) && !viewAll?.jsonValue?.value?.href && (
+                <span className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4">
+                  <Text field={viewAllLabel?.jsonValue} />
+                </span>
+              )}
             </div>
           )}
 

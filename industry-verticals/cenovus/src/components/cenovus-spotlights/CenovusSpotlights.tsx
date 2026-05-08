@@ -46,7 +46,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
   const items = props.fields?.data?.datasource?.children?.results ?? [];
   const sectionTitle = props.fields?.data?.datasource?.title;
 
-  const showDemo = shouldShowCenovusDemo();
+  const showDemo = shouldShowCenovusDemo(isEditing);
 
   if (!isEditing && items.length === 0 && !showDemo) {
     return null;

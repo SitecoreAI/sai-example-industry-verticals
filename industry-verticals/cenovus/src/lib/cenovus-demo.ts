@@ -12,11 +12,15 @@ export function isCenovusShowcaseShellEnabled(): boolean {
 
 /**
  * Whether bundled demo sections (hero, spotlights, news, key dates) should render.
- * For this showcase site we always use Fluor sample content so Page Builder, preview,
- * and delivery match—CMS datasource branches in those components are effectively unused.
+ * Off while Sitecore editing so components render datasource-driven `Text` / `Link` / `RichText`
+ * field components (required for Page Builder field chromes). Delivery/preview still use demo
+ * unless `NEXT_PUBLIC_CENOVUS_SHOWCASE=false`.
  */
-export function shouldShowCenovusDemo(): boolean {
-  return true;
+export function shouldShowCenovusDemo(isEditing: boolean): boolean {
+  if (isEditing) {
+    return false;
+  }
+  return process.env.NEXT_PUBLIC_CENOVUS_SHOWCASE !== 'false';
 }
 
 /** Home link label on the header/footer logo (CMS image or default below). */
