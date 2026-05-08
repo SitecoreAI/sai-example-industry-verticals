@@ -123,9 +123,9 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
       className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <div className="mx-auto max-w-[1600px]">
+      <div className="w-full">
         {(showDemo || sectionTitle?.jsonValue || sectionDescription?.jsonValue || isEditing) && (
-          <div className="container py-8 pb-0">
+          <div className="w-full py-8 pb-0">
             {(showDemo || sectionTitle?.jsonValue || isEditing) && (
               <h2 className="font-heading text-3xl tracking-tight text-[var(--color-brand-teal)] md:text-4xl">
                 {showDemo ? demoHeroSection.title : <Text field={sectionTitle?.jsonValue} />}

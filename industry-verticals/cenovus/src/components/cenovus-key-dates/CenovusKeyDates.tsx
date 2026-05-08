@@ -87,7 +87,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
         className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
         id={id || undefined}
       >
-        <div className="container max-w-none py-10 lg:max-w-none">
+        <div className="w-full py-10">
           <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm lg:p-8">
             <h2 className="font-heading mb-6 border-b border-[var(--color-brand-teal)]/30 pb-3 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
               Key dates
@@ -121,7 +121,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
       className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <div className="container max-w-3xl py-10">
+      <div className="w-full py-10">
         {(sectionTitle?.jsonValue || isEditing) && (
           <h2 className="font-heading mb-8 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
             <Text field={sectionTitle?.jsonValue} />

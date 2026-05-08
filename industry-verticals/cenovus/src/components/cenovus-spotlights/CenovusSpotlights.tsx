@@ -58,7 +58,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
         className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
         id={id || undefined}
       >
-        <div className="container py-12 lg:py-16">
+        <div className="w-full py-12 lg:py-16">
           <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
             {demoSpotlights.title}
           </h2>
@@ -103,7 +103,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
       className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <div className="container py-12 lg:py-16">
+      <div className="w-full py-12 lg:py-16">
         {(sectionTitle?.jsonValue || isEditing) && (
           <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
             <Text field={sectionTitle?.jsonValue} />

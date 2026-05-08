@@ -64,7 +64,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
         className={`font-body text-foreground bg-[var(--color-background-accent)]/40 ${props.params.styles || ''}`}
         id={id || undefined}
       >
-        <div className="container py-12 lg:py-16">
+        <div className="w-full py-12 lg:py-16">
           <div className="grid grid-cols-1 gap-12 lg:[grid-template-columns:minmax(0,1fr)_minmax(0,2fr)] lg:gap-14 lg:gap-x-16 [&>*]:min-w-0">
             <div>
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
@@ -115,7 +115,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
       className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <div className="container py-12 lg:py-16">
+      <div className="w-full py-12 lg:py-16">
         <div className="grid grid-cols-1 gap-12 lg:[grid-template-columns:minmax(0,1fr)_minmax(0,2fr)] lg:gap-14 lg:gap-x-16 [&>*]:min-w-0">
           <div>
             {(sectionTitle?.jsonValue || isEditing) && (
