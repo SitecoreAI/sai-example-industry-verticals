@@ -53,6 +53,8 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const seeAllLabel = props.fields?.data?.datasource?.seeAllLabel;
   const seeAll = props.fields?.data?.datasource?.seeAllLink;
+  const seeAllLinkJson = seeAll?.jsonValue;
+  const seeAllLinkField: LinkField = seeAllLinkJson ?? ({ value: {} } as LinkField);
 
   const showDemo = shouldShowCenovusDemo(isEditing);
 
@@ -138,13 +140,13 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
             )}
             {(seeAll?.jsonValue || seeAllLabel?.jsonValue || isEditing) && (
               <div className="mt-6 flex flex-col gap-1">
-                {(seeAll?.jsonValue || isEditing) && (
+                {(seeAllLinkJson || isEditing) && (
                   <Link
-                    field={seeAll?.jsonValue}
+                    field={seeAllLinkField}
                     className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
                   />
                 )}
-                {(seeAllLabel?.jsonValue || isEditing) && !seeAll?.jsonValue?.value?.href && (
+                {(seeAllLabel?.jsonValue || isEditing) && !seeAllLinkJson?.value?.href && (
                   <span className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4">
                     <Text field={seeAllLabel?.jsonValue} />
                   </span>

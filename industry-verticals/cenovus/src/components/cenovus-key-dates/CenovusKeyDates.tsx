@@ -52,6 +52,8 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   const sectionTitle = props.fields?.data?.datasource?.title;
   const viewAllLabel = props.fields?.data?.datasource?.viewAllLabel;
   const viewAll = props.fields?.data?.datasource?.viewAllLink;
+  const viewAllLinkJson = viewAll?.jsonValue;
+  const viewAllLinkField: LinkField = viewAllLinkJson ?? ({ value: {} } as LinkField);
 
   const showDemo = shouldShowCenovusDemo(isEditing);
 
@@ -161,13 +163,13 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           {(viewAll?.jsonValue || viewAllLabel?.jsonValue || isEditing) && (
             <div className="flex flex-col gap-1">
-              {(viewAll?.jsonValue || isEditing) && (
+              {(viewAllLinkJson || isEditing) && (
                 <Link
-                  field={viewAll?.jsonValue}
+                  field={viewAllLinkField}
                   className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
                 />
               )}
-              {(viewAllLabel?.jsonValue || isEditing) && !viewAll?.jsonValue?.value?.href && (
+              {(viewAllLabel?.jsonValue || isEditing) && !viewAllLinkJson?.value?.href && (
                 <span className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4">
                   <Text field={viewAllLabel?.jsonValue} />
                 </span>
