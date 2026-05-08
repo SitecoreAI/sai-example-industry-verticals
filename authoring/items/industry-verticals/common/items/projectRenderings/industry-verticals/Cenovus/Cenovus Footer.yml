@@ -20,6 +20,9 @@ SharedFields:
             jsonValue
           }
         }
+        brandBlurb: field(name: "BrandBlurb") {
+          jsonValue
+        }
         linksHeading: field(name: "LinksHeading") {
           jsonValue
         }

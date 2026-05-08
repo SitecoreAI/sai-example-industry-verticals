@@ -8,6 +8,7 @@ import {
   RichTextField,
   Text,
   TextField,
+  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
 import NextLink from 'next/link';
@@ -25,6 +26,7 @@ interface FooterLinkItem {
 
 interface DatasourceFields {
   logo?: { jsonValue: ImageField };
+  brandBlurb?: IGQLTextField;
   linksHeading?: IGQLTextField;
   supportHeading?: IGQLTextField;
   supportBody?: { jsonValue: RichTextField };
@@ -90,6 +92,8 @@ function TwitterIcon({ className }: { className?: string }): JSX.Element {
 export const Default = (props: CenovusFooterProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const styles = props.params.styles ?? '';
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
 
   const merged = (props.fields ?? props.rendering?.fields) as IntegratedFooterFields | undefined;
   const ds = merged?.data?.datasource ?? merged?.datasource;
@@ -221,6 +225,15 @@ export const Default = (props: CenovusFooterProps): JSX.Element | null => {
               wrapperClassName="max-w-[200px]"
               imgClassName="h-auto max-h-14 w-full object-contain object-left"
             />
+            {ds?.brandBlurb?.jsonValue?.value || isPageEditing ? (
+              <p className="text-foreground-light max-w-[17rem] text-sm leading-relaxed">
+                <Text field={ds?.brandBlurb?.jsonValue} />
+              </p>
+            ) : (
+              <p className="text-foreground-light max-w-[17rem] text-sm leading-relaxed">
+                {demoFooter.brandBlurb}
+              </p>
+            )}
           </div>
 
           {/* Links */}
