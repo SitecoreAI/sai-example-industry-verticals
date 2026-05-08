@@ -87,21 +87,33 @@ body .ck.ck-editor__editable_inline {
   min-width: 0;
 }
 
-/* Pages: hide truly empty placeholder shells so they do not consume the wide 2fr column */
+/* Pages can inject wrapper siblings as direct grid children; keep them from stealing the wide lane. */
+.cenovus-homepage-band-grid > * {
+  min-width: 0;
+}
+
 .editing-mode .cenovus-homepage-band-grid > :empty {
   display: none !important;
 }
 
-/*
- * Page Builder injects intermediary placeholder wrappers that can become grid items themselves,
- * reserving the left 2fr lane while real components are nested in the right lane. Flatten those
- * wrappers in editing mode so actual section roots participate in the 2fr/1fr grid.
- */
-.editing-mode .cenovus-homepage-band-grid > * {
-  min-width: 0;
+/* Flatten intermediary wrappers, but keep the real component section roots as layout participants. */
+.editing-mode
+  .cenovus-homepage-band-grid
+  > *:not(.cenovus-home-hero):not(.cenovus-key-dates):not(.cenovus-company-news):not(
+    .cenovus-spotlights
+  ) {
+  display: contents !important;
 }
 
-/* Only flatten div shells — real <section> roots must stay intact for internal layout */
-.editing-mode .cenovus-homepage-band-grid > div {
-  display: contents;
+/* Wireframe lanes: left content (2fr), right rail (1fr) */
+@media (min-width: 1024px) {
+  .cenovus-homepage-band-grid > .cenovus-home-hero,
+  .cenovus-homepage-band-grid > .cenovus-company-news {
+    grid-column: 1;
+  }
+
+  .cenovus-homepage-band-grid > .cenovus-key-dates,
+  .cenovus-homepage-band-grid > .cenovus-spotlights {
+    grid-column: 2;
+  }
 }

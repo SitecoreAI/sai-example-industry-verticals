@@ -55,7 +55,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
   if (showDemo) {
     return (
       <section
-        className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+        className={`cenovus-spotlights font-body bg-background text-foreground ${props.params.styles || ''}`}
         id={id || undefined}
       >
         <div className="w-full py-12 lg:py-16">
@@ -100,7 +100,7 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
 
   return (
     <section
-      className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+      className={`cenovus-spotlights font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
       <div className="w-full py-12 lg:py-16">

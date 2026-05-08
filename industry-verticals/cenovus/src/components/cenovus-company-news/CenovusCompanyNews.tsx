@@ -61,7 +61,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
   if (showDemo) {
     return (
       <section
-        className={`font-body text-foreground bg-[var(--color-background-accent)]/40 ${props.params.styles || ''}`}
+        className={`cenovus-company-news font-body text-foreground bg-[var(--color-background-accent)]/40 ${props.params.styles || ''}`}
         id={id || undefined}
       >
         <div className="w-full py-12 lg:py-16">
@@ -112,7 +112,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
 
   return (
     <section
-      className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+      className={`cenovus-company-news font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
       <div className="w-full py-12 lg:py-16">

@@ -120,7 +120,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
 
   return (
     <section
-      className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+      className={`cenovus-home-hero font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
       <div className="w-full">

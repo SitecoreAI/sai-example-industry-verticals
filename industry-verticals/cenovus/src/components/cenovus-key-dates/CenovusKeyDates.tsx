@@ -84,7 +84,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
   if (showDemo) {
     return (
       <section
-        className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+        className={`cenovus-key-dates font-body bg-background text-foreground ${props.params.styles || ''}`}
         id={id || undefined}
       >
         <div className="w-full py-10">
@@ -118,7 +118,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
 
   return (
     <section
-      className={`font-body bg-background text-foreground ${props.params.styles || ''}`}
+      className={`cenovus-key-dates font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
       <div className="w-full py-10">
