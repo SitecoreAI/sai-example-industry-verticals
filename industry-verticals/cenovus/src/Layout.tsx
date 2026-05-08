@@ -57,6 +57,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
       {/* root placeholder for the app, which we add components to using route data */}
       <div
         className={clsx(
+          'cenovus-site-root',
           mainClassPageEditing,
           showcaseShell && 'cenovus-layout-shell bg-background-muted flex min-h-screen flex-col'
         )}

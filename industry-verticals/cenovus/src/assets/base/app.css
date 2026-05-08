@@ -62,16 +62,27 @@ body .ck.ck-editor__editable_inline {
 }
 
 /*
- * Cenovus default shell: avoid global flex-wrap on #header/#content/#footer
- * breaking nested grid layouts; keep a vertical column layout.
+ * Cenovus: legacy starter rule above sets #content to flex + flex-wrap, which breaks
+ * nested grids (homepage hero, etc.)—especially in the Pages iframe. Apply block layout
+ * on every route via .cenovus-site-root, not only when the showcase shell class is on.
  */
-.cenovus-layout-shell #header,
-.cenovus-layout-shell #content,
-.cenovus-layout-shell #footer {
+.cenovus-site-root #header,
+.cenovus-site-root #content,
+.cenovus-site-root #footer {
   display: block;
   flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Flex/grid children need min-width 0 so long placeholders do not steal width in editors */
+.cenovus-site-root #content {
+  min-width: 0;
 }
 
 .cenovus-layout-shell main {
   flex: 1 1 auto;
+}
+
+.cenovus-site-root main {
+  min-width: 0;
 }
