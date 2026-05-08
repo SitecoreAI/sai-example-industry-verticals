@@ -30,6 +30,7 @@ interface Fields {
         results: CompanyNewsItem[];
       };
       title?: IGQLTextField;
+      seeAllLabel?: IGQLTextField;
       seeAllLink?: {
         jsonValue: LinkField;
       };
@@ -50,6 +51,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
 
   const items = props.fields?.data?.datasource?.children?.results ?? [];
   const sectionTitle = props.fields?.data?.datasource?.title;
+  const seeAllLabel = props.fields?.data?.datasource?.seeAllLabel;
   const seeAll = props.fields?.data?.datasource?.seeAllLink;
 
   const showDemo = shouldShowCenovusDemo();
@@ -68,15 +70,26 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
           <div className="grid grid-cols-1 gap-12 lg:[grid-template-columns:minmax(0,1fr)_minmax(0,2fr)] lg:gap-14 lg:gap-x-16 [&>*]:min-w-0">
             <div>
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
-                {demoCompanyNews.title}
+                {sectionTitle?.jsonValue?.value || isEditing ? (
+                  <Text field={sectionTitle?.jsonValue} />
+                ) : (
+                  demoCompanyNews.title
+                )}
               </h2>
               <div className="mt-6">
-                <NextLink
-                  href="#"
-                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-                >
-                  {demoCompanyNews.seeAllLabel}
-                </NextLink>
+                {seeAll?.jsonValue?.value?.href ? (
+                  <Link
+                    field={seeAll.jsonValue}
+                    className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                  />
+                ) : (
+                  <NextLink
+                    href="#"
+                    className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                  >
+                    {seeAllLabel?.jsonValue?.value ?? demoCompanyNews.seeAllLabel}
+                  </NextLink>
+                )}
               </div>
             </div>
 

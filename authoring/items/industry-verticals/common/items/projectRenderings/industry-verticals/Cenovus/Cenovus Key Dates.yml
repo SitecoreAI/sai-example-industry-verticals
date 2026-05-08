@@ -31,6 +31,9 @@ SharedFields:
         title: field(name: "Title") {
           jsonValue
         }
+        viewAllLabel: field(name: "ViewAllLabel") {
+          jsonValue
+        }
         viewAllLink: field(name: "ViewAllLink") {
           jsonValue
         }

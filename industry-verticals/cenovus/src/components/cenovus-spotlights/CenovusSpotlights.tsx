@@ -60,7 +60,11 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
       >
         <div className="w-full py-12 lg:py-16">
           <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
-            {demoSpotlights.title}
+            {sectionTitle?.jsonValue?.value || isEditing ? (
+              <Text field={sectionTitle?.jsonValue} />
+            ) : (
+              demoSpotlights.title
+            )}
           </h2>
 
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">

@@ -139,7 +139,7 @@ export const demoKeyDates = [
 ];
 
 export const demoCompanyNews = {
-  title: 'News & announcements',
+  title: 'News and announcements',
   seeAllLabel: 'View all',
   items: [
     {

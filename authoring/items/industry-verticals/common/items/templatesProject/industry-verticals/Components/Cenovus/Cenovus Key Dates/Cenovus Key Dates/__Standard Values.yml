@@ -34,3 +34,9 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20260505T140000Z
+    - ID: "0f449dcf-754a-45bd-8d37-71d00957c81b"
+      Hint: Title
+      Value: Key dates
+    - ID: "e91f82a3-4c5d-4e6f-a7b8-c9012345678ab"
+      Hint: ViewAllLabel
+      Value: View all dates

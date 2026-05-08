@@ -34,3 +34,9 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20260505T160000Z
+    - ID: "def4d5e6-f7a8-4901-b2c3-d45678901234"
+      Hint: Title
+      Value: News and announcements
+    - ID: "f91f82a3-4c5d-4e6f-a7b9-c9012345678ac"
+      Hint: SeeAllLabel
+      Value: View all

@@ -124,19 +124,26 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
       id={id || undefined}
     >
       <div className="w-full">
-        {(showDemo || sectionTitle?.jsonValue || sectionDescription?.jsonValue || isEditing) && (
+        {(showDemo ||
+          sectionTitle?.jsonValue?.value ||
+          sectionDescription?.jsonValue?.value ||
+          isEditing) && (
           <div className="w-full py-8 pb-0">
-            {(showDemo || sectionTitle?.jsonValue || isEditing) && (
+            {(showDemo || sectionTitle?.jsonValue?.value || isEditing) && (
               <h2 className="font-heading text-3xl tracking-tight text-[var(--color-brand-teal)] md:text-4xl">
-                {showDemo ? demoHeroSection.title : <Text field={sectionTitle?.jsonValue} />}
+                {sectionTitle?.jsonValue?.value || isEditing ? (
+                  <Text field={sectionTitle?.jsonValue} />
+                ) : (
+                  demoHeroSection.title
+                )}
               </h2>
             )}
-            {(showDemo || sectionDescription?.jsonValue || isEditing) && (
+            {(showDemo || sectionDescription?.jsonValue?.value || isEditing) && (
               <p className="text-foreground-light mt-2 max-w-3xl text-base md:text-lg">
-                {showDemo ? (
-                  demoHeroSection.description
-                ) : (
+                {sectionDescription?.jsonValue?.value || isEditing ? (
                   <Text field={sectionDescription?.jsonValue} />
+                ) : (
+                  demoHeroSection.description
                 )}
               </p>
             )}

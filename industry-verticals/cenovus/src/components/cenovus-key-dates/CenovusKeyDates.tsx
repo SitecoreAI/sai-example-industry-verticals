@@ -29,6 +29,7 @@ interface Fields {
         results: KeyDateItem[];
       };
       title?: IGQLTextField;
+      viewAllLabel?: IGQLTextField;
       viewAllLink?: {
         jsonValue: LinkField;
       };
@@ -49,6 +50,7 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
 
   const items = props.fields?.data?.datasource?.children?.results ?? [];
   const sectionTitle = props.fields?.data?.datasource?.title;
+  const viewAllLabel = props.fields?.data?.datasource?.viewAllLabel;
   const viewAll = props.fields?.data?.datasource?.viewAllLink;
 
   const showDemo = shouldShowCenovusDemo();
@@ -90,7 +92,11 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
         <div className="w-full py-10">
           <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm lg:p-8">
             <h2 className="font-heading mb-6 border-b border-[var(--color-brand-teal)]/30 pb-3 text-xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-2xl">
-              Key dates
+              {sectionTitle?.jsonValue?.value || isEditing ? (
+                <Text field={sectionTitle?.jsonValue} />
+              ) : (
+                'Key dates'
+              )}
             </h2>
             <ul className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
               {demoKeyDates.map((row) => (
@@ -103,12 +109,19 @@ export const Default = (props: CenovusKeyDatesProps): JSX.Element | null => {
               ))}
             </ul>
             <div className="mt-8">
-              <NextLink
-                href="#"
-                className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
-              >
-                View all dates
-              </NextLink>
+              {viewAll?.jsonValue?.value?.href ? (
+                <Link
+                  field={viewAll.jsonValue}
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                />
+              ) : (
+                <NextLink
+                  href="#"
+                  className="inline-flex items-center text-sm font-semibold tracking-[0.12em] text-[var(--color-accent)] uppercase underline-offset-4 after:ml-1 after:inline-block after:content-['→'] hover:underline"
+                >
+                  {viewAllLabel?.jsonValue?.value ?? 'View all dates'}
+                </NextLink>
+              )}
             </div>
           </div>
         </div>
