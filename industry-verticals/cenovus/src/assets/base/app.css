@@ -91,3 +91,16 @@ body .ck.ck-editor__editable_inline {
 .editing-mode .cenovus-homepage-band-grid > :empty {
   display: none !important;
 }
+
+/*
+ * Page Builder injects intermediary placeholder wrappers that can become grid items themselves,
+ * reserving the left 2fr lane while real components are nested in the right lane. Flatten those
+ * wrappers in editing mode so actual section roots participate in the 2fr/1fr grid.
+ */
+.editing-mode .cenovus-homepage-band-grid > * {
+  min-width: 0;
+}
+
+.editing-mode .cenovus-homepage-band-grid > *:not(section):not(article) {
+  display: contents;
+}
