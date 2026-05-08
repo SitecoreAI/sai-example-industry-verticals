@@ -143,7 +143,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
           </div>
         )}
 
-        <div className="grid min-h-[420px] grid-cols-1 lg:min-h-[480px] lg:grid-cols-12 lg:gap-0">
+        <div className="cenovus-home-hero-split cenovus-editing-stack-grid grid min-h-[420px] grid-cols-1 lg:min-h-[480px] lg:grid-cols-12 lg:gap-0">
           <div className="relative lg:col-span-8">
             <div className="relative aspect-[16/10] min-h-[280px] w-full overflow-hidden bg-neutral-200 lg:aspect-auto lg:min-h-[480px]">
               {showDemo && demoSlide ? (

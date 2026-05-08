@@ -65,7 +65,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
         id={id || undefined}
       >
         <div className="container py-12 lg:py-16">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
+          <div className="cenovus-editing-stack-grid grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
             <div className="lg:col-span-4 xl:col-span-3">
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
                 {demoCompanyNews.title}
@@ -116,7 +116,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
       id={id || undefined}
     >
       <div className="container py-12 lg:py-16">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
+        <div className="cenovus-editing-stack-grid grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
           <div className="lg:col-span-4 xl:col-span-3">
             {(sectionTitle?.jsonValue || isEditing) && (
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
