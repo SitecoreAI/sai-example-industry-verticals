@@ -87,21 +87,7 @@ body .ck.ck-editor__editable_inline {
   min-width: 0;
 }
 
-/*
- * Pages / Experience Editor: Placeholder wrappers often add extra DOM siblings. Multi-column
- * grids that assign col-span by child order then leave an empty wide column (gap left, content
- * squeezed right). Stack to one column while editing; production layout unchanged.
- */
-.editing-mode .cenovus-editing-stack-grid {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-.editing-mode .cenovus-editing-stack-grid > * {
-  grid-column: 1 / -1 !important;
-  max-width: 100%;
-  min-width: 0;
-}
-
+/* Pages: hide truly empty placeholder shells so they do not consume the wide 2fr column */
 .editing-mode .cenovus-homepage-band-grid > :empty {
   display: none !important;
 }

@@ -65,8 +65,8 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
         id={id || undefined}
       >
         <div className="container py-12 lg:py-16">
-          <div className="cenovus-editing-stack-grid grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
-            <div className="lg:col-span-4 xl:col-span-3">
+          <div className="grid grid-cols-1 gap-12 lg:[grid-template-columns:minmax(0,1fr)_minmax(0,2fr)] lg:gap-14 lg:gap-x-16 [&>*]:min-w-0">
+            <div>
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
                 {demoCompanyNews.title}
               </h2>
@@ -80,7 +80,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
               </div>
             </div>
 
-            <div className="lg:col-span-8 xl:col-span-9">
+            <div>
               <ul className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
                 {demoCompanyNews.items.map((item) => (
                   <li
@@ -116,8 +116,8 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
       id={id || undefined}
     >
       <div className="container py-12 lg:py-16">
-        <div className="cenovus-editing-stack-grid grid gap-12 lg:grid-cols-12 lg:gap-14 lg:gap-x-16">
-          <div className="lg:col-span-4 xl:col-span-3">
+        <div className="grid grid-cols-1 gap-12 lg:[grid-template-columns:minmax(0,1fr)_minmax(0,2fr)] lg:gap-14 lg:gap-x-16 [&>*]:min-w-0">
+          <div>
             {(sectionTitle?.jsonValue || isEditing) && (
               <h2 className="font-heading text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:text-3xl">
                 <Text field={sectionTitle?.jsonValue} />
@@ -133,7 +133,7 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
             )}
           </div>
 
-          <div className="lg:col-span-8 xl:col-span-9">
+          <div>
             <ul className="grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2">
               {items.map((item) => {
                 const hasDate = Boolean(item.newsDate?.jsonValue?.value);

@@ -143,8 +143,8 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
           </div>
         )}
 
-        <div className="cenovus-home-hero-split cenovus-editing-stack-grid grid min-h-[420px] grid-cols-1 lg:min-h-[480px] lg:grid-cols-12 lg:gap-0">
-          <div className="relative lg:col-span-8">
+        <div className="cenovus-home-hero-split grid min-h-[420px] grid-cols-1 lg:min-h-[480px] lg:[grid-template-columns:minmax(0,2fr)_minmax(0,1fr)] lg:gap-0 [&>*]:min-w-0">
+          <div className="relative">
             <div className="relative aspect-[16/10] min-h-[280px] w-full overflow-hidden bg-neutral-200 lg:aspect-auto lg:min-h-[480px]">
               {showDemo && demoSlide ? (
                 <>
@@ -199,7 +199,7 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center border-t border-[var(--color-border)] bg-[var(--color-background-accent)] px-6 py-10 lg:col-span-4 lg:border-t-0 lg:border-l lg:px-10 lg:py-14">
+          <div className="flex flex-col justify-center border-t border-[var(--color-border)] bg-[var(--color-background-accent)] px-6 py-10 lg:border-t-0 lg:border-l lg:px-10 lg:py-14">
             {showDemo && demoSlide ? (
               <>
                 <h3 className="font-heading text-2xl leading-tight font-semibold tracking-tight text-[var(--color-brand-teal)] md:text-3xl">

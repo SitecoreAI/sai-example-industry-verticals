@@ -2,10 +2,11 @@ import React, { JSX } from 'react';
 import { Placeholder } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-/** Stacks on small screens; from lg: first child ~8/12 cols, second ~4/12; single child spans full row.
- * `cenovus-homepage-band-grid`: in Page Builder, extra placeholder siblings can steal col 1–8 — see app.css. */
+/** Wireframe: ~⅔ main (hero / news) + ~⅓ rail (key dates / spotlights). Uses 2fr/1fr tracks so the
+ * first two placeholder children map to columns without brittle col-span + nth-child (which breaks
+ * when Pages injects wrappers). Single child spans full width. */
 const cenovusMainTwoColumnBandGridClass =
-  'cenovus-homepage-band-grid cenovus-editing-stack-grid grid w-full grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start lg:gap-8 [&>*:nth-child(1)]:min-w-0 [&>*:nth-child(1)]:lg:col-span-8 [&>*:nth-child(2)]:min-w-0 [&>*:nth-child(2)]:lg:col-span-4 [&>*:only-child]:lg:col-span-12';
+  'cenovus-homepage-band-grid grid w-full grid-cols-1 items-start gap-6 lg:gap-8 lg:[grid-template-columns:minmax(0,2fr)_minmax(0,1fr)] [&>*]:min-w-0 lg:[&>*:only-child]:[grid-column:1/-1]';
 
 export const CENOVUS_HOMEPAGE_HERO_BAND = 'cenovus-homepage-hero-band-{*}';
 export const CENOVUS_HOMEPAGE_NEWS_SPOTLIGHTS_BAND = 'cenovus-homepage-news-spotlights-band-{*}';
