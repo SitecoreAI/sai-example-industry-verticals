@@ -158,7 +158,7 @@ export const demoCompanyNews = {
     {
       id: 'n1',
       date: 'June 3, 2026',
-      location: 'Irving',
+      location: 'Calgary',
       headline: 'Cenovus operational update: disciplined capital and safety performance',
       summary:
         '<p>Multi-office execution with shared engineering centers in Houston and Manila.</p>',
@@ -169,7 +169,7 @@ export const demoCompanyNews = {
     {
       id: 'n2',
       date: 'May 29, 2026',
-      location: 'Greenville',
+      location: 'Lima',
       headline: 'Zero recordables milestone recognized at packaging facility project',
       summary: '<p>Joint venture teams highlighted for field leadership and pre-job briefings.</p>',
       author: 'HSE Operations',
@@ -179,7 +179,7 @@ export const demoCompanyNews = {
     {
       id: 'n3',
       date: 'May 16, 2026',
-      location: 'London',
+      location: 'Atlantic Canada',
       headline: 'Investor call replay and slide deck posted',
       summary: '<p>Guidance, backlog, and cash discussion from the latest quarterly webcast.</p>',
       author: 'Investor Relations',
@@ -189,7 +189,7 @@ export const demoCompanyNews = {
     {
       id: 'n4',
       date: 'May 7, 2026',
-      location: 'Aliso Viejo',
+      location: 'Western Canada',
       headline: 'STEM scholarship recipients announced',
       summary:
         '<p>Partnerships with schools near major project sites for the upcoming academic year.</p>',
@@ -216,6 +216,20 @@ export const demoSpotlights = {
       subtitle: 'Community',
       imageSrc: 'https://picsum.photos/id/429/960/720',
       imageAlt: 'Volunteers planting trees together',
+    },
+    {
+      id: 's3',
+      title: 'Contractor onboarding checklist refreshes for summer turnaround season',
+      subtitle: 'Operations',
+      imageSrc: 'https://picsum.photos/id/318/960/720',
+      imageAlt: 'Team reviewing procedures at a project site',
+    },
+    {
+      id: 's4',
+      title: 'Quarterly Values in Action recognition — submit nominations by July 15',
+      subtitle: 'People',
+      imageSrc: 'https://picsum.photos/id/593/960/720',
+      imageAlt: 'Colleagues collaborating in an office meeting',
     },
   ],
 };
