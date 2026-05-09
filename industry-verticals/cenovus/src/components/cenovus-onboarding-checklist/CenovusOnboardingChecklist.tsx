@@ -116,10 +116,10 @@ export const Default = (props: CenovusOnboardingChecklistProps): JSX.Element | n
                     {index + 1}
                   </span>
                   <div className="min-w-0 flex-1 pt-0.5">
-                    <p className="flex items-start gap-2 text-base leading-snug font-medium text-[var(--color-foreground)]">
-                      <span className="min-w-0 flex-1">{item.label}</span>
+                    <p className="text-base leading-snug font-medium text-[var(--color-foreground)]">
+                      {item.label}
                       <ExternalLink
-                        className="mt-0.5 size-[1.1em] shrink-0 text-[var(--color-accent)] opacity-90"
+                        className="ml-1 inline-block size-[1.05em] shrink-0 align-[-0.15em] text-[var(--color-accent)] opacity-90"
                         strokeWidth={2.25}
                         aria-hidden
                       />
