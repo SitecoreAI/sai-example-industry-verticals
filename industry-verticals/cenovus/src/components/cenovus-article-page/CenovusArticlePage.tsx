@@ -33,11 +33,16 @@ interface Fields {
 
 type IntegratedFields = Fields & { datasource?: ArticlePageDatasource };
 
+/** Editing often hoists datasource fields onto `fields` (flat Image), while delivery uses GraphQL `data.datasource.image.jsonValue`. */
+type MergedArticleFields = IntegratedFields & {
+  Image?: ImageField;
+};
+
 function formatArticleDate(value: string | undefined): string {
   if (!value?.trim()) return '';
   const d = new Date(value);
   if (!Number.isNaN(d.getTime())) {
-    return new Intl.DateTimeFormat(undefined, {
+    return new Intl.DateTimeFormat('en-US', {
       month: 'long',
       day: 'numeric',
       year: 'numeric',
@@ -59,11 +64,12 @@ export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
   const { page } = useSitecore();
   const isEditing = page.mode.isEditing;
 
-  const merged = (props.fields ?? props.rendering?.fields) as IntegratedFields | undefined;
+  const merged = (props.fields ?? props.rendering?.fields) as MergedArticleFields | undefined;
   const ds = merged?.data?.datasource ?? merged?.datasource;
 
   const title = ds?.title;
-  const imageJson = ds?.image?.jsonValue;
+  /** Promo-style flat Image field in EE; GraphQL supplies nested `image.jsonValue` on delivery. */
+  const imageField: ImageField | undefined = merged?.Image ?? ds?.image?.jsonValue;
   const content = ds?.content;
   const dateField = ds?.publishedDate;
   const location = ds?.location;
@@ -74,7 +80,7 @@ export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
   const dateDisplay = formatArticleDate(dateRaw);
 
   const showTitle = isEditing || Boolean(title?.jsonValue?.value);
-  const showImage = isEditing || hasImageSrc(imageJson);
+  const showImage = isEditing || hasImageSrc(imageField);
   const showBody = isEditing || Boolean(bodyField?.value);
   const showDate = isEditing || Boolean(dateRaw?.trim());
   const showLocation = isEditing || Boolean(location?.jsonValue?.value);
@@ -91,7 +97,7 @@ export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
       className={`cenovus-article-page font-body text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <article className="mx-auto w-full max-w-3xl px-4 py-10 md:py-14">
+      <article className="w-full px-[20px] py-10 md:py-14">
         {showTitle ? (
           <h1 className="font-heading mb-6 text-3xl font-semibold tracking-tight text-[var(--color-brand-teal)] md:text-4xl">
             <Text field={title?.jsonValue} />
@@ -126,15 +132,10 @@ export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
 
         {showImage ? (
           <div className="relative mb-10 aspect-[16/10] w-full overflow-hidden rounded-xl bg-neutral-200">
-            {imageJson && (isEditing || hasImageSrc(imageJson)) ? (
-              <ContentSdkImage
-                field={imageJson}
-                className="absolute inset-0 size-full object-cover"
-              />
-            ) : null}
-            {isEditing && !hasImageSrc(imageJson) ? (
-              <div className="absolute inset-0 bg-neutral-300/90" aria-hidden />
-            ) : null}
+            <ContentSdkImage
+              field={imageField ?? ({} as ImageField)}
+              className="absolute inset-0 size-full object-cover"
+            />
           </div>
         ) : null}
 
@@ -145,7 +146,7 @@ export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
         ) : null}
       </article>
 
-      <div className="mx-auto w-full max-w-3xl px-4 pb-10 md:pb-14">
+      <div className="w-full px-[20px] pb-10 md:pb-14">
         <Placeholder name={CENOVUS_ARTICLE_BELOW} rendering={props.rendering} />
       </div>
     </div>
