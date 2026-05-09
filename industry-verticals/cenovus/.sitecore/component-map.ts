@@ -43,6 +43,7 @@ import * as CenovusFooter from 'src/components/cenovus-footer/CenovusFooter';
 import * as CenovusCompanyNews from 'src/components/cenovus-company-news/CenovusCompanyNews';
 import * as CenovusLogoField from 'src/components/cenovus-brand/CenovusLogoField';
 import * as CenovusBrandLogo from 'src/components/cenovus-brand/CenovusBrandLogo';
+import * as CenovusArticle from 'src/components/cenovus-article/CenovusArticle';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['BYOCWrapper', BYOCWrapper],
@@ -87,6 +88,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['CenovusCompanyNews', { ...CenovusCompanyNews }],
   ['CenovusLogoField', { ...CenovusLogoField }],
   ['CenovusBrandLogo', { ...CenovusBrandLogo }],
+  ['CenovusArticle', { ...CenovusArticle, componentType: 'client' }],
 ]);
 
 export default componentMap;
