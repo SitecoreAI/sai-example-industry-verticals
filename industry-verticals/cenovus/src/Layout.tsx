@@ -44,6 +44,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
       <Scripts />
       <SitecoreStyles layoutData={layout} />
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href="/favicon.ico" />
         {metaDescription && <meta name="description" content={metaDescription} />}

@@ -87,6 +87,31 @@ body .ck.ck-editor__editable_inline {
   min-width: 0;
 }
 
+/* Use real device width for breakpoints (paired with viewport meta in Layout). */
+.cenovus-site-root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Below lg: keep wireframe grids single-column so mobile never inherits 2fr/1fr tracks. */
+@media (max-width: 1023.98px) {
+  .cenovus-site-root .cenovus-homepage-band-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-home-hero,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-company-news,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-key-dates,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-spotlights {
+    grid-column: auto;
+  }
+
+  .cenovus-site-root .cenovus-home-hero-split {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
 /* Pages can inject wrapper siblings as direct grid children; keep them from stealing the wide lane. */
 .cenovus-homepage-band-grid > * {
   min-width: 0;

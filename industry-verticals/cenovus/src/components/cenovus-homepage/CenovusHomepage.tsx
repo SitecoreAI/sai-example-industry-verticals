@@ -15,7 +15,10 @@ export const Default = ({ params, rendering }: ComponentProps): JSX.Element => {
   const id = params.RenderingIdentifier;
 
   return (
-    <div className="cenovus-homepage font-body flex flex-col gap-8 lg:gap-10" id={id || undefined}>
+    <div
+      className="cenovus-homepage font-body flex w-full min-w-0 flex-col gap-8 lg:gap-10"
+      id={id || undefined}
+    >
       <div className="cenovus-main-hero-band container w-full rounded-2xl bg-[var(--color-background-accent)]/35 py-4 shadow-sm lg:py-6">
         <div className={cenovusMainTwoColumnBandGridClass}>
           <Placeholder name={CENOVUS_HOMEPAGE_HERO_BAND} rendering={rendering} />
