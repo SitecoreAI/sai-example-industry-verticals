@@ -118,7 +118,8 @@ export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
             ) : null}
             {showDate ? (
               <span className="tabular-nums">
-                {isEditing ? <Text field={dateField?.jsonValue} /> : dateDisplay}
+                {dateDisplay ||
+                  (isEditing && dateField?.jsonValue ? <Text field={dateField.jsonValue} /> : null)}
               </span>
             ) : null}
             {showDate && showLocation ? (
