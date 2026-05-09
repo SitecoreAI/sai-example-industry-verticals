@@ -16,7 +16,7 @@ import { faFacebookF, faInstagram, faLinkedin, faTwitter, faYoutube } from '@for
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Keyboard, Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { ChevronLeft, ChevronRight, Loader2, Check, Heart, Plus, Star, X, User, ShoppingCart, ArrowLeft, Globe, Menu, ChevronDown, Search, TrendingDown, TrendingUp, ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2, Check, Heart, Plus, Star, X, User, ShoppingCart, ArrowLeft, Globe, Menu, ChevronDown, ChevronUp, Search, TrendingDown, TrendingUp, ArrowRight, ExternalLink, Facebook, Instagram } from 'lucide-react';
 import { ProductCard } from 'src/components/non-sitecore/ProductCard';
 import InfiniteScroll from '@/shadcn/components/ui/infiniteScroll';
 import { ProductCard as ProductCard_f5c29266c91cfe4f66c8f4e91c1fad0bbbe159f9 } from '@/components/non-sitecore/ProductCard';
@@ -52,8 +52,10 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
 import { pageView } from '@sitecore-cloudsdk/events/browser';
 import config from 'sitecore.config';
-import { demoSpotlights, shouldShowCenovusDemo, demoKeyDates, demoHeroSection, demoHeroSlides, demoHeaderUtility, demoIntranetBrand, demoNav, demoRegionDefault, demoRegions, demoFooter, demoCompanyNews, defaultBrandLogo } from '@/lib/cenovus-demo';
+import { demoSpotlights, shouldShowCenovusDemo, demoKeyDates, demoHeroSection, demoHeroSlides, demoRegionGroups, demoHeaderUtility, demoIntranetBrand, demoNav, demoRegionDefault, demoFooter, demoCompanyNews, defaultBrandLogo } from '@/lib/cenovus-demo';
+import { cn } from '@/shadcn/lib/utils';
 import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
+import { CenovusRegionPicker } from 'src/components/cenovus-header/CenovusRegionPicker';
 import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
 import { CenovusHeaderDemoChrome } from 'src/components/cenovus-header/CenovusHeaderDemoChrome';
 
@@ -141,6 +143,7 @@ const importMap = [
       { name: 'Globe', value: Globe },
       { name: 'Menu', value: Menu },
       { name: 'ChevronDown', value: ChevronDown },
+      { name: 'ChevronUp', value: ChevronUp },
       { name: 'Search', value: Search },
       { name: 'TrendingDown', value: TrendingDown },
       { name: 'TrendingUp', value: TrendingUp },
@@ -378,20 +381,32 @@ const importMap = [
       { name: 'demoKeyDates', value: demoKeyDates },
       { name: 'demoHeroSection', value: demoHeroSection },
       { name: 'demoHeroSlides', value: demoHeroSlides },
+      { name: 'demoRegionGroups', value: demoRegionGroups },
       { name: 'demoHeaderUtility', value: demoHeaderUtility },
       { name: 'demoIntranetBrand', value: demoIntranetBrand },
       { name: 'demoNav', value: demoNav },
       { name: 'demoRegionDefault', value: demoRegionDefault },
-      { name: 'demoRegions', value: demoRegions },
       { name: 'demoFooter', value: demoFooter },
       { name: 'demoCompanyNews', value: demoCompanyNews },
       { name: 'defaultBrandLogo', value: defaultBrandLogo },
     ]
   },
   {
+    module: '@/shadcn/lib/utils',
+    exports: [
+      { name: 'cn', value: cn },
+    ]
+  },
+  {
     module: '@/components/cenovus-brand/CenovusBrandLogo',
     exports: [
       { name: 'CenovusBrandLogo', value: CenovusBrandLogo },
+    ]
+  },
+  {
+    module: 'src/components/cenovus-header/CenovusRegionPicker',
+    exports: [
+      { name: 'CenovusRegionPicker', value: CenovusRegionPicker },
     ]
   },
   {

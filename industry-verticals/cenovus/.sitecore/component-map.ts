@@ -32,6 +32,7 @@ import * as ContentBlock from 'src/components/content-block/ContentBlock';
 import * as Container from 'src/components/container/Container';
 import * as ColumnSplitter from 'src/components/column-splitter/ColumnSplitter';
 import * as CenovusSpotlights from 'src/components/cenovus-spotlights/CenovusSpotlights';
+import * as CenovusOnboardingChecklist from 'src/components/cenovus-onboarding-checklist/CenovusOnboardingChecklist';
 import * as CenovusKeyDates from 'src/components/cenovus-key-dates/CenovusKeyDates';
 import * as CenovusHomepage from 'src/components/cenovus-homepage/CenovusHomepage';
 import * as CenovusHomeHero from 'src/components/cenovus-home-hero/CenovusHomeHero';
@@ -75,6 +76,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Container', { ...Container }],
   ['ColumnSplitter', { ...ColumnSplitter }],
   ['CenovusSpotlights', { ...CenovusSpotlights }],
+  ['CenovusOnboardingChecklist', { ...CenovusOnboardingChecklist, componentType: 'client' }],
   ['CenovusKeyDates', { ...CenovusKeyDates, componentType: 'client' }],
   ['CenovusHomepage', { ...CenovusHomepage }],
   ['CenovusHomeHero', { ...CenovusHomeHero, componentType: 'client' }],
