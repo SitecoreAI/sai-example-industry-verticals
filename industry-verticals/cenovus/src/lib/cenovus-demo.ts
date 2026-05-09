@@ -259,3 +259,55 @@ export const demoFooter = {
   copyright:
     '© 2026 Cenovus Energy Inc. · Employees & authorized contractors · Confidential · Privacy · Accessibility · Terms of use',
 };
+
+/** Categories used by the fake article listing (filter UI + row badges). */
+export const demoArticleListingCategories = [
+  'Operations',
+  'Safety',
+  'People',
+  'Technology',
+  'Community',
+] as const;
+
+export type DemoArticleListingCategory = (typeof demoArticleListingCategories)[number];
+
+export type DemoArticleListingItem = {
+  id: string;
+  title: string;
+  dateIso: string;
+  category: DemoArticleListingCategory;
+  excerpt: string;
+  href: string;
+};
+
+const listingPrefixes = [
+  'Turnaround bulletin',
+  'HSE spotlight',
+  'IT & digital workplace',
+  'People & careers',
+  'Community update',
+] as const;
+
+/**
+ * 100 fake articles (newest first by date) for the Cenovus article landing demo.
+ * 10 per page → 10 pages. Not wired to Sitecore search yet.
+ */
+function buildDemoArticleListingItems(): DemoArticleListingItem[] {
+  return Array.from({ length: 100 }, (_, i) => {
+    const n = i + 1;
+    const category = demoArticleListingCategories[i % demoArticleListingCategories.length];
+    const d = new Date(Date.UTC(2026, 7, 15));
+    d.setUTCDate(d.getUTCDate() - i);
+    return {
+      id: `cenovus-demo-article-${n}`,
+      title: `${listingPrefixes[i % listingPrefixes.length]} · story ${n}`,
+      dateIso: d.toISOString().slice(0, 10),
+      category,
+      excerpt:
+        'Preview line for the intranet article index—replace with search-driven or folder-driven results when connected.',
+      href: '#',
+    };
+  });
+}
+
+export const demoArticleListingItems: DemoArticleListingItem[] = buildDemoArticleListingItems();
