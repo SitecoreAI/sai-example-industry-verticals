@@ -300,7 +300,7 @@ function buildDemoArticleListingItems(): DemoArticleListingItem[] {
     d.setUTCDate(d.getUTCDate() - i);
     return {
       id: `cenovus-demo-article-${n}`,
-      title: `${listingPrefixes[i % listingPrefixes.length]} · story ${n}`,
+      title: listingPrefixes[i % listingPrefixes.length],
       dateIso: d.toISOString().slice(0, 10),
       category,
       excerpt:
