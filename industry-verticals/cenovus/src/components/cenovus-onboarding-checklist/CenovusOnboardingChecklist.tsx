@@ -33,7 +33,7 @@ function formatDueDate(isoDate: string): string {
   return new Intl.DateTimeFormat(undefined, { dateStyle: 'long' }).format(d);
 }
 
-/** Demo checklist — hard-coded for onboarding walkthrough (not Sitecore-authored). */
+/** Hard-coded onboarding checklist steps (not Sitecore-authored). */
 const ONBOARDING_CHECKLIST_ITEMS: ReadonlyArray<{ id: string; label: string; dueIso: string }> = [
   {
     id: 'onb-1',
@@ -100,7 +100,7 @@ export const Default = (props: CenovusOnboardingChecklistProps): JSX.Element | n
 
           <div className={showIntro ? 'border-t border-[var(--color-border)] pt-8' : undefined}>
             <p className="font-heading text-sm font-semibold tracking-[0.14em] text-[var(--color-brand-teal)] uppercase">
-              Suggested timeline (demo)
+              Suggested timeline
             </p>
             <ol className="mt-6 space-y-0">
               {ONBOARDING_CHECKLIST_ITEMS.map((item, index) => (
