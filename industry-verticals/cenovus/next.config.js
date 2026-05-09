@@ -62,6 +62,17 @@ const nextConfig = {
         hostname: '**.sitecorecloud.net',
         port: '',
       },
+      /** Showcase / disconnected demo imagery (stable IDs via Lorem Picsum). */
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fastly.picsum.photos',
+        port: '',
+      },
     ],
   },
 

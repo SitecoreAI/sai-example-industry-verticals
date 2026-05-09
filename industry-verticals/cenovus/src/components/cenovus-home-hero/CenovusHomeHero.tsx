@@ -15,6 +15,7 @@ import {
   Text,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import Image from 'next/image';
 import React, { JSX, useCallback, useEffect, useMemo, useState } from 'react';
 
 interface HomeHeroSlide {
@@ -199,9 +200,13 @@ export const Default = (props: CenovusHomeHeroProps): JSX.Element | null => {
             <div className="relative h-full min-h-[280px] xl:min-h-0">
               <div className="relative aspect-[16/10] min-h-[280px] w-full overflow-hidden bg-neutral-200 xl:absolute xl:inset-0 xl:aspect-auto xl:min-h-0">
                 {showDemo && demoSlide ? (
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${demoSlide.gradient}`}
-                    aria-hidden
+                  <Image
+                    src={demoSlide.imageSrc}
+                    alt={demoSlide.imageAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1280px) 100vw, min(70vw, 960px)"
+                    priority={carouselIndex === 0}
                   />
                 ) : (
                   <>

@@ -129,7 +129,8 @@ export const demoHeroSlides = [
       '<p>Replay available for all regions. Q&amp;A summary posted to leadership channels.</p>',
     date: '2026-06-04',
     cta: 'Watch replay',
-    gradient: 'from-[#005568] to-[#003d4d]',
+    imageSrc: 'https://picsum.photos/id/48/1600/1000',
+    imageAlt: 'Conference room presentation and teamwork',
   },
   {
     id: 'intranet-hero-2',
@@ -138,7 +139,8 @@ export const demoHeroSlides = [
       '<p>Saturday 1:00–5:00 AM CT. Remote access may cycle briefly during the window.</p>',
     date: '2026-06-14',
     cta: 'Read IT bulletin',
-    gradient: 'from-[#b66721] to-[#8a4e19]',
+    imageSrc: 'https://picsum.photos/id/180/1600/1000',
+    imageAlt: 'Server room and network infrastructure',
   },
 ];
 
@@ -161,6 +163,8 @@ export const demoCompanyNews = {
       summary:
         '<p>Multi-office execution with shared engineering centers in Houston and Manila.</p>',
       author: 'Corporate Communications',
+      imageSrc: 'https://picsum.photos/id/316/640/400',
+      imageAlt: 'Industrial facility at dusk',
     },
     {
       id: 'n2',
@@ -169,6 +173,8 @@ export const demoCompanyNews = {
       headline: 'Zero recordables milestone recognized at packaging facility project',
       summary: '<p>Joint venture teams highlighted for field leadership and pre-job briefings.</p>',
       author: 'HSE Operations',
+      imageSrc: 'https://picsum.photos/id/504/640/400',
+      imageAlt: 'Safety briefing on a project site',
     },
     {
       id: 'n3',
@@ -177,6 +183,8 @@ export const demoCompanyNews = {
       headline: 'Investor call replay and slide deck posted',
       summary: '<p>Guidance, backlog, and cash discussion from the latest quarterly webcast.</p>',
       author: 'Investor Relations',
+      imageSrc: 'https://picsum.photos/id/201/640/400',
+      imageAlt: 'Business presentation charts',
     },
     {
       id: 'n4',
@@ -186,6 +194,8 @@ export const demoCompanyNews = {
       summary:
         '<p>Partnerships with schools near major project sites for the upcoming academic year.</p>',
       author: 'Community & Citizenship',
+      imageSrc: 'https://picsum.photos/id/384/640/400',
+      imageAlt: 'Students in a classroom workshop',
     },
   ],
 };
@@ -197,11 +207,15 @@ export const demoSpotlights = {
       id: 's1',
       title: 'Advanced modularization pilot — Aliso Viejo',
       subtitle: 'Innovation',
+      imageSrc: 'https://picsum.photos/id/535/960/720',
+      imageAlt: 'Construction and modular assembly yard',
     },
     {
       id: 's2',
       title: 'Volunteer week: 2,400 hours served globally',
       subtitle: 'Community',
+      imageSrc: 'https://picsum.photos/id/429/960/720',
+      imageAlt: 'Volunteers planting trees together',
     },
   ],
 };

@@ -102,6 +102,7 @@ body .ck.ck-editor__editable_inline {
 
   .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-home-hero,
   .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-company-news,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-onboarding-checklist,
   .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-key-dates,
   .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-spotlights {
     grid-column: auto;
@@ -121,19 +122,24 @@ body .ck.ck-editor__editable_inline {
   display: none !important;
 }
 
-/* Flatten intermediary wrappers, but keep the real component section roots as layout participants. */
-.editing-mode
+/*
+ * Flatten Sitecore placeholder wrappers so section roots are grid items (same as Page Builder).
+ * Preview/Live omit .editing-mode — without this, wrappers steal grid cells and column rules never hit
+ * .cenovus-home-hero / .cenovus-key-dates / etc., breaking the 2fr / 1fr hero-band alignment.
+ */
+.cenovus-site-root
   .cenovus-homepage-band-grid
   > *:not(.cenovus-home-hero):not(.cenovus-key-dates):not(.cenovus-company-news):not(
     .cenovus-spotlights
-  ) {
+  ):not(.cenovus-onboarding-checklist) {
   display: contents !important;
 }
 
 /* Wireframe lanes: left content (2fr), right rail (1fr) */
 @media (min-width: 1280px) {
   .cenovus-homepage-band-grid > .cenovus-home-hero,
-  .cenovus-homepage-band-grid > .cenovus-company-news {
+  .cenovus-homepage-band-grid > .cenovus-company-news,
+  .cenovus-homepage-band-grid > .cenovus-onboarding-checklist {
     grid-column: 1;
   }
 
@@ -162,7 +168,8 @@ body .ck.ck-editor__editable_inline {
 .cenovus-homepage-band-grid > .cenovus-home-hero,
 .cenovus-homepage-band-grid > .cenovus-key-dates,
 .cenovus-homepage-band-grid > .cenovus-company-news,
-.cenovus-homepage-band-grid > .cenovus-spotlights {
+.cenovus-homepage-band-grid > .cenovus-spotlights,
+.cenovus-homepage-band-grid > .cenovus-onboarding-checklist {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -172,7 +179,8 @@ body .ck.ck-editor__editable_inline {
 .cenovus-homepage-band-grid > .cenovus-home-hero > div:first-child,
 .cenovus-homepage-band-grid > .cenovus-key-dates > div:first-child,
 .cenovus-homepage-band-grid > .cenovus-company-news > div:first-child,
-.cenovus-homepage-band-grid > .cenovus-spotlights > div:first-child {
+.cenovus-homepage-band-grid > .cenovus-spotlights > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-onboarding-checklist > div:first-child {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;

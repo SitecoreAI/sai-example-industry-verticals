@@ -11,6 +11,7 @@ import {
   Text,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import Image from 'next/image';
 import NextLink from 'next/link';
 import React, { JSX } from 'react';
 
@@ -100,22 +101,33 @@ export const Default = (props: CenovusCompanyNewsProps): JSX.Element | null => {
                 <ul className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
                   {demoCompanyNews.items.map((item) => (
                     <li
-                      className="flex flex-col rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] p-5 shadow-sm"
+                      className="flex flex-col overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] shadow-sm"
                       key={item.id}
                     >
-                      <div className="text-foreground-light flex flex-wrap items-baseline gap-x-2 text-sm">
-                        <span>{item.date}</span>
-                        <span className="text-neutral-300">·</span>
-                        <span>{item.location}</span>
+                      <div className="relative aspect-[16/10] w-full shrink-0 bg-neutral-200">
+                        <Image
+                          src={item.imageSrc}
+                          alt={item.imageAlt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        />
                       </div>
-                      <h3 className="font-heading mt-2 text-lg leading-snug font-semibold text-[var(--color-foreground)] md:text-xl">
-                        {item.headline}
-                      </h3>
-                      <div
-                        className="text-foreground-light mt-3 line-clamp-4 text-sm leading-relaxed md:text-base [&_p]:mb-2 [&_p:last-child]:mb-0"
-                        dangerouslySetInnerHTML={{ __html: item.summary }}
-                      />
-                      <p className="text-foreground-light mt-4 text-xs">{item.author}</p>
+                      <div className="flex flex-col p-5">
+                        <div className="text-foreground-light flex flex-wrap items-baseline gap-x-2 text-sm">
+                          <span>{item.date}</span>
+                          <span className="text-neutral-300">·</span>
+                          <span>{item.location}</span>
+                        </div>
+                        <h3 className="font-heading mt-2 text-lg leading-snug font-semibold text-[var(--color-foreground)] md:text-xl">
+                          {item.headline}
+                        </h3>
+                        <div
+                          className="text-foreground-light mt-3 line-clamp-4 text-sm leading-relaxed md:text-base [&_p]:mb-2 [&_p:last-child]:mb-0"
+                          dangerouslySetInnerHTML={{ __html: item.summary }}
+                        />
+                        <p className="text-foreground-light mt-4 text-xs">{item.author}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
