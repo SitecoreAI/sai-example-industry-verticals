@@ -1,5 +1,5 @@
 /**
- * Fluor intranet sample content for the Cenovus demo vertical.
+ * Cenovus intranet sample content for disconnected/demo mode.
  */
 
 /**
@@ -11,7 +11,7 @@ export function isCenovusShowcaseShellEnabled(): boolean {
 }
 
 /**
- * Whether bundled Fluor demo sections (hero, spotlights, news, key dates) should render.
+ * Whether bundled demo sections (hero, spotlights, news, key dates) should render.
  * Always on in Page Builder / edit mode so the showcase fake content stays visible for demos.
  * Outside the editor, demo follows `NEXT_PUBLIC_CENOVUS_SHOWCASE` (default on unless set to `false`).
  */
@@ -38,9 +38,17 @@ export const defaultBrandLogo = {
   alt: 'Cenovus Energy Logo',
 } as const;
 
-export const demoRegions = ['Dallas', 'Houston', 'Greenville', 'Aliso Viejo', 'London'] as const;
-export type DemoRegion = (typeof demoRegions)[number];
-export const demoRegionDefault: DemoRegion = 'Dallas';
+/** Grouped regions for the header picker (US / Canada). */
+export const demoRegionGroups = [
+  { label: 'US', regions: ['Lima', 'Superior'] as const },
+  { label: 'Canada', regions: ['Calgary', 'Atlantic Canada', 'Western Canada'] as const },
+] as const;
+
+export type DemoRegion = (typeof demoRegionGroups)[number]['regions'][number];
+
+export const demoRegions: DemoRegion[] = demoRegionGroups.flatMap((g) => [...g.regions]);
+
+export const demoRegionDefault: DemoRegion = 'Calgary';
 
 export const demoNav = [
   {
@@ -58,7 +66,7 @@ export const demoNav = [
     children: [
       { label: 'Workday', href: '#' },
       { label: 'Benefits & wellbeing', href: '#' },
-      { label: 'Learning @ Fluor', href: '#' },
+      { label: 'Learning @ Cenovus', href: '#' },
     ],
   },
   {
@@ -92,25 +100,25 @@ export type DemoStockTicker = {
 };
 
 export const demoHeaderUtility = {
-  welcomeText: 'Fluor intranet — welcome',
-  regionPrefix: 'Office',
+  welcomeText: 'Welcome, John Q. Employee',
+  regionPrefix: 'Choose your region:',
   searchPlaceholder: 'Search directory, projects, policies…',
   stocks: [
-    { label: 'FLR', trend: 'up', display: 'FLR $51.84' },
-    { label: 'SPX', trend: 'down', display: 'S&P 500 5,926' },
+    { label: 'CVE', trend: 'up', display: 'CVE $28.40' },
+    { label: 'SPX', trend: 'down', display: 'S&P 500 $7,398.92' },
   ] satisfies DemoStockTicker[],
   utilityLinks: [
     { label: 'Ethics helpline', href: '#' },
     { label: 'Workday', href: '#' },
     { label: 'ServiceNow', href: '#' },
-    { label: 'fluor.com', href: '#', external: true },
+    { label: 'cenovus.com', href: '#', external: true },
   ],
 };
 
 export const demoHeroSection = {
   title: 'Building a better world',
   description:
-    'Your hub for projects, people, and policies—aligned with Fluor standards for safety, quality, and delivery.',
+    'Your hub for projects, people, and policies—aligned with Cenovus standards for safety, quality, and delivery.',
 };
 
 export const demoHeroSlides = [
@@ -149,7 +157,7 @@ export const demoCompanyNews = {
       id: 'n1',
       date: 'June 3, 2026',
       location: 'Irving',
-      headline: 'Fluor awarded FEED study for Gulf Coast chemical expansion',
+      headline: 'Cenovus operational update: disciplined capital and safety performance',
       summary:
         '<p>Multi-office execution with shared engineering centers in Houston and Manila.</p>',
       author: 'Corporate Communications',

@@ -58,45 +58,47 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
         className={`cenovus-spotlights font-body bg-background text-foreground ${props.params.styles || ''}`}
         id={id || undefined}
       >
-        <div className="w-full py-12 lg:py-16">
-          <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
-            {sectionTitle?.jsonValue?.value || isEditing ? (
-              <Text field={sectionTitle?.jsonValue} />
-            ) : (
-              demoSpotlights.title
-            )}
-          </h2>
+        <div className="w-full py-0">
+          <div className="cenovus-homepage-panel">
+            <h2 className="font-heading mb-8 shrink-0 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
+              {sectionTitle?.jsonValue?.value || isEditing ? (
+                <Text field={sectionTitle?.jsonValue} />
+              ) : (
+                demoSpotlights.title
+              )}
+            </h2>
 
-          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-            {demoSpotlights.items.map((item, idx) => (
-              <li className="min-w-0" key={item.id}>
-                <NextLink
-                  href="#"
-                  className="group block overflow-hidden rounded-xl border-2 border-[var(--color-brand-teal)]/20 bg-[var(--color-background)] shadow-md transition hover:border-[var(--color-accent)]/50 hover:shadow-lg"
-                >
-                  <div
-                    className={`relative aspect-[4/3] min-h-[160px] w-full bg-gradient-to-br ${
-                      idx === 0
-                        ? 'from-[var(--color-brand-teal)] to-[var(--color-brand-teal-dark)]'
-                        : 'from-[var(--color-accent)] to-[#8a4e19]'
-                    }`}
+            <ul className="grid min-h-0 flex-1 grid-cols-1 content-start gap-6 md:grid-cols-2 md:gap-8">
+              {demoSpotlights.items.map((item, idx) => (
+                <li className="min-w-0" key={item.id}>
+                  <NextLink
+                    href="#"
+                    className="group block overflow-hidden rounded-xl border-2 border-[var(--color-brand-teal)]/20 bg-[var(--color-background)] shadow-md transition hover:border-[var(--color-accent)]/50 hover:shadow-lg"
                   >
-                    <span className="font-heading absolute inset-0 flex items-center justify-center text-4xl font-bold text-white/90">
-                      {idx === 0 ? 'Ops' : 'People'}
-                    </span>
-                  </div>
-                  <div className="border-border border-t bg-[var(--color-background-muted)]/50 p-5">
-                    <p className="text-foreground-light mb-1 text-xs font-semibold tracking-wider uppercase">
-                      {item.subtitle}
-                    </p>
-                    <p className="text-left text-lg leading-snug font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-brand-teal)]">
-                      {item.title}
-                    </p>
-                  </div>
-                </NextLink>
-              </li>
-            ))}
-          </ul>
+                    <div
+                      className={`relative aspect-[4/3] min-h-[160px] w-full bg-gradient-to-br ${
+                        idx === 0
+                          ? 'from-[var(--color-brand-teal)] to-[var(--color-brand-teal-dark)]'
+                          : 'from-[var(--color-accent)] to-[#8a4e19]'
+                      }`}
+                    >
+                      <span className="font-heading absolute inset-0 flex items-center justify-center text-4xl font-bold text-white/90">
+                        {idx === 0 ? 'Ops' : 'People'}
+                      </span>
+                    </div>
+                    <div className="border-border border-t bg-[var(--color-background-muted)]/50 p-5">
+                      <p className="text-foreground-light mb-1 text-xs font-semibold tracking-wider uppercase">
+                        {item.subtitle}
+                      </p>
+                      <p className="text-left text-lg leading-snug font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-brand-teal)]">
+                        {item.title}
+                      </p>
+                    </div>
+                  </NextLink>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     );
@@ -107,62 +109,64 @@ export const Default = (props: CenovusSpotlightsProps): JSX.Element | null => {
       className={`cenovus-spotlights font-body bg-background text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <div className="w-full py-12 lg:py-16">
-        {(sectionTitle?.jsonValue || isEditing) && (
-          <h2 className="font-heading mb-8 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
-            <Text field={sectionTitle?.jsonValue} />
-          </h2>
-        )}
+      <div className="w-full py-0">
+        <div className="cenovus-homepage-panel">
+          {(sectionTitle?.jsonValue || isEditing) && (
+            <h2 className="font-heading mb-8 shrink-0 text-2xl font-semibold tracking-[0.12em] text-[var(--color-brand-teal)] uppercase md:mb-10 md:text-3xl">
+              <Text field={sectionTitle?.jsonValue} />
+            </h2>
+          )}
 
-        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-          {items.map((item) => {
-            const imgField = item.spotlightImage?.jsonValue;
-            const hasImage = Boolean(imgField?.value?.src);
-            const linkField = item.spotlightLink?.jsonValue;
-            const hasLink = Boolean(linkField?.value?.href);
+          <ul className="grid min-h-0 flex-1 grid-cols-1 content-start gap-6 md:grid-cols-2 md:gap-8">
+            {items.map((item) => {
+              const imgField = item.spotlightImage?.jsonValue;
+              const hasImage = Boolean(imgField?.value?.src);
+              const linkField = item.spotlightLink?.jsonValue;
+              const hasLink = Boolean(linkField?.value?.href);
 
-            const card = hasImage ? (
-              <div className="flex h-full min-h-[220px] flex-col overflow-hidden rounded-lg bg-[#eeeeee] shadow-sm">
-                <div className="relative aspect-[4/3] min-h-[160px] w-full bg-neutral-300/80">
-                  <ContentSdkImage field={imgField} className="size-full object-cover" />
+              const card = hasImage ? (
+                <div className="flex h-full min-h-[220px] flex-col overflow-hidden rounded-lg bg-[#eeeeee] shadow-sm">
+                  <div className="relative aspect-[4/3] min-h-[160px] w-full bg-neutral-300/80">
+                    <ContentSdkImage field={imgField} className="size-full object-cover" />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-end p-4">
+                    {(item.spotlightTitle?.jsonValue || isEditing) && (
+                      <p className="text-left text-base leading-snug font-semibold text-neutral-900">
+                        <Text field={item.spotlightTitle?.jsonValue} />
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <div className="flex flex-1 flex-col justify-end p-4">
+              ) : (
+                <div className="rounded-lg bg-[#eeeeee] px-4 py-4 shadow-sm">
                   {(item.spotlightTitle?.jsonValue || isEditing) && (
                     <p className="text-left text-base leading-snug font-semibold text-neutral-900">
                       <Text field={item.spotlightTitle?.jsonValue} />
                     </p>
                   )}
                 </div>
-              </div>
-            ) : (
-              <div className="rounded-lg bg-[#eeeeee] px-4 py-4 shadow-sm">
-                {(item.spotlightTitle?.jsonValue || isEditing) && (
-                  <p className="text-left text-base leading-snug font-semibold text-neutral-900">
-                    <Text field={item.spotlightTitle?.jsonValue} />
-                  </p>
-                )}
-              </div>
-            );
-
-            const linked =
-              hasLink || isEditing ? (
-                <Link
-                  field={linkField}
-                  className="block text-inherit no-underline transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
-                >
-                  {card}
-                </Link>
-              ) : (
-                card
               );
 
-            return (
-              <li className="min-w-0" key={item.id}>
-                {linked}
-              </li>
-            );
-          })}
-        </ul>
+              const linked =
+                hasLink || isEditing ? (
+                  <Link
+                    field={linkField}
+                    className="block text-inherit no-underline transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                );
+
+              return (
+                <li className="min-w-0" key={item.id}>
+                  {linked}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   );

@@ -9,15 +9,17 @@ import {
   LinkField,
   Text,
 } from '@sitecore-content-sdk/nextjs';
+import NextLink from 'next/link';
 import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
 import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
-import { demoRegionDefault, demoRegions } from '@/lib/cenovus-demo';
+import { demoRegionDefault, type DemoRegion } from '@/lib/cenovus-demo';
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
 import { IGQLTextField } from '@/types/igql';
 
 import { CenovusHeaderDemoChrome } from './CenovusHeaderDemoChrome';
+import { CenovusRegionPicker } from './CenovusRegionPicker';
 
 interface NavSubLink {
   id: string;
@@ -118,7 +120,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
   const searchAction = searchUrlRaw.length > 0 ? searchUrlRaw : '/search';
 
   const regionDefault = String(ds?.regionName?.jsonValue?.value ?? '').trim();
-  const [selectedRegion, setSelectedRegion] = useState(regionDefault || demoRegionDefault);
+  const [selectedRegion, setSelectedRegion] = useState<string>(regionDefault || demoRegionDefault);
   useEffect(() => {
     if (regionDefault) {
       setSelectedRegion(regionDefault);
@@ -150,7 +152,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
     { label: 'integrity helpline', field: ds?.utilityIntegrity },
     { label: 'Workday', field: ds?.utilityWorkday },
     { label: 'SelfServe', field: ds?.utilitySelfServe },
-    { label: 'fluor.com', field: ds?.utilityCenovusCom },
+    { label: 'cenovus.com', field: ds?.utilityCenovusCom },
   ];
 
   if (!ds) {
@@ -166,59 +168,33 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       <div className="h-1 bg-[var(--color-brand-teal)]" aria-hidden />
       {/* Utility bar */}
       <div className="border-border border-b bg-[var(--color-background-muted)]/60">
-        <div className="container flex flex-col gap-3 py-2 text-sm md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-2">
+        <div className="container flex flex-col gap-3 py-2 text-sm xl:flex-row xl:flex-wrap xl:items-center xl:justify-between xl:gap-x-4 xl:gap-y-2">
           <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
             <span className="text-foreground shrink-0">
               <Text field={ds?.welcomeText?.jsonValue} />
             </span>
-            <div className="relative">
-              <button
-                type="button"
-                className="text-foreground-light hover:text-foreground inline-flex items-center gap-1 text-sm transition-colors"
-                aria-expanded={regionOpen}
-                aria-haspopup="listbox"
-                onClick={() => {
-                  setRegionOpen((o) => !o);
-                  setOpenMenuId(null);
-                }}
-              >
-                <span className="text-foreground-light">
-                  <Text field={ds?.regionPrefix?.jsonValue} />
-                </span>
-                <span className="text-foreground font-semibold">{selectedRegion}</span>
-                <ChevronDown className="size-4 shrink-0 opacity-70" aria-hidden />
-              </button>
-              {regionOpen && (
-                <ul
-                  className="border-border absolute left-0 z-50 mt-1 min-w-[12rem] rounded-md border bg-[var(--color-background)] py-1 shadow-md"
-                  role="listbox"
-                >
-                  {demoRegions.map((r) => (
-                    <li key={r} role="option" aria-selected={r === selectedRegion}>
-                      <button
-                        type="button"
-                        className="hover:bg-background-accent block w-full px-3 py-2 text-left text-sm"
-                        onClick={() => {
-                          setSelectedRegion(r);
-                          setRegionOpen(false);
-                        }}
-                      >
-                        {r}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <CenovusRegionPicker
+              regionOpen={regionOpen}
+              onRegionToggle={() => {
+                setRegionOpen((o) => !o);
+                setOpenMenuId(null);
+              }}
+              selectedRegion={selectedRegion}
+              onSelectRegion={(r: DemoRegion) => {
+                setSelectedRegion(r);
+                setRegionOpen(false);
+              }}
+              prefix={<Text field={ds?.regionPrefix?.jsonValue} />}
+            />
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 md:flex-1 md:justify-center">
+          <div className="flex flex-wrap items-center justify-start gap-4 xl:flex-1">
             <StockRow textField={ds?.stock1Text} trendField={ds?.stock1Trend} />
             <StockRow textField={ds?.stock2Text} trendField={ds?.stock2Trend} />
           </div>
 
           <nav
-            className="text-foreground-light flex flex-wrap items-center gap-x-4 gap-y-1 md:justify-end"
+            className="text-foreground-light flex flex-wrap items-center gap-x-4 gap-y-1 xl:justify-end"
             aria-label="Utility links"
           >
             {utilityPairs.map(({ label, field }) => (
@@ -229,18 +205,18 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
       </div>
 
       {/* Main row */}
-      <div className="border-border container flex items-center gap-4 border-b-4 border-[var(--color-brand-teal)] py-3 lg:gap-8">
-        <div className="flex min-w-0 shrink-0 items-center gap-3 lg:gap-6">
+      <div className="border-border container flex items-center gap-3 border-b-4 border-[var(--color-brand-teal)] py-3 min-[1025px]:gap-8 sm:gap-4 lg:gap-6">
+        <div className="flex min-w-0 shrink-0 items-center gap-3 min-[1025px]:me-4 lg:me-2 lg:gap-6">
           <CenovusLogoField
             field={logoField}
-            wrapperClassName="max-w-[200px]"
-            imgClassName="h-10 w-auto max-w-[200px] object-contain"
+            wrapperClassName="max-w-[160px] min-[1025px]:max-w-[200px]"
+            imgClassName="h-10 w-auto max-w-[160px] object-contain min-[1025px]:max-w-[200px]"
           />
         </div>
 
         {/* Desktop nav */}
         <nav
-          className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex"
+          className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto lg:flex"
           aria-label="Primary"
         >
           {navItems.map((item) => {
@@ -297,7 +273,7 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
         </nav>
 
         <form
-          className="hidden min-w-0 flex-[0_1_20rem] lg:block lg:flex-[0_1_24rem]"
+          className="hidden min-w-0 flex-[0_1_24rem] min-[1025px]:block"
           action={searchAction}
           method="get"
           role="search"
@@ -316,23 +292,23 @@ export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
           </label>
         </form>
 
+        <NextLink
+          href={searchAction}
+          className="hidden shrink-0 rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)] min-[1025px]:hidden lg:flex"
+          aria-label="Search"
+        >
+          <Search className="size-6" aria-hidden />
+        </NextLink>
+
         {/* Mobile drawer */}
-        <div className="ml-auto flex items-center gap-2 lg:hidden">
-          <form className="min-w-0 flex-1" action={searchAction} method="get" role="search">
-            <label className="relative block">
-              <span className="sr-only">Search</span>
-              <input
-                type="search"
-                name="q"
-                placeholder={(ds?.searchPlaceholder?.jsonValue?.value as string) || 'Search'}
-                className="font-body border-border w-full min-w-0 rounded-full border-0 bg-[var(--color-background-muted)] py-2 pr-9 pl-3 text-sm"
-              />
-              <Search
-                className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2"
-                aria-hidden
-              />
-            </label>
-          </form>
+        <div className="ml-auto flex shrink-0 items-center gap-2 lg:hidden">
+          <NextLink
+            href={searchAction}
+            className="rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)]"
+            aria-label="Search"
+          >
+            <Search className="size-6" aria-hidden />
+          </NextLink>
 
           <Drawer direction="left">
             <DrawerTrigger asChild>

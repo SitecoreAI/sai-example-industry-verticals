@@ -35,6 +35,7 @@ import * as CenovusSpotlights from 'src/components/cenovus-spotlights/CenovusSpo
 import * as CenovusKeyDates from 'src/components/cenovus-key-dates/CenovusKeyDates';
 import * as CenovusHomepage from 'src/components/cenovus-homepage/CenovusHomepage';
 import * as CenovusHomeHero from 'src/components/cenovus-home-hero/CenovusHomeHero';
+import * as CenovusRegionPicker from 'src/components/cenovus-header/CenovusRegionPicker';
 import * as CenovusHeaderDemoChrome from 'src/components/cenovus-header/CenovusHeaderDemoChrome';
 import * as CenovusHeader from 'src/components/cenovus-header/CenovusHeader';
 import * as CenovusFooter from 'src/components/cenovus-footer/CenovusFooter';
@@ -77,6 +78,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['CenovusKeyDates', { ...CenovusKeyDates, componentType: 'client' }],
   ['CenovusHomepage', { ...CenovusHomepage }],
   ['CenovusHomeHero', { ...CenovusHomeHero, componentType: 'client' }],
+  ['CenovusRegionPicker', { ...CenovusRegionPicker, componentType: 'client' }],
   ['CenovusHeaderDemoChrome', { ...CenovusHeaderDemoChrome, componentType: 'client' }],
   ['CenovusHeader', { ...CenovusHeader, componentType: 'client' }],
   ['CenovusFooter', { ...CenovusFooter }],

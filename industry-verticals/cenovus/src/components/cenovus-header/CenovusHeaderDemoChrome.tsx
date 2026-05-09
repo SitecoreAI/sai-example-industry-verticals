@@ -6,9 +6,9 @@ import {
   demoIntranetBrand,
   demoNav,
   demoRegionDefault,
-  demoRegions,
   type DemoRegion,
 } from '@/lib/cenovus-demo';
+import { CenovusRegionPicker } from './CenovusRegionPicker';
 import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
 import NextLink from 'next/link';
 import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
@@ -25,7 +25,7 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
   const searchAction = '/search';
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
   const [regionOpen, setRegionOpen] = useState(false);
-  const [selectedOffice, setSelectedOffice] = useState<DemoRegion>(demoRegionDefault);
+  const [selectedRegion, setSelectedRegion] = useState<DemoRegion>(demoRegionDefault);
   const shellRef = useRef<HTMLElement>(null);
 
   const closeAll = useCallback(() => {
@@ -52,49 +52,25 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
       <div className="h-1 bg-[var(--color-brand-teal)]" aria-hidden />
 
       <div className="border-border border-b bg-[var(--color-background-muted)]/60">
-        <div className="container flex flex-col gap-3 py-2 text-sm md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-2">
+        <div className="container flex flex-col gap-3 py-2 text-sm xl:flex-row xl:flex-wrap xl:items-center xl:justify-between xl:gap-x-4 xl:gap-y-2">
           <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
             <span className="text-foreground shrink-0">{demoHeaderUtility.welcomeText}</span>
-            <div className="relative">
-              <button
-                type="button"
-                className="text-foreground-light hover:text-foreground inline-flex items-center gap-1 text-sm transition-colors"
-                aria-expanded={regionOpen}
-                aria-haspopup="listbox"
-                onClick={() => {
-                  setRegionOpen((o) => !o);
-                  setOpenMenuId(null);
-                }}
-              >
-                <span className="text-foreground-light">{demoHeaderUtility.regionPrefix}</span>
-                <span className="text-foreground font-semibold">{selectedOffice}</span>
-                <ChevronDown className="size-4 shrink-0 opacity-70" aria-hidden />
-              </button>
-              {regionOpen && (
-                <ul
-                  className="border-border absolute left-0 z-50 mt-1 min-w-[12rem] rounded-md border bg-[var(--color-background)] py-1 shadow-md"
-                  role="listbox"
-                >
-                  {demoRegions.map((r) => (
-                    <li key={r}>
-                      <button
-                        type="button"
-                        className="hover:bg-background-accent block w-full px-3 py-2 text-left text-sm"
-                        onClick={() => {
-                          setSelectedOffice(r);
-                          setRegionOpen(false);
-                        }}
-                      >
-                        {r}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <CenovusRegionPicker
+              regionOpen={regionOpen}
+              onRegionToggle={() => {
+                setRegionOpen((o) => !o);
+                setOpenMenuId(null);
+              }}
+              selectedRegion={selectedRegion}
+              onSelectRegion={(r) => {
+                setSelectedRegion(r);
+                setRegionOpen(false);
+              }}
+              prefix={demoHeaderUtility.regionPrefix}
+            />
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 md:flex-1 md:justify-center">
+          <div className="flex flex-wrap items-center justify-start gap-6 xl:flex-1">
             {demoHeaderUtility.stocks.map((s) => (
               <span
                 key={s.label}
@@ -113,7 +89,7 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
           </div>
 
           <nav
-            className="text-foreground-light flex flex-wrap items-center gap-x-4 gap-y-1 md:justify-end"
+            className="text-foreground-light flex flex-wrap items-center gap-x-4 gap-y-1 xl:justify-end"
             aria-label="Utility links"
           >
             {demoHeaderUtility.utilityLinks.map((u) => (
@@ -130,17 +106,20 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
       </div>
 
       <div className="border-border border-b-4 border-[var(--color-brand-teal)]">
-        <div className="container flex items-center gap-4 py-3 lg:gap-8">
+        <div className="container flex items-center gap-3 py-3 min-[1025px]:gap-8 sm:gap-4 lg:gap-6">
           <NextLink
             href="/"
-            className="block shrink-0 text-[var(--color-foreground)] no-underline"
+            className="block shrink-0 text-[var(--color-foreground)] no-underline min-[1025px]:me-4 lg:me-2"
             aria-label={demoIntranetBrand.homeAriaLabel}
           >
-            <CenovusBrandLogo className="h-10 w-auto max-w-[200px] object-contain" priority />
+            <CenovusBrandLogo
+              className="h-10 w-auto max-w-[160px] object-contain min-[1025px]:max-w-[200px]"
+              priority
+            />
           </NextLink>
 
           <nav
-            className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex"
+            className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto lg:flex"
             aria-label="Primary"
           >
             {demoNav.map((item) => {
@@ -193,7 +172,7 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
           </nav>
 
           <form
-            className="hidden min-w-0 flex-[0_1_20rem] lg:block lg:flex-[0_1_24rem]"
+            className="hidden min-w-0 flex-[0_1_24rem] min-[1025px]:block"
             action={searchAction}
             method="get"
             role="search"
@@ -212,22 +191,22 @@ export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element
             </label>
           </form>
 
-          <div className="ml-auto flex items-center gap-2 lg:hidden">
-            <form className="min-w-0 flex-1" action={searchAction} method="get" role="search">
-              <label className="relative block">
-                <span className="sr-only">Search</span>
-                <input
-                  type="search"
-                  name="q"
-                  placeholder={demoHeaderUtility.searchPlaceholder}
-                  className="font-body border-border w-full min-w-0 rounded-full border-0 bg-[var(--color-background-muted)] py-2 pr-9 pl-3 text-sm"
-                />
-                <Search
-                  className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2 text-[var(--color-brand-teal)]"
-                  aria-hidden
-                />
-              </label>
-            </form>
+          <NextLink
+            href={searchAction}
+            className="hidden shrink-0 rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)] min-[1025px]:hidden lg:flex"
+            aria-label="Search"
+          >
+            <Search className="size-6" aria-hidden />
+          </NextLink>
+
+          <div className="ml-auto flex shrink-0 items-center gap-2 lg:hidden">
+            <NextLink
+              href={searchAction}
+              className="rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)]"
+              aria-label="Search"
+            >
+              <Search className="size-6" aria-hidden />
+            </NextLink>
 
             <Drawer direction="left">
               <DrawerTrigger asChild>

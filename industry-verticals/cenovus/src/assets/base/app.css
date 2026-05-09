@@ -94,8 +94,8 @@ body .ck.ck-editor__editable_inline {
   min-width: 0;
 }
 
-/* Below lg: keep wireframe grids single-column so mobile never inherits 2fr/1fr tracks. */
-@media (max-width: 1023.98px) {
+/* Below xl: keep wireframe grids single-column so tablet (~1024px) stacks instead of cramped 2fr/1fr. */
+@media (max-width: 1279.98px) {
   .cenovus-site-root .cenovus-homepage-band-grid {
     grid-template-columns: minmax(0, 1fr) !important;
   }
@@ -131,7 +131,7 @@ body .ck.ck-editor__editable_inline {
 }
 
 /* Wireframe lanes: left content (2fr), right rail (1fr) */
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .cenovus-homepage-band-grid > .cenovus-home-hero,
   .cenovus-homepage-band-grid > .cenovus-company-news {
     grid-column: 1;
@@ -141,4 +141,47 @@ body .ck.ck-editor__editable_inline {
   .cenovus-homepage-band-grid > .cenovus-spotlights {
     grid-column: 2;
   }
+}
+
+/* Homepage grid tiles: match Key dates card (border, radius, padding). */
+.cenovus-homepage-panel {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+@media (min-width: 1280px) {
+  .cenovus-homepage-panel {
+    padding: 2rem;
+  }
+}
+
+/* Two-column homepage bands: shorter tile matches taller sibling in the same row. */
+.cenovus-homepage-band-grid > .cenovus-home-hero,
+.cenovus-homepage-band-grid > .cenovus-key-dates,
+.cenovus-homepage-band-grid > .cenovus-company-news,
+.cenovus-homepage-band-grid > .cenovus-spotlights {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.cenovus-homepage-band-grid > .cenovus-home-hero > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-key-dates > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-company-news > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-spotlights > div:first-child {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.cenovus-homepage-band-grid .cenovus-homepage-panel {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-height: 0;
 }
