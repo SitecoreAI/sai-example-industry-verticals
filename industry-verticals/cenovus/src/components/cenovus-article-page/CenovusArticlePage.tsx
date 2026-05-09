@@ -1,11 +1,11 @@
 'use client';
 
 import { IGQLTextField } from '@/types/igql';
+import { ComponentProps } from 'lib/component-props';
 import {
-  ComponentParams,
-  ComponentRendering,
   ImageField,
   NextImage as ContentSdkImage,
+  Placeholder,
   RichText as ContentSdkRichText,
   RichTextField,
   Text,
@@ -13,28 +13,25 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import React, { JSX } from 'react';
 
-interface ArticleDatasource {
+/** Dynamic placeholder for components below the article body (e.g. Promo). */
+export const CENOVUS_ARTICLE_BELOW = 'cenovus-article-below-{*}';
+
+interface ArticlePageDatasource {
   title?: IGQLTextField;
   image?: { jsonValue: ImageField };
-  copy?: { jsonValue: RichTextField };
-  date?: IGQLTextField;
-  location?: IGQLTextField;
+  content?: { jsonValue: RichTextField };
+  publishedDate?: IGQLTextField;
   category?: IGQLTextField;
+  location?: IGQLTextField;
 }
 
 interface Fields {
   data?: {
-    datasource?: ArticleDatasource;
+    datasource?: ArticlePageDatasource;
   };
 }
 
-type IntegratedFields = Fields & { datasource?: ArticleDatasource };
-
-type CenovusArticleProps = {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: { [key: string]: string };
-  fields: Fields;
-};
+type IntegratedFields = Fields & { datasource?: ArticlePageDatasource };
 
 function formatArticleDate(value: string | undefined): string {
   if (!value?.trim()) return '';
@@ -53,7 +50,11 @@ function hasImageSrc(field: ImageField | undefined): boolean {
   return Boolean(field?.value?.src?.trim());
 }
 
-export const Default = (props: CenovusArticleProps): JSX.Element | null => {
+type CenovusArticlePageProps = ComponentProps & {
+  fields: Fields;
+};
+
+export const Default = (props: CenovusArticlePageProps): JSX.Element | null => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isEditing = page.mode.isEditing;
@@ -63,34 +64,34 @@ export const Default = (props: CenovusArticleProps): JSX.Element | null => {
 
   const title = ds?.title;
   const imageJson = ds?.image?.jsonValue;
-  const copy = ds?.copy;
-  const dateField = ds?.date;
+  const content = ds?.content;
+  const dateField = ds?.publishedDate;
   const location = ds?.location;
   const category = ds?.category;
 
-  const copyField: RichTextField = copy?.jsonValue ?? ({} as RichTextField);
+  const bodyField: RichTextField = content?.jsonValue ?? ({} as RichTextField);
   const dateRaw = dateField?.jsonValue?.value as string | undefined;
   const dateDisplay = formatArticleDate(dateRaw);
 
   const showTitle = isEditing || Boolean(title?.jsonValue?.value);
   const showImage = isEditing || hasImageSrc(imageJson);
-  const showCopy = isEditing || Boolean(copyField?.value);
+  const showBody = isEditing || Boolean(bodyField?.value);
   const showDate = isEditing || Boolean(dateRaw?.trim());
   const showLocation = isEditing || Boolean(location?.jsonValue?.value);
   const showCategory = isEditing || Boolean(category?.jsonValue?.value);
 
   const showMeta = showDate || showLocation || showCategory;
 
-  if (!isEditing && !showTitle && !showImage && !showCopy && !showMeta) {
+  if (!isEditing && !showTitle && !showImage && !showBody && !showMeta) {
     return null;
   }
 
   return (
-    <article
-      className={`cenovus-article font-body text-foreground ${props.params.styles || ''}`}
+    <div
+      className={`cenovus-article-page font-body text-foreground ${props.params.styles || ''}`}
       id={id || undefined}
     >
-      <div className="mx-auto w-full max-w-3xl px-4 py-10 md:py-14">
+      <article className="mx-auto w-full max-w-3xl px-4 py-10 md:py-14">
         {showTitle ? (
           <h1 className="font-heading mb-6 text-3xl font-semibold tracking-tight text-[var(--color-brand-teal)] md:text-4xl">
             <Text field={title?.jsonValue} />
@@ -137,12 +138,16 @@ export const Default = (props: CenovusArticleProps): JSX.Element | null => {
           </div>
         ) : null}
 
-        {showCopy ? (
-          <div className="cenovus-article-copy prose prose-neutral dark:prose-invert max-w-none [&_a]:text-[var(--color-accent)] [&_a]:underline-offset-4">
-            <ContentSdkRichText field={copyField} />
+        {showBody ? (
+          <div className="cenovus-article-page-copy prose prose-neutral dark:prose-invert max-w-none [&_a]:text-[var(--color-accent)] [&_a]:underline-offset-4">
+            <ContentSdkRichText field={bodyField} />
           </div>
         ) : null}
+      </article>
+
+      <div className="mx-auto w-full max-w-3xl px-4 pb-10 md:pb-14">
+        <Placeholder name={CENOVUS_ARTICLE_BELOW} rendering={props.rendering} />
       </div>
-    </article>
+    </div>
   );
 };

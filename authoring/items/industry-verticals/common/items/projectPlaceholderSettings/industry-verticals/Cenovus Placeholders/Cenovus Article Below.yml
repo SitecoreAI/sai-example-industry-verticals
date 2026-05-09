@@ -1,0 +1,24 @@
+---
+ID: "e7bc2830-e8ce-4ce7-b378-0cb1e46a4dd0"
+Parent: "a8f3c2e1-5d4b-4c7a-9e8f-1a2b3c4d5e6f"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Cenovus Article Below"
+SharedFields:
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "cenovus-article-below-{*}"
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Value: |
+    {CCD11802-22A3-462F-92FC-821515E2AEC8}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260507T180000Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "00000000-0000-0000-0000-000000001206"
