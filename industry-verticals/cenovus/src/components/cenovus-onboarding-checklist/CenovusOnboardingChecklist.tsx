@@ -9,6 +9,7 @@ import {
   Text,
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import { ExternalLink } from 'lucide-react';
 import React, { JSX } from 'react';
 
 interface Fields {
@@ -115,8 +116,13 @@ export const Default = (props: CenovusOnboardingChecklistProps): JSX.Element | n
                     {index + 1}
                   </span>
                   <div className="min-w-0 flex-1 pt-0.5">
-                    <p className="text-base leading-snug font-medium text-[var(--color-foreground)]">
-                      {item.label}
+                    <p className="flex items-start gap-2 text-base leading-snug font-medium text-[var(--color-foreground)]">
+                      <span className="min-w-0 flex-1">{item.label}</span>
+                      <ExternalLink
+                        className="mt-0.5 size-[1.1em] shrink-0 text-[var(--color-accent)] opacity-90"
+                        strokeWidth={2.25}
+                        aria-hidden
+                      />
                     </p>
                     <p className="text-foreground-light mt-2 text-sm">
                       <span className="font-medium text-[var(--color-foreground)]">Due: </span>
