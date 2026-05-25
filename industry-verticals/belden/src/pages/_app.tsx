@@ -13,38 +13,44 @@ const SEARCH_CONFIG = {
   apiKey: process.env.NEXT_PUBLIC_SEARCH_API_KEY,
 };
 
+const hasSearchConfig = Boolean(
+  SEARCH_CONFIG.env && SEARCH_CONFIG.customerKey && SEARCH_CONFIG.apiKey
+);
+
 function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element {
   const { dictionary, ...rest } = pageProps;
   const lang = pageProps.page?.locale || scConfig.defaultLanguage;
 
-  PageController.getContext().setLocaleLanguage(lang.split('-')[0]);
-  if (lang == 'en') {
-    PageController.getContext().setLocaleCountry('us');
-  } else {
-    PageController.getContext().setLocaleCountry(lang.split('-')[1].toLocaleLowerCase());
+  if (hasSearchConfig) {
+    PageController.getContext().setLocaleLanguage(lang.split('-')[0]);
+    if (lang == 'en') {
+      PageController.getContext().setLocaleCountry('us');
+    } else {
+      PageController.getContext().setLocaleCountry(lang.split('-')[1].toLocaleLowerCase());
+    }
   }
+
+  const page = (
+    <I18nProvider lngDict={dictionary} locale={pageProps.page?.locale || scConfig.defaultLanguage}>
+      <Component {...rest} />
+    </I18nProvider>
+  );
 
   return (
     <>
       <Bootstrap {...pageProps} />
-      {/*
-        // Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
-        // Note Next.js does not (currently) provide anything for translation, only i18n routing.
-        // If your app is not multilingual, next-localization and references to it can be removed.
-      */}
-      <I18nProvider
-        lngDict={dictionary}
-        locale={pageProps.page?.locale || scConfig.defaultLanguage}
-      >
+      {hasSearchConfig ? (
         <WidgetsProvider
           env={SEARCH_CONFIG.env as Environment}
           customerKey={SEARCH_CONFIG.customerKey}
           apiKey={SEARCH_CONFIG.apiKey}
           publicSuffix={true}
         >
-          <Component {...rest} />
+          {page}
         </WidgetsProvider>
-      </I18nProvider>
+      ) : (
+        page
+      )}
     </>
   );
 }
