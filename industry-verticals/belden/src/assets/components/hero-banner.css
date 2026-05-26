@@ -30,4 +30,13 @@
   .hero-banner.hide-gradient-overlay .hero-banner__media-overlay {
     @apply hidden;
   }
+
+  /* Layout > Reversed — fallback when Sitecore adds `reversed` on the root */
+  .hero-banner.reversed .hero-banner__content-row {
+    @apply lg:justify-start;
+  }
+
+  .hero-banner:not(.reversed) .hero-banner__content-row {
+    @apply lg:justify-end;
+  }
 }

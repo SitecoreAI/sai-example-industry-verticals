@@ -81,11 +81,13 @@ const HeroBannerCommon = ({
   );
 };
 
+const hasReversedLayout = (styles: string) => styles.split(/\s+/).includes(LayoutStyles.Reversed);
+
 export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
   const styles = params.styles || '';
   const hideAccentLine = styles.includes(CommonStyles.HideAccentLine);
   const withPlaceholder = styles.includes(HeroBannerStyles.WithPlaceholder);
-  const reverseLayout = styles.includes(LayoutStyles.Reversed);
+  const reverseLayout = hasReversedLayout(styles);
   const screenLayer = styles.includes(HeroBannerStyles.ScreenLayer);
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
@@ -95,9 +97,12 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
       <div className="relative w-full">
         <div className="container mx-auto px-4">
           <div
-            className={`flex min-h-238 w-full py-10 lg:w-1/2 lg:items-center ${reverseLayout ? 'lg:mr-auto' : 'lg:ml-auto'}`}
+            className={clsx(
+              'hero-banner__content-row flex min-h-238 w-full py-10 lg:items-center',
+              reverseLayout ? 'lg:justify-start' : 'lg:justify-end'
+            )}
           >
-            <div className="max-w-182">
+            <div className="hero-banner__content-col max-w-182 lg:w-1/2">
               <div className={clsx({ shim: screenLayer })}>
                 {/* Title */}
                 <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] lg:text-left xl:text-[80px]">
@@ -134,7 +139,7 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
   const styles = params.styles || '';
   const hideAccentLine = styles.includes(CommonStyles.HideAccentLine);
   const withPlaceholder = styles.includes(HeroBannerStyles.WithPlaceholder);
-  const reverseLayout = styles.includes(LayoutStyles.Reversed);
+  const reverseLayout = hasReversedLayout(styles);
   const screenLayer = styles.includes(HeroBannerStyles.ScreenLayer);
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
@@ -142,10 +147,13 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
     <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
       {/* Content Container */}
       <div className="relative w-full">
-        <div className="container mx-auto flex min-h-238 justify-center px-4">
-          <div
-            className={`flex flex-col items-center py-10 lg:py-44 ${reverseLayout ? 'justify-end' : 'justify-start'}`}
-          >
+        <div
+          className={clsx(
+            'hero-banner__content-row container mx-auto flex min-h-238 justify-center px-4',
+            reverseLayout ? 'lg:justify-start' : 'lg:justify-end'
+          )}
+        >
+          <div className="hero-banner__content-col flex max-w-182 flex-col items-center py-10 lg:w-1/2 lg:py-44">
             <div className={clsx({ shim: screenLayer })}>
               {/* Title */}
               <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px]">
