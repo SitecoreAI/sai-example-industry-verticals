@@ -91,7 +91,7 @@ export const Default = (props: NavigationIconsProps): JSX.Element => {
         </div>
       </div>
       {isSearchOpen && (
-        <div className="border-border bg-background absolute top-full right-0 left-0 z-50 border-b shadow-lg">
+        <div className="border-border bg-background-surface absolute top-full right-0 left-0 z-50 border-b shadow-lg">
           <div className="mx-auto max-w-7xl px-4 py-4">
             <div className="flex items-center gap-2">
               <PreviewSearch

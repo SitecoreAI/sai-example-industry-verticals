@@ -39,7 +39,7 @@
 }
 
 .carousel-btn {
-  @apply text-foreground! bg-background z-10 size-12 content-center rounded-full shadow-md;
+  @apply text-foreground! bg-background-surface z-10 size-12 content-center rounded-full shadow-md;
 }
 
 .surface-btn {
@@ -59,7 +59,7 @@
 }
 
 .main-btn {
-  @apply bg-accent text-background hover:bg-accent/95 flex w-full items-center justify-center rounded-md p-3 text-center text-lg font-semibold transition-all hover:shadow-md;
+  @apply bg-accent text-on-accent hover:bg-accent/95 flex w-full items-center justify-center rounded-md p-3 text-center text-lg font-semibold transition-all hover:shadow-md;
 
   &[disabled] {
     @apply pointer-events-none opacity-60;

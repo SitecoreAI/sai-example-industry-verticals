@@ -87,7 +87,7 @@ export const QuestionsAnswersComponent = ({
   return (
     <div>
       {((answer && question) || relatedQuestionsResponse.length > 0) && (
-        <div className="border-border bg-background mb-8 rounded-lg border p-5 shadow-sm">
+        <div className="border-border bg-background-surface mb-8 rounded-lg border p-5 shadow-sm">
           {answer && question && <MainQuestionComponent answer={answer} question={question} />}
           {relatedQuestionsResponse.length > 0 && (
             <RelatedQuestionsComponent relatedQuestions={relatedQuestionsResponse} />

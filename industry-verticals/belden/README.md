@@ -2,7 +2,7 @@
 
 ## Overview
 
-Belden is a headless Next.js application based on the Forma Lux retail starter. It showcases a modern shopping experience with intuitive navigation, multilingual support, and engaging content presentation.
+Belden is a headless Next.js application modeled after [belden.com](https://www.belden.com). It showcases industrial connectivity solutions, industry verticals, insights, and customer stories with a dark-first brand experience.
 
 ## Developer Expectations:
 

@@ -52,7 +52,7 @@ export const Pagination = ({
           <button
             onClick={() => handlePageChange(1)}
             className={`${paginationButtonClasses} ${
-              currentPage === 1 ? 'bg-accent text-background' : 'bg-background-accent'
+              currentPage === 1 ? 'bg-accent text-on-accent' : 'bg-background-accent'
             }`}
           >
             1
@@ -66,7 +66,7 @@ export const Pagination = ({
           key={page}
           onClick={() => handlePageChange(page)}
           className={`${paginationButtonClasses} ${
-            page === currentPage ? 'bg-accent text-background' : 'bg-background-accent'
+            page === currentPage ? 'bg-accent text-on-accent' : 'bg-background-accent'
           }`}
         >
           {page}
@@ -79,7 +79,7 @@ export const Pagination = ({
           <button
             onClick={() => handlePageChange(totalPages)}
             className={`${paginationButtonClasses} ${
-              currentPage === totalPages ? 'bg-accent text-background' : 'bg-background-accent'
+              currentPage === totalPages ? 'bg-accent text-on-accent' : 'bg-background-accent'
             }`}
           >
             {totalPages}

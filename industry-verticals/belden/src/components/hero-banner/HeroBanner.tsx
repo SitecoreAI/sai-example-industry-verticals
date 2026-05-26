@@ -73,9 +73,7 @@ const HeroBannerCommon = ({
           </>
         )}
         {/* Gradient overlay to fade image/video at bottom */}
-        {!hideGradientOverlay && (
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-white"></div>
-        )}
+        {!hideGradientOverlay && <div className="hero-banner__media-overlay" aria-hidden />}
       </div>
 
       {children}

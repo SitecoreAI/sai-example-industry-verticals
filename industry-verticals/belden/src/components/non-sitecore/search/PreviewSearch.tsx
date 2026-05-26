@@ -113,7 +113,7 @@ export const PreviewSearchComponent = ({
       </form>
 
       <PreviewSearch.Content
-        className="bg-background mt-0.5 flex h-100 justify-center overflow-hidden rounded-b-md pt-0 shadow-xl transition-opacity sm:w-(--radix-popover-trigger-width)"
+        className="bg-background-surface mt-0.5 flex h-100 justify-center overflow-hidden rounded-b-md pt-0 shadow-xl transition-opacity sm:w-(--radix-popover-trigger-width)"
         style={contentWidth ? { width: `${contentWidth}px` } : undefined}
       >
         <Spinner loading={loading} />
@@ -134,7 +134,7 @@ export const PreviewSearchComponent = ({
               {({ isFetching: isResultsFetching, data: { content: articles = [] } = {} }) => (
                 <PreviewSearch.Items
                   data-loading={isResultsFetching}
-                  className="bg-background flex w-full overflow-y-auto data-[loading=false]:m-0 data-[loading=false]:grid data-[loading=false]:list-none data-[loading=false]:grid-cols-1 data-[loading=false]:gap-2 data-[loading=false]:p-2 sm:flex-3 sm:data-[loading=false]:grid-cols-2 sm:data-[loading=false]:gap-3 lg:data-[loading=false]:grid-cols-3"
+                  className="bg-background-surface flex w-full overflow-y-auto data-[loading=false]:m-0 data-[loading=false]:grid data-[loading=false]:list-none data-[loading=false]:grid-cols-1 data-[loading=false]:gap-2 data-[loading=false]:p-2 sm:flex-3 sm:data-[loading=false]:grid-cols-2 sm:data-[loading=false]:gap-3 lg:data-[loading=false]:grid-cols-3"
                 >
                   <Spinner loading={isResultsFetching} />
 
@@ -153,7 +153,7 @@ export const PreviewSearchComponent = ({
                             })
                           }
                           href={article.url}
-                          className="box-border flex max-h-48 w-full text-black no-underline focus:shadow-sm"
+                          className="text-foreground box-border flex max-h-48 w-full no-underline focus:shadow-sm"
                         >
                           <ArticleCard.Root className="block w-full cursor-pointer rounded-md border border-solid border-transparent p-2 text-center shadow-sm transition-shadow focus-within:shadow-xl hover:shadow-md">
                             <div className="relative m-auto mb-2 flex h-20 items-center justify-center overflow-hidden sm:mb-2.5 sm:h-24">

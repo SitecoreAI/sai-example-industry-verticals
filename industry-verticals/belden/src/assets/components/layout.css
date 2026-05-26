@@ -11,53 +11,49 @@
   }
 }
 
-/* This doesn't really do what it says - we may need to rework it */
 .parallax-background {
   > .component-content {
     @apply bg-cover bg-fixed bg-position-[50%_0] bg-no-repeat max-md:bg-scroll;
   }
 }
 
-/* Background color  */
-/* &:not(.container) - full width container and other full width components - color from edge to edge */
-/* &.container > .component-content - centered container - color only the content to align with grid */
-
-.container-clean-background {
+.container-clean-background,
+.container-white-background {
   &:not(.container),
   &.container > .component-content {
-    @apply bg-background;
+    @apply bg-background text-foreground;
   }
 }
 
 .container-color-background {
   > .component-content {
-    @apply border-background-accent;
+    @apply border-border;
   }
 
   &:not(.container),
   &.container > .component-content {
-    @apply bg-background-accent border-background-accent;
+    @apply bg-background-accent border-background-accent text-foreground;
   }
 }
 
 .container-dark-background {
   > .component-content {
-    @apply border-accent;
+    @apply border-border-on-dark;
   }
 
   &:not(.container),
   &.container > .component-content {
-    @apply bg-accent border-accent text-background;
+    @apply bg-background-dark-muted border-background-dark-muted text-foreground;
 
     * {
       @apply text-inherit;
     }
 
     .arrow-btn {
-      @apply border-b-background;
+      @apply border-b-foreground text-foreground;
 
       &::after {
-        @apply bg-background;
+        @apply bg-foreground;
       }
     }
   }
@@ -65,17 +61,15 @@
 
 .container-gray-background {
   > .component-content {
-    @apply border-background-muted;
+    @apply border-border;
   }
 
   &:not(.container),
   &.container > .component-content {
-    @apply bg-background-muted border-background-muted;
+    @apply bg-background-muted border-background-muted text-foreground;
   }
 }
 
-/* Spacing */
-/* Using padding for the sides so it doesn't break the grid widths */
 .indent {
   @apply px-12;
 }
@@ -88,7 +82,6 @@
   @apply mb-6;
 }
 
-/* Content alignment */
 .position-left,
 .position-left * {
   text-align: left !important;
@@ -116,12 +109,8 @@
   text-align-last: center !important;
 }
 
-.container-dark-background .shim {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 50px;
-}
-
+.container-dark-background .shim,
 .shim {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(2, 15, 34, 0.55);
   padding: 50px;
 }

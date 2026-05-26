@@ -26,9 +26,9 @@ const ReviewCard = (props: ReviewCardProps) => {
         <ContentSdkImage className="image-cover rounded-2xl" field={props.fields.ReviewImage} />
       </div>
       <div className="px-5">
-        <div className="bg-background relative -top-15 flex min-h-70 flex-col items-center justify-between rounded-2xl p-8 text-center shadow-xl">
+        <div className="bg-background-surface relative -top-15 flex min-h-70 flex-col items-center justify-between rounded-2xl p-8 text-center shadow-xl">
           {/* Image */}
-          <div className="bg-background absolute -top-10 flex h-[66px] w-[66px] items-center justify-center rounded-full">
+          <div className="bg-background-surface absolute -top-10 flex h-[66px] w-[66px] items-center justify-center rounded-full">
             {props.fields.Avatar.value?.src || props.isPageEditing ? (
               <ContentSdkImage
                 width={50}
@@ -37,14 +37,14 @@ const ReviewCard = (props: ReviewCardProps) => {
                 className="h-[50px] w-[50px] rounded-full"
               />
             ) : (
-              <div className="!text-foreground bg-background-muted flex h-[50px] w-[50px] items-center justify-center rounded-full">
+              <div className="!text-foreground bg-background-surface-muted flex h-[50px] w-[50px] items-center justify-center rounded-full">
                 <User className="size-8" />
               </div>
             )}
-            <div className="wavy-bottom-left bg-background absolute top-5 -left-7 h-[30px] w-[30px]"></div>
-            <div className="wavy-bottom-right bg-background absolute top-5 -right-7 h-[30px] w-[30px]"></div>
+            <div className="wavy-bottom-left bg-background-surface absolute top-5 -left-7 h-[30px] w-[30px]"></div>
+            <div className="wavy-bottom-right bg-background-surface absolute top-5 -right-7 h-[30px] w-[30px]"></div>
           </div>
-          <div className="!text-background-muted-light">
+          <div className="text-foreground-light">
             <div className="text-center text-xl leading-normal font-bold capitalize">
               <Text field={props.fields.ReviewerName} />
             </div>
@@ -52,7 +52,7 @@ const ReviewCard = (props: ReviewCardProps) => {
               <Text field={props.fields.Caption} />
             </div>
           </div>
-          <div className="!text-background-muted-light text-center text-sm leading-5 font-normal">
+          <div className="text-foreground-muted text-center text-sm leading-5 font-normal">
             <Text field={props.fields.Description} />
           </div>
           <StarRating rating={props.fields.Rating.value} />

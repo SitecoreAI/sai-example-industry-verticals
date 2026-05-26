@@ -1,0 +1,33 @@
+/* Belden.com hero--dark */
+@layer components {
+  .hero-banner {
+    &:not(.hide-gradient-overlay) .hero-banner__media-overlay {
+      @apply absolute inset-0;
+      background: linear-gradient(
+        180deg,
+        rgba(2, 15, 34, 0.2) 0%,
+        rgba(2, 15, 34, 0.65) 50%,
+        var(--color-background) 100%
+      );
+    }
+
+    & h1,
+    & h2,
+    & .component.rich-text,
+    & .component.rich-text p {
+      @apply text-foreground;
+    }
+
+    & .arrow-btn {
+      @apply border-b-foreground text-foreground;
+
+      &::after {
+        @apply bg-foreground;
+      }
+    }
+  }
+
+  .hero-banner.hide-gradient-overlay .hero-banner__media-overlay {
+    @apply hidden;
+  }
+}

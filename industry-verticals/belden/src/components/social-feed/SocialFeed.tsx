@@ -40,7 +40,7 @@ export const GridImage = ({ image, className, ...rest }: GridImageProps) => {
       />
       <FontAwesomeIcon
         icon={faInstagram}
-        className="text-background/70 absolute right-2 bottom-2 text-2xl"
+        className="text-foreground/70 absolute right-2 bottom-2 text-2xl"
       />
     </div>
   );

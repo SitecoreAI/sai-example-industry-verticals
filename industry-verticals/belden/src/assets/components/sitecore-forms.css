@@ -3,11 +3,11 @@
 }
 
 .global-checkbox-element.global-checkbox-element.global-checkbox-element {
-  @apply bg-background border-foreground/40 checked:bg-accent checked:border-accent h-4 w-4 rounded-sm border-2 shadow-none focus-within:!outline-none;
+  @apply bg-background-surface border-foreground/40 checked:bg-accent checked:border-accent h-4 w-4 rounded-sm border-2 shadow-none focus-within:!outline-none;
 }
 
 .global-radio-element.global-radio-element.global-radio-element {
-  @apply border-foreground/10 bg-background focus-within:outline-accent checked:outline-accent before:bg-accent border-2 checked:outline-1;
+  @apply border-foreground/10 bg-background-surface focus-within:outline-accent checked:outline-accent before:bg-accent border-2 checked:outline-1;
 }
 
 .form-select-option-container.form-select-option-container.form-select-option-container {

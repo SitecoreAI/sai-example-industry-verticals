@@ -48,7 +48,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
                 page={page as number}
                 onClick={(e) => e.preventDefault()}
                 className={`mx-1 rounded-md px-3 py-2 md:px-4 md:py-3 ${
-                  page === currentPage ? 'bg-accent text-background' : 'bg-background-accent'
+                  page === currentPage ? 'bg-accent text-on-accent' : 'bg-background-accent'
                 }`}
               >
                 {page}

@@ -134,7 +134,7 @@ export const ThreeColGridCentered = (props: FeaturesProps) => {
                 <div className="mb-2 leading-0.5">
                   <Text tag="h5" className="text-accent" field={title} />
                 </div>
-                <div className="text-background-muted-light text-center">
+                <div className="text-foreground-light text-center">
                   <Text field={description} />
                 </div>
               </div>
@@ -158,19 +158,19 @@ export const NumberedGrid = (props: FeaturesProps) => {
           const description = item?.featureDescription.jsonValue;
           return (
             <div
-              className="group text-background hover:bg-accent cursor-pointer rounded-xl p-6"
+              className="group hover:bg-accent bg-background-muted cursor-pointer rounded-xl p-6"
               key={index}
             >
               {/* Generated Number */}
-              <h1 className="group-hover:text-background text-background-muted-dark mb-2 text-7xl leading-24">
+              <h1 className="text-foreground-muted group-hover:text-on-accent mb-2 text-7xl leading-24">
                 {generateIndexes(index)}
               </h1>
               {/* Title and Description */}
               <div>
-                <div className="text-accent group-hover:text-background mb-4 text-2xl leading-8 font-bold">
+                <div className="text-accent group-hover:text-on-accent mb-4 text-2xl leading-8 font-bold">
                   <Text field={title} />
                 </div>
-                <div className="text-background-muted-dark group-hover:text-background leading-7">
+                <div className="text-foreground-light group-hover:text-on-accent leading-7">
                   <Text field={description} />
                 </div>
               </div>
@@ -204,7 +204,7 @@ export const FourColGrid = (props: FeaturesProps) => {
                 <div className="text-xl leading-9 font-bold">
                   <Text className="text-foreground" field={title} />
                 </div>
-                <div className="text-background-muted-light leading-8">
+                <div className="text-foreground-light leading-8">
                   <Text field={description} />
                 </div>
               </div>
@@ -228,7 +228,7 @@ export const ImageCardGrid = (props: FeaturesProps) => {
           const image = item.featureImage.jsonValue;
           return (
             <div key={index}>
-              <div className="mb-7 aspect-4/3 w-full overflow-hidden rounded-lg bg-white">
+              <div className="bg-background-muted mb-7 aspect-4/3 w-full overflow-hidden rounded-lg">
                 <Image field={image} className="h-full w-full object-cover" />
               </div>
 

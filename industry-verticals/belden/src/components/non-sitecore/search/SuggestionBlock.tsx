@@ -30,7 +30,7 @@ const SuggestionBlock = ({
           <h2 className="m-2 box-border block pl-1 text-lg font-bold">{title}</h2>
           {items.map(({ text }) => (
             <PreviewSearch.SuggestionTrigger
-              className="text-foreground-light hover:text-foreground data-[state=active]:text-foreground hover:bg-background focus:bg-background data-[state=active]:bg-background cursor-pointer p-2 text-sm transition-colors hover:outline-none focus:outline-none data-[state=active]:outline-none"
+              className="text-foreground-light hover:text-foreground data-[state=active]:text-foreground hover:bg-background-surface focus:bg-background-surface data-[state=active]:bg-background-surface cursor-pointer p-2 text-sm transition-colors hover:outline-none focus:outline-none data-[state=active]:outline-none"
               id={text}
               key={text}
               asChild

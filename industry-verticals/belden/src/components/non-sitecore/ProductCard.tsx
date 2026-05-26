@@ -37,7 +37,7 @@ export const ProductCard = ({ product, url, className }: ProductCardProps) => {
         </div>
 
         {/* Product Details */}
-        <div className="bg-background flex grow-1 flex-col items-start px-5 pt-3 pb-9 text-left">
+        <div className="bg-background-surface flex grow-1 flex-col items-start px-5 pt-3 pb-9 text-left">
           <p className="!text-foreground-light">
             <Text field={product.Category?.fields?.CategoryName} />
           </p>

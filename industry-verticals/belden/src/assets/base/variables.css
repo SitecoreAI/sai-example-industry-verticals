@@ -1,37 +1,51 @@
+/**
+ * Belden dark theme — aligned with belden.com.
+ * Default canvas is navy; type is light. Use surface/muted tokens for elevated panels.
+ */
 @theme {
-  --color-foreground: #1e1e1e;
-  --color-foreground-light: #505050;
-  --color-foreground-muted: #9f9f9f;
+  /* Type */
+  --color-foreground: #ffffff;
+  --color-foreground-light: #cbd5df;
+  --color-foreground-muted: #808790;
+  --color-foreground-on-dark: #ffffff;
 
-  --color-background: #fff;
-  --color-background-accent: #faf3ea;
-  --color-background-muted: #f7f7f7;
-  --color-background-muted-light: #7a7a7a;
-  --color-background-muted-dark: #666;
-  --color-background-surface: #fafafa;
+  /* Surfaces */
+  --color-background: #020f22;
+  --color-background-accent: #1b2738;
+  --color-background-muted: #353f4e;
+  --color-background-muted-light: #bbc7d6;
+  --color-background-muted-dark: #676f7a;
+  --color-background-surface: #353f4e;
 
-  --color-accent: #c1a25f;
+  /* Depth (section variants) */
+  --color-background-dark: #020f22;
+  --color-background-dark-muted: #010813;
+  --color-background-dark-elevated: #1b2738;
 
-  --color-success: #2ec1ac;
-  --color-danger: #e97171;
+  /* Brand */
+  --color-accent: #9d26d9;
+  --color-on-accent: #ffffff;
 
-  --color-border: #e8e8e8;
+  /* Feedback */
+  --color-success: #3dd6c3;
+  --color-danger: #f07171;
 
-  --font-heading: 'Manrope', sans-serif;
-  --font-body: 'Manrope', sans-serif;
+  /* Borders */
+  --color-border: #4e5764;
+  --color-border-on-dark: #676f7a;
 
-  --radius-base: 0.5rem;
+  /* Typography — Google Fonts (see main.css) */
+  --font-heading: 'DM Sans', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
-  /*
-  This does not show in the theme editor
-  but is used to override the defaults based on the user's selection for radius-base
-  */
-  --radius-xs: calc(var(--radius-base) * 0.25);
-  --radius-sm: calc(var(--radius-base) * 0.5);
-  --radius-md: var(--radius-base);
-  --radius-lg: calc(var(--radius-base) * 1.5);
-  --radius-xl: calc(var(--radius-base) * 2);
-  --radius-2xl: calc(var(--radius-base) * 3);
-  --radius-3xl: calc(var(--radius-base) * 4);
-  --radius-4xl: calc(var(--radius-base) * 5);
+  --radius-base: 0.25rem;
+
+  --radius-xs: calc(var(--radius-base) * 0.5);
+  --radius-sm: var(--radius-base);
+  --radius-md: calc(var(--radius-base) * 1.5);
+  --radius-lg: calc(var(--radius-base) * 2);
+  --radius-xl: calc(var(--radius-base) * 3);
+  --radius-2xl: calc(var(--radius-base) * 4);
+  --radius-3xl: calc(var(--radius-base) * 5);
+  --radius-4xl: calc(var(--radius-base) * 6);
 }

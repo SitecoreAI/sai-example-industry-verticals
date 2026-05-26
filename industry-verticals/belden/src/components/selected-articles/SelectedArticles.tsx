@@ -135,7 +135,7 @@ export const Default = (props: CarouselProps) => {
                                   <div className="flex items-end">
                                     <div className="bg-background/75 max-w-full space-y-1 overflow-hidden p-5 text-ellipsis">
                                       <div className="flex items-center gap-1 overflow-hidden text-xs font-extralight text-ellipsis whitespace-nowrap">
-                                        <div className="h-[1px] w-7 bg-black"></div>
+                                        <div className="bg-foreground h-[1px] w-7"></div>
                                         <div className="text-foreground/75">
                                           <Text
                                             editable={false}
@@ -153,7 +153,7 @@ export const Default = (props: CarouselProps) => {
                                       <ArrowRight
                                         size={16}
                                         strokeWidth={1}
-                                        className="text-background"
+                                        className="text-on-accent"
                                       />
                                     </div>
                                   </div>

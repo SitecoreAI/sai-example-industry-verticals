@@ -25,10 +25,10 @@ const PriceFacet = ({ min, max }: PriceFacetProps) => {
       <RangeFacet.Track className="bg-background-accent relative h-0.75 grow rounded-full">
         <RangeFacet.Range className="bg-accent absolute h-full rounded-full" />
       </RangeFacet.Track>
-      <RangeFacet.Start className="hover:bg-accent bg-background border-border block size-5 cursor-pointer rounded-full border text-center text-[10px] leading-5 shadow-sm focus:shadow-lg">
+      <RangeFacet.Start className="hover:bg-accent bg-background-surface border-border block size-5 cursor-pointer rounded-full border text-center text-[10px] leading-5 shadow-sm focus:shadow-lg">
         {(value) => <span className="absolute top-7.5 left-0 text-sm">${value}</span>}
       </RangeFacet.Start>
-      <RangeFacet.End className="hover:bg-accent bg-background border-border block size-5 cursor-pointer rounded-full border text-center text-[10px] leading-5 shadow-sm focus:shadow-lg">
+      <RangeFacet.End className="hover:bg-accent bg-background-surface border-border block size-5 cursor-pointer rounded-full border text-center text-[10px] leading-5 shadow-sm focus:shadow-lg">
         {(value) => <span className="absolute top-7.5 left-0 text-sm">${value}</span>}
       </RangeFacet.End>
     </SearchResultsFacetValueRange>
@@ -52,7 +52,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
         <AccordionFacets.Facet
           facetId={f.name}
           key={f.name}
-          className="border-border bg-background mb-4 block rounded-lg border p-6 shadow-sm"
+          className="border-border bg-background-surface mb-4 block rounded-lg border p-6 shadow-sm"
         >
           <AccordionFacets.Header className="flex">
             <AccordionFacets.Trigger className="focus:outline-border text-sm font-semibold md:text-base">
