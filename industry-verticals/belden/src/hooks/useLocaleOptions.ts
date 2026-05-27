@@ -1,8 +1,6 @@
 import { localeOptions } from '@/constants/localeOptions';
 import { useSitecore } from '@sitecore-content-sdk/nextjs';
-import { defaultLocaleCurrency, LocaleOption } from '@/types/locale';
-
-export type LocaleWithCurrency = LocaleOption & typeof defaultLocaleCurrency;
+import { defaultLocaleCurrency, LocaleWithCurrency } from '@/types/locale';
 
 /**
  * Get locale options for a given locale (defaults to current locale)

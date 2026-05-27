@@ -5,7 +5,12 @@ export type LocaleOption = {
   currencySymbol?: string;
 };
 
-export const defaultLocaleCurrency = {
+export type LocaleWithCurrency = LocaleOption & {
+  currency: string;
+  currencySymbol: string;
+};
+
+export const defaultLocaleCurrency: Pick<LocaleWithCurrency, 'currency' | 'currencySymbol'> = {
   currency: 'USD',
   currencySymbol: '$',
-} as const;
+};
