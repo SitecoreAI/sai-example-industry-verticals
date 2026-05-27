@@ -1,7 +1,9 @@
 import { LocaleOption } from '@/types/locale';
 
+/** Languages shown in the header switcher (no currency). */
 export const localeOptions: LocaleOption[] = [
-  { code: 'en', label: 'EN | USD', currency: 'USD', currencySymbol: '$' },
-  { code: 'fr-FR', label: 'FR | EUR', currency: 'EUR', currencySymbol: '€' },
-  { code: 'es-ES', label: 'ES | EUR', currency: 'EUR', currencySymbol: '€' },
+  { code: 'en', label: 'English' },
+  { code: 'fr-FR', label: 'Français' },
+  { code: 'de-DE', label: 'Deutsch' },
+  { code: 'zh-CN', label: '中文' },
 ];

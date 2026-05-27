@@ -87,10 +87,10 @@ https://sitecore.atlassian.net/wiki/x/ZwAengE
 #### By default, the belden site supports the following locales:
 - en (English)
 - fr-FR (French)
-- es-ES (Spanish)
+- de-DE (German)
+- zh-CN (Chinese)
 
 #### Add Additional Languages
 - Navigate to Channels → Click the three dots on the specific site → Settings → Languages.
 - Add the required languages and provide translations for the newly added languages.
-- After adding the new languages, update the locales array in the next.config.js file to include the new language codes.
-- To display languages in language switcher, go to src/constants/localeOptions.ts and update the localeOptions array with code,label,currency and currencySymbol for specific locale.
+- After adding the new languages, update the locales array in `next.config.js` and `src/constants/localeOptions.ts` (code and label only; the switcher does not show currencies).

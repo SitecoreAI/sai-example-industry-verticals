@@ -42,7 +42,6 @@ export const Default: Story = {
           placeholders: {
             [`header-left-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
             [`header-nav-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
-            [`header-right-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
           },
         }}
       />
@@ -71,13 +70,6 @@ export const WithPlaceholderData: Story = {
                 componentName: 'Navigation',
                 params: { ...CommonParams, Logo: logoParam },
                 fields: getNavigationFields() as unknown as ComponentFields,
-              },
-            ],
-            [`header-right-${baseParams.DynamicPlaceholderId}`]: [
-              {
-                ...CommonRendering,
-                componentName: 'NavigationIcons',
-                params: CommonParams,
               },
             ],
           },
