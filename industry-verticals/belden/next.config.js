@@ -49,7 +49,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'sai-belden.vercel.app',
+        hostname: 'belden.sitecoresandbox.cloud',
         port: '',
       },
     ],
