@@ -26,6 +26,7 @@ const nextConfig = {
   // can be served from the Next.js Image Optimization API
   // see https://nextjs.org/docs/app/api-reference/components/image#remotepatterns
   images: {
+    unoptimized: process.env.VERCEL === '1',
     remotePatterns: [
       {
         protocol: 'https',
