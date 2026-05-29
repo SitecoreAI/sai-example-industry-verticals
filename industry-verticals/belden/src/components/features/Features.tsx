@@ -7,9 +7,11 @@ import {
   Link,
   Text,
 } from '@sitecore-content-sdk/nextjs';
-import React from 'react';
+import React, { useMemo } from 'react';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { CommonStyles } from '@/types/styleFlags';
+import { personalizeFeaturesFields } from '@/constants/smartFactoryPersonalization';
+import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 
 interface Fields {
   data: {
@@ -52,10 +54,15 @@ const FeatureWrapper = (wrapperProps: FeatureWrapperProps) => {
 };
 
 export const Default = (props: FeaturesProps) => {
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizeFeaturesFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
   // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const results = fields.data.datasource.children.results;
   const hideAccentLine = props.params.styles?.includes(CommonStyles.HideAccentLine);
-  const featureSectionTitle = props.fields.data.datasource.title;
+  const featureSectionTitle = fields.data.datasource.title;
 
   return (
     <FeatureWrapper props={props}>
@@ -113,8 +120,13 @@ export const ImageGrid = (props: FeaturesProps) => {
 };
 
 export const ThreeColGridCentered = (props: FeaturesProps) => {
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizeFeaturesFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
   // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const results = fields.data.datasource.children.results;
 
   return (
     <FeatureWrapper props={props}>
@@ -147,8 +159,13 @@ export const ThreeColGridCentered = (props: FeaturesProps) => {
 };
 
 export const NumberedGrid = (props: FeaturesProps) => {
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizeFeaturesFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
   // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const results = fields.data.datasource.children.results;
 
   return (
     <FeatureWrapper props={props}>
@@ -183,8 +200,13 @@ export const NumberedGrid = (props: FeaturesProps) => {
 };
 
 export const FourColGrid = (props: FeaturesProps) => {
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizeFeaturesFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
   // results of the graphql
-  const results = props.fields.data.datasource.children.results;
+  const results = fields.data.datasource.children.results;
 
   return (
     <FeatureWrapper props={props}>

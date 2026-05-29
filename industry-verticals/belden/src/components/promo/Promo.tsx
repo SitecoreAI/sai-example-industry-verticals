@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React, { JSX, useMemo } from 'react';
 import {
   NextImage as ContentSdkImage,
   RichText as ContentSdkRichText,
@@ -14,6 +14,8 @@ import clsx from 'clsx';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { Quote } from '@/assets/icons/quote/Quote';
 import { CommonStyles, LayoutStyles, PromoFlags } from '@/types/styleFlags';
+import { personalizePromoFields } from '@/constants/smartFactoryPersonalization';
+import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 
 interface Fields {
   PromoImageOne: ImageField;
@@ -40,24 +42,29 @@ export type PromoProps = ComponentProps & {
 const isShadowClassActive = (val: boolean) => (val ? 'shadow-2xl' : '');
 
 export const PromoContent = ({ ...props }) => {
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizePromoFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
   const isAccentLineVisible = !props?.params?.styles?.includes(CommonStyles.HideAccentLine);
 
   return (
     <div className="space-y-5">
       <div className="eyebrow">
-        <Text field={props.fields.PromoSubTitle} />
+        <Text field={fields.PromoSubTitle} />
       </div>
 
       <h2 className="inline-block max-w-md">
-        <Text field={props.fields.PromoTitle} />
+        <Text field={fields.PromoTitle} />
         {isAccentLineVisible && <AccentLine className="w-full max-w-xs" />}
       </h2>
 
       <div className="max-w-lg text-lg">
-        <ContentSdkRichText field={props.fields.PromoDescription} />
+        <ContentSdkRichText field={fields.PromoDescription} />
       </div>
 
-      <Link field={props.fields.PromoMoreInfo} className="arrow-btn" />
+      <Link field={fields.PromoMoreInfo} className="arrow-btn" />
     </div>
   );
 };
@@ -181,6 +188,11 @@ export const Default = (props: PromoProps): JSX.Element => {
 };
 
 export const WithFullImage = (props: PromoProps): JSX.Element => {
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizePromoFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
   const id = props.params.RenderingIdentifier;
   const isPromoReversed = !props?.params?.styles?.includes(LayoutStyles.Reversed)
     ? ' flex-col'
@@ -190,26 +202,23 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
     <section className={`${props.params.styles} py-20`} id={id ? id : undefined}>
       <div className={`container flex ${isPromoReversed}`}>
         <div className="relative my-10 aspect-[1232/608] overflow-hidden rounded-2xl">
-          <ContentSdkImage
-            field={props.fields.PromoImageTwo}
-            className="h-full w-full object-cover"
-          />
+          <ContentSdkImage field={fields.PromoImageTwo} className="h-full w-full object-cover" />
         </div>
 
         <div className="space-y-5">
           <div className="text-foreground-light font-semibold uppercase">
-            <Text field={props.fields.PromoSubTitle} />
+            <Text field={fields.PromoSubTitle} />
           </div>
 
           <div className="grid-col-1 grid gap-5 md:grid-cols-2">
             <div className="font-bold">
               <h2 className="max-w-md">
-                <Text field={props.fields.PromoTitle} />
+                <Text field={fields.PromoTitle} />
               </h2>
             </div>
 
             <div className="flex max-w-md items-center">
-              <ContentSdkRichText className="promo-text" field={props.fields.PromoDescription} />
+              <ContentSdkRichText className="promo-text" field={fields.PromoDescription} />
             </div>
           </div>
         </div>

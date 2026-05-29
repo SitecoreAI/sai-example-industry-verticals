@@ -864,15 +864,24 @@
       align-items: flex-start;
     }
 
-    .feed-campaign__logo {
+    .feed-campaign__logo-wrap {
       width: 48px;
       height: 48px;
       min-width: 48px;
       min-height: 48px;
-      max-width: 48px;
-      max-height: 48px;
-      object-fit: fill;
+      background-color: #e9d8ff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .feed-campaign__logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
       display: block;
     }
 
@@ -1555,7 +1564,7 @@
         </a>
         <a href="#" class="nav-me">
           <div class="nav-item__icon">
-            <img src="images/Angela.jpeg" alt="Angela Gustafson" />
+            <img src="images/thomas-lin.png" alt="Thomas Lin" />
           </div>
           <span class="nav-item__label">Me<svg role="none" aria-hidden="true" class="nav-item__caret" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="caret-small"><use href="#caret-small" width="16" height="16"></use></svg></span>
         </a>
@@ -1588,16 +1597,16 @@
     <aside class="sidebar-left">
       <div class="card profile-card">
         <img class="profile-card__banner" src="images/acme-profile-banner.png" alt="" width="450" height="112" />
-        <img class="profile-card__avatar" src="images/Angela.jpeg" alt="Angela Gustafson" />
+        <img class="profile-card__avatar" src="images/thomas-lin.png" alt="Thomas Lin" />
         <div class="profile-card__body">
           <div class="profile-card__name-row">
-            <a href="#" class="profile-card__name">Angela Gustafson</a>
+            <a href="#" class="profile-card__name">Thomas Lin</a>
             <svg role="none" aria-hidden="true" class="ivm-view-attr__icon ivm-view-attr__icon--icon profile-card__verified" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="verified-small">
               <use href="#verified-small" width="16" height="16"></use>
             </svg>
           </div>
           <p class="profile-card__headline">Director</p>
-          <p class="profile-card__location">Greater Minneapolis-St. Paul Area</p>
+          <p class="profile-card__location">Kansas City, MO</p>
           <a href="#" class="profile-card__company">
             <span class="profile-card__company-logo" aria-hidden="true">
               <img src="images/acme-road-runner.png" alt="" width="24" height="24" />
@@ -1668,7 +1677,7 @@
         <div class="share-box-feed-entry__top-bar">
           <a href="#" class="share-box-feed-entry__profile-link">
             <div class="share-box-feed-entry__avatar">
-              <img src="images/Angela.jpeg" alt="Visit profile for Angela Gustafson" />
+              <img src="images/thomas-lin.png" alt="Visit profile for Thomas Lin" />
             </div>
           </a>
           <button type="button" class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary">
@@ -1708,28 +1717,30 @@
         <span>Sort by: <strong style="color:rgba(0,0,0,0.9);">Top ▾</strong></span>
       </div>
 
-      <!-- Promoted: Microsoft Partner Program -->
+      <!-- Promoted: Belden Smart Factory -->
       <article class="card feed-campaign">
         <header class="feed-campaign__header">
-          <img class="feed-campaign__logo" src="images/microsoft-logo-48.png" alt="" width="48" height="48" />
+          <div class="feed-campaign__logo-wrap">
+            <img class="feed-campaign__logo" src="images/belden-logomark.png" alt="Belden" width="36" height="36" />
+          </div>
           <div class="feed-campaign__meta">
-            <a href="#" class="feed-campaign__author">Microsoft</a>
+            <a href="#" class="feed-campaign__author">Belden</a>
             <p class="feed-campaign__promoted">Promoted</p>
           </div>
           <button type="button" class="post__menu" aria-label="More">
             <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
           </button>
         </header>
-        <p class="feed-campaign__text">You do not need enterprise scale to grow with Microsoft. The Microsoft Partner Program gives growing firms co-selling, training, presales support, and go-to-market resources sized for boutique consultancies and regional teams like yours.</p>
+        <p class="feed-campaign__text">Keep your smart factory connected, secure, and running. Belden helps manufacturers modernize OT networks, improve uptime, and connect machines, people, and data across the plant floor.</p>
         <div class="feed-campaign__image">
-          <img src="images/Desktop image homepage F.png" alt="" />
+          <img src="images/belden-smart-factory-campaign.png" alt="Connected smart factory production line with industrial network overlay" />
         </div>
         <div class="feed-campaign__cta-bar">
           <div class="feed-campaign__cta-copy">
-            <a href="#" class="feed-campaign__cta-title">Join the Microsoft Partner Program</a>
-            <p class="feed-campaign__cta-url">partner.microsoft.com</p>
+            <a href="/?utm_campaign=smart-factory" class="feed-campaign__cta-title">Explore industrial automation solutions</a>
+            <p class="feed-campaign__cta-url">belden.com</p>
           </div>
-          <a href="https://msft-rfp.sitecoredemo.com?utm_campaign=partner_join" class="feed-campaign__cta-btn">Learn more</a>
+          <a href="/?utm_campaign=smart-factory" class="feed-campaign__cta-btn">Learn more</a>
         </div>
         <div class="post__reactions-summary">
           <div class="post__reactions-left">
@@ -1771,12 +1782,12 @@
         </div>
       </article>
 
-      <!-- Post 1: Angela -->
+      <!-- Post 1: Thomas Lin -->
       <article class="card post">
         <header class="post__header">
-          <img class="post__avatar" src="images/Angela.jpeg" alt="Angela Gustafson" />
+          <img class="post__avatar" src="images/thomas-lin.png" alt="Thomas Lin" />
           <div class="post__meta">
-            <div class="post__author">Angela Gustafson
+            <div class="post__author">Thomas Lin
               <svg class="verified-badge" role="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" data-supported-dps="16x16" data-test-icon="verified-small"><use href="#verified-small" width="16" height="16"></use></svg>
             </div>
             <p class="post__subtitle">Director at Acme Corporation · You</p>
@@ -2107,7 +2118,7 @@ Early bird pricing ends June 30. <span class="see-more">…see more</span></p>
         <div class="msg-overlay-bubble-header__badge-container msg-overlay-bubble-header--inverse msg-overlay-bubble-header--is-badged"></div>
         <div class="msg-overlay-bubble-header__details flex-row align-items-center ml1">
           <div class="presence-entity presence-entity--size-1">
-            <img src="images/Angela.jpeg" alt="Angela Gustafson" class="presence-entity__image" loading="lazy" />
+            <img src="images/thomas-lin.png" alt="Thomas Lin" class="presence-entity__image" loading="lazy" />
             <div class="presence-entity__indicator presence-entity__indicator--size-1 presence-indicator presence-indicator--is-online presence-indicator--size-1">
               <span class="visually-hidden">Status is online</span>
             </div>

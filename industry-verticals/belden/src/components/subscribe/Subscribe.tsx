@@ -1,7 +1,12 @@
-import React, { JSX } from 'react';
+import React, { JSX, useMemo } from 'react';
 import { ComponentProps } from '@/lib/component-props';
 import { Text, Field, RichText, RichTextField } from '@sitecore-content-sdk/nextjs';
 import { useI18n } from 'next-localization';
+import {
+  personalizeSubscribeFields,
+  SMART_FACTORY_SUBSCRIBE_SUBHEAD,
+} from '@/constants/smartFactoryPersonalization';
+import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 
 export type SubscribeBannerProps = ComponentProps & {
   params: { [key: string]: string };
@@ -14,6 +19,14 @@ export type SubscribeBannerProps = ComponentProps & {
 export const Default = (props: SubscribeBannerProps): JSX.Element => {
   const { styles, RenderingIdentifier: id } = props.params;
   const { t } = useI18n();
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizeSubscribeFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
+  const submitLabel = isSmartFactory
+    ? 'Talk to an industrial network expert'
+    : t('button_text') || 'Subscribe';
 
   return (
     <section
@@ -23,9 +36,21 @@ export const Default = (props: SubscribeBannerProps): JSX.Element => {
       <div className="container max-w-4xl md:max-w-5xl md:px-10">
         <div className="grid items-center gap-y-6 md:grid-cols-2 md:gap-x-12 md:gap-y-0">
           {/* Headline */}
-          <h2 className="text-foreground text-2xl leading-tight font-medium xl:text-3xl">
-            <Text field={props.fields?.Title} />
-          </h2>
+          <div>
+            <h2 className="text-foreground text-2xl leading-tight font-medium xl:text-3xl">
+              <Text field={fields?.Title} />
+            </h2>
+            {isSmartFactory && (
+              <p className="text-foreground-muted mt-4 text-base leading-7">
+                {SMART_FACTORY_SUBSCRIBE_SUBHEAD}
+              </p>
+            )}
+            {!isSmartFactory && fields?.ConsentText && (
+              <div className="text-foreground-muted mt-4 text-base leading-7">
+                <RichText field={fields.ConsentText} />
+              </div>
+            )}
+          </div>
 
           {/* Form */}
           <form className="w-full md:max-w-lg" action="">
@@ -49,7 +74,7 @@ export const Default = (props: SubscribeBannerProps): JSX.Element => {
                 type="submit"
                 className="bg-accent text-on-accent absolute top-1/2 right-2 h-9 -translate-y-1/2 rounded-md px-4 text-sm font-semibold hover:opacity-90 focus-visible:ring-2 focus-visible:outline-none md:right-3 md:h-10 md:px-5"
               >
-                {t('button_text') || 'Subscribe'}
+                {submitLabel}
               </button>
             </div>
           </form>
@@ -63,6 +88,14 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
   const { styles, RenderingIdentifier: id } = props.params;
   const uid = props.rendering.uid;
   const { t } = useI18n();
+  const isSmartFactory = useSmartFactoryPersonalization();
+  const fields = useMemo(
+    () => personalizeSubscribeFields(props.fields, isSmartFactory),
+    [props.fields, isSmartFactory]
+  );
+  const submitLabel = isSmartFactory
+    ? 'Talk to an industrial network expert'
+    : t('button_text') || 'Subscribe';
 
   return (
     <section className={`component subscribe-banner group ${styles ?? ''}`} id={id || undefined}>
@@ -70,7 +103,7 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
       <div className="max-w-sm">
         <div className="mb-6">
           <h2 className="text-foreground text-lg leading-tight font-medium xl:text-xl">
-            <Text field={props.fields?.Title} />
+            <Text field={fields?.Title} />
           </h2>
         </div>
 
@@ -95,11 +128,11 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
             type="submit"
             className="bg-accent text-on-accent mt-3 inline-flex h-12 w-full items-center justify-center rounded-sm font-semibold tracking-widest uppercase hover:opacity-90 md:h-12"
           >
-            {t('button_text') || 'Subscribe'}
+            {submitLabel}
           </button>
 
           {/* Consent text and Checkbox  */}
-          {props.fields?.ConsentText && (
+          {fields?.ConsentText && (
             <div className="mt-4 flex items-start gap-3">
               <input
                 id="subscribe-consent"
@@ -108,7 +141,7 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
                 required
               />
               <label htmlFor="subscribe-consent" className="text-foreground/70 text-sm leading-6">
-                <RichText field={props.fields.ConsentText} />
+                <RichText field={fields.ConsentText} />
               </label>
             </div>
           )}
