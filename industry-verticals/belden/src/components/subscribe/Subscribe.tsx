@@ -1,12 +1,7 @@
-import React, { JSX, useMemo } from 'react';
+import React, { JSX } from 'react';
 import { ComponentProps } from '@/lib/component-props';
 import { Text, Field, RichText, RichTextField } from '@sitecore-content-sdk/nextjs';
 import { useI18n } from 'next-localization';
-import {
-  personalizeSubscribeFields,
-  SMART_FACTORY_SUBSCRIBE_SUBHEAD,
-} from '@/constants/smartFactoryPersonalization';
-import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 
 export type SubscribeBannerProps = ComponentProps & {
   params: { [key: string]: string };
@@ -19,14 +14,8 @@ export type SubscribeBannerProps = ComponentProps & {
 export const Default = (props: SubscribeBannerProps): JSX.Element => {
   const { styles, RenderingIdentifier: id } = props.params;
   const { t } = useI18n();
-  const isSmartFactory = useSmartFactoryPersonalization();
-  const fields = useMemo(
-    () => personalizeSubscribeFields(props.fields, isSmartFactory),
-    [props.fields, isSmartFactory]
-  );
-  const submitLabel = isSmartFactory
-    ? 'Talk to an industrial network expert'
-    : t('button_text') || 'Subscribe';
+  const fields = props.fields;
+  const submitLabel = t('button_text') || 'Subscribe';
 
   return (
     <section
@@ -40,12 +29,7 @@ export const Default = (props: SubscribeBannerProps): JSX.Element => {
             <h2 className="text-foreground text-2xl leading-tight font-medium xl:text-3xl">
               <Text field={fields?.Title} />
             </h2>
-            {isSmartFactory && (
-              <p className="text-foreground-muted mt-4 text-base leading-7">
-                {SMART_FACTORY_SUBSCRIBE_SUBHEAD}
-              </p>
-            )}
-            {!isSmartFactory && fields?.ConsentText && (
+            {fields?.ConsentText && (
               <div className="text-foreground-muted mt-4 text-base leading-7">
                 <RichText field={fields.ConsentText} />
               </div>
@@ -88,14 +72,8 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
   const { styles, RenderingIdentifier: id } = props.params;
   const uid = props.rendering.uid;
   const { t } = useI18n();
-  const isSmartFactory = useSmartFactoryPersonalization();
-  const fields = useMemo(
-    () => personalizeSubscribeFields(props.fields, isSmartFactory),
-    [props.fields, isSmartFactory]
-  );
-  const submitLabel = isSmartFactory
-    ? 'Talk to an industrial network expert'
-    : t('button_text') || 'Subscribe';
+  const fields = props.fields;
+  const submitLabel = t('button_text') || 'Subscribe';
 
   return (
     <section className={`component subscribe-banner group ${styles ?? ''}`} id={id || undefined}>

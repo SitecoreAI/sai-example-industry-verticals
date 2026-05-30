@@ -12,8 +12,6 @@ import { useMemo, useRef, useState, useEffect, useId, useCallback } from 'react'
 import React from 'react';
 import Head from 'next/head';
 import { useI18n } from 'next-localization';
-import { personalizeSubscribeFields, SMART_FACTORY_SUBSCRIBE_SUBHEAD, personalizeReviewsFields, personalizePromoFields, personalizeHeroFields, personalizeFeaturesFields } from '@/constants/smartFactoryPersonalization';
-import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 import { faFacebookF, faInstagram, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '@/assets/icons/social/social';
@@ -131,23 +129,6 @@ const importMap = [
     module: 'next-localization',
     exports: [
       { name: 'useI18n', value: useI18n },
-    ]
-  },
-  {
-    module: '@/constants/smartFactoryPersonalization',
-    exports: [
-      { name: 'personalizeSubscribeFields', value: personalizeSubscribeFields },
-      { name: 'SMART_FACTORY_SUBSCRIBE_SUBHEAD', value: SMART_FACTORY_SUBSCRIBE_SUBHEAD },
-      { name: 'personalizeReviewsFields', value: personalizeReviewsFields },
-      { name: 'personalizePromoFields', value: personalizePromoFields },
-      { name: 'personalizeHeroFields', value: personalizeHeroFields },
-      { name: 'personalizeFeaturesFields', value: personalizeFeaturesFields },
-    ]
-  },
-  {
-    module: '@/hooks/useSmartFactoryPersonalization',
-    exports: [
-      { name: 'useSmartFactoryPersonalization', value: useSmartFactoryPersonalization },
     ]
   },
   {

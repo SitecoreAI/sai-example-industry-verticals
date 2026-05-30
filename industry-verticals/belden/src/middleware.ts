@@ -7,10 +7,6 @@ import {
 } from '@sitecore-content-sdk/nextjs/middleware';
 import sites from '.sitecore/sites.json';
 import scConfig from 'sitecore.config';
-import {
-  SMART_FACTORY_CAMPAIGN,
-  SMART_FACTORY_CAMPAIGN_COOKIE,
-} from '@/constants/smartFactoryPersonalization';
 
 const multisite = new MultisiteMiddleware({
   /**
@@ -52,19 +48,8 @@ const personalize = new PersonalizeMiddleware({
   skip: () => false,
 });
 
-export async function middleware(req: NextRequest, ev: NextFetchEvent) {
-  const response = await defineMiddleware(multisite, redirects, personalize).exec(req, ev);
-  const utmCampaign = req.nextUrl.searchParams.get('utm_campaign');
-
-  if (response && utmCampaign === SMART_FACTORY_CAMPAIGN) {
-    response.cookies.set(SMART_FACTORY_CAMPAIGN_COOKIE, SMART_FACTORY_CAMPAIGN, {
-      maxAge: 60 * 60 * 24 * 30,
-      path: '/',
-      sameSite: 'lax',
-    });
-  }
-
-  return response;
+export function middleware(req: NextRequest, ev: NextFetchEvent) {
+  return defineMiddleware(multisite, redirects, personalize).exec(req, ev);
 }
 
 export const config = {

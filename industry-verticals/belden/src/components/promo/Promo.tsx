@@ -1,4 +1,4 @@
-import React, { JSX, useMemo } from 'react';
+import React, { JSX } from 'react';
 import {
   NextImage as ContentSdkImage,
   RichText as ContentSdkRichText,
@@ -14,8 +14,6 @@ import clsx from 'clsx';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { Quote } from '@/assets/icons/quote/Quote';
 import { CommonStyles, LayoutStyles, PromoFlags } from '@/types/styleFlags';
-import { personalizePromoFields } from '@/constants/smartFactoryPersonalization';
-import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 
 interface Fields {
   PromoImageOne: ImageField;
@@ -42,11 +40,7 @@ export type PromoProps = ComponentProps & {
 const isShadowClassActive = (val: boolean) => (val ? 'shadow-2xl' : '');
 
 export const PromoContent = ({ ...props }) => {
-  const isSmartFactory = useSmartFactoryPersonalization();
-  const fields = useMemo(
-    () => personalizePromoFields(props.fields, isSmartFactory),
-    [props.fields, isSmartFactory]
-  );
+  const fields = props.fields;
   const isAccentLineVisible = !props?.params?.styles?.includes(CommonStyles.HideAccentLine);
 
   return (
@@ -188,11 +182,7 @@ export const Default = (props: PromoProps): JSX.Element => {
 };
 
 export const WithFullImage = (props: PromoProps): JSX.Element => {
-  const isSmartFactory = useSmartFactoryPersonalization();
-  const fields = useMemo(
-    () => personalizePromoFields(props.fields, isSmartFactory),
-    [props.fields, isSmartFactory]
-  );
+  const { fields } = props;
   const id = props.params.RenderingIdentifier;
   const isPromoReversed = !props?.params?.styles?.includes(LayoutStyles.Reversed)
     ? ' flex-col'

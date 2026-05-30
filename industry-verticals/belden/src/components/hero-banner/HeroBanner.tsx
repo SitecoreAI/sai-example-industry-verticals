@@ -13,9 +13,6 @@ import { ComponentProps } from '@/lib/component-props';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { CommonStyles, HeroBannerStyles, LayoutStyles } from '@/types/styleFlags';
 import clsx from 'clsx';
-import { useMemo } from 'react';
-import { personalizeHeroFields } from '@/constants/smartFactoryPersonalization';
-import { useSmartFactoryPersonalization } from '@/hooks/useSmartFactoryPersonalization';
 
 interface Fields {
   Image: ImageField;
@@ -87,11 +84,6 @@ const HeroBannerCommon = ({
 const hasReversedLayout = (styles: string) => styles.split(/\s+/).includes(LayoutStyles.Reversed);
 
 export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
-  const isSmartFactory = useSmartFactoryPersonalization();
-  const personalizedFields = useMemo(
-    () => personalizeHeroFields(fields, isSmartFactory),
-    [fields, isSmartFactory]
-  );
   const styles = params.styles || '';
   const hideAccentLine = styles.includes(CommonStyles.HideAccentLine);
   const withPlaceholder = styles.includes(HeroBannerStyles.WithPlaceholder);
@@ -100,7 +92,7 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
-    <HeroBannerCommon params={params} fields={personalizedFields} rendering={rendering}>
+    <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
       {/* Content Container */}
       <div className="relative w-full">
         <div className="container mx-auto px-4">
@@ -114,14 +106,14 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
               <div className={clsx({ shim: screenLayer })}>
                 {/* Title */}
                 <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] lg:text-left xl:text-[80px]">
-                  <ContentSdkText field={personalizedFields.Title} />
+                  <ContentSdkText field={fields.Title} />
                   {!hideAccentLine && <AccentLine className="mx-auto !h-5 w-[9ch] lg:mx-0" />}
                 </h1>
 
                 {/* Description */}
                 <div className="mt-7 text-xl md:text-2xl">
                   <ContentSdkRichText
-                    field={personalizedFields.Description}
+                    field={fields.Description}
                     className="text-center lg:text-left"
                   />
                 </div>
@@ -131,7 +123,7 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
                   {withPlaceholder ? (
                     <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
                   ) : (
-                    <Link field={personalizedFields.CtaLink} className="arrow-btn" />
+                    <Link field={fields.CtaLink} className="arrow-btn" />
                   )}
                 </div>
               </div>
@@ -144,11 +136,6 @@ export const Default = ({ params, fields, rendering }: HeroBannerProps) => {
 };
 
 export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
-  const isSmartFactory = useSmartFactoryPersonalization();
-  const personalizedFields = useMemo(
-    () => personalizeHeroFields(fields, isSmartFactory),
-    [fields, isSmartFactory]
-  );
   const styles = params.styles || '';
   const hideAccentLine = styles.includes(CommonStyles.HideAccentLine);
   const withPlaceholder = styles.includes(HeroBannerStyles.WithPlaceholder);
@@ -157,7 +144,7 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
   const searchBarPlaceholderKey = `hero-banner-search-bar-${params.DynamicPlaceholderId}`;
 
   return (
-    <HeroBannerCommon params={params} fields={personalizedFields} rendering={rendering}>
+    <HeroBannerCommon params={params} fields={fields} rendering={rendering}>
       {/* Content Container */}
       <div className="relative w-full">
         <div
@@ -170,16 +157,13 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
             <div className={clsx({ shim: screenLayer })}>
               {/* Title */}
               <h1 className="text-center text-5xl leading-[110%] font-bold capitalize md:text-7xl md:leading-[130%] xl:text-[80px]">
-                <ContentSdkText field={personalizedFields.Title} />
+                <ContentSdkText field={fields.Title} />
                 {!hideAccentLine && <AccentLine className="mx-auto !h-5 w-[9ch]" />}
               </h1>
 
               {/* Description */}
               <div className="mt-7 text-xl md:text-2xl">
-                <ContentSdkRichText
-                  field={personalizedFields.Description}
-                  className="text-center"
-                />
+                <ContentSdkRichText field={fields.Description} className="text-center" />
               </div>
 
               {/* CTA Link or Placeholder */}
@@ -187,7 +171,7 @@ export const TopContent = ({ params, fields, rendering }: HeroBannerProps) => {
                 {withPlaceholder ? (
                   <Placeholder name={searchBarPlaceholderKey} rendering={rendering} />
                 ) : (
-                  <Link field={personalizedFields.CtaLink} className="arrow-btn" />
+                  <Link field={fields.CtaLink} className="arrow-btn" />
                 )}
               </div>
             </div>
