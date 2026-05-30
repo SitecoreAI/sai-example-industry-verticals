@@ -86,7 +86,9 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
         'relative flex flex-col gap-x-8 gap-y-4 xl:gap-x-14',
         isRootItem && 'lg:flex-row',
         isLogoRootItem && 'shrink-0 max-lg:hidden',
-        isLogoRootItem && isSimpleLayout && 'lg:mr-auto'
+        isLogoRootItem && isSimpleLayout && 'lg:mr-auto',
+        isLogoRootItem &&
+          '[.component.header_&]:lg:absolute [.component.header_&]:lg:left-0 [.component.header_&]:lg:top-1/2 [.component.header_&]:lg:z-20 [.component.header_&]:lg:-translate-y-1/2'
       )}
     >
       <div className="flex items-center justify-center gap-1">
@@ -230,6 +232,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
         className={clsx(
           'bg-background z-100 flex duration-300',
           'max-lg:fixed max-lg:inset-0',
+          '[.component.header_&]:lg:static [.component.header_&]:lg:flex-1',
           !isMenuOpen && 'max-lg:-translate-y-full max-lg:opacity-0'
         )}
       >
@@ -237,6 +240,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
           role="menubar"
           className={clsx(
             'container flex flex-col items-center justify-center gap-x-8 gap-y-4 py-6 text-lg lg:flex-row xl:gap-x-16',
+            '[.component.header_&]:lg:w-full [.component.header_&]:lg:max-w-none [.component.header_&]:lg:justify-center [.component.header_&]:lg:py-0',
             isSimpleLayout && !hasLogoRootItem && 'lg:justify-end'
           )}
         >

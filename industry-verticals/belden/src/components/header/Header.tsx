@@ -11,12 +11,15 @@ export const Default = (props: HeaderProps): JSX.Element => {
 
   return (
     <div className={`component header bg-background ${styles}`} id={id}>
-      <div className="container flex items-center gap-3 lg:gap-5">
-        <div className="max-lg:order-1 lg:flex-[1_1]">
+      <div className="container relative flex items-center gap-3 py-4 lg:gap-5">
+        <div className="header-left z-10 shrink-0">
           <Placeholder name={`header-left-${DynamicPlaceholderId}`} rendering={props.rendering} />
         </div>
-        <div className="max-lg:order-0 max-lg:mr-auto max-lg:w-2/3 lg:ml-auto lg:flex-[4_1]">
+        <div className="header-nav flex min-w-0 flex-1 justify-center">
           <Placeholder name={`header-nav-${DynamicPlaceholderId}`} rendering={props.rendering} />
+        </div>
+        <div className="header-right z-10 shrink-0">
+          <Placeholder name={`header-right-${DynamicPlaceholderId}`} rendering={props.rendering} />
         </div>
       </div>
     </div>
