@@ -65,19 +65,3 @@
     @apply pointer-events-none opacity-60;
   }
 }
-
-.component.header .header-left .language-switcher {
-  @apply absolute top-1/2 right-0 -translate-y-1/2;
-}
-
-.component.header .header-right .language-switcher ~ .language-switcher {
-  @apply hidden;
-}
-
-.component.header .container:has(.header-right .language-switcher) .header-left .language-switcher {
-  @apply hidden;
-}
-
-.component.header .header-left .component.image img {
-  @apply h-8 w-auto lg:h-10;
-}
