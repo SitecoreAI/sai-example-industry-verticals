@@ -11,7 +11,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
 
   return (
     <div className={`component header bg-background ${styles}`} id={id}>
-      <div className="container relative flex items-center gap-3 py-4 lg:gap-5">
+      <div className="relative container flex items-center gap-3 py-4 lg:gap-5">
         <div className="header-left z-10 shrink-0">
           <Placeholder name={`header-left-${DynamicPlaceholderId}`} rendering={props.rendering} />
         </div>

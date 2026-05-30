@@ -88,7 +88,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
         isLogoRootItem && 'shrink-0 max-lg:hidden',
         isLogoRootItem && isSimpleLayout && 'lg:mr-auto',
         isLogoRootItem &&
-          '[.component.header_&]:lg:absolute [.component.header_&]:lg:left-0 [.component.header_&]:lg:top-1/2 [.component.header_&]:lg:z-20 [.component.header_&]:lg:-translate-y-1/2'
+          '[.component.header_&]:lg:absolute [.component.header_&]:lg:top-1/2 [.component.header_&]:lg:left-0 [.component.header_&]:lg:z-20 [.component.header_&]:lg:-translate-y-1/2'
       )}
     >
       <div className="flex items-center justify-center gap-1">
