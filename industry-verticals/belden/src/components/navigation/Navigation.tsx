@@ -232,7 +232,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
         className={clsx(
           'bg-background z-100 flex duration-300',
           'max-lg:fixed max-lg:inset-0',
-          '[.component.header_&]:lg:static [.component.header_&]:lg:flex-1',
+          '[.component.header_&]:lg:relative [.component.header_&]:lg:z-20 [.component.header_&]:lg:flex-1 [.component.header_&]:lg:overflow-visible',
           !isMenuOpen && 'max-lg:-translate-y-full max-lg:opacity-0'
         )}
       >
@@ -240,7 +240,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
           role="menubar"
           className={clsx(
             'container flex flex-col items-center justify-center gap-x-8 gap-y-4 py-6 text-lg lg:flex-row xl:gap-x-16',
-            '[.component.header_&]:lg:w-full [.component.header_&]:lg:max-w-none [.component.header_&]:lg:justify-center [.component.header_&]:lg:py-0',
+            '[.component.header_&]:lg:w-full [.component.header_&]:lg:max-w-none [.component.header_&]:lg:justify-center [.component.header_&]:lg:overflow-visible [.component.header_&]:lg:py-0',
             isSimpleLayout && !hasLogoRootItem && 'lg:justify-end'
           )}
         >
