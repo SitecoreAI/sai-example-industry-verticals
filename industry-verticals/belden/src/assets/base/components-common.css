@@ -65,3 +65,7 @@
     @apply pointer-events-none opacity-60;
   }
 }
+
+.component.header .header-left .component.image img {
+  @apply h-8 w-auto lg:h-10;
+}
