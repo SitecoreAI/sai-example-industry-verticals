@@ -66,6 +66,6 @@
   }
 }
 
-.component.header .header-left .component.image img {
+.component.header .header-logo img {
   @apply h-8 w-auto lg:h-10;
 }

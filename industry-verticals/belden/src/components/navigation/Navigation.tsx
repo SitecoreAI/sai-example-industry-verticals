@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, TextField, useSitecore } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { ChevronDown } from 'lucide-react';
@@ -56,7 +57,6 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
   const isTopLevelPage = isNavLevel(fields, 1);
 
   const hasChildren = !!fields.Children?.length;
-  const isLogoRootItem = isRootItem && logoSrc;
   const hasDropdownMenu = hasChildren && isTopLevelPage;
 
   const clickHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -84,11 +84,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
       className={clsx(
         fields?.Styles?.join(' '),
         'relative flex flex-col gap-x-8 gap-y-4 xl:gap-x-14',
-        isRootItem && 'lg:flex-row',
-        isLogoRootItem && 'shrink-0 max-lg:hidden',
-        isLogoRootItem && isSimpleLayout && 'lg:mr-auto',
-        isLogoRootItem &&
-          '[.component.header_&]:lg:absolute [.component.header_&]:lg:top-1/2 [.component.header_&]:lg:left-0 [.component.header_&]:lg:z-20 [.component.header_&]:lg:-translate-y-1/2'
+        isRootItem && 'lg:flex-row'
       )}
     >
       <div className="flex items-center justify-center gap-1">
@@ -149,6 +145,79 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
   );
 };
 
+interface HeaderLogoPortalProps {
+  rootItem: NavItemFields;
+  logoSrc: string;
+}
+
+const HeaderLogoPortal: React.FC<HeaderLogoPortalProps> = ({ rootItem, logoSrc }) => {
+  const { page } = useSitecore();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+  const [shouldHide, setShouldHide] = useState(false);
+  const [isInHeader, setIsInHeader] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+
+  useLayoutEffect(() => {
+    const element = containerRef.current;
+    if (!element) {
+      setIsReady(true);
+      return;
+    }
+
+    const header = element.closest('.component.header');
+    if (!header) {
+      setIsInHeader(false);
+      setIsReady(true);
+      return;
+    }
+
+    setIsInHeader(true);
+
+    const leftSlot = header.querySelector('.header-left');
+    if (!leftSlot) {
+      setIsReady(true);
+      return;
+    }
+
+    const existingLogo = leftSlot.querySelector('.header-logo');
+    if (existingLogo && existingLogo !== element) {
+      setShouldHide(true);
+      setIsReady(true);
+      return;
+    }
+
+    setPortalTarget(leftSlot as HTMLElement);
+    setIsReady(true);
+  }, []);
+
+  if (shouldHide) {
+    return null;
+  }
+
+  const content = (
+    <div
+      ref={containerRef}
+      className={clsx(
+        'header-logo shrink-0',
+        !isReady && 'opacity-0',
+        isReady && isInHeader && 'hidden lg:block',
+        isReady && !isInHeader && 'mb-4'
+      )}
+    >
+      <Link field={getLinkField(rootItem)} editable={page.mode.isEditing} className="block">
+        {getLinkContent(rootItem, logoSrc)}
+      </Link>
+    </div>
+  );
+
+  if (portalTarget) {
+    return createPortal(content, portalTarget);
+  }
+
+  return content;
+};
+
 export const Default = ({ params, fields }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { page } = useSitecore();
@@ -178,7 +247,15 @@ export const Default = ({ params, fields }: NavigationProps) => {
   const hasLogoRootItem = rootItem && logoSrc;
 
   const navigationItems = Object.values(preparedFields)
-    .filter((item): item is NavItemFields => !!item)
+    .filter((item): item is NavItemFields => {
+      if (!item) {
+        return false;
+      }
+      if (hasLogoRootItem && isNavRootItem(item)) {
+        return false;
+      }
+      return true;
+    })
     .map((item) => (
       <NavigationListItem
         key={item.Id}
@@ -190,7 +267,15 @@ export const Default = ({ params, fields }: NavigationProps) => {
     ));
 
   return (
-    <div className={`component navigation bg-background ${styles}`} id={id}>
+    <div
+      className={clsx(
+        'component navigation bg-background',
+        styles,
+        '[.component.header_&]:lg:w-auto'
+      )}
+      id={id}
+    >
+      {hasLogoRootItem && <HeaderLogoPortal rootItem={rootItem!} logoSrc={logoSrc} />}
       <div
         className={clsx(
           'relative z-150 container flex items-center py-4 lg:hidden',
@@ -232,7 +317,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
         className={clsx(
           'bg-background z-100 flex duration-300',
           'max-lg:fixed max-lg:inset-0',
-          '[.component.header_&]:lg:relative [.component.header_&]:lg:z-20 [.component.header_&]:lg:flex-1 [.component.header_&]:lg:overflow-visible',
+          '[.component.header_&]:lg:relative [.component.header_&]:lg:z-20 [.component.header_&]:lg:flex-none [.component.header_&]:lg:overflow-visible',
           !isMenuOpen && 'max-lg:-translate-y-full max-lg:opacity-0'
         )}
       >
@@ -240,7 +325,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
           role="menubar"
           className={clsx(
             'container flex flex-col items-center justify-center gap-x-8 gap-y-4 py-6 text-lg lg:flex-row xl:gap-x-16',
-            '[.component.header_&]:lg:w-full [.component.header_&]:lg:max-w-none [.component.header_&]:lg:justify-center [.component.header_&]:lg:overflow-visible [.component.header_&]:lg:py-0',
+            '[.component.header_&]:lg:mx-0 [.component.header_&]:lg:w-max [.component.header_&]:lg:max-w-none [.component.header_&]:lg:justify-center [.component.header_&]:lg:overflow-visible [.component.header_&]:lg:px-0 [.component.header_&]:lg:py-0',
             isSimpleLayout && !hasLogoRootItem && 'lg:justify-end'
           )}
         >

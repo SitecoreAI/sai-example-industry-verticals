@@ -11,15 +11,20 @@ export const Default = (props: HeaderProps): JSX.Element => {
 
   return (
     <div className={`component header bg-background relative z-50 ${styles}`} id={id}>
-      <div className="relative container grid grid-cols-[auto_1fr_auto] items-center gap-x-3 overflow-visible py-4 lg:gap-x-6">
-        <div className="header-left z-10 col-start-1 shrink-0">
-          <Placeholder name={`header-left-${DynamicPlaceholderId}`} rendering={props.rendering} />
-        </div>
-        <div className="header-nav relative z-20 col-start-2 flex min-w-0 justify-center overflow-visible">
-          <Placeholder name={`header-nav-${DynamicPlaceholderId}`} rendering={props.rendering} />
-        </div>
-        <div className="header-right z-10 col-start-3 flex shrink-0 justify-end [&_.language-switcher~.language-switcher]:hidden">
-          <Placeholder name={`header-right-${DynamicPlaceholderId}`} rendering={props.rendering} />
+      <div className="relative container overflow-visible px-3 py-4 lg:px-4">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center overflow-visible">
+          <div className="header-left z-10 justify-self-start">
+            <Placeholder name={`header-left-${DynamicPlaceholderId}`} rendering={props.rendering} />
+          </div>
+          <div className="header-nav relative z-20 flex justify-self-center overflow-visible">
+            <Placeholder name={`header-nav-${DynamicPlaceholderId}`} rendering={props.rendering} />
+          </div>
+          <div className="header-right z-10 flex justify-self-end [&_.language-switcher~.language-switcher]:hidden">
+            <Placeholder
+              name={`header-right-${DynamicPlaceholderId}`}
+              rendering={props.rendering}
+            />
+          </div>
         </div>
       </div>
     </div>

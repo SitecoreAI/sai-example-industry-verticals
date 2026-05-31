@@ -74,12 +74,12 @@ import SuggestionBlock from 'src/components/non-sitecore/search/SuggestionBlock'
 import { Popover, PopoverContent, PopoverTrigger } from '@/shadcn/components/ui/popover';
 import { MiniCart } from 'src/components/non-sitecore/MiniCart';
 import PreviewSearch_938f3b0320996fc3fe6ab3d953daf2e708e085ca from 'src/components/non-sitecore/search/PreviewSearch';
+import { createPortal } from 'react-dom';
 import HamburgerIcon from '@/components/non-sitecore/HamburgerIcon';
 import { useClickAway } from '@/hooks/useClickAway';
 import { useStopResponsiveTransition } from '@/hooks/useStopResponsiveTransition';
 import { extractMediaUrl } from '@/helpers/extractMediaUrl';
 import { getLinkContent, getLinkField, isNavLevel, isNavRootItem, prepareFields } from '@/helpers/navHelpers';
-import { createPortal } from 'react-dom';
 import { useRouter as useRouter_0e8a928699f624a3ad05eb9c9906b0e7ce1a00be } from 'next/router';
 import { Select as Select_4a7098778d43a9b4dcd5871ec48ea51b5a246850, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'src/shadcn/components/ui/select';
 import { localeOptions } from '@/constants/localeOptions';
@@ -580,6 +580,12 @@ const importMap = [
     ]
   },
   {
+    module: 'react-dom',
+    exports: [
+      { name: 'createPortal', value: createPortal },
+    ]
+  },
+  {
     module: '@/components/non-sitecore/HamburgerIcon',
     exports: [
       { name: 'default', value: HamburgerIcon },
@@ -611,12 +617,6 @@ const importMap = [
       { name: 'isNavLevel', value: isNavLevel },
       { name: 'isNavRootItem', value: isNavRootItem },
       { name: 'prepareFields', value: prepareFields },
-    ]
-  },
-  {
-    module: 'react-dom',
-    exports: [
-      { name: 'createPortal', value: createPortal },
     ]
   },
   {
