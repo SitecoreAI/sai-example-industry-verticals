@@ -26,6 +26,18 @@ const HOSTS = [
     variables: {},
   },
   {
+    name: "amgen",
+    variables: {},
+  },
+  {
+    name: "otezla",
+    variables: {},
+  },
+  {
+    name: "enbrel",
+    variables: {},
+  },
+  {
     name: "luxury-retail",
     variables: {},
   },

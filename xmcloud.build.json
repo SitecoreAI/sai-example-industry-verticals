@@ -27,6 +27,33 @@
       "buildCommand": "build",
       "runCommand": "next:start"
     },
+    "amgen": {
+      "path": "./industry-verticals/amgen",
+      "nodeVersion": "22.11.0",
+      "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
+      "enabled": true,
+      "type": "sxa",
+      "buildCommand": "build",
+      "runCommand": "next:start"
+    },
+    "otezla": {
+      "path": "./industry-verticals/otezla",
+      "nodeVersion": "22.11.0",
+      "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
+      "enabled": true,
+      "type": "sxa",
+      "buildCommand": "build",
+      "runCommand": "next:start"
+    },
+    "enbrel": {
+      "path": "./industry-verticals/enbrel",
+      "nodeVersion": "22.11.0",
+      "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
+      "enabled": true,
+      "type": "sxa",
+      "buildCommand": "build",
+      "runCommand": "next:start"
+    },
     "travel": {
       "path": "./industry-verticals/travel",
       "nodeVersion": "22.11.0",
