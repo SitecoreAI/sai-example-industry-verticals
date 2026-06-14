@@ -1,0 +1,48 @@
+@theme {
+  /* Allianz Life primary palette (allianzlife.com) */
+  --color-background: #ffffff;
+  --color-background-secondary: #d9ebf4;
+  --color-background-tertiary: #b2d7e8;
+  --color-foreground: #003781;
+
+  /* Dark theme — anchored on brand and action blues */
+  --color-background-dark: #003051;
+  --color-background-secondary-dark: #006192;
+  --color-background-tertiary-dark: #075994;
+  --color-foreground-dark: #ffffff;
+  --color-foreground-secondary-dark: #b2d7e8;
+
+  /* Action / interactive colors */
+  --color-accent: #006192;
+  --color-accent-muted: #7fbcd9;
+
+  --color-background-input: #d9ebf4;
+  --color-disabled: #c2c2c2;
+  --color-disabled-dark: #767676;
+
+  --color-border: #bbbdbf;
+
+  /* Source Sans 3 approximates Allianz Neo on allianzlife.com */
+  --font-heading: 'Source Sans 3', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+
+  /* Allianz Life uses 4px corner radius on buttons, cards, and inputs */
+  --radius-base: 0.25rem;
+
+  /*
+  This does not show in the theme editor
+  but is used to override the defaults based on the user's selection for radius-base
+  */
+  --radius-xs: calc(var(--radius-base) * 0.25);
+  --radius-sm: calc(var(--radius-base) * 0.5);
+  --radius-md: var(--radius-base);
+  --radius-lg: calc(var(--radius-base) * 1.5);
+  --radius-xl: calc(var(--radius-base) * 2);
+  --radius-2xl: calc(var(--radius-base) * 3);
+  --radius-3xl: calc(var(--radius-base) * 4);
+  --radius-4xl: calc(var(--radius-base) * 5);
+
+  /* Allianz Life elevation: soft gray shadow used on cards and modals */
+  --shadow-soft: 0 4px 8px rgba(77, 77, 79, 0.35);
+  --background-image-hero-clip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1601.7 992.77' preserveAspectRatio='none'%3E%3Cg fill='black'%3E%3Cpath d='M.83,636.38s121.41,339.4,484.75,353.09,578.3-16.53,644.58-66.01,469.84-402.66,469.84-402.66l1.7-520.8L0,.05l.83,636.33Z'/%3E%3C/g%3E%3C/svg%3E");
+}
