@@ -4,7 +4,7 @@
   top: 50%;
   right: 0;
   left: 0;
-  height: clamp(14rem, 58%, 22rem);
+  height: clamp(16rem, 65%, 26rem);
   pointer-events: none;
   background-color: rgb(255 255 255 / 0.75);
   transform: translateY(-50%);
