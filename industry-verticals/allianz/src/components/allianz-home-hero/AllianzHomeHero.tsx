@@ -110,7 +110,7 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
 
   return (
     <section
-      className={`component allianz-home-hero relative flex min-h-[28rem] items-center overflow-hidden ${styles ?? ''}`}
+      className={`component allianz-home-hero relative flex min-h-[32rem] items-center overflow-hidden lg:min-h-[36rem] ${styles ?? ''}`}
       id={id || undefined}
     >
       <div className="absolute inset-0 z-0">
@@ -119,14 +119,15 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
         )}
       </div>
 
+      {!isEditing && (
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/2 z-[1] h-[58%] max-h-[22rem] min-h-[14rem] w-screen -translate-x-1/2 -translate-y-1/2 bg-white/70"
+          aria-hidden="true"
+        />
+      )}
+
       <div className="relative z-10 w-full">
-        {!isEditing && (
-          <div
-            className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 bg-white/60"
-            aria-hidden="true"
-          />
-        )}
-        <div className="relative container mx-auto px-4 py-12 lg:py-16">
+        <div className="container mx-auto px-4 py-12 lg:py-16">
           <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
             <div className="max-w-2xl">
               {(Title?.value || isEditing) && (
