@@ -117,11 +117,16 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
         {showBackgroundImage && (
           <ContentSdkImage field={Image} className="h-full w-full object-cover" priority />
         )}
-        {!isEditing && <div className="absolute inset-0 bg-white/55" aria-hidden="true" />}
       </div>
 
       <div className="relative z-10 w-full">
-        <div className="container mx-auto px-4 py-12 lg:py-16">
+        {!isEditing && (
+          <div
+            className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 bg-white/60"
+            aria-hidden="true"
+          />
+        )}
+        <div className="relative container mx-auto px-4 py-12 lg:py-16">
           <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
             <div className="max-w-2xl">
               {(Title?.value || isEditing) && (
