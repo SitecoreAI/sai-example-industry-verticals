@@ -119,12 +119,7 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
         )}
       </div>
 
-      {!isEditing && (
-        <div
-          className="pointer-events-none absolute top-1/2 left-1/2 z-[1] h-[58%] max-h-[22rem] min-h-[14rem] w-screen -translate-x-1/2 -translate-y-1/2 bg-white/70"
-          aria-hidden="true"
-        />
-      )}
+      <div className="allianz-home-hero__band" aria-hidden="true" />
 
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-4 py-12 lg:py-16">
