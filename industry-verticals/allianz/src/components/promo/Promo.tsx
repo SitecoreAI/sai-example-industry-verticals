@@ -105,9 +105,9 @@ export const MultipleImageContainer = ({
         <div className="flex flex-col gap-10 md:w-1/3">
           <div className="relative aspect-square overflow-visible rounded-2xl">
             <div
-              className={`relative z-10 h-full w-full overflow-hidden rounded-2xl ${shadowClass}`}
+              className={`relative z-10 flex h-full w-full items-center justify-center overflow-hidden rounded-2xl ${shadowClass}`}
             >
-              <ContentSdkImage field={PromoImageTwo} className="h-full w-full object-cover" />
+              <ContentSdkImage field={PromoImageTwo} className="h-full w-auto" />
             </div>
           </div>
           <div className="relative aspect-2/3 overflow-visible rounded-2xl">
@@ -189,11 +189,8 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
   return (
     <section className={`${props.params.styles} py-20`} id={id ? id : undefined}>
       <div className={`container flex ${isPromoReversed}`}>
-        <div className="relative my-10 aspect-[1232/608] overflow-hidden rounded-2xl">
-          <ContentSdkImage
-            field={props.fields.PromoImageTwo}
-            className="h-full w-full object-cover"
-          />
+        <div className="relative my-10 flex aspect-[1232/608] w-full items-center justify-center overflow-hidden rounded-2xl">
+          <ContentSdkImage field={props.fields.PromoImageTwo} className="h-full w-auto" />
         </div>
 
         <div className="space-y-5">
