@@ -52,6 +52,7 @@ import * as ColumnSplitter from 'src/components/column-splitter/ColumnSplitter';
 import * as Breadcrumb from 'src/components/breadcrumb/Breadcrumb';
 import * as ArticleListing from 'src/components/article-listing/ArticleListing';
 import * as ArticleDetails from 'src/components/article-details/ArticleDetails';
+import * as AllianzHomeHero from 'src/components/allianz-home-hero/AllianzHomeHero';
 import * as AllProductsCarousel from 'src/components/all-products-carousel/AllProductsCarousel';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
@@ -106,6 +107,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Breadcrumb', { ...Breadcrumb }],
   ['ArticleListing', { ...ArticleListing }],
   ['ArticleDetails', { ...ArticleDetails }],
+  ['AllianzHomeHero', { ...AllianzHomeHero }],
   ['AllProductsCarousel', { ...AllProductsCarousel }],
 ]);
 
