@@ -32,6 +32,8 @@ type PromoImageGroupProps = Partial<
   withShadows?: boolean;
 };
 
+const promoImageTwoClassName = 'h-auto w-full';
+
 export type PromoProps = ComponentProps & {
   params: { [key: string]: string };
   fields: Fields;
@@ -107,7 +109,7 @@ export const MultipleImageContainer = ({
             <div
               className={`relative z-10 flex h-full w-full items-center justify-center overflow-hidden rounded-2xl ${shadowClass}`}
             >
-              <ContentSdkImage field={PromoImageTwo} className="h-full w-auto" />
+              <ContentSdkImage field={PromoImageTwo} className={promoImageTwoClassName} />
             </div>
           </div>
           <div className="relative aspect-2/3 overflow-visible rounded-2xl">
@@ -189,8 +191,8 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
   return (
     <section className={`${props.params.styles} py-20`} id={id ? id : undefined}>
       <div className={`container flex ${isPromoReversed}`}>
-        <div className="relative my-10 flex aspect-[1232/608] w-full items-center justify-center overflow-hidden rounded-2xl">
-          <ContentSdkImage field={props.fields.PromoImageTwo} className="h-full w-auto" />
+        <div className="relative my-10 w-full overflow-hidden rounded-2xl">
+          <ContentSdkImage field={props.fields.PromoImageTwo} className={promoImageTwoClassName} />
         </div>
 
         <div className="space-y-5">
