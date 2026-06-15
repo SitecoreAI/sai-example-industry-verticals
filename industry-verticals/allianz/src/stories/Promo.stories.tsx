@@ -1,65 +1,81 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Default, WithPlaceholder } from '../components/promo/Promo';
-import { ComponentProps } from 'react';
-import { renderStorybookPlaceholder } from 'src/stories/helpers/renderStorybookPlaceholder';
-import { boolToSitecoreCheckbox } from 'src/stories/helpers/boolToSitecoreCheckbox';
+import { Default as Promo, WithFullImage, PromoProps, WithQuote } from '../components/promo/Promo';
 import { CommonParams, CommonRendering } from './common/commonData';
-import { AppearanceArgs, appearanceArgTypes, defaultAppearanceArgs } from './common/commonControls';
 import {
-  createIGQLField,
   createImageField,
   createLinkField,
   createRichTextField,
   createTextField,
 } from './helpers/createFields';
-import { createIGQLData } from './helpers/createIGQLData';
-import { createFeatureItems } from './helpers/createItems';
-import { ComponentFields } from '@sitecore-content-sdk/nextjs';
+import {
+  BackgroundColorArgs,
+  backgroundColorArgTypes,
+  defaultBackgroundColorArgs,
+} from './common/commonControls';
 import clsx from 'clsx';
-import { CommonStyles } from '@/types/styleFlags';
+import { CommonStyles, LayoutStyles, PromoFlags } from '@/types/styleFlags';
 
-type StoryProps = ComponentProps<typeof Default> &
-  AppearanceArgs & {
-    HideBlobAccent: boolean;
-    Layout: string;
+type StoryProps = PromoProps &
+  BackgroundColorArgs & {
+    ShowMultipleImages: boolean;
+    Reversed: boolean;
+    HideCurveLine: boolean;
+    HideShapes: boolean;
+    HideShadows: boolean;
+    HideQuote: boolean;
   };
 
 const meta = {
   title: 'Page Content/Promo',
-  component: Default,
-  tags: ['autodocs'],
+  component: Promo,
+  parameters: {
+    layout: 'padded',
+  },
   argTypes: {
-    ...appearanceArgTypes,
-    Layout: {
-      control: 'check',
-      options: ['Reversed'],
-      mapping: {
-        Reversed: 'promo-reversed',
-      },
-    },
-    HideBlobAccent: {
+    ...backgroundColorArgTypes,
+    ShowMultipleImages: {
       control: 'boolean',
-      name: 'Hide Blob Accent',
+      name: 'Show Multiple Images',
+    },
+    Reversed: {
+      control: 'boolean',
+      name: 'Promo Reversed',
+    },
+    HideCurveLine: {
+      control: 'boolean',
+      name: 'Hide Curve Line',
+    },
+    HideShapes: {
+      control: 'boolean',
+      name: 'Hide Shapes',
+    },
+    HideShadows: {
+      control: 'boolean',
+      name: 'Hide Shadows',
+    },
+    HideQuote: {
+      control: 'boolean',
+      name: 'Hide Quote',
     },
   },
   args: {
-    Layout: '',
-    HideBlobAccent: false,
-    ...defaultAppearanceArgs,
+    ShowMultipleImages: false,
+    Reversed: false,
+    HideCurveLine: false,
+    HideShapes: false,
+    HideShadows: false,
+    HideQuote: false,
+    ...defaultBackgroundColorArgs,
   },
+  tags: ['autodocs'],
 } satisfies Meta<StoryProps>;
 export default meta;
 
 type Story = StoryObj<StoryProps>;
 
-const baseFields = {
-  PromoTitle: createTextField('About us'),
-  PromoImageOne: createImageField(),
-  PromoMoreInfo: createLinkField('Get Started'),
-  PromoDescription: createRichTextField(2),
+const baseParams = {
+  ...CommonParams,
 };
-
-const baseParams = CommonParams;
 
 const baseRendering = {
   ...CommonRendering,
@@ -67,114 +83,79 @@ const baseRendering = {
   params: baseParams,
 };
 
-export const DefaultPromo: Story = {
-  args: {
-    Layout: 'Reversed',
-    CurvedTop: true,
+const baseFields = {
+  PromoImageOne: createImageField('placeholder'),
+  PromoImageTwo: createImageField('placeholder'),
+  PromoImageThree: createImageField('placeholder'),
+  PromoTitle: createTextField('We provide you the best experience'),
+  PromoDescription: createRichTextField(1, 'paragraphs'),
+  PromoSubTitle: createTextField('Materials'),
+  PromoMoreInfo: createLinkField('Read More'),
+};
+
+export const Default: Story = {
+  argTypes: {
+    HideQuote: { table: { disable: true } },
   },
   render: (args) => {
     const promoStyles = clsx(
       baseParams.styles,
-      args.Layout,
       args.BackgroundColor,
-      args.HideBlobAccent && CommonStyles.HideBlobAccent,
-      args.CurvedBottom && CommonStyles.CurvedBottom,
-      args.CurvedTop && CommonStyles.CurvedTop
+      args.Reversed && LayoutStyles.Reversed,
+      args.ShowMultipleImages && PromoFlags.ShowMultipleImages,
+      args.HideShapes && PromoFlags.HidePromoShapes,
+      args.HideShadows && PromoFlags.HidePromoShadows,
+      args.HideCurveLine && CommonStyles.HideAccentLine
     );
 
     const params = {
       ...baseParams,
       styles: promoStyles,
     };
-    return <Default fields={baseFields} rendering={baseRendering} params={params} />;
+    return <Promo params={params} rendering={baseRendering} fields={baseFields} />;
   },
 };
 
-export const WithPlaceholderPromo: Story = {
-  args: {
-    CurvedBottom: true,
-    BlobAccent: true,
+export const WideImagePromo: Story = {
+  argTypes: {
+    ShowMultipleImages: { table: { disable: true } },
+    HideCurveLine: { table: { disable: true } },
+    HideShapes: { table: { disable: true } },
+    HideShadows: { table: { disable: true } },
+    HideQuote: { table: { disable: true } },
   },
   render: (args) => {
     const promoStyles = clsx(
       baseParams.styles,
-      args.Layout,
       args.BackgroundColor,
-      args.HideBlobAccent && CommonStyles.HideBlobAccent,
-      args.CurvedBottom && CommonStyles.CurvedBottom,
-      args.CurvedTop && CommonStyles.CurvedTop
+      args.Reversed && LayoutStyles.Reversed
     );
-
     const params = {
       ...baseParams,
       styles: promoStyles,
-      CurvedTop: boolToSitecoreCheckbox(args.CurvedTop),
-      CurvedBottom: boolToSitecoreCheckbox(args.CurvedBottom),
     };
-    return (
-      <WithPlaceholder
-        fields={baseFields}
-        rendering={{
-          ...baseRendering,
-          placeholders: {
-            [`promo-content-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
-          },
-        }}
-        params={params}
-      />
-    );
+    return <WithFullImage params={params} rendering={baseRendering} fields={baseFields} />;
   },
 };
 
-export const WithPlaceholderContent: Story = {
-  args: {
-    CurvedBottom: true,
-    BlobAccent: true,
+export const QuotePromo: Story = {
+  argTypes: {
+    ShowMultipleImages: { table: { disable: true } },
+    HideShapes: { table: { disable: true } },
+    HideShadows: { table: { disable: true } },
   },
   render: (args) => {
     const promoStyles = clsx(
       baseParams.styles,
-      args.Layout,
       args.BackgroundColor,
-      args.HideBlobAccent && CommonStyles.HideBlobAccent,
-      args.CurvedBottom && CommonStyles.CurvedBottom,
-      args.CurvedTop && CommonStyles.CurvedTop
+      args.Reversed && LayoutStyles.Reversed,
+      args.HideQuote && PromoFlags.HidePromoQuotes,
+      args.HideCurveLine && CommonStyles.HideAccentLine
     );
-
     const params = {
       ...baseParams,
       styles: promoStyles,
-      CurvedTop: boolToSitecoreCheckbox(args.CurvedTop),
-      CurvedBottom: boolToSitecoreCheckbox(args.CurvedBottom),
     };
-    return (
-      <WithPlaceholder
-        fields={baseFields}
-        rendering={{
-          ...baseRendering,
-          placeholders: {
-            [`promo-content-${baseParams.DynamicPlaceholderId}`]: [
-              {
-                ...CommonRendering,
-                componentName: 'Features',
-                params: {
-                  ...CommonParams,
-                  FieldNames: 'Simple',
-                },
-                fields: createIGQLData({
-                  createItems: createFeatureItems,
-                  count: 3,
-                  topLevelFields: {
-                    heading: createIGQLField(createTextField('Our Special Services')),
-                    body: createIGQLField(createRichTextField(1)),
-                  },
-                }) as unknown as ComponentFields,
-              },
-            ],
-          },
-        }}
-        params={params}
-      />
-    );
+    return <WithQuote params={params} rendering={baseRendering} fields={baseFields} />;
   },
 };

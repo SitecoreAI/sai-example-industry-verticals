@@ -1,11 +1,21 @@
 export enum CommonStyles {
-  HideBlobAccent = 'hide-blob-accent',
-  HideTopSection = 'hide-top-section',
-  HideBottomSection = 'hide-bottom-section',
-  CurvedTop = 'curved-top',
-  CurvedBottom = 'curved-bottom',
+  HideAccentLine = 'hide-accent-line',
 }
 
-export enum FeatureStyles {
-  UseAccentColor = 'use-accent-color',
+export enum LayoutStyles {
+  Reversed = 'reversed',
+}
+
+export enum PromoFlags {
+  PromoReversed = 'promo-reversed',
+  ShowMultipleImages = 'show-multiple-images',
+  HidePromoShapes = 'hide-promo-shapes',
+  HidePromoShadows = 'hide-promo-shadows',
+  HidePromoQuotes = 'hide-promo-quotes',
+}
+
+export enum HeroBannerStyles {
+  HideGradientOverlay = 'hide-gradient-overlay',
+  WithPlaceholder = 'with-placeholder',
+  ScreenLayer = 'screen-layer',
 }

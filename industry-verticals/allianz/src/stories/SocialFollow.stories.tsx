@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Default as SocialFollow } from '../components/social-follow/SocialFollow';
+import { Default as SocialFollow, Horizontal } from '../components/social-follow/SocialFollow';
 import { ComponentProps } from 'react';
 import { CommonParams, CommonRendering } from './common/commonData';
-import { createLinkField } from './helpers/createFields';
+import { createLinkField, createTextField } from './helpers/createFields';
 
 type StoryProps = ComponentProps<typeof SocialFollow>;
 
@@ -29,13 +29,23 @@ const baseRendering = {
 };
 
 const baseFields = {
+  SocialTitle: createTextField('Follow us'),
   FacebookLink: createLinkField('Facebook'),
+  YoutubeLink: createLinkField('Youtube'),
   InstagramLink: createLinkField('Instagram'),
   TwitterLink: createLinkField('Twitter'),
+  LinkedinLink: createLinkField('Linkedin'),
+  PinterestLink: createLinkField('Pinterest'),
 };
 
 export const Default: Story = {
   render: () => {
     return <SocialFollow params={baseParams} rendering={baseRendering} fields={baseFields} />;
+  },
+};
+
+export const HorizontalIcons: Story = {
+  render: () => {
+    return <Horizontal params={baseParams} rendering={baseRendering} fields={baseFields} />;
   },
 };

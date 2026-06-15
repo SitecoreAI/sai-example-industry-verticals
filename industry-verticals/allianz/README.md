@@ -2,7 +2,7 @@
 
 ## Overview
 
-Allianz is a demo website based on the healthcare site template, designed to represent a modern, patient-focused digital experience. The site demonstrates how healthcare providers can create a trustworthy and user-friendly platform that supports
+Allianz is a headless site based on the retail (Forma Lux) starter. It includes product listing, search, articles, and localization patterns from the retail vertical, configured to connect to the Allianz Sitecore site.
 
 ## Developer Expectations:
 
@@ -27,6 +27,11 @@ Allianz is a demo website based on the healthcare site template, designed to rep
    - NEXT_PUBLIC_DEFAULT_SITE_NAME
    - NEXT_PUBLIC_SITECORE_EDGE_CONTEXT_ID
    - SITECORE_EDITING_SECRET
+   - NEXT_PUBLIC_SEARCH_ENV
+   - NEXT_PUBLIC_SEARCH_CUSTOMER_KEY
+   - NEXT_PUBLIC_SEARCH_API_KEY
+   - NEXT_PUBLIC_SEARCH_SOURCE
+   - NEXT_PUBLIC_BASE_URL
 6. Install dependencies:
    from `industry-verticals\allianz` run `npm install`
 7. Run the site locally:
@@ -57,3 +62,35 @@ If you have not enabled the split deployment feature your editing hosts are auto
 Additional Info: You do not have to create rendering host items in XM Cloud as those are created automatically for you when creating a rendering host. Mapping of sites using site templates to editing hosts is also done automatically.
 
 [Documentation](https://doc.sitecore.com/xmc/en/developers/content-sdk/sitecore-content-sdk-for-xm-cloud.html)
+
+## Sitecore Search Configuration
+
+There are two options for you can try for search configuration:
+1. Use the existing forma-lux search source
+2. Create a new source in the CEC portal and link it to your application
+
+### Use existing forma-lux search source
+Set the envs as follows
+```bash
+   - NEXT_PUBLIC_SEARCH_ENV=prod
+   - NEXT_PUBLIC_SEARCH_CUSTOMER_KEY=<Can be taken from cec portal>
+   - NEXT_PUBLIC_SEARCH_API_KEY=<Can be taken from cec portal>
+   - NEXT_PUBLIC_SEARCH_SOURCE=1193018
+   - NEXT_PUBLIC_BASE_URL=<Hosted Domain URL>
+```
+
+### Create new source in CEC portal and link to your application
+https://sitecore.atlassian.net/wiki/x/ZwAengE
+
+### Localization Support
+
+#### By default, the site supports the following locales:
+- en (English)
+- fr-FR (French)
+- es-ES (Spanish)
+
+#### Add Additional Languages
+- Navigate to Channels → Click the three dots on the specific site → Settings → Languages.
+- Add the required languages and provide translations for the newly added languages.
+- After adding the new languages, update the locales array in the next.config.js file to include the new language codes.
+- To display languages in language switcher, go to src/constants/localeOptions.ts and update the localeOptions array with code,label,currency and currencySymbol for specific locale.

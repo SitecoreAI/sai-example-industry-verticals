@@ -9,7 +9,7 @@
   }
 
   ul {
-    @apply flex flex-row flex-wrap;
+    @apply flex flex-row flex-wrap gap-4;
   }
 
   a:hover {
@@ -26,6 +26,12 @@
 
 .link-list.hide-title {
   h3 {
+    @apply hidden;
+  }
+}
+
+.social-follow.hide-title {
+  h5 {
     @apply hidden;
   }
 }

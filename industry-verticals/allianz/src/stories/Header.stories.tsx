@@ -1,33 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Default } from '../components/header-extended/HeaderExtended';
+import { Default as Header } from '../components/header/Header';
 import { ComponentProps } from 'react';
-import { renderStorybookPlaceholder } from 'src/stories/helpers/renderStorybookPlaceholder';
 import { CommonParams, CommonRendering } from './common/commonData';
-import { createImageField, createLinkField } from './helpers/createFields';
+import { renderStorybookPlaceholder } from './helpers/renderStorybookPlaceholder';
+import { getNavigationFields, logoParam } from './constants/navFields';
 import { ComponentFields } from '@sitecore-content-sdk/nextjs';
-import { getNavigationFields } from './constants/navFields';
 
-type StoryProps = ComponentProps<typeof Default>;
+type StoryProps = ComponentProps<typeof Header> & {
+  withRoot?: boolean;
+  isFlat?: boolean;
+  hasLogo?: boolean;
+  isSimpleLayout?: boolean;
+};
 
 const meta = {
-  title: 'Global Components/Header',
-  component: Default,
+  title: 'Global Elements/Header',
+  component: Header,
   tags: ['autodocs'],
-  argTypes: {},
-  args: {},
 } satisfies Meta<StoryProps>;
 export default meta;
 
 type Story = StoryObj<StoryProps>;
 
-const baseFields = {
-  LogoLight: createImageField('logo'),
-  LogoDark: createImageField('logo'),
-  PhoneLink: createLinkField(),
-  MailLink: createLinkField(),
+const baseParams = {
+  ...CommonParams,
 };
-
-const baseParams = CommonParams;
 
 const baseRendering = {
   ...CommonRendering,
@@ -35,57 +32,56 @@ const baseRendering = {
   params: baseParams,
 };
 
-export const Header: Story = {
+export const Default: Story = {
   render: () => {
     return (
-      <Default
-        fields={baseFields}
+      <Header
+        params={baseParams}
         rendering={{
           ...baseRendering,
           placeholders: {
+            [`header-left-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
             [`header-nav-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
-            [`header-theme-switcher-${baseParams.DynamicPlaceholderId}`]: [
-              renderStorybookPlaceholder(),
-            ],
+            [`header-right-${baseParams.DynamicPlaceholderId}`]: [renderStorybookPlaceholder()],
           },
         }}
-        params={baseParams}
       />
     );
   },
 };
 
-const NavigationData = {
-  fields: getNavigationFields() as unknown as ComponentFields,
-  params: {
-    ...CommonParams,
-  },
-};
-
-export const HeaderWithContent: Story = {
+export const WithPlaceholderData: Story = {
   render: () => {
     return (
-      <Default
-        fields={baseFields}
+      <Header
+        params={baseParams}
         rendering={{
           ...baseRendering,
           placeholders: {
+            [`header-left-${baseParams.DynamicPlaceholderId}`]: [
+              {
+                ...CommonRendering,
+                componentName: 'LanguageSwitcher',
+                params: CommonParams,
+              },
+            ],
             [`header-nav-${baseParams.DynamicPlaceholderId}`]: [
               {
                 ...CommonRendering,
                 componentName: 'Navigation',
-                ...NavigationData,
+                params: { ...CommonParams, Logo: logoParam },
+                fields: getNavigationFields() as unknown as ComponentFields,
               },
             ],
-            [`header-theme-switcher-${baseParams.DynamicPlaceholderId}`]: [
+            [`header-right-${baseParams.DynamicPlaceholderId}`]: [
               {
                 ...CommonRendering,
-                componentName: 'ThemeSwitcher',
+                componentName: 'NavigationIcons',
+                params: CommonParams,
               },
             ],
           },
         }}
-        params={baseParams}
       />
     );
   },

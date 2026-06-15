@@ -1,28 +1,24 @@
 @theme {
-  /* Allianz Life primary palette (allianzlife.com) */
-  --color-background: #ffffff;
-  --color-background-secondary: #d9ebf4;
-  --color-background-tertiary: #b2d7e8;
+  /* Allianz Life brand palette (allianzlife.com) */
   --color-foreground: #003781;
+  --color-foreground-light: #4d4d4f;
+  --color-foreground-muted: #767676;
 
-  /* Dark theme — anchored on brand and action blues */
-  --color-background-dark: #003051;
-  --color-background-secondary-dark: #006192;
-  --color-background-tertiary-dark: #075994;
-  --color-foreground-dark: #ffffff;
-  --color-foreground-secondary-dark: #b2d7e8;
+  --color-background: #ffffff;
+  --color-background-accent: #d9ebf4;
+  --color-background-muted: #b2d7e8;
+  --color-background-muted-light: #7fbcd9;
+  --color-background-muted-dark: #075994;
+  --color-background-surface: #f5f5f5;
 
-  /* Action / interactive colors */
   --color-accent: #006192;
-  --color-accent-muted: #7fbcd9;
 
-  --color-background-input: #d9ebf4;
-  --color-disabled: #c2c2c2;
-  --color-disabled-dark: #767676;
+  --color-success: #18aa79;
+  --color-danger: #b12828;
 
   --color-border: #bbbdbf;
 
-  /* Source Sans 3 approximates Allianz Neo on allianzlife.com */
+  /* Source Sans 3 approximates proprietary Allianz Neo on allianzlife.com */
   --font-heading: 'Source Sans 3', sans-serif;
   --font-body: 'Source Sans 3', sans-serif;
 
@@ -41,8 +37,4 @@
   --radius-2xl: calc(var(--radius-base) * 3);
   --radius-3xl: calc(var(--radius-base) * 4);
   --radius-4xl: calc(var(--radius-base) * 5);
-
-  /* Allianz Life elevation: soft gray shadow used on cards and modals */
-  --shadow-soft: 0 4px 8px rgba(77, 77, 79, 0.35);
-  --background-image-hero-clip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1601.7 992.77' preserveAspectRatio='none'%3E%3Cg fill='black'%3E%3Cpath d='M.83,636.38s121.41,339.4,484.75,353.09,578.3-16.53,644.58-66.01,469.84-402.66,469.84-402.66l1.7-520.8L0,.05l.83,636.33Z'/%3E%3C/g%3E%3C/svg%3E");
 }

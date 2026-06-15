@@ -1,33 +1,29 @@
-'use client';
-
-import React from 'react';
 import {
-  NextImage as ContentSdkImage,
-  Link as ContentSdkLink,
-  Text as ContentSdkText,
-  ImageField,
-  LinkField,
-  ComponentRendering,
   ComponentParams,
+  ComponentRendering,
+  Image,
+  ImageField,
+  Link,
+  LinkField,
   Placeholder,
+  RichText,
   RichTextField,
-  withDatasourceCheck,
-  TextField,
   Text,
+  TextField,
 } from '@sitecore-content-sdk/nextjs';
-import Link from 'next/link';
-import { CommonStyles } from '@/types/styleFlags';
+import React from 'react';
 
 interface Fields {
-  Logo: ImageField;
-  LogoDark: ImageField;
-  CopyrightText: RichTextField;
-  PolicyText: LinkField;
-  TermsText: LinkField;
   TitleOne: TextField;
   TitleTwo: TextField;
   TitleThree: TextField;
   TitleFour: TextField;
+  TitleFive: TextField;
+  CopyrightText: TextField;
+  PolicyText: LinkField;
+  TermsText: LinkField;
+  Logo: ImageField;
+  Description: RichTextField;
 }
 
 type FooterProps = {
@@ -36,7 +32,8 @@ type FooterProps = {
   fields: Fields;
 };
 
-const DefaultFooter = (props: FooterProps) => {
+export const Default = (props: FooterProps) => {
+  // rendering item id
   const id = props.params.RenderingIdentifier;
 
   // placeholders keys
@@ -46,7 +43,6 @@ const DefaultFooter = (props: FooterProps) => {
   const phKeyFour = `footer-list-fourth-${props?.params?.DynamicPlaceholderId}`;
   const phKeyFive = `footer-list-fifth-${props?.params?.DynamicPlaceholderId}`;
 
-  // footer sections data
   const sections = [
     {
       key: 'first_nav',
@@ -68,89 +64,44 @@ const DefaultFooter = (props: FooterProps) => {
       title: <Text field={props.fields.TitleFour} />,
       content: <Placeholder name={phKeyFour} rendering={props.rendering} />,
     },
+    {
+      key: 'fifth_nav',
+      title: <Text field={props.fields.TitleFive} />,
+      content: <Placeholder name={phKeyFive} rendering={props.rendering} />,
+    },
   ];
 
-  // styles to hide and show sections
-  const hideTopSection = props.params?.Styles?.includes(CommonStyles.HideTopSection) || undefined;
-  const hideBottomSection =
-    props.params?.Styles?.includes(CommonStyles.HideBottomSection) || undefined;
-
   return (
-    <section className={`relative ${props.params.styles} overflow-hidden`} id={id ? id : undefined}>
-      {/* footer top section */}
-      {!hideTopSection && (
-        <div className="bg-background-secondary dark:bg-background-secondary-dark pt-24 pb-16">
-          {/* svg accent background */}
-          <div className="text-background dark:text-background-dark pointer-events-none absolute -top-px -right-px left-0 leading-none">
-            <svg
-              viewBox="0 0 1613.26 511.77"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-auto w-full"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,0V319.73H.02c.95-649,1546.56-112.85,1611.06-90.19h1.67V0H0Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          {/* footer top section */}
-          <div className="relative z-20 container">
-            {/* logo section */}
-            <Link href={'/'} className="mb-12 inline-block max-w-50">
-              <ContentSdkImage
-                field={props.fields.Logo}
-                width={345}
-                height={45}
-                className="dark:hidden"
-                priority
-              />
-              <ContentSdkImage
-                field={props.fields.LogoDark}
-                width={345}
-                height={45}
-                className="hidden dark:block"
-                priority
-              />
-            </Link>
-            {/* content section */}
-            <div className="grid gap-x-4 gap-y-12 lg:grid-cols-4">
-              {sections.map(({ key, title, content }) => (
-                <div key={key}>
-                  <div className="mb-8 text-lg font-bold">{title}</div>
-                  <div>{content}</div>
-                </div>
-              ))}
+    <section className={`component footer relative ${props.params.styles} overflow-hidden`} id={id}>
+      <div className="bg-background-muted">
+        <div className="container grid gap-12 py-28.5 lg:grid-cols-[1fr_3fr]">
+          <div className="flex flex-col gap-7">
+            <div className="sm:max-w-34">
+              <Image field={props.fields.Logo} />
             </div>
+            <RichText field={props.fields.Description} />
+          </div>
+          <div className="grid gap-13 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5 xl:gap-12">
+            {sections.map(({ key, title, content }) => (
+              <div key={key}>
+                <div className="text-accent mb-8 text-lg font-bold">{title}</div>
+                <div className="space-y-4">{content}</div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
-      {/* footer bottom section */}
-      {!hideBottomSection && (
-        <div className="container py-4">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-            {/* copyright section */}
-            <div className="mr-auto">
-              <p>
-                <ContentSdkText field={props.fields.CopyrightText} />
-              </p>
-            </div>
-
-            {/* policy and terms section */}
-            <div className="flex flex-wrap gap-4 lg:mx-8">
-              <ContentSdkLink field={props.fields.TermsText} />
-              <ContentSdkLink field={props.fields.PolicyText} />
-            </div>
-
-            {/* social icons section */}
-            <div>
-              <Placeholder name={phKeyFive} rendering={props.rendering} />
-            </div>
+      </div>
+      <div className="bg-background">
+        <div className="container flex items-center justify-between py-8.5 max-sm:flex-col max-sm:items-start max-sm:gap-10">
+          <div className="max-sm:order-2">
+            <Text field={props.fields.CopyrightText} />
+          </div>
+          <div className="flex items-center justify-between gap-20 max-lg:gap-10 max-sm:order-1 max-sm:flex-col max-sm:items-start max-sm:gap-5">
+            <Link field={props.fields.TermsText} className="hover:underline" />
+            <Link field={props.fields.PolicyText} className="hover:underline" />
           </div>
         </div>
-      )}
+      </div>
     </section>
   );
 };
-
-export const Default = withDatasourceCheck()<FooterProps>(DefaultFooter);

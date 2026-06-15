@@ -12,39 +12,14 @@ import {
 import { createIGQLData } from './helpers/createIGQLData';
 import { createLinkItems } from './helpers/createItems';
 import { ComponentFields } from '@sitecore-content-sdk/nextjs';
-import clsx from 'clsx';
-import { CommonStyles } from '@/types/styleFlags';
 
-type StoryProps = ComponentProps<typeof Footer> & {
-  hideTopSection?: boolean;
-  hideBottomSection?: boolean;
-};
+type StoryProps = ComponentProps<typeof Footer>;
 
 const meta = {
-  title: 'Global Components/Footer',
+  title: 'Global Elements/Footer',
   component: Footer,
   tags: ['autodocs'],
-  argTypes: {
-    hideTopSection: {
-      name: 'Hide Top Section',
-      control: 'boolean',
-      description: 'Hide the top section',
-      defaultValue: false,
-    },
-    hideBottomSection: {
-      name: 'Hide Bottom Section',
-      control: 'boolean',
-      description: 'Hide the bottom section',
-      defaultValue: false,
-    },
-  },
-} satisfies Meta<
-  StoryProps & {
-    hideTopSection: boolean;
-    hideBottomSection: boolean;
-  }
->;
-
+} satisfies Meta<StoryProps>;
 export default meta;
 
 type Story = StoryObj<StoryProps>;
@@ -60,16 +35,16 @@ const baseRendering = {
 };
 
 const baseFields = {
-  TitleOne: createTextField('Contact'),
-  TitleTwo: createTextField('About us'),
-  TitleThree: createTextField('Our Services'),
-  TitleFour: createTextField('Hospital Time'),
-  CopyrightText: createTextField('Copyright © 2024. All Rights Reserved.'),
+  TitleOne: createTextField('Furniture'),
+  TitleTwo: createTextField('Services'),
+  TitleThree: createTextField('Support'),
+  TitleFour: createTextField('Follow Us'),
+  TitleFive: createTextField('Install App'),
+  CopyrightText: createTextField('Copyright © 2025'),
   PolicyText: createLinkField('Privacy Policy'),
-  TermsText: createLinkField('Terms of Use'),
+  TermsText: createLinkField('Terms & Conditions'),
   Description: createRichTextField(1),
   Logo: createImageField('logo'),
-  LogoDark: createImageField('logo'),
 };
 
 const LinkListRendering = {
@@ -94,42 +69,26 @@ const SocialFollowRendering = {
     FacebookLink: createLinkField('Facebook'),
     InstagramLink: createLinkField('Instagram'),
     TwitterLink: createLinkField('Twitter'),
+    PinterestLink: createLinkField('Pinterest'),
   } as unknown as ComponentFields,
 };
 
-const RichTextRendering = {
+const ImageRendering = {
   ...CommonRendering,
-  componentName: 'RichText',
+  componentName: 'Image',
   params: CommonParams,
   fields: {
-    Text: createRichTextField(),
+    Image: createImageField('placeholder'),
   } as unknown as ComponentFields,
 };
 
 export const Default: Story = {
-  args: {
-    hideTopSection: false,
-    hideBottomSection: false,
-  },
-
-  render: ({ hideTopSection, hideBottomSection }) => {
-    const styles = clsx(
-      baseParams.Styles,
-      hideTopSection && CommonStyles.HideTopSection,
-      hideBottomSection && CommonStyles.HideBottomSection
-    );
-
-    const params = {
-      ...baseParams,
-      Styles: styles,
-    };
-
+  render: () => {
     return (
       <Footer
-        params={params}
+        params={baseParams}
         rendering={{
           ...baseRendering,
-          params,
           placeholders: {
             [`footer-list-first-${baseParams.DynamicPlaceholderId}`]: [
               renderStorybookPlaceholder(),
@@ -155,35 +114,18 @@ export const Default: Story = {
 };
 
 export const WithPlaceholderData: Story = {
-  args: {
-    hideTopSection: false,
-    hideBottomSection: false,
-  },
-
-  render: ({ hideTopSection, hideBottomSection }) => {
-    const styles = clsx(
-      baseParams.Styles,
-      hideTopSection && CommonStyles.HideTopSection,
-      hideBottomSection && CommonStyles.HideBottomSection
-    );
-
-    const params = {
-      ...baseParams,
-      Styles: styles,
-    };
-
+  render: () => {
     return (
       <Footer
-        params={params}
+        params={baseParams}
         rendering={{
           ...baseRendering,
-          params,
           placeholders: {
-            [`footer-list-first-${baseParams.DynamicPlaceholderId}`]: [RichTextRendering],
+            [`footer-list-first-${baseParams.DynamicPlaceholderId}`]: [LinkListRendering],
             [`footer-list-second-${baseParams.DynamicPlaceholderId}`]: [LinkListRendering],
             [`footer-list-third-${baseParams.DynamicPlaceholderId}`]: [LinkListRendering],
-            [`footer-list-fourth-${baseParams.DynamicPlaceholderId}`]: [RichTextRendering],
-            [`footer-list-fifth-${baseParams.DynamicPlaceholderId}`]: [SocialFollowRendering],
+            [`footer-list-fourth-${baseParams.DynamicPlaceholderId}`]: [SocialFollowRendering],
+            [`footer-list-fifth-${baseParams.DynamicPlaceholderId}`]: [ImageRendering],
           },
         }}
         fields={baseFields}

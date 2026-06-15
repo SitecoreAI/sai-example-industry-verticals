@@ -1,60 +1,36 @@
-'use client';
-
-import {
-  Text as ContentSdkText,
-  RichText as ContentSdkRichText,
-  withDatasourceCheck,
-  ComponentRendering,
-  ComponentParams,
-  RichTextField,
-  Field,
-  Placeholder,
-} from '@sitecore-content-sdk/nextjs';
-import BlobAccent from '../../assets/shapes/BlobAccent';
-import CurvedClip from '../../assets/shapes/CurvedClip';
+import AccentLine from '@/assets/icons/accent-line/AccentLine';
+import { ComponentProps } from '@/lib/component-props';
 import { CommonStyles } from '@/types/styleFlags';
+import { Field, Link, LinkField, Placeholder, Text } from '@sitecore-content-sdk/nextjs';
 
 interface Fields {
   Title: Field<string>;
-  Description: RichTextField;
+  Link: LinkField;
 }
 
-type ContentSectionProps = {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: { [key: string]: string };
+interface SectionWrapperProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const DefaultContentSection = ({ fields, params, rendering }: ContentSectionProps) => {
-  const id = params?.RenderingIdentifier;
-  const curvedTop = params.styles?.includes(CommonStyles.CurvedTop);
-  const curvedBottom = params.styles?.includes(CommonStyles.CurvedBottom);
-  const hideBlobAccent = params.styles?.includes(CommonStyles.HideBlobAccent);
+export const Default = ({ params, fields, rendering }: SectionWrapperProps) => {
+  const { styles, RenderingIdentifier: id } = params;
+  const hideAccentLine = styles?.includes(CommonStyles.HideAccentLine);
+  const placeholderKey = `section-wrapper-content-${params.DynamicPlaceholderId}`;
 
   return (
-    <section
-      className={`bg-background-secondary dark:bg-background-secondary-dark relative space-y-8 py-16 ${params?.styles}`}
-      id={id || undefined}
-    >
-      {curvedTop && <CurvedClip className="top-0" pos="top" />}
-      {curvedBottom && <CurvedClip className="bottom-0" pos="bottom" />}
-      {!hideBlobAccent && (
-        <BlobAccent size="lg" className="absolute top-0 right-0 z-0 lg:right-4" />
-      )}
-      <div className="relative z-10 container">
-        <div className="max-w-4xl">
-          <h2>
-            <ContentSdkText field={fields.Title} />
-          </h2>
-          <ContentSdkRichText className="text-lg" field={fields.Description} />
+    <section className={`component section-wrapper pt-14 pb-10 ${styles}`} id={id}>
+      <div className="container flex flex-col items-center">
+        <h2>
+          <Text field={fields.Title} />
+          {!hideAccentLine && <AccentLine className="ml-auto !h-4 w-[8ch]" />}
+        </h2>
+
+        <div className="mt-5 mb-12 w-full">
+          <Placeholder name={placeholderKey} rendering={rendering} />
         </div>
+
+        <Link field={fields.Link} className="arrow-btn" />
       </div>
-      <Placeholder
-        name={`section-wrapper-content-${params?.DynamicPlaceholderId}`}
-        rendering={rendering}
-      />
     </section>
   );
 };
-
-export const Default = withDatasourceCheck()<ContentSectionProps>(DefaultContentSection);

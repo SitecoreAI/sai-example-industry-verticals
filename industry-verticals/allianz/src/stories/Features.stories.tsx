@@ -1,118 +1,213 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Default, Simple } from '../components/features/Features';
-import { ComponentProps } from 'react';
 import { CommonParams, CommonRendering } from './common/commonData';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { ComponentProps } from 'react';
+import {
+  Default,
+  FourColGrid,
+  ImageGrid,
+  NumberedGrid,
+  ThreeColGridCentered,
+} from '@/components/features/Features';
+import { createIGQLData } from './helpers/createIGQLData';
+import {
+  createIGQLField,
+  createImageField,
+  createLinkField,
+  createTextField,
+} from './helpers/createFields';
 import {
   BackgroundColorArgs,
   backgroundColorArgTypes,
   defaultBackgroundColorArgs,
 } from './common/commonControls';
-import { createFeatureItems } from './helpers/createItems';
-import { createIGQLData } from './helpers/createIGQLData';
-import { createIGQLField, createRichTextField, createTextField } from './helpers/createFields';
-import clsx from 'clsx';
+import { boolToSitecoreCheckbox } from './helpers/boolToSitecoreCheckbox';
 import { CommonStyles } from '@/types/styleFlags';
+import clsx from 'clsx';
 
 type StoryProps = ComponentProps<typeof Default> &
   BackgroundColorArgs & {
-    numberOfItems: number;
-    HideBlobAccent: boolean;
+    hideAccentLine?: boolean;
   };
 
 const meta = {
   title: 'Page Content/Features',
   component: Default,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
   argTypes: {
     ...backgroundColorArgTypes,
-    HideBlobAccent: {
-      control: 'boolean',
-      name: 'Hide Blob Accent',
-    },
-    numberOfItems: {
-      name: 'Number of features',
+    hideAccentLine: {
+      name: 'Hide Accent Line',
       control: {
-        type: 'range',
-        min: 1,
-        max: 21,
-        step: 1,
+        type: 'boolean',
       },
+      defaultValue: false,
     },
   },
   args: {
-    numberOfItems: 3,
     ...defaultBackgroundColorArgs,
-    HideBlobAccent: true,
+    hideAccentLine: false,
   },
 } satisfies Meta<StoryProps>;
 export default meta;
 
 type Story = StoryObj<StoryProps>;
 
-const baseParams = CommonParams;
+const baseParams = {
+  ...CommonParams,
+};
 
 const baseRendering = {
   ...CommonRendering,
-  componentName: 'Features',
-  params: CommonParams,
+  componentName: 'Container',
+  params: baseParams,
 };
 
-export const DefaultFeatures: Story = {
+export const FeatureDefault: Story = {
   render: (args) => {
-    const promoStyles = clsx(
-      baseParams.styles,
-      args.BackgroundColor,
-      args.HideBlobAccent && CommonStyles.HideBlobAccent
-    );
-    const params = {
-      ...baseParams,
-      styles: promoStyles,
-    };
-
     return (
       <Default
-        fields={createIGQLData({
-          createItems: createFeatureItems,
-          count: args.numberOfItems,
-          topLevelFields: {
-            title: createIGQLField(createTextField('Our Special Services')),
-            description: createIGQLField(createRichTextField(1)),
-          },
-        })}
-        params={params}
         rendering={baseRendering}
+        params={{
+          ...baseParams,
+          HideAccentLine: boolToSitecoreCheckbox(args.hideAccentLine),
+          styles: clsx(
+            baseParams.styles,
+            args.BackgroundColor,
+            args.hideAccentLine && CommonStyles.HideAccentLine
+          ),
+        }}
+        fields={createIGQLData({
+          count: 3,
+          topLevelFields: {
+            title: createIGQLField(createTextField('Features Title')),
+          },
+          createItems: (count) =>
+            Array.from({ length: count }, () => ({
+              featureTitle: createIGQLField(createTextField('Title')),
+              featureDescription: createIGQLField(createTextField()),
+              featureImage: createIGQLField(createImageField('placeholder')),
+              featureLink: createIGQLField(createLinkField('More Info')),
+            })),
+        })}
       />
     );
   },
 };
 
-export const SimpleFeatures: Story = {
-  parameters: {
-    layout: 'padded',
-  },
+export const FeatureImageGrid: Story = {
   render: (args) => {
-    const featureStyles = clsx(
-      baseParams.styles,
-      args.BackgroundColor,
-      args.HideBlobAccent && CommonStyles.HideBlobAccent
-    );
-    const params = {
-      ...baseParams,
-      styles: featureStyles,
-    };
-
     return (
-      <Simple
-        fields={createIGQLData({
-          createItems: createFeatureItems,
-          count: args.numberOfItems,
-          topLevelFields: {
-            title: createIGQLField(createTextField('Our Special Services')),
-            description: createIGQLField(createRichTextField(1)),
-          },
-        })}
-        params={params}
+      <ImageGrid
         rendering={baseRendering}
+        params={{
+          ...baseParams,
+          styles: `${baseParams.styles}
+            ${args.BackgroundColor}
+          `,
+        }}
+        fields={createIGQLData({
+          count: 5,
+          topLevelFields: {
+            title: createIGQLField(createTextField('Features Title')),
+          },
+          createItems: (count) =>
+            Array.from({ length: count }, () => ({
+              featureTitle: createIGQLField(createTextField('Title')),
+              featureDescription: createIGQLField(createTextField('Description')),
+              featureImage: createIGQLField(createImageField('placeholder')),
+              featureLink: createIGQLField(createLinkField('More Info')),
+            })),
+        })}
+      />
+    );
+  },
+};
+
+export const FeatureNumberedGrid: Story = {
+  render: (args) => {
+    return (
+      <NumberedGrid
+        rendering={baseRendering}
+        params={{
+          ...baseParams,
+          styles: `${baseParams.styles}
+            ${args.BackgroundColor}
+          `,
+        }}
+        fields={createIGQLData({
+          count: 3,
+          topLevelFields: {
+            title: createIGQLField(createTextField('Features Title')),
+          },
+          createItems: (count) =>
+            Array.from({ length: count }, () => ({
+              featureTitle: createIGQLField(createTextField('Title')),
+              featureDescription: createIGQLField(createTextField()),
+              featureImage: createIGQLField(createImageField('placeholder')),
+              featureLink: createIGQLField(createLinkField('More Info')),
+            })),
+        })}
+      />
+    );
+  },
+};
+
+export const FeatureThreeColGridCentered: Story = {
+  render: (args) => {
+    return (
+      <ThreeColGridCentered
+        rendering={baseRendering}
+        params={{
+          ...baseParams,
+          styles: `${baseParams.styles}
+            ${args.BackgroundColor}
+          `,
+        }}
+        fields={createIGQLData({
+          count: 3,
+          topLevelFields: {
+            title: createIGQLField(createTextField('Features Title')),
+          },
+          createItems: (count) =>
+            Array.from({ length: count }, () => ({
+              featureTitle: createIGQLField(createTextField('Title')),
+              featureDescription: createIGQLField(createTextField('Description')),
+              featureImage: createIGQLField(createImageField('placeholder')),
+              featureLink: createIGQLField(createLinkField('More Info')),
+            })),
+        })}
+      />
+    );
+  },
+};
+
+export const FeatureFourColGrid: Story = {
+  render: (args) => {
+    return (
+      <FourColGrid
+        rendering={baseRendering}
+        params={{
+          ...baseParams,
+          styles: `${baseParams.styles}
+            ${args.BackgroundColor}
+          `,
+        }}
+        fields={createIGQLData({
+          count: 4,
+          topLevelFields: {
+            title: createIGQLField(createTextField('Features Title')),
+          },
+          createItems: (count) =>
+            Array.from({ length: count }, () => ({
+              featureTitle: createIGQLField(createTextField('Title')),
+              featureDescription: createIGQLField(createTextField('Description')),
+              featureImage: createIGQLField(createImageField('placeholder')),
+              featureLink: createIGQLField(createLinkField('More Info')),
+            })),
+        })}
       />
     );
   },
