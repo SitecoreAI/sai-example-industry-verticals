@@ -1,5 +1,6 @@
-.component.rich-text {
-  margin: 20px;
+.component.rich-text > .component-content,
+.component.content > .component-content {
+  padding: 20px;
 }
 
 .content,
