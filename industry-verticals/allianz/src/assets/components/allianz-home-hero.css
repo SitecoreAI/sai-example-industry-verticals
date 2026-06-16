@@ -1,11 +1,9 @@
 .allianz-home-hero__band {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  right: 0;
-  left: 0;
-  height: clamp(16rem, 65%, 26rem);
+  left: 50%;
+  width: 100vw;
   pointer-events: none;
   background-color: rgb(255 255 255 / 0.75);
-  transform: translateY(-50%);
+  transform: translateX(-50%);
 }

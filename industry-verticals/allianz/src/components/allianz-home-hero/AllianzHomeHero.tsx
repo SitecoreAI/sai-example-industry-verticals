@@ -8,7 +8,9 @@ import {
   useSitecore,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from '@/lib/component-props';
-import { FormEvent, JSX } from 'react';
+import { FormEvent, JSX, useLayoutEffect, useRef } from 'react';
+
+const BAND_INSET_PX = 15;
 
 interface Fields {
   Title?: Field<string>;
@@ -21,77 +23,69 @@ export type AllianzHomeHeroProps = ComponentProps & {
 };
 
 const LoginPanel = (): JSX.Element => (
-  <div className="hidden w-full max-w-sm shrink-0 lg:block">
-    <div className="bg-background shadow-md">
-      <form
-        className="space-y-4 p-6"
-        onSubmit={(event: FormEvent<HTMLFormElement>) => event.preventDefault()}
-      >
-        <div>
-          <label
-            htmlFor="allianz-hero-username"
-            className="text-foreground-light mb-1 block text-sm"
-          >
-            Username<span className="text-danger">*</span>
-          </label>
-          <input
-            id="allianz-hero-username"
-            name="username"
-            type="text"
-            autoComplete="username"
-            required
-            className="border-border text-foreground focus:ring-accent h-10 w-full rounded-sm border px-3 text-sm focus:ring-2 focus:outline-none"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="allianz-hero-password"
-            className="text-foreground-light mb-1 block text-sm"
-          >
-            Password<span className="text-danger">*</span>
-          </label>
-          <input
-            id="allianz-hero-password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            required
-            className="border-border text-foreground focus:ring-accent h-10 w-full rounded-sm border px-3 text-sm focus:ring-2 focus:outline-none"
-          />
-        </div>
-
-        <label className="text-foreground-light flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            name="remember"
-            className="border-border text-accent h-4 w-4 rounded-sm border"
-          />
-          Remember me
+  <div className="bg-background shadow-md">
+    <form
+      className="space-y-4 p-6"
+      onSubmit={(event: FormEvent<HTMLFormElement>) => event.preventDefault()}
+    >
+      <div>
+        <label htmlFor="allianz-hero-username" className="text-foreground-light mb-1 block text-sm">
+          Username<span className="text-danger">*</span>
         </label>
+        <input
+          id="allianz-hero-username"
+          name="username"
+          type="text"
+          autoComplete="username"
+          required
+          className="border-border text-foreground focus:ring-accent h-10 w-full rounded-sm border px-3 text-sm focus:ring-2 focus:outline-none"
+        />
+      </div>
 
-        <div className="flex items-center gap-4 pt-1">
-          <button
-            type="submit"
-            className="bg-success text-background focus-visible:ring-accent h-10 rounded-sm px-8 text-sm font-semibold hover:opacity-90 focus-visible:ring-2 focus-visible:outline-none"
-          >
-            Login
-          </button>
-          <a href="#" className="text-accent text-sm font-semibold hover:underline">
-            Register
-          </a>
-        </div>
-      </form>
+      <div>
+        <label htmlFor="allianz-hero-password" className="text-foreground-light mb-1 block text-sm">
+          Password<span className="text-danger">*</span>
+        </label>
+        <input
+          id="allianz-hero-password"
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          required
+          className="border-border text-foreground focus:ring-accent h-10 w-full rounded-sm border px-3 text-sm focus:ring-2 focus:outline-none"
+        />
+      </div>
 
-      <div className="border-border flex items-center justify-center gap-4 border-t px-6 py-3 text-sm">
-        <a href="#" className="text-accent hover:underline">
-          Forgot username?
-        </a>
-        <span className="bg-border h-4 w-px" aria-hidden="true" />
-        <a href="#" className="text-accent hover:underline">
-          Forgot password?
+      <label className="text-foreground-light flex items-center gap-2 text-sm">
+        <input
+          type="checkbox"
+          name="remember"
+          className="border-border text-accent h-4 w-4 rounded-sm border"
+        />
+        Remember me
+      </label>
+
+      <div className="flex items-center gap-4 pt-1">
+        <button
+          type="submit"
+          className="bg-success text-background focus-visible:ring-accent h-10 rounded-sm px-8 text-sm font-semibold hover:opacity-90 focus-visible:ring-2 focus-visible:outline-none"
+        >
+          Login
+        </button>
+        <a href="#" className="text-accent text-sm font-semibold hover:underline">
+          Register
         </a>
       </div>
+    </form>
+
+    <div className="border-border flex items-center justify-center gap-4 border-t px-6 py-3 text-sm">
+      <a href="#" className="text-accent hover:underline">
+        Forgot username?
+      </a>
+      <span className="bg-border h-4 w-px" aria-hidden="true" />
+      <a href="#" className="text-accent hover:underline">
+        Forgot password?
+      </a>
     </div>
   </div>
 );
@@ -101,6 +95,53 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
   const { isEditing } = page.mode;
   const { styles, RenderingIdentifier: id } = params;
   const { Title, Copy, Image } = fields || {};
+  const sectionRef = useRef<HTMLElement>(null);
+  const bandRef = useRef<HTMLDivElement>(null);
+  const loginRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const syncBand = () => {
+      const section = sectionRef.current;
+      const band = bandRef.current;
+      if (!section || !band) {
+        return;
+      }
+
+      const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+      const anchor = isDesktop ? loginRef.current : textRef.current;
+      if (!anchor) {
+        return;
+      }
+
+      const inset = isDesktop ? BAND_INSET_PX : 0;
+      const anchorRect = anchor.getBoundingClientRect();
+      const sectionRect = section.getBoundingClientRect();
+
+      band.style.top = `${anchorRect.top - sectionRect.top + inset}px`;
+      band.style.height = `${Math.max(0, anchorRect.height - inset * 2)}px`;
+    };
+
+    syncBand();
+
+    const resizeObserver = new ResizeObserver(syncBand);
+    if (sectionRef.current) {
+      resizeObserver.observe(sectionRef.current);
+    }
+    if (loginRef.current) {
+      resizeObserver.observe(loginRef.current);
+    }
+    if (textRef.current) {
+      resizeObserver.observe(textRef.current);
+    }
+
+    window.addEventListener('resize', syncBand);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', syncBand);
+    };
+  }, [Title?.value, Copy?.value, isEditing]);
 
   if (!fields && !isEditing) {
     return <></>;
@@ -110,6 +151,7 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
 
   return (
     <section
+      ref={sectionRef}
       className={`component allianz-home-hero relative flex min-h-[32rem] items-center overflow-hidden lg:min-h-[36rem] ${styles ?? ''}`}
       id={id || undefined}
     >
@@ -119,12 +161,12 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
         )}
       </div>
 
-      <div className="allianz-home-hero__band" aria-hidden="true" />
+      <div ref={bandRef} className="allianz-home-hero__band" aria-hidden="true" />
 
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-4 py-12 lg:py-16">
           <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-            <div className="max-w-2xl">
+            <div ref={textRef} className="max-w-2xl">
               {(Title?.value || isEditing) && (
                 <h1 className="text-foreground text-3xl leading-tight font-bold md:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
                   <ContentSdkText field={Title} />
@@ -138,7 +180,9 @@ export const Default = ({ params, fields }: AllianzHomeHeroProps): JSX.Element =
               )}
             </div>
 
-            <LoginPanel />
+            <div ref={loginRef} className="hidden w-full max-w-sm shrink-0 lg:block">
+              <LoginPanel />
+            </div>
           </div>
         </div>
       </div>
