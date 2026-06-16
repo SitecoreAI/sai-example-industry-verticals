@@ -12,7 +12,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
   return (
     <div className={`component header bg-background ${styles}`} id={id}>
       <div className="relative container flex items-center py-3 lg:py-4">
-        <div className="flex w-full justify-center pe-14 lg:pe-16">
+        <div className="flex w-full flex-1 items-center justify-start pe-14 lg:pe-16">
           <Placeholder name={`header-nav-${DynamicPlaceholderId}`} rendering={props.rendering} />
         </div>
         <div className="absolute top-1/2 right-0 -translate-y-1/2">

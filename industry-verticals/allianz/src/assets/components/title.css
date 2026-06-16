@@ -1,3 +1,7 @@
+.component.title > .component-content {
+  padding: 20px;
+}
+
 .title {
   @apply my-8;
 

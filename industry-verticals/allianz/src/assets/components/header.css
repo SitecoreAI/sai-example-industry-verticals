@@ -1,10 +1,16 @@
+.component.header .component.navigation {
+  width: 100%;
+}
+
 .component.header .component.navigation > nav > ul.container {
   @media (min-width: 1024px) {
-    width: auto;
+    width: 100%;
     max-width: none;
     margin-inline: 0;
     padding-block: 0;
     padding-inline: 0;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 
