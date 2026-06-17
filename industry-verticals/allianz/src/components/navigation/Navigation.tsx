@@ -86,7 +86,8 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
         'relative flex flex-col gap-x-8 gap-y-4 xl:gap-x-14',
         isRootItem && 'lg:flex-row',
         isLogoRootItem && 'shrink-0 max-lg:hidden',
-        isLogoRootItem && isSimpleLayout && 'lg:mr-auto'
+        isLogoRootItem && isSimpleLayout && 'lg:mr-auto',
+        isLogoRootItem && !isSimpleLayout && logoSrc && 'lg:mr-8 xl:mr-12'
       )}
     >
       <div className="flex items-center justify-center gap-1">
@@ -170,9 +171,10 @@ export const Default = ({ params, fields }: NavigationProps) => {
   };
 
   const isSimpleLayout = isParamEnabled(simpleLayout);
-  const preparedFields = prepareFields(fields, !isSimpleLayout);
-  const rootItem = Object.values(preparedFields).find((item) => isNavRootItem(item));
   const logoSrc = extractMediaUrl(logoImage);
+  // Keep the logo as the first item when a logo image is configured (default layout centers it).
+  const preparedFields = prepareFields(fields, !isSimpleLayout && !logoSrc);
+  const rootItem = Object.values(preparedFields).find((item) => isNavRootItem(item));
   const hasLogoRootItem = rootItem && logoSrc;
 
   const navigationItems = Object.values(preparedFields)
@@ -204,7 +206,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
             editable={page.mode.isEditing}
             className={clsx(
               'navigation-mobile-trigger',
-              !isSimpleLayout && '[.component.header_&]:mx-auto'
+              !isSimpleLayout && '[.component.header_&]:justify-self-start'
             )}
           >
             {getLinkContent(rootItem!, logoSrc)}
@@ -237,6 +239,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
           role="menubar"
           className={clsx(
             'container flex flex-col items-center justify-center gap-x-8 gap-y-4 py-6 text-lg lg:flex-row xl:gap-x-16',
+            hasLogoRootItem && '[.component.header_&]:lg:items-center [.component.header_&]:lg:justify-start',
             isSimpleLayout && !hasLogoRootItem && 'lg:justify-end'
           )}
         >
