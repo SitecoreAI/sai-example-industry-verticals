@@ -8,7 +8,7 @@ import {
 // end of built-in imports
 
 import { Link, Text, useSitecore, RichText, NextImage, Placeholder, Image as Image_8a80e63291fea86e0744df19113dc44bec187216, CdpHelper, withDatasourceCheck, DateField } from '@sitecore-content-sdk/nextjs';
-import { useMemo, useRef, useState, useEffect, useId, useCallback } from 'react';
+import { useMemo, useRef, useState, useEffect, useId, useCallback, useLayoutEffect } from 'react';
 import React from 'react';
 import Head from 'next/head';
 import { useI18n } from 'next-localization';
@@ -116,6 +116,7 @@ const importMap = [
       { name: 'useEffect', value: useEffect },
       { name: 'useId', value: useId },
       { name: 'useCallback', value: useCallback },
+      { name: 'useLayoutEffect', value: useLayoutEffect },
       { name: 'default', value: React },
     ]
   },

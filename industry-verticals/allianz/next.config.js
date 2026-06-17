@@ -47,6 +47,11 @@ const nextConfig = {
         hostname: 'placehold.co',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'thlt-demo.sitecoresandbox.com',
+        port: '',
+      },
     ],
   },
 
