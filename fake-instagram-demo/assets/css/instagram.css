@@ -419,6 +419,9 @@ img {
   flex-shrink: 0;
   width: var(--ig-story-size);
   text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .story-ring {
