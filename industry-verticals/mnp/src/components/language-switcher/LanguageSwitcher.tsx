@@ -46,7 +46,8 @@ export default function LanguageSwitcher(props: LanguageSwitcherProps) {
     : 'en';
 
   const selectedLocaleLabel =
-    localeOptions.find((l) => l.code === selectedLocale)?.label || selectedLocale.toUpperCase();
+    localeOptions.find((l) => l.code === selectedLocale)?.label || selectedLocale;
+  const selectedLocaleShortLabel = selectedLocale === 'fr-FR' ? 'FR' : 'EN';
 
   return (
     <div className={`component language-switcher ${styles}`} id={id}>
@@ -54,11 +55,11 @@ export default function LanguageSwitcher(props: LanguageSwitcherProps) {
         <DrawerTrigger asChild>
           <button
             type="button"
-            aria-label={`Current Language: ${selectedLocale}`}
+            aria-label={`Current language: ${selectedLocaleLabel}`}
             className="text-foreground hover:text-foreground-light flex items-center gap-2 border-0 bg-transparent p-2 transition-colors [.component.header_&]:px-1"
           >
             <Globe className="size-5" />
-            <span className="uppercase max-lg:hidden">{selectedLocaleLabel}</span>
+            <span className="max-lg:hidden">{selectedLocaleShortLabel}</span>
           </button>
         </DrawerTrigger>
 
@@ -75,7 +76,7 @@ export default function LanguageSwitcher(props: LanguageSwitcherProps) {
               <X className="size-5" />
             </button>
           </DrawerClose>
-          <h4 className="drawer-heading">Select Language</h4>
+          <h4 className="drawer-heading">Language</h4>
 
           <ul className="flex flex-col gap-3">
             {localeOptions.map((language) => (

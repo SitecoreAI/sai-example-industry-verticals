@@ -107,11 +107,13 @@ export const SecondaryNavigation = ({ params, fields }: LinkListProps) => {
           index={index}
           total={datasource.children.results.length}
           field={element.field.link}
-          className="navigation-item"
+          className="navigation-item navigation-item-primary"
         />
       ));
 
-    return <ul className="flex gap-x-6 gap-y-4 text-xs [.drawer-content_&]:!flex-col">{links}</ul>;
+    return (
+      <ul className="flex gap-x-6 gap-y-4 text-lg [.drawer-content_&]:!flex-col">{links}</ul>
+    );
   };
 
   return (

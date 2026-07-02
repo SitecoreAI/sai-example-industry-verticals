@@ -1,20 +1,20 @@
 @theme {
-  --color-foreground: #2c2621;
-  --color-foreground-light: #948685;
+  --color-foreground: #0a3343;
+  --color-foreground-light: #6d6d6d;
 
-  --color-background: #fbfaf9;
-  --color-background-accent: #f9eee6;
-  --color-background-muted: #f5f2f1;
+  --color-background: #ffffff;
+  --color-background-accent: #f8f8f8;
+  --color-background-muted: #f8f8f8;
 
-  --color-accent: #846854;
+  --color-accent: #f15a22;
 
-  --color-success: #2ec1ac;
-  --color-danger: #e97171;
+  --color-success: #107f8a;
+  --color-danger: #e0455e;
 
-  --color-border: #846854;
+  --color-border: #c9c9c9;
 
-  --font-heading: 'Libre Baskerville', serif;
-  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
   --radius-base: 0rem;
 

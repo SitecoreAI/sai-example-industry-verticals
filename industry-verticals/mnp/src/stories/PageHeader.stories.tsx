@@ -3,7 +3,6 @@ import { Default as PageHeader } from '../components/page-header/PageHeader';
 import { ComponentProps } from 'react';
 import { CommonParams, CommonRendering } from './common/commonData';
 import { createRichTextField, createTextField } from './helpers/createFields';
-import { renderStorybookPlaceholder } from './helpers/renderStorybookPlaceholder';
 
 type StoryProps = ComponentProps<typeof PageHeader>;
 
@@ -29,17 +28,10 @@ export const Default: Story = {
     <PageHeader
       params={baseParams}
       fields={{
-        Title: createTextField('Lighting'),
+        Title: createTextField('Tax Services'),
         Content: createRichTextField(1),
       }}
-      rendering={{
-        ...baseRendering,
-        placeholders: {
-          [`page-header-searchbar-${baseParams.DynamicPlaceholderId}`]: [
-            renderStorybookPlaceholder(),
-          ],
-        },
-      }}
+      rendering={baseRendering}
     />
   ),
 };
