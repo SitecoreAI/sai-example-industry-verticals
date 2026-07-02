@@ -111,9 +111,7 @@ export const SecondaryNavigation = ({ params, fields }: LinkListProps) => {
         />
       ));
 
-    return (
-      <ul className="flex gap-x-6 gap-y-4 text-lg [.drawer-content_&]:!flex-col">{links}</ul>
-    );
+    return <ul className="flex gap-x-6 gap-y-4 text-lg [.drawer-content_&]:!flex-col">{links}</ul>;
   };
 
   return (
