@@ -68,11 +68,6 @@ export const WithPlaceholderData: Story = {
                   TargetUrl: createLinkField(),
                 },
               },
-              {
-                ...CommonRendering,
-                componentName: 'LanguageSwitcher',
-                params: CommonParams,
-              },
             ],
             [`header-nav-${baseParams.DynamicPlaceholderId}`]: [
               {
@@ -97,6 +92,13 @@ export const WithPlaceholderData: Story = {
                     },
                   },
                 } as unknown as ComponentFields,
+              },
+            ],
+            [`header-right-${baseParams.DynamicPlaceholderId}`]: [
+              {
+                ...CommonRendering,
+                componentName: 'LanguageSwitcher',
+                params: CommonParams,
               },
             ],
           },

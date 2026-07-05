@@ -22,6 +22,9 @@ export const Default = (props: HeaderProps): JSX.Element => {
         <div className="header-block !hidden lg:ml-auto lg:!flex">
           <Placeholder name={`header-nav-${DynamicPlaceholderId}`} rendering={props.rendering} />
         </div>
+        <div className="header-block">
+          <Placeholder name={`header-right-${DynamicPlaceholderId}`} rendering={props.rendering} />
+        </div>
 
         {/* Mobile Drawer Trigger */}
         <div className="lg:hidden">
