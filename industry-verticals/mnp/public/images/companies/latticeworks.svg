@@ -1,4 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="LatticeWorks">
-  <rect width="96" height="96" rx="8" fill="#057642"/>
-  <path d="M24 68V28h20l10 18 10-18h20v40H68V48L54 68h-8L32 48v20H24z" fill="#fff"/>
+  <defs>
+    <linearGradient id="lw-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a365d" />
+      <stop offset="100%" stop-color="#2c5282" />
+    </linearGradient>
+    <pattern id="lattice" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path
+        d="M0 14 L14 0 M-7 7 L7 -7 M7 21 L21 7"
+        fill="none"
+        stroke="rgba(255,255,255,0.22)"
+        stroke-width="1.2"
+      />
+    </pattern>
+    <pattern id="lattice-fine" width="7" height="7" patternUnits="userSpaceOnUse">
+      <path
+        d="M0 7 L7 0 M-3.5 3.5 L3.5 -3.5 M3.5 10.5 L10.5 3.5"
+        fill="none"
+        stroke="rgba(255,255,255,0.1)"
+        stroke-width="0.8"
+      />
+    </pattern>
+  </defs>
+  <rect width="96" height="96" rx="8" fill="url(#lw-bg)" />
+  <rect width="96" height="96" rx="8" fill="url(#lattice)" />
+  <rect width="96" height="96" rx="8" fill="url(#lattice-fine)" />
+  <rect x="18" y="18" width="60" height="60" rx="6" fill="rgba(15, 32, 58, 0.55)" />
+  <text
+    x="48"
+    y="62"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="44"
+    font-weight="700"
+  >L</text>
 </svg>
