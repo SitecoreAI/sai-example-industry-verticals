@@ -44,7 +44,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.sitecoresandbox.cloud',
+        hostname: 'thlt-demo.sitecoresandbox.cloud',
         port: '',
       },
     ],
