@@ -42,6 +42,11 @@ const nextConfig = {
         hostname: 'starter-verticals-2.sitecoresandbox.cloud',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: '*.sitecoresandbox.cloud',
+        port: '',
+      },
     ],
   },
 
