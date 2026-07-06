@@ -61,7 +61,7 @@ const HeroBannerCommon = ({
         ) : (
           <ContentSdkImage
             field={fields.Image}
-            className="h-full w-full object-cover md:object-bottom"
+            className="h-full w-full object-cover md:object-top"
             priority
           />
         )}
