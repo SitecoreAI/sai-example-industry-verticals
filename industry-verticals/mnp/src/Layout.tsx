@@ -43,8 +43,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/images/favicon-16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
         {metaDescription && <meta name="description" content={metaDescription} />}
         {metaKeywords && <meta name="keywords" content={metaKeywords} />}
         {ogTitle && <meta property="og:title" content={ogTitle} />}
