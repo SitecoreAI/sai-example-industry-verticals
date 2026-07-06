@@ -42,10 +42,11 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
       <SitecoreStyles layoutData={layout} />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/images/favicon-16.png" type="image/png" sizes="16x16" />
         {metaDescription && <meta name="description" content={metaDescription} />}
         {metaKeywords && <meta name="keywords" content={metaKeywords} />}
-        <link rel="icon" href="/favicon.ico" />
         {ogTitle && <meta property="og:title" content={ogTitle} />}
         {ogDescription && <meta property="og:description " content={ogDescription} />}
         {ogImage && <meta property="og:image" content={ogImage} />}
