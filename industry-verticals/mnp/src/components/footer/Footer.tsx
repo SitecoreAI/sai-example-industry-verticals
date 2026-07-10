@@ -12,6 +12,7 @@ import {
   TextField,
 } from '@sitecore-content-sdk/nextjs';
 import React from 'react';
+import { NewsletterSignup } from './NewsletterSignup';
 
 interface Fields {
   TitleOne: TextField;
@@ -24,6 +25,10 @@ interface Fields {
   TermsText: LinkField;
   Logo: ImageField;
   Description: RichTextField;
+  NewsletterTitle?: TextField;
+  NewsletterDescription?: TextField;
+  NewsletterButtonText?: TextField;
+  NewsletterSuccessMessage?: TextField;
 }
 
 type FooterProps = {
@@ -80,6 +85,12 @@ export const Default = (props: FooterProps) => {
               <Image field={props.fields.Logo} />
             </div>
             <RichText field={props.fields.Description} />
+            <NewsletterSignup
+              title={props.fields.NewsletterTitle}
+              description={props.fields.NewsletterDescription}
+              buttonText={props.fields.NewsletterButtonText}
+              successMessage={props.fields.NewsletterSuccessMessage}
+            />
           </div>
           <div className="grid gap-13 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5 xl:gap-12">
             {sections.map(({ key, title, content }) => (
