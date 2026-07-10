@@ -46,12 +46,13 @@ import { getLinkContent, getLinkField, isNavLevel, isNavRootItem, prepareFields 
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { localeOptions } from '@/constants/localeOptions';
+import { identity, pageView } from '@sitecore-cloudsdk/events/browser';
+import config from 'sitecore.config';
+import { NewsletterSignup } from 'src/components/footer/NewsletterSignup';
 import client from 'lib/sitecore-client';
 import Image_5d8ce56058442d94361877e28c501c951a554a6a from 'next/image';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
-import { pageView } from '@sitecore-cloudsdk/events/browser';
-import config from 'sitecore.config';
 
 const importMap = [
   {
@@ -323,6 +324,25 @@ const importMap = [
     ]
   },
   {
+    module: '@sitecore-cloudsdk/events/browser',
+    exports: [
+      { name: 'identity', value: identity },
+      { name: 'pageView', value: pageView },
+    ]
+  },
+  {
+    module: 'sitecore.config',
+    exports: [
+      { name: 'default', value: config },
+    ]
+  },
+  {
+    module: 'src/components/footer/NewsletterSignup',
+    exports: [
+      { name: 'NewsletterSignup', value: NewsletterSignup },
+    ]
+  },
+  {
     module: 'lib/sitecore-client',
     exports: [
       { name: 'default', value: client },
@@ -344,18 +364,6 @@ const importMap = [
     module: 'next.config',
     exports: [
       { name: 'default', value: nextConfig },
-    ]
-  },
-  {
-    module: '@sitecore-cloudsdk/events/browser',
-    exports: [
-      { name: 'pageView', value: pageView },
-    ]
-  },
-  {
-    module: 'sitecore.config',
-    exports: [
-      { name: 'default', value: config },
     ]
   }
 ] as ImportEntry[];

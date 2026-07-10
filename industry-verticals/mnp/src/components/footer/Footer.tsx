@@ -45,8 +45,6 @@ export const Default = (props: FooterProps) => {
   const phKeyOne = `footer-list-first-${props?.params?.DynamicPlaceholderId}`;
   const phKeyTwo = `footer-list-second-${props?.params?.DynamicPlaceholderId}`;
   const phKeyThree = `footer-list-third-${props?.params?.DynamicPlaceholderId}`;
-  const phKeyFour = `footer-list-fourth-${props?.params?.DynamicPlaceholderId}`;
-  const phKeyFive = `footer-list-fifth-${props?.params?.DynamicPlaceholderId}`;
 
   const sections = [
     {
@@ -64,16 +62,6 @@ export const Default = (props: FooterProps) => {
       title: <Text field={props.fields.TitleThree} />,
       content: <Placeholder name={phKeyThree} rendering={props.rendering} />,
     },
-    {
-      key: 'fourth_nav',
-      title: <Text field={props.fields.TitleFour} />,
-      content: <Placeholder name={phKeyFour} rendering={props.rendering} />,
-    },
-    {
-      key: 'fifth_nav',
-      title: <Text field={props.fields.TitleFive} />,
-      content: <Placeholder name={phKeyFive} rendering={props.rendering} />,
-    },
   ];
 
   return (
@@ -85,20 +73,24 @@ export const Default = (props: FooterProps) => {
               <Image field={props.fields.Logo} />
             </div>
             <RichText field={props.fields.Description} />
-            <NewsletterSignup
-              title={props.fields.NewsletterTitle}
-              description={props.fields.NewsletterDescription}
-              buttonText={props.fields.NewsletterButtonText}
-              successMessage={props.fields.NewsletterSuccessMessage}
-            />
           </div>
-          <div className="grid gap-13 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5 xl:gap-12">
+          <div className="grid gap-13 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5 xl:gap-12">
             {sections.map(({ key, title, content }) => (
               <div key={key}>
                 <h5 className="font-body text-accent mb-8 text-lg">{title}</h5>
                 <div className="space-y-4">{content}</div>
               </div>
             ))}
+            <div key="newsletter" className="sm:col-span-2 lg:col-span-2">
+              <h5 className="font-body text-accent mb-8 text-lg">
+                <Text field={props.fields.NewsletterTitle ?? props.fields.TitleFive} />
+              </h5>
+              <NewsletterSignup
+                description={props.fields.NewsletterDescription}
+                buttonText={props.fields.NewsletterButtonText}
+                successMessage={props.fields.NewsletterSuccessMessage}
+              />
+            </div>
           </div>
         </div>
       </div>

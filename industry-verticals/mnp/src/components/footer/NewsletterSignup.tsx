@@ -7,7 +7,6 @@ import { identity } from '@sitecore-cloudsdk/events/browser';
 import config from 'sitecore.config';
 
 type NewsletterSignupProps = {
-  title?: TextField;
   description?: TextField;
   buttonText?: TextField;
   successMessage?: TextField;
@@ -46,7 +45,6 @@ const validateForm = (values: FormValues): FormErrors => {
 };
 
 export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
-  title,
   description,
   buttonText,
   successMessage,
@@ -62,7 +60,6 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   const { isEditing, isPreview } = page.mode;
   const { route } = page.layout.sitecore;
 
-  const heading = getFieldValue(title, 'Business insights that make an impact');
   const body = getFieldValue(
     description,
     'Sign up to receive the monthly MNP Business Insights Newsletter.'
@@ -128,15 +125,11 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   };
 
   return (
-    <div className="bg-foreground text-background flex flex-col gap-4 p-6">
-      <div>
-        <h2 className="font-heading mb-3 text-xl leading-tight font-semibold">{heading}</h2>
-        <div className="bg-background mb-4 h-px w-full" aria-hidden="true" />
-        <p className="text-sm leading-relaxed">{body}</p>
-      </div>
+    <div className="flex flex-col gap-4">
+      <p className="text-foreground text-sm leading-relaxed">{body}</p>
 
       {isSubmitted ? (
-        <p className="text-sm leading-relaxed">{confirmationMessage}</p>
+        <p className="text-foreground text-sm leading-relaxed">{confirmationMessage}</p>
       ) : (
         <form className="flex flex-col gap-3" noValidate onSubmit={handleSubmit}>
           <div>
@@ -150,7 +143,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               placeholder="First name"
               value={values.firstName}
               onChange={handleChange('firstName')}
-              className="form-input bg-background text-foreground placeholder:text-foreground-light w-full"
+              className="form-input bg-background w-full"
               aria-invalid={Boolean(errors.firstName)}
               aria-describedby={errors.firstName ? 'newsletter-first-name-error' : undefined}
             />
@@ -172,7 +165,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               placeholder="Last name"
               value={values.lastName}
               onChange={handleChange('lastName')}
-              className="form-input bg-background text-foreground placeholder:text-foreground-light w-full"
+              className="form-input bg-background w-full"
               aria-invalid={Boolean(errors.lastName)}
               aria-describedby={errors.lastName ? 'newsletter-last-name-error' : undefined}
             />
@@ -194,7 +187,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               placeholder="Email address"
               value={values.email}
               onChange={handleChange('email')}
-              className="form-input bg-background text-foreground placeholder:text-foreground-light w-full"
+              className="form-input bg-background w-full"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'newsletter-email-error' : undefined}
             />

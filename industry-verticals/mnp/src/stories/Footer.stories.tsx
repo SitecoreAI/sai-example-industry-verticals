@@ -39,7 +39,7 @@ const baseFields = {
   TitleTwo: createTextField('Services'),
   TitleThree: createTextField('Support'),
   TitleFour: createTextField('Follow Us'),
-  TitleFive: createTextField('Install App'),
+  TitleFive: createTextField('Newsletter'),
   CopyrightText: createTextField('Copyright © 2025'),
   PolicyText: createLinkField('Privacy Policy'),
   TermsText: createLinkField('Terms & Conditions'),
@@ -61,27 +61,6 @@ const LinkListRendering = {
   }) as unknown as ComponentFields,
 };
 
-const SocialFollowRendering = {
-  ...CommonRendering,
-  componentName: 'SocialFollow',
-  params: CommonParams,
-  fields: {
-    FacebookLink: createLinkField('Facebook'),
-    InstagramLink: createLinkField('Instagram'),
-    TwitterLink: createLinkField('Twitter'),
-    PinterestLink: createLinkField('Pinterest'),
-  } as unknown as ComponentFields,
-};
-
-const ImageRendering = {
-  ...CommonRendering,
-  componentName: 'Image',
-  params: CommonParams,
-  fields: {
-    Image: createImageField('placeholder'),
-  } as unknown as ComponentFields,
-};
-
 export const Default: Story = {
   render: () => {
     return (
@@ -97,12 +76,6 @@ export const Default: Story = {
               renderStorybookPlaceholder(),
             ],
             [`footer-list-third-${baseParams.DynamicPlaceholderId}`]: [
-              renderStorybookPlaceholder(),
-            ],
-            [`footer-list-fourth-${baseParams.DynamicPlaceholderId}`]: [
-              renderStorybookPlaceholder(),
-            ],
-            [`footer-list-fifth-${baseParams.DynamicPlaceholderId}`]: [
               renderStorybookPlaceholder(),
             ],
           },
@@ -124,8 +97,6 @@ export const WithPlaceholderData: Story = {
             [`footer-list-first-${baseParams.DynamicPlaceholderId}`]: [LinkListRendering],
             [`footer-list-second-${baseParams.DynamicPlaceholderId}`]: [LinkListRendering],
             [`footer-list-third-${baseParams.DynamicPlaceholderId}`]: [LinkListRendering],
-            [`footer-list-fourth-${baseParams.DynamicPlaceholderId}`]: [SocialFollowRendering],
-            [`footer-list-fifth-${baseParams.DynamicPlaceholderId}`]: [ImageRendering],
           },
         }}
         fields={baseFields}
