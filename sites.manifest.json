@@ -1161,14 +1161,15 @@
       "path": "authoring/items/westfield/westfield-definitions.module.json",
       "kind": "site-definitions",
       "ownerSite": "westfield",
-      "status": "source-inspected; native deployment unverified",
+      "status": "72 native item identities verified; external host single-item source prepared for review, no source deployment performed",
       "includePaths": [
         "/sitecore/templates/Project/Westfield",
         "/sitecore/layout/Renderings/Project/Westfield",
         "/sitecore/templates/Branches/Project/Westfield",
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
-        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer"
+        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
+        "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
       ],
       "includeScopes": [
         {
@@ -1193,6 +1194,10 @@
         },
         {
           "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
+          "scope": "singleItem"
+        },
+        {
+          "path": "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
           "scope": "singleItem"
         }
       ]
@@ -2122,14 +2127,14 @@
         },
         "deployedFrontend": {
           "branch": "main",
-          "commit": "6be8cfe4943c04e331152ab449bc959bd5edd019",
-          "status": "READY live deployment; local Instagram navigation-row fix awaits redeployment"
+          "commit": "86448f8c93a0d3b066dc72f9b4d05cdfe024dbb9",
+          "status": "READY public deployment; source external-host leaf and lifecycle updates remain uncommitted review changes"
         }
       },
       "renderingHost": {
         "key": "westfield",
         "path": "./industry-verticals/westfield",
-        "status": "source-configured; native editing host startup failed; separate Vercel live host verified",
+        "status": "source-configured; effective external editing fallback READY/API-verified; separate Vercel public host verified",
         "sourceBranch": "westfield",
         "sourceCommit": null
       },
@@ -2155,7 +2160,8 @@
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
-          "/sitecore/content/Westfield/westfield"
+          "/sitecore/content/Westfield/westfield",
+          "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
         ],
         "mediaPaths": [
           "/sitecore/media library/Project/Westfield/westfield"
@@ -2167,7 +2173,8 @@
           "/sitecore/templates/Branches/Project/Westfield",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
-          "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer"
+          "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
+          "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
         ]
       },
       "bindings": {
@@ -2192,9 +2199,11 @@
           "authoringUiStatus": "unverified",
           "pageBranchUiInsertionStatus": "unverified",
           "recordedSeedRootItemCount": 25,
-          "editingHostReadinessStatus": "failed",
-          "siteRenderingHostBinding": "Default",
-          "westfieldRenderingHostRecordStatus": "absent-at-audit"
+          "editingHostReadinessStatus": "verified-api-external-fallback",
+          "siteRenderingHostBinding": "westfield-external",
+          "westfieldRenderingHostRecordStatus": "verified",
+          "renderingHostItemId": "a2a4cd2c-0dcd-4937-aeaf-20ea8cd3a740",
+          "renderingHostItemPath": "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
         },
         "live": {
           "status": "verified",
@@ -2204,10 +2213,10 @@
             "thlt-westfield-demo.vercel.app"
           ],
           "checkedAtUTC": "2026-10-14T23:07:19.908664+00:00",
-          "deploymentId": "dpl_AMXQSMb5BHRCxiP9a7Gbg9mmK4e1",
+          "deploymentId": "dpl_47VKT7rY5q1pX9MxtcAc3pEXGa64",
           "deploymentStatus": "READY",
           "sourceBranch": "main",
-          "sourceCommit": "6be8cfe4943c04e331152ab449bc959bd5edd019",
+          "sourceCommit": "86448f8c93a0d3b066dc72f9b4d05cdfe024dbb9",
           "verificationScope": "Latest production main deployment READY; final Home/Paperless/Instagram GETs 200, correct native footer phone and four native media GETs 200; zero runtime error records in the bounded scan. Prior five-route/field and desktop journey proofs retained with their original scope.",
           "browserQaStatus": "partial",
           "desktop": {
@@ -2256,25 +2265,99 @@
           "succeededRecords": 2,
           "failedRecords": 0,
           "deletedRecords": 0,
-          "verificationScope": "Import processing receipt confirms two allowlisted synthetic profiles created successfully. This does not verify profile flag hydration, UDL/session matching or native first-render decision.",
+          "verificationScope": "Profile Import completed for the two allowlisted synthetic records. Native custom-value tests loaded the actual imported profiles and returned false for Casey and true for Jordan. Live browser identity linkage and native first-response decisions remain separate pending checks.",
           "browserCaseyIdentityLaunchStatus": "verified",
-          "profileFlagHydrationStatus": "unverified",
+          "profileFlagHydrationStatus": "verified-native-custom-value-tests",
           "nativeFirstRenderDecisionStatus": "unverified",
-          "browserJordanIdentityLaunchStatus": "verified"
+          "browserJordanIdentityLaunchStatus": "verified",
+          "customValue": {
+            "id": "b3669735-7d7b-4532-a8fe-b0bf5c887fd2",
+            "name": "Westfield paperless status",
+            "friendlyId": "westfield_paperless_status",
+            "returnType": "Boolean",
+            "status": "Draft",
+            "nativeTests": {
+              "Casey Morgan": false,
+              "Jordan Taylor": true
+            },
+            "unknownTestStatus": "unverified",
+            "publicationStatus": "unverified"
+          }
         },
         "dam": {
-          "status": "unverified",
+          "status": "partial",
           "collectionIds": [],
-          "assetIds": [],
+          "assetIds": [
+            128420,
+            128421,
+            128422,
+            128426
+          ],
           "mode": "existing-shared-dam",
           "host": "https://thlt-demo.sitecoresandbox.cloud",
           "writeScope": "New Westfield-only collections and assets; exact IDs must be recorded before retirement.",
-          "authenticationStatus": "blocked-http-401",
+          "authenticationStatus": "normal-browser-login-verified; server integration remains unverified",
           "authenticationStage": "POST /oauth/token",
           "authenticationAttempts": 2,
           "usernameClassification": "explicit-service-name; value not recorded",
           "connectorChanged": false,
-          "verificationScope": "Configured password grant and one authorized demo-password attempt both returned HTTP 401; no API reads, assets, collections, approval or delivery links created."
+          "verificationScope": "Four new core assets uploaded through normal signed-in UI. Header logo metadata/Approved state/five renditions verified; other three processing/approval checks pending. No collections/public delivery/CMS DAM selection proven. Historical service OAuth 401 remains separate from working user login.",
+          "checkedAtUTC": "2026-10-14T23:26:19.705303+00:00",
+          "serviceOAuthStatus": "blocked-http-401; no retry",
+          "browserAccessStatus": "signed-in UI verified; physical Mac relocked and work paused",
+          "counts": {
+            "selectedAssets": 12,
+            "uploadedAssets": 4,
+            "metadataVerifiedAssets": 1,
+            "approvalVerifiedAssets": 1,
+            "publicDeliveryVerifiedAssets": 0,
+            "collectionsCreated": 0,
+            "cmsDamSelectionsVerified": 0
+          },
+          "assets": [
+            {
+              "key": "westfield-demo.westfield-logo",
+              "assetId": 128420,
+              "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128420",
+              "sha256": "d572983ddc256928eee935b33b53fe3556449c7e995d1f58fabd09cb59a084d1",
+              "uploaded": true,
+              "metadataVerified": true,
+              "processingVerified": true,
+              "approvalStatus": "Approved"
+            },
+            {
+              "key": "westfield-demo.homepage-hero",
+              "assetId": 128421,
+              "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128421",
+              "sha256": "03e4806605ded4693675538f68b4179a2974d512e9e4c2efb1a22c5ecc8b29d1",
+              "uploaded": true,
+              "metadataVerified": false,
+              "processingVerified": false,
+              "approvalStatus": "Created"
+            },
+            {
+              "key": "westfield-demo.homepage-mywestfield",
+              "assetId": 128422,
+              "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128422",
+              "sha256": "ee9368b3a5fd79a4f2ef8032bc99eba7f79cdb899e58ed7a5001b089d22ecac2",
+              "uploaded": true,
+              "metadataVerified": false,
+              "processingVerified": false,
+              "approvalStatus": "Created"
+            },
+            {
+              "key": "westfield-demo.westfield-footer-logo",
+              "assetId": 128426,
+              "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128426",
+              "sha256": "0f620866a65f476567fa105e01e4d43364ce01e1aa9e53adf4e5e48315f9a006",
+              "uploaded": true,
+              "metadataVerified": false,
+              "processingVerified": false,
+              "approvalStatus": "Created"
+            }
+          ],
+          "publicDeliveryStatus": "unverified",
+          "nativeCmsSelectionStatus": "unverified"
         },
         "definitions": {
           "status": "verified",
@@ -2287,15 +2370,16 @@
           ],
           "verifiedDate": "2026-10-14",
           "database": "master",
-          "serializedItemCount": 71,
+          "serializedItemCount": 72,
           "datasourceFieldCount": 29,
-          "verificationScope": "All 71 serialized item identities/paths, inheritance, three exact site placeholders and native rendering datasource/template/parameters fields verified. Scoped publication completed; Page Builder editing/palette/variant UI remains unverified.",
+          "verificationScope": "All 72 item identities/paths verified, including the exact external rendering-host leaf with four nonsecret native field values. Original 71 definition/source publication proof retained; external leaf source prepared for review, not deployed by this change. Page Builder UI remains unverified.",
           "authoringStatus": "unverified",
           "publicationStatus": "verified",
           "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
           "publicationProcessedItems": 255,
           "siteVariantGroupCount": 5,
-          "siteVariantCount": 6
+          "siteVariantCount": 6,
+          "sourceAdditionStatus": "externalRenderingHost singleItem prepared; not deployed by this change"
         },
         "media": {
           "status": "verified",
@@ -2353,25 +2437,42 @@
           "sdkNativeImageRenderingStatus": "verified"
         },
         "editing": {
-          "status": "failed",
-          "checkedAtUTC": "2026-10-14T23:07:19.908664+00:00",
-          "projectId": "157Ltxya8cpVwADS0lP7Vw",
-          "environmentId": "6Is64ZrdfzLpF1nDBtUSxd",
-          "deploymentId": "y9UxLLstFSoz4RS13JnpV",
-          "hostCreated": true,
-          "buildStatus": 2,
-          "deploymentStatus": 3,
-          "statusEvidence": "Native deployment status and failed startup logs; build completed, deployment failed, post-action not started.",
-          "readinessStatus": "failed",
-          "authoringUiStatus": "unverified",
-          "postActionStatus": 0,
-          "completedAtUTC": "2026-10-14T23:01:34.5927642Z",
-          "failureStage": "Deployment startup",
-          "traceId": "3e2d9f98-564a-4566-873f-0604ed322ce7",
-          "logsUrl": "https://deploy.sitecorecloud.io/environment/6Is64ZrdfzLpF1nDBtUSxd/logs/types",
-          "normalLatestEnvironmentLogs": "empty result []",
-          "westfieldRenderingHostRecordStatus": "absent-at-audit",
-          "siteRenderingHostBinding": "Default"
+          "status": "verified",
+          "checkedAtUTC": "2026-10-14T23:26:19.705303+00:00",
+          "mode": "external-fallback",
+          "renderingHostName": "westfield-external",
+          "itemId": "a2a4cd2c-0dcd-4937-aeaf-20ea8cd3a740",
+          "itemPath": "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+          "templateId": "bc71d442-3e4f-46ba-887c-746e54f9bb83",
+          "appName": "westfield",
+          "applicationUrl": "https://thlt-westfield-editing.vercel.app/",
+          "renderEndpointUrl": "https://thlt-westfield-editing.vercel.app/api/editing/render",
+          "configurationEndpointUrl": "https://thlt-westfield-editing.vercel.app/api/editing/config",
+          "readyApiMetadata": true,
+          "sdkNativeFieldHtmlStatus": "verified",
+          "pageBuilderUiStatus": "unverified",
+          "verificationScope": "External hosting READY, SDK metadata/render native-field HTML proof from root, and native item/site binding verified through Authoring API. This does not prove authenticated Page Builder UI/iframe or direct field/picker actions.",
+          "originalNativeDeploymentAttempt": {
+            "status": "failed",
+            "checkedAtUTC": "2026-10-14T23:07:19.908664+00:00",
+            "projectId": "157Ltxya8cpVwADS0lP7Vw",
+            "environmentId": "6Is64ZrdfzLpF1nDBtUSxd",
+            "deploymentId": "y9UxLLstFSoz4RS13JnpV",
+            "hostCreated": true,
+            "buildStatus": 2,
+            "deploymentStatus": 3,
+            "statusEvidence": "Native deployment status and failed startup logs; build completed, deployment failed, post-action not started.",
+            "readinessStatus": "failed",
+            "authoringUiStatus": "unverified",
+            "postActionStatus": 0,
+            "completedAtUTC": "2026-10-14T23:01:34.5927642Z",
+            "failureStage": "Deployment startup",
+            "traceId": "3e2d9f98-564a-4566-873f-0604ed322ce7",
+            "logsUrl": "https://deploy.sitecorecloud.io/environment/6Is64ZrdfzLpF1nDBtUSxd/logs/types",
+            "normalLatestEnvironmentLogs": "empty result []",
+            "westfieldRenderingHostRecordStatus": "absent-at-audit",
+            "siteRenderingHostBinding": "Default"
+          }
         },
         "personalization": {
           "status": "unverified",
@@ -2396,15 +2497,16 @@
       },
       "notes": [
         "Independent Westfield definitions and rendering host; no dependency on Project.IndustryVerticals.",
-        "Collection/site, 71 serialized native definition identities, API-authored initial content and four native CMS media IDs/paths verified; initial scoped publication FINISHED with 255 processed items.",
-        "Vercel live production is READY at main commit 6be8cfe4943c04e331152ab449bc959bd5edd019; latest HTTP/phone/media GET checks passed with zero runtime error records. Local Instagram navigation-row fix is awaiting redeployment.",
+        "Collection/site, 72 serialized native definition identities, API-authored initial content and four native CMS media IDs/paths verified; initial scoped publication FINISHED with 255 processed items.",
+        "Vercel live production is READY at main commit 86448f8c93a0d3b066dc72f9b4d05cdfe024dbb9; earlier bounded HTTP/native phone/media and browser evidence retains its recorded scope. External-host leaf source and lifecycle updates are separate uncommitted review changes.",
         "Two synthetic profiles imported successfully and two alternate CampaignAction datasources saved/reloaded/published. Native profile-derived first-render decision remains unconfigured/unverified.",
-        "Native editing-host startup failed after a successful build (deployment 3/post-action 0); no Westfield rendering-host record exists and the native site remains bound to Default. Page Builder UI and fresh author Create page remain unverified.",
+        "Original native editing-host startup failed after a successful build; its receipt remains separate. The effective external fallback is READY/API-verified and this Westfield site is bound to its owned westfield-external record; Page Builder UI and fresh author Create page remain unverified.",
         "Desktop journey and mobile Home/Paperless/navigation checks pass within their tested scope. Instagram root width now matches 390; the local navigation-row fix awaits redeployment and overall mobile QA remains partial.",
         "Developer-owned placeholders are three exact singleItem definitions; generated context folder and global Westfield placeholder root are excluded from definition deployment.",
-        "Shared DAM retained; password-grant authentication returned HTTP 401. No DAM assets/collections, delivery or native selection proof yet.",
+        "Shared DAM retained. Normal user login enabled four new core uploads; one logo metadata/Approved/renditions proof is verified. Three core processing checks, eight uploads, collections, public delivery and native selection remain pending; service OAuth 401 is still recorded separately.",
         "Old westfield-luxury-retail was intentionally excluded.",
-        "Both Casey and Jordan completed fresh browser SDK identity-event launch redirects to Instagram; this does not configure or prove the native profile-derived first-render decision."
+        "Both Casey and Jordan completed fresh browser SDK identity-event launch redirects to Instagram; this does not configure or prove the native profile-derived first-render decision.",
+        "The exact external rendering-host leaf is a singleItem developer definition containing only AppName and three endpoint URLs; its shared parent/other hosts and authored Site Grouping binding are excluded from serialization."
       ]
     },
     {
@@ -2465,5 +2567,5 @@
       ]
     }
   ],
-  "lastWestfieldAuditUTC": "2026-10-14T23:07:19.908664+00:00"
+  "lastWestfieldAuditUTC": "2026-10-14T23:26:19.705303+00:00"
 }
