@@ -10,6 +10,7 @@ import {
 import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
 import { useState, useRef, useEffect } from 'react';
 import React from 'react';
+import { nativeMediaSource } from 'lib/native-media';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
 import { ChevronDown } from 'lucide-react';
 import HamburgerIcon from '@/components/non-sitecore/HamburgerIcon';
@@ -48,6 +49,12 @@ const importMap = [
       { name: 'useRef', value: useRef },
       { name: 'useEffect', value: useEffect },
       { name: 'default', value: React },
+    ]
+  },
+  {
+    module: 'lib/native-media',
+    exports: [
+      { name: 'nativeMediaSource', value: nativeMediaSource },
     ]
   },
   {

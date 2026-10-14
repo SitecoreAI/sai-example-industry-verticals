@@ -464,13 +464,13 @@
     }
   ],
   "pendingNativeWork": [
-    "Complete native editing-host deployment and verify readiness; last reported CLI status is build 2/deployment 1, in progress.",
+    "Resolve native editing-host startup failure (build 2/deployment 3/post-action 0), then create/verify the Westfield rendering-host record and site binding; current native site binding remains Default.",
     "In authenticated Page Builder, prove text/RichText/Link editing, native Image picker selection, save/reload and republish through UI.",
     "Prove fresh Home -> Create page -> Digital service campaign insertion through authoring UI, including independent local Data ownership.",
     "Prove Page Builder datasource creation/picker and Default/Quiet selector/switch through UI.",
     "Configure and prove native profile-derived first-render personalization for the two imported synthetic profiles; prepared/published datasource items alone are not a decision.",
-    "Prove Instagram campaign attribution and profile/session outcome; Casey browser identity-event launch is verified, event ingestion and decision effects remain unverified.",
-    "Resolve Instagram mobile overflow and complete that entry-path QA; Home/Paperless mobile checks have passed.",
+    "Prove Instagram campaign attribution and profile/session outcome; both Casey and Jordan browser identity-event launches are verified, event ingestion and native decision effects remain unverified.",
+    "Redeploy the local Instagram navigation-row fix and complete production mobile entry-path QA. Root width now matches 390 and five 48px links fit in local preview; Home/Paperless checks passed, but overall mobile QA remains partial.",
     "Restore supported shared Content Hub access, provision Westfield-only collections/assets, then prove approval, public delivery and native DAM Image selection."
   ],
   "platformProvenance": {
@@ -562,7 +562,7 @@
   },
   "verifiedLocationSyntax": {
     "pageLocal": "query:./*[@@name='Data'] from origin/textron-luxury-retail shared PageHeader datasource metadata",
-    "siteScoped": "$site and named child selectors from repository Promo datasource metadata; Header/Footer partial target names remain pending actual site verification"
+    "siteScoped": "$site and named child selectors verified through native rendering fields; Header/Footer partial Data exists and renders publicly. Direct datasource picker UI remains unverified."
   },
   "placeholderKeyProvenance": "industry-verticals/westfield/src/Layout.tsx uses exact headless-header/headless-main/headless-footer keys; no dynamic wildcard or nested placeholder is introduced.",
   "sources": [
@@ -1160,5 +1160,35 @@
     "renderingChangedByPreparation": false,
     "layoutUnchanged": true,
     "nativeFirstRenderDecisionStatus": "unverified"
+  },
+  "handoffSnapshotUTC": "2026-10-14T23:07:19.908664+00:00",
+  "nativeEditingHostStatus": {
+    "status": "failed",
+    "environmentId": "6Is64ZrdfzLpF1nDBtUSxd",
+    "deploymentId": "y9UxLLstFSoz4RS13JnpV",
+    "buildStatus": 2,
+    "deploymentStatus": 3,
+    "postActionStatus": 0,
+    "completedAtUTC": "2026-10-14T23:01:34.5927642Z",
+    "traceId": "3e2d9f98-564a-4566-873f-0604ed322ce7",
+    "logsUrl": "https://deploy.sitecorecloud.io/environment/6Is64ZrdfzLpF1nDBtUSxd/logs/types",
+    "failureStage": "Deployment startup",
+    "siteRenderingHostBinding": "Default",
+    "westfieldRenderingHostRecordStatus": "absent-at-audit",
+    "pageBuilderUiStatus": "unverified",
+    "publicSiteImpact": "Separate Vercel public deployment remains READY."
+  },
+  "liveDeploymentSnapshot": {
+    "status": "READY",
+    "commit": "6be8cfe4943c04e331152ab449bc959bd5edd019",
+    "deploymentId": "dpl_AMXQSMb5BHRCxiP9a7Gbg9mmK4e1",
+    "url": "https://thlt-westfield-demo.vercel.app",
+    "finalHttpRouteCount": 3,
+    "nativeImageGet200Count": 4,
+    "nativeFooterPhoneStatus": "verified",
+    "runtimeErrorRecordsReturned": 0,
+    "caseyAndJordanLauncherStatus": "verified gated fresh SDK browser identity-event redirects to Instagram",
+    "nativeFirstRenderDecisionStatus": "unconfigured/unverified",
+    "mobileQaStatus": "partial: root width correction verified, local navigation-row fix awaits redeployment/regression"
   }
 }

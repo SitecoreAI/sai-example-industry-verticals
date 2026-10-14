@@ -2122,14 +2122,14 @@
         },
         "deployedFrontend": {
           "branch": "main",
-          "commit": "7b326c6d1f974b02a10adedd2ac661eb1c7faeb6",
-          "status": "READY live deployment; uncommitted review fixes are separate"
+          "commit": "6be8cfe4943c04e331152ab449bc959bd5edd019",
+          "status": "READY live deployment; local Instagram navigation-row fix awaits redeployment"
         }
       },
       "renderingHost": {
         "key": "westfield",
         "path": "./industry-verticals/westfield",
-        "status": "source-configured; native editing host created, deployment in progress; separate Vercel live host verified",
+        "status": "source-configured; native editing host startup failed; separate Vercel live host verified",
         "sourceBranch": "westfield",
         "sourceCommit": null
       },
@@ -2191,7 +2191,10 @@
           },
           "authoringUiStatus": "unverified",
           "pageBranchUiInsertionStatus": "unverified",
-          "recordedSeedRootItemCount": 25
+          "recordedSeedRootItemCount": 25,
+          "editingHostReadinessStatus": "failed",
+          "siteRenderingHostBinding": "Default",
+          "westfieldRenderingHostRecordStatus": "absent-at-audit"
         },
         "live": {
           "status": "verified",
@@ -2200,12 +2203,12 @@
           "aliases": [
             "thlt-westfield-demo.vercel.app"
           ],
-          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
-          "deploymentId": "dpl_DvcbsvCBHpUoo9zS3AdpmNNMM7Bq",
+          "checkedAtUTC": "2026-10-14T23:07:19.908664+00:00",
+          "deploymentId": "dpl_AMXQSMb5BHRCxiP9a7Gbg9mmK4e1",
           "deploymentStatus": "READY",
           "sourceBranch": "main",
-          "sourceCommit": "7b326c6d1f974b02a10adedd2ac661eb1c7faeb6",
-          "verificationScope": "Five public route GETs 200, native fields for five components and four distinct CMS images delivered. Desktop 1440 Home -> Explore paperless click, loaded images and no overflow verified in browser.",
+          "sourceCommit": "6be8cfe4943c04e331152ab449bc959bd5edd019",
+          "verificationScope": "Latest production main deployment READY; final Home/Paperless/Instagram GETs 200, correct native footer phone and four native media GETs 200; zero runtime error records in the bounded scan. Prior five-route/field and desktop journey proofs retained with their original scope.",
           "browserQaStatus": "partial",
           "desktop": {
             "width": 1440,
@@ -2217,14 +2220,26 @@
             "width": 390,
             "homeAndPaperlessOverflow": "none observed",
             "mainNavigationOpenAndHomeClick": "verified",
-            "instagramHorizontalOverflow": "failed: scrollWidth 712 at viewport 390; fix in progress"
+            "instagramHorizontalOverflow": "root-width correction verified; complete navigation/campaign-path production regression pending",
+            "instagramRootWidth": "390 verified at viewport 390; prior width 712 issue corrected",
+            "instagramNavigation": "Inherited flex-column layout found; local row fix verified with five 48px links fully inside viewport, redeployment pending",
+            "overallMobileQaStatus": "partial; no generalized pass"
           },
           "caseyLauncher": {
-            "status": "verified browser SDK identity plus identity event before redirect to Instagram",
+            "status": "verified fresh browser SDK identity plus identity event before redirect to Instagram",
             "nativeFirstRenderDecisionStatus": "unverified"
           },
           "neutralCampaignBaseline": "expected until native decision is configured",
-          "directAuthoringUiStatus": "unverified"
+          "directAuthoringUiStatus": "unverified",
+          "latestFinalHttpRouteCount": 3,
+          "latestMediaGet200Count": 4,
+          "nativeFooterPhoneRenderingStatus": "verified",
+          "runtimeErrorRecordsReturned": 0,
+          "runtimeErrorWindow": "10 minutes",
+          "jordanLauncher": {
+            "status": "verified fresh browser SDK identity plus identity event before redirect to Instagram",
+            "nativeFirstRenderDecisionStatus": "unverified"
+          }
         },
         "profiles": {
           "status": "verified",
@@ -2244,7 +2259,8 @@
           "verificationScope": "Import processing receipt confirms two allowlisted synthetic profiles created successfully. This does not verify profile flag hydration, UDL/session matching or native first-render decision.",
           "browserCaseyIdentityLaunchStatus": "verified",
           "profileFlagHydrationStatus": "unverified",
-          "nativeFirstRenderDecisionStatus": "unverified"
+          "nativeFirstRenderDecisionStatus": "unverified",
+          "browserJordanIdentityLaunchStatus": "verified"
         },
         "dam": {
           "status": "unverified",
@@ -2337,17 +2353,25 @@
           "sdkNativeImageRenderingStatus": "verified"
         },
         "editing": {
-          "status": "in-progress",
-          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "status": "failed",
+          "checkedAtUTC": "2026-10-14T23:07:19.908664+00:00",
           "projectId": "157Ltxya8cpVwADS0lP7Vw",
           "environmentId": "6Is64ZrdfzLpF1nDBtUSxd",
           "deploymentId": "y9UxLLstFSoz4RS13JnpV",
           "hostCreated": true,
           "buildStatus": 2,
-          "deploymentStatus": 1,
-          "statusEvidence": "Latest native deployment CLI status receipt; deployment still in progress.",
-          "readinessStatus": "unverified",
-          "authoringUiStatus": "unverified"
+          "deploymentStatus": 3,
+          "statusEvidence": "Native deployment status and failed startup logs; build completed, deployment failed, post-action not started.",
+          "readinessStatus": "failed",
+          "authoringUiStatus": "unverified",
+          "postActionStatus": 0,
+          "completedAtUTC": "2026-10-14T23:01:34.5927642Z",
+          "failureStage": "Deployment startup",
+          "traceId": "3e2d9f98-564a-4566-873f-0604ed322ce7",
+          "logsUrl": "https://deploy.sitecorecloud.io/environment/6Is64ZrdfzLpF1nDBtUSxd/logs/types",
+          "normalLatestEnvironmentLogs": "empty result []",
+          "westfieldRenderingHostRecordStatus": "absent-at-audit",
+          "siteRenderingHostBinding": "Default"
         },
         "personalization": {
           "status": "unverified",
@@ -2373,13 +2397,14 @@
       "notes": [
         "Independent Westfield definitions and rendering host; no dependency on Project.IndustryVerticals.",
         "Collection/site, 71 serialized native definition identities, API-authored initial content and four native CMS media IDs/paths verified; initial scoped publication FINISHED with 255 processed items.",
-        "Vercel live production is READY at main commit 7b326c6d1f974b02a10adedd2ac661eb1c7faeb6; current uncommitted review fixes are not yet deployed.",
+        "Vercel live production is READY at main commit 6be8cfe4943c04e331152ab449bc959bd5edd019; latest HTTP/phone/media GET checks passed with zero runtime error records. Local Instagram navigation-row fix is awaiting redeployment.",
         "Two synthetic profiles imported successfully and two alternate CampaignAction datasources saved/reloaded/published. Native profile-derived first-render decision remains unconfigured/unverified.",
-        "Page Builder field/Image/Link/datasource/variant UI, fresh author Create page and editing-host readiness remain unverified.",
-        "Desktop journey and mobile Home/Paperless/navigation checks pass; Instagram mobile overflow is a known unresolved QA failure.",
+        "Native editing-host startup failed after a successful build (deployment 3/post-action 0); no Westfield rendering-host record exists and the native site remains bound to Default. Page Builder UI and fresh author Create page remain unverified.",
+        "Desktop journey and mobile Home/Paperless/navigation checks pass within their tested scope. Instagram root width now matches 390; the local navigation-row fix awaits redeployment and overall mobile QA remains partial.",
         "Developer-owned placeholders are three exact singleItem definitions; generated context folder and global Westfield placeholder root are excluded from definition deployment.",
         "Shared DAM retained; password-grant authentication returned HTTP 401. No DAM assets/collections, delivery or native selection proof yet.",
-        "Old westfield-luxury-retail was intentionally excluded."
+        "Old westfield-luxury-retail was intentionally excluded.",
+        "Both Casey and Jordan completed fresh browser SDK identity-event launch redirects to Instagram; this does not configure or prove the native profile-derived first-render decision."
       ]
     },
     {
@@ -2440,5 +2465,5 @@
       ]
     }
   ],
-  "lastWestfieldAuditUTC": "2026-10-14T22:58:03.775400+00:00"
+  "lastWestfieldAuditUTC": "2026-10-14T23:07:19.908664+00:00"
 }
