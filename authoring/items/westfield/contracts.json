@@ -9,7 +9,8 @@
     "/sitecore/templates/Branches/Project/Westfield",
     "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
     "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
-    "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer"
+    "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
+    "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
   ],
   "components": [
     {
@@ -464,7 +465,7 @@
     }
   ],
   "pendingNativeWork": [
-    "Resolve native editing-host startup failure (build 2/deployment 3/post-action 0), then create/verify the Westfield rendering-host record and site binding; current native site binding remains Default.",
+    "Prove authenticated Page Builder UI through the READY external editing fallback. Its owned native rendering-host record and Westfield-only site binding are API-verified; the original native editing deployment startup failure remains recorded separately.",
     "In authenticated Page Builder, prove text/RichText/Link editing, native Image picker selection, save/reload and republish through UI.",
     "Prove fresh Home -> Create page -> Digital service campaign insertion through authoring UI, including independent local Data ownership.",
     "Prove Page Builder datasource creation/picker and Default/Quiet selector/switch through UI.",
@@ -995,6 +996,12 @@
       "id": "fc19499e-462b-4c2b-a5fd-bef1e6a954c7",
       "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
       "file": "items/siteFooter/Footer.yml"
+    },
+    {
+      "key": "externalRenderingHost",
+      "id": "a2a4cd2c-0dcd-4937-aeaf-20ea8cd3a740",
+      "path": "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+      "file": "items/externalRenderingHost/westfield-external.yml"
     }
   ],
   "rootIdentityStatus": "Template, rendering and branch root identities verified. The generated site Placeholder Settings folder is 11b33eb2-44e2-4447-a6ea-4a49a1972b7d; only its three exact Header/Main/Footer descendants are serialized. The old global Westfield placeholder folder is excluded.",
@@ -1015,6 +1022,12 @@
       "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
       "evidence": "Verified through Authoring API item identity and parent paths of Header/Main/Footer.",
       "serializationScope": "generated native context folder; excluded from definition deployment and definition-only retirement scopes"
+    },
+    "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external": {
+      "id": "a2a4cd2c-0dcd-4937-aeaf-20ea8cd3a740",
+      "templateId": "bc71d442-3e4f-46ba-887c-746e54f9bb83",
+      "evidence": "Read-only Authoring API identity, parent, template and four-field value verification.",
+      "serializationScope": "singleItem; only this owned rendering-host leaf. Shared parent and other hosts excluded."
     }
   },
   "provenanceRepository": {
@@ -1051,7 +1064,7 @@
     "fieldNamesFieldId": "75bbdf72-635f-4d72-a3d3-a9baba09d161"
   },
   "definitionCounts": {
-    "serializedItems": 71,
+    "serializedItems": 72,
     "datasourceFields": 29,
     "components": 5,
     "pageLocalMetadataFields": 5,
@@ -1061,18 +1074,20 @@
     "date": "2026-10-14",
     "database": "master",
     "language": "en",
-    "serializedItems": 71,
+    "serializedItems": 72,
     "identityAndPathStatus": "verified",
     "parameterAndPageInheritanceStatus": "verified",
     "sitePlaceholderParentsAndAllowedControlsStatus": "verified",
     "authoringFlowStatus": "unverified",
     "publicationStatus": "verified",
     "scopeNote": "Source/native/API and public rendering proof are recorded independently. Page Builder UI, fresh author UI Create page, direct image/datasource picker, variant UI and native profile-derived first-render decision remain unverified.",
-    "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+    "checkedAtUTC": "2026-10-14T23:26:19.705303+00:00",
     "publicationProcessedItems": 255,
     "nativeFieldSaveReloadApiStatus": "verified",
     "liveComponentFieldContracts": 5,
-    "nativeImageGet200Count": 4
+    "nativeImageGet200Count": 4,
+    "editingHostApiReadinessStatus": "verified external fallback; Page Builder UI remains unverified",
+    "publicationScopeNote": "Original 71 definitions and authored slice were published; the CM-only external rendering-host item was created and bound through native API, with four-field source definition now prepared for review. No source deployment performed by this change."
   },
   "completedNativeWork": [
     "Native collection/site identity and inherited template/parameter identities verified.",
@@ -1161,7 +1176,7 @@
     "layoutUnchanged": true,
     "nativeFirstRenderDecisionStatus": "unverified"
   },
-  "handoffSnapshotUTC": "2026-10-14T23:07:19.908664+00:00",
+  "handoffSnapshotUTC": "2026-10-14T23:26:19.705303+00:00",
   "nativeEditingHostStatus": {
     "status": "failed",
     "environmentId": "6Is64ZrdfzLpF1nDBtUSxd",
@@ -1176,7 +1191,8 @@
     "siteRenderingHostBinding": "Default",
     "westfieldRenderingHostRecordStatus": "absent-at-audit",
     "pageBuilderUiStatus": "unverified",
-    "publicSiteImpact": "Separate Vercel public deployment remains READY."
+    "publicSiteImpact": "Separate Vercel public deployment remains READY.",
+    "role": "Original Sitecore Deploy editing-host attempt; historical failure retained. Effective authoring now uses the separately verified external fallback."
   },
   "liveDeploymentSnapshot": {
     "status": "READY",
@@ -1190,5 +1206,110 @@
     "caseyAndJordanLauncherStatus": "verified gated fresh SDK browser identity-event redirects to Instagram",
     "nativeFirstRenderDecisionStatus": "unconfigured/unverified",
     "mobileQaStatus": "partial: root width correction verified, local navigation-row fix awaits redeployment/regression"
+  },
+  "externalEditingHost": {
+    "status": "ready-api-verified",
+    "itemId": "a2a4cd2c-0dcd-4937-aeaf-20ea8cd3a740",
+    "path": "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+    "templateId": "bc71d442-3e4f-46ba-887c-746e54f9bb83",
+    "fields": [
+      {
+        "name": "AppName",
+        "fieldId": "3121c257-53cf-464a-b736-98b418876057",
+        "value": "westfield"
+      },
+      {
+        "name": "ServerSideRenderingEngineApplicationUrl",
+        "fieldId": "e32c1801-79b3-4fc1-a9c4-3c6e6c2968ae",
+        "value": "https://thlt-westfield-editing.vercel.app/"
+      },
+      {
+        "name": "ServerSideRenderingEngineConfigUrl",
+        "fieldId": "94470b31-e282-4d8d-bc54-85689efb294c",
+        "value": "https://thlt-westfield-editing.vercel.app/api/editing/config"
+      },
+      {
+        "name": "ServerSideRenderingEngineEndpointUrl",
+        "fieldId": "fc76919b-0d7c-4732-865d-2af795fb38a4",
+        "value": "https://thlt-westfield-editing.vercel.app/api/editing/render"
+      }
+    ],
+    "parentContext": {
+      "itemId": "895e25c4-12b2-4b2c-8233-82f3b79eef53",
+      "path": "/sitecore/system/Settings/Services/Rendering Hosts",
+      "ownership": "shared; excluded from module ownership and retirement"
+    },
+    "siteBinding": {
+      "siteGroupingId": "08a923b3-1415-4c19-b850-5b771c41d036",
+      "siteGroupingPath": "/sitecore/content/Westfield/westfield/Settings/Site Grouping/westfield",
+      "field": "RenderingHost",
+      "value": "westfield-external",
+      "verification": "Read-only Authoring API confirmed current value; authored Site Grouping configuration is not serialized."
+    },
+    "readyApiMetadata": true,
+    "sdkNativeFieldHtmlProof": "verified by root; Page Builder UI remains unverified",
+    "pageBuilderUiVerified": false,
+    "sourceDefinitionReleaseStatus": "prepared; not deployed by this source change"
+  },
+  "damPreparation": {
+    "status": "partial-ui",
+    "counts": {
+      "selectedAssets": 12,
+      "uploadedAssets": 4,
+      "metadataVerifiedAssets": 1,
+      "approvalVerifiedAssets": 1,
+      "publicDeliveryVerifiedAssets": 0,
+      "collectionsCreated": 0,
+      "cmsDamSelectionsVerified": 0
+    },
+    "assetIds": [
+      128420,
+      128421,
+      128422,
+      128426
+    ],
+    "assetProofs": [
+      {
+        "key": "westfield-demo.westfield-logo",
+        "assetId": 128420,
+        "uploaded": true,
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "cmsSelected": false
+      },
+      {
+        "key": "westfield-demo.homepage-hero",
+        "assetId": 128421,
+        "uploaded": true,
+        "metadataVerified": false,
+        "processingVerified": false,
+        "approvalStatus": "Created",
+        "cmsSelected": false
+      },
+      {
+        "key": "westfield-demo.homepage-mywestfield",
+        "assetId": 128422,
+        "uploaded": true,
+        "metadataVerified": false,
+        "processingVerified": false,
+        "approvalStatus": "Created",
+        "cmsSelected": false
+      },
+      {
+        "key": "westfield-demo.westfield-footer-logo",
+        "assetId": 128426,
+        "uploaded": true,
+        "metadataVerified": false,
+        "processingVerified": false,
+        "approvalStatus": "Created",
+        "cmsSelected": false
+      }
+    ],
+    "collectionsCreated": 0,
+    "publicDeliveryVerifiedAssets": 0,
+    "nativeDamImageXmlStatus": "unverified; only actual CMS picker XML is acceptable",
+    "accessState": "Browser login succeeded; UI work paused after CDP deadline and physical Mac relock; no OAuth retries.",
+    "writeScope": "New Westfield-only assets/collections; global connector/theme/Brand Kit/schema/accounts/access remain unchanged."
   }
 }
