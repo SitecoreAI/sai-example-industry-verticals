@@ -1,0 +1,45 @@
+@theme {
+  /* Enbrel brand palette — sourced from enbrel.com */
+  --color-background: #ffffff;
+  --color-background-secondary: #e9e7ef;
+  --color-background-tertiary: #bde7e3;
+  --color-foreground: #211261;
+
+  --color-background-dark: #211261;
+  --color-background-secondary-dark: #4e4281;
+  --color-background-tertiary-dark: #73cac1;
+  --color-foreground-dark: #ffffff;
+  --color-foreground-secondary-dark: #d3d0e0;
+
+  --color-accent: #73cac1;
+  --color-accent-muted: #8fd5ce;
+
+  --color-background-input: #f5f5f5;
+  --color-disabled: #d3d0e0;
+  --color-disabled-dark: #b2aacf;
+
+  --color-border: #d3d0e0;
+
+  /* Roboto Condensed (headings/UI) and Open Sans (body) — closest Google Fonts matches to enbrel.com */
+  --font-heading: 'Roboto Condensed', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  --radius-base: 1.33rem;
+
+  /*
+  This does not show in the theme editor
+  but is used to override the defaults based on the user's selection for radius-base
+  */
+  --radius-xs: calc(var(--radius-base) * 0.25);
+  --radius-sm: calc(var(--radius-base) * 0.5);
+  --radius-md: var(--radius-base);
+  --radius-lg: calc(var(--radius-base) * 1.5);
+  --radius-xl: calc(var(--radius-base) * 2);
+  --radius-2xl: calc(var(--radius-base) * 3);
+  --radius-3xl: calc(var(--radius-base) * 4);
+  --radius-4xl: calc(var(--radius-base) * 5);
+
+  /* Other variables */
+  --shadow-soft: 0 4px 6px rgba(33, 18, 97, 0.12);
+  --background-image-hero-clip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1601.7 992.77' preserveAspectRatio='none'%3E%3Cg fill='black'%3E%3Cpath d='M.83,636.38s121.41,339.4,484.75,353.09,578.3-16.53,644.58-66.01,469.84-402.66,469.84-402.66l1.7-520.8L0,.05l.83,636.33Z'/%3E%3C/g%3E%3C/svg%3E");
+}

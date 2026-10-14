@@ -1,0 +1,271 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/westfield-assets/roboto-latin-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/westfield-assets/roboto-latin-italic.woff2') format('woff2');
+}
+
+@layer components {
+  .westfield-campaign-hero,
+  .westfield-campaign-action,
+  .westfield-campaign-content {
+    width: 100%;
+  }
+}
+
+.westfield-campaign-hero,
+.westfield-campaign-action,
+.westfield-campaign-content {
+  color: #4d514d;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.westfield-campaign-hero *,
+.westfield-campaign-action *,
+.westfield-campaign-content * {
+  box-sizing: border-box;
+}
+
+.westfield-campaign-hero :where(p),
+.westfield-campaign-action :where(p),
+.westfield-campaign-content :where(p) {
+  color: inherit;
+  font-family: inherit;
+}
+
+.westfield-campaign-hero {
+  background: #f2f2f2;
+}
+
+.westfield-campaign-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: stretch;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.westfield-campaign-hero__copy {
+  align-self: center;
+  padding: clamp(40px, 6vw, 88px) clamp(24px, 5vw, 72px);
+}
+
+.westfield-campaign-hero__eyebrow {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.westfield-campaign-hero__heading {
+  margin: 0 0 24px;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.12;
+  overflow-wrap: break-word;
+}
+
+.westfield-campaign-hero__body {
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.westfield-campaign-hero__media {
+  min-width: 0;
+  min-height: 420px;
+}
+
+.westfield-campaign-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.westfield-campaign-action {
+  background: #fff;
+}
+
+.westfield-campaign-action__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 64px 32px;
+}
+
+.westfield-campaign-action__heading,
+.westfield-campaign-content__heading {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 300;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.westfield-campaign-action__body,
+.westfield-campaign-content__body {
+  max-width: 780px;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.westfield-campaign-action__link {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 14px 28px;
+  border: 1px solid #d62700;
+  background: #d62700;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.westfield-campaign-action__link:hover {
+  border-color: #c81e00;
+  background: #c81e00;
+  color: #fff;
+}
+
+.westfield-campaign-action__link:focus-visible,
+.westfield-campaign-hero__body a:focus-visible,
+.westfield-campaign-action__body a:focus-visible,
+.westfield-campaign-content__body a:focus-visible {
+  outline: 3px solid #d62700;
+  outline-offset: 4px;
+}
+
+.westfield-campaign-action--quiet {
+  background: #f2f2f2;
+}
+
+.westfield-campaign-action--quiet .westfield-campaign-action__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-block: 40px;
+}
+
+.westfield-campaign-action--quiet .westfield-campaign-action__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.westfield-campaign-action--quiet .westfield-campaign-action__heading {
+  font-size: clamp(26px, 2.5vw, 32px);
+}
+
+.westfield-campaign-action--quiet .westfield-campaign-action__link {
+  flex-shrink: 0;
+  margin-top: 0;
+  background: transparent;
+  color: #d62700;
+}
+
+.westfield-campaign-action--quiet .westfield-campaign-action__link:hover {
+  background: #c81e00;
+  color: #fff;
+}
+
+.westfield-campaign-content__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 56px 32px;
+}
+
+.westfield-campaign-hero__body > :first-child,
+.westfield-campaign-action__body > :first-child,
+.westfield-campaign-content__body > :first-child {
+  margin-top: 0;
+}
+
+.westfield-campaign-hero__body > :last-child,
+.westfield-campaign-action__body > :last-child,
+.westfield-campaign-content__body > :last-child {
+  margin-bottom: 0;
+}
+
+.westfield-campaign-hero__body a,
+.westfield-campaign-action__body a,
+.westfield-campaign-content__body a {
+  color: #d62700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.westfield-campaign-hero__body a:hover,
+.westfield-campaign-action__body a:hover,
+.westfield-campaign-content__body a:hover {
+  color: #c81e00;
+}
+
+@media (max-width: 767px) {
+  .westfield-campaign-hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .westfield-campaign-hero__copy {
+    padding: 40px 24px;
+  }
+
+  .westfield-campaign-hero__media {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .westfield-campaign-action__inner,
+  .westfield-campaign-content__inner {
+    padding: 40px 24px;
+  }
+
+  .westfield-campaign-action--quiet .westfield-campaign-action__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .westfield-campaign-action__link {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .westfield-campaign-action__link {
+    transition: none;
+  }
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/westfield-assets/roboto-latin-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/westfield-assets/roboto-latin-italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+

@@ -1,0 +1,11 @@
+SITECORE_AppSettings_damEnabled__define
+yes
+
+Sitecore_ConnectionStrings_DAM_dot_ContentHub
+ClientId=evergy;ClientSecret=Sitecore1!;UserName=evergy;Password=Sitecore1!;URI=https://evergy.sitecoresandbox.cloud;
+
+Sitecore_ConnectionStrings_DAM_dot_ExternalRedirectKey
+Sitecore
+
+Sitecore_ConnectionStrings_DAM_dot_SearchPage
+https://evergy.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets

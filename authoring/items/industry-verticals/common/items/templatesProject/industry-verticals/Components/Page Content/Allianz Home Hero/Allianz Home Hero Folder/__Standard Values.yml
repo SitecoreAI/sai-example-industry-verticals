@@ -1,0 +1,33 @@
+---
+ID: "a410af1a-eb38-4f15-9a04-38dfa3779759"
+Parent: "9008ae40-1a58-4fad-8562-3ad37f7683eb"
+Template: "9008ae40-1a58-4fad-8562-3ad37f7683eb"
+Path: "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero Folder/__Standard Values"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {D1850B59-D54C-41DA-9E05-E712F05262B1}
+    {9008AE40-1A58-4FAD-8562-3AD37F7683EB}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260614T120000Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a410af1a-eb38-4f15-9a04-38dfa3779759"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260614T120000Z

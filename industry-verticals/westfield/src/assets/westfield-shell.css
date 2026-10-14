@@ -1,0 +1,308 @@
+@layer components {
+  .westfield-header,
+  .westfield-footer {
+    width: 100%;
+  }
+}
+
+.westfield-header,
+.westfield-footer {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.westfield-header *,
+.westfield-footer * {
+  box-sizing: border-box;
+}
+
+.westfield-footer :where(p) {
+  color: inherit;
+  font-family: inherit;
+}
+
+.westfield-header__utility {
+  background: #4d514d;
+  color: #fff;
+}
+
+.westfield-header__utility-inner,
+.westfield-header__main-inner {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+
+.westfield-header__utility-inner {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.westfield-header__main {
+  border-bottom: 1px solid #e2e3e2;
+  background: #fff;
+  color: #4d514d;
+}
+
+.westfield-header__main-inner {
+  display: flex;
+  min-height: 120px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.westfield-header__brand {
+  flex-shrink: 0;
+}
+
+.westfield-header__brand-link {
+  display: block;
+}
+
+.westfield-header__logo,
+.westfield-footer__logo {
+  display: block;
+  width: 288px;
+  max-width: 100%;
+  height: 56px;
+  object-fit: contain;
+}
+
+.westfield-header__desktop-nav {
+  min-width: 0;
+}
+
+.westfield-header__links,
+.westfield-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.westfield-header__links li,
+.westfield-footer__links li {
+  min-width: 0;
+}
+
+.westfield-header__links {
+  flex-wrap: wrap;
+}
+
+.westfield-header__main-link,
+.westfield-header__utility-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.westfield-header__main-link:hover {
+  color: #d62700;
+}
+
+.westfield-header__utility-link:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.westfield-header__main a:focus-visible,
+.westfield-header__menu-toggle:focus-visible {
+  outline: 3px solid #d62700;
+  outline-offset: 4px;
+}
+
+.westfield-header__utility a:focus-visible,
+.westfield-footer a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.westfield-header__mobile-menu {
+  display: none;
+}
+
+.westfield-footer {
+  background: #4d514d;
+  color: #fff;
+}
+
+.westfield-footer__inner {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 56px 32px 28px;
+}
+
+.westfield-footer__main {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  padding-bottom: 40px;
+}
+
+.westfield-footer__brand {
+  min-width: 0;
+}
+
+.westfield-footer__service-nav,
+.westfield-footer__legal nav {
+  min-width: 0;
+}
+
+.westfield-footer__address {
+  margin-top: 28px;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.westfield-footer__address p {
+  margin: 0 0 12px;
+}
+
+.westfield-footer a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 0.25em;
+  overflow-wrap: anywhere;
+}
+
+.westfield-footer a:hover {
+  text-decoration: underline;
+}
+
+.westfield-footer__phone,
+.westfield-footer__links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.westfield-footer__service-nav .westfield-footer__links {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.westfield-footer__legal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(255 255 255 / 30%);
+}
+
+.westfield-footer__copyright {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.westfield-footer__legal-links a {
+  font-size: 14px;
+}
+
+@media (max-width: 1199px) {
+  .westfield-header__utility,
+  .westfield-header__desktop-nav {
+    display: none;
+  }
+
+  .westfield-header__main-inner {
+    display: block;
+    min-height: 0;
+    padding-block: 24px;
+  }
+
+  .westfield-header__logo {
+    width: 210px;
+    height: auto;
+    aspect-ratio: 288 / 56;
+  }
+
+  .westfield-header__mobile-menu {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .westfield-header__menu-toggle {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 12px 0;
+    color: #4d514d;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .westfield-header__mobile-menu[open] .westfield-header__menu-toggle {
+    margin-bottom: 12px;
+  }
+
+  .westfield-header__mobile-menu .westfield-header__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .westfield-header__mobile-menu .westfield-header__links a {
+    display: flex;
+    width: 100%;
+    padding-block: 10px;
+  }
+
+  .westfield-header__mobile-utility {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e3e2;
+  }
+
+  .westfield-header__mobile-utility .westfield-header__utility-link:hover {
+    color: #d62700;
+  }
+}
+
+@media (max-width: 767px) {
+  .westfield-header__main-inner,
+  .westfield-footer__inner {
+    padding-inline: 24px;
+  }
+
+  .westfield-footer__inner {
+    padding-block: 40px 24px;
+  }
+
+  .westfield-footer__logo {
+    width: 210px;
+    height: auto;
+    aspect-ratio: 288 / 56;
+  }
+
+  .westfield-footer__main,
+  .westfield-footer__legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .westfield-footer__legal-links {
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+}

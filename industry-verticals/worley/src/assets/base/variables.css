@@ -1,0 +1,43 @@
+@theme {
+  /*
+   * Worley Group — colors aligned with worley.com production CSS
+   * (Deep Sea, Sky Mist, Lush Green, Scorched Rose; page chrome uses white; see /assets/worley/main3.css).
+   * Fonts: Google Fonts equivalents for site typography (Brother 1816 → Plus Jakarta Sans,
+   * Verdana → Source Sans 3).
+   */
+  --color-foreground: #003645;
+  --color-foreground-light: #66868f;
+
+  /* Header / footer bar (Worley deep sea) */
+  --color-chrome-bar: rgb(0, 32, 42);
+
+  --color-background: #ffffff;
+  --color-background-accent: #e8f4f3;
+  --color-background-muted: #ffffff;
+
+  --color-accent: #81d10b;
+
+  --color-success: #81d10b;
+  --color-danger: #f43a4f;
+
+  --color-border: #9daeb4;
+
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+
+  /* Worley UI uses rounded cards/buttons; keep a modest default radius */
+  --radius-base: 0.25rem;
+
+  /*
+  This does not show in the theme editor
+  but is used to override the defaults based on the user's selection for radius-base
+  */
+  --radius-xs: calc(var(--radius-base) * 0.25);
+  --radius-sm: calc(var(--radius-base) * 0.5);
+  --radius-md: var(--radius-base);
+  --radius-lg: calc(var(--radius-base) * 1.5);
+  --radius-xl: calc(var(--radius-base) * 2);
+  --radius-2xl: calc(var(--radius-base) * 3);
+  --radius-3xl: calc(var(--radius-base) * 4);
+  --radius-4xl: calc(var(--radius-base) * 5);
+}

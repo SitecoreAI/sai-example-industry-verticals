@@ -1,0 +1,2 @@
+{"recordType":"profile","identifiers":[{"provider":"SET_EXISTING_IDENTITY_PROVIDER","id":"westfield-demo-unenrolled@example.invalid"}],"extensions":{"westfieldPaperlessEnrolled":false}}
+{"recordType":"profile","identifiers":[{"provider":"SET_EXISTING_IDENTITY_PROVIDER","id":"westfield-demo-enrolled@example.invalid"}],"extensions":{"westfieldPaperlessEnrolled":true}}
