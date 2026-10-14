@@ -1,0 +1,709 @@
+{
+  "$schemaDescription": "Planning manifest for shared DAM. Authentication is blocked; null DAM identities and delivery bindings remain unverified.",
+  "version": 1,
+  "site": "westfield",
+  "createdDate": "2026-10-14",
+  "ownershipKey": "westfield-demo-2026-10-14",
+  "state": "planning-authentication-blocked",
+  "referenceAssetCount": 14,
+  "selectedDamAssetCount": 12,
+  "frontendOnlyAssetCount": 2,
+  "metadataContract": {
+    "standardFields": [
+      "Title",
+      "Description",
+      "source provenance",
+      "alt text where meaningful"
+    ],
+    "controlledRelations": [
+      {
+        "label": "Brand",
+        "values": [
+          "Westfield"
+        ],
+        "nativeMapping": "Inspect and reuse suitable existing metadata only; this asset/collection scope does not change shared schema or taxonomies."
+      },
+      {
+        "label": "Asset role",
+        "values": [
+          "Photography",
+          "Logo",
+          "Icon"
+        ],
+        "nativeMapping": "Inspect and reuse suitable existing metadata only; this asset/collection scope does not change shared schema or taxonomies."
+      }
+    ],
+    "textOnly": [
+      "Source URL",
+      "Source owner",
+      "Demo ownership key",
+      "Topic keywords",
+      "Usage context"
+    ],
+    "fixedMetadata": {
+      "language": "en-US"
+    },
+    "doNotFacet": [
+      "Source URL",
+      "Asset identifier",
+      "Ownership key",
+      "Dimensions",
+      "Single-value language"
+    ],
+    "campaignAssociation": "The Paperless campaign collection is a demo organization choice, not evidence of an existing production campaign."
+  },
+  "collections": [
+    {
+      "key": "westfield-imagery",
+      "name": "Westfield imagery",
+      "description": "Family and MyWestfield photographs used by this demo.",
+      "coverAssetKey": "westfield-demo.homepage-hero",
+      "memberCount": 2,
+      "nativeId": null
+    },
+    {
+      "key": "westfield-brand-assets",
+      "name": "Westfield brand assets",
+      "description": "Logos and insurance/service icons used by the demo.",
+      "coverAssetKey": "westfield-demo.westfield-logo",
+      "memberCount": 10,
+      "nativeId": null
+    },
+    {
+      "key": "westfield-paperless-campaign",
+      "name": "Westfield paperless campaign",
+      "description": "Reusable logo, MyWestfield photograph and account icon for the proposed paperless journey.",
+      "coverAssetKey": "westfield-demo.homepage-mywestfield",
+      "memberCount": 3,
+      "nativeId": null
+    }
+  ],
+  "ownership": {
+    "assetContentOwner": "Westfield source brand/content; fonts remain third-party typography references.",
+    "demoConfigurationOwner": "This demo implementation",
+    "writeScope": "New assets/collections created for this ownership key; existing matching assets may be reused only after checking their owner and dependencies.",
+    "cleanupScope": "Only exact IDs recorded as created by this demo, and only after checking CMS fields, public links, collection memberships, theme and page references.",
+    "preserve": [
+      "Core DAM definitions and processing configuration",
+      "Other customers and starter assets outside the explicit disposable scope",
+      "Existing shared Brand values",
+      "Author changes and unrelated public links",
+      "Existing shared CM DAM connector and service account credentials",
+      "Global theme and Brand Kit",
+      "Shared access and processing settings"
+    ],
+    "deletionPolicy": "No deletion is authorized by this planning manifest. Prefer removing owned collection links or restoring baseline settings; permanent removal follows the actual authorized scope."
+  },
+  "assets": [
+    {
+      "key": "westfield-demo.westfield-logo",
+      "fileName": "westfield-logo.png",
+      "title": "Primary Westfield logo",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/test-images/logo.png?h=56&iar=0&w=288",
+      "sha256": "d572983ddc256928eee935b33b53fe3556449c7e995d1f58fabd09cb59a084d1",
+      "bytes": 3366,
+      "dimensions": {
+        "width": 288,
+        "height": 56,
+        "kind": "pixels"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Logo",
+        "topic": "Brand",
+        "language": "en-US",
+        "channels": [
+          "Web",
+          "Social"
+        ],
+        "description": "Site header and campaign artwork",
+        "altText": "westfield logo",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets",
+        "westfield-paperless-campaign"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 1,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.homepage-hero",
+      "fileName": "homepage-hero.png",
+      "title": "Family at home",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/homepage/homepage-hero.png?h=469&iar=0&w=590",
+      "sha256": "03e4806605ded4693675538f68b4179a2974d512e9e4c2efb1a22c5ecc8b29d1",
+      "bytes": 318724,
+      "dimensions": {
+        "width": 590,
+        "height": 469,
+        "kind": "pixels"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Photography",
+        "topic": "Family and home",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Home hero and customer imagery",
+        "altText": "son holding mother",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-imagery"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 1,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.homepage-mywestfield",
+      "fileName": "homepage-mywestfield.jpg",
+      "title": "MyWestfield on a laptop",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/homepage/homepage-mywestfield-fb.jpg?h=512&iar=0&w=690",
+      "sha256": "ee9368b3a5fd79a4f2ef8032bc99eba7f79cdb899e58ed7a5001b089d22ecac2",
+      "bytes": 100753,
+      "dimensions": {
+        "width": 690,
+        "height": 512,
+        "kind": "pixels"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Photography",
+        "topic": "MyWestfield",
+        "language": "en-US",
+        "channels": [
+          "Web",
+          "Social"
+        ],
+        "description": "Paperless campaign, portal benefits and DAM campaign cover",
+        "altText": "A man on a laptop logged in to his MyWestfield account.",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-imagery",
+        "westfield-paperless-campaign"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 1,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.westfield-footer-logo",
+      "fileName": "westfield-footer-logo.svg",
+      "title": "Westfield logo for dark backgrounds",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/test-images/footer-logo.svg?h=41&iar=0&w=210",
+      "sha256": "0f620866a65f476567fa105e01e4d43364ce01e1aa9e53adf4e5e48315f9a006",
+      "bytes": 5233,
+      "dimensions": {
+        "width": 210,
+        "height": 41,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Logo",
+        "topic": "Brand",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Shared footer and dark themed brand surfaces",
+        "altText": "westfield logo",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 1,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.business-insurance",
+      "fileName": "business-insurance.svg",
+      "title": "Business insurance icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-467.svg?iar=0",
+      "sha256": "03b63cb42953ab3d50260e8d9674c8628875e3b436349fc9c5332f8dc9c2d659",
+      "bytes": 2358,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Business insurance",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Homepage service card",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.personal-insurance",
+      "fileName": "personal-insurance.svg",
+      "title": "Personal insurance icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-412.svg?iar=0",
+      "sha256": "9de9b6ad7cd5a73903e27b184b8d599b6a812723a5020053652f544ce9c196fa",
+      "bytes": 1993,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Personal insurance",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Homepage service card",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.farm-and-agribusiness",
+      "fileName": "farm-and-agribusiness.svg",
+      "title": "Farm and agribusiness icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-276.svg?iar=0",
+      "sha256": "583ab77e09fe50ef7f9dd5ece8a44fe8b54a5bf7839cb7d78ac420e05b622dc9",
+      "bytes": 1862,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Farm and agribusiness",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Homepage service card",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.surety",
+      "fileName": "surety.svg",
+      "title": "Surety bonds icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-240.svg?iar=0",
+      "sha256": "5e85ec33d5193645fa771d41eef81d186031e702ab057e547540f4b32682dd83",
+      "bytes": 754,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Surety",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Homepage service card",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.pay-your-bill",
+      "fileName": "pay-your-bill.svg",
+      "title": "Pay your bill icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-294.svg?iar=0",
+      "sha256": "08cd8e449d18cf48935d1196361c96667d9918a7cabe0b1ef88e63d645ab216d",
+      "bytes": 1307,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Billing",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Account quick link",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.file-a-claim",
+      "fileName": "file-a-claim.svg",
+      "title": "File a claim icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-402.svg?iar=0",
+      "sha256": "78100d41d25c7806f8f07f9b15a5ed8afd13f11175f435683ef4a912413d5e4f",
+      "bytes": 951,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Claims",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Account quick link",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.find-an-agent",
+      "fileName": "find-an-agent.svg",
+      "title": "Find an agent icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-228.svg?iar=0",
+      "sha256": "347ce7e64801e57b594b9c37c0a68985382ff30b0e6f7395b804500ecd92197a",
+      "bytes": 1038,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "Agent services",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Account quick link",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.log-in-to-your-account",
+      "fileName": "log-in-to-your-account.svg",
+      "title": "Access MyWestfield icon",
+      "sourceUrl": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/global/icons/westfield_icon_set_-221.svg?iar=0",
+      "sha256": "2d2be6e34cf1fc196ad7312d6052bb34d46a2b659d9e16af123fb3ef1f38cbaa",
+      "bytes": 1236,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "vector-viewbox"
+      },
+      "metadata": {
+        "brand": "Westfield",
+        "assetRole": "Icon",
+        "topic": "MyWestfield",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Account quick link and campaign library",
+        "altText": "",
+        "sourceOwner": "Westfield",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [
+        "westfield-brand-assets",
+        "westfield-paperless-campaign"
+      ],
+      "upload": {
+        "selected": true,
+        "priority": 2,
+        "state": "planning; authentication blocked",
+        "reason": null
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.roboto-latin-normal",
+      "fileName": "roboto-latin-normal.woff2",
+      "title": "Roboto Latin normal",
+      "sourceUrl": "https://www.westfieldinsurance.com/_next/static/media/1e41be92c43b3255-s.p.woff2",
+      "sha256": "0a44e0bb6ba5c8537e8814c148ef7755f1bce12112361231f595ecc584a18d7a",
+      "bytes": 37520,
+      "dimensions": null,
+      "metadata": {
+        "brand": null,
+        "assetRole": "Font",
+        "topic": "Typography",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Frontend typography; retain outside DAM picker",
+        "altText": "",
+        "sourceOwner": "Roboto font project",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [],
+      "upload": {
+        "selected": false,
+        "priority": null,
+        "state": "frontend-only",
+        "reason": "Fonts add no useful DAM picker or campaign story"
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    },
+    {
+      "key": "westfield-demo.roboto-latin-italic",
+      "fileName": "roboto-latin-italic.woff2",
+      "title": "Roboto Latin italic",
+      "sourceUrl": "https://www.westfieldinsurance.com/_next/static/media/02743a8d10a3d186-s.p.woff2",
+      "sha256": "9f06741ff731c4555398df16ce523ee8fd24dfd9dfd2ff2a6c9d63239cf0e9f7",
+      "bytes": 41748,
+      "dimensions": null,
+      "metadata": {
+        "brand": null,
+        "assetRole": "Font",
+        "topic": "Typography",
+        "language": "en-US",
+        "channels": [
+          "Web"
+        ],
+        "description": "Frontend typography; retain outside DAM picker",
+        "altText": "",
+        "sourceOwner": "Roboto font project",
+        "usageContext": "Authorized customer demonstration"
+      },
+      "collections": [],
+      "upload": {
+        "selected": false,
+        "priority": null,
+        "state": "frontend-only",
+        "reason": "Fonts add no useful DAM picker or campaign story"
+      },
+      "native": {
+        "assetId": null,
+        "assetIdentifier": null,
+        "deliveryLink": null,
+        "approved": false,
+        "cmsSelected": false
+      }
+    }
+  ],
+  "sourceProvenance": {
+    "repository": "superseded local Sitecore starter clone",
+    "originalPath": "industry-verticals/westfield/demo/dam-assets.json",
+    "copiedDate": "2026-10-14",
+    "scopeAdaptation": "Existing shared DAM; Westfield-only collections/assets; no global themes, Brand Kit, accounts, access settings, schema or connector modifications."
+  },
+  "damTarget": {
+    "mode": "existing-shared-dam",
+    "host": "https://thlt-demo.sitecoresandbox.cloud",
+    "connectorChanged": false,
+    "collectionScope": "Westfield-only",
+    "nativeBindingStatus": "unverified",
+    "authenticationStatus": "blocked-http-401",
+    "attemptCount": 2,
+    "assetsCreated": 0,
+    "collectionsCreated": 0
+  },
+  "initialUploadScope": {
+    "assetCount": 4,
+    "keys": [
+      "westfield-demo.westfield-logo",
+      "westfield-demo.homepage-hero",
+      "westfield-demo.homepage-mywestfield",
+      "westfield-demo.westfield-footer-logo"
+    ],
+    "approvalStatus": "unverified",
+    "deliveryStatus": "unverified",
+    "nativeDamSelectionStatus": "unverified"
+  }
+}

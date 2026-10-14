@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { Image, Link } from '@sitecore-content-sdk/nextjs';
 import type { ImageField, LinkField } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
+import { nativeMediaSource } from 'lib/native-media';
 
 export type SiteHeaderFields = {
   Logo?: ImageField;
@@ -81,6 +82,7 @@ export const Default = ({ fields, params }: SiteHeaderProps): JSX.Element => (
                 <Image
                   className="westfield-header__logo"
                   field={fields?.Logo}
+                  {...nativeMediaSource(fields?.Logo)}
                   width={288}
                   height={56}
                 />
@@ -89,6 +91,7 @@ export const Default = ({ fields, params }: SiteHeaderProps): JSX.Element => (
               <Image
                 className="westfield-header__logo"
                 field={fields?.Logo}
+                {...nativeMediaSource(fields?.Logo)}
                 width={288}
                 height={56}
               />

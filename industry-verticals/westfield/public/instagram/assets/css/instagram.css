@@ -1114,3 +1114,90 @@ img {
     height: 195px;
   }
 }
+
+/* Keep the supplied desktop feed usable for the mobile campaign journey. */
+@media (max-width: 767px) {
+  .main {
+    margin-left: 0;
+    min-width: 0;
+    padding-bottom: 64px;
+  }
+
+  .main-inner {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    gap: 0;
+    min-width: 0;
+  }
+
+  .feed-layout {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .feed-column {
+    width: 100%;
+    max-width: var(--ig-feed-width);
+    min-width: 0;
+  }
+
+  .stories {
+    overflow: hidden;
+  }
+
+  .stories-track {
+    overflow-x: auto;
+    padding: 0 12px 8px;
+  }
+
+  .stories-next,
+  .messages-pill,
+  .nav-logo,
+  .nav-bottom,
+  .nav-item[aria-label='Search'],
+  .nav-item[aria-label='Explore'],
+  .nav-item--notifications {
+    display: none;
+  }
+
+  .nav-sidebar,
+  .nav-sidebar:hover,
+  .nav-sidebar:focus-within {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    padding: 4px 8px;
+    border-top: 1px solid var(--ig-border);
+  }
+
+  .nav-main,
+  .nav-items {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 12px;
+  }
+
+  .nav-item-label,
+  .nav-sidebar:hover .nav-item-label,
+  .nav-sidebar:focus-within .nav-item-label {
+    display: none;
+  }
+
+  .post-header,
+  .post-actions,
+  .post-caption {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
