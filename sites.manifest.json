@@ -62,52 +62,62 @@
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Page Content/Allianz Home Hero.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Page Content/Allianz Home Hero",
-              "itemId": "70c5fad7-e738-49c2-a42b-651dabaf39f9"
+              "itemId": "70c5fad7-e738-49c2-a42b-651dabaf39f9",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero",
-              "itemId": "1ecabda5-ab3f-4132-9799-107d4a3e01ce"
+              "itemId": "1ecabda5-ab3f-4132-9799-107d4a3e01ce",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero Folder",
-              "itemId": "9008ae40-1a58-4fad-8562-3ad37f7683eb"
+              "itemId": "9008ae40-1a58-4fad-8562-3ad37f7683eb",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero Folder/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero Folder/__Standard Values",
-              "itemId": "a410af1a-eb38-4f15-9a04-38dfa3779759"
+              "itemId": "a410af1a-eb38-4f15-9a04-38dfa3779759",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero",
-              "itemId": "d1850b59-d54c-41da-9e05-e712f05262b1"
+              "itemId": "d1850b59-d54c-41da-9e05-e712f05262b1",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data",
-              "itemId": "f1310278-773b-4a66-a89f-ee8581607a9a"
+              "itemId": "f1310278-773b-4a66-a89f-ee8581607a9a",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data/Copy.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data/Copy",
-              "itemId": "52ff2838-9529-415a-bdaf-303f771256c5"
+              "itemId": "52ff2838-9529-415a-bdaf-303f771256c5",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data/Image.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data/Image",
-              "itemId": "89c21fcd-b57f-4bfd-a26e-3fd73c4d06c2"
+              "itemId": "89c21fcd-b57f-4bfd-a26e-3fd73c4d06c2",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data/Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/Data/Title",
-              "itemId": "6e9d561f-9692-48e7-a720-d10f4f379fca"
+              "itemId": "6e9d561f-9692-48e7-a720-d10f4f379fca",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Allianz Home Hero/Allianz Home Hero/__Standard Values",
-              "itemId": "bbe44e92-6c80-43ed-82f0-58b583a60424"
+              "itemId": "bbe44e92-6c80-43ed-82f0-58b583a60424",
+              "serializationStatus": "active-definition"
             }
           ]
         },
@@ -121,672 +131,806 @@
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Cenovus Placeholders.yml",
               "nativePath": "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders",
-              "itemId": "a8f3c2e1-5d4b-4c7a-9e8f-1a2b3c4d5e6f"
+              "itemId": "a8f3c2e1-5d4b-4c7a-9e8f-1a2b3c4d5e6f",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Cenovus Placeholders/Cenovus Article Below.yml",
               "nativePath": "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Cenovus Article Below",
-              "itemId": "e7bc2830-e8ce-4ce7-b378-0cb1e46a4dd0"
+              "itemId": "e7bc2830-e8ce-4ce7-b378-0cb1e46a4dd0",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Cenovus Placeholders/Cenovus Homepage Hero Band.yml",
               "nativePath": "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Cenovus Homepage Hero Band",
-              "itemId": "b9e4d3c2-6f5a-4b8e-9d7c-2e3f4a5b6c7d"
+              "itemId": "b9e4d3c2-6f5a-4b8e-9d7c-2e3f4a5b6c7d",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Cenovus Placeholders/Cenovus Homepage News Spotlights Band.yml",
               "nativePath": "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Cenovus Placeholders/Cenovus Homepage News Spotlights Band",
-              "itemId": "c0f5e4d3-7a6b-4c9d-8e1f-3f4a5b6c7d8e"
+              "itemId": "c0f5e4d3-7a6b-4c9d-8e1f-3f4a5b6c7d8e",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus",
-              "itemId": "7e1e431d-949c-4a79-888f-b61980052b5b"
+              "itemId": "7e1e431d-949c-4a79-888f-b61980052b5b",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Article Listing.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Article Listing",
-              "itemId": "d91d84e1-1b5c-4e1a-b025-d7d8188330e5"
+              "itemId": "d91d84e1-1b5c-4e1a-b025-d7d8188330e5",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Article Page.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Article Page",
-              "itemId": "00f6fe59-00ce-470e-bc1c-5aea084564b4"
+              "itemId": "00f6fe59-00ce-470e-bc1c-5aea084564b4",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Company News.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Company News",
-              "itemId": "defa4b5c-d6e7-4890-abcd-ef0123456789"
+              "itemId": "defa4b5c-d6e7-4890-abcd-ef0123456789",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Footer.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Footer",
-              "itemId": "cff04001-a401-4041-b041-000000000041"
+              "itemId": "cff04001-a401-4041-b041-000000000041",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Header.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Header",
-              "itemId": "cfb04001-a401-4041-b041-000000000041"
+              "itemId": "cfb04001-a401-4041-b041-000000000041",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Home Hero.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Home Hero",
-              "itemId": "f9a0b1c2-d3e4-45f6-a7b8-c9d0e1f2a3b4"
+              "itemId": "f9a0b1c2-d3e4-45f6-a7b8-c9d0e1f2a3b4",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Homepage.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Homepage",
-              "itemId": "d4e8f2c1-6b5a-4d9e-8f7c-3a2b1e9d4f60"
+              "itemId": "d4e8f2c1-6b5a-4d9e-8f7c-3a2b1e9d4f60",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Key Dates.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Key Dates",
-              "itemId": "5a747b45-b8ea-4c34-b5e5-d98aefa700fb"
+              "itemId": "5a747b45-b8ea-4c34-b5e5-d98aefa700fb",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Onboarding Checklist.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Onboarding Checklist",
-              "itemId": "f06e6b4e-8e21-4006-adae-65eb96e6a314"
+              "itemId": "f06e6b4e-8e21-4006-adae-65eb96e6a314",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/projectRenderings/industry-verticals/Cenovus/Cenovus Spotlights.yml",
               "nativePath": "/sitecore/layout/Renderings/Project/industry-verticals/Cenovus/Cenovus Spotlights",
-              "itemId": "eff11020-a020-4020-b020-000000000020"
+              "itemId": "eff11020-a020-4020-b020-000000000020",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus",
-              "itemId": "3a2f1e0d-9c8b-4a5f-9e2d-1a0b3c4d5e6f"
+              "itemId": "3a2f1e0d-9c8b-4a5f-9e2d-1a0b3c4d5e6f",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article Folder",
-              "itemId": "963a06f7-0b4d-4103-bc70-32961d9dfe44"
+              "itemId": "963a06f7-0b4d-4103-bc70-32961d9dfe44",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing",
-              "itemId": "cef51d08-188d-45d5-86ea-86839e4557a6"
+              "itemId": "cef51d08-188d-45d5-86ea-86839e4557a6",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing/Data",
-              "itemId": "e8f0d07d-c62d-4864-8059-09bfb0668344"
+              "itemId": "e8f0d07d-c62d-4864-8059-09bfb0668344",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing/Data/Heading.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing/Data/Heading",
-              "itemId": "5720fc5d-8f44-4a46-aa57-b2964e71b2be"
+              "itemId": "5720fc5d-8f44-4a46-aa57-b2964e71b2be",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing/Data/Intro.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article Listing/Cenovus Article Listing/Data/Intro",
-              "itemId": "96f12fea-9df7-4e31-b4a0-fd495917797f"
+              "itemId": "96f12fea-9df7-4e31-b4a0-fd495917797f",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article",
-              "itemId": "b6fe2c37-c876-4912-afaa-8ade52fdf0a0"
+              "itemId": "b6fe2c37-c876-4912-afaa-8ade52fdf0a0",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data",
-              "itemId": "9e01f087-e2de-4ca3-a8f6-735c656aec60"
+              "itemId": "9e01f087-e2de-4ca3-a8f6-735c656aec60",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Category.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Category",
-              "itemId": "cabcb19e-f08d-4ee8-8bb3-4d20f1aa0245"
+              "itemId": "cabcb19e-f08d-4ee8-8bb3-4d20f1aa0245",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Copy.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Copy",
-              "itemId": "897ea08d-6e8c-4814-8323-015b6a782d33"
+              "itemId": "897ea08d-6e8c-4814-8323-015b6a782d33",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Date.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Date",
-              "itemId": "417ce609-2cdf-4a35-9efc-719e22c388ff"
+              "itemId": "417ce609-2cdf-4a35-9efc-719e22c388ff",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Image.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Image",
-              "itemId": "e904f47a-25e7-450f-ba06-2db7939778c1"
+              "itemId": "e904f47a-25e7-450f-ba06-2db7939778c1",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Location.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Location",
-              "itemId": "923a6680-93fc-4889-b66e-b896db05131b"
+              "itemId": "923a6680-93fc-4889-b66e-b896db05131b",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Article/Cenovus Article/Data/Title",
-              "itemId": "0e3df22e-8258-46b1-bc58-1179e2d7ccbc"
+              "itemId": "0e3df22e-8258-46b1-bc58-1179e2d7ccbc",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Folder",
-              "itemId": "5530d3f2-1dc6-480c-a1ce-b800865bcdec"
+              "itemId": "5530d3f2-1dc6-480c-a1ce-b800865bcdec",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item",
-              "itemId": "d0f5227e-254c-4b94-b723-e645afae23ad"
+              "itemId": "d0f5227e-254c-4b94-b723-e645afae23ad",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item",
-              "itemId": "cc2ba9c6-0b7e-41b1-9f6c-962a87f0a8ef"
+              "itemId": "cc2ba9c6-0b7e-41b1-9f6c-962a87f0a8ef",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Author.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Author",
-              "itemId": "869df70b-06c2-4989-8c06-6b608fc2137b"
+              "itemId": "869df70b-06c2-4989-8c06-6b608fc2137b",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Headline.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Headline",
-              "itemId": "def0d1e2-f3a4-4567-b89a-cdef00123450"
+              "itemId": "def0d1e2-f3a4-4567-b89a-cdef00123450",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Location.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Location",
-              "itemId": "def9c0d1-e2f3-4456-a789-bcdef0012345"
+              "itemId": "def9c0d1-e2f3-4456-a789-bcdef0012345",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/NewsDate.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/NewsDate",
-              "itemId": "06558b1d-b670-4d21-b014-3f0489e410c4"
+              "itemId": "06558b1d-b670-4d21-b014-3f0489e410c4",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Summary.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News Item/Cenovus Company News Item/Summary",
-              "itemId": "95bd0e32-2283-47ef-b773-98b9c7dbe568"
+              "itemId": "95bd0e32-2283-47ef-b773-98b9c7dbe568",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News",
-              "itemId": "89b89cc0-7586-4037-b325-b9bb7221b078"
+              "itemId": "89b89cc0-7586-4037-b325-b9bb7221b078",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data",
-              "itemId": "def3c4d5-e6f7-4890-a1b2-c34567890123"
+              "itemId": "def3c4d5-e6f7-4890-a1b2-c34567890123",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data/SeeAllLabel.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data/SeeAllLabel",
-              "itemId": "e7b8c9d1-4f3a-4e2b-9c8d-1a2b3c4d5e6f"
+              "itemId": "e7b8c9d1-4f3a-4e2b-9c8d-1a2b3c4d5e6f",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data/SeeAllLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data/SeeAllLink",
-              "itemId": "be9ae8c5-683a-4e4a-932a-63939b38f47e"
+              "itemId": "be9ae8c5-683a-4e4a-932a-63939b38f47e",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data/Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/Data/Title",
-              "itemId": "def4d5e6-f7a8-4901-b2c3-d45678901234"
+              "itemId": "def4d5e6-f7a8-4901-b2c3-d45678901234",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Company News/Cenovus Company News/__Standard Values",
-              "itemId": "def9c0d1-e2f3-4456-b789-abc123456790"
+              "itemId": "def9c0d1-e2f3-4456-b789-abc123456790",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer Folder",
-              "itemId": "cff10001-a001-4001-b001-000000000101"
+              "itemId": "cff10001-a001-4001-b001-000000000101",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer Link Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer Link Item",
-              "itemId": "cff02001-a201-4021-b021-000000000021"
+              "itemId": "cff02001-a201-4021-b021-000000000021",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer Link Item/Cenovus Footer Link Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer Link Item/Cenovus Footer Link Item",
-              "itemId": "cff02002-a202-4022-b022-000000000022"
+              "itemId": "cff02002-a202-4022-b022-000000000022",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer Link Item/Cenovus Footer Link Item/FooterLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer Link Item/Cenovus Footer Link Item/FooterLink",
-              "itemId": "cff02003-a203-4023-b023-000000000023"
+              "itemId": "cff02003-a203-4023-b023-000000000023",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer",
-              "itemId": "cff10002-a002-4002-b002-000000000102"
+              "itemId": "cff10002-a002-4002-b002-000000000102",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data",
-              "itemId": "cff10003-a003-4003-b003-000000000103"
+              "itemId": "cff10003-a003-4003-b003-000000000103",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/BrandBlurb.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/BrandBlurb",
-              "itemId": "cff10103-a103-4a03-b103-000000000203"
+              "itemId": "cff10103-a103-4a03-b103-000000000203",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/CopyrightLine.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/CopyrightLine",
-              "itemId": "cff10110-a110-4110-b110-000000000210"
+              "itemId": "cff10110-a110-4110-b110-000000000210",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackFormAction.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackFormAction",
-              "itemId": "cff10109-a109-4109-b109-000000000209"
+              "itemId": "cff10109-a109-4109-b109-000000000209",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackHeading.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackHeading",
-              "itemId": "cff10106-a106-4106-b106-000000000206"
+              "itemId": "cff10106-a106-4106-b106-000000000206",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackPlaceholder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackPlaceholder",
-              "itemId": "cff10107-a107-4107-b107-000000000207"
+              "itemId": "cff10107-a107-4107-b107-000000000207",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackSendLabel.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/FeedbackSendLabel",
-              "itemId": "cff10108-a108-4108-b108-000000000208"
+              "itemId": "cff10108-a108-4108-b108-000000000208",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/LinksHeading.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/LinksHeading",
-              "itemId": "cff10102-a102-4102-b102-000000000202"
+              "itemId": "cff10102-a102-4102-b102-000000000202",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/Logo.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/Logo",
-              "itemId": "cff10101-a101-4101-b101-000000000201"
+              "itemId": "cff10101-a101-4101-b101-000000000201",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SocialFacebook.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SocialFacebook",
-              "itemId": "cff10111-a111-4111-b111-000000000211"
+              "itemId": "cff10111-a111-4111-b111-000000000211",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SocialInstagram.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SocialInstagram",
-              "itemId": "cff10113-a113-4113-b113-000000000213"
+              "itemId": "cff10113-a113-4113-b113-000000000213",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SocialTwitter.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SocialTwitter",
-              "itemId": "cff10112-a112-4112-b112-000000000212"
+              "itemId": "cff10112-a112-4112-b112-000000000212",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SupportBody.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SupportBody",
-              "itemId": "cff10104-a104-4104-b104-000000000204"
+              "itemId": "cff10104-a104-4104-b104-000000000204",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SupportCta.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SupportCta",
-              "itemId": "cff10105-a105-4105-b105-000000000205"
+              "itemId": "cff10105-a105-4105-b105-000000000205",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SupportHeading.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/Data/SupportHeading",
-              "itemId": "cff10103-a103-4103-b103-000000000203"
+              "itemId": "cff10103-a103-4103-b103-000000000203",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Footer/Cenovus Footer/__Standard Values",
-              "itemId": "cff10004-a004-4004-b004-000000000104"
+              "itemId": "cff10004-a004-4004-b004-000000000104",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Folder",
-              "itemId": "cfb00001-a001-4001-b001-000000000001"
+              "itemId": "cfb00001-a001-4001-b001-000000000001",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Item",
-              "itemId": "cfb02001-a201-4021-b021-000000000021"
+              "itemId": "cfb02001-a201-4021-b021-000000000021",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/Cenovus Header Nav Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/Cenovus Header Nav Item",
-              "itemId": "cfb02002-a202-4022-b022-000000000022"
+              "itemId": "cfb02002-a202-4022-b022-000000000022",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/Cenovus Header Nav Item/NavItemLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/Cenovus Header Nav Item/NavItemLink",
-              "itemId": "cfb02004-a204-4024-b024-000000000024"
+              "itemId": "cfb02004-a204-4024-b024-000000000024",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/Cenovus Header Nav Item/NavItemTitle.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/Cenovus Header Nav Item/NavItemTitle",
-              "itemId": "cfb02003-a203-4023-b023-000000000023"
+              "itemId": "cfb02003-a203-4023-b023-000000000023",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Item/__Standard Values",
-              "itemId": "cfb02005-a205-4025-b025-000000000025"
+              "itemId": "cfb02005-a205-4025-b025-000000000025",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Sub Link.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Sub Link",
-              "itemId": "cfb03001-a301-4031-b031-000000000031"
+              "itemId": "cfb03001-a301-4031-b031-000000000031",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Sub Link/Cenovus Header Nav Sub Link.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Sub Link/Cenovus Header Nav Sub Link",
-              "itemId": "cfb03002-a302-4032-b032-000000000032"
+              "itemId": "cfb03002-a302-4032-b032-000000000032",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header Nav Sub Link/Cenovus Header Nav Sub Link/SubLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header Nav Sub Link/Cenovus Header Nav Sub Link/SubLink",
-              "itemId": "cfb03003-a303-4033-b033-000000000033"
+              "itemId": "cfb03003-a303-4033-b033-000000000033",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header",
-              "itemId": "cfb00002-a002-4002-b002-000000000002"
+              "itemId": "cfb00002-a002-4002-b002-000000000002",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data",
-              "itemId": "cfb00003-a003-4003-b003-000000000003"
+              "itemId": "cfb00003-a003-4003-b003-000000000003",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Logo.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Logo",
-              "itemId": "cfb01008-a108-4108-b108-000000000018"
+              "itemId": "cfb01008-a108-4108-b108-000000000018",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/RegionName.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/RegionName",
-              "itemId": "cfb01003-a103-4103-b103-000000000013"
+              "itemId": "cfb01003-a103-4103-b103-000000000013",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/RegionPrefix.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/RegionPrefix",
-              "itemId": "cfb01002-a102-4102-b102-000000000012"
+              "itemId": "cfb01002-a102-4102-b102-000000000012",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/SearchPlaceholder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/SearchPlaceholder",
-              "itemId": "cfb01013-a113-4113-b113-000000000023"
+              "itemId": "cfb01013-a113-4113-b113-000000000023",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/SearchUrl.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/SearchUrl",
-              "itemId": "cfb01014-a114-4114-b114-000000000024"
+              "itemId": "cfb01014-a114-4114-b114-000000000024",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock1Text.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock1Text",
-              "itemId": "cfb01009-a109-4109-b109-000000000019"
+              "itemId": "cfb01009-a109-4109-b109-000000000019",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock1Trend.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock1Trend",
-              "itemId": "cfb01010-a110-4110-b110-000000000020"
+              "itemId": "cfb01010-a110-4110-b110-000000000020",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock2Text.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock2Text",
-              "itemId": "cfb01011-a111-4111-b111-000000000021"
+              "itemId": "cfb01011-a111-4111-b111-000000000021",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock2Trend.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/Stock2Trend",
-              "itemId": "cfb01012-a112-4112-b112-000000000022"
+              "itemId": "cfb01012-a112-4112-b112-000000000022",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilityCenovusCom.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilityCenovusCom",
-              "itemId": "cfb01007-a107-4107-b107-000000000017"
+              "itemId": "cfb01007-a107-4107-b107-000000000017",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilityIntegrity.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilityIntegrity",
-              "itemId": "cfb01004-a104-4104-b104-000000000014"
+              "itemId": "cfb01004-a104-4104-b104-000000000014",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilitySelfServe.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilitySelfServe",
-              "itemId": "cfb01006-a106-4106-b106-000000000016"
+              "itemId": "cfb01006-a106-4106-b106-000000000016",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilityWorkday.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/UtilityWorkday",
-              "itemId": "cfb01005-a105-4105-b105-000000000015"
+              "itemId": "cfb01005-a105-4105-b105-000000000015",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/WelcomeText.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/Data/WelcomeText",
-              "itemId": "cfb01001-a101-4101-b101-000000000011"
+              "itemId": "cfb01001-a101-4101-b101-000000000011",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Header/Cenovus Header/__Standard Values",
-              "itemId": "cfb00004-a004-4004-b004-000000000004"
+              "itemId": "cfb00004-a004-4004-b004-000000000004",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Folder",
-              "itemId": "a7b8c9d0-e1f2-4345-a678-9abcdef01234"
+              "itemId": "a7b8c9d0-e1f2-4345-a678-9abcdef01234",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide",
-              "itemId": "b8c9d0e1-f2a3-4456-b789-abcdef012345"
+              "itemId": "b8c9d0e1-f2a3-4456-b789-abcdef012345",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide",
-              "itemId": "b641a92a-b6ec-4bab-aef8-d6bcc6a542e7"
+              "itemId": "b641a92a-b6ec-4bab-aef8-d6bcc6a542e7",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideDate.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideDate",
-              "itemId": "a3b4c5d6-e7f8-4901-acde-f01234567890"
+              "itemId": "a3b4c5d6-e7f8-4901-acde-f01234567890",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideDescription.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideDescription",
-              "itemId": "dfbc3625-0eb0-48b7-bd12-2e58e448e236"
+              "itemId": "dfbc3625-0eb0-48b7-bd12-2e58e448e236",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideImage.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideImage",
-              "itemId": "f5793916-e84f-4d78-9d92-322717b85f96"
+              "itemId": "f5793916-e84f-4d78-9d92-322717b85f96",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideLink",
-              "itemId": "b4c5d6e7-f8a9-4012-bdef-012345678901"
+              "itemId": "b4c5d6e7-f8a9-4012-bdef-012345678901",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideTitle.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero Slide/Cenovus Home Hero Slide/SlideTitle",
-              "itemId": "7dba9e00-6b02-4bd8-9d60-c1bc36809ce5"
+              "itemId": "7dba9e00-6b02-4bd8-9d60-c1bc36809ce5",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero",
-              "itemId": "f40d8d2a-8637-45ed-a32e-49d4df02e76f"
+              "itemId": "f40d8d2a-8637-45ed-a32e-49d4df02e76f",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/Data",
-              "itemId": "ad131b92-415d-40bd-b66f-8ef40c985d6d"
+              "itemId": "ad131b92-415d-40bd-b66f-8ef40c985d6d",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/Data/Description.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/Data/Description",
-              "itemId": "962a53cd-2f16-47f8-8deb-2dd92a07aa99"
+              "itemId": "962a53cd-2f16-47f8-8deb-2dd92a07aa99",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/Data/Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/Data/Title",
-              "itemId": "7533ee50-f63f-45d1-8535-01b23d466b44"
+              "itemId": "7533ee50-f63f-45d1-8535-01b23d466b44",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Home Hero/Cenovus Home Hero/__Standard Values",
-              "itemId": "66ef23a6-2609-46d7-abf1-e040f9ca0dae"
+              "itemId": "66ef23a6-2609-46d7-abf1-e040f9ca0dae",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Date Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Date Item",
-              "itemId": "7a8b9c0d-1e2f-4345-a678-9abcdef01234"
+              "itemId": "7a8b9c0d-1e2f-4345-a678-9abcdef01234",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Date Item/Cenovus Key Date Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Date Item/Cenovus Key Date Item",
-              "itemId": "8b9c0d1e-2f3a-4456-b789-abcdef012345"
+              "itemId": "8b9c0d1e-2f3a-4456-b789-abcdef012345",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Date Item/Cenovus Key Date Item/EventDate.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Date Item/Cenovus Key Date Item/EventDate",
-              "itemId": "e1b7b4e9-c474-4ece-81d6-b0fc3f9d9252"
+              "itemId": "e1b7b4e9-c474-4ece-81d6-b0fc3f9d9252",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Date Item/Cenovus Key Date Item/EventTitle.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Date Item/Cenovus Key Date Item/EventTitle",
-              "itemId": "37bfcbc7-a2fd-46bf-bd81-7231fc1c029b"
+              "itemId": "37bfcbc7-a2fd-46bf-bd81-7231fc1c029b",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates Folder",
-              "itemId": "2e01563b-3084-43fc-8a6a-117a99603a87"
+              "itemId": "2e01563b-3084-43fc-8a6a-117a99603a87",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates",
-              "itemId": "2b3c4d5e-6f7a-4890-b123-456789abcdef"
+              "itemId": "2b3c4d5e-6f7a-4890-b123-456789abcdef",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data",
-              "itemId": "d2cfe747-2b89-459a-b155-8f0336835968"
+              "itemId": "d2cfe747-2b89-459a-b155-8f0336835968",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data/Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data/Title",
-              "itemId": "0f449dcf-754a-45bd-8d37-71d00957c81b"
+              "itemId": "0f449dcf-754a-45bd-8d37-71d00957c81b",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data/ViewAllLabel.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data/ViewAllLabel",
-              "itemId": "f8c9d0e2-4a4b-4f3c-ad8e-2b3c4d5e6f7a"
+              "itemId": "f8c9d0e2-4a4b-4f3c-ad8e-2b3c4d5e6f7a",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data/ViewAllLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/Data/ViewAllLink",
-              "itemId": "46a9117f-6810-4c36-b5a9-3c9fc3d6ea8a"
+              "itemId": "46a9117f-6810-4c36-b5a9-3c9fc3d6ea8a",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Key Dates/Cenovus Key Dates/__Standard Values",
-              "itemId": "7f31d0a9-1da7-4301-8143-22f30a233da8"
+              "itemId": "7f31d0a9-1da7-4301-8143-22f30a233da8",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist",
-              "itemId": "565b1478-cb4a-4ae9-bf9d-e4a9f57f356b"
+              "itemId": "565b1478-cb4a-4ae9-bf9d-e4a9f57f356b",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/Data",
-              "itemId": "68904318-8bc3-40a1-b6ed-32e135480bc9"
+              "itemId": "68904318-8bc3-40a1-b6ed-32e135480bc9",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/Data/Copy.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/Data/Copy",
-              "itemId": "82c97daa-d466-42fe-bdc3-c03717b822d3"
+              "itemId": "82c97daa-d466-42fe-bdc3-c03717b822d3",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/Data/Headline.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/Data/Headline",
-              "itemId": "04ad3e57-b022-4cc9-baac-849548590121"
+              "itemId": "04ad3e57-b022-4cc9-baac-849548590121",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Checklist/Cenovus Onboarding Checklist/__Standard Values",
-              "itemId": "d7cd4e43-cab1-48fe-ab01-e249fce820c5"
+              "itemId": "d7cd4e43-cab1-48fe-ab01-e249fce820c5",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Folder",
-              "itemId": "709af58d-17b2-4c5f-ba5e-cd610102cc13"
+              "itemId": "709af58d-17b2-4c5f-ba5e-cd610102cc13",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Onboarding Folder/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Onboarding Folder/__Standard Values",
-              "itemId": "b2b7f4e5-0409-4c48-b2d7-3a0e529ed8a6"
+              "itemId": "b2b7f4e5-0409-4c48-b2d7-3a0e529ed8a6",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlight Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlight Item",
-              "itemId": "eff11010-a010-4010-b010-000000000010"
+              "itemId": "eff11010-a010-4010-b010-000000000010",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item",
-              "itemId": "eff11011-a011-4011-b011-000000000011"
+              "itemId": "eff11011-a011-4011-b011-000000000011",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item/SpotlightImage.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item/SpotlightImage",
-              "itemId": "eff11012-a012-4012-b012-000000000012"
+              "itemId": "eff11012-a012-4012-b012-000000000012",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item/SpotlightLink.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item/SpotlightLink",
-              "itemId": "eff11014-a014-4014-b014-000000000014"
+              "itemId": "eff11014-a014-4014-b014-000000000014",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item/SpotlightTitle.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlight Item/Cenovus Spotlight Item/SpotlightTitle",
-              "itemId": "eff11013-a013-4013-b013-000000000013"
+              "itemId": "eff11013-a013-4013-b013-000000000013",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlights Folder.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlights Folder",
-              "itemId": "eff11001-a001-4001-b001-000000000001"
+              "itemId": "eff11001-a001-4001-b001-000000000001",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights",
-              "itemId": "eff11002-a002-4002-b002-000000000002"
+              "itemId": "eff11002-a002-4002-b002-000000000002",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights/Data",
-              "itemId": "eff11003-a003-4003-b003-000000000003"
+              "itemId": "eff11003-a003-4003-b003-000000000003",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights/Data/Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights/Data/Title",
-              "itemId": "eff11004-a004-4004-b004-000000000004"
+              "itemId": "eff11004-a004-4004-b004-000000000004",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights/__Standard Values.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Cenovus/Cenovus Spotlights/Cenovus Spotlights/__Standard Values",
-              "itemId": "eff11005-a005-4005-b005-000000000005"
+              "itemId": "eff11005-a005-4005-b005-000000000005",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Pages/Cenovus Article Page.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Pages/Cenovus Article Page",
-              "itemId": "00468188-45d4-4a61-9fc4-639f262f88f1"
+              "itemId": "00468188-45d4-4a61-9fc4-639f262f88f1",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Pages/Cenovus Article Page/Extended.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Pages/Cenovus Article Page/Extended",
-              "itemId": "5273e411-7c4e-429c-9688-b7389a3c6711"
+              "itemId": "5273e411-7c4e-429c-9688-b7389a3c6711",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Pages/Cenovus Article Page/Extended/Location.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Pages/Cenovus Article Page/Extended/Location",
-              "itemId": "f8510d24-04c0-441c-bbd5-49631d91ac6e"
+              "itemId": "f8510d24-04c0-441c-bbd5-49631d91ac6e",
+              "serializationStatus": "active-definition"
             }
           ]
         },
@@ -794,40 +938,51 @@
           "site": "textron",
           "sourceBranch": "textron-luxury-retail",
           "sourceCommit": "227f6a406ec6acee482efad9826d9283b8e0289d",
-          "status": "source-imported; native deployment unverified",
+          "status": "source-imported; four active definitions and two quarantined placeholders; native deployment unverified",
           "ownership": "contribution to shared module; not proof of exclusive native ownership",
           "definitionItems": [
             {
-              "sourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Layout Placeholders.yml",
+              "sourcePath": "demo/textron/legacy-definitions/Layout Placeholders.yml",
               "nativePath": "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Layout Placeholders",
-              "itemId": "ab33a2fc-5a65-4672-856e-32dd2561e4de"
+              "itemId": "ab33a2fc-5a65-4672-856e-32dd2561e4de",
+              "originalSourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Layout Placeholders.yml",
+              "serializationStatus": "quarantined",
+              "deploymentEligibility": "excluded from active definitions; native binding unverified"
             },
             {
-              "sourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Layout Placeholders/headless-main.yml",
+              "sourcePath": "demo/textron/legacy-definitions/Layout Placeholders/headless-main.yml",
               "nativePath": "/sitecore/layout/Placeholder Settings/Project/industry-verticals/Layout Placeholders/headless-main",
-              "itemId": "7e264f04-8d05-4315-bbdc-f93bc76442c8"
+              "itemId": "7e264f04-8d05-4315-bbdc-f93bc76442c8",
+              "originalSourcePath": "authoring/items/industry-verticals/common/items/projectPlaceholderSettings/industry-verticals/Layout Placeholders/headless-main.yml",
+              "serializationStatus": "quarantined",
+              "deploymentEligibility": "excluded from active definitions; native binding unverified"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data",
-              "itemId": "e32f0354-4672-448c-aea8-0d8243aef286"
+              "itemId": "e32f0354-4672-448c-aea8-0d8243aef286",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data/Page Content.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data/Page Content",
-              "itemId": "fb09df2d-3dfe-4f4e-b7db-37d834d44f62"
+              "itemId": "fb09df2d-3dfe-4f4e-b7db-37d834d44f62",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data/Page Title.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data/Data/Page Title",
-              "itemId": "69e7efc7-1217-4a70-8610-526a84edbd0e"
+              "itemId": "69e7efc7-1217-4a70-8610-526a84edbd0e",
+              "serializationStatus": "active-definition"
             },
             {
               "sourcePath": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals/Components/Page Content/Page Header/Page Header Data/Page Header Data.yml",
               "nativePath": "/sitecore/templates/Project/industry-verticals/Components/Page Content/Page Header/Page Header Data",
-              "itemId": "ee861e1d-1af9-4d4c-a784-8a58b3cae53d"
+              "itemId": "ee861e1d-1af9-4d4c-a784-8a58b3cae53d",
+              "serializationStatus": "active-definition"
             }
-          ]
+          ],
+          "quarantineReason": "Global headless-main key duplicates existing global layout usage; actual Textron site binding must be verified before a scoped replacement is activated."
         }
       ]
     },
@@ -1883,7 +2038,8 @@
         }
       },
       "notes": [
-        "Empty ownership/seed lists mean unverified, not proof that no native content or assets exist."
+        "Empty ownership/seed lists mean unverified, not proof that no native content or assets exist.",
+        "Two legacy global Layout Placeholders YAMLs are quarantined under demo/textron/legacy-definitions outside active serialization; no Textron native site path is inferred."
       ]
     },
     {

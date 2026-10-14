@@ -21,11 +21,12 @@ const overlaps = (left, right) => {
   const b = right.toLowerCase().replace(/\/$/, '');
   return a === b || a.startsWith(`${b}/`) || b.startsWith(`${a}/`);
 };
-const moduleFiles = (directory) => readdirSync(resolve(root, directory), { withFileTypes: true })
+const sourceFiles = (directory, suffix) => readdirSync(resolve(root, directory), { withFileTypes: true })
   .flatMap((entry) => {
     const path = `${directory}/${entry.name}`;
-    return entry.isDirectory() ? moduleFiles(path) : entry.isFile() && entry.name.endsWith('.module.json') ? [path] : [];
+    return entry.isDirectory() ? sourceFiles(path, suffix) : entry.isFile() && entry.name.endsWith(suffix) ? [path] : [];
   });
+const moduleFiles = (directory) => sourceFiles(directory, '.module.json');
 
 function check(manifest) {
   const errors = [];
@@ -39,6 +40,8 @@ function check(manifest) {
   const declaredModules = new Map();
   const actualModules = new Map();
   const dependencies = new Map(manifest.sharedDependencies.map((item) => [item.id, item]));
+  const activeItemIds = new Set(sourceFiles('authoring', '.yml').map((path) => readFileSync(resolve(root, path), 'utf8').match(/^ID:\s*"?([^"\r\n]+)/m)?.[1].toLowerCase()).filter(Boolean));
+  const quarantinedItemIds = new Set(manifest.sharedDependencies.flatMap((dependency) => (dependency.sourceContributions || []).flatMap((contribution) => contribution.definitionItems.filter((item) => item.serializationStatus === 'quarantined').map((item) => item.itemId.toLowerCase()))));
   for (const path of moduleFiles('authoring')) {
     const module = readJson(path);
     if (actualModules.has(module.namespace)) errors.push(`Duplicate module namespace: ${module.namespace}`);
@@ -112,14 +115,19 @@ function check(manifest) {
       if (!ids.has(contribution.site)) errors.push(`Unknown contribution site: ${contribution.site}`);
       for (const item of contribution.definitionItems) {
         const path = repositoryPath(item.sourcePath);
-        if (!path || !path.startsWith('authoring/') || !path.endsWith('.yml') || !existsSync(resolve(root, path))) {
+        const quarantined = item.serializationStatus === 'quarantined';
+        const expectedPrefix = quarantined ? `demo/${contribution.site}/legacy-definitions/` : 'authoring/';
+        if (!path || !path.startsWith(expectedPrefix) || !path.endsWith('.yml') || !existsSync(resolve(root, path))) {
           errors.push(`Shared source contribution file missing or invalid for: ${contribution.site}`);
           continue;
         }
+        if (quarantined && (!item.originalSourcePath?.startsWith('authoring/') || activeItemIds.has(item.itemId.toLowerCase()))) errors.push(`Quarantined contribution is missing provenance or remains in active serialization: ${path}`);
         const content = readFileSync(resolve(root, path), 'utf8');
         const id = content.match(/^ID:\s*"?([^"\r\n]+)/m)?.[1];
         const nativePath = content.match(/^Path:\s*"?([^"\r\n]+)/m)?.[1];
+        const parent = content.match(/^Parent:\s*"?([^"\r\n]+)/m)?.[1].toLowerCase();
         if (id?.toLowerCase() !== item.itemId.toLowerCase() || nativePath !== item.nativePath) errors.push(`Shared contribution identity/path mismatch: ${path}`);
+        if (parent && !activeItemIds.has(parent) && !(quarantined && quarantinedItemIds.has(parent))) errors.push(`Imported contribution parent is outside its active/quarantined source boundary: ${path}`);
       }
       if (contribution.status !== 'native-deployment-verified') warnings.push(`Shared source contribution deployment unverified: ${contribution.site}`);
     }
@@ -158,7 +166,7 @@ function planRemove(manifest, id) {
   const retainedShared = site.sharedDependencies.map((key) => manifest.sharedDependencies.find((item) => item.id === key));
   const sharedConsumers = manifest.sites.filter((other) => other.id !== site.id && other.sharedDependencies.some((key) => site.sharedDependencies.includes(key))).map((other) => other.id);
   const ownedModules = manifest.modules.filter((module) => module.ownerSite === site.id).map((module) => module.namespace);
-  const sharedContributions = retainedShared.flatMap((dependency) => (dependency.sourceContributions || []).filter((item) => item.site === site.id).map((item) => ({ sourceBranch: item.sourceBranch, sourceCommit: item.sourceCommit, itemCount: item.definitionItems.length, status: item.status, action: 'Inspect exact item paths in the manifest and native references; retain the shared module and other contributions.' })));
+  const sharedContributions = retainedShared.flatMap((dependency) => (dependency.sourceContributions || []).filter((item) => item.site === site.id).map((item) => ({ sourceBranch: item.sourceBranch, sourceCommit: item.sourceCommit, itemCount: item.definitionItems.length, activeItemCount: item.definitionItems.filter((definition) => definition.serializationStatus !== 'quarantined').length, quarantinedItemCount: item.definitionItems.filter((definition) => definition.serializationStatus === 'quarantined').length, status: item.status, action: 'Inspect exact stored/original item paths in the manifest and native references; retain the shared module and keep quarantined items outside active serialization.' })));
   console.log(JSON.stringify({
     mode: 'read-only-plan', site: site.id, remoteStatus: 'not-queried',
     source: { appPath: site.appPath, hostKey: site.renderingHost?.key || null, ownedModules },
