@@ -1,0 +1,377 @@
+'use client';
+
+import {
+  ComponentParams,
+  ComponentRendering,
+  Field,
+  ImageField,
+  Link as SitecoreLink,
+  LinkField,
+  Text,
+} from '@sitecore-content-sdk/nextjs';
+import NextLink from 'next/link';
+import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
+import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
+
+import { CenovusLogoField } from '@/components/cenovus-brand/CenovusLogoField';
+import { demoRegionDefault, type DemoRegion } from '@/lib/cenovus-demo';
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
+import { IGQLTextField } from '@/types/igql';
+
+import { CenovusHeaderDemoChrome } from './CenovusHeaderDemoChrome';
+import { CenovusRegionPicker } from './CenovusRegionPicker';
+
+interface NavSubLink {
+  id: string;
+  subLink: { jsonValue: LinkField };
+}
+
+interface NavItem {
+  id: string;
+  navItemTitle: { jsonValue: Field<string> };
+  navItemLink: { jsonValue: LinkField };
+  children: { results: NavSubLink[] };
+}
+
+interface DatasourceFields {
+  welcomeText?: IGQLTextField;
+  regionPrefix?: IGQLTextField;
+  regionName?: IGQLTextField;
+  utilityIntegrity?: { jsonValue: LinkField };
+  utilityWorkday?: { jsonValue: LinkField };
+  utilitySelfServe?: { jsonValue: LinkField };
+  utilityCenovusCom?: { jsonValue: LinkField };
+  logo?: { jsonValue: ImageField };
+  stock1Text?: IGQLTextField;
+  stock1Trend?: IGQLTextField;
+  stock2Text?: IGQLTextField;
+  stock2Trend?: IGQLTextField;
+  searchPlaceholder?: IGQLTextField;
+  searchUrl?: IGQLTextField;
+  children?: { results: NavItem[] };
+}
+
+interface Fields {
+  data: {
+    datasource?: DatasourceFields;
+  };
+}
+
+/** Integrated GraphQL sometimes nests under `data`, sometimes exposes `datasource` at the fields root. */
+type IntegratedHeaderFields = Fields & { datasource?: DatasourceFields };
+
+type CenovusHeaderProps = {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+function hasLinkHref(field?: LinkField): boolean {
+  const href = field?.value?.href;
+  return Boolean(href && href.length > 0);
+}
+
+function StockRow({
+  textField,
+  trendField,
+}: {
+  textField?: IGQLTextField;
+  trendField?: IGQLTextField;
+}): JSX.Element | null {
+  const raw = String(trendField?.jsonValue?.value ?? '')
+    .trim()
+    .toLowerCase();
+  const isDown = raw === 'down';
+  const Icon = isDown ? TrendingDown : TrendingUp;
+  const tone = isDown ? 'text-[var(--color-danger)]' : 'text-[var(--color-success)]';
+
+  return (
+    <span className={`inline-flex items-center gap-1 text-sm font-medium ${tone}`}>
+      <Icon className="size-4 shrink-0" aria-hidden />
+      <Text field={textField?.jsonValue} />
+    </span>
+  );
+}
+
+function UtilityLinkRow({ field }: { field?: { jsonValue: LinkField } }): JSX.Element | null {
+  const linkField = field?.jsonValue;
+  if (!linkField) {
+    return null;
+  }
+  return (
+    <SitecoreLink
+      field={linkField}
+      className="text-foreground-light hover:text-foreground text-xs underline-offset-4 transition-colors hover:underline"
+    />
+  );
+}
+
+export const Default = (props: CenovusHeaderProps): JSX.Element | null => {
+  const id = props.params.RenderingIdentifier;
+  const styles = props.params.styles ?? '';
+
+  const merged = (props.fields ?? props.rendering?.fields) as IntegratedHeaderFields | undefined;
+  const ds = merged?.data?.datasource ?? merged?.datasource;
+  const navItems = ds?.children?.results ?? [];
+
+  const logoField = ds?.logo?.jsonValue;
+
+  const searchUrlRaw = String(ds?.searchUrl?.jsonValue?.value ?? '').trim();
+  const searchAction = searchUrlRaw.length > 0 ? searchUrlRaw : '/search';
+
+  const regionDefault = String(ds?.regionName?.jsonValue?.value ?? '').trim();
+  const [selectedRegion, setSelectedRegion] = useState<string>(regionDefault || demoRegionDefault);
+  useEffect(() => {
+    if (regionDefault) {
+      setSelectedRegion(regionDefault);
+    }
+  }, [regionDefault]);
+
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+  const [regionOpen, setRegionOpen] = useState(false);
+  const shellRef = useRef<HTMLElement>(null);
+
+  const closeAll = useCallback(() => {
+    setOpenMenuId(null);
+    setRegionOpen(false);
+  }, []);
+
+  useEffect(() => {
+    function onDocMouseDown(e: MouseEvent) {
+      const el = shellRef.current;
+      if (!el || !(e.target instanceof Node) || el.contains(e.target)) {
+        return;
+      }
+      closeAll();
+    }
+    document.addEventListener('mousedown', onDocMouseDown);
+    return () => document.removeEventListener('mousedown', onDocMouseDown);
+  }, [closeAll]);
+
+  const utilityPairs: { label: string; field?: { jsonValue: LinkField } }[] = [
+    { label: 'integrity helpline', field: ds?.utilityIntegrity },
+    { label: 'Workday', field: ds?.utilityWorkday },
+    { label: 'SelfServe', field: ds?.utilitySelfServe },
+    { label: 'cenovus.com', field: ds?.utilityCenovusCom },
+  ];
+
+  if (!ds) {
+    return <CenovusHeaderDemoChrome id={id} styles={styles} />;
+  }
+
+  return (
+    <header
+      ref={shellRef}
+      className={`font-body bg-background text-foreground shadow-sm ${styles}`}
+      id={id || undefined}
+    >
+      <div className="h-1 bg-[var(--color-brand-teal)]" aria-hidden />
+      {/* Utility bar */}
+      <div className="border-border border-b bg-[var(--color-background-muted)]/60">
+        <div className="container flex flex-col gap-3 py-2 text-sm xl:flex-row xl:flex-wrap xl:items-center xl:justify-between xl:gap-x-4 xl:gap-y-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-foreground shrink-0">
+              <Text field={ds?.welcomeText?.jsonValue} />
+            </span>
+            <CenovusRegionPicker
+              regionOpen={regionOpen}
+              onRegionToggle={() => {
+                setRegionOpen((o) => !o);
+                setOpenMenuId(null);
+              }}
+              selectedRegion={selectedRegion}
+              onSelectRegion={(r: DemoRegion) => {
+                setSelectedRegion(r);
+                setRegionOpen(false);
+              }}
+              prefix={<Text field={ds?.regionPrefix?.jsonValue} />}
+            />
+          </div>
+
+          <div className="flex flex-wrap items-center justify-start gap-4 xl:flex-1">
+            <StockRow textField={ds?.stock1Text} trendField={ds?.stock1Trend} />
+            <StockRow textField={ds?.stock2Text} trendField={ds?.stock2Trend} />
+          </div>
+
+          <nav
+            className="text-foreground-light flex flex-wrap items-center gap-x-4 gap-y-1 xl:justify-end"
+            aria-label="Utility links"
+          >
+            {utilityPairs.map(({ label, field }) => (
+              <UtilityLinkRow key={label} field={field} />
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Main row */}
+      <div className="border-border container flex items-center gap-3 border-b-4 border-[var(--color-brand-teal)] py-3 min-[1025px]:gap-8 sm:gap-4 lg:gap-6">
+        <div className="flex min-w-0 shrink-0 items-center gap-3 min-[1025px]:me-4 lg:me-2 lg:gap-6">
+          <CenovusLogoField
+            field={logoField}
+            wrapperClassName="max-w-[160px] min-[1025px]:max-w-[200px]"
+            imgClassName="h-10 w-auto max-w-[160px] object-contain min-[1025px]:max-w-[200px]"
+          />
+        </div>
+
+        {/* Desktop nav */}
+        <nav
+          className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto lg:flex"
+          aria-label="Primary"
+        >
+          {navItems.map((item) => {
+            const subs =
+              item.children?.results?.filter((s) => hasLinkHref(s.subLink?.jsonValue)) ?? [];
+            const titleField = item.navItemTitle?.jsonValue;
+            const parentLink = item.navItemLink?.jsonValue;
+            const hasSubs = subs.length > 0;
+            const open = openMenuId === item.id;
+
+            if (hasSubs) {
+              return (
+                <div key={item.id} className="relative">
+                  <button
+                    type="button"
+                    className="flex items-center gap-1 px-2 py-2 text-xs font-bold tracking-wide uppercase"
+                    aria-expanded={open}
+                    aria-haspopup="true"
+                    onClick={() => {
+                      setRegionOpen(false);
+                      setOpenMenuId(open ? null : item.id);
+                    }}
+                  >
+                    <Text field={titleField} />
+                    <ChevronDown className="size-3.5 shrink-0 opacity-70" aria-hidden />
+                  </button>
+                  {open && (
+                    <ul className="border-border absolute left-0 z-50 mt-0 min-w-[14rem] rounded-md border bg-[var(--color-background)] py-2 shadow-lg">
+                      {subs.map((sub) => (
+                        <li key={sub.id}>
+                          <SitecoreLink
+                            field={sub.subLink?.jsonValue}
+                            className="text-foreground hover:bg-background-accent block px-4 py-2 text-sm no-underline"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <div key={item.id} className="px-1">
+                <SitecoreLink
+                  field={parentLink}
+                  className="inline-flex items-center px-2 py-2 text-xs font-bold tracking-wide uppercase no-underline"
+                >
+                  <Text field={titleField} />
+                </SitecoreLink>
+              </div>
+            );
+          })}
+        </nav>
+
+        <form
+          className="hidden min-w-0 flex-[0_1_24rem] min-[1025px]:block"
+          action={searchAction}
+          method="get"
+          role="search"
+        >
+          <label className="relative block w-full">
+            <span className="sr-only">Search</span>
+            <input
+              type="search"
+              name="q"
+              placeholder={(ds?.searchPlaceholder?.jsonValue?.value as string) || 'Search'}
+              className="font-body border-border focus-visible:ring-accent w-full rounded-full border-0 bg-[var(--color-background-muted)] py-2.5 pr-11 pl-4 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-foreground-light)] focus-visible:ring-2 focus-visible:outline-none"
+            />
+            <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-[var(--color-foreground)]">
+              <Search className="size-5" aria-hidden />
+            </span>
+          </label>
+        </form>
+
+        <NextLink
+          href={searchAction}
+          className="hidden shrink-0 rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)] min-[1025px]:hidden lg:flex"
+          aria-label="Search"
+        >
+          <Search className="size-6" aria-hidden />
+        </NextLink>
+
+        {/* Mobile drawer */}
+        <div className="ml-auto flex shrink-0 items-center gap-2 lg:hidden">
+          <NextLink
+            href={searchAction}
+            className="rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)]"
+            aria-label="Search"
+          >
+            <Search className="size-6" aria-hidden />
+          </NextLink>
+
+          <Drawer direction="left">
+            <DrawerTrigger asChild>
+              <button
+                type="button"
+                aria-label="Open menu"
+                className="text-foreground hover:text-foreground-light p-2 transition-colors"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </DrawerTrigger>
+            <DrawerContent className="bg-background-accent !w-xl !max-w-full p-5">
+              <div className="flex h-full flex-col">
+                <div className="mb-8 flex items-center justify-between">
+                  <span className="font-heading text-sm font-bold uppercase">Menu</span>
+                  <DrawerClose asChild>
+                    <button type="button" aria-label="Close menu">
+                      <X className="h-5 w-5" />
+                    </button>
+                  </DrawerClose>
+                </div>
+                <ul className="flex flex-col gap-4">
+                  {navItems.map((item) => {
+                    const subs =
+                      item.children?.results?.filter((s) => hasLinkHref(s.subLink?.jsonValue)) ??
+                      [];
+                    const titleField = item.navItemTitle?.jsonValue;
+                    const parentLink = item.navItemLink?.jsonValue;
+                    return (
+                      <li key={item.id} className="border-border border-b pb-4">
+                        {subs.length > 0 ? (
+                          <>
+                            <p className="font-heading mb-2 text-xs font-bold tracking-wide uppercase">
+                              <Text field={titleField} />
+                            </p>
+                            <ul className="flex flex-col gap-2 pl-0">
+                              {subs.map((sub) => (
+                                <li key={sub.id}>
+                                  <SitecoreLink
+                                    field={sub.subLink?.jsonValue}
+                                    className="text-foreground text-sm no-underline underline-offset-4 hover:underline"
+                                  />
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : (
+                          <SitecoreLink
+                            field={parentLink}
+                            className="font-heading text-xs font-bold tracking-wide uppercase no-underline"
+                          >
+                            <Text field={titleField} />
+                          </SitecoreLink>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
+      </div>
+    </header>
+  );
+};

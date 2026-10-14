@@ -1,0 +1,897 @@
+{
+  "schema_version": "2.0",
+  "id": "worley-bulk-content-generator",
+  "name": "Worley Bulk Content Generator",
+  "description": "Worley Group–aligned bulk content: engineering, energy, chemicals, resources, and sustainability narratives across channels and audiences.",
+  "gettingStarted": {
+    "title": "Worley Bulk Content Generator",
+    "howItWorks": "Describe the asset, region, capability, or campaign you need. Pick channels and Worley-relevant audiences (energy, chemicals, transition, infrastructure). The agent produces on-brand variations for each combination.",
+    "whatIsItFor": "Scale messaging for professional services in energy, chemicals, and resources—LinkedIn thought leadership, email nurture, blog depth, and social snippets—without rewriting from scratch each time."
+  },
+  "inputs": [
+    {
+      "type": "prompt",
+      "label": "Content Requirements",
+      "minLines": 3,
+      "required": true,
+      "description": "Describe the Worley-relevant content you want to generate (project, capability, region, or campaign angle).",
+      "placeholder": "Example: LinkedIn post on modular execution for a chemicals brownfield in APAC, aimed at engineering delivery leads, emphasizing safety and schedule."
+    },
+    {
+      "type": "context",
+      "label": "Ground with context",
+      "required": false,
+      "description": "Optionally select artifacts or knowledge to provide additional context"
+    },
+    {
+      "type": "file-upload",
+      "label": "Add more context",
+      "required": false,
+      "description": "Please add any reference materials"
+    }
+  ],
+  "contextParameters": [
+    {
+      "key": "channels",
+      "type": "array",
+      "label": "Channels",
+      "options": [
+        {
+          "label": "LinkedIn",
+          "value": "linkedin",
+          "metadata": {
+            "dos": [
+              "Lead with project, safety, or sustainability outcomes",
+              "Use precise engineering and delivery language",
+              "Reference credible standards and partnerships",
+              "Include a clear next step for technical and executive readers"
+            ],
+            "donts": [
+              "Do not overclaim performance or certification",
+              "Avoid hype without technical grounding",
+              "Do not use more than five hashtags"
+            ],
+            "schema": "linkedin_post_schema",
+            "toneOfVoice": "Professional yet conversational, thought leadership focused",
+            "htmlTemplate": "linkedin_post_template",
+            "bestPractices": [
+              "Open with a concrete delivery or decarbonization insight",
+              "Cite measurable outcomes where possible",
+              "Use three to five focused hashtags",
+              "Invite peer discussion on delivery models or risk"
+            ],
+            "characterLimit": 3000
+          }
+        },
+        {
+          "label": "Twitter/X",
+          "value": "twitter",
+          "metadata": {
+            "dos": [
+              "Use hashtags strategically (1-2)",
+              "Include media when possible",
+              "Be timely and relevant"
+            ],
+            "donts": [
+              "Don't exceed character limit",
+              "Avoid walls of text",
+              "Don't overuse hashtags"
+            ],
+            "schema": "twitter_post_schema",
+            "toneOfVoice": "Concise and punchy, timely and engaging",
+            "htmlTemplate": "twitter_post_template",
+            "bestPractices": [
+              "Be concise",
+              "Use threads for longer content",
+              "Include visuals",
+              "Engage with trending topics"
+            ],
+            "characterLimit": 280
+          }
+        },
+        {
+          "label": "Instagram",
+          "value": "instagram",
+          "metadata": {
+            "dos": [
+              "Focus on visual appeal",
+              "Use authentic voice",
+              "Include call-to-action",
+              "Use Stories and Reels"
+            ],
+            "donts": [
+              "Don't be overly corporate",
+              "Avoid link-heavy captions",
+              "Don't use irrelevant hashtags"
+            ],
+            "schema": "instagram_post_schema",
+            "toneOfVoice": "Visual-first, authentic and inspiring",
+            "htmlTemplate": "instagram_post_template",
+            "bestPractices": [
+              "Lead with visuals",
+              "Use storytelling",
+              "Include relevant hashtags (10-30)",
+              "Use emojis appropriately"
+            ],
+            "characterLimit": 2200
+          }
+        },
+        {
+          "label": "Facebook",
+          "value": "facebook",
+          "metadata": {
+            "dos": [
+              "Use conversational tone",
+              "Include links with context",
+              "Respond to comments"
+            ],
+            "donts": [
+              "Don't be too formal",
+              "Avoid clickbait",
+              "Don't ignore engagement"
+            ],
+            "schema": "facebook_post_schema",
+            "toneOfVoice": "Friendly and community-focused, conversational",
+            "htmlTemplate": "facebook_post_template",
+            "bestPractices": [
+              "Encourage engagement",
+              "Use visuals and video",
+              "Ask questions",
+              "Create shareable content"
+            ],
+            "characterLimit": 63206
+          }
+        },
+        {
+          "label": "Email",
+          "value": "email",
+          "metadata": {
+            "dos": [
+              "Get to the point quickly",
+              "Use clear formatting",
+              "Include one primary CTA",
+              "Segment content"
+            ],
+            "donts": [
+              "Don't bury the lead",
+              "Avoid spam triggers",
+              "Don't have multiple CTAs",
+              "Don't use all caps"
+            ],
+            "schema": "email_content_schema",
+            "toneOfVoice": "Direct and personal, value-driven",
+            "htmlTemplate": "email_content_template",
+            "bestPractices": [
+              "Strong subject line",
+              "Clear call-to-action",
+              "Personalization",
+              "Mobile-friendly"
+            ]
+          }
+        },
+        {
+          "label": "Blog",
+          "value": "blog",
+          "metadata": {
+            "dos": [
+              "Provide value and depth",
+              "Use proper formatting",
+              "Include meta description",
+              "Optimize for SEO"
+            ],
+            "donts": [
+              "Don't keyword stuff",
+              "Avoid thin content",
+              "Don't ignore readability"
+            ],
+            "schema": "blog_post_schema",
+            "toneOfVoice": "Informative and authoritative, SEO-optimized",
+            "htmlTemplate": "blog_post_template",
+            "bestPractices": [
+              "Use headers and structure",
+              "Include keywords naturally",
+              "Add internal/external links",
+              "Use visuals"
+            ]
+          }
+        }
+      ],
+      "required": false,
+      "description": "Specify the channels or platforms for content"
+    },
+    {
+      "key": "audiences",
+      "type": "array",
+      "label": "Target Audiences",
+      "options": [
+        {
+          "label": "Energy & resources executives",
+          "value": "energy-resources-execs",
+          "metadata": {
+            "dos": [
+              "Tie content to portfolio risk, returns, and operational resilience",
+              "Reference megaprojects, LNG, upstream/downstream, or power where relevant",
+              "Use concise executive framing and credible metrics"
+            ],
+            "donts": [
+              "Avoid undifferentiated generic energy platitudes",
+              "Do not bury the strategic point in technical minutiae",
+              "Do not overpromise schedule or cost outcomes"
+            ],
+            "interests": [
+              "Capital efficiency",
+              "Asset performance",
+              "Energy transition pathways",
+              "Stakeholder and regulator alignment"
+            ],
+            "toneOfVoice": "Confident, evidence-led, boardroom-appropriate",
+            "characteristics": "CEOs, EVPs, and asset VPs in oil, gas, mining, and integrated power"
+          }
+        },
+        {
+          "label": "Chemicals & process industry leaders",
+          "value": "chemicals-process",
+          "metadata": {
+            "dos": [
+              "Emphasize process safety, reliability, and debottlenecking",
+              "Speak to brownfield execution and turnaround constraints",
+              "Connect to circularity, feedstocks, and low-carbon products where relevant"
+            ],
+            "donts": [
+              "Avoid consumer-packaging tone unless the brief is retail chemicals",
+              "Do not gloss over HSE and compliance",
+              "Avoid buzzwords without plant-floor relevance"
+            ],
+            "interests": [
+              "Operational excellence",
+              "Capital projects and retrofits",
+              "Decarbonizing heat and steam",
+              "Digital operations"
+            ],
+            "toneOfVoice": "Practical, safety-first, operations-aware",
+            "characteristics": "Plant managers, technology leaders, and capital program owners"
+          }
+        },
+        {
+          "label": "Renewables & energy transition teams",
+          "value": "renewables-transition",
+          "metadata": {
+            "dos": [
+              "Balance ambition with grid, consenting, and integration realities",
+              "Highlight hydrogen, CCUS, offshore wind, or storage only when brief-relevant",
+              "Use clear language on delivery models and risk allocation"
+            ],
+            "donts": [
+              "Avoid greenwashing or vague net-zero claims",
+              "Do not ignore intermittency, infrastructure, or community factors",
+              "Avoid treating transition as only a policy story"
+            ],
+            "interests": [
+              "Project financeability",
+              "EPC and program delivery",
+              "Scope 1–3 pathways",
+              "Partnerships and offtake"
+            ],
+            "toneOfVoice": "Forward-looking, transparent, partnership-oriented",
+            "characteristics": "Sustainability leads, developers, utilities, and transition PMOs"
+          }
+        },
+        {
+          "label": "Infrastructure & built environment clients",
+          "value": "infrastructure-built",
+          "metadata": {
+            "dos": [
+              "Focus on whole-life performance, resilience, and stakeholder outcomes",
+              "Reference transport, water, urban systems, or industrial infrastructure as appropriate",
+              "Align to major program governance and assurance"
+            ],
+            "donts": [
+              "Avoid generic smart-city language without a defined use case",
+              "Do not ignore maintenance and operability after handover",
+              "Avoid siloed discipline jargon without context"
+            ],
+            "interests": [
+              "Major project delivery",
+              "Digital engineering and BIM",
+              "Climate adaptation",
+              "Public–private delivery models"
+            ],
+            "toneOfVoice": "Programmatic, assurance-minded, citizen-aware",
+            "characteristics": "Government sponsors, infrastructure owners, and program directors"
+          }
+        },
+        {
+          "label": "Engineering & technical delivery leads",
+          "value": "engineering-delivery",
+          "metadata": {
+            "dos": [
+              "Be technically precise about scope, interfaces, and verification",
+              "Reference standards, assurance, and constructability",
+              "Prefer diagrams, lists, and decision logs over prose alone when the format allows"
+            ],
+            "donts": [
+              "Do not substitute slogans for method statements",
+              "Avoid ambiguous accountability or RACI gaps",
+              "Do not oversimplify complex multi-contract interfaces"
+            ],
+            "interests": [
+              "Design optimization",
+              "Commissioning and start-up",
+              "Modularization and fabrication",
+              "Technical risk registers"
+            ],
+            "toneOfVoice": "Direct, rigorous, collegial",
+            "characteristics": "Chief engineers, discipline leads, package managers, and PMC leads"
+          }
+        },
+        {
+          "label": "Capital projects & asset operators",
+          "value": "capital-asset-ops",
+          "metadata": {
+            "dos": [
+              "Connect FEED through execute and operate phases",
+              "Emphasize schedule certainty, productivity, and operability",
+              "Speak to shutdowns, sustaining capital, and reliability"
+            ],
+            "donts": [
+              "Avoid ignoring operations readiness and knowledge transfer",
+              "Do not conflate early-phase estimates with execution guarantees",
+              "Avoid ignoring supply chain and labor realities"
+            ],
+            "interests": [
+              "Project controls",
+              "Contract strategy",
+              "Maintenance and integrity",
+              "Workforce and productivity"
+            ],
+            "toneOfVoice": "Grounded, delivery-accountable, lessons-learned oriented",
+            "characteristics": "Project directors, construction managers, and reliability heads"
+          }
+        }
+      ],
+      "required": false,
+      "description": "Worley-aligned audiences across energy, chemicals, transition, infrastructure, engineering, and capital delivery"
+    },
+    {
+      "key": "formats",
+      "type": "array",
+      "label": "Content Formats",
+      "options": [
+        {
+          "label": "Social Media Post",
+          "value": "social-post",
+          "metadata": {
+            "bestFor": [
+              "Engagement",
+              "Brand awareness",
+              "Quick updates"
+            ],
+            "structure": [
+              "Hook",
+              "Body",
+              "Call-to-action"
+            ],
+            "description": "Short-form content for social platforms",
+            "typicalLength": "50-300 words"
+          }
+        },
+        {
+          "label": "Blog Article",
+          "value": "blog-article",
+          "metadata": {
+            "bestFor": [
+              "SEO",
+              "Thought leadership",
+              "Deep dives",
+              "Education"
+            ],
+            "structure": [
+              "Introduction",
+              "Body sections",
+              "Conclusion",
+              "CTA"
+            ],
+            "description": "Long-form content for blogs and websites",
+            "typicalLength": "800-2000 words"
+          }
+        },
+        {
+          "label": "Email Newsletter",
+          "value": "email-newsletter",
+          "metadata": {
+            "bestFor": [
+              "Nurturing",
+              "Updates",
+              "Promotions",
+              "Relationship building"
+            ],
+            "structure": [
+              "Subject line",
+              "Preview text",
+              "Body",
+              "CTA"
+            ],
+            "description": "Email content for subscribers",
+            "typicalLength": "200-500 words"
+          }
+        },
+        {
+          "label": "Product Description",
+          "value": "product-description",
+          "metadata": {
+            "bestFor": [
+              "E-commerce",
+              "Product pages",
+              "Sales enablement"
+            ],
+            "structure": [
+              "Headline",
+              "Features",
+              "Benefits",
+              "CTA"
+            ],
+            "description": "Commercial content highlighting product features",
+            "typicalLength": "100-300 words"
+          }
+        },
+        {
+          "label": "Case Study",
+          "value": "case-study",
+          "metadata": {
+            "bestFor": [
+              "Social proof",
+              "Sales enablement",
+              "Thought leadership"
+            ],
+            "structure": [
+              "Challenge",
+              "Solution",
+              "Results",
+              "Testimonial"
+            ],
+            "description": "Success story showcasing results",
+            "typicalLength": "800-1500 words"
+          }
+        },
+        {
+          "label": "Video Script",
+          "value": "video-script",
+          "metadata": {
+            "bestFor": [
+              "Video marketing",
+              "Tutorials",
+              "Announcements"
+            ],
+            "structure": [
+              "Hook",
+              "Content sections",
+              "Closing",
+              "CTA"
+            ],
+            "description": "Script for video content",
+            "typicalLength": "300-1000 words"
+          }
+        }
+      ],
+      "required": false,
+      "description": "Specify the content formats"
+    }
+  ],
+  "schemas": [
+    {
+      "id": "linkedin_post_schema",
+      "name": "LinkedIn Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "headline",
+          "body",
+          "call_to_action",
+          "hashtags",
+          "mentions"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Full post body as published (plain sentences/paragraphs; max 3000 characters). Not an outline, brief, or art direction."
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 5,
+            "description": "Final hashtag strings only (3–5), no commentary"
+          },
+          "headline": {
+            "type": "string",
+            "description": "Opening line or headline exactly as it appears in the feed"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Handles to tag as published (or empty array if none)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Published CTA line the reader sees (not instructions to the poster)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for LinkedIn: published post fields only—no creative brief or production notes"
+    },
+    {
+      "id": "twitter_post_schema",
+      "name": "Twitter/X Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "text",
+          "hashtags",
+          "thread"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 280,
+            "description": "Complete published tweet only (max 280 characters). Not suggestions, imagery notes, or a brief."
+          },
+          "thread": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional published tweet texts in order; each item is final copy or use empty array"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 2,
+            "description": "Final hashtag strings only (1–2)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Twitter/X: published tweet text only—no briefs or asset notes"
+    },
+    {
+      "id": "instagram_post_schema",
+      "name": "Instagram Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "caption",
+          "image_description",
+          "hashtags",
+          "call_to_action"
+        ],
+        "properties": {
+          "caption": {
+            "type": "string",
+            "description": "Final caption as published (max 2200 characters). No art direction, slide notes, or “post with an image of…”."
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Final hashtag strings only (10–30 as appropriate)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Published CTA line in or after the caption"
+          },
+          "image_description": {
+            "type": "string",
+            "description": "One short accessibility phrase describing what the image shows (e.g. “Team reviewing construction schedule”). Not a photo brief, shot list, or “use an image that…”."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Instagram: caption and CTA as published; image_description is short alt-style text only"
+    },
+    {
+      "id": "facebook_post_schema",
+      "name": "Facebook Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "text",
+          "question",
+          "call_to_action",
+          "link"
+        ],
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "Published URL to share, or empty string if none"
+          },
+          "text": {
+            "type": "string",
+            "description": "Final post body as readers see it. No internal notes or asset requests."
+          },
+          "question": {
+            "type": "string",
+            "description": "Published engagement question as written, or empty string"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Published button or link label / CTA line"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Facebook: final wall post copy and link only"
+    },
+    {
+      "id": "email_content_schema",
+      "name": "Email Content Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "subject_line",
+          "body",
+          "call_to_action",
+          "preview_text",
+          "greeting",
+          "cta_url",
+          "closing"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Full email body as sent (paragraphs only). Not a wireframe, content outline, or notes to marketing ops."
+          },
+          "closing": {
+            "type": "string",
+            "description": "Published sign-off and signature block"
+          },
+          "cta_url": {
+            "type": "string",
+            "description": "Real destination URL for the CTA button, or a single plausible placeholder path (e.g. https://www.worley.com/contact)—not “TBD” or instructions to add a link"
+          },
+          "greeting": {
+            "type": "string",
+            "description": "Published greeting line (e.g. Dear …)"
+          },
+          "preview_text": {
+            "type": "string",
+            "description": "Final preheader text as inbox preview"
+          },
+          "subject_line": {
+            "type": "string",
+            "description": "Final subject line (about 50–60 characters)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Exact button label text"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for email: send-ready subject, body, and CTA—no email-brief or ESP setup notes"
+    },
+    {
+      "id": "blog_post_schema",
+      "name": "Blog Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "title",
+          "introduction",
+          "body",
+          "conclusion",
+          "meta_description",
+          "call_to_action",
+          "keywords"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Full article body for publication (headings and paragraphs as readers see them). Not an outline, H2 placeholders, or “add chart here”."
+          },
+          "title": {
+            "type": "string",
+            "description": "Published article title"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Keyword phrases only (for metadata), not editorial instructions"
+          },
+          "conclusion": {
+            "type": "string",
+            "description": "Final closing section as published"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "Published opening section (hook and setup), not a brief for the writer"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Published end-of-article CTA line"
+          },
+          "meta_description": {
+            "type": "string",
+            "description": "Final meta description (about 150–160 characters) for search snippets"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for blog: reader-ready article fields only—no writer brief or SEO checklist prose"
+    }
+  ],
+  "htmlTemplates": [
+    {
+      "id": "linkedin_post_template",
+      "name": "LinkedIn Post Template",
+      "template": "<div style=\"font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:0 auto;background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 10px 40px rgba(15,39,68,0.08);overflow:hidden;color:#0f2744;\">\n  <img src=\"https://fpoimg.com/640x256?text=LinkedIn&text_color=8F8F8F&bg_color=e6e6e6\" alt=\"\" width=\"640\" height=\"256\" style=\"display:block;width:100%;height:auto;border:0;\"/>\n  <div style=\"padding:22px 26px 6px;\">\n    <p style=\"margin:0 0 12px;font-size:18px;line-height:1.35;font-weight:700;color:#0f2744;\">{{headline}}</p>\n    <div style=\"font-size:15px;line-height:1.65;color:#334155;white-space:pre-wrap;\">{{body}}</div>\n  </div>\n  <div style=\"padding:12px 26px 6px;display:flex;flex-wrap:wrap;gap:8px;\">{{#each hashtags}}<span style=\"font-size:13px;color:#0f766e;font-weight:600;\">#{{this}}</span>{{/each}}</div>\n  <div style=\"padding:8px 26px 22px;\">\n    <span style=\"display:inline-block;padding:10px 18px;background:#0f2744;color:#fff;border-radius:8px;font-size:14px;font-weight:600;\">{{call_to_action}}</span>\n  </div>\n  {{#if mentions}}<div style=\"margin:0 26px 20px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b;\">{{#each mentions}}<span style=\"margin-right:10px;\">@{{this}}</span>{{/each}}</div>{{/if}}\n</div>"
+    },
+    {
+      "id": "twitter_post_template",
+      "name": "Twitter/X Post Template",
+      "template": "<div style=\"font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:520px;margin:0 auto;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;\">\n  <div style=\"display:flex;align-items:center;gap:10px;padding:12px 16px;background:#fff;border-bottom:1px solid #e2e8f0;\">\n    <span style=\"width:36px;height:36px;border-radius:999px;background:#0f2744;display:inline-block;\"></span>\n    <div>\n      <div style=\"font-size:14px;font-weight:700;color:#0f172a;\">Worley</div>\n      <div style=\"font-size:12px;color:#64748b;\">@Worley · energy &amp; resources</div>\n    </div>\n  </div>\n  <img src=\"https://fpoimg.com/520x220?text=Tweet&text_color=8F8F8F&bg_color=e6e6e6\" alt=\"\" width=\"520\" height=\"220\" style=\"display:block;width:100%;height:auto;border:0;\"/>\n  <div style=\"padding:16px 18px 18px;background:#fff;\">\n    <p style=\"margin:0;font-size:15px;line-height:1.5;color:#0f172a;white-space:pre-wrap;\">{{text}}</p>\n    {{#if hashtags}}<div style=\"margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;\">{{#each hashtags}}<span style=\"font-size:13px;color:#0ea5e9;font-weight:600;\">#{{this}}</span>{{/each}}</div>{{/if}}\n    {{#if thread}}<div style=\"margin-top:14px;padding-top:14px;border-top:1px dashed #cbd5e1;\">{{#each thread}}<p style=\"margin:0 0 10px;font-size:14px;line-height:1.45;color:#334155;\">{{this}}</p>{{/each}}</div>{{/if}}\n  </div>\n</div>"
+    },
+    {
+      "id": "instagram_post_template",
+      "name": "Instagram Post Template",
+      "template": "<div style=\"font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:420px;margin:0 auto;background:#0b0b0b;border-radius:18px;overflow:hidden;border:1px solid #1f2937;box-shadow:0 12px 40px rgba(0,0,0,0.25);\">\n  <div style=\"display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#0b0b0b;color:#f8fafc;\">\n    <span style=\"font-size:14px;font-weight:700;\">Worley</span>\n    <span style=\"font-size:12px;opacity:0.85;\">Engineering</span>\n  </div>\n  <img src=\"https://fpoimg.com/420x420?text=Photo&text_color=8F8F8F&bg_color=e6e6e6\" alt=\"{{image_description}}\" width=\"420\" height=\"420\" style=\"display:block;width:100%;height:auto;border:0;background:#111827;\"/>\n  <div style=\"padding:14px 16px 18px;background:#0b0b0b;color:#f1f5f9;\">\n    <p style=\"margin:0 0 10px;font-size:14px;line-height:1.55;white-space:pre-wrap;\">{{caption}}</p>\n    <div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;\">{{#each hashtags}}<span style=\"font-size:13px;color:#5eead4;font-weight:600;\">#{{this}}</span>{{/each}}</div>\n    {{#if call_to_action}}<p style=\"margin:0;font-size:13px;font-weight:700;color:#fff;\">{{call_to_action}}</p>{{/if}}\n  </div>\n</div>"
+    },
+    {
+      "id": "facebook_post_template",
+      "name": "Facebook Post Template",
+      "template": "<div style=\"font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:560px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(15,23,42,0.06);\">\n  <div style=\"padding:14px 16px 8px;display:flex;align-items:center;gap:10px;\">\n    <span style=\"width:40px;height:40px;border-radius:8px;background:#0f2744;display:inline-block;\"></span>\n    <div>\n      <div style=\"font-size:15px;font-weight:700;color:#111827;\">Worley</div>\n      <div style=\"font-size:12px;color:#6b7280;\">Sponsored · Energy &amp; resources</div>\n    </div>\n  </div>\n  <div style=\"padding:4px 16px 14px;font-size:15px;line-height:1.55;color:#1f2937;\">{{text}}</div>\n  <img src=\"https://fpoimg.com/560x280?text=Post&text_color=8F8F8F&bg_color=e6e6e6\" alt=\"\" width=\"560\" height=\"280\" style=\"display:block;width:100%;height:auto;border:0;border-top:1px solid #f3f4f6;border-bottom:1px solid #f3f4f6;\"/>\n  {{#if question}}<div style=\"padding:12px 16px;background:#f9fafb;font-size:14px;color:#374151;border-top:1px solid #e5e7eb;\"><strong style=\"color:#0f2744;\">Question</strong> — {{question}}</div>{{/if}}\n  <div style=\"padding:14px 16px 16px;background:#f9fafb;\">\n    {{#if link}}<a href=\"{{link}}\" style=\"display:inline-block;padding:10px 16px;background:#1877f2;color:#fff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:600;\">{{call_to_action}}</a>{{else}}<span style=\"display:inline-block;padding:10px 16px;background:#0f2744;color:#fff;border-radius:8px;font-size:14px;font-weight:600;\">{{call_to_action}}</span>{{/if}}\n  </div>\n</div>"
+    },
+    {
+      "id": "email_content_template",
+      "name": "Email Content Template",
+      "template": "<div style=\"font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;background:#f1f5f9;padding:24px;\">\n  <div style=\"background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 10px 35px rgba(15,39,68,0.07);\">\n    <div style=\"padding:18px 22px 12px;border-bottom:1px solid #e2e8f0;background:linear-gradient(135deg,#0f2744 0%,#134e6f 100%);color:#f8fafc;\">\n      <div style=\"font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;\">Worley</div>\n      <div style=\"font-size:13px;margin-top:6px;opacity:0.9;\"><strong>Subject</strong> — {{subject_line}}</div>\n      <div style=\"font-size:12px;margin-top:8px;opacity:0.85;font-style:italic;\">{{preview_text}}</div>\n    </div>\n    <img src=\"https://fpoimg.com/600x200?text=Email&text_color=8F8F8F&bg_color=e6e6e6\" alt=\"\" width=\"600\" height=\"200\" style=\"display:block;width:100%;height:auto;border:0;\"/>\n    <div style=\"padding:22px 24px 26px;color:#1e293b;\">\n      <p style=\"margin:0 0 16px;font-size:15px;line-height:1.5;\">{{greeting}}</p>\n      <div style=\"font-size:15px;line-height:1.65;color:#334155;white-space:pre-wrap;\">{{body}}</div>\n      <div style=\"margin:22px 0 18px;text-align:left;\">\n        <a href=\"{{cta_url}}\" style=\"display:inline-block;padding:12px 22px;background:#0f2744;color:#ffffff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:700;\">{{call_to_action}}</a>\n      </div>\n      <p style=\"margin:0;font-size:13px;line-height:1.5;color:#64748b;border-top:1px solid #e2e8f0;padding-top:16px;\">{{closing}}</p>\n    </div>\n  </div>\n</div>"
+    },
+    {
+      "id": "blog_post_template",
+      "name": "Blog Post Template",
+      "template": "<article style=\"font-family:Georgia,ui-serif,serif;max-width:720px;margin:0 auto;background:#fff;color:#0f172a;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(15,39,68,0.08);\">\n  <header style=\"padding:28px 32px 8px;\">\n    <p style=\"margin:0 0 8px;font-family:system-ui,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#0f766e;font-weight:700;\">Insights</p>\n    <h1 style=\"margin:0;font-size:28px;line-height:1.25;font-weight:800;letter-spacing:-0.02em;color:#0f2744;\">{{title}}</h1>\n    <p style=\"margin:14px 0 0;font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;color:#64748b;\">{{meta_description}}</p>\n  </header>\n  <img src=\"https://fpoimg.com/720x300?text=Article&text_color=8F8F8F&bg_color=e6e6e6\" alt=\"\" width=\"720\" height=\"300\" style=\"display:block;width:100%;height:auto;border:0;border-top:1px solid #f1f5f9;border-bottom:1px solid #f1f5f9;\"/>\n  <div style=\"padding:8px 32px 0;font-family:system-ui,sans-serif;font-size:16px;line-height:1.75;color:#334155;\">\n    <div style=\"margin:20px 0;padding-left:14px;border-left:4px solid #0f2744;font-size:17px;color:#0f172a;\">{{introduction}}</div>\n    <div style=\"margin:18px 0;white-space:pre-wrap;\">{{body}}</div>\n    <div style=\"margin:22px 0;padding:16px 18px;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;\">{{conclusion}}</div>\n    <div style=\"margin:26px 0 32px;padding:14px 18px;background:#0f2744;color:#fff;border-radius:10px;font-weight:600;font-size:15px;\">{{call_to_action}}</div>\n    {{#if keywords}}<div style=\"margin:0 0 28px;font-family:system-ui,sans-serif;font-size:12px;color:#94a3b8;\"><strong style=\"color:#64748b;\">Keywords</strong> — {{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>{{/if}}\n  </div>\n</article>"
+    }
+  ],
+  "actions": [
+    {
+      "id": "initialize_flow",
+      "kind": "InitializeFlow",
+      "displayName": "Initialize",
+      "showToUser": false
+    },
+    {
+      "id": "retrieve_context_params",
+      "kind": "RetrieveContextParameterDocs",
+      "config": {
+        "outputVarName": "contextParameterDocuments",
+        "workflowTypeFilter": "account-enrichment",
+        "filterByCurrentFlow": true
+      },
+      "showToUser": false,
+      "displayName": "Retrieve Context Parameters"
+    },
+    {
+      "id": "extract_params",
+      "kind": "ExtractContextParams",
+      "config": {
+        "inputVarName": "__messages__",
+        "outputVarName": "contextParams"
+      },
+      "showToUser": false,
+      "displayName": "Extract Parameters"
+    },
+    {
+      "id": "review_params",
+      "kind": "ReviewContextParams",
+      "config": {
+        "inputVarName": "vars.contextParams",
+        "outputVarName": "reviewedContextParams"
+      },
+      "showToUser": true,
+      "displayName": "Review Parameters"
+    },
+    {
+      "id": "normalize_params",
+      "kind": "NormalizeParams",
+      "config": {
+        "inputVarName": "vars.reviewedContextParams",
+        "outputVarName": "normalizedParams"
+      },
+      "showToUser": false,
+      "displayName": "Normalize Parameters"
+    },
+    {
+      "id": "expand_variants",
+      "kind": "ExpandVariants",
+      "config": {
+        "inputVarName": "vars.normalizedParams",
+        "outputVarName": "variants",
+        "contextParamsVarName": "contextParameterDocuments"
+      },
+      "showToUser": false,
+      "displayName": "Expand Variants"
+    },
+    {
+      "id": "content_generation_loop",
+      "kind": "Foreach",
+      "index": "variantIndex",
+      "items": "=variants",
+      "value": "currentVariant",
+      "actions": [
+        {
+          "id": "extract_variant_structure",
+          "kind": "ExtractVariantStructure",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "structureKey": "channels",
+            "outputSchemaVarName": "structuredSchema",
+            "outputHtmlTemplateVarName": "htmlTemplate"
+          },
+          "showToUser": false,
+          "displayName": "Extract Structure"
+        },
+        {
+          "id": "compose_variant_message",
+          "kind": "ComposeMessageForVariant",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "systemPrompt": "You are generating marketing and thought-leadership content for Worley Group, a global professional services and project delivery firm focused on energy, chemicals, resources, sustainability, and infrastructure. Follow the user request and variant parameters (channel, audience, format). Use accurate, professional language suitable for executives and technical buyers. Do not invent client names, confidential metrics, or certifications.\n\nOutput rules (mandatory):\n- Produce final, publish-ready copy only—as if pasting directly into the live channel or CMS.\n- Do not explain how to create the content; no art direction, layout notes, stock-photo or video briefs, shot lists, or “use an image showing…” / “include a diagram of…” language.\n- No internal or workshop framing (e.g. “Key messages:”, “Draft for approval”, “Suggested visual”, “Social team:”, “In this post we will…”).\n- Every required field must contain actual words the audience reads, not bullets describing what someone should write later.\n- For image-related fields, use at most one short factual phrase for accessibility (alt-style), never a creative or production brief.",
+            "outputVarName": "variantMessage",
+            "messageTemplate": "Generate content for: {variantDescription}",
+            "includeOptionDetails": true
+          },
+          "showToUser": false,
+          "displayName": "Compose Message"
+        },
+        {
+          "id": "generate_content",
+          "kind": "GenerateContent",
+          "config": {
+            "model": "workflow-fast-model",
+            "loopVarName": "loop_content_generation_loop",
+            "temperature": 0.7,
+            "artifactKind": "content_item",
+            "inputVarName": "vars.variantMessage",
+            "systemPrompt": "Return only JSON that matches the provided schema. Every string value must be final audience-facing text: ready to post, send, or publish as-is. Do not output instructions to designers, marketers, or videographers; no creative briefs, outlines, or meta-commentary about how to build the asset. No placeholder language unless the schema field explicitly requires a URL or label that the user will replace—prefer real copy and use generic phrasing (e.g. “Learn more”) over “[INSERT LINK]”.",
+            "outputVarName": "generatedContent",
+            "htmlTemplateVar": "vars.htmlTemplate",
+            "structuredSchemaVar": "vars.structuredSchema"
+          },
+          "showToUser": true,
+          "displayName": "Generate Content"
+        },
+        {
+          "id": "save_document",
+          "kind": "SaveDocument",
+          "config": {
+            "kind": "content_item",
+            "titlePrefix": "Generated Content",
+            "contentVarName": "vars.generatedContent",
+            "documentIdVarName": "vars.documentId",
+            "titleSuffixVarName": "vars.variantDescription"
+          },
+          "showToUser": false,
+          "displayName": "Save Document"
+        }
+      ],
+      "showToUser": false,
+      "displayName": "Generate Content for Each Variant"
+    },
+    {
+      "id": "workflow_end",
+      "kind": "WorkflowEnd",
+      "displayName": "Complete",
+      "showToUser": false
+    }
+  ],
+  "version": 2,
+  "is_active": true
+}

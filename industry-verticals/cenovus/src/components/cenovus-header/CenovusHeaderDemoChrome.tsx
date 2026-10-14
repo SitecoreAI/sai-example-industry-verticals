@@ -1,0 +1,273 @@
+'use client';
+
+import { CenovusBrandLogo } from '@/components/cenovus-brand/CenovusBrandLogo';
+import {
+  demoHeaderUtility,
+  demoIntranetBrand,
+  demoNav,
+  demoRegionDefault,
+  type DemoRegion,
+} from '@/lib/cenovus-demo';
+import { CenovusRegionPicker } from './CenovusRegionPicker';
+import { ChevronDown, Menu, Search, TrendingDown, TrendingUp, X } from 'lucide-react';
+import NextLink from 'next/link';
+import React, { JSX, useCallback, useEffect, useRef, useState } from 'react';
+
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/shadcn/components/ui/drawer';
+
+type Props = {
+  id?: string;
+  styles?: string;
+};
+
+/** Full intranet header layout when no CMS header datasource is connected. */
+export function CenovusHeaderDemoChrome({ id, styles = '' }: Props): JSX.Element {
+  const searchAction = '/search';
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+  const [regionOpen, setRegionOpen] = useState(false);
+  const [selectedRegion, setSelectedRegion] = useState<DemoRegion>(demoRegionDefault);
+  const shellRef = useRef<HTMLElement>(null);
+
+  const closeAll = useCallback(() => {
+    setOpenMenuId(null);
+    setRegionOpen(false);
+  }, []);
+
+  useEffect(() => {
+    function onDocMouseDown(e: MouseEvent) {
+      const el = shellRef.current;
+      if (!el || !(e.target instanceof Node) || el.contains(e.target)) return;
+      closeAll();
+    }
+    document.addEventListener('mousedown', onDocMouseDown);
+    return () => document.removeEventListener('mousedown', onDocMouseDown);
+  }, [closeAll]);
+
+  return (
+    <header
+      ref={shellRef}
+      className={`font-body bg-background text-foreground shadow-sm ${styles}`}
+      id={id || undefined}
+    >
+      <div className="h-1 bg-[var(--color-brand-teal)]" aria-hidden />
+
+      <div className="border-border border-b bg-[var(--color-background-muted)]/60">
+        <div className="container flex flex-col gap-3 py-2 text-sm xl:flex-row xl:flex-wrap xl:items-center xl:justify-between xl:gap-x-4 xl:gap-y-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-foreground shrink-0">{demoHeaderUtility.welcomeText}</span>
+            <CenovusRegionPicker
+              regionOpen={regionOpen}
+              onRegionToggle={() => {
+                setRegionOpen((o) => !o);
+                setOpenMenuId(null);
+              }}
+              selectedRegion={selectedRegion}
+              onSelectRegion={(r) => {
+                setSelectedRegion(r);
+                setRegionOpen(false);
+              }}
+              prefix={demoHeaderUtility.regionPrefix}
+            />
+          </div>
+
+          <div className="flex flex-wrap items-center justify-start gap-6 xl:flex-1">
+            {demoHeaderUtility.stocks.map((s) => (
+              <span
+                key={s.label}
+                className={`inline-flex items-center gap-1 text-sm font-medium ${
+                  s.trend === 'down' ? 'text-[var(--color-danger)]' : 'text-[var(--color-success)]'
+                }`}
+              >
+                {s.trend === 'down' ? (
+                  <TrendingDown className="size-4 shrink-0" aria-hidden />
+                ) : (
+                  <TrendingUp className="size-4 shrink-0" aria-hidden />
+                )}
+                {s.display}
+              </span>
+            ))}
+          </div>
+
+          <nav
+            className="text-foreground-light flex flex-wrap items-center gap-x-4 gap-y-1 xl:justify-end"
+            aria-label="Utility links"
+          >
+            {demoHeaderUtility.utilityLinks.map((u) => (
+              <NextLink
+                key={u.label}
+                href={u.href}
+                className="text-xs underline-offset-4 transition-colors hover:text-[var(--color-foreground)] hover:underline"
+              >
+                {u.label}
+              </NextLink>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <div className="border-border border-b-4 border-[var(--color-brand-teal)]">
+        <div className="container flex items-center gap-3 py-3 min-[1025px]:gap-8 sm:gap-4 lg:gap-6">
+          <NextLink
+            href="/"
+            className="block shrink-0 text-[var(--color-foreground)] no-underline min-[1025px]:me-4 lg:me-2"
+            aria-label={demoIntranetBrand.homeAriaLabel}
+          >
+            <CenovusBrandLogo
+              className="h-10 w-auto max-w-[160px] object-contain min-[1025px]:max-w-[200px]"
+              priority
+            />
+          </NextLink>
+
+          <nav
+            className="font-heading hidden min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto lg:flex"
+            aria-label="Primary"
+          >
+            {demoNav.map((item) => {
+              const open = openMenuId === item.label;
+              const hasSubs = item.children.length > 0;
+              if (hasSubs) {
+                return (
+                  <div key={item.label} className="relative">
+                    <button
+                      type="button"
+                      className="flex items-center gap-1 px-2 py-2 text-xs font-bold tracking-wide text-[var(--color-brand-teal)] uppercase hover:text-[var(--color-accent)]"
+                      aria-expanded={open}
+                      aria-haspopup="true"
+                      onClick={() => {
+                        setRegionOpen(false);
+                        setOpenMenuId(open ? null : item.label);
+                      }}
+                    >
+                      {item.label}
+                      <ChevronDown className="size-3.5 shrink-0 opacity-70" aria-hidden />
+                    </button>
+                    {open && (
+                      <ul className="border-border absolute left-0 z-50 mt-0 min-w-[14rem] rounded-md border bg-[var(--color-background)] py-2 shadow-lg">
+                        {item.children.map((sub) => (
+                          <li key={sub.label}>
+                            <NextLink
+                              href={sub.href}
+                              className="text-foreground hover:bg-background-accent block px-4 py-2 text-sm no-underline"
+                            >
+                              {sub.label}
+                            </NextLink>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <div key={item.label} className="px-1">
+                  <NextLink
+                    href={item.href}
+                    className="inline-flex items-center px-2 py-2 text-xs font-bold tracking-wide text-[var(--color-brand-teal)] uppercase no-underline hover:text-[var(--color-accent)]"
+                  >
+                    {item.label}
+                  </NextLink>
+                </div>
+              );
+            })}
+          </nav>
+
+          <form
+            className="hidden min-w-0 flex-[0_1_24rem] min-[1025px]:block"
+            action={searchAction}
+            method="get"
+            role="search"
+          >
+            <label className="relative block w-full">
+              <span className="sr-only">Search</span>
+              <input
+                type="search"
+                name="q"
+                placeholder={demoHeaderUtility.searchPlaceholder}
+                className="font-body border-border focus-visible:ring-accent w-full rounded-full border-0 bg-[var(--color-background-muted)] py-2.5 pr-11 pl-4 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-foreground-light)] focus-visible:ring-2 focus-visible:outline-none"
+              />
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-[var(--color-brand-teal)]">
+                <Search className="size-5" aria-hidden />
+              </span>
+            </label>
+          </form>
+
+          <NextLink
+            href={searchAction}
+            className="hidden shrink-0 rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)] min-[1025px]:hidden lg:flex"
+            aria-label="Search"
+          >
+            <Search className="size-6" aria-hidden />
+          </NextLink>
+
+          <div className="ml-auto flex shrink-0 items-center gap-2 lg:hidden">
+            <NextLink
+              href={searchAction}
+              className="rounded-full p-2 text-[var(--color-brand-teal)] transition-colors hover:bg-[var(--color-background-muted)]"
+              aria-label="Search"
+            >
+              <Search className="size-6" aria-hidden />
+            </NextLink>
+
+            <Drawer direction="left">
+              <DrawerTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Open menu"
+                  className="text-foreground hover:text-foreground-light p-2 transition-colors"
+                >
+                  <Menu className="h-6 w-6" />
+                </button>
+              </DrawerTrigger>
+              <DrawerContent className="bg-background-accent !w-xl !max-w-full p-5">
+                <div className="flex h-full flex-col">
+                  <div className="mb-8 flex items-center justify-between">
+                    <span className="font-heading text-sm font-bold text-[var(--color-brand-teal)] uppercase">
+                      Menu
+                    </span>
+                    <DrawerClose asChild>
+                      <button type="button" aria-label="Close menu">
+                        <X className="h-5 w-5" />
+                      </button>
+                    </DrawerClose>
+                  </div>
+                  <ul className="flex flex-col gap-4">
+                    {demoNav.map((item) => (
+                      <li key={item.label} className="border-border border-b pb-4">
+                        {item.children.length > 0 ? (
+                          <>
+                            <p className="font-heading mb-2 text-xs font-bold tracking-wide text-[var(--color-brand-teal)] uppercase">
+                              {item.label}
+                            </p>
+                            <ul className="flex flex-col gap-2 pl-0">
+                              {item.children.map((sub) => (
+                                <li key={sub.label}>
+                                  <NextLink
+                                    href={sub.href}
+                                    className="text-foreground text-sm no-underline underline-offset-4 hover:underline"
+                                  >
+                                    {sub.label}
+                                  </NextLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : (
+                          <NextLink
+                            href={item.href}
+                            className="font-heading text-xs font-bold tracking-wide text-[var(--color-brand-teal)] uppercase no-underline"
+                          >
+                            {item.label}
+                          </NextLink>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </DrawerContent>
+            </Drawer>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

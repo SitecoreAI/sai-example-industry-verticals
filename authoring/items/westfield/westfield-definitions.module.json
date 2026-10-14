@@ -1,0 +1,47 @@
+{
+  "$schema": "../../../.sitecore/schemas/ModuleFile.schema.json",
+  "namespace": "Project.Westfield.Definitions",
+  "items": {
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Project/Westfield",
+        "scope": "ItemAndDescendants",
+        "allowedPushOperations": "CreateAndUpdate",
+        "maxRelativePathLength": 160
+      },
+      {
+        "name": "renderings",
+        "path": "/sitecore/layout/Renderings/Project/Westfield",
+        "scope": "ItemAndDescendants",
+        "allowedPushOperations": "CreateAndUpdate",
+        "maxRelativePathLength": 160
+      },
+      {
+        "name": "branches",
+        "path": "/sitecore/templates/Branches/Project/Westfield",
+        "scope": "ItemAndDescendants",
+        "allowedPushOperations": "CreateAndUpdate",
+        "maxRelativePathLength": 160
+      },
+      {
+        "name": "siteHeader",
+        "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "siteMain",
+        "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "siteFooter",
+        "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      }
+    ]
+  }
+}

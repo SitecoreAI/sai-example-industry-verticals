@@ -1,0 +1,195 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
+}
+
+.xa-variable {
+  border: 0px;
+  padding: 1px;
+  margin: 0px;
+  background-color: #ebebe4;
+  color: #545454;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Navigation Bar fix */
+#breadcrumbMenuSubcontrol_context_menu * {
+  box-sizing: initial;
+}
+/* End navigation bar fix */
+
+.menu-mobile-navigate {
+  display: none;
+}
+
+#header,
+#content,
+#footer,
+.sc-jss-empty-placeholder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sc-content-sdk-placeholder-error {
+  background: #ff0000;
+  outline: 5px solid #e36565;
+  padding: 10px;
+  color: #fff;
+  max-width: 500px;
+}
+
+.tww-clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+body .ck.ck-editor__editable_inline {
+  padding: 0;
+}
+
+.stop-transition * {
+  transition: none !important;
+}
+
+/*
+ * Cenovus: legacy starter rule above sets #content to flex + flex-wrap, which breaks
+ * nested grids (homepage hero, etc.)—especially in the Pages iframe. Apply block layout
+ * on every route via .cenovus-site-root, not only when the showcase shell class is on.
+ */
+.cenovus-site-root #header,
+.cenovus-site-root #content,
+.cenovus-site-root #footer {
+  display: block;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Flex/grid children need min-width 0 so long placeholders do not steal width in editors */
+.cenovus-site-root #content {
+  min-width: 0;
+}
+
+.cenovus-layout-shell main {
+  flex: 1 1 auto;
+}
+
+.cenovus-site-root main {
+  min-width: 0;
+}
+
+/* Use real device width for breakpoints (paired with viewport meta in Layout). */
+.cenovus-site-root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Below xl: keep wireframe grids single-column so tablet (~1024px) stacks instead of cramped 2fr/1fr. */
+@media (max-width: 1279.98px) {
+  .cenovus-site-root .cenovus-homepage-band-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-home-hero,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-company-news,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-onboarding-checklist,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-key-dates,
+  .cenovus-site-root .cenovus-homepage-band-grid > .cenovus-spotlights {
+    grid-column: auto;
+  }
+
+  .cenovus-site-root .cenovus-home-hero-split {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Pages can inject wrapper siblings as direct grid children; keep them from stealing the wide lane. */
+.cenovus-homepage-band-grid > * {
+  min-width: 0;
+}
+
+.editing-mode .cenovus-homepage-band-grid > :empty {
+  display: none !important;
+}
+
+/*
+ * Flatten Sitecore placeholder wrappers so section roots are grid items (same as Page Builder).
+ * Preview/Live omit .editing-mode — without this, wrappers steal grid cells and column rules never hit
+ * .cenovus-home-hero / .cenovus-key-dates / etc., breaking the 2fr / 1fr hero-band alignment.
+ */
+.cenovus-site-root
+  .cenovus-homepage-band-grid
+  > *:not(.cenovus-home-hero):not(.cenovus-key-dates):not(.cenovus-company-news):not(
+    .cenovus-spotlights
+  ):not(.cenovus-onboarding-checklist) {
+  display: contents !important;
+}
+
+/* Wireframe lanes: left content (2fr), right rail (1fr) */
+@media (min-width: 1280px) {
+  .cenovus-homepage-band-grid > .cenovus-home-hero,
+  .cenovus-homepage-band-grid > .cenovus-company-news,
+  .cenovus-homepage-band-grid > .cenovus-onboarding-checklist {
+    grid-column: 1;
+  }
+
+  .cenovus-homepage-band-grid > .cenovus-key-dates,
+  .cenovus-homepage-band-grid > .cenovus-spotlights {
+    grid-column: 2;
+  }
+}
+
+/* Homepage grid tiles: match Key dates card (border, radius, padding). */
+.cenovus-homepage-panel {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+@media (min-width: 1280px) {
+  .cenovus-homepage-panel {
+    padding: 2rem;
+  }
+}
+
+/* Two-column homepage bands: shorter tile matches taller sibling in the same row. */
+.cenovus-homepage-band-grid > .cenovus-home-hero,
+.cenovus-homepage-band-grid > .cenovus-key-dates,
+.cenovus-homepage-band-grid > .cenovus-company-news,
+.cenovus-homepage-band-grid > .cenovus-spotlights,
+.cenovus-homepage-band-grid > .cenovus-onboarding-checklist {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.cenovus-homepage-band-grid > .cenovus-home-hero > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-key-dates > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-company-news > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-spotlights > div:first-child,
+.cenovus-homepage-band-grid > .cenovus-onboarding-checklist > div:first-child {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.cenovus-homepage-band-grid .cenovus-homepage-panel {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  min-height: 0;
+}

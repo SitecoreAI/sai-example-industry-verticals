@@ -1,0 +1,35 @@
+@theme {
+  /* Textron brand: corporate blue (Bahama Blue #004F85, dark blue #1F3469) */
+  --color-foreground: #1f3469;
+  --color-foreground-light: #5a6c7d;
+
+  --color-background: #ffffff;
+  --color-background-accent: #e8eef3;
+  --color-background-muted: #f0f4f8;
+
+  --color-accent: #004f85;
+
+  --color-success: #0d9488;
+  --color-danger: #dc2626;
+
+  --color-border: #c5d3e0;
+
+  /* Google Fonts: corporate sans-serif to match textron.com */
+  --font-heading: 'Source Sans 3', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+
+  --radius-base: 0rem;
+
+  /*
+  This does not show in the theme editor
+  but is used to override the defaults based on the user's selection for radius-base
+  */
+  --radius-xs: calc(var(--radius-base) * 0.25);
+  --radius-sm: calc(var(--radius-base) * 0.5);
+  --radius-md: var(--radius-base);
+  --radius-lg: calc(var(--radius-base) * 1.5);
+  --radius-xl: calc(var(--radius-base) * 2);
+  --radius-2xl: calc(var(--radius-base) * 3);
+  --radius-3xl: calc(var(--radius-base) * 4);
+  --radius-4xl: calc(var(--radius-base) * 5);
+}

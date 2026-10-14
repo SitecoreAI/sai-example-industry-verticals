@@ -1,0 +1,17 @@
+.component.title > .component-content {
+  padding: 20px;
+}
+
+.title {
+  @apply my-8;
+
+  h1,
+  .field-title {
+    @apply cursor-pointer no-underline;
+
+    > a,
+    > span {
+      @apply no-underline;
+    }
+  }
+}
