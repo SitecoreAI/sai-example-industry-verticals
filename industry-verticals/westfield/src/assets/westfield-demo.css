@@ -1,0 +1,88 @@
+.westfield-demo-launch {
+  min-height: 100vh;
+  padding: 64px 24px;
+  color: #414741;
+  background: #f2f2f2;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.westfield-demo-launch__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.westfield-demo-launch__eyebrow {
+  color: #4d654d;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.westfield-demo-launch h1 {
+  margin: 16px 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.12;
+}
+
+.westfield-demo-launch p {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.westfield-demo-launch__people {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.westfield-demo-launch__person {
+  padding: 28px;
+  border: 1px solid #d4dad0;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.westfield-demo-launch__person h2 {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.westfield-demo-launch__email {
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.westfield-demo-launch button {
+  min-height: 48px;
+  margin-top: 12px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  background: #256a1c;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.westfield-demo-launch button:focus-visible {
+  outline: 3px solid #4d514d;
+  outline-offset: 4px;
+}
+
+.westfield-demo-launch button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+@media (max-width: 640px) {
+  .westfield-demo-launch {
+    padding: 32px 20px;
+  }
+
+  .westfield-demo-launch__people {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,4 @@
-import { type NextRequest, type NextFetchEvent } from 'next/server';
+import { NextResponse, type NextRequest, type NextFetchEvent } from 'next/server';
 import {
   defineMiddleware,
   MultisiteMiddleware,
@@ -41,6 +41,8 @@ const personalize = new PersonalizeMiddleware({
   sites,
   ...scConfig.api.edge,
   ...scConfig.personalize,
+  // Match the public live context used by browser events and its identity cookie.
+  contextId: scConfig.api.edge.clientContextId || scConfig.api.edge.contextId,
   // This function determines if the middleware should be turned off on per-request basis.
   // Certain paths are ignored by default (e.g. Next.js API routes), but you may wish to disable more.
   // By default it is disabled while in development mode.
@@ -49,6 +51,10 @@ const personalize = new PersonalizeMiddleware({
 });
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
+  // The unlinked presenter page is an application route, outside CMS content.
+  if (req.nextUrl.pathname === '/demo' || req.nextUrl.pathname === '/demo/') {
+    return NextResponse.next();
+  }
   return defineMiddleware(multisite, redirects, personalize).exec(req, ev);
 }
 
