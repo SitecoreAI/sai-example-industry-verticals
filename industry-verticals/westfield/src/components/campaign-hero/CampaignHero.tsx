@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { Image, RichText, Text } from '@sitecore-content-sdk/nextjs';
 import type { Field, ImageField } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
+import { nativeMediaSource } from 'lib/native-media';
 
 export type CampaignHeroProps = ComponentProps & {
   fields?: {
@@ -30,6 +31,7 @@ export const Default = ({ fields, params }: CampaignHeroProps): JSX.Element => (
         <Image
           className="westfield-campaign-hero__image"
           field={fields?.Image}
+          {...nativeMediaSource(fields?.Image)}
           loading="eager"
           fetchPriority="high"
         />

@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 import { Image, Link, RichText, Text } from '@sitecore-content-sdk/nextjs';
 import type { Field, ImageField, LinkField } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
+import { nativeMediaSource } from 'lib/native-media';
 
 export type SiteFooterProps = ComponentProps & {
   fields?: {
@@ -27,11 +28,26 @@ export const Default = ({ fields, params }: SiteFooterProps): JSX.Element => (
     <div className="component-content westfield-footer__inner">
       <div className="westfield-footer__main">
         <div className="westfield-footer__brand">
-          <Image className="westfield-footer__logo" field={fields?.Logo} width={288} height={56} />
+          <Image
+            className="westfield-footer__logo"
+            field={fields?.Logo}
+            {...nativeMediaSource(fields?.Logo)}
+            width={210}
+            height={41}
+          />
           <address className="westfield-footer__address">
             <RichText field={fields?.Address} />
           </address>
-          {fields?.Phone ? <Link className="westfield-footer__phone" field={fields.Phone} /> : null}
+          {fields?.Phone ? (
+            <Link
+              className="westfield-footer__phone"
+              field={fields.Phone}
+              {...(typeof fields.Phone.value.url === 'string' &&
+              fields.Phone.value.url.startsWith('tel:')
+                ? { href: fields.Phone.value.url }
+                : {})}
+            />
+          ) : null}
         </div>
         <nav className="westfield-footer__service-nav" aria-label="Contact and account">
           <ul className="westfield-footer__links">

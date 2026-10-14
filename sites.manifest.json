@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "Repository source inventory. Native/live/profile/DAM bindings are unverified; no remote lifecycle action is implemented.",
+  "description": "Repository source inventory with separately evidenced native bindings. Unverified statuses are not promoted by source checks; no remote lifecycle action is implemented.",
   "sources": {
     "main": {
       "commit": "6c7c2a890d18abfc0a856e6f334c2a64ac54c067",
@@ -992,6 +992,14 @@
       "ownership": "platform-shared",
       "status": "target template/SXA baseline unverified",
       "retirement": "Retain platform/SXA definitions; these are not Westfield-owned resources."
+    },
+    {
+      "id": "shared-content-hub-dam",
+      "moduleNamespaces": [],
+      "ownership": "environment-shared",
+      "status": "Existing shared CM DAM connector retained; API authentication blocked HTTP 401.",
+      "host": "https://thlt-demo.sitecoresandbox.cloud",
+      "retirement": "Retain shared Content Hub instance, CM connector, credentials, service accounts, global theme/Brand Kit, taxonomies, access settings and all unrelated assets/collections. Only exact Westfield-created IDs with verified exclusive references can be considered for retirement."
     }
   ],
   "modules": [
@@ -2111,12 +2119,17 @@
           "branch": "main",
           "commit": "6c7c2a890d18abfc0a856e6f334c2a64ac54c067",
           "path": "industry-verticals/starter"
+        },
+        "deployedFrontend": {
+          "branch": "main",
+          "commit": "7b326c6d1f974b02a10adedd2ac661eb1c7faeb6",
+          "status": "READY live deployment; uncommitted review fixes are separate"
         }
       },
       "renderingHost": {
         "key": "westfield",
         "path": "./industry-verticals/westfield",
-        "status": "source-configured; remote editing/live host unverified",
+        "status": "source-configured; native editing host created, deployment in progress; separate Vercel live host verified",
         "sourceBranch": "westfield",
         "sourceCommit": null
       },
@@ -2125,10 +2138,11 @@
       ],
       "seedModules": [],
       "sharedDependencies": [
-        "sitecore-platform-baseline"
+        "sitecore-platform-baseline",
+        "shared-content-hub-dam"
       ],
       "ownership": {
-        "status": "source definition scopes plus verified native site boundary; media-library ownership unverified",
+        "status": "Source definition scopes, native site identity and four native CMS media identities verified; reference exclusivity must be rechecked before retirement.",
         "sourcePaths": [
           "industry-verticals/westfield",
           "authoring/items/westfield",
@@ -2143,7 +2157,9 @@
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
           "/sitecore/content/Westfield/westfield"
         ],
-        "mediaPaths": [],
+        "mediaPaths": [
+          "/sitecore/media library/Project/Westfield/westfield"
+        ],
         "intendedContentRoot": "/sitecore/content/Westfield",
         "definitionPaths": [
           "/sitecore/templates/Project/Westfield",
@@ -2162,48 +2178,208 @@
           "siteId": "6eb93467-04c2-4cb2-a55d-06a94152adcf",
           "sitePath": "/sitecore/content/Westfield/westfield",
           "cmsMediaFolderPath": "/sitecore/content/Westfield/westfield/Media",
-          "verificationScope": "Collection/site identity and CMS Media folder only. This does not verify definition deployment, editing host, native editing or publication."
+          "verificationScope": "Collection/site identity, native CMS Media folder, API seed, named partials/variants/palette/page design/branch and native field save/reload. Authenticated authoring UI proof remains unverified.",
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "seedStatus": "complete-api",
+          "publication": {
+            "status": "verified",
+            "state": "FINISHED",
+            "processedItems": 255,
+            "failed": false,
+            "language": "en",
+            "targetDatabase": "experienceedge"
+          },
+          "authoringUiStatus": "unverified",
+          "pageBranchUiInsertionStatus": "unverified",
+          "recordedSeedRootItemCount": 25
         },
         "live": {
-          "status": "unverified",
-          "hostingProjectId": null,
-          "url": null,
-          "aliases": []
+          "status": "verified",
+          "hostingProjectId": "prj_sgKSs3x35g8zI31gBAswDJPznSeo",
+          "url": "https://thlt-westfield-demo.vercel.app",
+          "aliases": [
+            "thlt-westfield-demo.vercel.app"
+          ],
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "deploymentId": "dpl_DvcbsvCBHpUoo9zS3AdpmNNMM7Bq",
+          "deploymentStatus": "READY",
+          "sourceBranch": "main",
+          "sourceCommit": "7b326c6d1f974b02a10adedd2ac661eb1c7faeb6",
+          "verificationScope": "Five public route GETs 200, native fields for five components and four distinct CMS images delivered. Desktop 1440 Home -> Explore paperless click, loaded images and no overflow verified in browser.",
+          "browserQaStatus": "partial",
+          "desktop": {
+            "width": 1440,
+            "homeToPaperlessClick": "verified",
+            "imagesLoaded": "verified",
+            "horizontalOverflow": "none observed"
+          },
+          "mobile": {
+            "width": 390,
+            "homeAndPaperlessOverflow": "none observed",
+            "mainNavigationOpenAndHomeClick": "verified",
+            "instagramHorizontalOverflow": "failed: scrollWidth 712 at viewport 390; fix in progress"
+          },
+          "caseyLauncher": {
+            "status": "verified browser SDK identity plus identity event before redirect to Instagram",
+            "nativeFirstRenderDecisionStatus": "unverified"
+          },
+          "neutralCampaignBaseline": "expected until native decision is configured",
+          "directAuthoringUiStatus": "unverified"
         },
         "profiles": {
-          "status": "unverified",
+          "status": "verified",
           "scope": null,
-          "recordIds": [],
-          "extensionKey": "westfieldPaperlessEnrolled"
+          "recordIds": [
+            "4c3a1a56-382d-48c3-87f4-04936f13a525",
+            "a181ded8-1de7-4236-a872-325f99dd8e7e"
+          ],
+          "extensionKey": "westfieldPaperlessEnrolled",
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "batchId": "5fba33d8-26ad-41ea-99d8-3f8def82387d",
+          "importState": "COMPLETED",
+          "totalRecords": 2,
+          "succeededRecords": 2,
+          "failedRecords": 0,
+          "deletedRecords": 0,
+          "verificationScope": "Import processing receipt confirms two allowlisted synthetic profiles created successfully. This does not verify profile flag hydration, UDL/session matching or native first-render decision.",
+          "browserCaseyIdentityLaunchStatus": "verified",
+          "profileFlagHydrationStatus": "unverified",
+          "nativeFirstRenderDecisionStatus": "unverified"
         },
         "dam": {
           "status": "unverified",
           "collectionIds": [],
-          "assetIds": []
+          "assetIds": [],
+          "mode": "existing-shared-dam",
+          "host": "https://thlt-demo.sitecoresandbox.cloud",
+          "writeScope": "New Westfield-only collections and assets; exact IDs must be recorded before retirement.",
+          "authenticationStatus": "blocked-http-401",
+          "authenticationStage": "POST /oauth/token",
+          "authenticationAttempts": 2,
+          "usernameClassification": "explicit-service-name; value not recorded",
+          "connectorChanged": false,
+          "verificationScope": "Configured password grant and one authorized demo-password attempt both returned HTTP 401; no API reads, assets, collections, approval or delivery links created."
         },
         "definitions": {
-          "status": "unverified",
+          "status": "verified",
           "module": "Project.Westfield.Definitions",
           "placeholderFolderId": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
           "placeholderSettingsPaths": [
             "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
             "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
             "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer"
-          ]
+          ],
+          "verifiedDate": "2026-10-14",
+          "database": "master",
+          "serializedItemCount": 71,
+          "datasourceFieldCount": 29,
+          "verificationScope": "All 71 serialized item identities/paths, inheritance, three exact site placeholders and native rendering datasource/template/parameters fields verified. Scoped publication completed; Page Builder editing/palette/variant UI remains unverified.",
+          "authoringStatus": "unverified",
+          "publicationStatus": "verified",
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "publicationProcessedItems": 255,
+          "siteVariantGroupCount": 5,
+          "siteVariantCount": 6
         },
         "media": {
-          "status": "unverified",
+          "status": "verified",
           "cmsFolderPath": "/sitecore/content/Westfield/westfield/Media",
-          "assetLibraryPath": null,
-          "assetIds": []
+          "assetLibraryPath": "/sitecore/media library/Project/Westfield/westfield",
+          "assetIds": [
+            "04ed27e2-8b90-42d3-96cf-daf6f81d307f",
+            "e7e77f20-5f33-4a7d-b33e-4976391e3ca9",
+            "894ad5a1-0e80-4c08-a2f5-d1713d822a49",
+            "01566ecc-9bc3-4281-8c50-9ccedc59c4b0"
+          ],
+          "verifiedDate": "2026-10-14",
+          "assetLibraryFolderId": "021d0cbd-401f-47d2-a9d1-3c8dd7a223ea",
+          "assets": [
+            {
+              "key": "homeHero",
+              "mediaId": "04ed27e2-8b90-42d3-96cf-daf6f81d307f",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Home hero",
+              "width": 590,
+              "height": 469,
+              "sha256": "03e4806605ded4693675538f68b4179a2974d512e9e4c2efb1a22c5ecc8b29d1"
+            },
+            {
+              "key": "myWestfield",
+              "mediaId": "e7e77f20-5f33-4a7d-b33e-4976391e3ca9",
+              "path": "/sitecore/media library/Project/Westfield/westfield/MyWestfield",
+              "width": 690,
+              "height": 512,
+              "sha256": "ee9368b3a5fd79a4f2ef8032bc99eba7f79cdb899e58ed7a5001b089d22ecac2"
+            },
+            {
+              "key": "headerLogo",
+              "mediaId": "894ad5a1-0e80-4c08-a2f5-d1713d822a49",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Header logo",
+              "width": 288,
+              "height": 56,
+              "sha256": "d572983ddc256928eee935b33b53fe3556449c7e995d1f58fabd09cb59a084d1"
+            },
+            {
+              "key": "footerLogo",
+              "mediaId": "01566ecc-9bc3-4281-8c50-9ccedc59c4b0",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Footer logo",
+              "width": 210,
+              "height": 41,
+              "sha256": "0f620866a65f476567fa105e01e4d43364ce01e1aa9e53adf4e5e48315f9a006"
+            }
+          ],
+          "source": "native-cms-media-not-content-hub-dam",
+          "verificationScope": "Four upload identities/source hashes/dimensions verified; initial scoped publication FINISHED and four native Edge image GETs returned 200. Native field images load publicly. Direct authoring Image picker and DAM selection remain unverified.",
+          "publicationStatus": "verified",
+          "cmsImageSelectionStatus": "unverified",
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "liveGetStatus": "verified",
+          "liveGet200Count": 4,
+          "sdkNativeImageRenderingStatus": "verified"
+        },
+        "editing": {
+          "status": "in-progress",
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "projectId": "157Ltxya8cpVwADS0lP7Vw",
+          "environmentId": "6Is64ZrdfzLpF1nDBtUSxd",
+          "deploymentId": "y9UxLLstFSoz4RS13JnpV",
+          "hostCreated": true,
+          "buildStatus": 2,
+          "deploymentStatus": 1,
+          "statusEvidence": "Latest native deployment CLI status receipt; deployment still in progress.",
+          "readinessStatus": "unverified",
+          "authoringUiStatus": "unverified"
+        },
+        "personalization": {
+          "status": "unverified",
+          "checkedAtUTC": "2026-10-14T22:58:03.775400+00:00",
+          "nativeDatasourceIds": [
+            "e0bd1347f9af4591a07988bdccc73aad",
+            "31f012d33df04f3a94d67dfca632c272"
+          ],
+          "nativeDatasourcePaths": [
+            "/sitecore/content/Westfield/westfield/Home/paperless/Data/Paperless offer",
+            "/sitecore/content/Westfield/westfield/Home/paperless/Data/Paperless enrolled"
+          ],
+          "saveReloadApiStatus": "verified",
+          "datasourcePublicationStatus": "verified",
+          "datasourcePublicationProcessedItems": 2,
+          "decisionConfigured": false,
+          "layoutUnchangedByDatasourcePreparation": true,
+          "nativeFirstRenderDecisionStatus": "unverified",
+          "attributionStatus": "unverified",
+          "verificationScope": "Two alternate CampaignAction datasources are authored and published; finite variants exist. Prepared content and successful profile import do not establish a native profile-derived decision."
         }
       },
       "notes": [
         "Independent Westfield definitions and rendering host; no dependency on Project.IndustryVerticals.",
-        "The target collection/site IDs and paths are verified; definition deployment, editing/live hosts, authoring and publication remain unverified.",
-        "Native Media content folder is verified; actual asset media-library path/ownership remains pending.",
-        "Old westfield-luxury-retail was intentionally excluded.",
-        "Developer-owned placeholders are three exact singleItem definitions in this site Presentation/Placeholder Settings folder; the global Westfield placeholder root is excluded."
+        "Collection/site, 71 serialized native definition identities, API-authored initial content and four native CMS media IDs/paths verified; initial scoped publication FINISHED with 255 processed items.",
+        "Vercel live production is READY at main commit 7b326c6d1f974b02a10adedd2ac661eb1c7faeb6; current uncommitted review fixes are not yet deployed.",
+        "Two synthetic profiles imported successfully and two alternate CampaignAction datasources saved/reloaded/published. Native profile-derived first-render decision remains unconfigured/unverified.",
+        "Page Builder field/Image/Link/datasource/variant UI, fresh author Create page and editing-host readiness remain unverified.",
+        "Desktop journey and mobile Home/Paperless/navigation checks pass; Instagram mobile overflow is a known unresolved QA failure.",
+        "Developer-owned placeholders are three exact singleItem definitions; generated context folder and global Westfield placeholder root are excluded from definition deployment.",
+        "Shared DAM retained; password-grant authentication returned HTTP 401. No DAM assets/collections, delivery or native selection proof yet.",
+        "Old westfield-luxury-retail was intentionally excluded."
       ]
     },
     {
@@ -2263,5 +2439,6 @@
         "Empty ownership/seed lists mean unverified, not proof that no native content or assets exist."
       ]
     }
-  ]
+  ],
+  "lastWestfieldAuditUTC": "2026-10-14T22:58:03.775400+00:00"
 }
