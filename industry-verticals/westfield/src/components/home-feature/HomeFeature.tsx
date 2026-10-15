@@ -3,6 +3,7 @@ import { Image, Link, RichText, Text } from '@sitecore-content-sdk/nextjs';
 import type { HomeCardProps } from 'components/home-card/HomeCard';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
 import { nativeMediaSource } from 'lib/native-media';
+import { nativeLinkProps } from 'lib/native-link';
 
 type FeaturePresentation = 'default' | 'video' | 'mywestfield' | 'about';
 
@@ -62,6 +63,7 @@ const HomeFeature = ({
                   <Link
                     className="wf-home-body-button"
                     field={fields.Link}
+                    {...nativeLinkProps(fields.Link)}
                     {...campaignLoginProps(fields.Link, campaignQuery)}
                   />
                 </div>

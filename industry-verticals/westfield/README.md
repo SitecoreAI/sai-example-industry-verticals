@@ -8,13 +8,21 @@ The package ranges remain those supplied by the starter. The inherited lockfile 
 
 | Component | Datasource fields | Presentation exports |
 | --- | --- | --- |
-| CampaignHero | Eyebrow, Heading, Body, Image | Default |
+| CampaignHero | Eyebrow, Heading, Body, Image | Default, Home |
 | CampaignAction | Heading, Body, Link | Default, Quiet |
-| CampaignContent | Heading, Body | Default |
-| SiteHeader | Logo; HomeLink, BusinessLink, HomeAndAutoLink, AboutLink, CareersLink, PaperlessLink, AccountLink, ClaimsLink, AgentLink, BillingLink, ContactLink | Default |
-| SiteFooter | Logo, Address, Phone, ContactLink, AccountLink, PrivacyLink, TermsLink, Copyright | Default |
+| CampaignContent | Heading, Body | Default, HomeLegal |
+| SiteHeader | Logo; native navigation/login links; BusinessLinks, HomeAutoLinks, AboutLinks, CareersLinks | Default |
+| SiteFooter | Logo, Address, Phone, ContactLink, AccountLink, PrivacyLink, TermsLink, Copyright; ProductsTitle, CompanyTitle, ConnectTitle, LegalBody; ProductsLinks, CompanyLinks, ConnectLinks, SocialLinks, LegalLinks | Default |
+| ArticleHeader | Route Title, pageSummary, Topic, ReadTime, HeroImage | Default |
+| ArticleBodyLayout | No datasource; native article-content placeholder | Default |
+| ArticleText | Heading, Body | Default |
+| AdviceListing | No datasource; route Title/pageSummary and published article API | Default |
+| SearchResults | No datasource; route Title/pageSummary and published website search API | Default |
+| HomeSection | Eyebrow, Heading, Body, Link; native home-cards dynamic placeholder | Default, Services, Account, Benefits, News |
+| HomeCard | Eyebrow, Heading, Body, Image, Link | Default |
+| HomeFeature | Eyebrow, Heading, Body, Image, Link, VideoUrl | Default, Video, MyWestfield, About |
 
-Components receive original Content SDK fields. Native datasources determine both link labels and destinations. `CampaignAction.Quiet` is a presentation option; it does not encode customer status. Header/footer content is intended for shared partials. Ordinary campaign content belongs in page-local Data.
+Components receive original Content SDK fields. Native fields supply authored copy and destinations; the fixed Customer login label and generic control labels are interface copy. Links preserve their original SDK field objects and editing metadata. `CampaignAction.Quiet` is a presentation option; it does not encode customer status. Header/footer content is intended for shared partials. Ordinary campaign content belongs in page-local Data.
 
 ## Application setup
 
@@ -39,9 +47,9 @@ The earlier direct-to-Home **UTM Campaign** test returned the original Hero firs
 | Campaign datasource | `a275f458-496b-40cc-8448-454980cfc4be` at `/sitecore/content/Westfield/westfield/Home/Data/Next chapter campaign` |
 | Campaign experience | `77f8d59b-99dd-4451-9ecb-61d97905f04f` |
 
-The preview first-document evidence above verifies this configured contract through the entry route. Production release evidence is recorded separately in the handoff and deployment metadata. Home's separate nonpersonalized coverage promotion is **Protection for wherever life takes you** / **Explore home and auto**, linking to the public reference `https://www.westfieldinsurance.com/home-and-auto`.
+The preview first-document evidence above verifies this configured contract through the entry route. Production release evidence is recorded separately in the handoff and deployment metadata. The original Home now uses the official reference replica with nine native main placements and fourteen cards. Unsupported demo navigation destinations are authored as `#`; supported `/login`, `/advice` and `/search` journeys remain available. The existing native campaign UID, datasource and final rendering rules are retained. Frontend release and browser acceptance are recorded separately in handover evidence; the preview evidence above remains historical.
 
-Existing customers use the Header **Log in** link to reach the SSO-style local demo `/login`; header/footer navigation preserves allowed campaign parameters. Use `casey@example.com` or `jordan@example.com`, with the literal password `password`. This synthetic local acceptance gate is not production authentication. The password remains in the browser and is never serialized into a request or URL. After acceptance, the Cloud SDK establishes a fresh browser identity and sends the matching existing native identifier: `westfield-demo-unenrolled@example.invalid` for Casey or `westfield-demo-enrolled@example.invalid` for Jordan. Navigation waits for the native identity response and retains campaign attribution.
+Existing customers use the Header **Login → Customer** option to reach the SSO-style local demo `/login`; header/footer navigation preserves allowed campaign parameters. Use `casey@example.com` or `jordan@example.com`, with the literal password `password`. This synthetic local acceptance gate is not production authentication. The password remains in the browser and is never serialized into a request or URL. After acceptance, the Cloud SDK establishes a fresh browser identity and sends the matching existing native identifier: `westfield-demo-unenrolled@example.invalid` for Casey or `westfield-demo-enrolled@example.invalid` for Jordan. Navigation waits for the native identity response and retains campaign attribution.
 
 The destination remains `/paperless`, the existing native page now containing general MyWestfield account content. Its native false/true UDL-derived decision recommends **Sign up for paperless billing** to Casey and **Keep your coverage in step with life** to Jordan. The frontend does not store or submit an enrollment flag. Restart through `/demo` before rehearsing the other account.
 

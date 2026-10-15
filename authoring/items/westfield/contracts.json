@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "module": "Project.Westfield.Definitions",
-  "status": "117 source definitions prepared: the previous 94-item native/Advice baseline remains verified; 23 additive Home definitions and the extended Main allowed list await native deployment and authoring/UI/live acceptance.",
+  "status": "117 native definition identities are deployed and verified. Home has nine main placements, fourteen nested cards and twenty-two native CMS images; scoped publication and local HTTP checks passed. Frontend release and browser acceptance are recorded separately in handover evidence.",
   "ownership": "developer-owned definitions only; no authored page/site/content/media items",
   "roots": [
     "/sitecore/templates/Project/Westfield",
@@ -783,7 +783,7 @@
       ]
     }
   ],
-  "authoredConfigurationBoundary": "Page/Partial Designs, populated page branches, palette groups, native variant instances and page-local Data are one-time authored configuration. Supported CreateItem assigns actual IDs; ordinary definition releases do not replay authored content. Actual authored ownership is in sites.manifest.json; new Home configuration remains pending.",
+  "authoredConfigurationBoundary": "Page/Partial Designs, populated page branches, palette groups, native variant instances and page-local Data are one-time authored configuration. Supported CreateItem assigns actual IDs; ordinary definition releases do not replay authored content. Actual authored ownership is in sites.manifest.json, including the 126 created Home configuration items, 22 CMS image field references and eight optional device presets. Ordinary definition releases do not replay those authored items; frontend release and browser acceptance are recorded separately in handover evidence.",
   "platformProvenance": {
     "templateRoot": {
       "source": "authoring/items/industry-verticals/common/items/templatesProject/industry-verticals.yml",
@@ -1588,7 +1588,7 @@
       "file": "items/templates/Westfield/Parameters/Component Parameters.yml"
     }
   ],
-  "rootIdentityStatus": "The previous 94 definition identities are verified. The Home Cards exact singleItem leaf and 22 other Home additions are source-prepared. The existing Placeholder Settings parent remains a metadata-only singleItem scaffold, with no descendants or Presentation scope.",
+  "rootIdentityStatus": "All 117 source definition identities are verified against native master, including the exact Home Cards singleItem leaf and 22 other additive Home definitions. The existing Placeholder Settings parent remains a metadata-only singleItem scaffold, with no descendants or broad Presentation scope.",
   "nativeRootBindings": {
     "/sitecore/templates/Project/Westfield": {
       "id": "ab0434e0-a27e-4507-bb6b-171e2c134dc0",
@@ -1624,9 +1624,9 @@
   "targetAuthoringBaseline": {
     "repository": "SitecoreAI/xmcloud-starter-js",
     "branch": "slb",
-    "verifiedCommit": "08b68d568b0c26dc9040991338f2d26b3ff90944",
+    "verifiedCommit": "b36a3b5d29ec4a40e35208640b76e0f2fcfde82a",
     "additiveSourceChange": "Mirror only Westfield developer definitions into the isolated slb-based authoring branch. Preserve unrelated modules, build configuration and authored content.",
-    "nativeDeploymentStatus": "94 baseline definition identities/site placeholder discovery remain verified. The 23 additive Home source definitions and extended Main allowed list have not yet been deployed."
+    "nativeDeploymentStatus": "All 117 definition identities and the extended Main allowed list are deployed and verified. Native Add confirmed the Home Cards slot pattern and scoped Home content/media publication passed. Frontend release and browser acceptance are recorded separately in handover evidence; prior 94-item Advice evidence remains historical."
   },
   "nativeInheritance": {
     "pageBase": {

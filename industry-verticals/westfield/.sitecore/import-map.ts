@@ -8,9 +8,10 @@ import {
 // end of built-in imports
 
 import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
-import { useEffect, useId, useRef, useState, Fragment } from 'react';
+import { useEffect, useId, useRef, useState, Fragment, useContext } from 'react';
 import React from 'react';
 import { nativeMediaSource } from 'lib/native-media';
+import { nativeLinkProps } from 'lib/native-link';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
 import { Caret, Chevron, CloseIcon, MenuIcon, SearchIcon, BackToTopIcon, LocationIcon, MailIcon, PhoneIcon, HeroSun } from 'lib/westfield-icons';
 import { AgentFinder } from 'lib/agent-finder';
@@ -23,6 +24,7 @@ import { useStopResponsiveTransition } from '@/hooks/useStopResponsiveTransition
 import { extractMediaUrl } from '@/helpers/extractMediaUrl';
 import { getLinkContent, getLinkField, isNavLevel, isNavRootItem, prepareFields } from '@/helpers/navHelpers';
 import clsx from 'clsx';
+import { HomeNewsContext } from 'lib/home-news';
 import Head from 'next/head';
 import client from 'lib/sitecore-client';
 import Image_5d8ce56058442d94361877e28c501c951a554a6a from 'next/image';
@@ -55,6 +57,7 @@ const importMap = [
       { name: 'useRef', value: useRef },
       { name: 'useState', value: useState },
       { name: 'Fragment', value: Fragment },
+      { name: 'useContext', value: useContext },
       { name: 'default', value: React },
     ]
   },
@@ -62,6 +65,12 @@ const importMap = [
     module: 'lib/native-media',
     exports: [
       { name: 'nativeMediaSource', value: nativeMediaSource },
+    ]
+  },
+  {
+    module: 'lib/native-link',
+    exports: [
+      { name: 'nativeLinkProps', value: nativeLinkProps },
     ]
   },
   {
@@ -148,6 +157,12 @@ const importMap = [
     module: 'clsx',
     exports: [
       { name: 'default', value: clsx },
+    ]
+  },
+  {
+    module: 'lib/home-news',
+    exports: [
+      { name: 'HomeNewsContext', value: HomeNewsContext },
     ]
   },
   {

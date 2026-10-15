@@ -5,6 +5,7 @@ import type { Field, ImageField, LinkField } from '@sitecore-content-sdk/nextjs'
 import type { ComponentProps } from 'lib/component-props';
 import type { HeaderMenuItem } from 'components/site-header/SiteHeader';
 import { nativeMediaSource } from 'lib/native-media';
+import { nativeLinkProps } from 'lib/native-link';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
 import { AgentFinder } from 'lib/agent-finder';
 import { BackToTopIcon, Caret, LocationIcon, MailIcon, PhoneIcon } from 'lib/westfield-icons';
@@ -13,7 +14,7 @@ const NativeLink = ({
   field,
   ...props
 }: Omit<ReactComponentProps<typeof Link>, 'field'> & { field?: LinkField }): JSX.Element | null =>
-  field ? <Link field={field} {...props} /> : null;
+  field ? <Link field={field} {...nativeLinkProps(field)} {...props} /> : null;
 
 export type SiteFooterProps = ComponentProps & {
   fields?: {

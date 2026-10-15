@@ -1,9 +1,11 @@
-import type { JSX } from 'react';
+import { useContext, type JSX } from 'react';
 import { Image, Link, RichText, Text } from '@sitecore-content-sdk/nextjs';
 import type { Field, ImageField, LinkField } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
 import { nativeMediaSource } from 'lib/native-media';
+import { nativeLinkProps } from 'lib/native-link';
+import { HomeNewsContext } from 'lib/home-news';
 
 export type HomeCardProps = ComponentProps & {
   fields?: {
@@ -17,8 +19,9 @@ export type HomeCardProps = ComponentProps & {
 };
 
 /** The native parent section controls card presentation, preserving one card contract. */
-export const Default = ({ fields, params }: HomeCardProps): JSX.Element => {
+export const Default = ({ fields, params, rendering }: HomeCardProps): JSX.Element => {
   const campaignQuery = useCampaignQuery();
+  const activeNewsCard = useContext(HomeNewsContext);
   const hasLink = Boolean(
     fields?.Link?.value?.href || (fields?.Link && 'metadata' in fields.Link && fields.Link.metadata)
   );
@@ -30,6 +33,7 @@ export const Default = ({ fields, params }: HomeCardProps): JSX.Element => {
         .join(' ')}
       id={params.RenderingIdentifier || undefined}
       data-class-change
+      data-news-active={activeNewsCard ? rendering.uid === activeNewsCard : undefined}
     >
       <div className="wf-home-card__box">
         <div className="wf-home-card__image">
@@ -41,6 +45,7 @@ export const Default = ({ fields, params }: HomeCardProps): JSX.Element => {
               <Link
                 className="wf-home-card__link"
                 field={fields.Link}
+                {...nativeLinkProps(fields.Link)}
                 {...campaignLoginProps(fields.Link, campaignQuery)}
               >
                 <Text field={fields?.Heading} />
