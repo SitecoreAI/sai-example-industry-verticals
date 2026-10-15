@@ -1073,6 +1073,11 @@ img {
   object-fit: cover;
   object-position: 50% 37%;
 }
+.post-media .westfield-campaign-photo--family {
+  background: #f2f2f2;
+  object-fit: contain;
+  object-position: bottom;
+}
 .westfield-campaign-band {
   padding: 18px 25px;
   background: #d62700;

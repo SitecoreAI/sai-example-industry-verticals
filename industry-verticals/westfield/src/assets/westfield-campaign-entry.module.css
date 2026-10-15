@@ -1,0 +1,79 @@
+.page {
+  box-sizing: border-box;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 32px 20px;
+  place-items: center;
+  color: #414741;
+  background: #f5f4ef;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  width: 305px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 36px;
+}
+
+.heading {
+  margin: 0 0 18px;
+  font-size: clamp(25px, 5vw, 32px);
+  line-height: 1.2;
+}
+
+.card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.progress {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 28px auto 0;
+  border: 3px solid #d8dcd3;
+  border-top-color: #256a1c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.retry {
+  min-height: 44px;
+  margin: 24px 0 0;
+  padding: 10px 24px;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  background: #256a1c;
+  font: inherit;
+  cursor: pointer;
+}
+
+.retry:focus-visible {
+  outline: 2px solid #414741;
+  outline-offset: 4px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    animation: none;
+  }
+}

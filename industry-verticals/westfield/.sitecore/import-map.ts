@@ -11,6 +11,7 @@ import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHe
 import { useState, useRef, useEffect } from 'react';
 import React from 'react';
 import { nativeMediaSource } from 'lib/native-media';
+import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
 import { ChevronDown } from 'lucide-react';
 import HamburgerIcon from '@/components/non-sitecore/HamburgerIcon';
@@ -55,6 +56,13 @@ const importMap = [
     module: 'lib/native-media',
     exports: [
       { name: 'nativeMediaSource', value: nativeMediaSource },
+    ]
+  },
+  {
+    module: 'lib/campaign-links',
+    exports: [
+      { name: 'campaignLoginProps', value: campaignLoginProps },
+      { name: 'useCampaignQuery', value: useCampaignQuery },
     ]
   },
   {
