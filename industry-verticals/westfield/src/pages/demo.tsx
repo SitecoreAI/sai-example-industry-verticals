@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { JSX, useRef, useState } from 'react';
 import { resetDemoBrowserIdentity } from 'lib/demo-persona';
-import { synchronizeDemoGuest } from 'lib/native-guest';
 
 export default function DemoLaunch(): JSX.Element {
   const launching = useRef(false);
@@ -17,7 +16,6 @@ export default function DemoLaunch(): JSX.Element {
     setStatus('Starting a fresh anonymous session…');
     try {
       await resetDemoBrowserIdentity();
-      await synchronizeDemoGuest();
       setStatus('Anonymous session ready. Opening the Instagram campaign…');
       window.location.assign('/instagram/index.html');
     } catch (cause) {

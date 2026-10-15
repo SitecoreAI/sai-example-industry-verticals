@@ -1,7 +1,6 @@
 import { CloudSDK, getBrowserId } from '@sitecore-cloudsdk/core/browser';
 import { clearEventQueue, identity } from '@sitecore-cloudsdk/events/browser';
 import scConfig from 'sitecore.config';
-import { synchronizeDemoGuest } from 'lib/native-guest';
 
 const demoAccounts = [
   {
@@ -114,6 +113,4 @@ export async function signInDemoAccount(username: string, password: string): Pro
   if (response?.status !== 'OK' || !response.ref) {
     throw new Error('Your demo account could not be connected. Please try signing in again.');
   }
-
-  await synchronizeDemoGuest();
 }

@@ -1,7 +1,6 @@
 import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
 import { pageView } from '@sitecore-cloudsdk/events/browser';
 import scConfig from 'sitecore.config';
-import { synchronizeDemoGuest } from 'lib/native-guest';
 
 const campaignParameters = [
   'utm_source',
@@ -57,6 +56,5 @@ export async function recordCampaignArrival(): Promise<string> {
     throw new Error('The campaign entry was not acknowledged.');
   }
 
-  await synchronizeDemoGuest();
   return destination;
 }
