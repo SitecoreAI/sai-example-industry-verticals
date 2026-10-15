@@ -1,17 +1,13 @@
 import type { JSX } from 'react';
 import Link from 'next/link';
-import { Image, Text, useSitecore } from '@sitecore-content-sdk/nextjs';
-import type { Field, ImageField } from '@sitecore-content-sdk/nextjs';
+import { DateField, Text, useSitecore } from '@sitecore-content-sdk/nextjs';
+import type { Field } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
-import { nativeMediaSource } from 'lib/native-media';
 import styles from 'src/assets/westfield-advice.module.css';
 
 type ArticleFields = {
   Title?: Field<string>;
-  pageSummary?: Field<string>;
-  Topic?: Field<string>;
-  ReadTime?: Field<string>;
-  HeroImage?: ImageField;
+  PublishedDate?: Field<string>;
 };
 
 export const Default = ({ params }: ComponentProps): JSX.Element => {
@@ -26,24 +22,44 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
       id={params.RenderingIdentifier || undefined}
       data-class-change
     >
-      <div className={styles.articleWidth}>
-        <Link className={styles.backLink} href="/advice">
-          <span aria-hidden="true">← </span>Back to advice
-        </Link>
-        <Text tag="h1" className={styles.articleTitle} field={fields?.Title} />
-        <div className={styles.meta}>
-          <Text tag="span" className={styles.topic} field={fields?.Topic} />
-          <Text tag="span" className={styles.readTime} field={fields?.ReadTime} />
-        </div>
-        <div className={styles.lead}>
-          <Image
-            className={styles.heroImage}
-            field={fields?.HeroImage}
-            {...nativeMediaSource(fields?.HeroImage)}
-            loading="eager"
-            fetchPriority="high"
-          />
-          <Text tag="p" className={styles.summary} field={fields?.pageSummary} />
+      <div className={styles.container}>
+        <nav aria-label="breadcrumb" className={styles.breadcrumbNav}>
+          <ol className={styles.breadcrumbs}>
+            <li>
+              <Link href="/">Home</Link>
+              <span aria-hidden="true">/</span>
+            </li>
+            <li>
+              <a href="#">About Us</a>
+              <span aria-hidden="true">/</span>
+            </li>
+            <li>
+              <Link href="/advice">Articles</Link>
+              <span aria-hidden="true">/</span>
+            </li>
+            <li aria-current="page">
+              <Text field={fields?.Title} editable={false} />
+            </li>
+          </ol>
+        </nav>
+        <div className={styles.row}>
+          <div className={styles.articleWidth}>
+            <Text tag="h1" className={styles.articleTitle} field={fields?.Title} />
+            <div className={styles.meta}>
+              {fields?.PublishedDate ? (
+                <DateField
+                  field={fields.PublishedDate}
+                  render={(date) =>
+                    date && !Number.isNaN(date.getTime()) ? (
+                      <time dateTime={date.toISOString().slice(0, 10)}>
+                        {new Intl.DateTimeFormat('en-US', { timeZone: 'UTC' }).format(date)}
+                      </time>
+                    ) : null
+                  }
+                />
+              ) : null}
+            </div>
+          </div>
         </div>
       </div>
     </header>

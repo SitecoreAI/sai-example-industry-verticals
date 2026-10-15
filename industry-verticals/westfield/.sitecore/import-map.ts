@@ -7,7 +7,7 @@ import {
 } from '@sitecore-content-sdk/nextjs/codegen';
 // end of built-in imports
 
-import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
+import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHelper, withDatasourceCheck, DateField } from '@sitecore-content-sdk/nextjs';
 import { useEffect, useId, useRef, useState, Fragment, useContext } from 'react';
 import React from 'react';
 import { nativeMediaSource } from 'lib/native-media';
@@ -47,6 +47,7 @@ const importMap = [
       { name: 'NextImage', value: NextImage },
       { name: 'CdpHelper', value: CdpHelper },
       { name: 'withDatasourceCheck', value: withDatasourceCheck },
+      { name: 'DateField', value: DateField },
     ]
   },
   {
