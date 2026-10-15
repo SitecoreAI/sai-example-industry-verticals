@@ -6,6 +6,16 @@
   line-height: 1.4;
   color: #4d514d;
 }
+.wf-source.component {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 0 0 100%;
+}
+.wf-source :is(h1, h2, h3, h4, h5, h6, p) {
+  font-family: inherit;
+  color: inherit;
+}
 .wf-source *,
 .wf-source *::before,
 .wf-source *::after {
@@ -33,12 +43,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-.wf-source-mobile-login {
-  margin-left: auto;
-}
-.wf-source-mobile-login .header-login_loginLink___r27_ svg {
-  margin-left: 4px;
 }
 .wf-source-search {
   display: flex;
@@ -86,9 +90,10 @@
   height: 24px;
 }
 .footer-social_item___Pwkm img {
-  display: block;
+  display: inline;
   width: auto;
   height: 20px;
+  vertical-align: middle;
 }
 .wf-source-footer__desktop-title h2 {
   margin-top: 0;
@@ -1086,6 +1091,10 @@
 .agent-search_agentSearch__BziNp {
   text-align: left;
 }
+.wf-source .agent-search_input__kEdNm {
+  background: #fff;
+  color: #000;
+}
 .agent-search_agentSearch__BziNp .agent-search_input__kEdNm {
   height: 50px;
   border-radius: 4px;
@@ -1394,6 +1403,12 @@
 .footer_legalDisclaimer__CBnxc {
   padding-top: 30px;
   padding-bottom: 20px;
+}
+.wf-source .footer_bottom__U3_so .footer_legalDisclaimer__CBnxc p {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 .footer_footerLogo__M4GzX {
   padding: 20px 0;
@@ -1938,6 +1953,7 @@
 }
 @media (min-width: 768px) {
   .navigation_mobileMenuTop__2bjdg {
+    padding-left: 40px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -2303,7 +2319,7 @@
   }
 }
 @media (min-width: 768px) and (max-width: 960px) {
-  .header_fullTabletWidthElement__XRzgj {
+  .wf-source .header_fullTabletWidthElement__XRzgj {
     max-width: 100%;
   }
 }
@@ -2774,6 +2790,10 @@
 .rich-text-wrapper_disclaimer__HPeXN p,
 p.rich-text-wrapper_disclaimer__HPeXN,
 p.rich-text-wrapper_disclaimer__HPeXN p {
+  font-size: 12px;
+}
+.wf-source .rich-text-wrapper_disclaimer__HPeXN,
+.wf-source .rich-text-wrapper_disclaimer__HPeXN p {
   font-size: 12px;
 }
 .rich-text-wrapper_disclaimer__HPeXN p:first-child,

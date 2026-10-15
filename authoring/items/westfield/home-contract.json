@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "site": "westfield",
-  "status": "SOURCE_PREPARED; native deployment, authored variants/data, nested-slot restrictions and visual/live QA pending.",
+  "status": "117 native definition identities are deployed and verified. Native Add confirmed the Home Cards slot restriction; nine main placements, fourteen cards and twenty-two CMS images are authored and scoped-published, and local HTTP checks passed. Frontend release and browser acceptance are recorded separately in handover evidence.",
   "definitionItemCount": 117,
   "homeSourceAdditionItems": 23,
   "namespaceUuid": "42aff456-0823-4d69-adad-a6bfbeb31763",
@@ -231,7 +231,7 @@
     "renderingId": "c896c2b2-81af-5311-8c59-41250c5db38d",
     "parametersTemplateId": "a72d343f-6cde-4611-b131-06637c92bdb2",
     "otherProperties": "IsRenderingsWithDynamicPlaceholders=true",
-    "placementPathStatus": "Pending representative native Add-component readback; do not guess a concrete dynamic suffix."
+    "placementPathStatus": "Native Add verified /headless-main/home-cards-2 for DynamicPlaceholderId=2. The verified placement pattern is /headless-main/home-cards-{id}; all fourteen cards bind through their corresponding native section slots. The protected Home final rendering XML remains byte-identical to its baseline."
   },
   "mainPlaceholderAdditionIds": [
     "c896c2b2-81af-5311-8c59-41250c5db38d",

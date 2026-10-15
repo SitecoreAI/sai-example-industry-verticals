@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "site": "westfield",
-  "status": "PASS: 94 definitions and resource discovery verified; six native branch articles published with 18 independent local datasources. Native authoring/picker/publish/unpublish and public Advice/Search/browser acceptance passed at runtime 375c2ff8. Final metadata release is separate in the manifest.",
+  "status": "Advice acceptance passed against the historical 94-item definition baseline: six native branch articles were published with 18 independent local datasources. Native authoring/picker/publish/unpublish and public Advice/Search/browser acceptance passed at runtime 375c2ff8. The current module has 117 definitions after the additive Home expansion; final Home release acceptance remains separate in the manifest.",
   "namespaceUuid": "42aff456-0823-4d69-adad-a6bfbeb31763",
   "createdAtUTC": "2026-10-15T04:21:09.360968+00:00",
   "templates": {
@@ -315,7 +315,7 @@
     "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/sitecoreai-for-developers/content-editor-items/components/use-dynamic-placeholders-in-components.html",
     "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/data-sources/use-a-prefix-to-set-the-data-source-context.html"
   ],
-  "definitionItemCount": 94,
+  "definitionItemCount": 117,
   "preExistingNativeScaffold": {
     "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
     "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",

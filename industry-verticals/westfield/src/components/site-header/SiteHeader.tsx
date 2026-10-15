@@ -4,6 +4,7 @@ import { Image, Link, Text } from '@sitecore-content-sdk/nextjs';
 import type { Field, ImageField, LinkField } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
 import { nativeMediaSource } from 'lib/native-media';
+import { nativeLinkProps } from 'lib/native-link';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
 import { Caret, Chevron, CloseIcon, MenuIcon, SearchIcon } from 'lib/westfield-icons';
 
@@ -44,7 +45,7 @@ const NativeLink = ({
   field,
   ...props
 }: Omit<ReactComponentProps<typeof Link>, 'field'> & { field?: LinkField }): JSX.Element | null =>
-  field ? <Link field={field} {...props} /> : null;
+  field ? <Link field={field} {...nativeLinkProps(field)} {...props} /> : null;
 
 /** Native marker items start columns; singleton link groups share the final column. */
 function groupMenu(items: HeaderMenuItem[] = []): MenuGroup[][] {
