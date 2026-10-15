@@ -90,10 +90,7 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
         (sort === 'newest' ? second.date.localeCompare(first.date) : second.score - first.score) ||
         first.article.title.localeCompare(second.article.title, 'en')
     );
-  const pageCount = Math.ceil(filtered.length / PAGE_SIZE);
-  const selectedPage = Math.min(currentPage, pageCount || 1);
-  const firstIndex = (selectedPage - 1) * PAGE_SIZE;
-  const visibleArticles = filtered.slice(firstIndex, firstIndex + PAGE_SIZE);
+  const visibleArticles = filtered.slice(0, currentPage * PAGE_SIZE);
   const hasFilters = Boolean(query || topics.length || dates.start || dates.end);
 
   const search = (event: FormEvent<HTMLFormElement>): void => {
@@ -114,45 +111,6 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
     setFacetsOpen(false);
     filterToggle.current?.focus();
   };
-  const pager = (position: string): JSX.Element | null => {
-    if (pageCount <= 1) return null;
-    const start = Math.max(1, Math.min(selectedPage - 1, pageCount - 2));
-    const pages = Array.from({ length: Math.min(3, pageCount) }, (_, index) => start + index);
-    return (
-      <nav aria-label={`Article results pages ${position}`} className={styles.pager}>
-        {selectedPage > 1 ? (
-          <button
-            type="button"
-            aria-label="Previous page"
-            onClick={() => setCurrentPage(selectedPage - 1)}
-          >
-            ‹
-          </button>
-        ) : null}
-        {pages.map((number) => (
-          <button
-            type="button"
-            key={number}
-            aria-label={`Page ${number}`}
-            aria-current={number === selectedPage ? 'page' : undefined}
-            onClick={() => setCurrentPage(number)}
-          >
-            {number}
-          </button>
-        ))}
-        {selectedPage < pageCount ? (
-          <button
-            type="button"
-            aria-label="Next page"
-            onClick={() => setCurrentPage(selectedPage + 1)}
-          >
-            ›
-          </button>
-        ) : null}
-      </nav>
-    );
-  };
-
   return (
     <section
       className={['component', styles.listing, params.GridParameters, params.styles]
@@ -175,81 +133,83 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
             <li aria-current="page">Articles</li>
           </ol>
         </nav>
-        <div className={`${styles.row} ${styles.listingRow}`}>
-          <aside
-            className={`${styles.facets} ${facetsOpen ? styles.mobileOpen : ''}`}
-            aria-label="Filter results"
-            id={`${id}-facets`}
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') closeFacets();
-            }}
-          >
-            <div className={styles.mobileFilterHeader}>
-              <h2>Filter Results</h2>
-              <button type="button" onClick={closeFacets} aria-label="Close filters">
-                ×
-              </button>
-            </div>
-            <div className={styles.facetStack}>
-              <details className={styles.facet}>
-                <summary>Article Tags</summary>
-                <div className={styles.facetOptions}>
-                  {availableTopics.map((topic) => (
-                    <label key={topic}>
-                      <input
-                        type="checkbox"
-                        checked={topics.includes(topic)}
-                        onChange={(event) => {
-                          setTopics(
-                            event.target.checked
-                              ? [...topics, topic]
-                              : topics.filter((value) => value !== topic)
-                          );
-                          setCurrentPage(1);
-                        }}
-                      />
-                      <span>{topic}</span>
-                      <span className={styles.facetCount}>
-                        {articles.filter((article) => article.topic === topic).length}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </details>
-              <details className={styles.facet}>
-                <summary>Date Range</summary>
-                <form
-                  className={styles.dateForm}
-                  onSubmit={(event) => {
-                    event.preventDefault();
-                    setDates({ start: startInput, end: endInput });
-                    setCurrentPage(1);
-                  }}
-                >
-                  <label htmlFor={`${id}-start`}>Start</label>
-                  <input
-                    id={`${id}-start`}
-                    type="date"
-                    value={startInput}
-                    max={endInput || undefined}
-                    onChange={(event) => setStartInput(event.target.value)}
-                  />
-                  <label htmlFor={`${id}-end`}>End</label>
-                  <input
-                    id={`${id}-end`}
-                    type="date"
-                    value={endInput}
-                    min={startInput || undefined}
-                    onChange={(event) => setEndInput(event.target.value)}
-                  />
-                  <button type="submit">Apply</button>
-                </form>
-              </details>
-            </div>
-          </aside>
-          <div className={styles.resultsColumn}>
-            <Text tag="h1" className={styles.hubTitle} field={fields?.Title} />
-            <Text tag="p" className={styles.hubSummary} field={fields?.pageSummary} />
+      </div>
+      <div className={styles.listingSurface}>
+        <div className={styles.container}>
+          <Text tag="h1" className={styles.hubTitle} field={fields?.Title} />
+          <Text tag="p" className={styles.hubSummary} field={fields?.pageSummary} />
+          <div className={styles.toolsBar}>
+            <aside
+              className={`${styles.facets} ${facetsOpen ? styles.mobileOpen : ''}`}
+              aria-label="Filter results"
+              id={`${id}-facets`}
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') closeFacets();
+              }}
+            >
+              <div className={styles.mobileFilterHeader}>
+                <h2>Filter Results</h2>
+                <button type="button" onClick={closeFacets} aria-label="Close filters">
+                  ×
+                </button>
+              </div>
+              <div className={styles.facetStack}>
+                <details className={styles.facet}>
+                  <summary>Article Tags</summary>
+                  <div className={styles.facetOptions}>
+                    {availableTopics.map((topic) => (
+                      <label key={topic}>
+                        <input
+                          type="checkbox"
+                          checked={topics.includes(topic)}
+                          onChange={(event) => {
+                            setTopics(
+                              event.target.checked
+                                ? [...topics, topic]
+                                : topics.filter((value) => value !== topic)
+                            );
+                            setCurrentPage(1);
+                          }}
+                        />
+                        <span>{topic}</span>
+                        <span className={styles.facetCount}>
+                          {articles.filter((article) => article.topic === topic).length}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </details>
+                <details className={styles.facet}>
+                  <summary>Date Range</summary>
+                  <form
+                    className={styles.dateForm}
+                    onSubmit={(event) => {
+                      event.preventDefault();
+                      setDates({ start: startInput, end: endInput });
+                      setCurrentPage(1);
+                    }}
+                  >
+                    <label htmlFor={`${id}-start`}>Start</label>
+                    <input
+                      id={`${id}-start`}
+                      type="date"
+                      value={startInput}
+                      max={endInput || undefined}
+                      onChange={(event) => setStartInput(event.target.value)}
+                    />
+                    <label htmlFor={`${id}-end`}>End</label>
+                    <input
+                      id={`${id}-end`}
+                      type="date"
+                      value={endInput}
+                      min={startInput || undefined}
+                      onChange={(event) => setEndInput(event.target.value)}
+                    />
+                    <button type="submit">Apply</button>
+                  </form>
+                </details>
+              </div>
+            </aside>
             <div className={styles.searchRow}>
               <button
                 ref={filterToggle}
@@ -274,7 +234,7 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
                   value={input}
                   maxLength={120}
                   onChange={(event) => setInput(event.target.value)}
-                  placeholder="Search"
+                  placeholder="Keyword or phrase"
                 />
                 <button type="submit" aria-label="Search articles">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -284,26 +244,12 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
                 </button>
               </form>
             </div>
-            {status === 'ready' ? (
-              <>
-                <div className={styles.resultInfo}>
-                  <p aria-live="polite">
-                    {filtered.length
-                      ? `${firstIndex + 1}–${Math.min(firstIndex + PAGE_SIZE, filtered.length)} of `
-                      : ''}
-                    {filtered.length} {filtered.length === 1 ? 'result' : 'results'}
-                    {query ? ` for “${query}”` : ''}
-                  </p>
-                  {hasFilters ? (
-                    <button type="button" className={styles.clearFilters} onClick={clearFilters}>
-                      Clear filters ×
-                    </button>
-                  ) : null}
-                </div>
-                <div className={styles.sortRow}>
-                  <label className={styles.visuallyHidden} htmlFor={`${id}-sort`}>
-                    Sort articles
-                  </label>
+          </div>
+          {status === 'ready' ? (
+            <>
+              <div className={styles.resultInfo}>
+                <label className={styles.sortControl} htmlFor={`${id}-sort`}>
+                  Sort by:
                   <select
                     id={`${id}-sort`}
                     value={sort}
@@ -315,65 +261,100 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
                     <option value="relevancy">Relevancy</option>
                     <option value="newest">Newest</option>
                   </select>
-                  {pager('top')}
-                </div>
-                {visibleArticles.length ? (
-                  <div className={styles.resultList}>
-                    {visibleArticles.map(({ article }) => (
-                      <article className={styles.result} key={article.id}>
-                        <Link
-                          className={styles.resultImageLink}
-                          href={article.url}
-                          tabIndex={-1}
-                          aria-hidden="true"
-                        >
-                          <Image
-                            className={styles.resultImage}
-                            field={article.image}
-                            {...nativeMediaSource(article.image)}
-                            loading="lazy"
-                          />
-                        </Link>
-                        <div className={styles.resultCopy}>
-                          <h2>
-                            <Link href={article.url}>{article.title}</Link>
-                          </h2>
-                          <p>{article.summary}</p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                ) : (
-                  <p className={styles.feedback}>
-                    No results found. Try another search or clear your filters.
-                  </p>
-                )}
-                <div className={styles.bottomResults}>
-                  <p>
-                    {filtered.length} {filtered.length === 1 ? 'result' : 'results'}
-                  </p>
-                  {pager('bottom')}
-                </div>
-              </>
-            ) : null}
-            {status === 'loading' ? (
-              <p className={styles.feedback} role="status">
-                Loading articles…
-              </p>
-            ) : null}
-            {status === 'error' ? (
-              <div className={styles.feedback} role="status">
-                <p>We couldn’t load these articles. Please try again.</p>
-                <button
-                  className={styles.retryButton}
-                  type="button"
-                  onClick={() => setAttempt((value) => value + 1)}
-                >
-                  Try again
-                </button>
+                </label>
+                <p aria-live="polite">
+                  Results{' '}
+                  {filtered.length
+                    ? `1–${Math.min(currentPage * PAGE_SIZE, filtered.length)} of `
+                    : ''}
+                  {filtered.length}
+                  {query ? ` for “${query}”` : ''}
+                </p>
               </div>
-            ) : null}
-          </div>
+              {hasFilters ? (
+                <div className={styles.activeFilters}>
+                  <button type="button" className={styles.clearFilters} onClick={clearFilters}>
+                    Clear filters ×
+                  </button>
+                </div>
+              ) : null}
+              {visibleArticles.length ? (
+                <div className={styles.resultList}>
+                  {visibleArticles.map(({ article }, index) => (
+                    <article
+                      className={`${styles.result} ${index === 0 ? styles.featuredResult : ''}`}
+                      key={article.id}
+                    >
+                      <Link
+                        className={styles.resultImageLink}
+                        href={article.url}
+                        tabIndex={-1}
+                        aria-hidden="true"
+                      >
+                        <Image
+                          className={styles.resultImage}
+                          field={article.image}
+                          {...nativeMediaSource(article.image)}
+                          loading="lazy"
+                        />
+                      </Link>
+                      <div className={styles.resultCopy}>
+                        <h2>
+                          <Link href={article.url}>{article.title}</Link>
+                        </h2>
+                        <p>
+                          {articleDate(article.publishedDate) ? (
+                            <>
+                              <time dateTime={articleDate(article.publishedDate)}>
+                                {new Intl.DateTimeFormat('en-US', { timeZone: 'UTC' }).format(
+                                  new Date(article.publishedDate)
+                                )}
+                              </time>{' '}
+                              ...{' '}
+                            </>
+                          ) : null}
+                          {article.summary}
+                        </p>
+                        {index === 0 ? (
+                          <Link className={styles.readArticle} href={article.url}>
+                            Read Article
+                          </Link>
+                        ) : null}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <p className={styles.feedback}>
+                  No results found. Try another search or clear your filters.
+                </p>
+              )}
+              {visibleArticles.length < filtered.length ? (
+                <div className={styles.loadMore}>
+                  <button type="button" onClick={() => setCurrentPage((value) => value + 1)}>
+                    Load more results
+                  </button>
+                </div>
+              ) : null}
+            </>
+          ) : null}
+          {status === 'loading' ? (
+            <p className={styles.feedback} role="status">
+              Loading articles…
+            </p>
+          ) : null}
+          {status === 'error' ? (
+            <div className={styles.feedback} role="status">
+              <p>We couldn’t load these articles. Please try again.</p>
+              <button
+                className={styles.retryButton}
+                type="button"
+                onClick={() => setAttempt((value) => value + 1)}
+              >
+                Try again
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

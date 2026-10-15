@@ -3441,6 +3441,24 @@
               "sha256": "b527cde95dec887109f6b7c4b66defe7206c6c5e2d1a8efb775d31d1e4dcee33",
               "status": "published; native identity/readback and actual article image GET 200 verified",
               "published": true
+            },
+            {
+              "key": "advice:fidelity:home-inventory-checklist",
+              "mediaId": "cc0a854e-e96b-4093-a443-c94dcb58ae5b",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/Claims checklist",
+              "width": 450,
+              "height": 338,
+              "sha256": "69159226dce4c72e4510d95b26163fdbab8a49c1a764e7f0833b86b7d6a910cb",
+              "status": "Native uploaded/read back; scoped article publication receipt owns current status."
+            },
+            {
+              "key": "advice:fidelity:organize-insurance-documents",
+              "mediaId": "f06629b3-2667-43e0-b148-ee3fec191fb9",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/Wind and hail deductible",
+              "width": 450,
+              "height": 338,
+              "sha256": "0ee04ff025b04c712d853624ae7ee8fdd61c446dbf36ed1b081f268f393afcd5",
+              "status": "Native uploaded/read back; scoped article publication receipt owns current status."
             }
           ],
           "verificationScope": "Four baseline native CMS media uploads/live delivery remain verified. Five additional Advice assets/folder uploaded/read back and published; all six actual article HeroImage responses 200, including reused baseline MyWestfield media. DAM selector proof is separately scoped.",
@@ -3944,6 +3962,34 @@
             "pullRequestUrl": null,
             "deploymentId": null,
             "scope": "Final ownership/contract metadata release follows the proven runtime; root will record exact merge/deployment evidence."
+          },
+          "articleFidelity": {
+            "sourceListing": "https://www.westfieldinsurance.com/about-us/articles",
+            "sourceArticles": "demo/westfield/source-articles.json",
+            "copy": "Six real headlines, publication dates and source images; original condensed article bodies, not full reproductions.",
+            "routing": "Existing native /advice item URLs and standard Content SDK catch-all retained. No custom route aliases.",
+            "preservation": "Article branch/test/practice/weekend page and Data excluded from copy update; prior content/layout/publishing values checked separately.",
+            "publishedDate": {
+              "id": "81dea0de-daee-5b89-b046-e089bd2466fc",
+              "type": "Date",
+              "default": "",
+              "definitionCount": 118,
+              "cmsCommit": "b598534a9bdb667bd08d73028d198bdb7e236e92",
+              "deploymentId": "3yIDkr3Y8EXEf9Z6C0EIMo",
+              "deploymentStatus": "Build, deployment and post-action phases complete (2)."
+            },
+            "contentUpdate": {
+              "status": "PASS",
+              "items": 25,
+              "scope": "Six original seeded pages and18local Data items plus hub Title/summary. No layout/branch/author-content replacement."
+            },
+            "publication": {
+              "roots": 28,
+              "subitems": false,
+              "relatedItems": false,
+              "status": "PASS: explicit leaf publication finished without failure; final live acceptance in handoff evidence."
+            },
+            "frontend": "Article detail/listing fidelity changes on westfield-article-fidelity; final exact production commit and browser acceptance in handoff evidence."
           }
         },
         "homeFidelity": {
