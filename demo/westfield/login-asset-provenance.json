@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "title": "Westfield public sign-in asset provenance",
+  "checkedAtUTC": "2026-10-15T03:05:07.264731+00:00",
+  "entryUrl": "https://my.westfieldinsurance.com/",
+  "signInOrigin": "https://sso.westfieldgrp.com",
+  "stylesheetUrl": "https://sso.westfieldgrp.com/assets/css/consumer-main.css",
+  "method": "Read-only public HTTP GET of exact image/font URLs referenced by official sign-in skin; no real customer sign-in performed",
+  "usage": "Visual styling for local synthetic identity demonstration; no production credentials or authorization state retained",
+  "owner": "Westfield demo \u2014 Thomas Lin",
+  "cleanupScope": "Only listed copied files under industry-verticals/westfield/public/westfield/login; check references before removal. Preserve shared global assets.",
+  "assets": [
+    {
+      "file": "industry-verticals/westfield/public/westfield/login/sunset-background-image.jpg",
+      "publicUrl": "/westfield/login/sunset-background-image.jpg",
+      "sourceUrl": "https://sso.westfieldgrp.com/assets/images/sunset-background-image.jpg",
+      "bytes": 71189,
+      "sha256": "1cda4ceb98da24ef5ba1064d2a2995c2f58752d7fb05b96fdf0759453c2a91e0",
+      "sourceOwner": "Westfield public customer sign-in service",
+      "createdByThisDemo": false,
+      "copiedForDemo": true,
+      "dimensions": {
+        "width": 1250,
+        "height": 759
+      }
+    },
+    {
+      "file": "industry-verticals/westfield/public/westfield/login/logo_header_desktop_registered_trademark.svg",
+      "publicUrl": "/westfield/login/logo_header_desktop_registered_trademark.svg",
+      "sourceUrl": "https://sso.westfieldgrp.com/assets/images/logo_header_desktop_registered_trademark.svg",
+      "bytes": 2542,
+      "sha256": "78b6561d3e0dc732a6a8d25b250eab4867b48276124f39ae0d73cd468a0a403f",
+      "sourceOwner": "Westfield public customer sign-in service",
+      "createdByThisDemo": false,
+      "copiedForDemo": true,
+      "svgRootAttributes": "id=\"Layer_1\" data-name=\"Layer 1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"210\" height=\"30\" viewBox=\"0 0 210 30\"",
+      "containsExternalReference": false
+    },
+    {
+      "file": "industry-verticals/westfield/public/westfield/login/Roboto-Regular.ttf",
+      "publicUrl": "/westfield/login/Roboto-Regular.ttf",
+      "sourceUrl": "https://sso.westfieldgrp.com/assets/fonts/roboto/Roboto-Regular.ttf",
+      "bytes": 171676,
+      "sha256": "79e851404657dac2106b3d22ad256d47824a9a5765458edb72c9102a45816d95",
+      "sourceOwner": "Westfield public customer sign-in service",
+      "createdByThisDemo": false,
+      "copiedForDemo": true,
+      "typeface": "Roboto Regular",
+      "copyright": "Copyright2011 Google Inc. All Rights Reserved. Original font binary retained."
+    }
+  ]
+}

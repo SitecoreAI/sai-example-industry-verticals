@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "site": "westfield",
+  "sourceArchive": "fake-instagram-demo.zip",
+  "recordedAtUTC": "2026-10-15T03:07:22.734090+00:00",
+  "purpose": "Unrelated friend stories and ordinary concert/weekend posts around one general MyWestfield sponsored ad.",
+  "transformation": "None; exact supplied archive bytes. No generated or externally downloaded images added.",
+  "ownership": "Westfield-scoped static Instagram prop assets; separate from native CMS/DAM inventory. No remote resources created by this copy.",
+  "assets": [
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/posts/post1-sphere.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/posts/post1-sphere.jpg",
+      "sha256": "cb5ea5804c971cab4db26c834bb21c76fc930ce5c5f967d587796d2be48c4525",
+      "bytes": 2628354
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/posts/post3-reel.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/posts/post3-reel.jpg",
+      "sha256": "e4809a4c7c0c72c9e67986b7f4f280b75f01300651f7abb6b728d6871059ea3e",
+      "bytes": 2491643
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/stories/story-1.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/stories/story-1.jpg",
+      "sha256": "4d4cc299375380013c3036dda3932b8e4341d809b08812060c6e7e39e2e27d2f",
+      "bytes": 64111
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/stories/story-2.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/stories/story-2.jpg",
+      "sha256": "9c114b8eb72644a3c6db966b2def89eb743a9ceeba542301c4467bbcb92c5174",
+      "bytes": 1624333
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/stories/story-3.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/stories/story-3.jpg",
+      "sha256": "7d98d34e1a9f09eff46d3f848e5b05cab1f60b22b7aae11bcd452e641fc0fc35",
+      "bytes": 1556549
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/stories/story-4.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/stories/story-4.jpg",
+      "sha256": "9e7e3e0d2d3af53056fdb013682dd78d3c59655cb7fb4eac1b3df3f733248a6c",
+      "bytes": 1821393
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/stories/story-5.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/stories/story-5.jpg",
+      "sha256": "922b0671abd25a256b621e3d70578924035e12d8c1ea0ee0075c48cf072b6269",
+      "bytes": 1668171
+    },
+    {
+      "path": "industry-verticals/westfield/public/instagram/assets/images/stories/story-6.jpg",
+      "archiveEntry": "fake-instagram-demo/assets/images/stories/story-6.jpg",
+      "sha256": "e6ec0b822afa48f54d227320e79c0d22cfc40a565f72e2c6458782a5a145eb77",
+      "bytes": 1607859
+    }
+  ]
+}

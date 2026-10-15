@@ -1,22 +1,22 @@
 import Head from 'next/head';
 import { JSX, useRef, useState } from 'react';
-import { demoPersonas, startDemoPersona } from 'lib/demo-persona';
+import { resetDemoBrowserIdentity } from 'lib/demo-persona';
 
 export default function DemoLaunch(): JSX.Element {
   const launching = useRef(false);
-  const [status, setStatus] = useState('Choose a synthetic person to start the Instagram journey.');
+  const [status, setStatus] = useState('Start a fresh, anonymous Instagram journey.');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
 
-  const launch = async (email: (typeof demoPersonas)[number]['email']) => {
+  const launch = async () => {
     if (launching.current) return;
     launching.current = true;
     setBusy(true);
     setError(false);
-    setStatus('Starting a fresh demo session and identifying this person in SitecoreAI…');
+    setStatus('Starting a fresh anonymous session…');
     try {
-      await startDemoPersona(email);
-      setStatus('Identity accepted. Opening the Instagram campaign…');
+      await resetDemoBrowserIdentity();
+      setStatus('Anonymous session ready. Opening the Instagram campaign…');
       window.location.assign('/instagram/index.html');
     } catch (cause) {
       setError(true);
@@ -34,25 +34,19 @@ export default function DemoLaunch(): JSX.Element {
       </Head>
       <main className="westfield-demo-launch">
         <div className="westfield-demo-launch__inner">
-          <p className="westfield-demo-launch__eyebrow">Presenter tools · Synthetic profiles</p>
+          <p className="westfield-demo-launch__eyebrow">Presenter tools</p>
           <h1>Start the Westfield demo</h1>
           <p>
-            Select a person, then follow the Instagram campaign to the paperless page. Both people
-            are fictional. Each start creates a fresh browser identity and sends an identity event
-            to SitecoreAI.
+            Open the Instagram campaign without identifying a customer. Follow the ad, then sign in
+            with a synthetic MyWestfield account to see the matching account experience.
           </p>
-          <div className="westfield-demo-launch__people">
-            {demoPersonas.map((persona) => (
-              <section key={persona.email} className="westfield-demo-launch__person">
-                <h2>{persona.name}</h2>
-                <p>{persona.description}</p>
-                <p className="westfield-demo-launch__email">{persona.email}</p>
-                <button type="button" disabled={busy} onClick={() => void launch(persona.email)}>
-                  Start as {persona.name.split(' ')[0]}
-                </button>
-              </section>
-            ))}
-          </div>
+          <p>
+            Demo accounts: <strong>casey@example.com</strong> or <strong>jordan@example.com</strong>
+            . Both use the password <strong>password</strong>.
+          </p>
+          <button type="button" disabled={busy} onClick={() => void launch()}>
+            {busy ? 'Starting…' : 'Start anonymous Instagram journey'}
+          </button>
           <p aria-live="polite" role={error ? 'alert' : 'status'} aria-atomic="true">
             {status}
           </p>
