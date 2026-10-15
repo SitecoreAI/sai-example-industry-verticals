@@ -1161,7 +1161,7 @@
       "path": "authoring/items/westfield/westfield-definitions.module.json",
       "kind": "site-definitions",
       "ownerSite": "westfield",
-      "status": "94 native identities/paths/templates and metadata-only context scaffold verified; four leaf paths/children discovered and native body picker restricts to ArticleText/CampaignAction. Focused Advice runtime/authoring acceptance passed; final metadata release separate.",
+      "status": "Home fidelity definitions prepared (117 items); prior94 verified, new23/native publication and fidelity QA pending.",
       "includePaths": [
         "/sitecore/templates/Project/Westfield",
         "/sitecore/layout/Renderings/Project/Westfield",
@@ -1171,7 +1171,8 @@
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
         "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
-        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings"
+        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
+        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Home Cards"
       ],
       "includeScopes": [
         {
@@ -1208,6 +1209,10 @@
         },
         {
           "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
+          "scope": "singleItem"
+        },
+        {
+          "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Home Cards",
           "scope": "singleItem"
         }
       ]

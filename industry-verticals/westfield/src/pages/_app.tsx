@@ -8,6 +8,8 @@ import 'assets/main.css';
 import 'assets/westfield.css';
 import 'assets/westfield-shell.css';
 import 'assets/westfield-demo.css';
+import 'assets/westfield-home-body.css';
+import 'assets/westfield-home-shell.css';
 
 function App({ Component, pageProps }: AppProps<SitecorePageProps>): JSX.Element {
   const { dictionary, ...rest } = pageProps;

@@ -1,0 +1,912 @@
+/* Geometry and responsive values captured from the public Westfield Home, 2026-10-15.
+   Authored text, links, images and video sources remain native Sitecore fields. */
+.wf-home-section,
+.wf-home-feature {
+  width: 100%;
+  color: #4d514d;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.wf-home-section *,
+.wf-home-section *::before,
+.wf-home-section *::after,
+.wf-home-feature *,
+.wf-home-feature *::before,
+.wf-home-feature *::after {
+  box-sizing: border-box;
+}
+
+.wf-home-container {
+  --wf-home-gutter: 40px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.wf-home-body-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 1.25rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: #d62700;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.wf-home-body-button:focus,
+.wf-home-body-button:hover {
+  background: #c81e00;
+  color: #fff;
+}
+
+.wf-home-section__eyebrow,
+.wf-home-feature__eyebrow {
+  color: #d62700;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.wf-home-section__title,
+.wf-home-feature__title {
+  font-size: 1.875rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.wf-home-card {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  color: #4d514d;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}
+
+.wf-home-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wf-home-card__link::before {
+  content: '';
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+}
+
+.wf-home-card__image img {
+  display: block;
+}
+
+.wf-home-card__body,
+.wf-home-feature__body {
+  color: #4d514d;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.wf-home-card__body p,
+.wf-home-feature__body p,
+.wf-home-section__body p {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 1em 0;
+}
+
+.wf-home-card__body a,
+.wf-home-feature__body a,
+.wf-home-section__body a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.wf-home-section__cta {
+  text-align: center;
+}
+
+.wf-home-section__cta:empty {
+  display: none;
+}
+
+.wf-home-section__cta .wf-home-body-button {
+  display: inline-flex;
+}
+
+/* Services: orange patterned heading, white four-card row at 1200px. */
+.wf-home-section--default,
+.wf-home-section--services {
+  padding: 0 0 40px;
+}
+
+.wf-home-section--services {
+  color: #fff;
+  isolation: isolate;
+}
+
+.wf-home-section--default .wf-home-section__heading-wrapper,
+.wf-home-section--services .wf-home-section__heading-wrapper {
+  position: relative;
+  padding-top: 40px;
+}
+
+.wf-home-section--default .wf-home-section__title,
+.wf-home-section--services .wf-home-section__title {
+  margin: 10px 0 30px;
+  color: inherit;
+  line-height: 35px;
+}
+
+.wf-home-section--services .wf-home-section__eyebrow {
+  color: #fff;
+}
+
+.wf-home-section__accent {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: -200px;
+  left: 0;
+  overflow: hidden;
+  background: #e03100;
+}
+
+.wf-home-section__accent::before {
+  content: '';
+  display: block;
+  width: 953px;
+  max-width: 100%;
+  height: 100%;
+  margin-left: auto;
+  background: url('/westfield-assets/accent-pattern.png') right center / cover no-repeat;
+  opacity: 0.5;
+}
+
+.wf-home-section__accent::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #e03100 50%, transparent 80%, transparent);
+}
+
+.wf-home-section--default .wf-home-section__cards,
+.wf-home-section--services .wf-home-section__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wf-home-section--default .wf-home-card,
+.wf-home-section--services .wf-home-card {
+  padding: 20px;
+  border-radius: 4px;
+  border-bottom: 8px solid #e03100;
+  background: #fff;
+  box-shadow: 0 10px 40px 0 rgb(0 0 0 / 25%);
+}
+
+.wf-home-section--default .wf-home-card:focus-within,
+.wf-home-section--default .wf-home-card:hover,
+.wf-home-section--services .wf-home-card:focus-within,
+.wf-home-section--services .wf-home-card:hover {
+  transform: translateY(-10px);
+}
+
+.wf-home-section--default .wf-home-card__image,
+.wf-home-section--services .wf-home-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f2f2f2;
+}
+
+.wf-home-section--default .wf-home-card__image img,
+.wf-home-section--services .wf-home-card__image img {
+  width: 32px;
+  height: 32px;
+}
+
+.wf-home-section--default .wf-home-card__heading,
+.wf-home-section--services .wf-home-card__heading {
+  margin: 1em 0;
+  color: #4d514d;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* Account quicklinks: two columns on mobile, centered square cards thereafter. */
+.wf-home-section--account {
+  padding: 2.5rem 0 1.75rem;
+  background: #fff;
+  text-align: center;
+}
+
+.wf-home-section--account .wf-home-section__title {
+  margin: 0 0 1.25rem;
+}
+
+.wf-home-section--account .wf-home-section__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.wf-home-section--account .wf-home-card {
+  display: flex;
+  flex: 0 0 calc(50% - 0.625rem);
+  min-height: 10.25rem;
+  padding: 2.1875rem 0.625rem;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 20px 40px 0 rgb(0 0 0 / 15%);
+}
+
+.wf-home-section--account .wf-home-card__box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wf-home-section--account .wf-home-card__image img {
+  width: 48px;
+  height: auto;
+}
+
+.wf-home-section--account .wf-home-card__heading {
+  margin: 0;
+  color: #4d514d;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Benefits: source centered introduction and three unboxed columns. */
+.wf-home-section--benefits {
+  padding: 30px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wf-home-section--benefits .wf-home-section__title {
+  margin: 10px 0 15px;
+  line-height: 35px;
+}
+
+.wf-home-section--benefits .wf-home-section__body {
+  font-size: 1rem;
+}
+
+.wf-home-section--benefits .wf-home-section__cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 35px;
+  padding: 30px 0 0;
+}
+
+.wf-home-section--benefits .wf-home-card {
+  flex: 0 0 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wf-home-section--benefits .wf-home-card:focus-within,
+.wf-home-section--benefits .wf-home-card:hover {
+  transform: translateY(-10px);
+}
+
+.wf-home-section--benefits .wf-home-card__box {
+  margin: 0 auto;
+}
+
+.wf-home-section--benefits .wf-home-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  width: 90px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #f2f2f2;
+}
+
+.wf-home-section--benefits .wf-home-card__image img {
+  width: 48px;
+  height: 48px;
+}
+
+.wf-home-section--benefits .wf-home-card__heading {
+  margin: 20px 0 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.wf-home-section--benefits .wf-home-card__body {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Features: source media-first DOM; copy first at tablet/desktop. */
+.wf-home-feature {
+  padding: 2rem 0;
+  background: #f2f2f2;
+}
+
+.wf-home-feature__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.wf-home-feature__media,
+.wf-home-feature__copy {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.wf-home-feature__image {
+  position: relative;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.wf-home-feature__image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wf-home-feature__video {
+  position: relative;
+  height: 0;
+  margin-bottom: 0.625rem;
+  padding-bottom: 56.25%;
+}
+
+.wf-home-feature__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.wf-home-feature__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+  letter-spacing: 0.15rem;
+}
+
+.wf-home-feature__title {
+  margin: 0 0 0.5rem;
+}
+
+.wf-home-feature__body p {
+  margin-top: 0;
+}
+
+.wf-home-feature--about {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.wf-home-feature--about .wf-home-feature__copy {
+  margin: 0 auto;
+}
+
+.wf-home-feature--about .wf-home-feature__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wf-home-feature--about .wf-home-feature__body {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.wf-home-feature--about .wf-home-feature__body p:last-child {
+  margin-bottom: 0;
+}
+
+.wf-home-feature--about .wf-home-feature__cta {
+  align-self: stretch;
+}
+
+/* News: source mobile slide geometry, static three-card layout from 768px. */
+.wf-home-section--news {
+  padding: 3rem 0;
+  background: #fff;
+  text-align: center;
+}
+
+.wf-home-section--news .wf-home-section__title {
+  margin: 0 0 0.3125rem;
+}
+
+.wf-home-section--news .wf-home-section__cards {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  padding: 2.5rem 60px 2.5rem 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
+  scrollbar-width: none;
+}
+
+.wf-home-section--news .wf-home-section__cards::-webkit-scrollbar {
+  display: none;
+}
+
+.wf-home-section--news .wf-home-card {
+  display: flex;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.wf-home-section--news .wf-home-card__box {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 10px 40px 0 rgb(0 0 0 / 15%);
+  text-align: left;
+  transition: all 0.25s ease-in-out;
+}
+
+.wf-home-section--news .wf-home-card__image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 1.25rem;
+}
+
+.wf-home-section--news .wf-home-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wf-home-section--news .wf-home-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.wf-home-section--news .wf-home-card__heading {
+  margin: 0 0 0.625rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.wf-home-section--news .wf-home-card__eyebrow {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.wf-home-section__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  margin: -0.625rem 0 2.25rem;
+}
+
+.wf-home-section__pagination button {
+  width: 0.75rem;
+  height: 0.75rem;
+  padding: 0;
+  border: 2px solid #e03100;
+  border-radius: 100%;
+  background: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.wf-home-section__pagination button[aria-current='true'],
+.wf-home-section__pagination button:focus,
+.wf-home-section__pagination button:hover {
+  background: #e03100;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wf-home-section--news .wf-home-card:focus-within .wf-home-card__box,
+  .wf-home-section--news .wf-home-card:hover .wf-home-card__box {
+    transform: translateY(-0.625rem);
+  }
+}
+
+@media (min-width: 576px) {
+  .wf-home-container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .wf-home-container {
+    max-width: 768px;
+  }
+
+  .wf-home-section--default,
+  .wf-home-section--services {
+    padding: 0 0 60px;
+  }
+
+  .wf-home-section--default .wf-home-section__heading-wrapper,
+  .wf-home-section--services .wf-home-section__heading-wrapper {
+    padding-top: 60px;
+  }
+
+  .wf-home-section--default .wf-home-section__title,
+  .wf-home-section--services .wf-home-section__title {
+    font-size: 2.25rem;
+    line-height: 42px;
+  }
+
+  .wf-home-section--default .wf-home-section__cards,
+  .wf-home-section--services .wf-home-section__cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .wf-home-section--default .wf-home-card,
+  .wf-home-section--services .wf-home-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  .wf-home-section--account {
+    padding: 3.75rem 0;
+  }
+
+  .wf-home-section--account .wf-home-section__cards {
+    max-width: calc(75% + 10px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .wf-home-section--account .wf-home-card {
+    flex-basis: 10.25rem;
+  }
+
+  .wf-home-section--account .wf-home-card__image img {
+    width: 60px;
+  }
+
+  .wf-home-section--benefits {
+    padding: 90px 0;
+  }
+
+  .wf-home-section--benefits .wf-home-section__title {
+    font-size: 2.25rem;
+    line-height: 42px;
+  }
+
+  .wf-home-section--benefits .wf-home-section__body {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .wf-home-section--benefits .wf-home-card {
+    width: calc(33% - 10px);
+    flex-basis: calc(33% - 10px);
+  }
+
+  .wf-home-section--benefits .wf-home-card__box {
+    max-width: 330px;
+  }
+
+  .wf-home-section--benefits .wf-home-card__heading {
+    font-size: 1.75rem;
+  }
+
+  .wf-home-section--benefits .wf-home-card__image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .wf-home-section--benefits .wf-home-card__image img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .wf-home-feature__media,
+  .wf-home-feature__copy {
+    width: 50%;
+  }
+
+  .wf-home-feature__media {
+    order: 2;
+  }
+
+  .wf-home-feature__image {
+    margin-bottom: 0;
+  }
+
+  .wf-home-feature__inner {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .wf-home-feature__title {
+    font-size: 2.25rem;
+  }
+
+  .wf-home-feature--about .wf-home-feature__copy {
+    width: 100%;
+  }
+
+  .wf-home-section--news .wf-home-section__title {
+    margin-bottom: 2.1875rem;
+    font-size: 2.25rem;
+  }
+
+  .wf-home-section--news .wf-home-section__cards {
+    --wf-home-news-gap: calc((100vw - 48rem + 60px) / 2);
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+    padding: 1.25rem var(--wf-home-news-gap) 3.75rem;
+  }
+
+  .wf-home-section--news .wf-home-card {
+    flex: 0 1 calc((100% - 40px) / 3);
+  }
+
+  .wf-home-section__pagination {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .wf-home-container {
+    max-width: 960px;
+  }
+
+  .wf-home-section--account {
+    padding: 5.625rem 0;
+  }
+
+  .wf-home-section--account .wf-home-section__title {
+    margin-bottom: 3.75rem;
+    font-size: 3rem;
+  }
+
+  .wf-home-section--account .wf-home-section__cards {
+    max-width: none;
+    gap: 1.875rem;
+  }
+
+  .wf-home-section--account .wf-home-card {
+    flex-basis: 13rem;
+    min-height: 13rem;
+    padding: 3.125rem 1.25rem 2.5rem;
+  }
+
+  .wf-home-section--benefits .wf-home-section__body {
+    font-size: 1.125rem;
+  }
+
+  .wf-home-feature--about .wf-home-feature__copy {
+    width: 50%;
+  }
+
+  .wf-home-section--news .wf-home-section__title {
+    margin-bottom: 3.125rem;
+    font-size: 3rem;
+  }
+
+  .wf-home-section--news .wf-home-section__cards {
+    --wf-home-news-gap: calc((100vw - 60rem + 60px) / 2);
+    gap: 1.875rem;
+    padding-bottom: 4.375rem;
+  }
+
+  .wf-home-section--news .wf-home-card {
+    flex-basis: calc((100% - 60px) / 3);
+  }
+
+  .wf-home-section--news .wf-home-card__box {
+    padding: 1.875rem;
+  }
+}
+
+@media (min-width: 960px) and (hover: hover) and (pointer: fine) {
+  .wf-home-section--account .wf-home-card:focus-within,
+  .wf-home-section--account .wf-home-card:hover {
+    transform: translateY(-20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .wf-home-container {
+    max-width: 1200px;
+  }
+
+  .wf-home-section--default,
+  .wf-home-section--services {
+    padding: 0 0 90px;
+  }
+
+  .wf-home-section--default .wf-home-section__heading-wrapper,
+  .wf-home-section--services .wf-home-section__heading-wrapper {
+    padding-top: 90px;
+  }
+
+  .wf-home-section--default .wf-home-section__title,
+  .wf-home-section--services .wf-home-section__title {
+    font-size: 3rem;
+    line-height: 56px;
+  }
+
+  .wf-home-section--default .wf-home-card,
+  .wf-home-section--services .wf-home-card {
+    flex-basis: calc(25% - 17px);
+  }
+
+  .wf-home-section--default .wf-home-card:only-child,
+  .wf-home-section--services .wf-home-card:only-child {
+    flex-basis: 100%;
+  }
+
+  .wf-home-section--default .wf-home-card:first-child:nth-last-child(2),
+  .wf-home-section--default .wf-home-card:nth-child(2):last-child,
+  .wf-home-section--services .wf-home-card:first-child:nth-last-child(2),
+  .wf-home-section--services .wf-home-card:nth-child(2):last-child {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .wf-home-section--default .wf-home-card:first-child:nth-last-child(3),
+  .wf-home-section--default .wf-home-card:nth-child(2):nth-last-child(2),
+  .wf-home-section--default .wf-home-card:nth-child(3):last-child,
+  .wf-home-section--services .wf-home-card:first-child:nth-last-child(3),
+  .wf-home-section--services .wf-home-card:nth-child(2):nth-last-child(2),
+  .wf-home-section--services .wf-home-card:nth-child(3):last-child {
+    flex-basis: calc(33% - 10px);
+  }
+
+  .wf-home-section--default .wf-home-card__image,
+  .wf-home-section--services .wf-home-card__image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .wf-home-section--default .wf-home-card__image img,
+  .wf-home-section--services .wf-home-card__image img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .wf-home-section--default .wf-home-card__heading,
+  .wf-home-section--services .wf-home-card__heading {
+    font-size: 1.5rem;
+    line-height: 28px;
+  }
+
+  .wf-home-section--default .wf-home-card__body,
+  .wf-home-section--services .wf-home-card__body {
+    font-size: 1.125rem;
+    line-height: 28px;
+  }
+
+  .wf-home-section--benefits .wf-home-section__title {
+    font-size: 3rem;
+    line-height: 56px;
+  }
+
+  .wf-home-section--benefits .wf-home-card__heading {
+    font-size: 2rem;
+  }
+
+  .wf-home-section--benefits .wf-home-card__body {
+    font-size: 1.125rem;
+  }
+
+  .wf-home-feature {
+    padding: 4rem 0;
+  }
+
+  .wf-home-feature__copy {
+    padding: 30px calc(var(--wf-home-gutter) * 4) 0 20px;
+  }
+
+  .wf-home-feature__title {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+  }
+
+  .wf-home-feature__body {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+  }
+
+  .wf-home-feature--about {
+    padding: 5rem 0;
+  }
+
+  .wf-home-feature--about .wf-home-feature__copy {
+    padding: 0 20px;
+  }
+
+  .wf-home-feature--about .wf-home-feature__body {
+    margin-bottom: 1.5rem;
+  }
+
+  .wf-home-feature--about .wf-home-feature__cta {
+    align-self: center;
+  }
+
+  .wf-home-section--news .wf-home-section__cards {
+    --wf-home-news-gap: calc((100vw - 75rem + 60px) / 2);
+  }
+}
+
+@media (min-width: 1440px) {
+  .wf-home-container {
+    max-width: 1440px;
+  }
+
+  .wf-home-section--news .wf-home-section__cards {
+    --wf-home-news-gap: calc((100vw - 90rem + 60px) / 2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-home-section *,
+  .wf-home-feature * {
+    transition-duration: 0s;
+    scroll-behavior: auto;
+  }
+}

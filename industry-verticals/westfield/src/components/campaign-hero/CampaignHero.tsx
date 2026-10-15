@@ -3,6 +3,8 @@ import { Image, RichText, Text } from '@sitecore-content-sdk/nextjs';
 import type { Field, ImageField } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
 import { nativeMediaSource } from 'lib/native-media';
+import { AgentFinder } from 'lib/agent-finder';
+import { HeroSun } from 'lib/westfield-icons';
 
 export type CampaignHeroProps = ComponentProps & {
   fields?: {
@@ -36,6 +38,48 @@ export const Default = ({ fields, params }: CampaignHeroProps): JSX.Element => (
           fetchPriority="high"
         />
       </div>
+    </div>
+  </section>
+);
+
+export const Home = ({ fields, params }: CampaignHeroProps): JSX.Element => (
+  <section
+    className={[
+      'wf-source hero-banner_heroBanner__Af7BC hero-banner_agentSearchVisible__eQdCU',
+      'component',
+      params.GridParameters,
+      params.styles,
+    ]
+      .filter(Boolean)
+      .join(' ')}
+    id={params.RenderingIdentifier || undefined}
+    data-class-change
+  >
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <div className="hero-banner_contentWrapper__32nTp">
+            <div className="hero-banner_content__3kw8L">
+              <Text tag="h1" className="hero-banner_title__pNOM6" field={fields?.Heading} />
+              <RichText className="hero-banner_richText__NJzEH rich-text" field={fields?.Body} />
+            </div>
+            <div className="hero-banner_agentSearchWrapper__VR4Fh">
+              <AgentFinder placement="hero" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="hero-banner_sunWrapper__TACH7">
+      <HeroSun />
+    </div>
+    <div className="hero-banner_imageWrapper__xwOk3">
+      <Image
+        field={fields?.Image}
+        {...nativeMediaSource(fields?.Image)}
+        loading="eager"
+        fetchPriority="high"
+      />
     </div>
   </section>
 );
