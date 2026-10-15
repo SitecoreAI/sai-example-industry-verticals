@@ -7,8 +7,14 @@ import metadata from '.sitecore/metadata.json';
  * to determine feature compatibility and configuration.
  */
 
+// Westfield does not use Component Builder or Forms integrations in Page Builder.
+const editingComponents = new Map(components);
+editingComponents.delete('FEaaSWrapper');
+editingComponents.delete('BYOCWrapper');
+editingComponents.delete('Form');
+
 const handler = new EditingConfigMiddleware({
-  components,
+  components: editingComponents,
   metadata,
 }).getHandler();
 
