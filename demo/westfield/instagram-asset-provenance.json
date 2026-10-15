@@ -3,7 +3,7 @@
   "site": "westfield",
   "sourceArchive": "fake-instagram-demo.zip",
   "recordedAtUTC": "2026-10-15T03:07:22.734090+00:00",
-  "purpose": "Unrelated friend stories and ordinary concert/weekend posts around one general MyWestfield sponsored ad.",
+  "purpose": "Unrelated friend stories and ordinary concert/weekend posts around one prospect Westfield home-and-auto sponsored ad: A new chapter. Protection for what\u2019s next.",
   "transformation": "None; exact supplied archive bytes. No generated or externally downloaded images added.",
   "ownership": "Westfield-scoped static Instagram prop assets; separate from native CMS/DAM inventory. No remote resources created by this copy.",
   "assets": [
@@ -55,5 +55,18 @@
       "sha256": "e6ec0b822afa48f54d227320e79c0d22cfc40a565f72e2c6458782a5a145eb77",
       "bytes": 1607859
     }
-  ]
+  ],
+  "updatedAtUTC": "2026-10-15T03:18:07.478425+00:00",
+  "campaign": {
+    "cta": "Learn more",
+    "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
+    "displayNames": "Human-friendly names with spaces; asset filenames and tracking keys stay technical."
+  },
+  "campaignArtwork": {
+    "path": "industry-verticals/westfield/public/instagram/assets/images/family.png",
+    "existingSource": "Westfield reference home-hero asset; canonical source provenance in industry-verticals/westfield/demo/dam-assets.json, key westfield-demo.homepage-hero",
+    "sha256": "03e4806605ded4693675538f68b4179a2974d512e9e4c2efb1a22c5ecc8b29d1",
+    "bytes": 318724,
+    "change": "Reuse existing image bytes; CSS contains the transparent family artwork within the ad."
+  }
 }

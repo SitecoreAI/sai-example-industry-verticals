@@ -5,10 +5,13 @@ This developer-only folder is separate from the frontend and ordinary build/depl
 ## Presenter journey
 
 1. Open `/demo` and start a fresh anonymous session. The presenter reset obtains a new Sitecore browser identity before opening the static Instagram prop.
-2. Find the single sponsored Westfield post in an unrelated friend feed. The general campaign is **Your insurance. On your terms.**; it makes no paperless offer before identification.
-3. Click **Log in**. The ad opens `/login?utm_source=instagram&utm_medium=social&utm_campaign=mywestfield`.
-4. Enter one of the two synthetic demo accounts below, using the literal password `password`.
-5. After the Cloud SDK confirms the matching native identity, continue to `/paperless` with the campaign parameters retained. This existing native page now presents general MyWestfield account content and the appropriate native recommendation.
+2. Find the single sponsored Westfield prospect post in an unrelated friend feed. The campaign is **A new chapter. Protection for what’s next.**, promoting home and auto coverage. Friend stories, posts, suggestions, alt text and display names use human-friendly names with spaces.
+3. Click **Learn more**. The ad opens the public Home page at `/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter`.
+4. The configured native **Westfield next chapter campaign** decision uses the built-in **UTM Campaign → Is equal to → next_chapter** condition on Home's `CampaignHero`. Its campaign datasource supplies **A new chapter. Protection for what’s next.** The original Hero remains the no-UTM control. Live first-response verification for this revision remains pending.
+5. Existing customers can then use the Header **Log in** link to open the SSO-style local demo `/login`. Header/footer navigation preserves the allowed campaign parameters. Enter one of the two synthetic demo accounts below, using the literal password `password`.
+6. After the Cloud SDK confirms the matching native identity, continue to `/paperless` with campaign parameters retained. This existing native page presents general MyWestfield account content and the appropriate native recommendation.
+
+Home also retains a separate, nonpersonalized coverage promotion: **Protection for wherever life takes you** with **Explore home and auto**, linking to the public Westfield home-and-auto reference page. The prospect ad does not ask for a login or pitch paperless enrollment.
 
 | Demo login | Existing native email identifier | Native Boolean | Expected recommendation |
 | --- | --- | --- | --- |
@@ -17,7 +20,7 @@ This developer-only folder is separate from the frontend and ordinary build/depl
 
 The login is a synthetic local acceptance gate, not production authentication. The password is checked in the browser and never placed in a network payload or URL. Successful local acceptance triggers a real Sitecore Cloud SDK identity event containing only the allowlisted native identifier. It does not create an authenticated production account session. The `westfieldPaperlessEnrolled` value stays on the native profile; the frontend does not store, submit or choose a local copy of that flag. Native personalization evaluates it to select the CMS datasource/presentation.
 
-The prior release verified both native profile imports (2/2), Boolean custom-value tests, LIVE initial-document decisions and campaign attribution. The revised anonymous-entry/login/general-account journey requires its own deployment and end-to-end QA; those earlier results do not establish this revision's QA status.
+The prior release verified both native profile imports (2/2), Boolean custom-value tests, LIVE customer initial-document decisions and campaign attribution. The revised prospect entry, Home UTM decision/control and subsequent login/account journey require their own deployment and end-to-end QA; those earlier results do not establish this revision's first-response or journey QA status. Exact native campaign identifiers are recorded in the Westfield head README.
 
 `instagram-asset-provenance.json` records the eight unchanged friend-story/post assets reused from the supplied ZIP. They are static prop assets, separate from the CMS/DAM asset inventory.
 

@@ -26,9 +26,20 @@ The standard build runs component-map generation and Sitecore metadata/site/impo
 
 ## Campaign entry and styles
 
-`/demo` starts a fresh anonymous Sitecore browser session and then opens `public/instagram/index.html`. This static rehearsal prop preserves the supplied Instagram appearance: one general Westfield sponsored post appears among unrelated friend stories, concert/weekend posts and suggestions. The ad says **Your insurance. On your terms.** and its **Log in** CTA opens `/login?utm_source=instagram&utm_medium=social&utm_campaign=mywestfield`. It contains no identity or paperless-status logic. Feed interactions are illustrative. Reused supplied-image provenance is recorded in `demo/westfield/instagram-asset-provenance.json` at the repository root.
+`/demo` starts a fresh anonymous Sitecore browser session and then opens `public/instagram/index.html`. This static rehearsal prop preserves the supplied Instagram appearance: one Westfield prospect ad appears among unrelated friend stories, concert/weekend posts and suggestions. All presented friend names and corresponding accessible labels use human-friendly names with spaces. The ad says **A new chapter. Protection for what’s next.**, with **Explore home and auto coverage for wherever life takes you.** Its **Learn more** CTA opens `/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter`. It contains no identity or paperless-status logic and does not lead directly to login. Feed interactions are illustrative. Reused-image provenance is recorded in `demo/westfield/instagram-asset-provenance.json` at the repository root.
 
-At `/login`, use `casey@example.com` or `jordan@example.com`, with the literal password `password`. This synthetic local acceptance gate is not production authentication. The password remains in the browser and is never serialized into a request or URL. After acceptance, the Cloud SDK establishes a fresh browser identity and sends the matching existing native identifier: `westfield-demo-unenrolled@example.invalid` for Casey or `westfield-demo-enrolled@example.invalid` for Jordan. Navigation waits for the native identity response and preserves the allowed campaign parameters.
+Home's configured native **Westfield next chapter campaign** decision uses the built-in **UTM Campaign → Is equal to → next_chapter** condition to replace its `CampaignHero` datasource with **Next chapter campaign**. The targeted heading is **A new chapter. Protection for what’s next.** The original Hero remains the no-UTM control; this is a native component decision, with no frontend UTM condition selecting the hero content.
+
+| Native contract | Identity |
+| --- | --- |
+| Home page | `27da11a8-e0dc-42d4-9e3f-b4073306679b` |
+| Home CampaignHero component UID | `dffe19de-2a6f-533e-aa5d-5891b093c491` |
+| Campaign datasource | `a275f458-496b-40cc-8448-454980cfc4be` at `/sitecore/content/Westfield/westfield/Home/Data/Next chapter campaign` |
+| Campaign experience | `77f8d59b-99dd-4451-9ecb-61d97905f04f` |
+
+These identifiers record configured native content and rules; they do not establish a delivered first response. Fresh deployed campaign and no-UTM control checks remain pending for this revision. Home's separate nonpersonalized coverage promotion is **Protection for wherever life takes you** / **Explore home and auto**, linking to the public reference `https://www.westfieldinsurance.com/home-and-auto`.
+
+Existing customers use the Header **Log in** link to reach the SSO-style local demo `/login`; header/footer navigation preserves allowed campaign parameters. Use `casey@example.com` or `jordan@example.com`, with the literal password `password`. This synthetic local acceptance gate is not production authentication. The password remains in the browser and is never serialized into a request or URL. After acceptance, the Cloud SDK establishes a fresh browser identity and sends the matching existing native identifier: `westfield-demo-unenrolled@example.invalid` for Casey or `westfield-demo-enrolled@example.invalid` for Jordan. Navigation waits for the native identity response and retains campaign attribution.
 
 The destination remains `/paperless`, the existing native page now containing general MyWestfield account content. Its native false/true UDL-derived decision recommends **Sign up for paperless billing** to Casey and **Keep your coverage in step with life** to Jordan. The frontend does not store or submit an enrollment flag. Restart through `/demo` before rehearsing the other account.
 
@@ -36,7 +47,7 @@ Both Westfield stylesheets are imported from the Pages Router `_app.tsx` after t
 
 ## Personalization boundary
 
-The starter middleware composes MultisiteMiddleware, RedirectsMiddleware and PersonalizeMiddleware. The prior release verified the target's two native synthetic imports (2/2), Published Boolean custom value, LIVE native decision, both personalized initial documents and native campaign attribution. This revision changes the entry/login journey and account-page content; deployment and fresh end-to-end QA remain release-specific work. Prior verification is not a pass for the revised flow.
+The starter middleware composes MultisiteMiddleware, RedirectsMiddleware and PersonalizeMiddleware. The prior release verified the target's two native synthetic imports (2/2), Published Boolean custom value, LIVE customer decision, both personalized initial documents and native campaign attribution. This revision adds a prospect Home UTM decision and changes the entry/login journey and account-page content; deployment and fresh end-to-end QA remain release-specific work. Prior verification is not a first-response or journey pass for the revised flow.
 
 Cloud SDK initialization and page-view events are disabled in development/editing/preview by the inherited starter. Rehearse tracking in a normal deployed session. No UDL connector, fake customer-profile fixture, or real enrollment transaction is implemented in this frontend.
 
