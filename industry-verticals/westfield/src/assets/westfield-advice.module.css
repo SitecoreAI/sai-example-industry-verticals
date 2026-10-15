@@ -14,6 +14,14 @@
   box-sizing: border-box;
 }
 
+/* Keep shared starter typography from replacing the Westfield typeface and colors. */
+.header :is(h1, h2, h3, h4, h5, h6, p),
+.bodyLayout :is(h1, h2, h3, h4, h5, h6, p),
+.listing :is(h1, h2, h3, h4, h5, h6, p) {
+  font-family: inherit;
+  color: inherit;
+}
+
 .header,
 .bodyLayout,
 .listing {
@@ -845,7 +853,7 @@
   .header,
   .bodyLayout,
   .textBlock {
-    color: #111;
+    color: #000;
   }
 
   .breadcrumbs {
