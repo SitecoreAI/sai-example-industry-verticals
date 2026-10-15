@@ -1161,7 +1161,7 @@
       "path": "authoring/items/westfield/westfield-definitions.module.json",
       "kind": "site-definitions",
       "ownerSite": "westfield",
-      "status": "72 native item identities verified; external host single-item source prepared for review, no source deployment performed",
+      "status": "94 native identities/paths/templates and metadata-only context scaffold verified; four leaf paths/children discovered and native body picker restricts to ArticleText/CampaignAction. Focused Advice runtime/authoring acceptance passed; final metadata release separate.",
       "includePaths": [
         "/sitecore/templates/Project/Westfield",
         "/sitecore/layout/Renderings/Project/Westfield",
@@ -1169,7 +1169,9 @@
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
         "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
-        "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
+        "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
+        "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings"
       ],
       "includeScopes": [
         {
@@ -1198,6 +1200,14 @@
         },
         {
           "path": "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+          "scope": "singleItem"
+        },
+        {
+          "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
+          "scope": "singleItem"
+        },
+        {
+          "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
           "scope": "singleItem"
         }
       ]
@@ -2127,8 +2137,8 @@
         },
         "deployedFrontend": {
           "branch": "main",
-          "commit": "9283668092233d577a7bf93419ed006d61bb4bbb",
-          "status": "READY public and editing deployments; PR6 HTML MIME contract verified"
+          "commit": "375c2ff863de618b7c709a3a2581e21e81618b9c",
+          "status": "Runtime 375c2ff8 deployed; focused native/public Advice and core regression acceptance passed. Final metadata release remains separate."
         }
       },
       "renderingHost": {
@@ -2147,7 +2157,7 @@
         "shared-content-hub-dam"
       ],
       "ownership": {
-        "status": "Source definition scopes, native site identity and four native CMS media identities verified; reference exclusivity must be rechecked before retirement.",
+        "status": "Westfield source/native ownership and focused Advice acceptance verified; reference exclusivity must be rechecked before retirement.",
         "sourcePaths": [
           "industry-verticals/westfield",
           "authoring/items/westfield",
@@ -2161,7 +2171,9 @@
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
           "/sitecore/content/Westfield/westfield",
-          "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
+          "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+          "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
+          "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings"
         ],
         "mediaPaths": [
           "/sitecore/media library/Project/Westfield/westfield"
@@ -2174,7 +2186,9 @@
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
           "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
-          "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external"
+          "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
+          "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
+          "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings"
         ],
         "additionalNativeItems": [
           {
@@ -2221,6 +2235,16 @@
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Data/Paperless campaign_var3",
             "referencedByPaperlessSharedOrFinalLayout": false,
             "globalReferenceExclusivity": "unverified; preserve until reference/dependency review"
+          }
+        ],
+        "preExistingNativeScaffolds": [
+          {
+            "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
+            "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
+            "scope": "singleItem",
+            "ownership": "Pre-existing site-generated folder metadata only; no descendants or authored fields owned by this scaffold.",
+            "retainOnAdviceRemoval": true,
+            "status": "deployed; exact native child discovery and body-picker restriction verified"
           }
         ]
       },
@@ -2418,16 +2442,25 @@
           "status": "verified",
           "module": "Project.Westfield.Definitions",
           "database": "master",
-          "serializedItemCount": 72,
-          "datasourceFieldCount": 29,
+          "serializedItemCount": 94,
+          "datasourceFieldCount": 33,
           "placeholderFolderId": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
           "placeholderSettingsPaths": [
             "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Header",
             "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
-            "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer"
+            "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
+            "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content"
           ],
-          "checkedAtUTC": "2026-10-14T23:48:31.418618+00:00",
-          "verificationScope": "72 native identities/paths/parents/templates and four nonsecret host fields passed post-deploy API audit. Scoped native UI authoring/variants passed; shared Commerce palette entry retained."
+          "checkedAtUTC": "2026-10-15T05:08:28.416837+00:00",
+          "verificationScope": "94 native identities/paths/templates verified; exact four leaf paths and parent-child discovery passed. Native body picker permits only ArticleText/CampaignAction. Full Advice authored-content/publication/live acceptance remains separate.",
+          "adviceArticleFieldCount": 3,
+          "currentFieldFreshness": {
+            "status": "verified",
+            "nativeSourceCommit": "39c28097b71d1778ef4de3411b8114af7f2dae7a",
+            "deploymentId": "18UAQqs8tphgg5DTcocAnZ",
+            "scope": "Dynamic wildcard/flag/allowed IDs and metadata-only parent scaffold verified; actual body-picker restriction passed."
+          },
+          "nativeIdentityAuditItemCount": 94
         },
         "media": {
           "status": "verified",
@@ -2467,9 +2500,64 @@
               "width": 210,
               "height": 41,
               "sha256": "0f620866a65f476567fa105e01e4d43364ce01e1aa9e53adf4e5e48315f9a006"
+            },
+            {
+              "key": "advice:inventory",
+              "mediaId": "a64275f1-834d-4fec-a05a-67087270a10c",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/inventory",
+              "width": 450,
+              "height": 338,
+              "sha256": "69159226dce4c72e4510d95b26163fdbab8a49c1a764e7f0833b86b7d6a910cb",
+              "status": "published; native identity/readback and actual article image GET 200 verified",
+              "published": true
+            },
+            {
+              "key": "advice:water",
+              "mediaId": "ce969241-4e6a-441a-bf9f-5c302e76d6ba",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/water",
+              "width": 450,
+              "height": 338,
+              "sha256": "4b60125870967e08e0cca49fdab1d06562d2e835affcee2a35db0b289affd9fc",
+              "status": "published; native identity/readback and actual article image GET 200 verified",
+              "published": true
+            },
+            {
+              "key": "advice:review",
+              "mediaId": "c26d9ba7-b440-4302-8674-6210ff725c69",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/review",
+              "width": 450,
+              "height": 338,
+              "sha256": "cf5e56e98458e3b7ad4fa45f317e56fa81edb4fb2baac5bdf5ae090a51dc3cfc",
+              "status": "published; native identity/readback and actual article image GET 200 verified",
+              "published": true
+            },
+            {
+              "key": "advice:new-driver",
+              "mediaId": "bb891d8f-47e5-4be0-a0c2-89a216f7e3bf",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/new-driver",
+              "width": 450,
+              "height": 338,
+              "sha256": "caa0561414e87be10d0acbed00bbf94e4e9d05e3b5fdf618f362a85338f633a5",
+              "status": "published; native identity/readback and actual article image GET 200 verified",
+              "published": true
+            },
+            {
+              "key": "advice:storm",
+              "mediaId": "a019c7d1-6a70-4532-89b8-7a08da94da27",
+              "path": "/sitecore/media library/Project/Westfield/westfield/Advice/storm",
+              "width": 450,
+              "height": 338,
+              "sha256": "b527cde95dec887109f6b7c4b66defe7206c6c5e2d1a8efb775d31d1e4dcee33",
+              "status": "published; native identity/readback and actual article image GET 200 verified",
+              "published": true
             }
           ],
-          "verificationScope": "Four native CMS media uploads and live GET 200 verified. Native CMS media-library picker was not separately tested; actual DAM selection is recorded separately."
+          "verificationScope": "Four baseline native CMS media uploads/live delivery remain verified. Five additional Advice assets/folder uploaded/read back and published; all six actual article HeroImage responses 200, including reused baseline MyWestfield media. DAM selector proof is separately scoped.",
+          "adviceFolder": {
+            "id": "6b4dd5a1-3326-4e83-9a5a-9bef67f2b92a",
+            "path": "/sitecore/media library/Project/Westfield/westfield/Advice",
+            "status": "native uploaded/read-back; five assets published and actual article image delivery verified"
+          }
         },
         "editing": {
           "status": "verified",
@@ -2592,15 +2680,374 @@
             },
             "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection"
           }
+        },
+        "advice": {
+          "status": "PASS",
+          "checkedAtUTC": "2026-10-15T05:28:09.086821+00:00",
+          "source": {
+            "developerContract": "authoring/items/westfield/advice-contract.json",
+            "definitionInventory": "authoring/items/westfield/contracts.json",
+            "originalArticlePlan": "demo/westfield/advice-content.json",
+            "ownership": "Westfield-only developer templates/renderings and exact placeholder leaf; no authored content serialized."
+          },
+          "definitions": {
+            "module": "Project.Westfield.Definitions",
+            "sourceItemCount": 94,
+            "newItemCount": 21,
+            "nativeIdentityAudit": {
+              "status": "passed",
+              "matched": 94,
+              "failed": 0,
+              "deploymentId": "18UAQqs8tphgg5DTcocAnZ",
+              "nativeSourceCommit": "39c28097b71d1778ef4de3411b8114af7f2dae7a",
+              "deploymentStages": "all stages complete (2)"
+            },
+            "dynamicPlaceholderCorrection": {
+              "nativeSourceCommit": "39c28097b71d1778ef4de3411b8114af7f2dae7a",
+              "deploymentId": "18UAQqs8tphgg5DTcocAnZ",
+              "status": "native fields, discovery and actual two-control UI picker verified",
+              "placeholderId": "9f0b3ffd-fecd-583d-8b6e-3638b05ea845",
+              "intendedKey": "article-content-{*}",
+              "containerRenderingId": "fc56a6e7-1fb8-543e-bab8-a81ab5185b9c",
+              "allowedRenderingIds": [
+                "c8ff5ecf-3894-50f2-93d1-0654c6a693ea",
+                "15f0d95b-ce29-45d7-8937-42016fcf3efd"
+              ]
+            },
+            "preExistingNativeScaffoldItemCount": 1,
+            "parentScaffoldExperiment": {
+              "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
+              "scope": "singleItem",
+              "nativeSourceCommit": "39c28097b71d1778ef4de3411b8114af7f2dae7a",
+              "deploymentId": "18UAQqs8tphgg5DTcocAnZ",
+              "status": "VERIFIED_DISCOVERY_AND_UI_RESTRICTIONS",
+              "retainOnAdviceRemoval": true
+            }
+          },
+          "authoredOwnership": {
+            "scope": "Native site-local variants, palette groups, Article partial/design, populated branch prototype and native-generated partial placeholder; outside ordinary definition deployment. IDs below are actual API-created/read-back identities.",
+            "items": [
+              {
+                "id": "bb83f144-09d1-458e-b272-4cd16aa11b9a",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/ArticleHeader"
+              },
+              {
+                "id": "a322fcec-bf61-44e7-972d-643e81f93e40",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/ArticleHeader/Default"
+              },
+              {
+                "id": "6060d729-2cca-4fe3-8b1a-b5d23a8eebe7",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/ArticleBodyLayout"
+              },
+              {
+                "id": "d1f145b3-10cb-4b16-a7dc-7bb513cfbcb5",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/ArticleBodyLayout/Default"
+              },
+              {
+                "id": "7ccb466c-d964-46e1-8754-e844db182fb0",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/ArticleText"
+              },
+              {
+                "id": "a3649f49-0cd1-425c-a707-00ea0e5cedf7",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/ArticleText/Default"
+              },
+              {
+                "id": "dacd2a4d-500c-4d6a-acf0-8c1cb6c28560",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/AdviceListing"
+              },
+              {
+                "id": "4fbb49da-7226-412f-8e1e-a9a60762a5f9",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/AdviceListing/Default"
+              },
+              {
+                "id": "54fc11cf-041f-4058-a386-19be59a18ed7",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/SearchResults"
+              },
+              {
+                "id": "4f8d59d2-5496-4ecd-a0b6-fa568d18651c",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/SearchResults/Default"
+              },
+              {
+                "id": "5e7711e5-24f4-4942-bfba-93098ea035df",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Available Renderings/Articles"
+              },
+              {
+                "id": "c914def5-72e9-4cb1-8e7b-6e0637191bff",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Available Renderings/Search"
+              },
+              {
+                "id": "5cffb75d-6f08-4f03-b683-e6b178d4b385",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Article"
+              },
+              {
+                "id": "277144a6-9159-4a0d-85ab-112adfe291de",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Designs/Article"
+              },
+              {
+                "id": "38105d45-16c2-44a5-b821-a543d457e782",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article"
+              },
+              {
+                "id": "e0aec90c-c991-4219-8fb6-4fd7b4cba140",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article/$name"
+              },
+              {
+                "id": "bd7807b7-b1d7-497b-9e28-c882379db96c",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article/$name/Data"
+              },
+              {
+                "id": "fa324438-d369-402d-8cf0-92db4e7fb3b0",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article/$name/Data/Introduction"
+              },
+              {
+                "id": "ff8159db-c34d-4e08-95a5-3c1c1c40eb0c",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article/$name/Data/Checklist"
+              },
+              {
+                "id": "54a26a65-47ba-46a4-8975-aebe43defd1d",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article/$name/Data/Next step"
+              },
+              {
+                "id": "91e93020-4ee9-4cfa-8904-8f19c8c8e4f1",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice"
+              },
+              {
+                "id": "d3ef758c-5d48-47b5-98e1-929d6e4fd239",
+                "path": "/sitecore/content/Westfield/westfield/Home/search"
+              },
+              {
+                "id": "c9857ce9-6178-4d04-8e4c-fbf57caa4939",
+                "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Partial Design/Article"
+              },
+              {
+                "id": "d7d99046-e176-405c-a8e9-c15b2ddb18ec",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review"
+              },
+              {
+                "id": "03112abb-a5a1-415b-955a-3ad0526c5c8c",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review/Data"
+              },
+              {
+                "id": "78e14b63-7dfb-44d9-9b8f-d0dd1088161a",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review/Data/Checklist"
+              },
+              {
+                "id": "78add49d-b5fb-4005-bc99-b9c79705753d",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review/Data/Introduction"
+              },
+              {
+                "id": "698e8dd3-1b1b-4268-9e8e-0b92c9153c23",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review/Data/Next step"
+              },
+              {
+                "id": "ab4ec213-e341-406b-8cad-5c1967f89087",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist/Data/Introduction"
+              },
+              {
+                "id": "9548e3be-9946-4952-a31d-4fe8177bc01f",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist/Data/Checklist"
+              },
+              {
+                "id": "bfe55357-318c-4016-bbf1-70c32d5bd678",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist/Data/Next step"
+              },
+              {
+                "id": "76477d9d-cb1e-4d6c-898b-8d21a087ba9b",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions/Data/Introduction"
+              },
+              {
+                "id": "8175a2ba-b449-462a-a1c6-324f6d2e89cd",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions/Data/Checklist"
+              },
+              {
+                "id": "f7702908-3f4a-433d-8cfd-62636848f77e",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions/Data/Next step"
+              },
+              {
+                "id": "db8676fb-8dbf-463a-9d82-16a8e83a038e",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/new-driver-family-conversation/Data/Introduction"
+              },
+              {
+                "id": "cf164a29-c2c5-47b7-8703-b9e91fa41796",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/new-driver-family-conversation/Data/Checklist"
+              },
+              {
+                "id": "cf315d68-dc42-41c0-9727-f4270e677c6c",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/new-driver-family-conversation/Data/Next step"
+              },
+              {
+                "id": "4d083d7e-e555-4cb9-a2e3-d0b6d7b35753",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/storm-season-household-checklist/Data/Introduction"
+              },
+              {
+                "id": "cceec22d-7058-44bc-8b55-b8c449ba2e0c",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/storm-season-household-checklist/Data/Checklist"
+              },
+              {
+                "id": "bffff288-25f2-46b8-b87a-1e1052f95295",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/storm-season-household-checklist/Data/Next step"
+              },
+              {
+                "id": "c9c8a364-e074-46ad-9055-dd303125ef2f",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/organize-insurance-documents/Data/Introduction"
+              },
+              {
+                "id": "e18e4911-4a61-4641-85be-3265776332a5",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/organize-insurance-documents/Data/Checklist"
+              },
+              {
+                "id": "4a1b9c1f-d320-4f45-b37c-ee748bb8216e",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/organize-insurance-documents/Data/Next step"
+              },
+              {
+                "id": "34b28ef7-e271-4889-8ede-b61150b03cf4",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup/Data/Introduction"
+              },
+              {
+                "id": "36245221-8e7e-4bb1-9aca-3b81b3a864a9",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup/Data/Checklist"
+              },
+              {
+                "id": "0de85bab-1e99-47dd-869b-25baaf99f60b",
+                "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup/Data/Next step"
+              }
+            ],
+            "pageLocalData": "Six branch-created articles own18 distinct native Data/Introduction, Data/Checklist and Data/Next step datasource items, with exact IDs/paths listed here. The practice page owns separate receipted Data/datasources; branch prototype remains independent.",
+            "existingFieldChanges": "Only append Advice mappings to site Page Designs.TemplatesMapping and AdviceHub insertion to site Page Branches.Rule. Preserve unrelated pairs/rules and later author edits."
+          },
+          "routes": [
+            {
+              "route": "/advice",
+              "id": "91e93020-4ee9-4cfa-8904-8f19c8c8e4f1",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/search",
+              "id": "d3ef758c-5d48-47b5-98e1-929d6e4fd239",
+              "path": "/sitecore/content/Westfield/westfield/Home/search",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/advice/home-inventory-checklist",
+              "id": "400cf46d-5680-41b8-90f1-0559877d1518",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/advice/home-auto-review-questions",
+              "id": "6f44c3aa-840e-4708-8e3b-d08b7cb27e19",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/advice/new-driver-family-conversation",
+              "id": "5d45a5c5-330e-46e2-a9db-fe61347537d3",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/new-driver-family-conversation",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/advice/storm-season-household-checklist",
+              "id": "5f12387e-a1b9-45b8-b2ed-77d98e5649f4",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/storm-season-household-checklist",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/advice/organize-insurance-documents",
+              "id": "940e9a53-6fff-4282-95aa-175582ce188f",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/organize-insurance-documents",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            },
+            {
+              "route": "/advice/water-leak-home-checkup",
+              "id": "970c651f-631b-484f-ba98-8db6ea753501",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup",
+              "status": "published; native ID, HTTP/content and scoped browser acceptance verified"
+            }
+          ],
+          "nativeCmsMedia": {
+            "binding": "bindings.media.adviceFolder and Advice-prefixed assets",
+            "uploadedReadBackAssets": 5,
+            "source": "native CMS media; no Content Hub DAM claim",
+            "freshPublicationAndDelivery": "PASS: five new native CMS media items published; all six actual article HeroImage GET responses 200. Sixth article reuses existing native MyWestfield media.",
+            "publishedAssets": 5,
+            "actualArticleImageResponses": 6
+          },
+          "acceptance": {
+            "status": "PASS",
+            "runtimeCommit": "375c2ff863de618b7c709a3a2581e21e81618b9c",
+            "layout": "Six native published articles each deliver ArticleText, ArticleText, CampaignAction under article-content-2 with exact page-local Data.",
+            "authoringUi": "Native Create page branch, independent Data, Title/summary/heading/RichText edits, shared DAM HeroImage save/reload, allowed insertion/restore and native Publish freshness passed.",
+            "restrictions": "Native body picker permits only Article text and Campaign action.",
+            "publication": "All scoped Advice definition/configuration/content/media/navigation publications FINISHED without failure; native UI publish freshness passed. Practice scoped retirement FINISHED; content retained/Never publish.",
+            "httpAssertions": {
+              "base": 56,
+              "detail": 26,
+              "passed": true
+            },
+            "liveAdviceAndSearch": "Six article URLs/images 200; hub lists six; topic filter/card links, header navigation, native-published search, empty-result behavior and retired practice exclusion verified.",
+            "browser": {
+              "desktop": [
+                1440,
+                1000
+              ],
+              "mobile": [
+                390,
+                844
+              ],
+              "status": "PASS",
+              "scope": "Hub/filter/article/back links, Advice/Search navigation, keyboard query, images/long-text wrapping and no horizontal overflow on tested pages."
+            },
+            "coreJourney": {
+              "freshAnonymousInstagramToHome": "PASS native next_chapter hero on first Home with Advice/Search links",
+              "freshJordanHeaderLoginFirstArrival": "PASS native enrolled recommendation",
+              "earlierCaseyHeaderLogin": "PASS"
+            },
+            "limitation": "Earlier immediate Casey-to-Jordan navigation showed Original until reload. Native async identity convergence remains; start a fresh anonymous launcher journey between personas."
+          },
+          "retirement": "Review exact owned IDs, page-local children and inbound references before removal. Retain the pre-existing Placeholder Settings folder on Advice-only removal; scaffold owns metadata only. Preserve shared CM/global roots, other sites, shared DAM and unrelated rules/mappings.",
+          "frontend": {
+            "sourceCommit": "375c2ff863de618b7c709a3a2581e21e81618b9c",
+            "status": "PASS: focused native/public/runtime acceptance at this commit"
+          },
+          "practicePage": {
+            "id": "d7d99046-e176-405c-a8e9-c15b2ddb18ec",
+            "route": "/advice/weekend-home-review",
+            "purpose": "Native UI creation/editing acceptance; distinct from six planned articles",
+            "independentDataItems": 3,
+            "authoring": "Title/summary/heading/RichText edits and shared DAM HeroImage saved/reloaded through native UI",
+            "retainedInCms": true,
+            "neverPublish": true,
+            "scopedUnpublish": "FINISHED;6 processed, no failure",
+            "publicRouteStatus": 404,
+            "ownership": "Exact page/Data/three datasource IDs are in authoredOwnership.items; do not remove shared DAM assets.",
+            "listingAbsent": true,
+            "uniquePhraseSearchCount": 0,
+            "nativePublicationRoundtrip": "Native UI Publish freshness passed (6 processed); scoped unpublish completed, native page and all Data retained with Never publish.",
+            "damHeroImage": {
+              "assetId": 128421,
+              "fieldId": "f7badcfe-f84c-51a2-8066-b863da18c3ec",
+              "status": "Native picker/save/reload and published live image verified before practice retirement; CMS field retained, public page now 404. Shared DAM asset preserved."
+            }
+          },
+          "metadataRelease": {
+            "status": "PENDING",
+            "sourceCommit": null,
+            "pullRequestUrl": null,
+            "deploymentId": null,
+            "scope": "Final ownership/contract metadata release follows the proven runtime; root will record exact merge/deployment evidence."
+          }
         }
       },
       "notes": [
         "Independent Westfield head/definitions; no Project.IndustryVerticals dependency. Old westfield-luxury-retail excluded.",
         "Only developer definitions deploy normally. Authored content, palette edits, DAM selections and Site Grouping binding are not auto-seeded.",
-        "Three exact site placeholder descendants and one external-host leaf exclude shared parents/global placeholder roots.",
+        "Four exact site placeholder descendants and one external-host leaf exclude shared/global roots. One pre-existing site Placeholder Settings folder is a metadata-only singleItem scaffold experiment, with no descendants or Presentation serialization; retain it on Advice-only removal.",
         "QA page and children remain native with Never publish/public 404; two var2/var3 copies are unused in current Paperless XML only, so preserve until broader reference review.",
         "Private receipts/output evidence retain detailed QA; canonical DAM inventory records exact asset/collection/public-link ownership. No deletion authorized.",
-        "Instagram promotes prospect home-and-auto insurance. Native Home hero campaign decision and existing customer billing-status decision are separate. Synthetic login identifies only after acceptance; source and assets stay Westfield-scoped."
+        "Instagram promotes prospect home-and-auto insurance. Native Home hero campaign decision and existing customer billing-status decision are separate. Synthetic login identifies only after acceptance; source and assets stay Westfield-scoped.",
+        "Advice expansion separates serialized developer definitions from API-created designs/branch/page-local Data. Ordinary release deployment does not replay authored content. Current progress and exact owned IDs are in bindings.advice."
       ]
     },
     {

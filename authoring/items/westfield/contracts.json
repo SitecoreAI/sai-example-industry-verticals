@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "module": "Project.Westfield.Definitions",
-  "status": "Developer definition source. The prior 72-item baseline was deployed; the 21-item Advice addition is prepared and requires its own native deployment/readback. Runtime and authoring acceptance belong to the linked lifecycle manifest, not this source inventory.",
+  "status": "94 developer definition identities/paths/templates and the metadata-only context scaffold are deployed and verified. Resource discovery, restricted body insertion and the focused native/public Advice slice passed at runtime 375c2ff8; final metadata release is tracked separately in the lifecycle manifest.",
   "ownership": "developer-owned definitions only; no authored page/site/content/media items",
   "roots": [
     "/sitecore/templates/Project/Westfield",
@@ -11,7 +11,8 @@
     "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Main",
     "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Footer",
     "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external",
-    "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content"
+    "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
+    "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings"
   ],
   "components": [
     {
@@ -594,6 +595,12 @@
   ],
   "items": [
     {
+      "key": "sitePlaceholderContext",
+      "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
+      "file": "items/sitePlaceholderContext/Placeholder Settings.yml"
+    },
+    {
       "key": "advice:content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
       "id": "9f0b3ffd-fecd-583d-8b6e-3638b05ea845",
       "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
@@ -1152,7 +1159,7 @@
       "file": "items/templates/Westfield/Parameters/Component Parameters.yml"
     }
   ],
-  "rootIdentityStatus": "Template, rendering and branch root identities were verified. The generated site Placeholder Settings folder is native context only; exactly Header/Main/Footer/Article Content leaves are serialized. The global placeholder root and shared rendering-host parent are excluded.",
+  "rootIdentityStatus": "94 exact definition identities verified. Header/Main/Footer/Article Content are exact includes; the existing Placeholder Settings folder is a metadata-only singleItem scaffold with no descendants or Presentation scope. Retain that pre-existing folder on Advice-only removal.",
   "nativeRootBindings": {
     "/sitecore/templates/Project/Westfield": {
       "id": "ab0434e0-a27e-4507-bb6b-171e2c134dc0",
@@ -1168,8 +1175,10 @@
     },
     "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings": {
       "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
-      "evidence": "Verified through Authoring API item identity and parent paths of Header/Main/Footer.",
-      "serializationScope": "generated native context folder; excluded from definition deployment and definition-only retirement scopes"
+      "evidence": "Read-only actual identity/template/parent/en version1 metadata and post-deployment child discovery verified; native body picker exposes only the two allowed controls.",
+      "serializationScope": "singleItem metadata scaffold only; no descendants/authored settings. Pre-existing native folder, retained on Advice-only removal.",
+      "templateId": "52288e39-7830-4694-b62d-32a54c6ef7ba",
+      "parentId": "6cae6fe3-a3f3-433a-862f-9439a54faebb"
     },
     "/sitecore/system/Settings/Services/Rendering Hosts/westfield-external": {
       "id": "a2a4cd2c-0dcd-4937-aeaf-20ea8cd3a740",
@@ -1188,7 +1197,7 @@
     "branch": "slb",
     "verifiedCommit": "08b68d568b0c26dc9040991338f2d26b3ff90944",
     "additiveSourceChange": "Mirror only Westfield developer definitions into the isolated slb-based authoring branch. Preserve unrelated modules, build configuration and authored content.",
-    "nativeDeploymentStatus": "Advice addition pending; record current deployment and native readback separately."
+    "nativeDeploymentStatus": "94 definition identities and site placeholder discovery verified after deployment; authored-content/live release acceptance is separate."
   },
   "nativeInheritance": {
     "pageBase": {
@@ -1204,19 +1213,37 @@
     "fieldNamesFieldId": "75bbdf72-635f-4d72-a3d3-a9baba09d161"
   },
   "definitionCounts": {
-    "serializedItems": 93,
+    "serializedItems": 94,
     "datasourceFields": 33,
     "components": 10,
     "pageLocalMetadataFields": 5,
     "adviceArticleFields": 3,
     "inheritedTitleField": 1,
     "previouslyDeployedBaselineItems": 72,
-    "adviceSourceAdditionItems": 21
+    "adviceSourceAdditionItems": 21,
+    "preExistingNativeScaffoldItems": 1
   },
   "runtimeEvidence": {
     "canonicalLifecycleManifest": "../../../sites.manifest.json#westfield",
     "canonicalDamInventory": "../../../industry-verticals/westfield/demo/dam-assets.json",
     "adviceContract": "advice-contract.json",
     "boundary": "Source preparation is not proof of native deployment, delivered placeholder structure, Page Builder operations, published content or live article/search behavior."
-  }
+  },
+  "existingNativeScaffolds": [
+    {
+      "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings",
+      "parentId": "6cae6fe3-a3f3-433a-862f-9439a54faebb",
+      "templateId": "52288e39-7830-4694-b62d-32a54c6ef7ba",
+      "scope": "singleItem",
+      "sourceFile": "items/sitePlaceholderContext/Placeholder Settings.yml",
+      "sourceFields": [
+        "__Created"
+      ],
+      "nativeOrigin": "Pre-existing site-generated folder; actual identity, template, parent and en version1 creation timestamp preserved.",
+      "purpose": "IAR resource-child discovery scaffold; no authored settings or descendants captured.",
+      "status": "deployed; all four leaf paths and parent-child enumeration verified; native picker restriction passed",
+      "retainOnAdviceRemoval": true
+    }
+  ]
 }
