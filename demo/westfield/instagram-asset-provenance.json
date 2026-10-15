@@ -56,11 +56,12 @@
       "bytes": 1607859
     }
   ],
-  "updatedAtUTC": "2026-10-15T03:18:07.478425+00:00",
+  "updatedAtUTC": "2026-10-15T03:53:13.872931+00:00",
   "campaign": {
     "cta": "Learn more",
-    "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
-    "displayNames": "Human-friendly names with spaces; asset filenames and tracking keys stay technical."
+    "destination": "/campaign?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
+    "displayNames": "Human-friendly names with spaces; asset filenames and tracking keys stay technical.",
+    "entryContract": "Generic anonymous campaign entry awaits native VIEW status OK and ref, then replaces navigation to Home with campaign parameters. No identity or local variant selection."
   },
   "campaignArtwork": {
     "path": "industry-verticals/westfield/public/instagram/assets/images/family.png",

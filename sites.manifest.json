@@ -2559,7 +2559,7 @@
               "demo/westfield/login-asset-provenance.json",
               "demo/westfield/instagram-asset-provenance.json"
             ],
-            "campaignDestination": "/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
+            "campaignDestination": "/campaign?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
             "loginEntry": "Existing-customer Login on the campaign landing page; header and footer retain six allowed UTM parameters",
             "campaignDecision": {
               "name": "Westfield next chapter campaign",
@@ -2574,13 +2574,21 @@
               "heading": "A new chapter. Protection for what\u2019s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
-              "verification": "Native configuration and scoped content publication; final activation/first-response evidence is recorded in the private handoff",
+              "verification": "LIVE native table saved; final deployed journey verification pending",
               "generatedUnusedCopy": {
                 "id": "b4e93245-df16-441c-84f7-c73304313125",
                 "path": "/sitecore/content/Westfield/westfield/Home/Data/Hero_var2",
                 "scope": "Absent from current Home layout after native picker assignment; preserve until broader reference review"
+              },
+              "inputType": "Native Profile data attribute",
+              "firstVisitBoundary": "The campaign entry page records the anonymous visit before Home is requested. Native profile targeting chooses the Home variant; complete entry-to-Home verification is pending.",
+              "unusedCondition": {
+                "id": "ccecd5b4-d31b-46c1-862a-db6b23e21106",
+                "name": "Westfield next chapter arrival",
+                "status": "Published but unused in current Home rule; preserve or unpublish only after usage review"
               }
-            }
+            },
+            "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection"
           }
         }
       },
