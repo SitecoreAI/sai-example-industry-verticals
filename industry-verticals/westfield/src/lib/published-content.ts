@@ -1,5 +1,9 @@
 import type { ImageField } from '@sitecore-content-sdk/nextjs';
+import { articleReadingTime } from './article-reading-time';
+import { plainText } from './plain-text';
 import scConfig from 'sitecore.config';
+
+export { plainText } from './plain-text';
 
 const HOME_ID = '27da11a8e0dc42d49e3fb4073306679b';
 const HOME_PATH = '/sitecore/content/Westfield/westfield/Home';
@@ -40,7 +44,6 @@ type NativeItem = {
   title: { jsonValue: unknown } | null;
   summary: { jsonValue: unknown } | null;
   topic: { jsonValue: unknown } | null;
-  readTime: { jsonValue: unknown } | null;
   publishedDate: { jsonValue: unknown } | null;
   image: { jsonValue: unknown } | null;
 };
@@ -69,7 +72,6 @@ const PUBLISHED_PAGES_QUERY = `
         title: field(name: "Title") { jsonValue }
         summary: field(name: "pageSummary") { jsonValue }
         topic: field(name: "Topic") { jsonValue }
-        readTime: field(name: "ReadTime") { jsonValue }
         publishedDate: field(name: "PublishedDate") { jsonValue }
         image: field(name: "HeroImage") { jsonValue }
       }
@@ -82,38 +84,6 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 const stringValue = (field: unknown): string =>
   isRecord(field) && typeof field.value === 'string' ? field.value : '';
-
-const entities: Record<string, string> = {
-  amp: '&',
-  nbsp: ' ',
-  quot: '"',
-  apos: "'",
-  lt: '<',
-  gt: '>',
-  ndash: '–',
-  mdash: '—',
-  hellip: '…',
-  lsquo: '‘',
-  rsquo: '’',
-  ldquo: '“',
-  rdquo: '”',
-};
-
-export function plainText(value: string): string {
-  return value
-    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/&(#x[\da-f]+|#\d+|[a-z]+);/gi, (match, entity: string) => {
-      if (!entity.startsWith('#')) return entities[entity.toLowerCase()] ?? match;
-      const code =
-        entity[1].toLowerCase() === 'x' ? parseInt(entity.slice(2), 16) : Number(entity.slice(1));
-      return code > 0 && code <= 0x10ffff && !(code >= 0xd800 && code <= 0xdfff)
-        ? String.fromCodePoint(code)
-        : ' ';
-    })
-    .replace(/\s+/g, ' ')
-    .trim();
-}
 
 export function safeLocalRoute(value: string): string | undefined {
   if (!value.startsWith('/') || value.startsWith('//') || /[\\\u0000-\u001f]/.test(value)) {
@@ -162,18 +132,22 @@ function publishedPage(item: NativeItem): PublishedPage | undefined {
     isRecord(image) && isRecord(image.value) && typeof image.value.src === 'string'
       ? (image as unknown as ImageField)
       : undefined;
+  const isArticle =
+    item.template.id.replace(/[{}-]/g, '').toLowerCase() === ARTICLE_PAGE_TEMPLATE_ID;
 
   return {
     id: item.id,
     title,
     summary,
     topic: plainText(stringValue(item.topic?.jsonValue)),
-    readTime: plainText(stringValue(item.readTime?.jsonValue)),
+    readTime: isArticle
+      ? articleReadingTime(item.rendered, stringValue(item.summary?.jsonValue))
+      : '',
     publishedDate: stringValue(item.publishedDate?.jsonValue),
     image: imageField,
     url,
     body: [...text.headings, ...text.bodies].join(' '),
-    isArticle: item.template.id.replace(/[{}-]/g, '').toLowerCase() === ARTICLE_PAGE_TEMPLATE_ID,
+    isArticle,
   };
 }
 
