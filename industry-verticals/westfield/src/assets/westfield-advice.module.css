@@ -64,6 +64,7 @@
 
 .breadcrumbs li:last-child {
   display: block;
+  flex-shrink: 1;
   min-width: 0;
   overflow: hidden;
   font-weight: 400;
