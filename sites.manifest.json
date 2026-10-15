@@ -2360,7 +2360,7 @@
               "Jordan Taylor": true
             }
           },
-          "verifiedScope": "Both synthetic native Profiles identity/pageView client links and Instagram/social/paperless UTM verified; native tests return false/true/undefined. Analytics identifier westfield is not a private UDL scope."
+          "verifiedScope": "Prior native Profiles identity/pageView linkage, imported false/true Boolean and published native custom value verified. The revised Instagram-to-login journey uses the same native identifiers; current release rehearsal is recorded in the private handoff."
         },
         "dam": {
           "status": "verified",
@@ -2536,7 +2536,30 @@
           "verificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
           "analyticsTimeoutUiMinutes": 30,
           "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
-          "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback."
+          "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback.",
+          "journey": {
+            "entry": "/demo",
+            "campaign": "/instagram/index.html",
+            "campaignName": "mywestfield",
+            "campaignContent": "One general MyWestfield sponsored post among unrelated friend posts",
+            "login": "/login",
+            "syntheticAccounts": [
+              "casey@example.com",
+              "jordan@example.com"
+            ],
+            "identityTiming": "After successful local demo sign-in; matches the existing imported native identifier",
+            "destination": "/paperless",
+            "destinationDisplayName": "MyWestfield",
+            "recommendations": {
+              "paperlessFalse": "Sign up for paperless billing",
+              "paperlessTrue": "Keep your coverage in step with life"
+            },
+            "accessModel": "Public synthetic demonstration; local password acceptance is not production authentication",
+            "assets": [
+              "demo/westfield/login-asset-provenance.json",
+              "demo/westfield/instagram-asset-provenance.json"
+            ]
+          }
         }
       },
       "notes": [
@@ -2544,7 +2567,8 @@
         "Only developer definitions deploy normally. Authored content, palette edits, DAM selections and Site Grouping binding are not auto-seeded.",
         "Three exact site placeholder descendants and one external-host leaf exclude shared parents/global placeholder roots.",
         "QA page and children remain native with Never publish/public 404; two var2/var3 copies are unused in current Paperless XML only, so preserve until broader reference review.",
-        "Private receipts/output evidence retain detailed QA; canonical DAM inventory records exact asset/collection/public-link ownership. No deletion authorized."
+        "Private receipts/output evidence retain detailed QA; canonical DAM inventory records exact asset/collection/public-link ownership. No deletion authorized.",
+        "Instagram campaign is general MyWestfield; synthetic login identifies only after acceptance. The existing /paperless native page/decision IDs remain stable while its authored hero is general account content. New sign-in and supplied feed assets are scoped to this head."
       ]
     },
     {

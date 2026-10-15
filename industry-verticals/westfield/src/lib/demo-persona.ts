@@ -2,20 +2,40 @@ import { CloudSDK, getBrowserId } from '@sitecore-cloudsdk/core/browser';
 import { clearEventQueue, identity } from '@sitecore-cloudsdk/events/browser';
 import scConfig from 'sitecore.config';
 
-export const demoPersonas = [
+const demoAccounts = [
   {
     name: 'Casey Morgan',
-    email: 'westfield-demo-unenrolled@example.invalid',
-    description: 'Paperless enrollment offer',
+    username: 'casey@example.com',
+    identifier: 'westfield-demo-unenrolled@example.invalid',
   },
   {
     name: 'Jordan Taylor',
-    email: 'westfield-demo-enrolled@example.invalid',
-    description: 'Already enrolled in paperless',
+    username: 'jordan@example.com',
+    identifier: 'westfield-demo-enrolled@example.invalid',
   },
 ] as const;
 
-type DemoEmail = (typeof demoPersonas)[number]['email'];
+const campaignParameters = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'utm_id',
+] as const;
+
+/** Keep attribution without accepting an arbitrary redirect or identity from the URL. */
+export function demoAccountDestination(search: string): string {
+  const incoming = new URLSearchParams(search);
+  const campaign = new URLSearchParams();
+  for (const name of campaignParameters) {
+    for (const value of incoming.getAll(name)) {
+      campaign.append(name, value);
+    }
+  }
+  const query = campaign.toString();
+  return `/paperless${query ? `?${query}` : ''}`;
+}
 
 function cookieValue(name: string): string | undefined {
   const prefix = `${name}=`;
@@ -27,21 +47,17 @@ function cookieValue(name: string): string | undefined {
 }
 
 /**
- * Presenter-only identity setup. Profile attributes stay in SitecoreAI.
+ * Presenter-only session reset. Profile attributes stay in SitecoreAI.
  * Cloud SDK 0.5 has no reset API. Its source and visitor-cookie documentation
  * establish that an absent browser cookie receives a fresh server-issued ID.
  * Expire only this context's browser/guest cookies before sending another email
  * so the two synthetic people are never identified on the same browser ID.
  */
-export async function startDemoPersona(email: DemoEmail): Promise<void> {
+export async function resetDemoBrowserIdentity(): Promise<void> {
   const contextId = scConfig.api.edge.clientContextId;
   if (!contextId) {
     throw new Error('The live Sitecore client context is not configured.');
   }
-  if (!demoPersonas.some((persona) => persona.email === email)) {
-    throw new Error('Choose one of the two synthetic demo people.');
-  }
-
   const browserCookie = `sc_${contextId}`;
   const previousBrowserId = cookieValue(browserCookie);
   const cookieDomain = window.location.hostname.replace(/^www\./, '');
@@ -73,16 +89,28 @@ export async function startDemoPersona(email: DemoEmail): Promise<void> {
   if (!browserId || browserId === previousBrowserId) {
     throw new Error('A fresh Sitecore browser identity could not be established.');
   }
+}
+
+/** Synthetic credentials are checked locally. Only the native identifier reaches Sitecore. */
+export async function signInDemoAccount(username: string, password: string): Promise<void> {
+  const account = demoAccounts.find(
+    (candidate) => candidate.username === username.trim().toLowerCase()
+  );
+  if (!account || password !== 'password') {
+    throw new Error('The email or password is incorrect. Please try again.');
+  }
+
+  await resetDemoBrowserIdentity();
 
   const response = await identity({
     channel: 'WEB',
     currency: 'USD',
     language: scConfig.defaultLanguage,
-    page: 'Westfield synthetic demo launch',
-    identifiers: [{ provider: 'email', id: email }],
+    page: 'MyWestfield synthetic demo sign in',
+    identifiers: [{ provider: 'email', id: account.identifier }],
   });
 
   if (response?.status !== 'OK' || !response.ref) {
-    throw new Error('Sitecore did not confirm the identity event. Stay here and try again.');
+    throw new Error('Your demo account could not be connected. Please try signing in again.');
   }
 }

@@ -26,12 +26,22 @@ The standard build runs component-map generation and Sitecore metadata/site/impo
 
 ## Campaign entry and styles
 
-`public/instagram/index.html` is the supplied static Instagram rehearsal prop. Its sponsored Westfield card links to `/paperless` with Instagram campaign parameters. Feed interactions are illustrative. This prop contains no identity or enrollment-status logic.
+`/demo` starts a fresh anonymous Sitecore browser session and then opens `public/instagram/index.html`. This static rehearsal prop preserves the supplied Instagram appearance: one general Westfield sponsored post appears among unrelated friend stories, concert/weekend posts and suggestions. The ad says **Your insurance. On your terms.** and its **Log in** CTA opens `/login?utm_source=instagram&utm_medium=social&utm_campaign=mywestfield`. It contains no identity or paperless-status logic. Feed interactions are illustrative. Reused supplied-image provenance is recorded in `demo/westfield/instagram-asset-provenance.json` at the repository root.
+
+At `/login`, use `casey@example.com` or `jordan@example.com`, with the literal password `password`. This synthetic local acceptance gate is not production authentication. The password remains in the browser and is never serialized into a request or URL. After acceptance, the Cloud SDK establishes a fresh browser identity and sends the matching existing native identifier: `westfield-demo-unenrolled@example.invalid` for Casey or `westfield-demo-enrolled@example.invalid` for Jordan. Navigation waits for the native identity response and preserves the allowed campaign parameters.
+
+The destination remains `/paperless`, the existing native page now containing general MyWestfield account content. Its native false/true UDL-derived decision recommends **Sign up for paperless billing** to Casey and **Keep your coverage in step with life** to Jordan. The frontend does not store or submit an enrollment flag. Restart through `/demo` before rehearsing the other account.
 
 Both Westfield stylesheets are imported from the Pages Router `_app.tsx` after the starter stylesheet. Roboto fonts are served from `public/westfield-assets`. Styling is scoped to the Westfield components; native layout fields and placeholders remain intact.
 
 ## Personalization boundary
 
-The starter middleware already composes MultisiteMiddleware, RedirectsMiddleware, and PersonalizeMiddleware. That is integration scaffolding, not proof of a configured decision or synced customer profile. The target site's Edge context, personalization scope, native variants/datasources, synthetic identity, source sync, and first-render behavior must be configured and verified separately.
+The starter middleware composes MultisiteMiddleware, RedirectsMiddleware and PersonalizeMiddleware. The prior release verified the target's two native synthetic imports (2/2), Published Boolean custom value, LIVE native decision, both personalized initial documents and native campaign attribution. This revision changes the entry/login journey and account-page content; deployment and fresh end-to-end QA remain release-specific work. Prior verification is not a pass for the revised flow.
 
 Cloud SDK initialization and page-view events are disabled in development/editing/preview by the inherited starter. Rehearse tracking in a normal deployed session. No UDL connector, fake customer-profile fixture, or real enrollment transaction is implemented in this frontend.
+
+The native `westfieldPaperlessEnrolled` extension and native rule select the CMS datasource and finite presentation export. `Default` and `Quiet` do not encode customer state. The demo form supplies only an allowlisted synthetic identity after local acceptance; it does not authenticate against the real MyWestfield service.
+
+## Ownership and removal
+
+All frontend, login assets and Instagram prop files remain inside this Westfield head. Developer-only profile preparation, docs and Instagram provenance are under the repository's `demo/westfield`. Normal builds do not import/reset profiles or seed authored content. Use `node scripts/sites.mjs plan-remove westfield` from the repository root to inspect the separate source/native/media/hosting/profile/DAM boundaries before any deliberate retirement; preserve shared environment resources and later author changes.

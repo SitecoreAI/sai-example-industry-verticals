@@ -51,8 +51,8 @@ const personalize = new PersonalizeMiddleware({
 });
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
-  // The unlinked presenter page is an application route, outside CMS content.
-  if (req.nextUrl.pathname === '/demo' || req.nextUrl.pathname === '/demo/') {
+  // Presenter and synthetic sign-in are application routes, outside CMS content.
+  if (/^\/(demo|login)\/?$/.test(req.nextUrl.pathname)) {
     return NextResponse.next();
   }
   return defineMiddleware(multisite, redirects, personalize).exec(req, ev);
