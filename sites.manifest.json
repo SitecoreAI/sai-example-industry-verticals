@@ -3585,6 +3585,22 @@
             "module": "Project.Westfield.Definitions",
             "sourceItemCount": 94,
             "newItemCount": 21,
+            "adviceHubInsertOptions": {
+              "standardValuesId": "b9c27b01-58e6-5d48-8299-924015d4e560",
+              "fieldName": "__Masters",
+              "assignedTemplateIds": [],
+              "serializedValue": "",
+              "scope": "Explicit blank on Westfield Advice Hub standard values suppresses inherited template choices; preserve shared Page and Campaign Page insert options.",
+              "nativeConfiguration": {
+                "ownership": "Authored site-local branch rules; not serialized developer definitions.",
+                "articleBranchId": "38105d45-16c2-44a5-b821-a543d457e782",
+                "campaignRuleUids": [
+                  "54c617e6-c6d8-525d-94a4-7211d1cc60d3",
+                  "acbc4f1b-0b2f-5dd7-8445-4bee8a7014a1"
+                ],
+                "campaignRuleRestriction": "Existing Page and Campaign Page conditions each AND NOT Advice Hub; preserve other branch rules and actions."
+              }
+            },
             "nativeIdentityAudit": {
               "status": "passed",
               "matched": 94,
@@ -3805,7 +3821,7 @@
               }
             ],
             "pageLocalData": "Six branch-created articles own18 distinct native Data/Introduction, Data/Checklist and Data/Next step datasource items, with exact IDs/paths listed here. The practice page owns separate receipted Data/datasources; branch prototype remains independent.",
-            "existingFieldChanges": "Only append Advice mappings to site Page Designs.TemplatesMapping and AdviceHub insertion to site Page Branches.Rule. Preserve unrelated pairs/rules and later author edits."
+            "existingFieldChanges": "Append Advice mappings to site Page Designs.TemplatesMapping and AdviceHub insertion to site Page Branches.Rule; add AND NOT Advice Hub to both existing campaign rules 54C617E6-C6D8-525D-94A4-7211D1CC60D3 and ACBC4F1B-0B2F-5DD7-8445-4BEE8A7014A1. Preserve unrelated pairs/rules, existing actions and later author edits."
           },
           "routes": [
             {

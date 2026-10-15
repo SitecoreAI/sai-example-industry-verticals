@@ -52,6 +52,22 @@
       "name": "Advice Hub",
       "baseTemplateId": "446ee554-16ac-420a-b790-a5fc9509a7bb",
       "standardValuesId": "b9c27b01-58e6-5d48-8299-924015d4e560",
+      "insertOptions": {
+        "fieldId": "1172f251-dad4-4efb-a329-0c63500e4f1e",
+        "fieldName": "__Masters",
+        "assignedTemplateIds": [],
+        "serializedValue": "",
+        "authoring": "An explicit blank suppresses inherited template choices; the existing site-local Advice Article page branch is the only creation choice under Advice.",
+        "nativeConfiguration": {
+          "ownership": "Authored site-local branch rules; not serialized developer definitions.",
+          "articleBranchId": "38105d45-16c2-44a5-b821-a543d457e782",
+          "campaignRuleUids": [
+            "54c617e6-c6d8-525d-94a4-7211d1cc60d3",
+            "acbc4f1b-0b2f-5dd7-8445-4bee8a7014a1"
+          ],
+          "campaignRuleRestriction": "Preserve the existing Page and Campaign Page conditions and append AND NOT Advice Hub to both rules; preserve other branch rules and actions."
+        }
+      },
       "ownFields": [],
       "baseStatus": "Approved existing minimal Campaign Page, transitively actual Headless Page; Title/pageSummary identities reused."
     },
