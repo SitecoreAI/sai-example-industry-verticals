@@ -4,20 +4,32 @@ import type { ComponentProps } from 'lib/component-props';
 
 // Fixed in each page design so native placeholder settings can offer the right
 // component palette without adding a visual wrapper or changing SDK routing.
-export const Home = ({ rendering }: ComponentProps): JSX.Element => (
-  <Placeholder name="westfield-home-content" rendering={rendering} />
+export const Home = ({ params, rendering }: ComponentProps): JSX.Element => (
+  <Placeholder
+    name={`westfield-home-content-${params.DynamicPlaceholderId}`}
+    rendering={rendering}
+  />
 );
 
-export const Campaign = ({ rendering }: ComponentProps): JSX.Element => (
-  <Placeholder name="westfield-campaign-content" rendering={rendering} />
+export const Campaign = ({ params, rendering }: ComponentProps): JSX.Element => (
+  <Placeholder
+    name={`westfield-campaign-content-${params.DynamicPlaceholderId}`}
+    rendering={rendering}
+  />
 );
 
-export const Advice = ({ rendering }: ComponentProps): JSX.Element => (
-  <Placeholder name="westfield-advice-content" rendering={rendering} />
+export const Advice = ({ params, rendering }: ComponentProps): JSX.Element => (
+  <Placeholder
+    name={`westfield-advice-content-${params.DynamicPlaceholderId}`}
+    rendering={rendering}
+  />
 );
 
-export const Search = ({ rendering }: ComponentProps): JSX.Element => (
-  <Placeholder name="westfield-search-content" rendering={rendering} />
+export const Search = ({ params, rendering }: ComponentProps): JSX.Element => (
+  <Placeholder
+    name={`westfield-search-content-${params.DynamicPlaceholderId}`}
+    rendering={rendering}
+  />
 );
 
 export const Default = Home;
