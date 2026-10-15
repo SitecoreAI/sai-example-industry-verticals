@@ -3222,7 +3222,7 @@
                 "after": "1"
               }
             ],
-            "nativeUiResult": "Full reload: Campaigns (3) and Shared layout (2) retained; six unused local groups hidden. Shared legacy Commerce → Two product teaser remains visible.",
+            "nativeUiResult": "Full reload: Campaigns (3) and Shared layout (2) retained; six unused local groups hidden. Shared legacy Commerce \u2192 Two product teaser remains visible.",
             "preserved": "All group items, owned rendering selections, Modules and globals. Shared Commerce library is outside Westfield ownership.",
             "restorePolicy": "Re-read each exact field and compare to its recorded after value before a deliberate restore; preserve later author changes. Ordinary deployment does not seed or restore these authored settings.",
             "source": "https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003502"
@@ -3242,7 +3242,7 @@
           "checkedAtUTC": "2026-10-15T02:45:18.150588+00:00",
           "verifiedScope": [
             "Home/Paperless/Instagram routes, native footer phone and media delivery",
-            "Fresh synthetic launcher identity → Instagram → native personalized initial document",
+            "Fresh synthetic launcher identity \u2192 Instagram \u2192 native personalized initial document",
             "Desktop 1440px and mobile 390px navigation/image/overflow checks",
             "Cookie-free server and first native Chrome public visit select neutral fallback"
           ],
@@ -3512,7 +3512,7 @@
               "presentationItemId": "69996dab6c9244638fc60f0d4fd4db69"
             }
           ],
-          "verificationScope": "Native LIVE false→offer/Default and true→enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
+          "verificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
           "analyticsTimeoutUiMinutes": 30,
           "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
           "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback.",
@@ -3550,7 +3550,7 @@
               "experienceId": "77f8d59b-99dd-4451-9ecb-61d97905f04f",
               "datasourceId": "a275f458-496b-40cc-8448-454980cfc4be",
               "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Next chapter campaign",
-              "heading": "A new chapter. Protection for what’s next.",
+              "heading": "A new chapter. Protection for what\u2019s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
               "verification": "LIVE native rule and Page Builder variant verified; fresh preview c344ff72 first Home, plain Home control and mismatched campaign control passed. Production release evidence is recorded in the handoff.",
@@ -4717,7 +4717,7 @@
                 "mediaId": "0d2cbff7-33ae-472b-99f5-ca4f20df44a3"
               },
               {
-                "label": "Account - Access MyWestfield®",
+                "label": "Account - Access MyWestfield\u00ae",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Account - Access MyWestfield",
                 "field": "Image",
                 "mediaId": "91d78c52-8245-437f-a455-ff15e6d42fd5"
@@ -4896,7 +4896,15 @@
         "Private receipts/output evidence retain detailed QA; canonical DAM inventory records exact asset/collection/public-link ownership. No deletion authorized.",
         "Instagram promotes prospect home-and-auto insurance. Native Home hero campaign decision and existing customer billing-status decision are separate. Synthetic login identifies only after acceptance; source and assets stay Westfield-scoped.",
         "Advice expansion separates serialized developer definitions from API-created designs/branch/page-local Data. Ordinary release deployment does not replay authored content. Current progress and exact owned IDs are in bindings.advice."
-      ]
+      ],
+      "authoringThumbnails": {
+        "manifest": "demo/westfield/authoring-thumbnails.json",
+        "mediaFolderId": "b5945b1a-7985-427a-ab30-11e2589eadff",
+        "nativeTargets": 45,
+        "mediaAssets": 26,
+        "fieldOwnership": "Author-managed; developer module excludes __Thumbnail and __AutoThumbnails",
+        "scope": "Westfield-only site/page/design/branch/component/template previews"
+      }
     },
     {
       "id": "worley",

@@ -1,0 +1,632 @@
+{
+  "owner": "Westfield demo",
+  "authoredAtUTC": "2026-10-15T14:19:02.883058+00:00",
+  "mediaFolder": {
+    "id": "b5945b1a-7985-427a-ab30-11e2589eadff",
+    "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails"
+  },
+  "management": "Author-managed native Appearance thumbnails; exact manually assigned items disable automatic regeneration. Thumbnail and AutoThumbnails fields are excluded only in the Westfield definitions module.",
+  "assets": [
+    {
+      "key": "account",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/account",
+      "sha256": "93ecf30d75c542a00c43d275019f1aef206d1dcd98343d2ab7ed4d75e0e7c7a4",
+      "width": 1280,
+      "height": 1201,
+      "bytes": 117268,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "account.jpg"
+    },
+    {
+      "key": "advice-listing",
+      "mediaId": "4a4597c7-d7d0-497c-bcc1-a67b2b242e75",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/advice-listing",
+      "sha256": "6bca3a9032723f86fe31cbc8ccb768704613962c961675a81298d2253969cf8e",
+      "width": 1280,
+      "height": 1400,
+      "bytes": 227854,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "advice-listing.jpg"
+    },
+    {
+      "key": "advice",
+      "mediaId": "3ef331cc-e9b9-487b-b337-35742bcdc570",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/advice",
+      "sha256": "9b988b8b45d1be171069fb1b54d2891ff7b520013aa8777935b1cfb119d1fbb3",
+      "width": 1280,
+      "height": 1450,
+      "bytes": 219910,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "advice.jpg"
+    },
+    {
+      "key": "article-body",
+      "mediaId": "f3fdd517-6686-4b9f-866f-a359470c46b2",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/article-body",
+      "sha256": "4d562640a3d7d4e5e3dce5ff76956cb3e968de19d9a7485f3f443d7c54ff95f5",
+      "width": 960,
+      "height": 892,
+      "bytes": 59968,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "article-body.jpg"
+    },
+    {
+      "key": "article-header",
+      "mediaId": "d2361019-f37b-484b-9f91-24cf708d4f08",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/article-header",
+      "sha256": "8d641c628e5a2ec14e56ec78228e59f80da09537301c2ec68c853d2e565d4310",
+      "width": 1280,
+      "height": 635,
+      "bytes": 57685,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "article-header.jpg"
+    },
+    {
+      "key": "article-text",
+      "mediaId": "2ea38662-6328-4001-ad40-1fef74818b95",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/article-text",
+      "sha256": "fd63a384194b697d8311e4b233d92b1518b13f9be514717f8dd4d1792c383d37",
+      "width": 960,
+      "height": 250,
+      "bytes": 31165,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "article-text.jpg"
+    },
+    {
+      "key": "article",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/article",
+      "sha256": "bc64b7c79447948ac392a99ecaa6710ca4ad27b3590973165a3896ecd2608380",
+      "width": 1280,
+      "height": 1450,
+      "bytes": 138150,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "article.jpg"
+    },
+    {
+      "key": "campaign-action",
+      "mediaId": "5ca8ba95-b59e-42f0-b4dc-4cefa336b184",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/campaign-action",
+      "sha256": "bab31f6e1f220e0f83bbc11d19d6c9f3903d1a85b81f291fe69814979c15dcfb",
+      "width": 1280,
+      "height": 328,
+      "bytes": 21099,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "campaign-action.jpg"
+    },
+    {
+      "key": "campaign-content",
+      "mediaId": "f178ff24-2865-438d-ad41-925f85c2dacd",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/campaign-content",
+      "sha256": "2f40774ba4dc2da5eaf52bd05f3cf99bac76efef6f8d26df30dc697cdcd473e3",
+      "width": 1280,
+      "height": 238,
+      "bytes": 21636,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "campaign-content.jpg"
+    },
+    {
+      "key": "campaign-hero",
+      "mediaId": "203b87cd-9d7c-4061-9352-799a64c9aef3",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/campaign-hero",
+      "sha256": "26fd6c8d9fc11401a86fbe5ff2d8da3560fce6005eaf4b322c016f34cae20af2",
+      "width": 1280,
+      "height": 453,
+      "bytes": 59374,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "campaign-hero.jpg"
+    },
+    {
+      "key": "card",
+      "mediaId": "8567af4e-e6f6-496d-918f-00c0ebf7a262",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/card",
+      "sha256": "67bab8b8b91abaac99ec4360d5bcd1d02326487ed96dff9358ba8271330bb3eb",
+      "width": 273,
+      "height": 326,
+      "bytes": 12179,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "card.jpg"
+    },
+    {
+      "key": "feature",
+      "mediaId": "ffab9eec-0aa2-4644-949b-20d9d49f897e",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/feature",
+      "sha256": "c99c2ad9f39f6e0c638ac609e45267e1b9d8047a07e4ef361ab565feb3e8f548",
+      "width": 1280,
+      "height": 598,
+      "bytes": 74943,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "feature.jpg"
+    },
+    {
+      "key": "footer",
+      "mediaId": "c28cfce4-7677-4103-853b-d98f563b124d",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/footer",
+      "sha256": "2fbaf2980e6e6dccefd310cb8047fc969d627cb22c17a8d6116c0e296f43dbe2",
+      "width": 1280,
+      "height": 892,
+      "bytes": 97943,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "footer.jpg"
+    },
+    {
+      "key": "header",
+      "mediaId": "8d6f0261-d924-455b-ab02-04e5e27206a8",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/header",
+      "sha256": "aa79e0b8866022044946798027cdfe870c167d56ce39006bcb60ed593c12900f",
+      "width": 1280,
+      "height": 184,
+      "bytes": 13250,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "header.jpg"
+    },
+    {
+      "key": "hero",
+      "mediaId": "8938b2ca-0cce-41de-a6c3-64cfb393f40d",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/hero",
+      "sha256": "64075f98e26770e81c45b3aadd8732470b4f8f2c0bfc15720f86afd8c4969a78",
+      "width": 1280,
+      "height": 550,
+      "bytes": 78616,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "hero.jpg"
+    },
+    {
+      "key": "home",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/home",
+      "sha256": "ff6a58d21ec351d6f528589e7d33e1a5d7cb85e9b4723d419473c8f6a991d21c",
+      "width": 1280,
+      "height": 734,
+      "bytes": 91513,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "home.jpg"
+    },
+    {
+      "key": "page-home-auto-review-questions",
+      "mediaId": "8e95b3e4-0dc9-4e6a-b1a3-6d7d04f9f816",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/page-home-auto-review-questions",
+      "sha256": "99c7283ce5620f63cdb8822f3c7df4c87cefdb8d3d95e804666b1e8569853e60",
+      "width": 1280,
+      "height": 1250,
+      "bytes": 120701,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "page-home-auto-review-questions.jpg"
+    },
+    {
+      "key": "page-home-inventory-checklist",
+      "mediaId": "d4e29ce5-9eb6-4b37-96d0-f71ce147f43b",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/page-home-inventory-checklist",
+      "sha256": "4534af6d607f854a15e07658e83322eb465dfacda9a9ae8e3d4b7b923d80c588",
+      "width": 1280,
+      "height": 1250,
+      "bytes": 115409,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "page-home-inventory-checklist.jpg"
+    },
+    {
+      "key": "page-new-driver-family-conversation",
+      "mediaId": "040f6346-44fb-4a7f-be6c-1e66982e2f88",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/page-new-driver-family-conversation",
+      "sha256": "86f5a8d56fd8c28f48f30c47673f2187df223adf31de66b487f65e21ea18b208",
+      "width": 1280,
+      "height": 1250,
+      "bytes": 120252,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "page-new-driver-family-conversation.jpg"
+    },
+    {
+      "key": "page-organize-insurance-documents",
+      "mediaId": "ee62993e-f3bb-4075-a761-8d176082d575",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/page-organize-insurance-documents",
+      "sha256": "9dcb91b6e8730570e00c460e21f6b89ae0adbdfc51f517ec7ccbf5c8ec270366",
+      "width": 1280,
+      "height": 1250,
+      "bytes": 121232,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "page-organize-insurance-documents.jpg"
+    },
+    {
+      "key": "page-storm-season-household-checklist",
+      "mediaId": "48553d6a-1aa0-4191-ab9c-3d2e9a08896a",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/page-storm-season-household-checklist",
+      "sha256": "697d08276e5c5a2b5e8d6f03d10532d1e52331540057023a4ed5ce89a0713da4",
+      "width": 1280,
+      "height": 1250,
+      "bytes": 137485,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "page-storm-season-household-checklist.jpg"
+    },
+    {
+      "key": "page-water-leak-home-checkup",
+      "mediaId": "a01b6dc7-6450-412f-a2e3-5cbf75dcbec3",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/page-water-leak-home-checkup",
+      "sha256": "811d8fa52e19b504a9f6399445d0c601842353fcc809c0758ff446f392a58733",
+      "width": 1280,
+      "height": 1250,
+      "bytes": 131556,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "page-water-leak-home-checkup.jpg"
+    },
+    {
+      "key": "search-results",
+      "mediaId": "a938b7fd-0098-445e-af92-467f99f245d4",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/search-results",
+      "sha256": "c73458e8ed2503be70561e4fdf4a3c76c3954ae3bf26cdf6123c0a7b03c9bc89",
+      "width": 1280,
+      "height": 1000,
+      "bytes": 98579,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "search-results.jpg"
+    },
+    {
+      "key": "search",
+      "mediaId": "a5c88454-cd60-418c-9daf-cd46858948bb",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/search",
+      "sha256": "214df9f0063f642bcda99c7b2696797a17c58fff5446623d868cdc29dd1e6393",
+      "width": 1280,
+      "height": 1120,
+      "bytes": 108423,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "search.jpg"
+    },
+    {
+      "key": "services",
+      "mediaId": "7f8027e5-6e73-4075-ad7a-c7c6340011cb",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/services",
+      "sha256": "8d663c25e909dc483574e3cc8523186677c719c10148ce3f75dcee94d82f6e51",
+      "width": 1280,
+      "height": 625,
+      "bytes": 87252,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "services.jpg"
+    },
+    {
+      "key": "article-partial",
+      "mediaId": "d6080af3-2bcd-4e1d-9601-11f2f4a5fb80",
+      "path": "/sitecore/media library/Project/Westfield/westfield/Authoring thumbnails/article-partial",
+      "sha256": "81535f777c0c4308a6aa84bd8f10db6598d8d0010024049ee0dc9a7f7c5a044a",
+      "width": 1280,
+      "height": 1590,
+      "bytes": 145669,
+      "source": "Rendered Westfield demo screenshot",
+      "captureFile": "article-partial.jpg"
+    }
+  ],
+  "assignments": [
+    {
+      "path": "/sitecore/content/Westfield/westfield",
+      "assetKey": "home",
+      "category": "Site",
+      "id": "6eb9346704c24cb2a55d06a94152adcf",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Settings/Site Grouping/westfield",
+      "assetKey": "home",
+      "category": "Site host",
+      "id": "08a923b314154c19b8505b771c41d036",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home",
+      "assetKey": "home",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "27da11a8e0dc42d49e3fb4073306679b",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice",
+      "assetKey": "advice",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "91e930204ee94cfa89048f19c8c8e4f1",
+      "mediaId": "3ef331cc-e9b9-487b-b337-35742bcdc570"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions",
+      "assetKey": "page-home-auto-review-questions",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "6f44c3aa840e47088e3bd08b7cb27e19",
+      "mediaId": "8e95b3e4-0dc9-4e6a-b1a3-6d7d04f9f816"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist",
+      "assetKey": "page-home-inventory-checklist",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "400cf46d568041b890f10559877d1518",
+      "mediaId": "d4e29ce5-9eb6-4b37-96d0-f71ce147f43b"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/new-driver-family-conversation",
+      "assetKey": "page-new-driver-family-conversation",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "5d45a5c5330e46e2a9dbfe61347537d3",
+      "mediaId": "040f6346-44fb-4a7f-be6c-1e66982e2f88"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/organize-insurance-documents",
+      "assetKey": "page-organize-insurance-documents",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "940e9a536fff428295aa175582ce188f",
+      "mediaId": "ee62993e-f3bb-4075-a761-8d176082d575"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/storm-season-household-checklist",
+      "assetKey": "page-storm-season-household-checklist",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "5f12387ea1b945b8b2ed77d98e5649f4",
+      "mediaId": "48553d6a-1aa0-4191-ab9c-3d2e9a08896a"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/test",
+      "assetKey": "article",
+      "category": "Page",
+      "representativeFamilyPreview": true,
+      "id": "90e6469166a2409ea1204db2d4fa79ac",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup",
+      "assetKey": "page-water-leak-home-checkup",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "970c651f631b484fba988db6ea753501",
+      "mediaId": "a01b6dc7-6450-412f-a2e3-5cbf75dcbec3"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review",
+      "assetKey": "article",
+      "category": "Page",
+      "representativeFamilyPreview": true,
+      "id": "d7d99046e176405ca8e9c15b2ddb18ec",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/paperless",
+      "assetKey": "account",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "1b438447f060478dbf27df5aa7fbfc3b",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview",
+      "assetKey": "account",
+      "category": "Page",
+      "representativeFamilyPreview": true,
+      "id": "6cdc9659064742e78b10229fa6a031cb",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/search",
+      "assetKey": "search",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "d3ef758c5d4847b598e1929d6e4fd239",
+      "mediaId": "a5c88454-cd60-418c-9daf-cd46858948bb"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Page Designs/Article",
+      "assetKey": "article",
+      "category": "Page design",
+      "id": "277144a691594a0d85ab112adfe291de",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Page Designs/Default",
+      "assetKey": "home",
+      "category": "Page design",
+      "id": "fe74342321864168ad651dc0652e7d21",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Article",
+      "assetKey": "article-partial",
+      "category": "Partial design",
+      "id": "5cffb75d6f084f03b683e6b178d4b385",
+      "mediaId": "d6080af3-2bcd-4e1d-9601-11f2f4a5fb80"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer",
+      "assetKey": "footer",
+      "category": "Partial design",
+      "id": "0586221fc48c4dcb858834260b27694e",
+      "mediaId": "c28cfce4-7677-4103-853b-d98f563b124d"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Header",
+      "assetKey": "header",
+      "category": "Partial design",
+      "id": "31d9097b6d25478eb446444ea878b674",
+      "mediaId": "8d6f0261-d924-455b-ab02-04e5e27206a8"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article",
+      "assetKey": "article",
+      "category": "Page branch",
+      "representativeFamilyPreview": true,
+      "id": "38105d4516c244a5b821a543d457e782",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article/$name",
+      "assetKey": "article",
+      "category": "Page branch prototype",
+      "representativeFamilyPreview": true,
+      "id": "e0aec90cc99142198fb64fd7b4cba140",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Digital service campaign",
+      "assetKey": "account",
+      "category": "Page branch",
+      "representativeFamilyPreview": true,
+      "id": "1dbcc4c57eac43fc8a79de94ecb3a75e",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Digital service campaign/$name",
+      "assetKey": "account",
+      "category": "Page branch prototype",
+      "representativeFamilyPreview": true,
+      "id": "7a83fa3a731d475f92109da7696a726e",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/ArticleHeader",
+      "assetKey": "article-header",
+      "category": "Component",
+      "id": "0154942acb1859d6a329e5f3ade279d9",
+      "mediaId": "d2361019-f37b-484b-9f91-24cf708d4f08"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/ArticleBodyLayout",
+      "assetKey": "article-body",
+      "category": "Component",
+      "id": "fc56a6e71fb8543ebab8a81ab5185b9c",
+      "mediaId": "f3fdd517-6686-4b9f-866f-a359470c46b2"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/ArticleText",
+      "assetKey": "article-text",
+      "category": "Component",
+      "id": "c8ff5ecf389450f293d10654c6a693ea",
+      "mediaId": "2ea38662-6328-4001-ad40-1fef74818b95"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/AdviceListing",
+      "assetKey": "advice-listing",
+      "category": "Component",
+      "id": "0dde0f9cd85553cd9fe88ecce852d4d4",
+      "mediaId": "4a4597c7-d7d0-497c-bcc1-a67b2b242e75"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/SearchResults",
+      "assetKey": "search-results",
+      "category": "Component",
+      "id": "59801512e7a45d0f9d478b47e8423eef",
+      "mediaId": "a938b7fd-0098-445e-af92-467f99f245d4"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Campaigns/CampaignHero",
+      "assetKey": "campaign-hero",
+      "category": "Component",
+      "id": "4e8227b8281a496c9d7e138d341f389b",
+      "mediaId": "203b87cd-9d7c-4061-9352-799a64c9aef3"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Campaigns/CampaignAction",
+      "assetKey": "campaign-action",
+      "category": "Component",
+      "id": "15f0d95bce2945d7893742016fcf3efd",
+      "mediaId": "5ca8ba95-b59e-42f0-b4dc-4cefa336b184"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Campaigns/CampaignContent",
+      "assetKey": "campaign-content",
+      "category": "Component",
+      "id": "b1f0e4936a4a49d0ae584e9d9ca7ec77",
+      "mediaId": "f178ff24-2865-438d-ad41-925f85c2dacd"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Shared shell/SiteHeader",
+      "assetKey": "header",
+      "category": "Component",
+      "id": "da91eb0adba741fa8d338d3cab0ac47c",
+      "mediaId": "8d6f0261-d924-455b-ab02-04e5e27206a8"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Shared shell/SiteFooter",
+      "assetKey": "footer",
+      "category": "Component",
+      "id": "3efbecf6f66f4c54a6c24b67753b390c",
+      "mediaId": "c28cfce4-7677-4103-853b-d98f563b124d"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Home/HomeSection",
+      "assetKey": "services",
+      "category": "Component",
+      "id": "c896c2b281af53118c5941250c5db38d",
+      "mediaId": "7f8027e5-6e73-4075-ad7a-c7c6340011cb"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Home/HomeCard",
+      "assetKey": "card",
+      "category": "Component",
+      "id": "afba3249e7925291b530f6c999cc6797",
+      "mediaId": "8567af4e-e6f6-496d-918f-00c0ebf7a262"
+    },
+    {
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Home/HomeFeature",
+      "assetKey": "feature",
+      "category": "Component",
+      "id": "85651417228e524db7e44e683b261b26",
+      "mediaId": "ffab9eec-0aa2-4644-949b-20d9d49f897e"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Page",
+      "assetKey": "home",
+      "category": "Data template",
+      "id": "f50583188e0d4220a7993c0dbf2ea1ab",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Page/__Standard Values",
+      "assetKey": "home",
+      "category": "Template default",
+      "id": "50dc86f6b46f49bc9f7f091742799b1a",
+      "mediaId": "773ad096-2703-41b5-bed4-80bf94bc9451"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Pages/Campaign Page",
+      "assetKey": "account",
+      "category": "Data template",
+      "id": "446ee55416ac420ab790a5fc9509a7bb",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Pages/Campaign Page/__Standard Values",
+      "assetKey": "account",
+      "category": "Template default",
+      "id": "50a007e9820e4b9b94fa275f86593365",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Pages/Advice Article",
+      "assetKey": "article",
+      "category": "Data template",
+      "id": "31f25fea085e51939637b13fc2f7a385",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Pages/Advice Article/__Standard Values",
+      "assetKey": "article",
+      "category": "Template default",
+      "id": "88d7a4e9886559f986cdf51edd7777ef",
+      "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Pages/Advice Hub",
+      "assetKey": "advice",
+      "category": "Data template",
+      "id": "02fc9c023ffc55519c811ff89b9b0d59",
+      "mediaId": "3ef331cc-e9b9-487b-b337-35742bcdc570"
+    },
+    {
+      "path": "/sitecore/templates/Project/Westfield/Pages/Advice Hub/__Standard Values",
+      "assetKey": "advice",
+      "category": "Template default",
+      "id": "b9c27b0158e65d488299924015d4e560",
+      "mediaId": "3ef331cc-e9b9-487b-b337-35742bcdc570"
+    }
+  ],
+  "removal": "Restore owned thumbnail/auto-thumbnail fields from the private assignment receipt before removing newly owned media. Recheck later author changes and references; preserve all original System-generated media and other sites."
+}
