@@ -11,6 +11,7 @@ export type PublishedPage = {
   summary: string;
   topic: string;
   readTime: string;
+  publishedDate: string;
   image?: ImageField;
   url: string;
   body: string;
@@ -40,6 +41,7 @@ type NativeItem = {
   summary: { jsonValue: unknown } | null;
   topic: { jsonValue: unknown } | null;
   readTime: { jsonValue: unknown } | null;
+  publishedDate: { jsonValue: unknown } | null;
   image: { jsonValue: unknown } | null;
 };
 
@@ -68,6 +70,7 @@ const PUBLISHED_PAGES_QUERY = `
         summary: field(name: "pageSummary") { jsonValue }
         topic: field(name: "Topic") { jsonValue }
         readTime: field(name: "ReadTime") { jsonValue }
+        publishedDate: field(name: "PublishedDate") { jsonValue }
         image: field(name: "HeroImage") { jsonValue }
       }
     }
@@ -166,6 +169,7 @@ function publishedPage(item: NativeItem): PublishedPage | undefined {
     summary,
     topic: plainText(stringValue(item.topic?.jsonValue)),
     readTime: plainText(stringValue(item.readTime?.jsonValue)),
+    publishedDate: stringValue(item.publishedDate?.jsonValue),
     image: imageField,
     url,
     body: [...text.headings, ...text.bodies].join(' '),

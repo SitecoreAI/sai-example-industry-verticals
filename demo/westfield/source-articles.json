@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "site": "westfield",
+  "purpose": "Source-backed, condensed native article recipes for reviewed replacement of the six original demo articles. Not a runtime content fixture.",
+  "copyPolicy": "Titles are the only deliberate verbatim prose. Summaries, headings and bodies are original condensed writing, not full copies. Each article stays below 200 derived words including title, summary and body; duplicated native title/metadata values do not add distinct prose.",
+  "initialSeedBaseline": "westfield-industry/demo/westfield/advice-content.json",
+  "preserveEntirely": [
+    "/sitecore/content/Westfield/westfield/Home/advice/test",
+    "/sitecore/content/Westfield/westfield/Home/advice/authoring-practice",
+    "/sitecore/content/Westfield/westfield/Home/advice/weekend-home-review",
+    "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Advice Article"
+  ],
+  "mediaOwnership": "Root imports real reference article media and assigns resulting native HeroImage XML. This recipe records public source assets only.",
+  "articles": [
+    {
+      "slug": "home-inventory-checklist",
+      "pageId": "400cf46d568041b890f10559877d1518",
+      "title": "Property Insurance Claims Checklist: What To Do Before and After a Loss",
+      "publishedDate": "2024-05-23",
+      "sourceURL": "https://www.westfieldinsurance.com/about-us/articles/property-insurance-claims-checklist",
+      "heroSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2024/claims-general_1293952697-rdmi.jpg?h=338&iar=0&w=450",
+      "heroAlt": "Homeowner checking the exterior of a house.",
+      "topic": "Home",
+      "pageSummary": "Prepare for an unexpected property loss with organized records, an emergency plan and a clear idea of what to do next.",
+      "sections": [
+        {
+          "datasourceName": "Introduction",
+          "datasourceId": "ab4ec213e341406b8cad5c1967f89087",
+          "heading": "Build your records ahead of time",
+          "bodyHtml": "<p>Keep policy information and important contacts accessible outside the property. Photograph belongings and save purchase records for valuable items. Discuss an evacuation or shelter plan with everyone who uses the building.</p>"
+        },
+        {
+          "datasourceName": "Checklist",
+          "datasourceId": "9548e3be99464952a31d4fe8177bc01f",
+          "heading": "Respond safely and keep a record",
+          "bodyHtml": "<p>After an incident, address immediate safety needs and contact emergency services when appropriate. Notify your insurer promptly. If safe, take reasonable steps to limit additional damage, photograph the situation and retain repair receipts. Keep damaged items until your claims professional explains what can be discarded.</p><p>Your insurer reviews the circumstances and applicable policy before determining a claim outcome.</p>"
+        }
+      ],
+      "nextStepDatasourceId": "bfe55357318c4016bbf170c32d5bd678"
+    },
+    {
+      "slug": "home-auto-review-questions",
+      "pageId": "6f44c3aa840e47088e3bd08b7cb27e19",
+      "title": "Home and Auto Insurance Policy Review: Questions to Ask Before Renewal",
+      "publishedDate": "2026-08-04",
+      "sourceURL": "https://www.westfieldinsurance.com/about-us/articles/h/home-and-auto-insurance-questions-to-ask-before-renewal",
+      "heroSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2026/review-before-renewing-1456112241-rdmi.jpg?h=338&iar=0&w=450",
+      "heroAlt": "Dog and family with an inset photograph of a home.",
+      "topic": "Planning",
+      "pageSummary": "Bring the changes in your household, home and driving habits into the conversation before your next policy renewal.",
+      "sections": [
+        {
+          "datasourceName": "Introduction",
+          "datasourceId": "76477d9dcb1e4d6c898b8d21a087ba9b",
+          "heading": "Start with what has changed",
+          "bodyHtml": "<p>A renovation, an additional driver, a move or an expensive purchase may change the questions you need to ask. Make a list before meeting your agent. Include home-based work, recreational vehicles and changes in commuting or vehicle use.</p>"
+        },
+        {
+          "datasourceName": "Checklist",
+          "datasourceId": "8175a2bab449462aa1c6324f6d2e89cd",
+          "heading": "Review the details together",
+          "bodyHtml": "<ul><li>Discuss rebuilding costs and valuable belongings.</li><li>Understand deductibles, liability limits and optional protections.</li><li>Ask about available discounts and preventive programs.</li><li>Check contact, mortgage and vehicle information.</li></ul><p>Use the review to understand your policy and identify questions needing follow-up. Your agent can explain which options fit your circumstances.</p>"
+        }
+      ],
+      "nextStepDatasourceId": "f77029083f4a433d8cfd62636848f77e"
+    },
+    {
+      "slug": "new-driver-family-conversation",
+      "pageId": "5d45a5c5330e46e2a9dbfe61347537d3",
+      "title": "A Guide to First-Time Auto Insurance for Your Teenager",
+      "publishedDate": "2021-03-04",
+      "sourceURL": "https://www.westfieldinsurance.com/about-us/articles/a-guide-to-first-time-auto-insurance-for-your-teenager",
+      "heroSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2021/articles-teen-driver-1452692549-rdmi.jpg?h=338&iar=0&w=450",
+      "heroAlt": "Young driver fastening a seat belt.",
+      "topic": "Auto",
+      "pageSummary": "A new driver brings insurance questions as well as new routines. Prepare for an informed conversation about your family's vehicles and protection.",
+      "sections": [
+        {
+          "datasourceName": "Introduction",
+          "datasourceId": "db8676fb8dbf463a9d8216a8e83a038e",
+          "heading": "Understand the protection you are considering",
+          "bodyHtml": "<p>Adding a teenager can affect a family's premium. Revisit how liability, collision, comprehensive and injury-related protections work. Also discuss help with breakdowns and protection involving a driver who has insufficient insurance.</p>"
+        },
+        {
+          "datasourceName": "Checklist",
+          "datasourceId": "cf164a29c2c547b78703b9e91fa41796",
+          "heading": "Prepare questions for your agent",
+          "bodyHtml": "<p>Bring information about the vehicle your teenager will use and the assets your household needs to protect. Ask whether student achievement, driver education or a driving-monitoring program could affect available options.</p><p>Discuss distractions, passengers and fatigue as part of the family's driving expectations. An agent can explain the policy choices; ongoing coaching helps a new driver build safer habits.</p>"
+        }
+      ],
+      "nextStepDatasourceId": "cf315d68dc4241c09727f4270e677c6c"
+    },
+    {
+      "slug": "storm-season-household-checklist",
+      "pageId": "5f12387ea1b945b8b2ed77d98e5649f4",
+      "title": "How To Prepare Your Home and Family for a Spring Thunderstorm",
+      "publishedDate": "2024-03-08",
+      "sourceURL": "https://www.westfieldinsurance.com/about-us/articles/how-to-prepare-your-home-and-family-for-a-spring-thunderstorm",
+      "heroSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2024/spring-thunderstorms-rdmi.jpg?h=338&iar=0&w=450",
+      "heroAlt": "White house beneath dark storm clouds.",
+      "topic": "Home",
+      "pageSummary": "Use the time before severe weather to prepare your household, review maintenance concerns and organize essential supplies.",
+      "sections": [
+        {
+          "datasourceName": "Introduction",
+          "datasourceId": "4d083d7ee5554cb9a2e3d0b6d7b35753",
+          "heading": "Prepare while the weather is calm",
+          "bodyHtml": "<p>Learn how local weather alerts work. Arrange professional attention for damaged roofing or weak tree branches, and keep drainage routes clear. Put essential supplies where your household can find them during an outage.</p>"
+        },
+        {
+          "datasourceName": "Checklist",
+          "datasourceId": "cceec22d705844bc8b55b8c449ba2e0c",
+          "heading": "Stay safe, then assess the impact",
+          "bodyHtml": "<p>If there is time before a storm arrives, secure loose outdoor objects and protect vehicles. Follow local instructions about shelter and stay informed through suitable weather alerts.</p><p>When conditions are safe, check for damage, preserve photographs and repair receipts, and notify your insurer. Your agent can explain how your policy responds and whether additional protections deserve consideration.</p>"
+        }
+      ],
+      "nextStepDatasourceId": "bffff28825f246b8b87a1e1052f95295"
+    },
+    {
+      "slug": "organize-insurance-documents",
+      "pageId": "940e9a536fff428295aa175582ce188f",
+      "title": "What Is a Wind and Hail Deductible in Homeowners Insurance?",
+      "publishedDate": "2026-07-08",
+      "sourceURL": "https://www.westfieldinsurance.com/about-us/articles/what-is-a-wind-and-hail-deductible-in-homeowners-insurance",
+      "replacementReason": "No matching public personal document-management article was found; this real article keeps the six-page collection within Westfield personal insurance. Existing route and item identity are retained.",
+      "heroSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2026/wind-hail-deductibles-2236267836-rdmi.jpg?h=338&iar=0&w=450",
+      "heroAlt": "Professional examining the edge of a home's roof.",
+      "topic": "Home",
+      "pageSummary": "Understand why a policy may have a separate weather deductible and where to find the details before a storm.",
+      "sections": [
+        {
+          "datasourceName": "Introduction",
+          "datasourceId": "c9c8a364e07446ad9055dd303125ef2f",
+          "heading": "Check how your deductible is calculated",
+          "bodyHtml": "<p>Some homeowners policies apply a separate deductible to damage from wind or hail. It may be a fixed amount or a percentage tied to the home's insured value. A percentage-based amount can change when that value changes.</p>"
+        },
+        {
+          "datasourceName": "Checklist",
+          "datasourceId": "e18e49114a61464185be3265776332a5",
+          "heading": "Read the policy before severe weather",
+          "bodyHtml": "<p>Start with the declarations page and renewal information. Identify the standard deductible and any separate weather deductible. Ask your agent to explain which applies and the amount you could need to pay after a covered event.</p><p>Bring recent renovations or additions into the discussion so the review also considers the home's rebuilding needs.</p>"
+        }
+      ],
+      "nextStepDatasourceId": "4a1b9c1fd3204f45b37cee748bb8216e"
+    },
+    {
+      "slug": "water-leak-home-checkup",
+      "pageId": "970c651f631b484fba988db6ea753501",
+      "title": "How To Help Prevent Water Damage in Your Home or Business",
+      "publishedDate": "2026-03-06",
+      "sourceURL": "https://www.westfieldinsurance.com/about-us/articles/how-to-help-prevent-water-damage-in-your-home-or-business",
+      "heroSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2026/water-damage-infographic-rdmi.jpg?h=338&iar=0&w=450",
+      "heroAlt": "Cutaway illustration showing rooms and plumbing in a house.",
+      "inlineSourceURL": "https://edge.sitecorecloud.io/ohiofarmers63b6-westfieldind832-prod-385a/media/project/westfieldinsurance/westfieldinsurance/about-us/articles/2026/water-damage-infographic-full.png",
+      "topic": "Home",
+      "pageSummary": "Spot common sources of leaks and build maintenance habits that help reduce the risk of costly damage to a home or business.",
+      "sections": [
+        {
+          "datasourceName": "Introduction",
+          "datasourceId": "34b28ef7e27148898edeb61150b03cf4",
+          "heading": "Know the likely problem areas",
+          "bodyHtml": "<p>Pipes, appliance connections, toilets and sump pumps can become sources of water damage. Unexplained moisture, stains, odors or changes in water use deserve attention. Have a qualified professional assess concerns and maintain older systems.</p>"
+        },
+        {
+          "datasourceName": "Checklist",
+          "datasourceId": "362452218e7e4bb19aca3b81b3a864a9",
+          "heading": "Make prevention part of your routine",
+          "bodyHtml": "<p>Locate the main shutoff, maintain water-using equipment and keep gutters and discharge routes clear. Discuss pipe protection, pump testing and leak detection with an appropriate professional.</p><p>Policy terms and the cause of damage determine coverage. Gradual deterioration, flood and backup losses can receive different treatment from a sudden failure. Ask your agent about your property's risks and available options.</p>"
+        }
+      ],
+      "nextStepDatasourceId": "0de85bab1e9947dd869b25baaf99f60b"
+    }
+  ]
+}
