@@ -4,4 +4,7 @@ import { defineConfig } from '@sitecore-content-sdk/nextjs/config';
  * See the documentation for `defineConfig`:
  * https://doc.sitecore.com/xmc/en/developers/content-sdk/the-sitecore-configuration-file.html
  */
-export default defineConfig({});
+export default defineConfig({
+  // The sandbox exceeded the SDK's 400ms defaults during first-visit targeting.
+  personalize: { cdpTimeout: 3000, edgeTimeout: 3000 },
+});
