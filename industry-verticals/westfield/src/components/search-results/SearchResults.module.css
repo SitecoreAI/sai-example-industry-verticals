@@ -1,0 +1,152 @@
+.root {
+  padding: 68px 24px 80px;
+  color: #414741;
+  background: #fff;
+}
+
+.inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.heading {
+  margin: 0 0 20px;
+  font-size: clamp(34px, 5vw, 50px);
+  line-height: 1.12;
+}
+
+.intro {
+  max-width: 720px;
+  margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.controls input {
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+  min-height: 50px;
+  padding: 12px 16px;
+  border: 1px solid #7b8277;
+  border-radius: 3px;
+  color: #414741;
+  background: #fff;
+  font: inherit;
+}
+
+.controls button {
+  min-height: 50px;
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  background: #256a1c;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.controls input:focus-visible,
+.controls button:focus-visible,
+.result a:focus-visible {
+  outline: 2px solid #414741;
+  outline-offset: 4px;
+}
+
+.controls button:hover {
+  background: #1c5115;
+}
+
+.status {
+  margin: 26px 0 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.error {
+  color: #a22e16;
+  line-height: 1.6;
+}
+
+.results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result {
+  padding: 28px 0;
+  border-bottom: 1px solid #d9ddd3;
+}
+
+.result h2 {
+  margin: 0 0 12px;
+  font-size: 25px;
+  line-height: 1.25;
+}
+
+.result a {
+  color: #256a1c;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.result p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.result .topic {
+  margin-bottom: 8px;
+  color: #627355;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.path {
+  color: #6b7167;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  padding: 24px 0;
+}
+
+.empty h2 {
+  margin-bottom: 12px;
+  font-size: 25px;
+}
+
+.empty p {
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .root {
+    padding: 40px 20px 56px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls button {
+    align-self: flex-start;
+  }
+}

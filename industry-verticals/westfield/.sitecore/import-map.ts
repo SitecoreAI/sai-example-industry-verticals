@@ -8,10 +8,11 @@ import {
 // end of built-in imports
 
 import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useState, useRef, useId } from 'react';
 import React from 'react';
 import { nativeMediaSource } from 'lib/native-media';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
+import { useRouter } from 'next/router';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
 import { ChevronDown } from 'lucide-react';
 import HamburgerIcon from '@/components/non-sitecore/HamburgerIcon';
@@ -27,6 +28,7 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 import nextConfig from 'next.config';
 import { pageView } from '@sitecore-cloudsdk/events/browser';
 import config from 'sitecore.config';
+import Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 from 'next/link';
 
 const importMap = [
   {
@@ -46,9 +48,10 @@ const importMap = [
   {
     module: 'react',
     exports: [
+      { name: 'useEffect', value: useEffect },
       { name: 'useState', value: useState },
       { name: 'useRef', value: useRef },
-      { name: 'useEffect', value: useEffect },
+      { name: 'useId', value: useId },
       { name: 'default', value: React },
     ]
   },
@@ -63,6 +66,12 @@ const importMap = [
     exports: [
       { name: 'campaignLoginProps', value: campaignLoginProps },
       { name: 'useCampaignQuery', value: useCampaignQuery },
+    ]
+  },
+  {
+    module: 'next/router',
+    exports: [
+      { name: 'useRouter', value: useRouter },
     ]
   },
   {
@@ -157,6 +166,12 @@ const importMap = [
     module: 'sitecore.config',
     exports: [
       { name: 'default', value: config },
+    ]
+  },
+  {
+    module: 'next/link',
+    exports: [
+      { name: 'default', value: Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 },
     ]
   }
 ] as ImportEntry[];
