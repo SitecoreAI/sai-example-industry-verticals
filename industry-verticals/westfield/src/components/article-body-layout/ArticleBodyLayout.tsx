@@ -12,7 +12,7 @@ export const Default = ({ params, rendering }: ComponentProps): JSX.Element => (
     data-class-change
   >
     <div className={styles.articleWidth}>
-      <Placeholder name="article-content" rendering={rendering} />
+      <Placeholder name={`article-content-${params.DynamicPlaceholderId}`} rendering={rendering} />
     </div>
   </div>
 );
