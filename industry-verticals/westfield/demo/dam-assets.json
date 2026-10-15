@@ -1,10 +1,10 @@
 {
-  "$schemaDescription": "Planning manifest for shared DAM. Authentication is blocked; null DAM identities and delivery bindings remain unverified.",
+  "$schemaDescription": "Shared DAM source provenance and exact scoped upload/delivery inventory. Processing, actual workflow approval, public delivery and native CMS selection are separate evidence states.",
   "version": 1,
   "site": "westfield",
   "createdDate": "2026-10-14",
   "ownershipKey": "westfield-demo-2026-10-14",
-  "state": "planning-authentication-blocked",
+  "state": "verified-twelve-assets-three-collections-one-native-CMS-selection-published-and-live",
   "referenceAssetCount": 14,
   "selectedDamAssetCount": 12,
   "frontendOnlyAssetCount": 2,
@@ -50,7 +50,7 @@
       "Dimensions",
       "Single-value language"
     ],
-    "campaignAssociation": "The Paperless campaign collection is a demo organization choice, not evidence of an existing production campaign."
+    "campaignAssociation": "Westfield paperless campaign is a demo organization choice, not evidence of an existing production campaign."
   },
   "collections": [
     {
@@ -59,7 +59,17 @@
       "description": "Family and MyWestfield photographs used by this demo.",
       "coverAssetKey": "westfield-demo.homepage-hero",
       "memberCount": 2,
-      "nativeId": null
+      "nativeId": 128923,
+      "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/en-us/collections/collection/128923?tab9xr3jdfx=Content",
+      "memberAssetIds": [
+        128421,
+        128422
+      ],
+      "membershipVerified": true,
+      "coverAssetId": 128421,
+      "coverVerified": true,
+      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "brandRelation": null
     },
     {
       "key": "westfield-brand-assets",
@@ -67,7 +77,25 @@
       "description": "Logos and insurance/service icons used by the demo.",
       "coverAssetKey": "westfield-demo.westfield-logo",
       "memberCount": 10,
-      "nativeId": null
+      "nativeId": 128927,
+      "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/en-us/collections/collection/128927?tab9xr3jdfx=Content",
+      "memberAssetIds": [
+        128420,
+        128426,
+        128723,
+        128721,
+        128722,
+        128729,
+        128728,
+        128727,
+        128745,
+        128746
+      ],
+      "membershipVerified": true,
+      "coverAssetId": 128420,
+      "coverVerified": true,
+      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "brandRelation": null
     },
     {
       "key": "westfield-paperless-campaign",
@@ -75,7 +103,18 @@
       "description": "Reusable logo, MyWestfield photograph and account icon for the proposed paperless journey.",
       "coverAssetKey": "westfield-demo.homepage-mywestfield",
       "memberCount": 3,
-      "nativeId": null
+      "nativeId": 128925,
+      "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/en-us/collections/collection/128925?tab9xr3jdfx=Content",
+      "memberAssetIds": [
+        128420,
+        128422,
+        128746
+      ],
+      "membershipVerified": true,
+      "coverAssetId": 128422,
+      "coverVerified": true,
+      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "brandRelation": null
     }
   ],
   "ownership": {
@@ -128,15 +167,27 @@
       "upload": {
         "selected": true,
         "priority": 1,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128420,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128420",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128420-logo?v=6309fffb",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -170,15 +221,27 @@
       "upload": {
         "selected": true,
         "priority": 1,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128421,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128421",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128421-home-hero?v=dd0cdc60",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -214,15 +277,36 @@
       "upload": {
         "selected": true,
         "priority": 1,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
-        "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "assetId": 128422,
+        "assetIdentifier": "3dkxNma8Rjii0FTJb7ZCOA",
+        "approved": true,
+        "cmsSelected": true,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128422",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128422-mywestfield?v=4647cc3c",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "cmsSelection": {
+          "datasourceItemId": "fd07e14de290454d9b98f6c5d09fb1f2",
+          "datasourcePath": "/sitecore/content/Westfield/westfield/Home/paperless/Data/Hero",
+          "fieldId": "f89e6b13fc9a46c88df507b44e174ad4",
+          "nativeDamId": "3dkxNma8Rjii0FTJb7ZCOA",
+          "nativeImageContentType": "Image",
+          "status": "verified-native-picker-save-readback-published-Edge-live-desktop-mobile",
+          "rendering": "Original source; CSS object-fit cover at 1440px and390px. No separate saved DAM crop claimed."
+        }
       }
     },
     {
@@ -256,15 +340,27 @@
       "upload": {
         "selected": true,
         "priority": 1,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128426,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128426",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128426-footer-logo?v=11d4c333",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -298,15 +394,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128723,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128723",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128723-business-insurance?v=23d65b75",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -340,15 +448,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128721,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128721",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128721-personal-insurance?v=cab0dcc6",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -382,15 +502,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128722,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128722",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128722-farm-and-agribusiness?v=522f7060",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -424,15 +556,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128729,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128729",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128729-surety?v=e858ca8e",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -466,15 +610,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128728,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128728",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128728-pay-your-bill?v=5d8dd1d6",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -508,15 +664,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128727,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128727",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128727-file-a-claim?v=9db4746d",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -550,15 +718,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
+        "assetId": 128745,
         "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128745",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128745-find-an-agent?v=d10a79ae",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -593,15 +773,27 @@
       "upload": {
         "selected": true,
         "priority": 2,
-        "state": "planning; authentication blocked",
+        "state": "uploaded-metadata-processed-workflow-approved",
         "reason": null
       },
       "native": {
-        "assetId": null,
-        "assetIdentifier": null,
-        "deliveryLink": null,
-        "approved": false,
-        "cmsSelected": false
+        "assetId": 128746,
+        "assetIdentifier": "YDzsm4KhTbGuy2SDoWssIw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/128746",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128746-log-in-to-your-account?v=2b828438",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ]
       }
     },
     {
@@ -635,7 +827,6 @@
       "native": {
         "assetId": null,
         "assetIdentifier": null,
-        "deliveryLink": null,
         "approved": false,
         "cmsSelected": false
       }
@@ -671,7 +862,6 @@
       "native": {
         "assetId": null,
         "assetIdentifier": null,
-        "deliveryLink": null,
         "approved": false,
         "cmsSelected": false
       }
@@ -688,11 +878,13 @@
     "host": "https://thlt-demo.sitecoresandbox.cloud",
     "connectorChanged": false,
     "collectionScope": "Westfield-only",
-    "nativeBindingStatus": "unverified",
-    "authenticationStatus": "blocked-http-401",
+    "nativeBindingStatus": "verified-one-native-DAM-Image-selection-published-Edge-and-live-responsive-render",
+    "authenticationStatus": "normal-browser-login-verified",
     "attemptCount": 2,
-    "assetsCreated": 0,
-    "collectionsCreated": 0
+    "assetsCreated": 12,
+    "collectionsCreated": 3,
+    "serviceOAuthStatus": "historical-http-401;no-retry;native-SSO-picker-works",
+    "brandRelationStatus": "Unverified; no shared taxonomy or guessed relation writes."
   },
   "initialUploadScope": {
     "assetCount": 4,
@@ -702,8 +894,24 @@
       "westfield-demo.homepage-mywestfield",
       "westfield-demo.westfield-footer-logo"
     ],
-    "approvalStatus": "unverified",
-    "deliveryStatus": "unverified",
-    "nativeDamSelectionStatus": "unverified"
-  }
+    "approvalStatus": "all 4-actual-native-workflow-approved",
+    "deliveryStatus": "all 4-originals-public-http200-source-hash-match",
+    "nativeDamSelectionStatus": "Only MyWestfield asset 128422 selected through actual CMS DAM Image picker; saved, published and live responsive render verified. Other three core assets remain available in DAM."
+  },
+  "updatedAtUTC": "2026-10-15T02:45:18.150588+00:00",
+  "verificationCounts": {
+    "selectedAssets": 12,
+    "uploadedAssets": 12,
+    "metadataVerifiedAssets": 12,
+    "approvalVerifiedAssets": 12,
+    "publicDeliveryVerifiedAssets": 12,
+    "collectionsCreated": 3,
+    "cmsDamSelectionsVerified": 1,
+    "processingVerifiedAssets": 12,
+    "collectionMembershipsVerified": 15,
+    "collectionCoversVerified": 3
+  },
+  "nativeWorkflowEvidencePolicy": "Approval requires actual Submit for approval and Review Approve workflow, followed by exact asset appearing in Assets library. All required actions complete for Approved banner describes readiness and is not approval evidence.",
+  "pickerSearchScope": "Westfield title/filename query returned four relevant names, not all 12. Search by exact asset title or use owned collections; Extra information search coverage is not proven.",
+  "automaticProcessingNote": "Existing tenant workflow generated additional smart-crop public links after approval; no global settings or automatic links were altered. Enumerate current asset-linked public links/consumers before retirement."
 }
