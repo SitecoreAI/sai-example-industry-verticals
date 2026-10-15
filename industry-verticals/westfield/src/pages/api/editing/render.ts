@@ -25,4 +25,12 @@ export const config = {
 // Wire up the EditingRenderMiddleware handler
 const handler = new EditingRenderMiddleware().getHandler();
 
-export default handler;
+const editingRender: typeof handler = (req, res) => {
+  // Next.js API string responses do not infer the HTML content type.
+  if (req.method === 'GET') {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  }
+  return handler(req, res);
+};
+
+export default editingRender;
