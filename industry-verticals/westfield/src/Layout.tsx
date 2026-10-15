@@ -60,7 +60,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
             <div id="header">
               {route && <Placeholder name="headless-header" rendering={route} />}
             </div>
-            <main>
+            <main id="maincontent">
               <div id="content">
                 {route && <Placeholder name="headless-main" rendering={route} />}
               </div>

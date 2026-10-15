@@ -8,10 +8,12 @@ import {
 // end of built-in imports
 
 import { Link, Text, useSitecore, Image, RichText, Placeholder, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
-import { useEffect, useState, useRef, useId } from 'react';
+import { useEffect, useId, useRef, useState, Fragment } from 'react';
 import React from 'react';
 import { nativeMediaSource } from 'lib/native-media';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
+import { Caret, Chevron, CloseIcon, MenuIcon, SearchIcon, BackToTopIcon, LocationIcon, MailIcon, PhoneIcon, HeroSun } from 'lib/westfield-icons';
+import { AgentFinder } from 'lib/agent-finder';
 import { useRouter } from 'next/router';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
 import { ChevronDown } from 'lucide-react';
@@ -49,9 +51,10 @@ const importMap = [
     module: 'react',
     exports: [
       { name: 'useEffect', value: useEffect },
-      { name: 'useState', value: useState },
-      { name: 'useRef', value: useRef },
       { name: 'useId', value: useId },
+      { name: 'useRef', value: useRef },
+      { name: 'useState', value: useState },
+      { name: 'Fragment', value: Fragment },
       { name: 'default', value: React },
     ]
   },
@@ -66,6 +69,27 @@ const importMap = [
     exports: [
       { name: 'campaignLoginProps', value: campaignLoginProps },
       { name: 'useCampaignQuery', value: useCampaignQuery },
+    ]
+  },
+  {
+    module: 'lib/westfield-icons',
+    exports: [
+      { name: 'Caret', value: Caret },
+      { name: 'Chevron', value: Chevron },
+      { name: 'CloseIcon', value: CloseIcon },
+      { name: 'MenuIcon', value: MenuIcon },
+      { name: 'SearchIcon', value: SearchIcon },
+      { name: 'BackToTopIcon', value: BackToTopIcon },
+      { name: 'LocationIcon', value: LocationIcon },
+      { name: 'MailIcon', value: MailIcon },
+      { name: 'PhoneIcon', value: PhoneIcon },
+      { name: 'HeroSun', value: HeroSun },
+    ]
+  },
+  {
+    module: 'lib/agent-finder',
+    exports: [
+      { name: 'AgentFinder', value: AgentFinder },
     ]
   },
   {

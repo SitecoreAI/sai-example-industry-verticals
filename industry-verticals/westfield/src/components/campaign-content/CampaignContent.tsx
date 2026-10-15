@@ -24,3 +24,23 @@ export const Default = ({ fields, params }: CampaignContentProps): JSX.Element =
     </div>
   </section>
 );
+
+export const HomeLegal = ({ fields, params }: CampaignContentProps): JSX.Element => (
+  <section
+    className={[
+      'component',
+      'wf-source wf-home-legal rich-text-wrapper_wrapper__5GXIv',
+      params.GridParameters,
+      params.styles,
+    ]
+      .filter(Boolean)
+      .join(' ')}
+    id={params.RenderingIdentifier || undefined}
+    data-class-change
+  >
+    <RichText
+      className="coveo-no-index rich-text-wrapper_disclaimer__HPeXN rich-text rich-text-wrapper_paddingBottom__voKIR container"
+      field={fields?.Body}
+    />
+  </section>
+);
