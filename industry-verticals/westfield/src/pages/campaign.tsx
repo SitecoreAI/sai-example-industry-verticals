@@ -49,7 +49,7 @@ export default function CampaignEntry(): JSX.Element {
           />
           <h1 className={styles.heading}>Welcome to Westfield</h1>
           <p role={error ? 'alert' : 'status'} aria-live="polite" aria-atomic="true">
-            {error ? 'We couldn’t open this page. Please try again.' : 'Opening your campaign…'}
+            {error ? 'We couldn’t open this page. Please try again.' : 'Loading your page…'}
           </p>
           {error ? (
             <button className={styles.retry} type="button" onClick={retry}>
@@ -58,7 +58,7 @@ export default function CampaignEntry(): JSX.Element {
           ) : (
             <span className={styles.progress} aria-hidden="true" />
           )}
-          <noscript>Enable JavaScript to open this campaign.</noscript>
+          <noscript>Enable JavaScript to open this page.</noscript>
         </div>
       </main>
     </>

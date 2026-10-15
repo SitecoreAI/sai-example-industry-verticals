@@ -2574,18 +2574,20 @@
               "heading": "A new chapter. Protection for what\u2019s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
-              "verification": "LIVE native table saved; final deployed journey verification pending",
+              "verification": "LIVE native rule and Page Builder variant verified; fresh preview c344ff72 first Home, plain Home control and mismatched campaign control passed. Production release evidence is recorded in the handoff.",
               "generatedUnusedCopy": {
                 "id": "b4e93245-df16-441c-84f7-c73304313125",
                 "path": "/sitecore/content/Westfield/westfield/Home/Data/Hero_var2",
                 "scope": "Absent from current Home layout after native picker assignment; preserve until broader reference review"
               },
               "inputType": "Native Profile data attribute",
-              "firstVisitBoundary": "The campaign entry page records the anonymous visit before Home is requested. Native profile targeting chooses the Home variant; complete entry-to-Home verification is pending.",
+              "firstVisitBoundary": "The campaign entry records the anonymous visit before Home is requested. A fresh Instagram click produced the native campaign variant in the first Home document; direct Home UTMs alone are not claimed to do so.",
               "unusedCondition": {
                 "id": "ccecd5b4-d31b-46c1-862a-db6b23e21106",
                 "name": "Westfield next chapter arrival",
-                "status": "Published but unused in current Home rule; preserve or unpublish only after usage review"
+                "status": "Published but unused in current Home rule; preserve or unpublish only after usage review",
+                "usage": "Native Usage panel: Not used in any experiences",
+                "cleanup": "Retained. Native menu exposes Duplicate/Delete and no reversible Unpublish; no permanent deletion attempted."
               }
             },
             "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection"
