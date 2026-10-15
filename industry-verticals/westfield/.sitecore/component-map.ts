@@ -7,6 +7,7 @@ import { Form } from '@sitecore-content-sdk/nextjs';
 import * as Title from 'src/components/title/Title';
 import * as SiteHeader from 'src/components/site-header/SiteHeader';
 import * as SiteFooter from 'src/components/site-footer/SiteFooter';
+import * as SearchResults from 'src/components/search-results/SearchResults';
 import * as RowSplitter from 'src/components/row-splitter/RowSplitter';
 import * as RichText from 'src/components/rich-text/RichText';
 import * as Promo from 'src/components/promo/Promo';
@@ -21,6 +22,10 @@ import * as ColumnSplitter from 'src/components/column-splitter/ColumnSplitter';
 import * as CampaignHero from 'src/components/campaign-hero/CampaignHero';
 import * as CampaignContent from 'src/components/campaign-content/CampaignContent';
 import * as CampaignAction from 'src/components/campaign-action/CampaignAction';
+import * as ArticleText from 'src/components/article-text/ArticleText';
+import * as ArticleHeader from 'src/components/article-header/ArticleHeader';
+import * as ArticleBodyLayout from 'src/components/article-body-layout/ArticleBodyLayout';
+import * as AdviceListing from 'src/components/advice-listing/AdviceListing';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['BYOCWrapper', BYOCWrapper],
@@ -29,6 +34,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Title', { ...Title }],
   ['SiteHeader', { ...SiteHeader }],
   ['SiteFooter', { ...SiteFooter }],
+  ['SearchResults', { ...SearchResults }],
   ['RowSplitter', { ...RowSplitter }],
   ['RichText', { ...RichText }],
   ['Promo', { ...Promo }],
@@ -43,6 +49,10 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['CampaignHero', { ...CampaignHero }],
   ['CampaignContent', { ...CampaignContent }],
   ['CampaignAction', { ...CampaignAction }],
+  ['ArticleText', { ...ArticleText }],
+  ['ArticleHeader', { ...ArticleHeader }],
+  ['ArticleBodyLayout', { ...ArticleBodyLayout }],
+  ['AdviceListing', { ...AdviceListing }],
 ]);
 
 export default componentMap;

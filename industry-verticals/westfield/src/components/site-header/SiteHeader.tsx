@@ -13,6 +13,8 @@ export type SiteHeaderFields = {
   AboutLink?: LinkField;
   CareersLink?: LinkField;
   PaperlessLink?: LinkField;
+  AdviceLink?: LinkField;
+  SearchLink?: LinkField;
   AccountLink?: LinkField;
   ClaimsLink?: LinkField;
   AgentLink?: LinkField;
@@ -33,6 +35,7 @@ const MainLinks = ({ fields, campaignQuery }: HeaderLinksProps): JSX.Element => 
         'HomeLink',
         'BusinessLink',
         'HomeAndAutoLink',
+        'AdviceLink',
         'AboutLink',
         'CareersLink',
         'PaperlessLink',
@@ -54,20 +57,27 @@ const MainLinks = ({ fields, campaignQuery }: HeaderLinksProps): JSX.Element => 
 
 const UtilityLinks = ({ fields, campaignQuery }: HeaderLinksProps): JSX.Element => (
   <ul className="westfield-header__links">
-    {(['AccountLink', 'ClaimsLink', 'AgentLink', 'BillingLink', 'ContactLink'] as const).map(
-      (name) => {
-        const field = fields?.[name];
-        return field ? (
-          <li key={name}>
-            <Link
-              className="westfield-header__utility-link"
-              field={field}
-              {...campaignLoginProps(field, campaignQuery)}
-            />
-          </li>
-        ) : null;
-      }
-    )}
+    {(
+      [
+        'SearchLink',
+        'AccountLink',
+        'ClaimsLink',
+        'AgentLink',
+        'BillingLink',
+        'ContactLink',
+      ] as const
+    ).map((name) => {
+      const field = fields?.[name];
+      return field ? (
+        <li key={name}>
+          <Link
+            className="westfield-header__utility-link"
+            field={field}
+            {...campaignLoginProps(field, campaignQuery)}
+          />
+        </li>
+      ) : null;
+    })}
   </ul>
 );
 

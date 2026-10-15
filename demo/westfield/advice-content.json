@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "site": "westfield",
+  "usage": "Seed-only native authored content; never import into website components or serve as search results",
+  "recordedAtUTC": "2026-10-15T04:20:44.939186+00:00",
+  "copyOrigin": "Original demonstration copy; public primary sources inform topic selection and brand context only",
+  "hub": {
+    "title": "Advice for everyday life",
+    "pageSummary": "Practical checklists for your home, your driving routines and the moments that change what you need to discuss with your agent."
+  },
+  "articles": [
+    {
+      "slug": "home-inventory-checklist",
+      "title": "A simple home inventory checklist",
+      "pageSummary": "Start small, record the details that matter and keep a useful record of the things you bring into your home.",
+      "topic": "Home",
+      "readTime": "1 min read",
+      "heroImageKey": "inventory",
+      "searchTerms": [
+        "home inventory",
+        "photos",
+        "receipts",
+        "moving",
+        "belongings"
+      ],
+      "sections": [
+        {
+          "name": "Get started",
+          "heading": "Start with one room",
+          "bodyHtml": "<p>A home inventory does not have to become a weekend project. Choose one room and make a short record of the belongings you would want to remember. Work through another room when you have time.</p><p>Photos, notes and receipts can live together in a secure folder. Use a naming system that makes sense to your household, such as room names and purchase dates.</p>"
+        },
+        {
+          "name": "Your checklist",
+          "heading": "Build a record you can update",
+          "bodyHtml": "<ul><li>Photograph each room and note important items.</li><li>Record model or serial details where useful.</li><li>Keep available receipts with the matching record.</li><li>Store a backup somewhere you can access if you are away from home.</li><li>Review the list after a move or a significant purchase.</li></ul><p>An inventory is a record, not a statement of what a policy covers. Ask your agent which details may be useful for your situation.</p>"
+        }
+      ],
+      "nextStep": {
+        "name": "Next step",
+        "heading": "Make the conversation your own",
+        "bodyHtml": "<p>Bring your notes to a Westfield agent and ask questions about your own policy and circumstances.</p>",
+        "text": "Find your agent",
+        "href": "https://my.westfieldinsurance.com/AgentLocator/DefaultEntry.aspx"
+      },
+      "provenance": {
+        "sourceURLs": [
+          "https://www.westfieldinsurance.com/about-us/articles/property-insurance-claims-checklist"
+        ],
+        "copy": "Original concise demonstration checklist, informed by public Westfield topic context; not a copy or endorsement of a source article",
+        "coverageBoundary": "No coverage, premium, eligibility or claims outcome is promised; individual questions go to an agent"
+      }
+    },
+    {
+      "slug": "home-auto-review-questions",
+      "title": "Life changes? Questions for your home and auto review",
+      "pageSummary": "A new home, a different commute or a growing household can give you plenty to discuss at your next insurance review.",
+      "topic": "Planning",
+      "readTime": "1 min read",
+      "heroImageKey": "review",
+      "searchTerms": [
+        "insurance review",
+        "renewal",
+        "life changes",
+        "home",
+        "auto"
+      ],
+      "sections": [
+        {
+          "name": "Life changes",
+          "heading": "Bring the everyday changes",
+          "bodyHtml": "<p>You know what has changed in your life. Your next insurance review is a chance to share that picture with your agent. Make a few notes before the conversation so the important details are easy to remember.</p><p>Think about your home, the people in it, your vehicles and how you use them. Include changes you are planning as well as those that have already happened.</p>"
+        },
+        {
+          "name": "Questions to ask",
+          "heading": "Use a short conversation checklist",
+          "bodyHtml": "<ul><li>What should I tell you about a renovation or move?</li><li>Does a new driver or different commute need a closer look?</li><li>Which documents should I bring to our review?</li><li>Can you explain the terms or limits I do not understand?</li><li>When should we check in again?</li></ul><p>Keep a note of the answers and any follow-up. Your own policy and circumstances determine the advice that is right for you.</p>"
+        }
+      ],
+      "nextStep": {
+        "name": "Next step",
+        "heading": "Make the conversation your own",
+        "bodyHtml": "<p>Bring your notes to a Westfield agent and ask questions about your own policy and circumstances.</p>",
+        "text": "Find your agent",
+        "href": "https://my.westfieldinsurance.com/AgentLocator/DefaultEntry.aspx"
+      },
+      "provenance": {
+        "sourceURLs": [
+          "https://www.westfieldinsurance.com/about-us/articles/h/home-and-auto-insurance-questions-to-ask-before-renewal"
+        ],
+        "copy": "Original concise demonstration checklist, informed by public Westfield topic context; not a copy or endorsement of a source article",
+        "coverageBoundary": "No coverage, premium, eligibility or claims outcome is promised; individual questions go to an agent"
+      }
+    },
+    {
+      "slug": "new-driver-family-conversation",
+      "title": "A new driver in the family? Start with a conversation",
+      "pageSummary": "Make room for a practical conversation about driving routines, household expectations and questions to bring to your agent.",
+      "topic": "Auto",
+      "readTime": "1 min read",
+      "heroImageKey": "new-driver",
+      "searchTerms": ["new driver", "teen", "driving", "car", "family"],
+      "sections": [
+        {
+          "name": "Before the first trip",
+          "heading": "Talk through the routine",
+          "bodyHtml": "<p>A new driver brings new routines to a household. Set aside time to discuss the everyday details together: which vehicle they expect to use, where they will drive and who to contact if plans change.</p><p>Keep the conversation open. A shared set of expectations can be easier to remember than a long list delivered all at once.</p>"
+        },
+        {
+          "name": "Conversation checklist",
+          "heading": "Agree on the next steps",
+          "bodyHtml": "<ul><li>Discuss seat belts, distractions and a phone-free driving routine.</li><li>Plan how the driver will check in when a trip changes.</li><li>Make sure important contacts are easy to find.</li><li>Check current local licensing rules through the relevant official authority.</li><li>Ask your agent what information they need before the driving arrangements change.</li></ul><p>Insurance and licensing questions depend on individual circumstances. Use your agent and official local resources for specific answers.</p>"
+        }
+      ],
+      "nextStep": {
+        "name": "Next step",
+        "heading": "Make the conversation your own",
+        "bodyHtml": "<p>Bring your notes to a Westfield agent and ask questions about your own policy and circumstances.</p>",
+        "text": "Find your agent",
+        "href": "https://my.westfieldinsurance.com/AgentLocator/DefaultEntry.aspx"
+      },
+      "provenance": {
+        "sourceURLs": [
+          "https://www.westfieldinsurance.com/about-us/articles/a-guide-to-first-time-auto-insurance-for-your-teenager"
+        ],
+        "copy": "Original concise demonstration checklist, informed by public Westfield topic context; not a copy or endorsement of a source article",
+        "coverageBoundary": "No coverage, premium, eligibility or claims outcome is promised; individual questions go to an agent"
+      }
+    },
+    {
+      "slug": "storm-season-household-checklist",
+      "title": "Before storm season: a household planning checklist",
+      "pageSummary": "Use a calm day to organize contacts, review your household plan and make a list of maintenance questions for qualified professionals.",
+      "topic": "Home",
+      "readTime": "1 min read",
+      "heroImageKey": "storm",
+      "searchTerms": [
+        "storm",
+        "weather",
+        "emergency plan",
+        "home maintenance",
+        "checklist"
+      ],
+      "sections": [
+        {
+          "name": "Plan ahead",
+          "heading": "Make the plan easy to find",
+          "bodyHtml": "<p>Storm planning is easier when there is time to think. Pick a calm day to talk about how your household receives local alerts, where to find important contacts and how you will stay in touch.</p><p>Keep the plan somewhere everyone can find it. Follow current instructions from local emergency authorities whenever weather threatens.</p>"
+        },
+        {
+          "name": "Household checklist",
+          "heading": "Turn planning into a few small tasks",
+          "bodyHtml": "<ul><li>Review emergency contacts and the household communication plan.</li><li>Check that essential supplies are easy to locate.</li><li>Arrange professional help for maintenance concerns, such as a roof or tree that needs attention.</li><li>Keep an accessible copy of important documents.</li><li>Write down questions about your policy before speaking with your agent.</li></ul><p>This checklist is a planning prompt. It does not replace current emergency instructions, professional maintenance advice or your policy terms.</p>"
+        }
+      ],
+      "nextStep": {
+        "name": "Next step",
+        "heading": "Make the conversation your own",
+        "bodyHtml": "<p>Bring your notes to a Westfield agent and ask questions about your own policy and circumstances.</p>",
+        "text": "Find your agent",
+        "href": "https://my.westfieldinsurance.com/AgentLocator/DefaultEntry.aspx"
+      },
+      "provenance": {
+        "sourceURLs": [
+          "https://www.westfieldinsurance.com/about-us/articles/how-to-prepare-your-home-and-family-for-a-spring-thunderstorm"
+        ],
+        "copy": "Original concise demonstration checklist, informed by public Westfield topic context; not a copy or endorsement of a source article",
+        "coverageBoundary": "No coverage, premium, eligibility or claims outcome is promised; individual questions go to an agent"
+      }
+    },
+    {
+      "slug": "organize-insurance-documents",
+      "title": "Make insurance documents easier to find",
+      "pageSummary": "Give your policy documents, bills and useful contacts a place of their own, then choose a simple routine for keeping them organized.",
+      "topic": "Planning",
+      "readTime": "1 min read",
+      "heroImageKey": "myWestfield",
+      "searchTerms": [
+        "paperless",
+        "digital documents",
+        "MyWestfield",
+        "bills",
+        "policy documents"
+      ],
+      "sections": [
+        {
+          "name": "Get organized",
+          "heading": "Give each document a place",
+          "bodyHtml": "<p>A familiar folder can save time when you need to check a detail. Keep current policy documents, billing information and useful contact details together in a secure location.</p><p>If you use digital records, choose a clear naming pattern and keep account access private. A short monthly check can help you notice new documents and retire outdated copies from your working folder.</p>"
+        },
+        {
+          "name": "Document checklist",
+          "heading": "Choose the routine that suits you",
+          "bodyHtml": "<ul><li>Group current documents by policy or account.</li><li>Keep contact details beside the records they relate to.</li><li>Use official MyWestfield information to explore available online tools.</li><li>Review paperless billing choices separately from recurring payment choices.</li><li>Ask for help if a document or account detail is unclear.</li></ul><p>Reading this article does not change a billing preference or enroll you in any service. Make those choices through the appropriate official account process.</p>"
+        }
+      ],
+      "nextStep": {
+        "name": "Next step",
+        "heading": "Explore your account options",
+        "bodyHtml": "<p>Visit MyWestfield information to learn about online account tools and find the right next step for you.</p>",
+        "text": "Explore MyWestfield",
+        "href": "https://www.westfieldinsurance.com/mywestfield"
+      },
+      "provenance": {
+        "sourceURLs": [
+          "https://www.westfieldinsurance.com/mywestfield",
+          "https://www.westfieldinsurance.com/billing"
+        ],
+        "copy": "Original concise demonstration checklist, informed by public Westfield topic context; not a copy or endorsement of a source article",
+        "coverageBoundary": "No coverage, premium, eligibility or claims outcome is promised; individual questions go to an agent"
+      }
+    },
+    {
+      "slug": "water-leak-home-checkup",
+      "title": "Small signs, useful questions: a water-leak checkup",
+      "pageSummary": "A simple observation routine can help you organize maintenance questions about damp spots, appliance connections and changes around your home.",
+      "topic": "Home",
+      "readTime": "1 min read",
+      "heroImageKey": "water",
+      "searchTerms": [
+        "water leak",
+        "water damage",
+        "plumbing",
+        "sump pump",
+        "maintenance"
+      ],
+      "sections": [
+        {
+          "name": "Notice changes",
+          "heading": "Keep a useful maintenance note",
+          "bodyHtml": "<p>You do not need to diagnose a plumbing problem to keep a helpful record. Note where you noticed an unexpected damp patch, a recurring drip or a change around a water-using appliance. A photo and the date can make the conversation with a qualified professional clearer.</p><p>Arrange professional help for repairs or anything you cannot safely assess. Avoid entering an area that may present an electrical or other safety hazard.</p>"
+        },
+        {
+          "name": "Questions for a professional",
+          "heading": "Bring observations, then ask questions",
+          "bodyHtml": "<ul><li>Where did you first notice the moisture or change?</li><li>Does it happen after rain or while an appliance runs?</li><li>Which inspection or maintenance tasks are recommended for your equipment?</li><li>Who should you contact if the situation changes?</li><li>What policy questions should you discuss with your agent?</li></ul><p>Maintenance and insurance are separate conversations. Your agent can explain your policy; a qualified professional can assess the equipment or repair.</p>"
+        }
+      ],
+      "nextStep": {
+        "name": "Next step",
+        "heading": "Make the conversation your own",
+        "bodyHtml": "<p>Bring your notes to a Westfield agent and ask questions about your own policy and circumstances.</p>",
+        "text": "Find your agent",
+        "href": "https://my.westfieldinsurance.com/AgentLocator/DefaultEntry.aspx"
+      },
+      "provenance": {
+        "sourceURLs": [
+          "https://www.westfieldinsurance.com/about-us/articles/how-to-help-prevent-water-damage-in-your-home-or-business",
+          "https://www.westfieldinsurance.com/about-us/articles/sump-pump-failure-insurance-coverage"
+        ],
+        "copy": "Original concise demonstration checklist, informed by public Westfield topic context; not a copy or endorsement of a source article",
+        "coverageBoundary": "No coverage, premium, eligibility or claims outcome is promised; individual questions go to an agent"
+      }
+    }
+  ],
+  "mediaMapping": {
+    "inventory": "new native CMS media from work/reference/westfield-advice-assets/inventory.jpg",
+    "review": "new native CMS media from work/reference/westfield-advice-assets/review.jpg",
+    "new-driver": "new native CMS media from work/reference/westfield-advice-assets/new-driver.jpg",
+    "storm": "new native CMS media from work/reference/westfield-advice-assets/storm.jpg",
+    "water": "new native CMS media from work/reference/westfield-advice-assets/water.jpg",
+    "myWestfield": "existing native CMS media / DAM binding as deliberately selected by seed owner"
+  },
+  "lifecycle": "Create and validate one representative article slice before creating the remaining five. Preserve later author edits on rerun. No native writes are performed by this file."
+}
