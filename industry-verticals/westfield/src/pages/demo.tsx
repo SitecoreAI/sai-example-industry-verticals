@@ -414,13 +414,12 @@ export default function DemoLaunch(): JSX.Element {
             >
               <FlowHeading index={4} />
               <div className="westfield-demo__readiness" role="note">
-                <strong>Authoring rehearsal pending</strong>
+                <strong>Native authoring flow verified</strong>
                 <p>
-                  The native Advice Article choice and a new blank article were confirmed. The
-                  current CMS session could not retrieve media and did not finish loading the
-                  editing canvas. The steps below describe the intended demonstration; drag and
-                  drop, edit/save/reload, image selection and publication of the new article still
-                  require a completed browser rehearsal.
+                  Blank-page creation, metadata, DAM image and alternative text, two independent
+                  Sections, native Layers insertion and Move up, save/reopen, mobile preview and
+                  browser publication were rehearsed successfully. Use the proven Plus and Move up
+                  controls below. The automated mouse drag gesture remains unconfirmed.
                 </p>
               </div>
               <p className="westfield-demo__say">
@@ -443,8 +442,12 @@ export default function DemoLaunch(): JSX.Element {
                   For <strong>Article image</strong>, choose{' '}
                   <strong>Browse media library → Content hub</strong>. If prompted, select{' '}
                   <strong>Sign in with SAML</strong>. In Approved assets, choose{' '}
-                  <strong>Brand → Show all → Westfield</strong>; the brand contains 12 approved
-                  assets. Select <strong>Family at home</strong> and add useful alternative text.
+                  <strong>Brand → Show all → Westfield → Close</strong>; the brand contains 12
+                  approved assets. Open <strong>Family at home</strong>, choose its{' '}
+                  <strong>HomePageHero</strong>
+                  rendition at <strong>2000 × 800</strong>, then click <strong>Select</strong>. In
+                  the parent media dialog, click <strong>Add selected</strong>. Open the image
+                  options to add useful alternative text, save and reopen to confirm it remains.
                 </li>
                 <li>
                   Select the starting <strong>Section</strong>. In its right{' '}
@@ -453,16 +456,22 @@ export default function DemoLaunch(): JSX.Element {
                   content remains.
                 </li>
                 <li>
-                  Open the component picker for the article body. Add another{' '}
-                  <strong>Section</strong> or an optional <strong>Action</strong>, and choose{' '}
-                  <strong>New content</strong> for a local datasource. Show that the body accepts
-                  only these permitted components. Populate the new component, then drag it within
-                  the body to change the order.
+                  In <strong>Layers</strong>, expand <strong>Body → article-content-2</strong> and
+                  use its <strong>Plus → Insert into</strong>. The location-specific picker offers
+                  <strong> Section</strong> and <strong>Action</strong>. Choose{' '}
+                  <strong>Section</strong>. In <strong>Data</strong>, choose{' '}
+                  <strong>Create new → Section</strong>, name it
+                  <strong> Follow-up Section</strong> and click <strong>Assign</strong>. Populate
+                  its heading and text, then use the native <strong>Move up</strong> control to
+                  reorder. Wait for <strong>Saved</strong> and reopen to confirm both Sections and
+                  their order.
                 </li>
                 <li>
                   Preview desktop and mobile. Publish only the completed rehearsal article using{' '}
                   <strong>Actions → Publish</strong>. Open its live URL, find it in the Articles
-                  list, and search for a unique phrase from the body.
+                  list, and search for a unique phrase from the body. Allow time for publishing and
+                  search/list refresh; the completed API rehearsal took about three minutes before
+                  its new listing and search result appeared.
                 </li>
               </ol>
               <div className="westfield-demo__expected">
@@ -551,12 +560,12 @@ export default function DemoLaunch(): JSX.Element {
         <section className="westfield-demo__verification" aria-labelledby="verification-title">
           <div>
             <p className="westfield-demo__eyebrow">Latest verification · October 15, 2026</p>
-            <h2 id="verification-title">Visitor flows verified; authoring rehearsal pending</h2>
+            <h2 id="verification-title">Visitor and native authoring flows verified</h2>
           </div>
           <div className="westfield-demo__verification-results">
             <dl>
               <div>
-                <dt>Fresh browser journeys verified</dt>
+                <dt>Production browser journeys verified</dt>
                 <dd>
                   Plain Home after reset; anonymous Instagram → campaign → matching first Home;
                   Casey’s paperless offer on first arrival; Jordan’s different offer after Casey, on
@@ -572,17 +581,36 @@ export default function DemoLaunch(): JSX.Element {
                 </dd>
               </div>
               <div>
-                <dt>Native authoring browser acceptance remains pending</dt>
+                <dt>Native editing and DAM selection verified</dt>
                 <dd>
-                  The current CMS authentication/media session blocked the canvas rehearsal. Drag
-                  and drop, editing and saving/reopening, DAM image selection, and publication of
-                  the new practice article have not been accepted in this run. Restore that session
-                  and complete Flow 05 before presenting it as verified.
+                  A new blank Advice Article, metadata, two independent Sections and the selected
+                  DAM image/alternative text survived save and reopening. The body picker offered
+                  only Section and Action. Native Plus insertion and Move up preserved the order;
+                  the 375px editing canvas remained readable.
+                </dd>
+              </div>
+              <div>
+                <dt>Native publication and discovery verified</dt>
+                <dd>
+                  Actions → Publish moved the completed article through its native workflow. The
+                  live page rendered the selected DAM image, alternative text and saved Section
+                  order. Articles → search for a unique body phrase → Read article opened that
+                  published page. Separately, the API rehearsal verified incomplete-draft rejection
+                  and scoped publication, withdrawal and recoverable cleanup.
+                </dd>
+              </div>
+              <div>
+                <dt>Mouse drag remains unconfirmed</dt>
+                <dd>
+                  The automated mouse gesture was inconclusive; no app code or placeholder defect
+                  was identified. The demonstrated flow uses the native Layers Plus and Move up
+                  controls. Restricted-role permissions were not tested; admin rehearsal was agreed.
                 </dd>
               </div>
             </dl>
             <p>
-              These checks are scoped to the current candidate release and demo journeys. The
+              These observations were recorded against the live demo and its native authoring
+              environment. They verify the selected flows, not every possible platform action. The
               presenter checklist above is separate from this verification record.
             </p>
           </div>
