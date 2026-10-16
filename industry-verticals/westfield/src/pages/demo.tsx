@@ -444,10 +444,11 @@ export default function DemoLaunch(): JSX.Element {
                   <strong>Sign in with SAML</strong>. In Approved assets, choose{' '}
                   <strong>Brand → Show all → Westfield → Close</strong>; the brand contains 12
                   approved assets. Open <strong>Family at home</strong>, choose its{' '}
-                  <strong>HomePageHero</strong>
-                  rendition at <strong>2000 × 800</strong>, then click <strong>Select</strong>. In
-                  the parent media dialog, click <strong>Add selected</strong>. Open the image
-                  options to add useful alternative text, save and reopen to confirm it remains.
+                  <strong>HomePageHero</strong> rendition at <strong>2000 × 800</strong>, then click{' '}
+                  <strong>Select</strong>. In the parent media dialog, click{' '}
+                  <strong>Add selected</strong>. Return to the native
+                  <strong> Content</strong> tab and set <strong>Image alt text</strong> for
+                  <strong> Article image</strong>. Save and reopen to confirm it remains.
                 </li>
                 <li>
                   Select the starting <strong>Section</strong>. In its right{' '}
@@ -456,15 +457,16 @@ export default function DemoLaunch(): JSX.Element {
                   content remains.
                 </li>
                 <li>
-                  In <strong>Layers</strong>, expand <strong>Body → article-content-2</strong> and
+                  In <strong>Layers</strong>, expand{' '}
+                  <strong>headless-main → Partial design content → article-content-2</strong> and
                   use its <strong>Plus → Insert into</strong>. The location-specific picker offers
                   <strong> Section</strong> and <strong>Action</strong>. Choose{' '}
                   <strong>Section</strong>. In <strong>Data</strong>, choose{' '}
                   <strong>Create new → Section</strong>, name it
-                  <strong> Follow-up Section</strong> and click <strong>Assign</strong>. Populate
-                  its heading and text, then use the native <strong>Move up</strong> control to
-                  reorder. Wait for <strong>Saved</strong> and reopen to confirm both Sections and
-                  their order.
+                  <strong> Follow-up Section</strong>, press <strong>Enter</strong> and wait for it
+                  to be created, then click <strong>Assign</strong>. Populate its heading and text,
+                  then use the native <strong>Move up</strong> control to reorder. Wait for{' '}
+                  <strong>Saved</strong> and reopen to confirm both Sections and their order.
                 </li>
                 <li>
                   Preview desktop and mobile. Publish only the completed rehearsal article using{' '}
