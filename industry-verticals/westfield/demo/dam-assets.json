@@ -1,10 +1,10 @@
 {
   "$schemaDescription": "Shared DAM source provenance and exact scoped upload/delivery inventory. Processing, actual workflow approval, public delivery and native CMS selection are separate evidence states.",
-  "version": 1,
+  "version": 2,
   "site": "westfield",
   "createdDate": "2026-10-14",
   "ownershipKey": "westfield-demo-2026-10-14",
-  "state": "verified-twelve-assets-three-collections-one-native-CMS-selection-published-and-live",
+  "state": "verified-twelve-assets-three-collections-Westfield-brand-filter-and-one-native-CMS-selection-published-and-live",
   "referenceAssetCount": 14,
   "selectedDamAssetCount": 12,
   "frontendOnlyAssetCount": 2,
@@ -21,7 +21,7 @@
         "values": [
           "Westfield"
         ],
-        "nativeMapping": "Inspect and reuse suitable existing metadata only; this asset/collection scope does not change shared schema or taxonomies."
+        "nativeMapping": "Existing native Brands relation on the 12 owned assets points to the Westfield M.Brand entity 129528. Native metadata entry only; no schema, shared Search component or other Brand values changed."
       },
       {
         "label": "Asset role",
@@ -120,8 +120,8 @@
   "ownership": {
     "assetContentOwner": "Westfield source brand/content; fonts remain third-party typography references.",
     "demoConfigurationOwner": "This demo implementation",
-    "writeScope": "New assets/collections created for this ownership key; existing matching assets may be reused only after checking their owner and dependencies.",
-    "cleanupScope": "Only exact IDs recorded as created by this demo, and only after checking CMS fields, public links, collection memberships, theme and page references.",
+    "writeScope": "Exact demo-owned assets/collections and the Westfield M.Brand entity 129528 recorded here; existing matching assets may be reused only after checking their owner and dependencies.",
+    "cleanupScope": "Only exact IDs recorded as created by this demo, and only after checking CMS fields, public links, collection memberships, Brand relationships, theme and page references.",
     "preserve": [
       "Core DAM definitions and processing configuration",
       "Other customers and starter assets outside the explicit disposable scope",
@@ -131,7 +131,27 @@
       "Global theme and Brand Kit",
       "Shared access and processing settings"
     ],
-    "deletionPolicy": "No deletion is authorized by this planning manifest. Prefer removing owned collection links or restoring baseline settings; permanent removal follows the actual authorized scope."
+    "deletionPolicy": "No deletion is authorized by this planning manifest. Prefer removing owned collection links or restoring baseline settings; permanent removal follows the actual authorized scope.",
+    "brandRecovery": {
+      "createdBrandId": 129528,
+      "createdBrandDefinition": "M.Brand",
+      "assetRelationMode": "Append",
+      "assetIds": [
+        128420,
+        128421,
+        128422,
+        128426,
+        128723,
+        128721,
+        128722,
+        128729,
+        128728,
+        128727,
+        128745,
+        128746
+      ],
+      "restorePolicy": "If reverting this metadata fix, remove only the Westfield Brands relation from these exact owned assets after checking later author edits. Preserve other Brand relationships and all collection memberships. Check all remaining Brand references before considering removal of the created Westfield Brand entity; this manifest does not authorize deletion."
+    }
   },
   "assets": [
     {
@@ -187,7 +207,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -241,7 +263,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -306,7 +330,9 @@
           "nativeImageContentType": "Image",
           "status": "verified-native-picker-save-readback-published-Edge-live-desktop-mobile",
           "rendering": "Original source; CSS object-fit cover at 1440px and390px. No separate saved DAM crop claimed."
-        }
+        },
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -360,7 +386,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -414,7 +442,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -468,7 +498,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -522,7 +554,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -576,7 +610,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -630,7 +666,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -684,7 +722,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -738,7 +778,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -793,7 +835,9 @@
             "status": 200,
             "sourceSha256Match": true
           }
-        ]
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
       }
     },
     {
@@ -884,7 +928,35 @@
     "assetsCreated": 12,
     "collectionsCreated": 3,
     "serviceOAuthStatus": "historical-http-401;no-retry;native-SSO-picker-works",
-    "brandRelationStatus": "Unverified; no shared taxonomy or guessed relation writes."
+    "brandRelationStatus": "Verified; Westfield M.Brand 129528 is assigned through the native Brands relation to exactly the 12 owned assets and appears in the approved-assets selector Brand filter.",
+    "brand": {
+      "nativeId": 129528,
+      "entityDefinition": "M.Brand",
+      "name": "Westfield",
+      "label": "Westfield",
+      "classification": "Main Brand",
+      "createdForOwnershipKey": "westfield-demo-2026-10-14",
+      "assignedAssetIds": [
+        128420,
+        128421,
+        128422,
+        128426,
+        128723,
+        128721,
+        128722,
+        128729,
+        128728,
+        128727,
+        128745,
+        128746
+      ],
+      "assignmentMethod": "Native UI property mass edit; Brands Append, all other field modes None.",
+      "collectionsChanged": false,
+      "existingSharedBrandValuesChanged": false,
+      "schemaChanged": false,
+      "globalThemeChanged": false,
+      "connectorChanged": false
+    }
   },
   "initialUploadScope": {
     "assetCount": 4,
@@ -898,7 +970,7 @@
     "deliveryStatus": "all 4-originals-public-http200-source-hash-match",
     "nativeDamSelectionStatus": "Only MyWestfield asset 128422 selected through actual CMS DAM Image picker; saved, published and live responsive render verified. Other three core assets remain available in DAM."
   },
-  "updatedAtUTC": "2026-10-15T02:45:18.150588+00:00",
+  "updatedAtUTC": "2026-10-16T02:51:10.414346+00:00",
   "verificationCounts": {
     "selectedAssets": 12,
     "uploadedAssets": 12,
@@ -909,9 +981,42 @@
     "cmsDamSelectionsVerified": 1,
     "processingVerifiedAssets": 12,
     "collectionMembershipsVerified": 15,
-    "collectionCoversVerified": 3
+    "collectionCoversVerified": 3,
+    "brandRelatedAssets": 12,
+    "approvedSelectorBrandFilterResults": 12
   },
   "nativeWorkflowEvidencePolicy": "Approval requires actual Submit for approval and Review Approve workflow, followed by exact asset appearing in Assets library. All required actions complete for Approved banner describes readiness and is not approval evidence.",
-  "pickerSearchScope": "Westfield title/filename query returned four relevant names, not all 12. Search by exact asset title or use owned collections; Extra information search coverage is not proven.",
-  "automaticProcessingNote": "Existing tenant workflow generated additional smart-crop public links after approval; no global settings or automatic links were altered. Enumerate current asset-linked public links/consumers before retirement."
+  "pickerSearchScope": "For all 12 Westfield assets, use the approved-assets selector Brand filter: Show all \u2192 Westfield. Exact title search remains available; the initial four-result free-text query is retained as historical evidence.",
+  "automaticProcessingNote": "Existing tenant workflow generated additional smart-crop public links after approval; no global settings or automatic links were altered. Enumerate current asset-linked public links/consumers before retirement.",
+  "historicalVerification": {
+    "asOfUTC": "2026-10-15T02:45:18.150588+00:00",
+    "brandRelationStatus": "Unverified; no shared taxonomy or guessed relation writes.",
+    "pickerSearchScope": "Westfield title/filename query returned four relevant names, not all 12. Search by exact asset title or use owned collections; Extra information search coverage is not proven.",
+    "note": "Initial verification baseline; superseded for Brand filtering by the native metadata fix recorded in damTarget.brand and pickerBrandFilter."
+  },
+  "pickerBrandFilter": {
+    "pageUrl": "https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets",
+    "path": [
+      "Brand",
+      "Show all",
+      "Westfield"
+    ],
+    "expectedAssetCount": 12,
+    "resultAssetIds": [
+      128420,
+      128421,
+      128422,
+      128426,
+      128723,
+      128721,
+      128722,
+      128729,
+      128728,
+      128727,
+      128745,
+      128746
+    ],
+    "verified": true,
+    "verificationScope": "Native approved-assets selector page in the existing signed-in browser session. This verifies metadata and filtering; it does not claim another CMS image selection or changed connector credentials."
+  }
 }
