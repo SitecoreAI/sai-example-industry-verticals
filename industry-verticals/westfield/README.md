@@ -15,7 +15,7 @@ The package ranges remain those supplied by the starter. The inherited lockfile 
 | SiteFooter | Logo, Address, Phone, ContactLink, AccountLink, PrivacyLink, TermsLink, Copyright; ProductsTitle, CompanyTitle, ConnectTitle, LegalBody; ProductsLinks, CompanyLinks, ConnectLinks, SocialLinks, LegalLinks | Default |
 | ArticleHeader | Route Title, pageSummary, Topic, ReadTime, HeroImage | Default |
 | ArticleBodyLayout | No datasource; native article-content placeholder | Default |
-| ArticleText | Heading, Body | Default |
+| ArticleText (Section) | Section heading, Text (Heading, Body) | Default |
 | AdviceListing | No datasource; route Title/pageSummary and published article API | Default |
 | SearchResults | No datasource; route Title/pageSummary and published website search API | Default |
 | HomeSection | Eyebrow, Heading, Body, Link; native home-cards dynamic placeholder | Default, Services, Account, Benefits, News |
@@ -23,6 +23,8 @@ The package ranges remain those supplied by the starter. The inherited lockfile 
 | HomeFeature | Eyebrow, Heading, Body, Image, Link, VideoUrl | Default, Video, MyWestfield, About |
 
 Components receive original Content SDK fields. Native fields supply authored copy and destinations; the fixed Customer login label and generic control labels are interface copy. Links preserve their original SDK field objects and editing metadata. `CampaignAction.Quiet` is a presentation option; it does not encode customer status. Header/footer content is intended for shared partials. Ordinary campaign content belongs in page-local Data.
+
+The Advice Article branch starts with one blank **Section** in its native article-content placeholder. Each Section contains **Section heading** and **Text**, has its own page-local datasource, and can be repeated or reordered. The same placeholder also permits an optional **Action**. Technical ArticleText names and IDs remain stable; ordinary releases do not reseed the branch or overwrite existing articles.
 
 ## Application setup
 
