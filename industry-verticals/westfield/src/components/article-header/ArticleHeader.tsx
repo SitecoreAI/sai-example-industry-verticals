@@ -24,6 +24,14 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
     >
       <div className={styles.container}>
         <nav aria-label="breadcrumb" className={styles.breadcrumbNav}>
+          <div className={styles.backLinkWrapper}>
+            <Link href="/advice" className={styles.backLink}>
+              <svg viewBox="0 0 8 12" width="8" height="12" aria-hidden="true">
+                <path fill="currentColor" d="M.59 1.41 5.17 6 .59 10.59 2 12l6-6-6-6z" />
+              </svg>
+              <span>Back</span>
+            </Link>
+          </div>
           <ol className={styles.breadcrumbs}>
             <li>
               <Link href="/">Home</Link>

@@ -89,6 +89,30 @@
   text-decoration: underline;
 }
 
+.backLinkWrapper {
+  display: none;
+  padding-block: 20px;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  padding-block: 10px;
+  color: #4d514d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 1.8px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.backLink svg {
+  margin-right: 8px;
+  color: #e03100;
+  transform: rotate(180deg);
+}
+
 .articleTitle {
   margin: 0 0 10px;
   font-size: 36px;
@@ -140,7 +164,8 @@
 }
 
 .sectionTitle,
-.articleCopy h2 {
+.articleCopy h2,
+.articleCopy :global(.ck-content) h2 {
   margin: 0.83em 0;
   color: inherit;
   font-size: 1.5em;
@@ -155,24 +180,102 @@
   line-height: 1.5;
 }
 
-.articleCopy :where(p, ul, ol) {
+.articleCopy :is(p, ul, ol),
+.articleCopy :global(.ck-content) :is(p, ul, ol) {
   margin: 1em 0;
   color: inherit;
   font: inherit;
 }
 
-.articleCopy :where(ul, ol) {
-  padding-left: 40px;
+.articleCopy :is(ul, ol),
+.articleCopy :global(.ck-content) :is(ul, ol) {
+  padding-inline-start: 40px;
 }
 
-.articleCopy h3 {
+.articleCopy ul {
+  list-style: disc outside;
+}
+
+.articleCopy ol {
+  list-style: decimal outside;
+}
+
+.articleCopy :is(ul, ol) ul {
+  list-style-type: circle;
+}
+
+.articleCopy :is(ul, ol) :is(ul, ol) ul {
+  list-style-type: square;
+}
+
+.articleCopy :is(ul, ol) :is(ul, ol),
+.articleCopy :global(.ck-content) :is(ul, ol) :is(ul, ol) {
+  margin-block: 0;
+}
+
+.articleCopy li,
+.articleCopy :global(.ck-content) li {
+  margin-block: 0;
+}
+
+.articleCopy h3,
+.articleCopy :global(.ck-content) h3 {
   margin: 1em 0;
   font-size: 1.17em;
   font-weight: 700;
   line-height: 1.5;
 }
 
-.articleCopy > :last-child {
+/* A Section boundary must keep the source paragraph-to-heading rhythm. */
+.textBlock:last-child .articleCopy > :last-child,
+.textBlock:last-child .articleCopy :global(.ck-content) > :last-child {
+  margin-bottom: 0;
+}
+
+.articleCopy :is(img, video) {
+  max-inline-size: 100%;
+  block-size: auto;
+  vertical-align: middle;
+}
+
+.articleCopy figure {
+  clear: both;
+  margin: 1em 40px;
+}
+
+.articleCopy iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.articleCopy :global(.articleSupplement) {
+  clear: both;
+}
+
+.articleCopy :global(.article-image) {
+  margin: 20px 0;
+}
+
+.articleCopy :global(.article-image) img {
+  margin-bottom: 10px;
+}
+
+.articleCopy :global(.articleDisclaimer) {
+  padding: 60px 20px;
+  color: #4d514d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.articleCopy :global(.articleDisclaimer) p:first-child {
+  margin-top: 0;
+}
+
+.articleCopy :global(.articleDisclaimer) p:last-child {
   margin-bottom: 0;
 }
 
@@ -850,6 +953,14 @@
 }
 
 @media (max-width: 767px) {
+  .header .breadcrumbs {
+    display: none;
+  }
+
+  .backLinkWrapper {
+    display: block;
+  }
+
   .header,
   .bodyLayout,
   .textBlock {
