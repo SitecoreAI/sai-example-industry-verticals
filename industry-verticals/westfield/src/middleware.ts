@@ -2,9 +2,9 @@ import { NextResponse, type NextRequest, type NextFetchEvent } from 'next/server
 import {
   defineMiddleware,
   MultisiteMiddleware,
-  PersonalizeMiddleware,
   RedirectsMiddleware,
 } from '@sitecore-content-sdk/nextjs/middleware';
+import { BrowserPersonalizeMiddleware } from 'lib/browser-personalize-middleware';
 import sites from 'lib/sites';
 import scConfig from 'sitecore.config';
 
@@ -34,7 +34,7 @@ const redirects = new RedirectsMiddleware({
   skip: () => false,
 });
 
-const personalize = new PersonalizeMiddleware({
+const personalize = new BrowserPersonalizeMiddleware({
   /**
    * List of sites for site resolver to work with
    */
