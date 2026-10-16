@@ -382,6 +382,17 @@
   font-size: 12px;
   line-height: 1.75;
 }
+.westfield-demo__readiness {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border-left: 3px solid #b96022;
+  background: #faf1e7;
+  color: #684320;
+  font-size: 13px;
+}
+.westfield-demo__readiness p {
+  margin-top: 6px;
+}
 .westfield-demo__rehearsal {
   display: grid;
   grid-template-columns: 0.8fr 1.7fr;
@@ -467,6 +478,31 @@
   align-self: center;
   color: var(--demo-muted);
   font-size: 13px;
+}
+.westfield-demo__verification-results {
+  min-width: 0;
+  color: var(--demo-muted);
+  font-size: 13px;
+}
+.westfield-demo__verification-results dl {
+  margin: 0;
+}
+.westfield-demo__verification-results dl > div + div {
+  margin-top: 20px;
+}
+.westfield-demo__verification-results dt {
+  margin-bottom: 5px;
+  color: var(--demo-ink);
+  font-weight: 700;
+}
+.westfield-demo__verification-results dd {
+  margin: 0;
+}
+.westfield-demo__verification-results > p {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--demo-border);
+  font-size: 12px;
 }
 .westfield-demo__footer {
   display: flex;

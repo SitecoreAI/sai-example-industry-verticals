@@ -413,6 +413,16 @@ export default function DemoLaunch(): JSX.Element {
               aria-labelledby="authoring-title"
             >
               <FlowHeading index={4} />
+              <div className="westfield-demo__readiness" role="note">
+                <strong>Authoring rehearsal pending</strong>
+                <p>
+                  The native Advice Article choice and a new blank article were confirmed. The
+                  current CMS session could not retrieve media and did not finish loading the
+                  editing canvas. The steps below describe the intended demonstration; drag and
+                  drop, edit/save/reload, image selection and publication of the new article still
+                  require a completed browser rehearsal.
+                </p>
+              </div>
               <p className="westfield-demo__say">
                 “Authors start with the right structure, write in meaningful fields, and add only
                 the components that belong here. The page design takes care of the presentation.”
@@ -540,14 +550,42 @@ export default function DemoLaunch(): JSX.Element {
 
         <section className="westfield-demo__verification" aria-labelledby="verification-title">
           <div>
-            <p className="westfield-demo__eyebrow">Latest verification</p>
-            <h2 id="verification-title">Fresh rehearsal in progress</h2>
+            <p className="westfield-demo__eyebrow">Latest verification · October 15, 2026</p>
+            <h2 id="verification-title">Visitor flows verified; authoring rehearsal pending</h2>
           </div>
-          <p>
-            The outcomes above are the acceptance checks for each flow. A fresh end-to-end rehearsal
-            is being completed against the current release; results will be recorded here when it
-            finishes.
-          </p>
+          <div className="westfield-demo__verification-results">
+            <dl>
+              <div>
+                <dt>Fresh browser journeys verified</dt>
+                <dd>
+                  Plain Home after reset; anonymous Instagram → campaign → matching first Home;
+                  Casey’s paperless offer on first arrival; Jordan’s different offer after Casey, on
+                  first arrival and reload.
+                </dd>
+              </div>
+              <div>
+                <dt>Content and configuration checks passed</dt>
+                <dd>
+                  Six complete article copies and their images; relevant search API results;
+                  authoring configuration audit with no mismatches; editing host response; and a new
+                  Advice Article with one blank Section.
+                </dd>
+              </div>
+              <div>
+                <dt>Native authoring browser acceptance remains pending</dt>
+                <dd>
+                  The current CMS authentication/media session blocked the canvas rehearsal. Drag
+                  and drop, editing and saving/reopening, DAM image selection, and publication of
+                  the new practice article have not been accepted in this run. Restore that session
+                  and complete Flow 05 before presenting it as verified.
+                </dd>
+              </div>
+            </dl>
+            <p>
+              These checks are scoped to the current candidate release and demo journeys. The
+              presenter checklist above is separate from this verification record.
+            </p>
+          </div>
         </section>
         <footer className="westfield-demo__footer">
           <p>Westfield · Presenter guide</p>
