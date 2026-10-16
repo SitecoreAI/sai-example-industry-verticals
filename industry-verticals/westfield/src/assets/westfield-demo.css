@@ -1,88 +1,618 @@
-.westfield-demo-launch {
+.westfield-demo {
+  --demo-ink: #2c342d;
+  --demo-muted: #616b61;
+  --demo-green: #245c2a;
+  --demo-border: #dce2d6;
+  --demo-wash: #f2f5ed;
   min-height: 100vh;
-  padding: 64px 24px;
-  color: #414741;
-  background: #f2f2f2;
+  padding: 0 max(24px, calc((100vw - 1280px) / 2));
+  color: var(--demo-ink);
+  background: #fbfcf9;
   font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
 }
-
-.westfield-demo-launch__inner {
-  max-width: 960px;
-  margin: 0 auto;
+.westfield-demo *,
+.westfield-demo *::before,
+.westfield-demo *::after {
+  box-sizing: border-box;
 }
-
-.westfield-demo-launch__eyebrow {
-  color: #4d654d;
-  font-size: 14px;
+.westfield-demo a {
+  color: var(--demo-green);
+  text-underline-offset: 4px;
+}
+.westfield-demo a:hover {
+  text-decoration-thickness: 2px;
+}
+.westfield-demo :is(a, button, input, summary):focus-visible {
+  outline: 3px solid #b96022;
+  outline-offset: 5px;
+}
+.westfield-demo :is(h1, h2, h3, p, ol, ul) {
+  margin: 0;
+}
+.westfield-demo :is(h1, h2, h3) {
+  color: var(--demo-ink);
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
-
-.westfield-demo-launch h1 {
-  margin: 16px 0;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.12;
-}
-
-.westfield-demo-launch p {
-  margin: 12px 0;
-  line-height: 1.6;
-}
-
-.westfield-demo-launch__people {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin: 32px 0;
-}
-
-.westfield-demo-launch__person {
-  padding: 28px;
-  border: 1px solid #d4dad0;
-  border-radius: 4px;
+.westfield-demo__skip {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  z-index: 10;
+  padding: 12px 20px;
+  transform: translateY(-180%);
+  border: 2px solid var(--demo-green);
   background: #fff;
 }
-
-.westfield-demo-launch__person h2 {
-  font-size: 24px;
-  line-height: 1.2;
+.westfield-demo__skip:focus {
+  transform: translateY(0);
 }
-
-.westfield-demo-launch__email {
-  overflow-wrap: anywhere;
+.westfield-demo__masthead {
+  display: flex;
+  min-height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--demo-border);
+}
+.westfield-demo__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--demo-ink) !important;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  text-decoration: none;
+}
+.westfield-demo__brand span {
+  padding-left: 22px;
+  border-left: 1px solid #bec8b8;
+  color: var(--demo-muted);
   font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
 }
-
-.westfield-demo-launch button {
-  min-height: 48px;
-  margin-top: 12px;
-  padding: 12px 24px;
-  border: 0;
+.westfield-demo__text-link {
+  font-size: 14px;
+  font-weight: 700;
+}
+.westfield-demo__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 96px);
+  padding: 72px 0;
+}
+.westfield-demo__eyebrow {
+  color: var(--demo-green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.35px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.westfield-demo h1 {
+  max-width: 620px;
+  margin: 18px 0 24px;
+  font-size: clamp(40px, 4.5vw, 64px);
+  letter-spacing: -2.5px;
+  line-height: 1.08;
+}
+.westfield-demo__lede {
+  max-width: 570px;
+  color: var(--demo-muted);
+  font-size: 19px;
+  line-height: 1.7;
+}
+.westfield-demo__launch-panel {
+  padding: 32px;
+  border: 1px solid #c8d4bc;
+  border-top: 4px solid var(--demo-green);
+  border-radius: 4px;
+  background: var(--demo-wash);
+}
+.westfield-demo__launch-panel h2 {
+  margin: 8px 0 10px;
+  font-size: 26px;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+}
+.westfield-demo__launch-panel > p:not(.westfield-demo__eyebrow) {
+  color: var(--demo-muted);
+  font-size: 14px;
+}
+.westfield-demo__button {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 14px 18px;
+  border: 1px solid var(--demo-green);
   border-radius: 3px;
   color: #fff;
-  background: #256a1c;
+  background: var(--demo-green);
   font: inherit;
+  font-size: 14px;
   font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
   cursor: pointer;
 }
-
-.westfield-demo-launch button:focus-visible {
-  outline: 3px solid #4d514d;
-  outline-offset: 4px;
+.westfield-demo__button--secondary {
+  margin-top: 10px;
+  color: var(--demo-green);
+  background: #fff;
 }
-
-.westfield-demo-launch button:disabled {
+.westfield-demo__button:hover:not(:disabled) {
+  color: #fff;
+  background: #184620;
+}
+.westfield-demo__button:disabled {
   opacity: 0.6;
   cursor: wait;
 }
-
-@media (max-width: 640px) {
-  .westfield-demo-launch {
-    padding: 32px 20px;
+.westfield-demo__launch-panel .westfield-demo__launch-status {
+  min-height: 40px;
+  margin: 16px 0 12px;
+  color: var(--demo-green);
+  font-size: 12px;
+}
+.westfield-demo__launch-panel .westfield-demo__launch-status--error {
+  color: #a63724;
+}
+.westfield-demo .westfield-demo__fine-print {
+  color: var(--demo-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.westfield-demo__prepare {
+  display: grid;
+  grid-template-columns: 0.8fr 1.7fr;
+  gap: 48px;
+  padding: 30px 0 36px;
+  border-top: 1px solid var(--demo-border);
+  border-bottom: 1px solid var(--demo-border);
+}
+.westfield-demo__prepare h2,
+.westfield-demo__rehearsal h2,
+.westfield-demo__verification h2 {
+  margin-top: 7px;
+  font-size: 26px;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+}
+.westfield-demo__prepare ul {
+  padding-left: 19px;
+  color: var(--demo-muted);
+  font-size: 14px;
+}
+.westfield-demo__prepare li + li {
+  margin-top: 8px;
+}
+.westfield-demo__workspace {
+  display: grid;
+  grid-template-columns: 238px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+  padding: 64px 0;
+  scroll-margin-top: 24px;
+}
+.westfield-demo__rail {
+  position: sticky;
+  top: 32px;
+}
+.westfield-demo__rail ol {
+  padding: 16px 0 24px;
+  list-style: none;
+}
+.westfield-demo__rail li + li {
+  margin-top: 3px;
+}
+.westfield-demo__rail li a {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  padding: 10px 0;
+  color: var(--demo-ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-decoration: none;
+}
+.westfield-demo__rail li a:hover {
+  color: var(--demo-green);
+  text-decoration: underline;
+}
+.westfield-demo__rail li a span {
+  color: #7b8874;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.westfield-demo__rail-note {
+  padding: 22px 0;
+  border-top: 1px solid var(--demo-border);
+  color: var(--demo-muted);
+  font-size: 13px;
+}
+.westfield-demo__rail-note strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--demo-ink);
+  font-size: 13px;
+}
+.westfield-demo__flow {
+  padding: 34px;
+  border: 1px solid var(--demo-border);
+  border-radius: 5px;
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+.westfield-demo__flow + .westfield-demo__flow {
+  margin-top: 28px;
+}
+.westfield-demo__flow-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.westfield-demo__flow-number {
+  display: grid;
+  flex: 0 0 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--demo-green);
+  background: #edf3e6;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.westfield-demo__flow h2 {
+  margin-top: 5px;
+  font-size: 28px;
+  letter-spacing: -0.7px;
+  line-height: 1.25;
+}
+.westfield-demo__say {
+  margin: 24px 0 !important;
+  padding-left: 18px;
+  border-left: 3px solid #d98a45;
+  color: var(--demo-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.westfield-demo__steps {
+  padding-left: 23px;
+  font-size: 14px;
+}
+.westfield-demo__steps li {
+  padding-left: 5px;
+}
+.westfield-demo__steps li::marker {
+  color: var(--demo-green);
+  font-weight: 700;
+}
+.westfield-demo__steps li + li {
+  margin-top: 15px;
+}
+.westfield-demo__expected {
+  margin-top: 26px;
+  padding: 20px 22px;
+  border-radius: 3px;
+  background: var(--demo-wash);
+  font-size: 14px;
+}
+.westfield-demo__expected p + p {
+  margin-top: 7px;
+}
+.westfield-demo__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 25px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--demo-border);
+  font-size: 13px;
+  font-weight: 700;
+}
+.westfield-demo__links + .westfield-demo__fine-print {
+  margin-top: 12px;
+}
+.westfield-demo__details {
+  margin-top: 22px;
+  font-size: 13px;
+}
+.westfield-demo__details summary {
+  width: fit-content;
+  color: var(--demo-green);
+  font-weight: 700;
+  cursor: pointer;
+}
+.westfield-demo__details p,
+.westfield-demo__details ul {
+  margin-top: 12px;
+  color: var(--demo-muted);
+}
+.westfield-demo__details ul {
+  padding-left: 20px;
+}
+.westfield-demo__details li + li {
+  margin-top: 7px;
+}
+.westfield-demo code {
+  color: inherit;
+  font-family: 'Roboto Mono', Consolas, monospace;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+.westfield-demo__personas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.westfield-demo__personas article {
+  padding: 22px;
+  border: 1px solid #cbd7bf;
+  border-top: 3px solid var(--demo-green);
+  border-radius: 3px;
+  background: #fbfcf8;
+}
+.westfield-demo__personas h3 {
+  margin: 9px 0 7px;
+  font-size: 19px;
+  letter-spacing: -0.25px;
+  line-height: 1.35;
+}
+.westfield-demo__personas article > p:not(:first-child) {
+  margin-top: 15px;
+  font-size: 13px;
+}
+.westfield-demo__personas article > .westfield-demo__fine-print {
+  margin-top: 8px !important;
+}
+.westfield-demo__note {
+  margin-top: 22px !important;
+  color: var(--demo-muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+.westfield-demo__rehearsal {
+  display: grid;
+  grid-template-columns: 0.8fr 1.7fr;
+  gap: 48px;
+  padding: 40px;
+  border: 1px solid #cbd7bf;
+  border-radius: 5px;
+  background: var(--demo-wash);
+}
+.westfield-demo__rehearsal > div > p:not(.westfield-demo__eyebrow) {
+  margin-top: 16px;
+  color: var(--demo-muted);
+  font-size: 13px;
+}
+.westfield-demo__rehearsal .westfield-demo__check-count {
+  color: var(--demo-green);
+  font-weight: 700;
+}
+.westfield-demo__clear {
+  margin-top: 8px;
+  padding: 6px 0;
+  border: 0;
+  color: var(--demo-green);
+  background: none;
+  font: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.westfield-demo__clear:disabled {
+  color: var(--demo-muted);
+  opacity: 0.6;
+  cursor: default;
+}
+.westfield-demo__rehearsal fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.westfield-demo__rehearsal label {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #d7e0ce;
+  font-size: 13px;
+  line-height: 1.55;
+  cursor: pointer;
+}
+.westfield-demo__rehearsal label:first-of-type {
+  padding-top: 0;
+}
+.westfield-demo__rehearsal label:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.westfield-demo__rehearsal input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 1px 0 0;
+  accent-color: var(--demo-green);
+  cursor: pointer;
+}
+.westfield-demo__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.westfield-demo__verification {
+  display: grid;
+  grid-template-columns: 0.8fr 1.7fr;
+  gap: 48px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--demo-border);
+}
+.westfield-demo__verification > p {
+  align-self: center;
+  color: var(--demo-muted);
+  font-size: 13px;
+}
+.westfield-demo__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 0 42px;
+  color: var(--demo-muted);
+  font-size: 12px;
+}
+@media (max-width: 1100px) {
+  .westfield-demo__workspace {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 32px;
   }
-
-  .westfield-demo-launch__people {
+  .westfield-demo__flow {
+    padding: 28px;
+  }
+  .westfield-demo__intro {
+    gap: 36px;
+  }
+  .westfield-demo__personas {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 800px) {
+  .westfield-demo__intro {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 44px 0;
+  }
+  .westfield-demo h1 {
+    max-width: 540px;
+    font-size: 48px;
+  }
+  .westfield-demo__launch-panel {
+    max-width: 620px;
+  }
+  .westfield-demo__prepare,
+  .westfield-demo__rehearsal,
+  .westfield-demo__verification {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .westfield-demo__workspace {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 36px 0;
+  }
+  .westfield-demo__rail {
+    position: static;
+  }
+  .westfield-demo__rail ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+    padding-bottom: 0;
+  }
+  .westfield-demo__rail-note {
+    display: none;
+  }
+  .westfield-demo__personas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 540px) {
+  .westfield-demo {
+    padding: 0 20px;
+  }
+  .westfield-demo__masthead {
+    min-height: 80px;
+    gap: 16px;
+  }
+  .westfield-demo__brand {
+    font-size: 25px;
+  }
+  .westfield-demo__brand span {
+    display: none;
+  }
+  .westfield-demo__text-link {
+    font-size: 12px;
+  }
+  .westfield-demo h1 {
+    font-size: 42px;
+    letter-spacing: -1.7px;
+  }
+  .westfield-demo__lede {
+    font-size: 17px;
+  }
+  .westfield-demo__launch-panel {
+    padding: 24px;
+  }
+  .westfield-demo__rail ol,
+  .westfield-demo__personas {
+    grid-template-columns: 1fr;
+  }
+  .westfield-demo__flow {
+    padding: 24px 20px;
+  }
+  .westfield-demo__flow-heading {
+    gap: 12px;
+  }
+  .westfield-demo__flow-number {
+    flex-basis: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+  .westfield-demo__flow h2 {
+    font-size: 24px;
+  }
+  .westfield-demo__expected {
+    padding: 18px;
+  }
+  .westfield-demo__rehearsal {
+    padding: 26px 22px;
+  }
+  .westfield-demo__footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+@media print {
+  .westfield-demo {
+    padding: 0;
+    background: #fff;
+  }
+  .westfield-demo__rail,
+  .westfield-demo__launch-panel,
+  .westfield-demo__rehearsal,
+  .westfield-demo__footer,
+  .westfield-demo__text-link {
+    display: none;
+  }
+  .westfield-demo__intro,
+  .westfield-demo__workspace,
+  .westfield-demo__prepare,
+  .westfield-demo__verification {
+    display: block;
+    padding: 24px 0;
+  }
+  .westfield-demo__prepare ul {
+    margin-top: 16px;
+  }
+  .westfield-demo__flow {
+    break-inside: avoid;
+  }
+  .westfield-demo__details > * {
+    display: block;
   }
 }
