@@ -416,10 +416,11 @@ export default function DemoLaunch(): JSX.Element {
               <div className="westfield-demo__readiness" role="note">
                 <strong>Native authoring flow verified</strong>
                 <p>
-                  Blank-page creation, metadata, DAM image and alternative text, two independent
-                  Sections, native Layers insertion and Move up, save/reopen, mobile preview and
-                  browser publication were rehearsed successfully. Use the proven Plus and Move up
-                  controls below. The automated mouse drag gesture remains unconfirmed.
+                  Blank-page creation, metadata, DAM image/alternative text and the first Section
+                  were saved and reopened. A second independent Section, native Layers insertion and
+                  Move up, Saved status, mobile preview and browser publication were then verified;
+                  its copy and order matched the live page. Use the proven controls below. The
+                  automated mouse drag gesture remains unconfirmed.
                 </p>
               </div>
               <p className="westfield-demo__say">
@@ -585,10 +586,11 @@ export default function DemoLaunch(): JSX.Element {
               <div>
                 <dt>Native editing and DAM selection verified</dt>
                 <dd>
-                  A new blank Advice Article, metadata, two independent Sections and the selected
-                  DAM image/alternative text survived save and reopening. The body picker offered
-                  only Section and Action. Native Plus insertion and Move up preserved the order;
-                  the 375px editing canvas remained readable.
+                  The new article’s metadata, first Section and DAM image/alternative text survived
+                  save and reopening. The body picker offered only Section and Action. A second
+                  independent Section was populated, moved with native Move up and saved; both
+                  bodies and their order were verified in native state and on the live page. The
+                  375px editing canvas remained readable.
                 </dd>
               </div>
               <div>
