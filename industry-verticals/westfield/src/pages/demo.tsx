@@ -109,9 +109,9 @@ export default function DemoLaunch(): JSX.Element {
             <p className="westfield-demo__lede">
               Start with the Westfield experience customers know. Follow a prospect from Instagram,
               recognize two existing customers, then create useful content with native authoring
-              guardrails. These five loops occupy minutes 10–32 of the 50-minute presentation,
-              followed by 10 minutes for questions. Prepare the direct tabs before presenting; the
-              live demonstration does not require returning to this guide.
+              guardrails. These five loops occupy minutes 10–32 of the 50-minute presentation. The
+              full session includes a separate 10-minute question period. Prepare the direct tabs
+              before presenting; the live demonstration does not require returning to this guide.
             </p>
           </div>
           <div className="westfield-demo__launch-panel">
@@ -431,11 +431,12 @@ export default function DemoLaunch(): JSX.Element {
                 <strong>Current authoring rehearsal · October 29, 2026</strong>
                 <p>
                   All 16 placeholder settings and the branch with one blank Section passed fresh
-                  checks. Page details, two separate Sections, Layers Plus insertion and whole-Section
-                  Move up were saved. The embedded picker showed Brand → Westfield; Family at home’s
-                  HomePageHero image and its alternative text were saved in Page Builder. Actions →
-                  Publish changed the article from Draft to Approved. Independent publication and
-                  live-page checks are still in progress. Actual mouse drag remains unconfirmed.
+                  checks. Page details, two separate Sections, Layers Plus insertion and
+                  whole-Section Move up were saved. The embedded picker showed Brand → Westfield;
+                  Family at home’s HomePageHero image and its alternative text were saved in Page
+                  Builder. Actions → Publish changed the article from Draft to Approved. Independent
+                  publication and live-page checks are still in progress. Actual mouse drag remains
+                  unconfirmed.
                 </p>
               </div>
               <p className="westfield-demo__say">
@@ -444,23 +445,24 @@ export default function DemoLaunch(): JSX.Element {
               </p>
               <p className="westfield-demo__note">
                 Keep authoring within 8 minutes and leave 1 minute for the transition. If the new
-                page is still publishing, show an existing published article and say the new page
-                is pending.
+                page is still publishing, show an existing published article and say the new page is
+                pending.
               </p>
               <ol className="westfield-demo__steps">
                 <li>
                   In Page Builder, open <strong>Westfield → advice</strong>. Choose{' '}
                   <strong>Create a page → Advice Article</strong>, give it a unique rehearsal name
-                  and press <strong>Enter</strong>. When prompted, choose <strong>Reload tree</strong>,
-                  expand <strong>Home → advice</strong> and select the new article. It starts with
-                  one blank <strong>Section</strong>.
+                  and press <strong>Enter</strong>. When prompted, choose{' '}
+                  <strong>Reload tree</strong>, expand <strong>Home → advice</strong> and select the
+                  new article. It starts with one blank <strong>Section</strong>.
                 </li>
                 <li>
                   Open the page’s <strong>Content</strong> view. Expand <strong>Content</strong> to
-                  set <strong>Title</strong>, <strong>Metadata</strong> to set <strong>Summary</strong>,
-                  and <strong>Article</strong> to set <strong>Topic</strong> and{' '}
-                  <strong>Publication date</strong>. The image fields are also in Article. Leave{' '}
-                  <strong>Reading time</strong> blank for automatic calculation.
+                  set <strong>Title</strong>, <strong>Metadata</strong> to set{' '}
+                  <strong>Summary</strong>, and <strong>Article</strong> to set{' '}
+                  <strong>Topic</strong> and <strong>Publication date</strong>. The image fields are
+                  also in Article. Leave <strong>Reading time</strong> blank for automatic
+                  calculation.
                 </li>
                 <li>
                   In the <strong>Article</strong> group, for <strong>Article image</strong>, choose{' '}
@@ -473,7 +475,8 @@ export default function DemoLaunch(): JSX.Element {
                   <strong>Add selected</strong>. Return to the native
                   <strong> Content</strong> tab and set <strong>Image alt text</strong> for
                   <strong> Article image</strong>. Wait for <strong>Saved</strong>, open the same
-                  article in a new Page Builder tab and confirm the image and alternative text remain.
+                  article in a new Page Builder tab and confirm the image and alternative text
+                  remain.
                 </li>
                 <li>
                   Select the starting <strong>Section</strong>. In its right{' '}
@@ -507,8 +510,8 @@ export default function DemoLaunch(): JSX.Element {
                 <p className="westfield-demo__eyebrow">Expected result</p>
                 <p>
                   A new article has prepared page structure and one blank Section. Heading and text
-                  stay together as sections are added or reordered. Saved edits remain when the
-                  page is reopened. The DAM image renders, and the completed published page is
+                  stay together as sections are added or reordered. Saved edits remain when the page
+                  is reopened. The DAM image renders, and the completed published page is
                   discoverable.
                 </p>
               </div>
@@ -631,7 +634,7 @@ export default function DemoLaunch(): JSX.Element {
                 </dd>
               </div>
               <div>
-                <dt>Mouse drag remains unconfirmed</dt>
+                <dt>Historical drag coverage</dt>
                 <dd>
                   A human-assisted whole-Section drag passed on October 16 and survived reopening
                   the canvas. Palette drag insertion and visual invalid-drop rejection were not
