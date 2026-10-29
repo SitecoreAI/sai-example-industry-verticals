@@ -6,11 +6,11 @@ const authoringUrl =
   'https://pages.sitecorecloud.io/editor?tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200&organization=org_JypIqqJsbEly6gh2&sc_itemid=91e93020-4ee9-4cfa-8904-8f19c8c8e4f1&sc_lang=en&sc_site=westfield&sc_version=1';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
 const flows = [
-  { id: 'familiar-experience', title: 'A familiar Westfield experience', time: '2 minutes' },
-  { id: 'campaign', title: 'A relevant first visit', time: '2 minutes' },
-  { id: 'customers', title: 'The right next step for each customer', time: '3 minutes' },
-  { id: 'discovery', title: 'Useful content, easy to find', time: '2 minutes' },
-  { id: 'authoring', title: 'Create a page with confidence', time: '5 minutes' },
+  { id: 'familiar-experience', title: 'A familiar Westfield experience', time: '1 minute' },
+  { id: 'campaign', title: 'A relevant first visit', time: '3 minutes' },
+  { id: 'customers', title: 'The right next step for each customer', time: '6 minutes' },
+  { id: 'discovery', title: 'Useful content, easy to find', time: '3 minutes' },
+  { id: 'authoring', title: 'Create a page with confidence', time: '9 minutes' },
 ] as const;
 const rehearsalItems = [
   'Home, menus and mobile layout are ready to show.',
@@ -39,7 +39,9 @@ function FlowHeading({ index }: { index: number }): JSX.Element {
 
 export default function DemoLaunch(): JSX.Element {
   const launching = useRef(false);
-  const [status, setStatus] = useState('Choose a fresh starting point for this browser.');
+  const [status, setStatus] = useState(
+    'Optional preparation controls. Use the prepared tabs during the presentation.'
+  );
   const [busy, setBusy] = useState<'home' | 'instagram' | null>(null);
   const [error, setError] = useState(false);
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
@@ -102,18 +104,24 @@ export default function DemoLaunch(): JSX.Element {
 
         <div className="westfield-demo__intro">
           <div>
-            <p className="westfield-demo__eyebrow">Presenter guide · 12–15 minutes</p>
+            <p className="westfield-demo__eyebrow">Presenter guide · 22 minutes of live demos</p>
             <h1>Present the Westfield experience.</h1>
             <p className="westfield-demo__lede">
               Start with the Westfield experience customers know. Follow a prospect from Instagram,
               recognize two existing customers, then create useful content with native authoring
-              guardrails.
+              guardrails. These five loops occupy minutes 10–32 of the 50-minute presentation. The
+              full session includes a separate 10-minute question period. Prepare the direct tabs
+              before presenting; the live demonstration does not require returning to this guide.
             </p>
           </div>
           <div className="westfield-demo__launch-panel">
-            <p className="westfield-demo__eyebrow">Start here</p>
-            <h2>A clean first visit</h2>
-            <p>Reset this demo’s browser identity before showing an anonymous visitor.</p>
+            <p className="westfield-demo__eyebrow">Optional preparation</p>
+            <h2>Prepare a fresh visitor session</h2>
+            <p>
+              Before presenting, use a fresh public-site browser session. These optional controls
+              restart this browser’s visitor session. Open Home and Instagram in advance, then show
+              Home, Instagram, Casey and Jordan in that order.
+            </p>
             <button
               className="westfield-demo__button"
               type="button"
@@ -142,7 +150,7 @@ export default function DemoLaunch(): JSX.Element {
             </p>
             <p className="westfield-demo__fine-print">
               This resets the visitor session only. It does not change CMS content, profiles or DAM
-              assets. Returning to this guide does not reset the session.
+              assets. Use these controls before the presentation, rather than between live loops.
             </p>
           </div>
         </div>
@@ -154,8 +162,10 @@ export default function DemoLaunch(): JSX.Element {
           </div>
           <ul>
             <li>
-              Use the live demo in one browser. Keep this guide in another tab and use a fresh start
-              when comparing anonymous journeys.
+              Prepare a fresh browser session for the public website, separate from the signed-in
+              Sitecore and Content Hub session. Open Home and Instagram in advance. Show both
+              anonymous examples before Casey and Jordan sign in. Each customer sign-in starts a
+              fresh demo identity automatically.
             </li>
             <li>
               Sign in to <strong>Sales Engineers 2 → thlt-demo → thlt-authoring</strong>. In Page
@@ -166,7 +176,9 @@ export default function DemoLaunch(): JSX.Element {
               <a href={damUrl} target="_blank" rel="noreferrer">
                 Content Hub
               </a>
-              . Prepare a new, uniquely named article for the authoring exercise.
+              . Choose a unique article name for the authoring exercise. In Sitecore, open the
+              actual <strong>Editor</strong> link in a new tab (<strong>Meta-click</strong> on Mac)
+              and allow the canvas to load. Do not refresh it. Close unused rehearsal tabs.
             </li>
           </ul>
         </section>
@@ -208,13 +220,12 @@ export default function DemoLaunch(): JSX.Element {
               </p>
               <ol className="westfield-demo__steps">
                 <li>
-                  Use <strong>Reset and open plain Home</strong> above. Point out the original hero,
-                  imagery, product sections and shared navigation.
+                  Switch directly to the prepared <strong>Home</strong> tab. Point out the original
+                  hero, imagery, product sections and shared navigation.
                 </li>
                 <li>
-                  Open a navigation menu, then <strong>Login → Customer</strong>. Return to Home and
-                  open the header search. The customer journey stays inside the demo where a
-                  destination is available.
+                  Open a navigation menu and point out <strong>Login → Customer</strong>. Keep
+                  customer sign-in for loop 3 and header search for loop 4.
                 </li>
                 <li>
                   Show a narrow viewport: navigation becomes a mobile menu, the page stacks and the
@@ -256,9 +267,12 @@ export default function DemoLaunch(): JSX.Element {
               </p>
               <ol className="westfield-demo__steps">
                 <li>
-                  Return to <strong>/demo</strong> and choose{' '}
-                  <strong>Start anonymous Instagram journey</strong>. Show the Westfield sponsored
-                  post among unrelated posts from Sam Reed and Jamie Chen.
+                  Switch directly to the prepared{' '}
+                  <a href="/instagram/index.html" target="_blank" rel="noreferrer">
+                    Instagram feed
+                  </a>{' '}
+                  tab before customer sign-in. Show the Westfield sponsored post among unrelated
+                  posts from Sam Reed and Jamie Chen.
                 </li>
                 <li>
                   On the ad <strong>A new chapter. Protection for what’s next.</strong>, click{' '}
@@ -275,7 +289,7 @@ export default function DemoLaunch(): JSX.Element {
                 <p>
                   The first Home arrival reads{' '}
                   <strong>A new chapter. Protection for what’s next.</strong> The visitor is still
-                  anonymous. Compare with a fresh plain Home to show the original message.
+                  anonymous. Compare it with the original Home message shown in loop 1.
                 </p>
               </div>
               <details className="westfield-demo__details">
@@ -414,33 +428,45 @@ export default function DemoLaunch(): JSX.Element {
             >
               <FlowHeading index={4} />
               <div className="westfield-demo__readiness" role="note">
-                <strong>Native authoring flow verified</strong>
+                <strong>Current authoring rehearsal · October 29, 2026</strong>
                 <p>
-                  Blank-page creation, metadata, DAM image/alternative text and the first Section
-                  were saved and reopened. A second independent Section, native Layers insertion and
-                  Move up, Saved status, mobile preview and browser publication were then verified;
-                  its copy and order matched the live page. Use the proven controls below. The
-                  automated mouse drag gesture remains unconfirmed.
+                  Fresh Edge tabs completed the native editing flow. All 16 placeholder settings and
+                  the branch with one blank Section passed fresh checks. Page details, two separate
+                  Sections, Layers Plus insertion and whole-Section Move up were saved. The embedded
+                  Brand → Westfield picker supplied the Family at home HomePageHero image and its
+                  alternative text. Desktop and mobile preview passed. Actions → Publish approved
+                  and queued the page; its live page, Articles listing, title search and a unique
+                  body-phrase search then passed. Actual mouse drag and visual invalid-drop
+                  rejection remain unconfirmed.
                 </p>
               </div>
               <p className="westfield-demo__say">
                 “Authors start with the right structure, write in meaningful fields, and add only
                 the components that belong here. The page design takes care of the presentation.”
               </p>
+              <p className="westfield-demo__note">
+                Keep authoring within 8 minutes and leave 1 minute for the transition. If the new
+                page is still publishing, show an existing published article and say the new page is
+                pending.
+              </p>
               <ol className="westfield-demo__steps">
                 <li>
                   In Page Builder, open <strong>Westfield → advice</strong>. Choose{' '}
                   <strong>Create a page → Advice Article</strong>, give it a unique rehearsal name
-                  and press <strong>Enter</strong>. Start with one blank <strong>Section</strong>.
+                  and press <strong>Enter</strong>. When prompted, choose{' '}
+                  <strong>Reload tree</strong>, expand <strong>Home → advice</strong> and select the
+                  new article. It starts with one blank <strong>Section</strong>.
                 </li>
                 <li>
-                  Open the top <strong>Content</strong> tab. Set <strong>Title</strong>,{' '}
-                  <strong>Summary</strong>, <strong>Topic</strong> and{' '}
-                  <strong>Publication date</strong>. Leave <strong>Reading time</strong> blank for
-                  automatic calculation.
+                  Open the page’s <strong>Content</strong> view. Expand <strong>Content</strong> to
+                  set <strong>Title</strong>, <strong>Metadata</strong> to set{' '}
+                  <strong>Summary</strong>, and <strong>Article</strong> to set{' '}
+                  <strong>Topic</strong> and <strong>Publication date</strong>. The image fields are
+                  also in Article. Leave <strong>Reading time</strong> blank for automatic
+                  calculation.
                 </li>
                 <li>
-                  For <strong>Article image</strong>, choose{' '}
+                  In the <strong>Article</strong> group, for <strong>Article image</strong>, choose{' '}
                   <strong>Browse media library → Content hub</strong>. If prompted, select{' '}
                   <strong>Sign in with SAML</strong>. In Approved assets, choose{' '}
                   <strong>Brand → Show all → Westfield → Close</strong>; the brand contains 12
@@ -449,40 +475,44 @@ export default function DemoLaunch(): JSX.Element {
                   <strong>Select</strong>. In the parent media dialog, click{' '}
                   <strong>Add selected</strong>. Return to the native
                   <strong> Content</strong> tab and set <strong>Image alt text</strong> for
-                  <strong> Article image</strong>. Save and reopen to confirm it remains.
+                  <strong> Article image</strong>. Wait for <strong>Saved</strong>.
                 </li>
                 <li>
                   Select the starting <strong>Section</strong>. In its right{' '}
                   <strong>Content</strong> tab, enter <strong>Section heading</strong> and{' '}
-                  <strong>Text</strong>. Wait for saved changes, reload the page and confirm the
-                  content remains.
+                  <strong>Text</strong>. Wait for <strong>Saved</strong>.
                 </li>
                 <li>
                   In <strong>Layers</strong>, expand{' '}
                   <strong>headless-main → Partial design content → article-content-2</strong> and
                   use its <strong>Plus → Insert into</strong>. The location-specific picker offers
                   <strong> Section</strong> and <strong>Action</strong>. Choose{' '}
-                  <strong>Section</strong>. In <strong>Data</strong>, choose{' '}
-                  <strong>Create new → Section</strong>, name it
-                  <strong> Follow-up Section</strong>, press <strong>Enter</strong> and wait for it
-                  to be created, then click <strong>Assign</strong>. Populate its heading and text,
-                  then use the native <strong>Move up</strong> control to reorder. Wait for{' '}
-                  <strong>Saved</strong> and reopen to confirm both Sections and their order.
+                  <strong>Section → Assign content item</strong>, select this article’s{' '}
+                  <strong>Data</strong> folder, then choose <strong>Create new → Section</strong>.
+                  Name it <strong>Follow-up Section</strong>, press <strong>Enter</strong> and wait
+                  for it to be created, then click <strong>Assign</strong>. Populate its heading and
+                  text, then use the native <strong>Move up</strong> control to reorder the whole
+                  Section. Remove empty placements, then wait for <strong>Saved</strong>. Open the
+                  actual <strong>Editor</strong> link in one new tab and select the same article.
+                  Confirm the page details, image and alternative text, and both complete Sections
+                  in their saved order.
                 </li>
                 <li>
                   Preview desktop and mobile. Publish only the completed rehearsal article using{' '}
-                  <strong>Actions → Publish</strong>. Open its live URL, find it in the Articles
-                  list, and search for a unique phrase from the body. Allow time for publishing and
-                  search/list refresh; the completed API rehearsal took about three minutes before
-                  its new listing and search result appeared.
+                  <strong>Actions → Publish</strong>. With the agreed admin account, this approves
+                  the page and queues publication. Wait for the publishing job to finish, then open
+                  its live URL in a new tab. Find it in the Articles list and search for a unique
+                  phrase from its body. Allow time for the listing and search to update. Unpublish
+                  the practice page after rehearsal before removing it.
                 </li>
               </ol>
               <div className="westfield-demo__expected">
                 <p className="westfield-demo__eyebrow">Expected result</p>
                 <p>
                   A new article has prepared page structure and one blank Section. Heading and text
-                  stay together as sections are added or reordered. Edits survive reload, the DAM
-                  image renders, and the completed published page is discoverable.
+                  stay together as sections are added or reordered. Saved edits remain when the page
+                  is reopened. The DAM image renders, and the completed published page is
+                  discoverable.
                 </p>
               </div>
               <details className="westfield-demo__details">
@@ -562,8 +592,8 @@ export default function DemoLaunch(): JSX.Element {
 
         <section className="westfield-demo__verification" aria-labelledby="verification-title">
           <div>
-            <p className="westfield-demo__eyebrow">Latest verification · October 15, 2026</p>
-            <h2 id="verification-title">Visitor and native authoring flows verified</h2>
+            <p className="westfield-demo__eyebrow">Retained verification · October 15–16, 2026</p>
+            <h2 id="verification-title">Earlier visitor and native authoring checks</h2>
           </div>
           <div className="westfield-demo__verification-results">
             <dl>
@@ -604,18 +634,19 @@ export default function DemoLaunch(): JSX.Element {
                 </dd>
               </div>
               <div>
-                <dt>Mouse drag remains unconfirmed</dt>
+                <dt>Historical drag coverage</dt>
                 <dd>
-                  The automated mouse gesture was inconclusive; no app code or placeholder defect
-                  was identified. The demonstrated flow uses the native Layers Plus and Move up
-                  controls. Restricted-role permissions were not tested; admin rehearsal was agreed.
+                  A human-assisted whole-Section drag passed on October 16 and survived reopening
+                  the canvas. Palette drag insertion and visual invalid-drop rejection were not
+                  accepted. The current documented insertion and reorder flow uses Layers Plus and
+                  Move up. Restricted-role permissions were not tested; admin rehearsal was agreed.
                 </dd>
               </div>
             </dl>
             <p>
-              These observations were recorded against the live demo and its native authoring
-              environment. They verify the selected flows, not every possible platform action. The
-              presenter checklist above is separate from this verification record.
+              These observations retain their October 15–16 dates. They do not establish today’s
+              authoring readiness; the current rehearsal notice above governs that status. The
+              presenter checklist records your own rehearsal separately.
             </p>
           </div>
         </section>
