@@ -1,6 +1,7 @@
-import { CloudSDK, getBrowserId } from '@sitecore-cloudsdk/core/browser';
+import { CloudSDK, getBrowserId, getGuestId } from '@sitecore-cloudsdk/core/browser';
 import { clearEventQueue, identity } from '@sitecore-cloudsdk/events/browser';
 import scConfig from 'sitecore.config';
+import { readNativeGuestId, waitForNativeIdentityChange } from './native-identity-readiness';
 
 const demoAccounts = [
   {
@@ -101,6 +102,11 @@ export async function signInDemoAccount(username: string, password: string): Pro
   }
 
   await resetDemoBrowserIdentity();
+  const browserId = getBrowserId();
+  const anonymousGuestId = await readNativeGuestId(getGuestId);
+  if (!browserId || getBrowserId() !== browserId) {
+    throw new Error('Your demo session changed. Please try signing in again.');
+  }
 
   const response = await identity({
     channel: 'WEB',
@@ -113,4 +119,9 @@ export async function signInDemoAccount(username: string, password: string): Pro
   if (response?.status !== 'OK' || !response.ref) {
     throw new Error('Your demo account could not be connected. Please try signing in again.');
   }
+  await waitForNativeIdentityChange({
+    anonymousGuestId,
+    lookup: getGuestId,
+    isCurrentBrowser: () => getBrowserId() === browserId,
+  });
 }
