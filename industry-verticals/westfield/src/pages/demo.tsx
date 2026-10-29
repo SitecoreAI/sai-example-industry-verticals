@@ -176,9 +176,9 @@ export default function DemoLaunch(): JSX.Element {
               <a href={damUrl} target="_blank" rel="noreferrer">
                 Content Hub
               </a>
-              . Choose a unique article name for the authoring exercise. Open Page Builder in a new
-              tab. If its canvas is blank, open another new tab and select the article there; close
-              unused rehearsal tabs.
+              . Choose a unique article name for the authoring exercise. In Sitecore, open the
+              actual <strong>Editor</strong> link in a new tab (<strong>Meta-click</strong> on Mac)
+              and allow the canvas to load. Do not refresh it. Close unused rehearsal tabs.
             </li>
           </ul>
         </section>
@@ -430,13 +430,14 @@ export default function DemoLaunch(): JSX.Element {
               <div className="westfield-demo__readiness" role="note">
                 <strong>Current authoring rehearsal · October 29, 2026</strong>
                 <p>
-                  All 16 placeholder settings and the branch with one blank Section passed fresh
-                  checks. Page details, two separate Sections, Layers Plus insertion and
-                  whole-Section Move up were saved. The embedded picker showed Brand → Westfield;
-                  Family at home’s HomePageHero image and its alternative text were saved in Page
-                  Builder. Actions → Publish changed the article from Draft to Approved. Independent
-                  publication and live-page checks are still in progress. Actual mouse drag remains
-                  unconfirmed.
+                  Fresh Edge tabs completed the native editing flow. All 16 placeholder settings and
+                  the branch with one blank Section passed fresh checks. Page details, two separate
+                  Sections, Layers Plus insertion and whole-Section Move up were saved. The embedded
+                  Brand → Westfield picker supplied the Family at home HomePageHero image and its
+                  alternative text. Desktop and mobile preview passed. Actions → Publish approved
+                  and queued the page; its live page, Articles listing, title search and a unique
+                  body-phrase search then passed. Actual mouse drag and visual invalid-drop
+                  rejection remain unconfirmed.
                 </p>
               </div>
               <p className="westfield-demo__say">
@@ -474,15 +475,12 @@ export default function DemoLaunch(): JSX.Element {
                   <strong>Select</strong>. In the parent media dialog, click{' '}
                   <strong>Add selected</strong>. Return to the native
                   <strong> Content</strong> tab and set <strong>Image alt text</strong> for
-                  <strong> Article image</strong>. Wait for <strong>Saved</strong>, open the same
-                  article in a new Page Builder tab and confirm the image and alternative text
-                  remain.
+                  <strong> Article image</strong>. Wait for <strong>Saved</strong>.
                 </li>
                 <li>
                   Select the starting <strong>Section</strong>. In its right{' '}
                   <strong>Content</strong> tab, enter <strong>Section heading</strong> and{' '}
-                  <strong>Text</strong>. Wait for <strong>Saved</strong>, open the same article in a
-                  new Page Builder tab and confirm the content remains.
+                  <strong>Text</strong>. Wait for <strong>Saved</strong>.
                 </li>
                 <li>
                   In <strong>Layers</strong>, expand{' '}
@@ -494,16 +492,18 @@ export default function DemoLaunch(): JSX.Element {
                   Name it <strong>Follow-up Section</strong>, press <strong>Enter</strong> and wait
                   for it to be created, then click <strong>Assign</strong>. Populate its heading and
                   text, then use the native <strong>Move up</strong> control to reorder the whole
-                  Section. Wait for <strong>Saved</strong>, open the same article in a new Page
-                  Builder tab and confirm both Sections and their order. Remove empty placements
-                  before publishing.
+                  Section. Remove empty placements, then wait for <strong>Saved</strong>. Open the
+                  actual <strong>Editor</strong> link in one new tab and select the same article.
+                  Confirm the page details, image and alternative text, and both complete Sections
+                  in their saved order.
                 </li>
                 <li>
                   Preview desktop and mobile. Publish only the completed rehearsal article using{' '}
-                  <strong>Actions → Publish</strong>. Open its live URL, find it in the Articles
-                  list, and search for a unique phrase from the body. Allow time for publishing and
-                  search/list refresh. Use a unique phrase from the article just created, and
-                  unpublish the practice page after rehearsal before removing it.
+                  <strong>Actions → Publish</strong>. With the agreed admin account, this approves
+                  the page and queues publication. Wait for the publishing job to finish, then open
+                  its live URL in a new tab. Find it in the Articles list and search for a unique
+                  phrase from its body. Allow time for the listing and search to update. Unpublish
+                  the practice page after rehearsal before removing it.
                 </li>
               </ol>
               <div className="westfield-demo__expected">
