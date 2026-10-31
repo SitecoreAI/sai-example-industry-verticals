@@ -21,8 +21,9 @@ const rehearsalItems = [
   'Each article VIEW appears before its updated affinity is presented.',
   'Home interest changes the Home hero after the documented browsing sequence.',
   'The Instagram campaign still selects its matching Home hero after the affinity loop.',
-  'Casey sees the paperless offer on first arrival.',
-  'Jordan sees the coverage review offer on first arrival.',
+  'Casey sees the paperless offer in Home’s MyWestfield section on first arrival.',
+  'Jordan sees the coverage review offer in Home’s MyWestfield section on first arrival.',
+  'Logout returns to anonymous Home and restores the Login button.',
   'Search finds the full article and its images load.',
   'Page Builder, the blank article and permitted components are ready.',
   'Content Hub is signed in and Westfield assets are available.',
@@ -526,20 +527,18 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   Enter Casey’s email below and the password <strong>password</strong>, then choose{' '}
-                  <strong>SIGN IN</strong>. Show the account page and its paperless offer.
+                  <strong>SIGN IN</strong>. Home opens at its MyWestfield section. Show the
+                  paperless offer.
                 </li>
                 <li>
-                  Open{' '}
-                  <a href="/login" target="_blank" rel="noreferrer">
-                    the login page
-                  </a>{' '}
-                  again and sign in as Jordan using the same password. Each accepted demo sign-in
-                  establishes a fresh browser identity before identifying the selected customer.
+                  Choose <strong>Logout</strong> in the header, then{' '}
+                  <strong>Login → Customer</strong>. Sign in as Jordan using the same password. Home
+                  opens at the same MyWestfield section. Show the different recommendation.
                 </li>
                 <li>
-                  In Page Builder, open <strong>paperless</strong>, select the recommendation and
-                  show <strong>Westfield paperless enrollment</strong>. The native decision reads
-                  the stored <strong>Westfield paperless status</strong> Boolean.
+                  In Page Builder, open <strong>Home</strong>, select the MyWestfield section, and
+                  show its native personalization. The decision reads the stored{' '}
+                  <strong>Westfield paperless status</strong> Boolean.
                 </li>
               </ol>
               <div className="westfield-demo__personas">
@@ -574,8 +573,8 @@ export default function DemoLaunch(): JSX.Element {
                 <a href="/login" target="_blank" rel="noreferrer">
                   Open customer login ↗
                 </a>
-                <a href="/paperless" target="_blank" rel="noreferrer">
-                  Open current account experience ↗
+                <a href="/#mywestfield" target="_blank" rel="noreferrer">
+                  Open Home’s MyWestfield section ↗
                 </a>
               </div>
             </section>
@@ -761,7 +760,9 @@ export default function DemoLaunch(): JSX.Element {
                 <dd>
                   Plain Home after reset; anonymous Instagram → campaign → matching first Home;
                   Casey’s paperless offer on first arrival; Jordan’s different offer after Casey, on
-                  first arrival and reload.
+                  first arrival and reload. Those earlier customer checks used the former{' '}
+                  <code>/paperless</code> destination. The current customer loop uses Home’s
+                  MyWestfield section and requires its own release check.
                 </dd>
               </div>
               <div>
