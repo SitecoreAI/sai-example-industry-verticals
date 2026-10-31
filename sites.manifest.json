@@ -3124,6 +3124,13 @@
             "name": "Legal - CA Privacy Choices",
             "kind": "Home fidelity authored configuration",
             "sourceEvidence": "work/westfield-home-seed-state.json"
+          },
+          {
+            "id": "c7a71385-78d1-43ae-a756-fdcb5c60b953",
+            "name": "Home interest",
+            "path": "/sitecore/content/Westfield/westfield/Home/Data/Home interest",
+            "kind": "page-local CampaignHero datasource for native browsing-affinity personalization",
+            "referenceScope": "Home affinity rule 00861e65-3c63-4600-b766-7c981922f382; preserve until current global reference review"
           }
         ],
         "preExistingNativeScaffolds": [
@@ -3273,7 +3280,104 @@
               "Jordan Taylor": true
             }
           },
-          "verifiedScope": "Prior native Profiles identity/pageView linkage, imported false/true Boolean and published native custom value verified. The revised Instagram-to-login journey uses the same native identifiers; current release rehearsal is recorded in the private handoff."
+          "verifiedScope": "Prior native Profiles identity/pageView linkage, imported false/true Boolean and published native custom value verified. The revised Instagram-to-login journey uses the same native identifiers; current release rehearsal is recorded in the private handoff.",
+          "browsingAffinity": {
+            "status": "native-growth-and-home-match-observed; fresh-full-loop-and-regression-pending",
+            "affinityName": "westfield_interest",
+            "pageAssignments": [
+              {
+                "pageItemId": "5d45a5c5-330e-46e2-a9db-fe61347537d3",
+                "path": "/advice/new-driver-family-conversation",
+                "value": "auto"
+              },
+              {
+                "pageItemId": "970c651f-631b-484f-ba98-8db6ea753501",
+                "path": "/advice/water-leak-home-checkup",
+                "value": "home"
+              },
+              {
+                "pageItemId": "5f12387e-a1b9-45b8-b2ed-77d98e5649f4",
+                "path": "/advice/storm-season-household-checklist",
+                "value": "home"
+              }
+            ],
+            "homeItemId": "27da11a8-e0dc-42d4-9e3f-b4073306679b",
+            "componentUid": "dffe19de-2a6f-533e-aa5d-5891b093c491",
+            "decisionName": "Westfield Home messages",
+            "decisionStatus": "LIVE",
+            "nativeDecisionId": null,
+            "nativeDecisionIdentityStatus": "Exact Optimization flow ID unverified; rule, experience, and datasource IDs are not substituted",
+            "rules": [
+              {
+                "order": 1,
+                "purpose": "Existing Instagram campaign",
+                "input": "UTM Campaign",
+                "operator": "Is equal to",
+                "value": "next_chapter",
+                "experienceId": "77f8d59b-99dd-4451-9ecb-61d97905f04f",
+                "datasourceId": "a275f458-496b-40cc-8448-454980cfc4be",
+                "preserved": true
+              },
+              {
+                "order": 2,
+                "purpose": "Browsing interest in home topics",
+                "ruleUid": "00861e65-3c63-4600-b766-7c981922f382",
+                "input": "Condition: Top Affinity",
+                "conditionParameters": {
+                  "affinityName": "westfield_interest",
+                  "affinityValue": "home"
+                },
+                "operator": "Is true",
+                "experienceId": "f1161705-8ce9-497b-9b41-20a517a28c3b",
+                "datasourceId": "c7a71385-78d1-43ae-a756-fdcb5c60b953",
+                "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Home interest",
+                "heading": "Protection for the place you call home."
+              }
+            ],
+            "observedGrowth": [
+              {
+                "after": "Teen-driver article",
+                "auto": {
+                  "views": 1,
+                  "score": 1.0
+                }
+              },
+              {
+                "after": "Water-damage article",
+                "auto": {
+                  "views": 1,
+                  "score": 0.5
+                },
+                "home": {
+                  "views": 1,
+                  "score": 0.5
+                }
+              },
+              {
+                "after": "Spring-thunderstorm article",
+                "home": {
+                  "views": 2,
+                  "score": 0.67
+                },
+                "auto": {
+                  "views": 1,
+                  "score": 0.33
+                }
+              }
+            ],
+            "scoreScope": "Observed native rehearsal values only; no fixed scoring formula, increment, or immediate processing guarantee",
+            "profileDisplay": "Same anonymous Client ID; Engagement VIEW events, then Overview Top affinities after each article",
+            "observedProcessingDelay": "About 60 seconds; use Engagement Reload sessions then Overview, or reopen same profile if needed",
+            "verifiedScope": "Native profile growth, Live Home messages configuration, matching affinity rule, and resulting Home-interest hero in fresh same-visitor Home response and browser view",
+            "pendingAcceptance": [
+              "Fresh complete browsing rehearsal",
+              "Reload and neutral/Auto controls",
+              "Campaign precedence after affinity browsing",
+              "Casey/Jordan regressions"
+            ],
+            "trackingBoundary": "Existing native SDK CMS-page VIEW events; no custom analytics payload, browser score, or frontend audience decision",
+            "retirementBoundary": "Review only the three exact westfield_interest assignments, added rule2 and its input if no retained rule uses it, and Home interest datasource after reference checks. Preserve original Home/campaign content and rules, article pages, unrelated affinities/profiles, and shared built-in Top Affinity condition."
+          }
         },
         "dam": {
           "status": "verified",

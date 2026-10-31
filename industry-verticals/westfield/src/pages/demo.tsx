@@ -18,7 +18,7 @@ const flows = [
 const rehearsalItems = [
   'Home, menus and mobile layout are ready to show.',
   'The anonymous Client ID opens the correct native profile.',
-  'Auto and Home article views appear in that profile’s events and affinities.',
+  'Each article VIEW appears before its updated affinity is presented.',
   'Home interest changes the Home hero after the documented browsing sequence.',
   'The Instagram campaign still selects its matching Home hero after the affinity loop.',
   'Casey sees the paperless offer on first arrival.',
@@ -345,12 +345,12 @@ export default function DemoLaunch(): JSX.Element {
             >
               <FlowHeading index={1} />
               <div className="westfield-demo__readiness" role="note">
-                <strong>Affinity rehearsal · acceptance pending</strong>
+                <strong>Native profile growth observed · final regression checks pending</strong>
                 <p>
-                  The three article affinities are configured and the Home interest content is
-                  prepared. Collection, rule matching, the first returned Home message, and the
-                  campaign/customer regression checks still require live acceptance. The steps below
-                  describe the intended loop, not a completed verification result.
+                  The native profile recorded the Auto-to-Home interest changes below. The Westfield
+                  Home messages personalization is Live, and the Home-interest rule and resulting
+                  Home hero have matched this profile. A fresh full rehearsal, reload and
+                  neutral/Auto controls, and campaign/customer regressions are still pending.
                 </p>
               </div>
               <p className="westfield-demo__say">
@@ -360,39 +360,47 @@ export default function DemoLaunch(): JSX.Element {
               </p>
               <ol className="westfield-demo__steps">
                 <li>
-                  Keep the anonymous session used for the original Home page. Open the normal
+                  Keep the fresh anonymous session used for the standard Home page. Open the normal
                   <strong> Articles</strong> page. In <strong>Article Tags</strong>, select
                   <strong> Auto</strong> and read
                   <strong> A Guide to First-Time Auto Insurance for Your Teenager</strong>.
                 </li>
                 <li>
-                  Use the article’s <strong>Articles</strong> breadcrumb to return to the list.
-                  Select <strong>Home</strong> and read
-                  <strong> How To Help Prevent Water Damage in Your Home or Business</strong>.
-                  Return to Articles and read
-                  <strong> How To Prepare Your Home and Family for a Spring Thunderstorm</strong>.
-                </li>
-                <li>
                   Switch to the matching native <strong>Profiles</strong> tab prepared with this
-                  visitor’s Client ID. In <strong>Engagement</strong>, show the article VIEW events.
-                  In <strong>Overview → Top affinities</strong>, compare the Auto and Home
-                  interests. These are observations of browsing, rather than declared customer
-                  information.
+                  visitor’s Client ID. Check the new VIEW in <strong>Engagement</strong>, then open
+                  <strong> Overview → Top affinities</strong>. The recorded rehearsal showed
+                  <strong> Auto: 1 view, score 1.00</strong>.
                 </li>
                 <li>
-                  Return to the website and choose the <strong>Westfield logo</strong> to open Home.
-                  Compare the resulting hero with the original message. Use the prepared Page
-                  Builder tab to explain the native Home-interest rule and its selected content.
-                  Continue to the Instagram campaign without resetting the visitor.
+                  Return through the article’s <strong>Articles</strong> breadcrumb. Select
+                  <strong> Home</strong> and read
+                  <strong> How To Help Prevent Water Damage in Your Home or Business</strong>.
+                  Inspect the same profile again. The recorded result was
+                  <strong> Auto: 1 view, score 0.50; Home: 1 view, score 0.50</strong>.
+                </li>
+                <li>
+                  Return through Articles and read
+                  <strong> How To Prepare Your Home and Family for a Spring Thunderstorm</strong>.
+                  Inspect the same profile once more. The recorded result was
+                  <strong> Home: 2 views, score 0.67; Auto: 1 view, score 0.33</strong>. Show how
+                  the browsing history changes the balance of interest.
+                </li>
+                <li>
+                  Wait until the storm VIEW and Home’s second view appear before returning to the
+                  website. Choose the <strong>Westfield logo</strong> to open Home. Compare the hero
+                  with the original message. In the prepared Page Builder tab, explain the native
+                  Home-interest rule and its selected content. Continue to Instagram without
+                  resetting the visitor.
                 </li>
               </ol>
               <div className="westfield-demo__expected">
-                <p className="westfield-demo__eyebrow">Intended result · pending live acceptance</p>
+                <p className="westfield-demo__eyebrow">Profile growth and resulting content</p>
                 <p>
-                  The anonymous profile records one Auto article and two Home articles. The
-                  configured affinity rule selects
+                  The same anonymous profile records one Auto article and two Home articles. Once
+                  Home’s second view is recorded, the native rule can select
                   <strong> Protection for the place you call home.</strong> The native profile and
                   rule explain the change; the website does not calculate a local audience score.
+                  The fresh full-loop rehearsal and regression checks are still pending.
                 </p>
               </div>
               <details className="westfield-demo__details">
@@ -405,9 +413,21 @@ export default function DemoLaunch(): JSX.Element {
                   campaign context does not mask the behavior example.
                 </p>
                 <p>
-                  If collection or targeting does not pass rehearsal, use the captured profile,
-                  rule, and Home screens as a clearly identified walkthrough. Do not describe a
-                  configured affinity or an event acknowledgement as proof of a matching decision.
+                  Profile updates are near real time. Allow about a minute for the observed event
+                  processing delay. If a new VIEW is missing, use
+                  <strong> Engagement → Reload sessions</strong>, then return to
+                  <strong> Overview</strong>. If needed, return to Profiles and reopen this same
+                  profile by its Client ID. Wait for the event and updated values rather than
+                  claiming an immediate change. The scores above are observed examples, not a
+                  promised scoring formula or fixed increment.
+                </p>
+                <p>
+                  The Home decision keeps the Instagram campaign first and the Home-affinity rule
+                  second. The latter uses <strong>Top Affinity</strong> with value
+                  <strong> home</strong>, name <strong>westfield_interest</strong>, and
+                  <strong> Is true</strong>. If the fresh rehearsal or regression checks fail, use
+                  captured screens as a clearly identified walkthrough. A successful VIEW alone does
+                  not prove the selected content.
                 </p>
               </details>
               <div className="westfield-demo__links">
