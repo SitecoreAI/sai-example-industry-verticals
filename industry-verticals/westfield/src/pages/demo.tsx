@@ -345,12 +345,13 @@ export default function DemoLaunch(): JSX.Element {
             >
               <FlowHeading index={1} />
               <div className="westfield-demo__readiness" role="note">
-                <strong>Native profile growth observed · final regression checks pending</strong>
+                <strong>Native browsing and customer journeys verified October 31</strong>
                 <p>
-                  The native profile recorded the Auto-to-Home interest changes below. The Westfield
-                  Home messages personalization is Live, and the Home-interest rule and resulting
-                  Home hero have matched this profile. A fresh full rehearsal, reload and
-                  neutral/Auto controls, and campaign/customer regressions are still pending.
+                  A fresh anonymous visitor saw the standard Home, built the profile below through
+                  normal article navigation, then saw the Home-interest hero on return. The same
+                  visitor’s Instagram click selected the campaign hero. Casey and Jordan then
+                  received their correct first-arrival messages. The Westfield Home messages
+                  personalization is Live.
                 </p>
               </div>
               <p className="westfield-demo__say">
@@ -400,7 +401,8 @@ export default function DemoLaunch(): JSX.Element {
                   Home’s second view is recorded, the native rule can select
                   <strong> Protection for the place you call home.</strong> The native profile and
                   rule explain the change; the website does not calculate a local audience score.
-                  The fresh full-loop rehearsal and regression checks are still pending.
+                  The fresh browsing sequence, following Instagram campaign, and both customer first
+                  arrivals passed.
                 </p>
               </div>
               <details className="westfield-demo__details">
@@ -413,8 +415,8 @@ export default function DemoLaunch(): JSX.Element {
                   campaign context does not mask the behavior example.
                 </p>
                 <p>
-                  Profile updates are near real time. Allow about a minute for the observed event
-                  processing delay. If a new VIEW is missing, use
+                  Profile updates are near real time. In rehearsal, updates took several seconds to
+                  about a minute. If a new VIEW is missing, use
                   <strong> Engagement → Reload sessions</strong>, then return to
                   <strong> Overview</strong>. If needed, return to Profiles and reopen this same
                   profile by its Client ID. Wait for the event and updated values rather than

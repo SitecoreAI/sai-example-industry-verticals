@@ -3282,7 +3282,7 @@
           },
           "verifiedScope": "Prior native Profiles identity/pageView linkage, imported false/true Boolean and published native custom value verified. The revised Instagram-to-login journey uses the same native identifiers; current release rehearsal is recorded in the private handoff.",
           "browsingAffinity": {
-            "status": "native-growth-and-home-match-observed; fresh-full-loop-and-regression-pending",
+            "status": "verified-native-browsing-campaign-and-customer-journeys",
             "affinityName": "westfield_interest",
             "pageAssignments": [
               {
@@ -3367,16 +3367,27 @@
             ],
             "scoreScope": "Observed native rehearsal values only; no fixed scoring formula, increment, or immediate processing guarantee",
             "profileDisplay": "Same anonymous Client ID; Engagement VIEW events, then Overview Top affinities after each article",
-            "observedProcessingDelay": "About 60 seconds; use Engagement Reload sessions then Overview, or reopen same profile if needed",
-            "verifiedScope": "Native profile growth, Live Home messages configuration, matching affinity rule, and resulting Home-interest hero in fresh same-visitor Home response and browser view",
-            "pendingAcceptance": [
-              "Fresh complete browsing rehearsal",
-              "Reload and neutral/Auto controls",
-              "Campaign precedence after affinity browsing",
-              "Casey/Jordan regressions"
-            ],
+            "observedProcessingDelay": "Several seconds to about a minute in rehearsal; no guaranteed delay. Use Engagement Reload sessions then Overview, or reopen same profile if needed",
+            "verifiedScope": "A second fresh anonymous visitor saw neutral Home, browsed all three articles with intermediate native profile growth, returned via normal logo navigation to Home-interest hero, then clicked the actual Instagram ad and received campaign hero on first Home arrival. Casey and Jordan then received the correct first-account-arrival messages and actions. Westfield Home messages is Live. These observations are separate from later frontend guide deployment checks.",
             "trackingBoundary": "Existing native SDK CMS-page VIEW events; no custom analytics payload, browser score, or frontend audience decision",
-            "retirementBoundary": "Review only the three exact westfield_interest assignments, added rule2 and its input if no retained rule uses it, and Home interest datasource after reference checks. Preserve original Home/campaign content and rules, article pages, unrelated affinities/profiles, and shared built-in Top Affinity condition."
+            "retirementBoundary": "Review only the three exact westfield_interest assignments, added rule2 and its input if no retained rule uses it, and Home interest datasource after reference checks. Preserve original Home/campaign content and rules, article pages, unrelated affinities/profiles, and shared built-in Top Affinity condition.",
+            "verifiedDate": "2026-10-31",
+            "customerRegression": {
+              "caseyFirstArrival": {
+                "heading": "Sign up for paperless billing",
+                "action": "Explore paperless billing"
+              },
+              "jordanFirstArrivalAfterCasey": {
+                "heading": "Keep your coverage in step with life",
+                "action": "Find your agent"
+              },
+              "status": "passed"
+            },
+            "nativeTopicFilters": {
+              "Auto": "1 of 1; teen-driver article",
+              "Home": "4 of 4; includes water damage and spring thunderstorm",
+              "status": "passed"
+            }
           }
         },
         "dam": {
