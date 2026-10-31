@@ -25,6 +25,9 @@ const campaignParameters = [
   'utm_id',
 ] as const;
 
+const accountSessionCookie = 'westfield_demo_account';
+export const demoAccountSessionChanged = 'westfield-demo-account-session-changed';
+
 /** Keep attribution without accepting an arbitrary redirect or identity from the URL. */
 export function demoAccountDestination(search: string): string {
   const incoming = new URLSearchParams(search);
@@ -47,8 +50,24 @@ function cookieValue(name: string): string | undefined {
     ?.slice(prefix.length);
 }
 
+/** Header state only; Sitecore still decides all personalized content. */
+export function isDemoAccountSignedIn(): boolean {
+  const contextId = scConfig.api.edge.clientContextId;
+  const sessionBrowserId = cookieValue(accountSessionCookie);
+  return Boolean(
+    contextId && sessionBrowserId && sessionBrowserId === cookieValue(`sc_${contextId}`)
+  );
+}
+
+function updateAccountSession(browserId?: string): void {
+  document.cookie = browserId
+    ? `${accountSessionCookie}=${browserId}; Path=/; Secure; SameSite=Lax`
+    : `${accountSessionCookie}=; Max-Age=0; Path=/; Secure; SameSite=Lax`;
+  window.dispatchEvent(new Event(demoAccountSessionChanged));
+}
+
 /**
- * Presenter-only session reset. Profile attributes stay in SitecoreAI.
+ * Start a new anonymous demo session. Profile attributes stay in SitecoreAI.
  * Cloud SDK 0.5 has no reset API. Its source and visitor-cookie documentation
  * establish that an absent browser cookie receives a fresh server-issued ID.
  * Expire only this context's browser/guest cookies before sending another email
@@ -90,6 +109,12 @@ export async function resetDemoBrowserIdentity(): Promise<void> {
   if (!browserId || browserId === previousBrowserId) {
     throw new Error('A fresh Sitecore browser identity could not be established.');
   }
+  updateAccountSession();
+}
+
+/** End the synthetic account session without changing either stored profile. */
+export async function signOutDemoAccount(): Promise<void> {
+  await resetDemoBrowserIdentity();
 }
 
 /** Synthetic credentials are checked locally. Only the native identifier reaches Sitecore. */
@@ -124,4 +149,5 @@ export async function signInDemoAccount(username: string, password: string): Pro
     lookup: getGuestId,
     isCurrentBrowser: () => getBrowserId() === browserId,
   });
+  updateAccountSession(browserId);
 }

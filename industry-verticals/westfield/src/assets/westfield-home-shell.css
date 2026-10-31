@@ -2182,6 +2182,20 @@
 .header-login_dropdown__Lsfep.open {
   display: block;
 }
+.wf-source-account-error {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 2;
+  width: 260px;
+  padding: 16px;
+  background: #fff;
+  color: #b11c22;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-transform: none;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.15);
+}
 .header-search_container__rXX8o {
   position: absolute;
   top: 100%;
