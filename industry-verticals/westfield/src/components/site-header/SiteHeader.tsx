@@ -6,6 +6,11 @@ import type { ComponentProps } from 'lib/component-props';
 import { nativeMediaSource } from 'lib/native-media';
 import { nativeLinkProps } from 'lib/native-link';
 import { campaignLoginProps, useCampaignQuery } from 'lib/campaign-links';
+import {
+  demoAccountSessionChanged,
+  isDemoAccountSignedIn,
+  signOutDemoAccount,
+} from 'lib/demo-persona';
 import { Caret, Chevron, CloseIcon, MenuIcon, SearchIcon } from 'lib/westfield-icons';
 
 export type HeaderMenuItem = {
@@ -87,6 +92,10 @@ export const Default = ({ fields, params }: SiteHeaderProps): JSX.Element => {
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
   const [loginOpen, setLoginOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
+  const [logoutError, setLogoutError] = useState('');
+  const logoutInProgress = useRef(false);
   const menus = [
     { field: fields?.BusinessLink, items: fields?.BusinessLinks },
     { field: fields?.HomeAndAutoLink, items: fields?.HomeAutoLinks },
@@ -99,6 +108,33 @@ export const Default = ({ fields, params }: SiteHeaderProps): JSX.Element => {
     setOpenGroups({});
     setLoginOpen(false);
     setSearchOpen(false);
+  };
+  useEffect(() => {
+    const syncAccount = (): void => setSignedIn(isDemoAccountSignedIn());
+    syncAccount();
+    window.addEventListener(demoAccountSessionChanged, syncAccount);
+    window.addEventListener('focus', syncAccount);
+    window.addEventListener('pageshow', syncAccount);
+    return () => {
+      window.removeEventListener(demoAccountSessionChanged, syncAccount);
+      window.removeEventListener('focus', syncAccount);
+      window.removeEventListener('pageshow', syncAccount);
+    };
+  }, []);
+  const logout = async (): Promise<void> => {
+    if (logoutInProgress.current) return;
+    logoutInProgress.current = true;
+    setSigningOut(true);
+    setLogoutError('');
+    closeMenus();
+    try {
+      await signOutDemoAccount();
+      window.location.assign('/');
+    } catch {
+      setLogoutError('We could not sign you out. Please try again.');
+      setSigningOut(false);
+      logoutInProgress.current = false;
+    }
   };
   useEffect(() => {
     const closeOutside = (event: MouseEvent): void => {
@@ -144,34 +180,47 @@ export const Default = ({ fields, params }: SiteHeaderProps): JSX.Element => {
       <button
         className={`button_btn__V5_h7 button_primary__fehsi header-login_loginLink___r27_ ${mobile ? 'header_mobileLoginBtn__DWoFW' : ''} ${loginOpen ? 'open' : ''}`}
         type="button"
-        aria-expanded={loginOpen}
-        aria-controls={`${uid}-login-${mobile ? 'mobile' : 'desktop'}`}
+        disabled={signingOut}
+        aria-busy={signingOut || undefined}
+        aria-expanded={signedIn ? undefined : loginOpen}
+        aria-controls={signedIn ? undefined : `${uid}-login-${mobile ? 'mobile' : 'desktop'}`}
         onClick={() => {
+          if (signedIn) {
+            void logout();
+            return;
+          }
           setLoginOpen(!loginOpen);
           setOpenMenu(null);
           setSearchOpen(false);
         }}
       >
-        Login
-        <Caret className="" />
+        {signedIn ? (signingOut ? 'Logging out…' : 'Logout') : 'Login'}
+        {!signedIn && <Caret className="" />}
       </button>
-      <div
-        id={`${uid}-login-${mobile ? 'mobile' : 'desktop'}`}
-        className={`header-login_dropdown__Lsfep ${loginOpen ? 'open' : ''}`}
-      >
-        <NativeLink field={fields?.AgentLink} onClick={closeMenus}>
-          Agent
-        </NativeLink>
-        {fields?.AccountLink ? (
-          <NativeLink
-            field={fields.AccountLink}
-            {...campaignLoginProps(fields.AccountLink, campaignQuery)}
-            onClick={closeMenus}
-          >
-            Customer
+      {logoutError && (
+        <p className="wf-source-account-error" role="alert">
+          {logoutError}
+        </p>
+      )}
+      {!signedIn && (
+        <div
+          id={`${uid}-login-${mobile ? 'mobile' : 'desktop'}`}
+          className={`header-login_dropdown__Lsfep ${loginOpen ? 'open' : ''}`}
+        >
+          <NativeLink field={fields?.AgentLink} onClick={closeMenus}>
+            Agent
           </NativeLink>
-        ) : null}
-      </div>
+          {fields?.AccountLink ? (
+            <NativeLink
+              field={fields.AccountLink}
+              {...campaignLoginProps(fields.AccountLink, campaignQuery)}
+              onClick={closeMenus}
+            >
+              Customer
+            </NativeLink>
+          ) : null}
+        </div>
+      )}
     </div>
   );
   const renderGroup = (group: MenuGroup, menuIndex: number, groupIndex: string): JSX.Element => {
