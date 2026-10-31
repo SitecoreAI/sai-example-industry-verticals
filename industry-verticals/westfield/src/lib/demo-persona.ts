@@ -38,7 +38,7 @@ export function demoAccountDestination(search: string): string {
     }
   }
   const query = campaign.toString();
-  return `/paperless${query ? `?${query}` : ''}`;
+  return `/${query ? `?${query}` : ''}#mywestfield`;
 }
 
 function cookieValue(name: string): string | undefined {

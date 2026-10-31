@@ -21,8 +21,9 @@ const rehearsalItems = [
   'Each article VIEW appears before its updated affinity is presented.',
   'Home interest changes the Home hero after the documented browsing sequence.',
   'The Instagram campaign still selects its matching Home hero after the affinity loop.',
-  'Casey sees the paperless offer on first arrival.',
-  'Jordan sees the coverage review offer on first arrival.',
+  'Casey sees the paperless offer in Home’s MyWestfield section on first arrival.',
+  'Jordan sees the coverage review offer in Home’s MyWestfield section on first arrival.',
+  'Logout returns to anonymous Home and restores the Login button.',
   'Search finds the full article and its images load.',
   'Page Builder, the blank article and permitted components are ready.',
   'Content Hub is signed in and Westfield assets are available.',
@@ -482,7 +483,8 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   On the ad <strong>A new chapter. Protection for what’s next.</strong>, click{' '}
-                  <strong>Learn more</strong>. The campaign entry opens the personalized Home.
+                  <strong>Learn more</strong>. The campaign entry retains its attribution and opens
+                  Home.
                 </li>
                 <li>
                   Point out the matching message and home/auto imagery. In Page Builder, select the
@@ -493,9 +495,15 @@ export default function DemoLaunch(): JSX.Element {
               <div className="westfield-demo__expected">
                 <p className="westfield-demo__eyebrow">Expected result</p>
                 <p>
-                  The first Home arrival reads{' '}
+                  Once campaign attribution is available, Home reads{' '}
                   <strong>A new chapter. Protection for what’s next.</strong> The visitor is still
                   anonymous. Compare it with the original Home message shown in loop 1.
+                </p>
+                <p>
+                  If the browsing-interest message remains, show the prepared native campaign rule
+                  while the profile updates. Then return to the same Home URL and reload once. In
+                  this rehearsal, the matching campaign message appeared after about two minutes;
+                  that timing and a first-document change are not guaranteed.
                 </p>
               </div>
               <details className="westfield-demo__details">
@@ -504,7 +512,7 @@ export default function DemoLaunch(): JSX.Element {
                   The ad carries <code>instagram / social / next_chapter</code> attribution through
                   an anonymous campaign entry. That entry waits for the native event acknowledgement
                   before opening Home. Sitecore selects the hero treatment. A direct Home URL with
-                  campaign parameters is not the rehearsed first-visit entry.
+                  campaign parameters is not the demonstrated campaign entry.
                 </p>
               </details>
             </section>
@@ -526,20 +534,18 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   Enter Casey’s email below and the password <strong>password</strong>, then choose{' '}
-                  <strong>SIGN IN</strong>. Show the account page and its paperless offer.
+                  <strong>SIGN IN</strong>. Home opens at its MyWestfield section. Show the
+                  paperless offer.
                 </li>
                 <li>
-                  Open{' '}
-                  <a href="/login" target="_blank" rel="noreferrer">
-                    the login page
-                  </a>{' '}
-                  again and sign in as Jordan using the same password. Each accepted demo sign-in
-                  establishes a fresh browser identity before identifying the selected customer.
+                  Choose <strong>Logout</strong> in the header, then{' '}
+                  <strong>Login → Customer</strong>. Sign in as Jordan using the same password. Home
+                  opens at the same MyWestfield section. Show the different recommendation.
                 </li>
                 <li>
-                  In Page Builder, open <strong>paperless</strong>, select the recommendation and
-                  show <strong>Westfield paperless enrollment</strong>. The native decision reads
-                  the stored <strong>Westfield paperless status</strong> Boolean.
+                  In Page Builder, open <strong>Home</strong>, select the MyWestfield section, and
+                  show its native personalization. The decision reads the stored{' '}
+                  <strong>Westfield paperless status</strong> Boolean.
                 </li>
               </ol>
               <div className="westfield-demo__personas">
@@ -574,8 +580,8 @@ export default function DemoLaunch(): JSX.Element {
                 <a href="/login" target="_blank" rel="noreferrer">
                   Open customer login ↗
                 </a>
-                <a href="/paperless" target="_blank" rel="noreferrer">
-                  Open current account experience ↗
+                <a href="/#mywestfield" target="_blank" rel="noreferrer">
+                  Open Home’s MyWestfield section ↗
                 </a>
               </div>
             </section>
@@ -761,7 +767,9 @@ export default function DemoLaunch(): JSX.Element {
                 <dd>
                   Plain Home after reset; anonymous Instagram → campaign → matching first Home;
                   Casey’s paperless offer on first arrival; Jordan’s different offer after Casey, on
-                  first arrival and reload.
+                  first arrival and reload. Those earlier customer checks used the former{' '}
+                  <code>/paperless</code> destination. The current customer loop uses Home’s
+                  MyWestfield section and requires its own release check.
                 </dd>
               </div>
               <div>
