@@ -483,7 +483,8 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   On the ad <strong>A new chapter. Protection for what’s next.</strong>, click{' '}
-                  <strong>Learn more</strong>. The campaign entry opens the personalized Home.
+                  <strong>Learn more</strong>. The campaign entry retains its attribution and opens
+                  Home.
                 </li>
                 <li>
                   Point out the matching message and home/auto imagery. In Page Builder, select the
@@ -494,9 +495,15 @@ export default function DemoLaunch(): JSX.Element {
               <div className="westfield-demo__expected">
                 <p className="westfield-demo__eyebrow">Expected result</p>
                 <p>
-                  The first Home arrival reads{' '}
+                  Once campaign attribution is available, Home reads{' '}
                   <strong>A new chapter. Protection for what’s next.</strong> The visitor is still
                   anonymous. Compare it with the original Home message shown in loop 1.
+                </p>
+                <p>
+                  If the browsing-interest message remains, show the prepared native campaign rule
+                  while the profile updates. Then return to the same Home URL and reload once. In
+                  this rehearsal, the matching campaign message appeared after about two minutes;
+                  that timing and a first-document change are not guaranteed.
                 </p>
               </div>
               <details className="westfield-demo__details">
@@ -505,7 +512,7 @@ export default function DemoLaunch(): JSX.Element {
                   The ad carries <code>instagram / social / next_chapter</code> attribution through
                   an anonymous campaign entry. That entry waits for the native event acknowledgement
                   before opening Home. Sitecore selects the hero treatment. A direct Home URL with
-                  campaign parameters is not the rehearsed first-visit entry.
+                  campaign parameters is not the demonstrated campaign entry.
                 </p>
               </details>
             </section>

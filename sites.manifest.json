@@ -3611,14 +3611,14 @@
           "debuggerInterferenceNote": "Detaching Chrome automation debugging released the earlier canvas iframe stall; native UI QA then passed."
         },
         "personalization": {
-          "status": "verified",
+          "status": "native-live-preview-verified",
           "decisionConfigured": true,
           "decisionStatus": "LIVE",
-          "decisionName": "Westfield paperless enrollment",
+          "decisionName": "Westfield customer recommendations",
           "nativeDecisionId": null,
-          "nativeDecisionIdentityStatus": "exact Optimization flow/decision ID unverified; friendly ID and experience IDs are not substituted",
-          "componentUid": "d2eff4e8-60f7-5d87-aa85-97fdc8bffa86",
-          "pageItemId": "1b438447-f060-478d-bf27-df5aa7fbfc3b",
+          "nativeDecisionIdentityStatus": "Exact Optimization flow/decision ID unverified; derived friendly ID, component UID, and experience IDs are not substituted",
+          "componentUid": "ceb6d59c-ed55-55ea-adeb-db03545ef0ea",
+          "pageItemId": "27da11a8-e0dc-42d4-9e3f-b4073306679b",
           "analyticsIdentifiers": [
             {
               "language": "en",
@@ -3626,31 +3626,50 @@
               "nativeApiSource": "solutionSites.posMappings"
             }
           ],
-          "expectedFriendlyIdDerivedFromInstalledSDK": "component_1b438447f060478dbf27df5aa7fbfc3b_d2eff4e860f75d87aa8597fdc8bffa86_en*",
+          "expectedFriendlyIdDerivedFromInstalledSDK": "component_27da11a8e0dc42d49e3fb4073306679b_ceb6d59ced5555eaadebdb03545ef0ea_en*",
+          "originalDatasourceId": "1f7b2149-ad54-4963-80dd-3001048c3069",
+          "originalDatasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Experience MyWestfield",
+          "renderingIdentifier": "mywestfield",
+          "datasourceOwnership": "Both customer-message datasources are page-local in Home/Data; the original datasource remains the anonymous fallback.",
           "rules": [
             {
               "operator": "Is false",
-              "experienceId": "8b9a9b8e-ceda-4b41-984e-7469c84323d5",
-              "datasourceId": "e0bd1347-f9af-4591-a079-88bdccc73aad",
-              "datasourceName": "Paperless offer",
-              "presentation": "Default",
-              "presentationItemId": "1e5938b652f1412e9344e2ea492243a0"
+              "experienceId": "df9c0468-68ab-478c-afdf-b610877c4376",
+              "datasourceId": "2be1df85-fa1a-49f5-bcbc-c637add16adf",
+              "purpose": "Casey paperless billing offer",
+              "presentation": "MyWestfield",
+              "presentationSource": "Inherited original HomeFeature parameters; no experience-level variant override"
             },
             {
               "operator": "Is true",
-              "experienceId": "901e3b8f-262b-4913-a5b3-e6eaa39cede2",
-              "datasourceId": "31f012d3-3df0-4f3a-94d6-7dfca632c272",
-              "datasourceName": "Paperless enrolled",
-              "presentation": "Quiet",
-              "presentationItemId": "69996dab6c9244638fc60f0d4fd4db69"
+              "experienceId": "1f9ec6a9-48da-4cd6-bf61-ecd2fcc34dc5",
+              "datasourceId": "ab765ace-3f93-4dbc-821b-195ce920a62a",
+              "purpose": "Jordan coverage review recommendation",
+              "presentation": "MyWestfield",
+              "presentationSource": "Inherited original HomeFeature parameters; no experience-level variant override"
             }
           ],
-          "verificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
-          "analyticsTimeoutUiMinutes": 30,
-          "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
-          "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback.",
+          "verificationScope": "Native PERSONALIZED LIVE and actual public-preview UI acceptance at the recorded commit; production deployment and stable-host acceptance are recorded separately in the release handoff.",
+          "previewVerification": {
+            "commit": "5f8181db71850b73f0c56aeec0cb759051f27ff4",
+            "method": "Actual public-preview UI",
+            "anonymousHome": "Original content observed",
+            "casey": "Login Customer returned Home at #mywestfield with paperless offer; refresh retained it; Logout restored anonymous Home and Login",
+            "jordan": "Login returned Home at #mywestfield with coverage recommendation; refresh retained it; /paperless remained neutral",
+            "presentation": "Original MyWestfield presentation retained for both; no variant overrides",
+            "campaignAndAffinityRegression": {
+              "browsingAffinity": "Normal teen-driver \u2192 water-damage \u2192 storm-article navigation selected Home-interest hero",
+              "campaignEntry": "Actual Instagram Learn more \u2192 acknowledged /campaign event \u2192 Home retained next_chapter UTM parameters",
+              "firstHomeDocument": "Home-interest hero remained; first-document campaign expectation not met in this run",
+              "afterProfilePropagation": "One reload of the same Home URL selected campaign hero, approximately two minutes later",
+              "nativeHeroTable": "LIVE; campaign row 1, affinity row 2; rules unchanged",
+              "latencyScope": "Observed run only; no guaranteed waiting time or immediate first-document change",
+              "presenterRecovery": "Show the prepared native Hero campaign rule while attribution updates, then return to the same Home URL and reload once"
+            }
+          },
+          "productionReleaseStatus": "Recorded separately in the release handoff with exact deployments and stable-host acceptance",
           "journey": {
-            "entry": "/demo",
+            "entry": "/",
             "campaign": "/instagram/index.html",
             "campaignName": "next_chapter",
             "campaignContent": "One prospect home-and-auto insurance sponsored post among unrelated friend posts with human display names",
@@ -3660,8 +3679,8 @@
               "jordan@example.com"
             ],
             "identityTiming": "After successful local demo sign-in; matches the existing imported native identifier",
-            "destination": "/paperless",
-            "destinationDisplayName": "MyWestfield",
+            "destination": "/#mywestfield",
+            "destinationDisplayName": "Home: MyWestfield section",
             "recommendations": {
               "paperlessFalse": "Sign up for paperless billing",
               "paperlessTrue": "Keep your coverage in step with life"
@@ -3693,16 +3712,56 @@
                 "scope": "Absent from current Home layout after native picker assignment; preserve until broader reference review"
               },
               "inputType": "Native Profile data attribute",
-              "firstVisitBoundary": "The campaign entry records the anonymous visit before Home is requested. A fresh Instagram click produced the native campaign variant in the first Home document; direct Home UTMs alone are not claimed to do so.",
+              "firstVisitBoundary": "The earlier c344ff72 campaign-entry rehearsal selected campaign on the first Home document. Current 5f8181db preview retained the Home-interest hero initially and selected campaign after profile propagation and one reload. Neither immediate first-document selection nor a specific waiting time is guaranteed.",
               "unusedCondition": {
                 "id": "ccecd5b4-d31b-46c1-862a-db6b23e21106",
                 "name": "Westfield next chapter arrival",
                 "status": "Published but unused in current Home rule; preserve or unpublish only after usage review",
                 "usage": "Native Usage panel: Not used in any experiences",
                 "cleanup": "Retained. Native menu exposes Duplicate/Delete and no reversible Unpublish; no permanent deletion attempted."
-              }
+              },
+              "currentPreviewRegression": "At 5f8181db, campaign selected after profile propagation and reload on the same URL; first-document campaign selection was not observed. See previewVerification.campaignAndAffinityRegression."
             },
-            "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection"
+            "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection",
+            "preparation": "/demo",
+            "accountSwitch": "Logout \u2192 Login \u2192 Customer",
+            "retainedCampaignQuery": "The six allowlisted UTM parameters appear before the #mywestfield fragment."
+          },
+          "retiredPaperlessDecision": {
+            "decisionName": "Westfield paperless enrollment",
+            "nativeDecisionId": null,
+            "nativeDecisionIdentityStatus": "exact Optimization flow/decision ID unverified; friendly ID and experience IDs are not substituted",
+            "pageItemId": "1b438447-f060-478d-bf27-df5aa7fbfc3b",
+            "componentUid": "d2eff4e8-60f7-5d87-aa85-97fdc8bffa86",
+            "expectedFriendlyIdDerivedFromInstalledSDK": "component_1b438447f060478dbf27df5aa7fbfc3b_d2eff4e860f75d87aa8597fdc8bffa86_en*",
+            "rules": [
+              {
+                "operator": "Is false",
+                "experienceId": "8b9a9b8e-ceda-4b41-984e-7469c84323d5",
+                "datasourceId": "e0bd1347-f9af-4591-a079-88bdccc73aad",
+                "datasourceName": "Paperless offer",
+                "presentation": "Default",
+                "presentationItemId": "1e5938b652f1412e9344e2ea492243a0"
+              },
+              {
+                "operator": "Is true",
+                "experienceId": "901e3b8f-262b-4913-a5b3-e6eaa39cede2",
+                "datasourceId": "31f012d3-3df0-4f3a-94d6-7dfca632c272",
+                "datasourceName": "Paperless enrolled",
+                "presentation": "Quiet",
+                "presentationItemId": "69996dab6c9244638fc60f0d4fd4db69"
+              }
+            ],
+            "decisionStatus": "PAUSED",
+            "formerPagePath": "/paperless",
+            "finalPersonalizedRulesRemoved": true,
+            "neutralSharedPresentationPreserved": true,
+            "formerVerificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
+            "retirementVerification": "Native table paused and targeted final-layout rules removed; actual preview UI showed neutral /paperless for Jordan. Production verification remains pending.",
+            "datasourceItemsRetained": true,
+            "analyticsTimeoutUiMinutes": 30,
+            "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
+            "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback."
           }
         },
         "advice": {
