@@ -70,7 +70,7 @@ export default function DemoLaunch(): JSX.Element {
       }
       setClientId(currentClientId);
       if (destination === 'prepare') {
-        setStatus('Anonymous session ready. Copy its Client ID, then open the direct demo tabs.');
+        setStatus('Copy the Client ID, open Home to start its profile, then find it in Sitecore.');
         launching.current = false;
         setBusy(null);
         return;
@@ -93,7 +93,9 @@ export default function DemoLaunch(): JSX.Element {
     if (!clientId) return;
     try {
       await navigator.clipboard.writeText(clientId);
-      setCopyStatus('Client ID copied. Search for this value in Sitecore Profiles.');
+      setCopyStatus(
+        'Client ID copied. Open Home first, then find it in the signed-in Sitecore app.'
+      );
     } catch {
       setCopyStatus('Copy is unavailable. Select the Client ID above and copy it manually.');
     }
@@ -150,10 +152,12 @@ export default function DemoLaunch(): JSX.Element {
             <p className="westfield-demo__eyebrow">Optional preparation</p>
             <h2>Prepare a fresh visitor session</h2>
             <p>
-              Before presenting, use a fresh public-site browser session. These optional controls
-              restart this browser’s visitor session. Prepare Home, Articles, Instagram, and the
-              matching native profile before presenting. Show browsing interest before Instagram,
-              then Casey and Jordan. Returning here during the live demonstration is unnecessary.
+              Before presenting, use a fresh public-site browser session. Choose
+              <strong> Prepare anonymous browsing session</strong>, copy its Client ID, then choose
+              <strong> Open Home</strong> to record the first page view. Next, find the matching
+              profile in the signed-in Sitecore app. Prepare Articles and Instagram after that. Show
+              browsing interest before Instagram, then Casey and Jordan. Returning here during the
+              live demonstration is unnecessary.
             </p>
             <button
               className="westfield-demo__button"
@@ -205,12 +209,17 @@ export default function DemoLaunch(): JSX.Element {
                 </button>
                 <p aria-live="polite">{copyStatus}</p>
                 <a href={profilesUrl} target="_blank" rel="noreferrer">
-                  Open Sitecore Profiles ↗
+                  Profiles link (backup) ↗
                 </a>
                 <p className="westfield-demo__fine-print">
-                  Search Profiles for this Client ID and prepare the matching profile tab. Keep the
-                  same public-site browser session for browsing. A customer sign-in creates a new
-                  demo identity, so this ID applies to the anonymous loop only.
+                  Preparation initializes the anonymous session but sends no page view. Open Home
+                  first so its VIEW can create the profile. In your existing signed-in Sitecore tab,
+                  choose <strong>Optimization → Profiles</strong>, select
+                  <strong> Client ID</strong>, paste the full value, and press
+                  <strong> Enter</strong>. Open the matching profile. Use internal navigation first
+                  and keep the direct Profiles link as a backup. If a new tab stalls, use the
+                  existing app tab. Keep the same public-site session for browsing; customer sign-in
+                  creates a different demo identity.
                 </p>
               </div>
             ) : (
@@ -244,11 +253,13 @@ export default function DemoLaunch(): JSX.Element {
           </div>
           <ul>
             <li>
-              Prepare a fresh browser session for the public website, separate from the signed-in
-              Sitecore and Content Hub session. Prepare Home, Articles, Instagram, and the matching
-              native profile in advance. Show browsing interest before the Instagram campaign, and
-              both anonymous examples before Casey and Jordan sign in. Each customer sign-in starts
-              a fresh demo identity automatically.
+              Use a fresh public-site session, separate from signed-in Sitecore and Content Hub.
+              Prepare the anonymous session, copy its Client ID, and open Home first. In the
+              existing Sitecore app, use <strong>Optimization → Profiles</strong> to search the full
+              Client ID, press <strong>Enter</strong>, and open the matching profile. Then prepare
+              Articles and the static Instagram feed; opening that feed sends no VIEW. Keep browsing
+              interest before the campaign and both anonymous examples before customer sign-in. Each
+              accepted customer sign-in starts a fresh demo identity.
             </li>
             <li>
               Sign in to <strong>Sales Engineers 2 → thlt-demo → thlt-authoring</strong>. In Page
@@ -437,7 +448,7 @@ export default function DemoLaunch(): JSX.Element {
                   Browse Articles ↗
                 </a>
                 <a href={profilesUrl} target="_blank" rel="noreferrer">
-                  Open native Profiles ↗
+                  Profiles link (backup) ↗
                 </a>
                 <a href="/search?q=water" target="_blank" rel="noreferrer">
                   Search “water” ↗

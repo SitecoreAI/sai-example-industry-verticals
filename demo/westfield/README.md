@@ -6,7 +6,14 @@ This developer-only folder is separate from the frontend and ordinary build/depl
 
 The 22-minute demonstration runs **Home (1 minute), browsing affinity (5 minutes), Instagram (2 minutes), Casey/Jordan (5 minutes), and authoring (9 minutes)**. The presentation remains 50 minutes plus 10 minutes for questions. `/demo` is a preparation guide, not a destination used during the live demonstration.
 
-Before presenting, use a fresh public-site browser session, separate from signed-in Sitecore and Content Hub. On `/demo`, **Prepare anonymous browsing session** uses the existing session reset, then reads the installed SDK’s public `getBrowserId()` after initialization. Copy that native **Client ID** and search for it in [Sitecore Profiles](https://app.sitecorecloud.io/optimization/profiles?organization=org_JypIqqJsbEly6gh2&tenantId=76ac4984-cff8-4b3d-3071-08ded696f4f5). Prepare Home, Articles, Instagram, the matching profile, and Page Builder tabs. The guide displays no profile or score, and stores no audience logic. The anonymous Client ID is no longer the active identity after customer sign-in, which deliberately creates a fresh browser identity.
+Before presenting, use a fresh public-site browser session, separate from signed-in Sitecore and Content Hub. Follow this order:
+
+1. On `/demo`, choose **Prepare anonymous browsing session** and copy its native **Client ID**. The existing reset initializes the SDK cookie and reads its public `getBrowserId()`, but sends no VIEW; the profile may not exist yet.
+2. Choose **Open Home** in the same public-site session. This starts the baseline page VIEW that creates the anonymous profile. Keep the standard Home ready for the opening of the live demonstration.
+3. In the **existing signed-in Sitecore app tab**, choose **Optimization → Profiles**. Select **Client ID**, paste the full value, press **Enter**, and open the matching profile. Allow the baseline VIEW to appear. Opening the direct Profiles URL in a new tab can stall at the session-loading screen; use internal navigation first and keep the [direct Profiles link](https://app.sitecorecloud.io/optimization/profiles?organization=org_JypIqqJsbEly6gh2&tenantId=76ac4984-cff8-4b3d-3071-08ded696f4f5) as a backup.
+4. Prepare Articles and the static Instagram feed in the same public-site session, then prepare Page Builder. Opening the static Instagram feed sends no VIEW; clicking the promoted item later starts the campaign entry.
+
+The guide displays no profile or score and stores no audience logic. A customer sign-in creates a fresh browser identity, so the copied Client ID applies only to the anonymous loop. Complete this preparation before presenting; the live sequence never returns to `/demo`.
 
 1. Show the fresh standard Home hero: **Reliable Insurance, Real Peace of Mind**.
 2. From Articles, use **Article Tags → Auto** and open **A Guide to First-Time Auto Insurance for Your Teenager**. Inspect this same native profile in **Engagement** for its VIEW, then **Overview → Top affinities**. The recorded result was **Auto: 1 view, score 1.00**.
