@@ -60,13 +60,13 @@ Configured native bindings: HomeFeature component UID `ceb6d59c-ed55-55ea-adeb-d
 | False | `df9c0468-68ab-478c-afdf-b610877c4376` | `2be1df85-fa1a-49f5-bcbc-c637add16adf` |
 | True | `1f9ec6a9-48da-4cd6-bf61-ecd2fcc34dc5` | `ab765ace-3f93-4dbc-821b-195ce920a62a` |
 
-The former **Westfield paperless enrollment** table is paused. Only its personalized rules were removed from `/paperless` final presentation; that page’s neutral shared presentation remains intact. The homepage datasources and anchor were saved and verified through the Authoring API.
+Before page retirement, the former **Westfield paperless enrollment** table was paused and only its personalized rules were removed from `/paperless` final presentation; that page’s neutral shared presentation was preserved until retirement. The homepage datasources and anchor were saved and verified through the Authoring API.
 
 Current status: **native-live-preview-verified**. The HomeFeature sidebar shows **PERSONALIZED LIVE**. Actual public-preview UI checks at `5f8181db71850b73f0c56aeec0cb759051f27ff4` observed:
 
 - Original Home content for an anonymous visitor.
 - Casey’s sign-in returned to Home at `#mywestfield` with the paperless offer; refresh retained it, and Logout returned to anonymous Home with Login restored.
-- Jordan’s sign-in returned to the same homepage section with the coverage recommendation; refresh retained it. Jordan saw neutral content at `/paperless`.
+- Jordan’s sign-in returned to the same homepage section with the coverage recommendation; refresh retained it. Before page retirement, Jordan saw neutral content at `/paperless`.
 - Both customer experiences retained the original **MyWestfield** presentation, with no experience-level variant overrides.
 
 The current preview also selected the Home-interest hero after normal teen-driver → water-damage → storm-article navigation. The Instagram entry retained its UTM parameters, but the campaign hero appeared only after profile propagation and one reload, approximately two minutes later in this run. The native Hero table remained Live, with campaign first and affinity second. This was an observed attribution delay, not a verified first-document campaign result or a guaranteed waiting time. Production deployment and stable-host acceptance are recorded separately in the release handoff; this preview evidence does not establish those results.
@@ -101,6 +101,16 @@ This validates the files and prints checksums without a remote request. The exam
 Use `--help` to inspect deliberate upload/reset/status/results commands. No remote import is performed by validation, normal frontend builds or lifecycle inventory tooling. A queued batch is not proof of profile synchronization: inspect its results, the native profiles, identity linkage and live component decisions before claiming success.
 
 The tool and input files were ported from the earlier working demo checkout; they contain no runtime personalization fixture. The existing target's native identity/schema/import bindings were verified in the prior release. Recheck the actual environment and provider before any deliberate repeat import/reset; ordinary releases do not run these commands.
+
+## Retiring the former account page
+
+The redundant `/paperless` page and its owned 14-item subtree have been unpublished and removed recoverably from master using `deleteItem` with `permanently:false`. All 14 old item IDs were absent afterward. The unpublish job finished without failure and processed 43 items. A prior reference check of 367 latest English Westfield items found no external links or GUID references into the old subtree. Home’s final presentation remained exactly unchanged (SHA-256 `f073864ada0f84a9c0c4d5b0bbdf7997f5f2d818cd2ed9bb90180e8a73cee36c`).
+
+The native SXA Redirect Map **Retired paperless page** (`79fe887e-daaa-471d-b738-00e557fdc13c`) targets Home’s `/#mywestfield` section through the existing `RedirectsMiddleware`. Both hosts returned the basic `/paperless` request as a 301 to that destination. Query preservation is disabled for this legacy URL: its original query string is deliberately dropped because QA observed the installed middleware appending preserved parameters after the fragment. Active campaign and login UTM handling is unchanged. The map and headless site publications finished without failure. Both hosts returned a 301 to `/#mywestfield` for the plain URL and a URL with campaign parameters; the legacy query was dropped. A trailing slash normalized to `/paperless` first, and Home returned 200 with its original MyWestfield section. No custom app routing patch was added.
+
+The child **Digital service preview** (`6cdc9659-0647-42e7-8b10-229fa6a031cb`) was unused, Never publish Campaign Page QA content and was removed with its parent. Earlier publication/retention checks remain historical evidence. The two old-page thumbnail assignments are retired from active maintenance; their shared thumbnail media are retained.
+
+Ordinary releases will not recreate this page: Westfield has no seed modules, authored Home pages and Data are outside the developer-definition serialization module, and the normal build only generates SDK metadata and builds Next.js. Preserve the Home customer datasources, the Live homepage decision, shared templates/renderings/designs/partials, Advice’s optional Action, native profiles, and shared CMS/DAM media. Retiring this page does not authorize deleting those resources.
 
 ## Ownership and removal
 

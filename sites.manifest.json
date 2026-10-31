@@ -2203,45 +2203,59 @@
             "name": "Digital service preview",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview",
             "kind": "native Campaign Page inserted through Page Builder",
-            "templateId": "446ee554-16ac-420a-b790-a5fc9509a7bb"
+            "templateId": "446ee554-16ac-420a-b790-a5fc9509a7bb",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "a0c11329-7c9b-4b5a-99ba-95f75af80bda",
             "name": "Data",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview/Data",
-            "kind": "page-local Data folder"
+            "kind": "page-local Data folder",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "7044f3f0-eda8-4a53-b8f3-2cc7b42474a0",
             "name": "Hero",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview/Data/Hero",
-            "kind": "page-local datasource"
+            "kind": "page-local datasource",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "a0ee90a4-5660-4008-880a-517a0e97bde8",
             "name": "MyWestfield benefits",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview/Data/MyWestfield benefits",
-            "kind": "page-local datasource"
+            "kind": "page-local datasource",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "630870bc-36b8-4aca-91fc-8e8a0b5bd8f8",
             "name": "Paperless campaign",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview/Data/Paperless campaign",
-            "kind": "page-local datasource"
+            "kind": "page-local datasource",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "99d2e8b4-8ae0-4bb5-929d-e5b715001ab3",
             "name": "Paperless campaign_var2",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Data/Paperless campaign_var2",
             "referencedByPaperlessSharedOrFinalLayout": false,
-            "globalReferenceExclusivity": "unverified; preserve until reference/dependency review"
+            "globalReferenceExclusivity": "unverified; preserve until reference/dependency review",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "8a0dcbbd-af6c-4272-89f2-3a56148182fe",
             "name": "Paperless campaign_var3",
             "path": "/sitecore/content/Westfield/westfield/Home/paperless/Data/Paperless campaign_var3",
             "referencedByPaperlessSharedOrFinalLayout": false,
-            "globalReferenceExclusivity": "unverified; preserve until reference/dependency review"
+            "globalReferenceExclusivity": "unverified; preserve until reference/dependency review",
+            "lifecycleStatus": "retired-recoverably-deleted",
+            "retirementBoundary": "Removed recoverably with the old /paperless subtree; all 14 native item IDs absent from master. Historical paths/IDs are recovery provenance, not active maintenance targets."
           },
           {
             "id": "830c3e28-6607-44be-8dcd-69a26f71eaab",
@@ -3164,14 +3178,6 @@
             "targetDatabase": "experienceedge"
           },
           "siteRenderingHostBinding": "westfield-external",
-          "retainedQaPage": {
-            "pageId": "6cdc9659-0647-42e7-8b10-229fa6a031cb",
-            "nativePageAndChildrenRetained": true,
-            "neverPublish": true,
-            "publicRouteStatus": 404,
-            "source": "work/westfield-new-page-publication-receipt.json",
-            "publicationRoundtrip": "Scoped publish and scoped unpublish both FINISHED/isFailed=false; final public404 and native retention verified by parent."
-          },
           "verificationScope": "Identity/API seed/publication and scoped native Page Builder fields, page insertion, order restore, variants and one DAM Image picker selection verified.",
           "recordedSeedRootItemCountScope": "Historical initial seed receipt, not current site total.",
           "paletteCuration": {
@@ -3233,6 +3239,77 @@
             "preserved": "All group items, owned rendering selections, Modules and globals. Shared Commerce library is outside Westfield ownership.",
             "restorePolicy": "Re-read each exact field and compare to its recorded after value before a deliberate restore; preserve later author changes. Ordinary deployment does not seed or restore these authored settings.",
             "source": "https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003502"
+          },
+          "paperlessRetirement": {
+            "status": "recoverably-removed-native-redirect-verified",
+            "pageItemId": "1b438447-f060-478d-bf27-df5aa7fbfc3b",
+            "path": "/sitecore/content/Westfield/westfield/Home/paperless",
+            "redirect": {
+              "source": "/paperless",
+              "destination": "/#mywestfield",
+              "mechanism": "Native SXA Redirect Map via the existing RedirectsMiddleware",
+              "settingsFolderId": "ac63f0d6-fe9c-4228-b55f-ba64d701868c",
+              "redirectItemId": "79fe887e-daaa-471d-b738-00e557fdc13c",
+              "publicationStatus": "Map and headless site publications FINISHED without failure; processed 30 and 29 items respectively",
+              "liveVerification": "Both hosts: /paperless and the same URL with campaign parameters return 301 to /#mywestfield; legacy query deliberately dropped. Trailing slash normalizes with a 308 to /paperless first. Home returned 200 with its original MyWestfield section.",
+              "path": "/sitecore/content/Westfield/westfield/Settings/Redirects/Retired paperless page",
+              "templateId": "f4fb6125-f113-4373-8aa2-4648c2c1960e",
+              "redirectType": "Redirect301",
+              "decodedUrlMapping": "/paperless=/#mywestfield",
+              "urlMappingEncoding": "Native percent-encoded UrlMapping field",
+              "preserveQueryString": false,
+              "preserveLanguageFieldValue": "",
+              "includeVirtualFolderFieldValue": "",
+              "headlessSiteItemId": "6eb93467-04c2-4cb2-a55d-06a94152adcf",
+              "legacyQueryPolicy": "Drop the retired URL\u2019s query string. Active campaign and login UTM handling is unchanged.",
+              "queryPreservationReason": "QA observed the installed RedirectsMiddleware appending the preserved query after #mywestfield; native query preservation is disabled for this legacy map instead of adding an app routing patch."
+            },
+            "subtreeRemoval": {
+              "status": "Complete: old 14-item subtree removed recoverably from master",
+              "historicalQaChildId": "6cdc9659-0647-42e7-8b10-229fa6a031cb",
+              "historicalQaChildUse": "Never-publish Campaign Page QA; no current guide/customer-flow dependency",
+              "knownSourceInventoryItemIds": [
+                "6cdc9659-0647-42e7-8b10-229fa6a031cb",
+                "a0c11329-7c9b-4b5a-99ba-95f75af80bda",
+                "7044f3f0-eda8-4a53-b8f3-2cc7b42474a0",
+                "a0ee90a4-5660-4008-880a-517a0e97bde8",
+                "630870bc-36b8-4aca-91fc-8e8a0b5bd8f8",
+                "99d2e8b4-8ae0-4bb5-929d-e5b715001ab3",
+                "8a0dcbbd-af6c-4272-89f2-3a56148182fe"
+              ],
+              "inventoryCountBoundary": "Known source inventory IDs remain listed separately; native readback observed 14 old items and verified all 14 absent after deletion.",
+              "nativeItemCount": 14,
+              "referenceCheck": {
+                "scope": "367 latest English Westfield items",
+                "externalLinksOrGuidReferencesIntoSubtree": 0,
+                "preservedFalsePositives": "Matching local:/Data/Paperless names belonged to their own Home or branch content and were preserved."
+              },
+              "deleteItemPermanently": false,
+              "allFourteenItemIdsAbsentFromMaster": true,
+              "unpublication": {
+                "state": "FINISHED",
+                "failed": false,
+                "processedItems": 43
+              },
+              "homeFinalPresentationPreserved": true,
+              "homeFinalPresentationSha256": "f073864ada0f84a9c0c4d5b0bbdf7997f5f2d818cd2ed9bb90180e8a73cee36c"
+            },
+            "sharedResourceBoundary": "Preserve shared templates, renderings, designs, partials, native profiles, live Home customer datasources/decision, and CMS/DAM media; only the owned old-page subtree is being retired.",
+            "recreationRisk": "No ordinary-release recreation: Westfield seedModules is empty and the developer module excludes authored Home/page/Data content."
+          },
+          "retiredQaPage": {
+            "pageId": "6cdc9659-0647-42e7-8b10-229fa6a031cb",
+            "nativePageAndChildrenRetained": false,
+            "neverPublish": true,
+            "publicRouteStatus": 404,
+            "source": "work/westfield-new-page-publication-receipt.json",
+            "publicationRoundtrip": "Scoped publish and scoped unpublish both FINISHED/isFailed=false; final public404 and native retention verified by parent.",
+            "currentUse": "Historical Campaign Page QA only; no active guide dependency",
+            "retirementStatus": "Complete: removed with /paperless parent subtree",
+            "parentPageItemId": "1b438447-f060-478d-bf27-df5aa7fbfc3b",
+            "lifecycleStatus": "retired-recoverably-deleted-with-parent",
+            "masterPresence": "Absent after deleteItem permanently:false",
+            "historicalScope": "Never publish/public404 and publicationRoundtrip below describe the earlier retained QA state."
           }
         },
         "live": {
@@ -3757,11 +3834,14 @@
             "finalPersonalizedRulesRemoved": true,
             "neutralSharedPresentationPreserved": true,
             "formerVerificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
-            "retirementVerification": "Native table paused and targeted final-layout rules removed; actual preview UI showed neutral /paperless for Jordan. Production verification remains pending.",
-            "datasourceItemsRetained": true,
+            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home’s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
+            "datasourceItemsRetained": false,
             "analyticsTimeoutUiMinutes": 30,
             "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
-            "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback."
+            "transientNeutralObservation": "One neutral reload around publication was not reproduced in subsequent matched checks. Cause unconfirmed; empty bounded runtime logs do not rule out silent SDK metadata fallback.",
+            "pageRemovalStatus": "Complete: /paperless and its owned 14-item subtree unpublished and removed recoverably from master",
+            "redirectDestination": "/#mywestfield",
+            "datasourceRecovery": "Old datasource IDs are recoverable with the retired subtree; deleteItem permanently:false. Live Home customer datasources were preserved."
           }
         },
         "advice": {
@@ -5120,10 +5200,12 @@
       "authoringThumbnails": {
         "manifest": "demo/westfield/authoring-thumbnails.json",
         "mediaFolderId": "b5945b1a-7985-427a-ab30-11e2589eadff",
-        "nativeTargets": 45,
+        "nativeTargets": 43,
         "mediaAssets": 26,
         "fieldOwnership": "Author-managed; developer module excludes __Thumbnail and __AutoThumbnails",
-        "scope": "Westfield-only site/page/design/branch/component/template previews"
+        "scope": "Westfield-only site/page/design/branch/component/template previews",
+        "historicalInitialNativeTargets": 45,
+        "nativeTargetsScope": "Active maintained assignments; two old-page targets moved to retiredAssignments pending native removal. Shared thumbnail media retained."
       }
     },
     {

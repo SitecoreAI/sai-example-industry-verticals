@@ -390,22 +390,6 @@
       "mediaId": "61b266cb-62de-423f-8e73-7a883f6789d0"
     },
     {
-      "path": "/sitecore/content/Westfield/westfield/Home/paperless",
-      "assetKey": "account",
-      "category": "Page",
-      "representativeFamilyPreview": false,
-      "id": "1b438447f060478dbf27df5aa7fbfc3b",
-      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
-    },
-    {
-      "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview",
-      "assetKey": "account",
-      "category": "Page",
-      "representativeFamilyPreview": true,
-      "id": "6cdc9659064742e78b10229fa6a031cb",
-      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e"
-    },
-    {
       "path": "/sitecore/content/Westfield/westfield/Home/search",
       "assetKey": "search",
       "category": "Page",
@@ -628,5 +612,30 @@
       "mediaId": "3ef331cc-e9b9-487b-b337-35742bcdc570"
     }
   ],
-  "removal": "Restore owned thumbnail/auto-thumbnail fields from the private assignment receipt before removing newly owned media. Recheck later author changes and references; preserve all original System-generated media and other sites."
+  "removal": "Restore owned thumbnail/auto-thumbnail fields from the private assignment receipt before removing newly owned media. Recheck later author changes and references; preserve all original System-generated media and other sites.",
+  "retiredAssignments": [
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/paperless",
+      "assetKey": "account",
+      "category": "Page",
+      "representativeFamilyPreview": false,
+      "id": "1b438447f060478dbf27df5aa7fbfc3b",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e",
+      "retirementStatus": "retired-native-page-recoverably-deleted",
+      "retirementReason": "Removed with redundant /paperless and its unused historical QA child; thumbnail media retained",
+      "thumbnailMediaRetained": true
+    },
+    {
+      "path": "/sitecore/content/Westfield/westfield/Home/paperless/Digital service preview",
+      "assetKey": "account",
+      "category": "Page",
+      "representativeFamilyPreview": true,
+      "id": "6cdc9659064742e78b10229fa6a031cb",
+      "mediaId": "6b198531-4a80-4626-9755-e9c02b44136e",
+      "retirementStatus": "retired-native-page-recoverably-deleted",
+      "retirementReason": "Removed with redundant /paperless and its unused historical QA child; thumbnail media retained",
+      "thumbnailMediaRetained": true
+    }
+  ],
+  "retiredAssignmentPolicy": "Excluded from active maintenance: both native page targets were removed recoverably with the old /paperless subtree. Preserve their shared account thumbnail asset and all remaining assignments."
 }
