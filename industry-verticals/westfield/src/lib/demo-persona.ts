@@ -38,7 +38,7 @@ export function demoAccountDestination(search: string): string {
     }
   }
   const query = campaign.toString();
-  return `/${query ? `?${query}` : ''}#mywestfield`;
+  return `/${query ? `?${query}` : ''}`;
 }
 
 function cookieValue(name: string): string | undefined {

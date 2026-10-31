@@ -3688,7 +3688,7 @@
           "debuggerInterferenceNote": "Detaching Chrome automation debugging released the earlier canvas iframe stall; native UI QA then passed."
         },
         "personalization": {
-          "status": "native-live-preview-verified",
+          "status": "native-live",
           "decisionConfigured": true,
           "decisionStatus": "LIVE",
           "decisionName": "Westfield customer recommendations",
@@ -3726,7 +3726,7 @@
               "presentationSource": "Inherited original HomeFeature parameters; no experience-level variant override"
             }
           ],
-          "verificationScope": "Native PERSONALIZED LIVE and actual public-preview UI acceptance at the recorded commit; production deployment and stable-host acceptance are recorded separately in the release handoff.",
+          "verificationScope": "Native personalization and earlier preview acceptance remain recorded as history. Exact release revisions and actual browser acceptance of the top-of-Home login are recorded separately in the release handoff.",
           "previewVerification": {
             "commit": "5f8181db71850b73f0c56aeec0cb759051f27ff4",
             "method": "Actual public-preview UI",
@@ -3742,7 +3742,8 @@
               "nativeHeroTable": "LIVE; campaign row 1, affinity row 2; rules unchanged",
               "latencyScope": "Observed run only; no guaranteed waiting time or immediate first-document change",
               "presenterRecovery": "Show the prepared native Hero campaign rule while attribution updates, then return to the same Home URL and reload once"
-            }
+            },
+            "historicalArrivalScope": "This recorded preview used the previous #mywestfield sign-in arrival. It is historical evidence and does not verify the new top-of-Home arrival."
           },
           "productionReleaseStatus": "Recorded separately in the release handoff with exact deployments and stable-host acceptance",
           "journey": {
@@ -3756,8 +3757,8 @@
               "jordan@example.com"
             ],
             "identityTiming": "After successful local demo sign-in; matches the existing imported native identifier",
-            "destination": "/#mywestfield",
-            "destinationDisplayName": "Home: MyWestfield section",
+            "destination": "/",
+            "destinationDisplayName": "Home (top)",
             "recommendations": {
               "paperlessFalse": "Sign up for paperless billing",
               "paperlessTrue": "Keep your coverage in step with life"
@@ -3802,7 +3803,8 @@
             "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection",
             "preparation": "/demo",
             "accountSwitch": "Logout \u2192 Login \u2192 Customer",
-            "retainedCampaignQuery": "The six allowlisted UTM parameters appear before the #mywestfield fragment."
+            "retainedCampaignQuery": "The six allowlisted UTM parameters are retained on the root Home URL; no fragment is added.",
+            "loginArrival": "Home opens at the top; scroll to MyWestfield to show the recommendation."
           },
           "retiredPaperlessDecision": {
             "decisionName": "Westfield paperless enrollment",
@@ -3834,7 +3836,7 @@
             "finalPersonalizedRulesRemoved": true,
             "neutralSharedPresentationPreserved": true,
             "formerVerificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
-            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home’s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
+            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home\u2019s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
             "datasourceItemsRetained": false,
             "analyticsTimeoutUiMinutes": 30,
             "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
@@ -3842,6 +3844,23 @@
             "pageRemovalStatus": "Complete: /paperless and its owned 14-item subtree unpublished and removed recoverably from master",
             "redirectDestination": "/#mywestfield",
             "datasourceRecovery": "Old datasource IDs are recoverable with the retired subtree; deleteItem permanently:false. Live Home customer datasources were preserved."
+          },
+          "loginArrivalChange": {
+            "status": "configured-in-source; actual release and browser acceptance recorded in handoff",
+            "destination": "/",
+            "viewportPosition": "top",
+            "fragment": null,
+            "retainedUtmParameters": [
+              "utm_source",
+              "utm_medium",
+              "utm_campaign",
+              "utm_content",
+              "utm_term",
+              "utm_id"
+            ],
+            "presenterAction": "Scroll to MyWestfield after Home opens for Casey and Jordan.",
+            "nativeRenderingIdentifierChanged": false,
+            "retiredPaperlessRedirectChanged": false
           }
         },
         "advice": {

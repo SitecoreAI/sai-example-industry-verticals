@@ -21,8 +21,8 @@ const rehearsalItems = [
   'Each article VIEW appears before its updated affinity is presented.',
   'Home interest changes the Home hero after the documented browsing sequence.',
   'The Instagram campaign still selects its matching Home hero after the affinity loop.',
-  'Casey sees the paperless offer in Home’s MyWestfield section on first arrival.',
-  'Jordan sees the coverage review offer in Home’s MyWestfield section on first arrival.',
+  'Casey returns to the top of Home, then scrolls to the MyWestfield paperless offer.',
+  'Jordan returns to the top of Home, then scrolls to the MyWestfield coverage offer.',
   'Logout returns to anonymous Home and restores the Login button.',
   'Search finds the full article and its images load.',
   'Page Builder, the blank article and permitted components are ready.',
@@ -534,13 +534,14 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   Enter Casey’s email below and the password <strong>password</strong>, then choose{' '}
-                  <strong>SIGN IN</strong>. Home opens at its MyWestfield section. Show the
-                  paperless offer.
+                  <strong>SIGN IN</strong>. Home opens at the top. Scroll to its MyWestfield section
+                  and show the paperless offer.
                 </li>
                 <li>
                   Choose <strong>Logout</strong> in the header, then{' '}
                   <strong>Login → Customer</strong>. Sign in as Jordan using the same password. Home
-                  opens at the same MyWestfield section. Show the different recommendation.
+                  opens at the top again. Scroll to MyWestfield and show the different
+                  recommendation.
                 </li>
                 <li>
                   In Page Builder, open <strong>Home</strong>, select the MyWestfield section, and
@@ -580,8 +581,8 @@ export default function DemoLaunch(): JSX.Element {
                 <a href="/login" target="_blank" rel="noreferrer">
                   Open customer login ↗
                 </a>
-                <a href="/#mywestfield" target="_blank" rel="noreferrer">
-                  Open Home’s MyWestfield section ↗
+                <a href="/" target="_blank" rel="noreferrer">
+                  Open Home ↗
                 </a>
               </div>
             </section>
