@@ -170,6 +170,21 @@
   font-size: 12px;
   line-height: 1.65;
 }
+.westfield-demo__client-id {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--demo-border);
+}
+.westfield-demo__client-id code {
+  display: block;
+  margin: 8px 0 12px;
+  overflow-wrap: anywhere;
+}
+.westfield-demo__client-id > p {
+  color: var(--demo-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
 .westfield-demo__prepare {
   display: grid;
   grid-template-columns: 0.8fr 1.7fr;

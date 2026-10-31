@@ -4,12 +4,34 @@ This developer-only folder is separate from the frontend and ordinary build/depl
 
 ## Presenter journey
 
-1. Open `/demo` and start a fresh anonymous session. The presenter reset obtains a new Sitecore browser identity before opening the static Instagram prop.
-2. Find the single sponsored Westfield prospect post in an unrelated friend feed. The campaign is **A new chapter. Protection for what’s next.**, promoting home and auto coverage. Friend stories, posts, suggestions, alt text and display names use human-friendly names with spaces.
-3. Click **Learn more**. The ad opens `/campaign?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter`. This generic campaign entry waits for the native anonymous VIEW response to return status OK and a ref, then replaces navigation with Home at `/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter`. It does not identify a customer or select a local variant.
-4. The LIVE native **Westfield next chapter campaign** decision uses **Profile data → UTM Campaign → Is equal to → next_chapter** on Home's `CampaignHero`. Its campaign datasource supplies **A new chapter. Protection for what’s next.** The original Hero remains the no-UTM control. Preview acceptance at `c344ff72` verified the targeted first Home document after the actual Instagram click and acknowledged entry step.
-5. Existing customers can then use the Header **Login → Customer** option to open the SSO-style local demo `/login`. Header/footer navigation preserves the allowed campaign parameters. Enter one of the two synthetic demo accounts below, using the literal password `password`.
-6. After the Cloud SDK confirms the matching native identity, continue to `/paperless` with campaign parameters retained. This existing native page presents general MyWestfield account content and the appropriate native recommendation.
+The 22-minute demonstration runs **Home (1 minute), browsing affinity (5 minutes), Instagram (2 minutes), Casey/Jordan (5 minutes), and authoring (9 minutes)**. The presentation remains 50 minutes plus 10 minutes for questions. `/demo` is a preparation guide, not a destination used during the live demonstration.
+
+Before presenting, use a fresh public-site browser session, separate from signed-in Sitecore and Content Hub. On `/demo`, **Prepare anonymous browsing session** uses the existing session reset, then reads the installed SDK’s public `getBrowserId()` after initialization. Copy that native **Client ID** and search for it in [Sitecore Profiles](https://app.sitecorecloud.io/optimization/profiles?organization=org_JypIqqJsbEly6gh2&tenantId=76ac4984-cff8-4b3d-3071-08ded696f4f5). Prepare Home, Articles, Instagram, the matching profile, and Page Builder tabs. The guide displays no profile or score, and stores no audience logic. The anonymous Client ID is no longer the active identity after customer sign-in, which deliberately creates a fresh browser identity.
+
+1. Show the fresh standard Home hero: **Reliable Insurance, Real Peace of Mind**.
+2. From Articles, use **Article Tags → Auto** and open **A Guide to First-Time Auto Insurance for Your Teenager**. Return through the article’s Articles breadcrumb. Use **Home**, then open the water-damage and spring-thunderstorm articles, returning through Articles between them.
+3. In the matching native profile, show the article VIEW events under **Engagement** and compare Auto and Home under **Overview → Top affinities**. Return to Home using the Westfield logo. The intended Home-interest hero is **Protection for the place you call home.** Explain the native rule in the prepared Page Builder tab. **Affinity acceptance remains pending:** configuration and prepared copy are not proof of collected scores, a matching decision, or the returned Home experience.
+4. Switch to the prepared Instagram feed. Find the single sponsored Westfield prospect post among unrelated friend posts. Click **Learn more** on **A new chapter. Protection for what’s next.** The entry at `/campaign?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter` awaits an acknowledged native anonymous VIEW, then opens Home. The existing native campaign rule selects its matching Hero. Keep this after browsing affinity so retained campaign context does not mask the interest example. The campaign must be regression-tested after affinity configuration.
+5. On Home, choose **Login → Customer**. Enter `casey@example.com` and `password`, then show **Sign up for paperless billing**. Choose Login and Customer again and enter `jordan@example.com` with the same password. Show **Keep your coverage in step with life**. Each accepted login resets its browser identity automatically; there is no mid-demo visit to `/demo`.
+6. Use the native Advice Article authoring loop: create the blank article, choose approved DAM media, fill and reorder independent Sections, preview, publish, and find the live page through Articles or search. This remains the nine-minute authoring slot.
+
+CRM integration is a product discussion. The two imported synthetic records represent customer information from another system; the demonstration does not show a live HubSpot connection, ongoing synchronization, or a completed billing transaction. Header search and complete source articles remain available as supporting navigation rather than a separate timed search loop.
+
+## Browsing-affinity configuration and acceptance
+
+The native page assignments use the Westfield-scoped affinity name `westfield_interest`:
+
+| Page | Native item ID | Value |
+| --- | --- | --- |
+| Teen-driver article | `5d45a5c5-330e-46e2-a9db-fe61347537d3` | `auto` |
+| Water-damage article | `970c651f-631b-484f-ba98-8db6ea753501` | `home` |
+| Spring-thunderstorm article | `5f12387e-a1b9-45b8-b2ed-77d98e5649f4` | `home` |
+
+These assignments are separate from the articles’ Topic filter. Existing native CMS-page VIEW events carry their page-variant identity; this revision does not add a custom tracker, browser score, or local audience condition.
+
+The page-local **Home interest** datasource is `c7a71385-78d1-43ae-a756-fdcb5c60b953`, at `/sitecore/content/Westfield/westfield/Home/Data/Home interest`, using the existing CampaignHero template. It contains **Protection for the place you call home.** and a copy of the original Hero image binding. Keep the original Home and existing campaign datasource intact. Native decision and publication identities belong in the final acceptance handoff once confirmed.
+
+Current state: **configured page affinities and prepared native content; live collection, native rule matching, first-returned Home, reload, neutral/Auto controls, campaign precedence, and Casey/Jordan regression acceptance pending**. Do not describe this as a verified flow until that evidence is recorded. A successful VIEW or a stored affinity alone does not prove a matched personalization rule. If live proof fails, identify the retained screens as a walkthrough.
 
 The original Home now uses the official reference replica with nine native main placements and fourteen cards. Unsupported demo navigation destinations are authored as `#`; supported account, Advice and search journeys remain available. The existing native campaign rule and datasource are retained. Frontend release and browser acceptance are recorded separately in handover evidence; the preview evidence above remains historical. The prospect ad does not ask for a login or pitch paperless enrollment.
 

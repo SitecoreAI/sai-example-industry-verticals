@@ -1,20 +1,26 @@
 import Head from 'next/head';
 import { JSX, useRef, useState } from 'react';
+import { getBrowserId } from '@sitecore-cloudsdk/core/browser';
 import { resetDemoBrowserIdentity } from 'lib/demo-persona';
 
 const authoringUrl =
   'https://pages.sitecorecloud.io/editor?tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200&organization=org_JypIqqJsbEly6gh2&sc_itemid=91e93020-4ee9-4cfa-8904-8f19c8c8e4f1&sc_lang=en&sc_site=westfield&sc_version=1';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
+const profilesUrl =
+  'https://app.sitecorecloud.io/optimization/profiles?organization=org_JypIqqJsbEly6gh2&tenantId=76ac4984-cff8-4b3d-3071-08ded696f4f5';
 const flows = [
   { id: 'familiar-experience', title: 'A familiar Westfield experience', time: '1 minute' },
-  { id: 'campaign', title: 'A relevant first visit', time: '3 minutes' },
-  { id: 'customers', title: 'The right next step for each customer', time: '6 minutes' },
-  { id: 'discovery', title: 'Useful content, easy to find', time: '3 minutes' },
+  { id: 'affinity', title: 'Reading builds an interest profile', time: '5 minutes' },
+  { id: 'campaign', title: 'The message continues from the ad', time: '2 minutes' },
+  { id: 'customers', title: 'Known customer information changes the offer', time: '5 minutes' },
   { id: 'authoring', title: 'Create a page with confidence', time: '9 minutes' },
 ] as const;
 const rehearsalItems = [
   'Home, menus and mobile layout are ready to show.',
-  'Instagram opens anonymously and the ad changes the Home hero.',
+  'The anonymous Client ID opens the correct native profile.',
+  'Auto and Home article views appear in that profile’s events and affinities.',
+  'Home interest changes the Home hero after the documented browsing sequence.',
+  'The Instagram campaign still selects its matching Home hero after the affinity loop.',
   'Casey sees the paperless offer on first arrival.',
   'Jordan sees the coverage review offer on first arrival.',
   'Search finds the full article and its images load.',
@@ -42,18 +48,33 @@ export default function DemoLaunch(): JSX.Element {
   const [status, setStatus] = useState(
     'Optional preparation controls. Use the prepared tabs during the presentation.'
   );
-  const [busy, setBusy] = useState<'home' | 'instagram' | null>(null);
+  const [busy, setBusy] = useState<'prepare' | 'home' | 'instagram' | null>(null);
+  const [clientId, setClientId] = useState<string | null>(null);
+  const [copyStatus, setCopyStatus] = useState('');
   const [error, setError] = useState(false);
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
 
-  const launch = async (destination: 'home' | 'instagram') => {
+  const launch = async (destination: 'prepare' | 'home' | 'instagram') => {
     if (launching.current) return;
     launching.current = true;
     setBusy(destination);
     setError(false);
+    setClientId(null);
+    setCopyStatus('');
     setStatus('Starting a fresh anonymous session…');
     try {
       await resetDemoBrowserIdentity();
+      const currentClientId = getBrowserId();
+      if (!currentClientId) {
+        throw new Error('The visitor session is not ready. Please prepare it again.');
+      }
+      setClientId(currentClientId);
+      if (destination === 'prepare') {
+        setStatus('Anonymous session ready. Copy its Client ID, then open the direct demo tabs.');
+        launching.current = false;
+        setBusy(null);
+        return;
+      }
       setStatus(
         destination === 'instagram'
           ? 'Anonymous session ready. Opening the Instagram campaign…'
@@ -65,6 +86,16 @@ export default function DemoLaunch(): JSX.Element {
       setStatus(cause instanceof Error ? cause.message : 'The demo session could not be started.');
       launching.current = false;
       setBusy(null);
+    }
+  };
+
+  const copyClientId = async (): Promise<void> => {
+    if (!clientId) return;
+    try {
+      await navigator.clipboard.writeText(clientId);
+      setCopyStatus('Client ID copied. Search for this value in Sitecore Profiles.');
+    } catch {
+      setCopyStatus('Copy is unavailable. Select the Client ID above and copy it manually.');
     }
   };
 
@@ -107,11 +138,12 @@ export default function DemoLaunch(): JSX.Element {
             <p className="westfield-demo__eyebrow">Presenter guide · 22 minutes of live demos</p>
             <h1>Present the Westfield experience.</h1>
             <p className="westfield-demo__lede">
-              Start with the Westfield experience customers know. Follow a prospect from Instagram,
-              recognize two existing customers, then create useful content with native authoring
-              guardrails. These five loops occupy minutes 10–32 of the 50-minute presentation. The
-              full session includes a separate 10-minute question period. Prepare the direct tabs
-              before presenting; the live demonstration does not require returning to this guide.
+              Start with the Westfield experience customers know. Browse articles to build an
+              anonymous interest profile, follow the Instagram ad, recognize two existing customers,
+              then create useful content with native authoring guardrails. These five loops occupy
+              minutes 10–32 of the 50-minute presentation. The full session includes a separate
+              10-minute question period. Prepare the direct tabs before presenting; the live
+              demonstration does not require returning to this guide.
             </p>
           </div>
           <div className="westfield-demo__launch-panel">
@@ -119,11 +151,21 @@ export default function DemoLaunch(): JSX.Element {
             <h2>Prepare a fresh visitor session</h2>
             <p>
               Before presenting, use a fresh public-site browser session. These optional controls
-              restart this browser’s visitor session. Open Home and Instagram in advance, then show
-              Home, Instagram, Casey and Jordan in that order.
+              restart this browser’s visitor session. Prepare Home, Articles, Instagram, and the
+              matching native profile before presenting. Show browsing interest before Instagram,
+              then Casey and Jordan. Returning here during the live demonstration is unnecessary.
             </p>
             <button
               className="westfield-demo__button"
+              type="button"
+              disabled={busy !== null}
+              onClick={() => void launch('prepare')}
+            >
+              {busy === 'prepare' ? 'Preparing…' : 'Prepare anonymous browsing session'}
+              <span aria-hidden="true">→</span>
+            </button>
+            <button
+              className="westfield-demo__button westfield-demo__button--secondary"
               type="button"
               disabled={busy !== null}
               onClick={() => void launch('instagram')}
@@ -148,6 +190,46 @@ export default function DemoLaunch(): JSX.Element {
             >
               {status}
             </p>
+            {clientId ? (
+              <div className="westfield-demo__client-id">
+                <p>
+                  <strong>Current anonymous Client ID</strong>
+                </p>
+                <code>{clientId}</code>
+                <button
+                  className="westfield-demo__clear"
+                  type="button"
+                  onClick={() => void copyClientId()}
+                >
+                  Copy Client ID
+                </button>
+                <p aria-live="polite">{copyStatus}</p>
+                <a href={profilesUrl} target="_blank" rel="noreferrer">
+                  Open Sitecore Profiles ↗
+                </a>
+                <p className="westfield-demo__fine-print">
+                  Search Profiles for this Client ID and prepare the matching profile tab. Keep the
+                  same public-site browser session for browsing. A customer sign-in creates a new
+                  demo identity, so this ID applies to the anonymous loop only.
+                </p>
+              </div>
+            ) : (
+              <p className="westfield-demo__fine-print">
+                Prepare the browsing session to display its Client ID. No profile data or affinity
+                scores are stored or shown by this guide.
+              </p>
+            )}
+            <div className="westfield-demo__links">
+              <a href="/" target="_blank" rel="noreferrer">
+                Open Home ↗
+              </a>
+              <a href="/advice" target="_blank" rel="noreferrer">
+                Open Articles ↗
+              </a>
+              <a href="/instagram/index.html" target="_blank" rel="noreferrer">
+                Open Instagram ↗
+              </a>
+            </div>
             <p className="westfield-demo__fine-print">
               This resets the visitor session only. It does not change CMS content, profiles or DAM
               assets. Use these controls before the presentation, rather than between live loops.
@@ -163,9 +245,10 @@ export default function DemoLaunch(): JSX.Element {
           <ul>
             <li>
               Prepare a fresh browser session for the public website, separate from the signed-in
-              Sitecore and Content Hub session. Open Home and Instagram in advance. Show both
-              anonymous examples before Casey and Jordan sign in. Each customer sign-in starts a
-              fresh demo identity automatically.
+              Sitecore and Content Hub session. Prepare Home, Articles, Instagram, and the matching
+              native profile in advance. Show browsing interest before the Instagram campaign, and
+              both anonymous examples before Casey and Jordan sign in. Each customer sign-in starts
+              a fresh demo identity automatically.
             </li>
             <li>
               Sign in to <strong>Sales Engineers 2 → thlt-demo → thlt-authoring</strong>. In Page
@@ -225,7 +308,7 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   Open a navigation menu and point out <strong>Login → Customer</strong>. Keep
-                  customer sign-in for loop 3 and header search for loop 4.
+                  customer sign-in for loop 4. Use Articles for the browsing-interest loop next.
                 </li>
                 <li>
                   Show a narrow viewport: navigation becomes a mobile menu, the page stacks and the
@@ -257,10 +340,100 @@ export default function DemoLaunch(): JSX.Element {
 
             <section
               className="westfield-demo__flow"
+              id="affinity"
+              aria-labelledby="affinity-title"
+            >
+              <FlowHeading index={1} />
+              <div className="westfield-demo__readiness" role="note">
+                <strong>Affinity rehearsal · acceptance pending</strong>
+                <p>
+                  The three article affinities are configured and the Home interest content is
+                  prepared. Collection, rule matching, the first returned Home message, and the
+                  campaign/customer regression checks still require live acceptance. The steps below
+                  describe the intended loop, not a completed verification result.
+                </p>
+              </div>
+              <p className="westfield-demo__say">
+                “Before we know this visitor’s identity, the articles they read tell us something
+                about their interests. Sitecore can use that interest to choose more relevant
+                content.”
+              </p>
+              <ol className="westfield-demo__steps">
+                <li>
+                  Keep the anonymous session used for the original Home page. Open the normal
+                  <strong> Articles</strong> page. In <strong>Article Tags</strong>, select
+                  <strong> Auto</strong> and read
+                  <strong> A Guide to First-Time Auto Insurance for Your Teenager</strong>.
+                </li>
+                <li>
+                  Use the article’s <strong>Articles</strong> breadcrumb to return to the list.
+                  Select <strong>Home</strong> and read
+                  <strong> How To Help Prevent Water Damage in Your Home or Business</strong>.
+                  Return to Articles and read
+                  <strong> How To Prepare Your Home and Family for a Spring Thunderstorm</strong>.
+                </li>
+                <li>
+                  Switch to the matching native <strong>Profiles</strong> tab prepared with this
+                  visitor’s Client ID. In <strong>Engagement</strong>, show the article VIEW events.
+                  In <strong>Overview → Top affinities</strong>, compare the Auto and Home
+                  interests. These are observations of browsing, rather than declared customer
+                  information.
+                </li>
+                <li>
+                  Return to the website and choose the <strong>Westfield logo</strong> to open Home.
+                  Compare the resulting hero with the original message. Use the prepared Page
+                  Builder tab to explain the native Home-interest rule and its selected content.
+                  Continue to the Instagram campaign without resetting the visitor.
+                </li>
+              </ol>
+              <div className="westfield-demo__expected">
+                <p className="westfield-demo__eyebrow">Intended result · pending live acceptance</p>
+                <p>
+                  The anonymous profile records one Auto article and two Home articles. The
+                  configured affinity rule selects
+                  <strong> Protection for the place you call home.</strong> The native profile and
+                  rule explain the change; the website does not calculate a local audience score.
+                </p>
+              </div>
+              <details className="westfield-demo__details">
+                <summary>What information does this example use?</summary>
+                <p>
+                  The configured page affinities are <code>westfield_interest:auto</code> on the
+                  teen-driver article and <code>westfield_interest:home</code> on the water and
+                  thunderstorm articles. The article Topic filter helps navigation; the separate
+                  native affinity assignment controls collection. Run this loop before Instagram so
+                  campaign context does not mask the behavior example.
+                </p>
+                <p>
+                  If collection or targeting does not pass rehearsal, use the captured profile,
+                  rule, and Home screens as a clearly identified walkthrough. Do not describe a
+                  configured affinity or an event acknowledgement as proof of a matching decision.
+                </p>
+              </details>
+              <div className="westfield-demo__links">
+                <a href="/advice" target="_blank" rel="noreferrer">
+                  Browse Articles ↗
+                </a>
+                <a href={profilesUrl} target="_blank" rel="noreferrer">
+                  Open native Profiles ↗
+                </a>
+                <a href="/search?q=water" target="_blank" rel="noreferrer">
+                  Search “water” ↗
+                </a>
+              </div>
+              <p className="westfield-demo__fine-print">
+                Full-article search remains available through the normal header. Optional body
+                searches include Yiddish for the teen-driver article and trampoline for the policy
+                review article. Search is supporting navigation rather than a separate timed loop.
+              </p>
+            </section>
+
+            <section
+              className="westfield-demo__flow"
               id="campaign"
               aria-labelledby="campaign-title"
             >
-              <FlowHeading index={1} />
+              <FlowHeading index={2} />
               <p className="westfield-demo__say">
                 “Someone planning their next chapter sees a message that continues from the ad to
                 the website. We do not need to know who they are yet.”
@@ -308,7 +481,7 @@ export default function DemoLaunch(): JSX.Element {
               id="customers"
               aria-labelledby="customers-title"
             >
-              <FlowHeading index={2} />
+              <FlowHeading index={3} />
               <p className="westfield-demo__say">
                 “Once a customer signs in, their existing paperless preference changes the next
                 step. We avoid promoting something they have already done.”
@@ -359,8 +532,10 @@ export default function DemoLaunch(): JSX.Element {
               <p className="westfield-demo__note">
                 Both accounts and the Instagram campaign are synthetic. The password is checked
                 locally; the native identity event connects the selected demo profile. This
-                illustrates relevance and does not enroll anyone or change billing, policy or
-                consent preferences.
+                illustrates relevance and does not enroll anyone or change billing, policy, or
+                consent preferences. The imported records stand in for customer information from
+                another system. Discuss CRM data at product level; this demo does not show a live
+                CRM connection or ongoing synchronization.
               </p>
               <div className="westfield-demo__links">
                 <a href="/login" target="_blank" rel="noreferrer">
@@ -368,55 +543,6 @@ export default function DemoLaunch(): JSX.Element {
                 </a>
                 <a href="/paperless" target="_blank" rel="noreferrer">
                   Open current account experience ↗
-                </a>
-              </div>
-            </section>
-
-            <section
-              className="westfield-demo__flow"
-              id="discovery"
-              aria-labelledby="discovery-title"
-            >
-              <FlowHeading index={3} />
-              <p className="westfield-demo__say">
-                “The same authored content supports a consistent article experience and useful
-                search results. The team can add to it without building a new page from scratch.”
-              </p>
-              <ol className="westfield-demo__steps">
-                <li>
-                  From Home, open header search. Search for <strong>water</strong> and open{' '}
-                  <strong>How To Help Prevent Water Damage in Your Home or Business</strong>.
-                </li>
-                <li>
-                  Scroll through the full article, including its infographic. Show the heading
-                  hierarchy, image, byline/date where supplied, related reading and mobile layout.
-                </li>
-                <li>
-                  Open{' '}
-                  <a href="/advice" target="_blank" rel="noreferrer">
-                    Articles &amp; insights
-                  </a>{' '}
-                  to browse the six full source articles. For an optional body-content search, try{' '}
-                  <strong>Yiddish</strong> to find the teen-driver article or{' '}
-                  <strong>trampoline</strong> to find the policy-review article.
-                </li>
-              </ol>
-              <div className="westfield-demo__expected">
-                <p className="westfield-demo__eyebrow">Expected result</p>
-                <p>
-                  Search opens the relevant live article. The full Westfield source content and
-                  images are present, and in-scope related article links stay on the demo site.
-                </p>
-              </div>
-              <div className="westfield-demo__links">
-                <a href="/search?q=water" target="_blank" rel="noreferrer">
-                  Search “water” ↗
-                </a>
-                <a href="/advice" target="_blank" rel="noreferrer">
-                  Browse all articles ↗
-                </a>
-                <a href="/advice/water-leak-home-checkup" target="_blank" rel="noreferrer">
-                  Open water article ↗
                 </a>
               </div>
             </section>
