@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { FormEvent, JSX, useEffect, useRef, useState } from 'react';
-import { demoAccountDestination, signInDemoAccount } from 'lib/demo-persona';
+import { demoAccountDestination, demoAccountPassword, signInDemoAccount } from 'lib/demo-persona';
 import styles from 'assets/westfield-login.module.css';
 
 export default function DemoAccountLogin(): JSX.Element {
@@ -122,7 +122,9 @@ export default function DemoAccountLogin(): JSX.Element {
               <button
                 className={styles.forgotLink}
                 type="button"
-                onClick={() => showHelp('Both demo accounts use the password: password.')}
+                onClick={() =>
+                  showHelp(`Both demo accounts use the password: ${demoAccountPassword}.`)
+                }
               >
                 Forgot Password?
               </button>
@@ -159,7 +161,7 @@ export default function DemoAccountLogin(): JSX.Element {
           <p className={styles.accountHelp}>
             casey@example.com or jordan@example.com
             <br />
-            Password: password
+            Password: {demoAccountPassword}
           </p>
         </section>
       </main>

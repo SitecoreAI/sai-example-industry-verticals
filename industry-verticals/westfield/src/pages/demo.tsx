@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { JSX, useRef, useState } from 'react';
 import { getBrowserId } from '@sitecore-cloudsdk/core/browser';
-import { resetDemoBrowserIdentity } from 'lib/demo-persona';
+import { demoAccountPassword, resetDemoBrowserIdentity } from 'lib/demo-persona';
 
 const authoringUrl =
   'https://pages.sitecorecloud.io/editor?tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200&organization=org_JypIqqJsbEly6gh2&sc_itemid=91e93020-4ee9-4cfa-8904-8f19c8c8e4f1&sc_lang=en&sc_site=westfield&sc_version=1';
@@ -533,15 +533,15 @@ export default function DemoLaunch(): JSX.Element {
                   <strong>Sign into My Westfield</strong> experience.
                 </li>
                 <li>
-                  Enter Casey’s email below and the password <strong>password</strong>, then choose{' '}
-                  <strong>SIGN IN</strong>. Home opens at the top. Scroll to its MyWestfield section
-                  and show the paperless offer.
+                  Enter Casey’s email below and the password <strong>{demoAccountPassword}</strong>,
+                  then choose <strong>SIGN IN</strong>. Home opens at the top. Scroll to its
+                  MyWestfield section and show the paperless offer.
                 </li>
                 <li>
                   Choose <strong>Logout</strong> in the header, then{' '}
-                  <strong>Login → Customer</strong>. Sign in as Jordan using the same password. Home
-                  opens at the top again. Scroll to MyWestfield and show the different
-                  recommendation.
+                  <strong>Login → Customer</strong>. Sign in as Jordan using{' '}
+                  <strong>{demoAccountPassword}</strong>. Home opens at the top again. Scroll to
+                  MyWestfield and show the different recommendation.
                 </li>
                 <li>
                   In Page Builder, open <strong>Home</strong>, select the MyWestfield section, and
