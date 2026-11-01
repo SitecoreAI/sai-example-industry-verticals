@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { FormEvent, JSX, useEffect, useRef, useState } from 'react';
-import { demoAccountDestination, demoAccountPassword, signInDemoAccount } from 'lib/demo-persona';
+import { demoAccountDestination, signInDemoAccount } from 'lib/demo-persona';
 import styles from 'assets/westfield-login.module.css';
 
 export default function DemoAccountLogin(): JSX.Element {
@@ -48,7 +48,7 @@ export default function DemoAccountLogin(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Sign in | MyWestfield demo</title>
+        <title>Sign in | MyWestfield</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <main className={styles.page}>
@@ -65,7 +65,6 @@ export default function DemoAccountLogin(): JSX.Element {
           <h1 id="sign-in-title" className={styles.title}>
             Sign into My Westfield
           </h1>
-          <p className={styles.demoNotice}>Synthetic demo accounts only</p>
           <form onSubmit={(event) => void signIn(event)}>
             <fieldset className={styles.fields} disabled={!ready || busy}>
               <legend className={styles.visuallyHidden}>Account sign in</legend>
@@ -89,7 +88,7 @@ export default function DemoAccountLogin(): JSX.Element {
                 className={styles.forgotLink}
                 type="button"
                 onClick={() =>
-                  showHelp('Use casey@example.com or jordan@example.com for this demo.')
+                  showHelp('Please contact Westfield for help with your account email.')
                 }
               >
                 Forgot Email?
@@ -123,7 +122,7 @@ export default function DemoAccountLogin(): JSX.Element {
                 className={styles.forgotLink}
                 type="button"
                 onClick={() =>
-                  showHelp(`Both demo accounts use the password: ${demoAccountPassword}.`)
+                  showHelp('Please contact Westfield for help resetting your password.')
                 }
               >
                 Forgot Password?
@@ -146,7 +145,7 @@ export default function DemoAccountLogin(): JSX.Element {
             className={styles.createAccount}
             type="button"
             disabled={!ready || busy}
-            onClick={() => showHelp('For this demo, use Casey or Jordan’s provided account.')}
+            onClick={() => showHelp('Please contact your agent for help creating an account.')}
           >
             Create Account
           </button>
@@ -154,15 +153,10 @@ export default function DemoAccountLogin(): JSX.Element {
             className={styles.paymentTitle}
             type="button"
             disabled={!ready || busy}
-            onClick={() => showHelp('Payment processing is outside this synthetic account demo.')}
+            onClick={() => showHelp('Please contact your agent for help making a payment.')}
           >
             <span>One-Time Payment</span>
           </button>
-          <p className={styles.accountHelp}>
-            casey@example.com or jordan@example.com
-            <br />
-            Password: {demoAccountPassword}
-          </p>
         </section>
       </main>
     </>
