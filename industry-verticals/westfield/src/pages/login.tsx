@@ -38,7 +38,10 @@ export default function DemoAccountLogin(): JSX.Element {
       if (passwordInput.current) passwordInput.current.value = '';
       setError(true);
       setStatus(
-        cause instanceof Error ? cause.message : 'Sign in is unavailable. Please try again.'
+        cause instanceof Error &&
+          cause.message === 'The email or password is incorrect. Please try again.'
+          ? cause.message
+          : 'We couldn’t sign you in. Please try again.'
       );
       submitting.current = false;
       setBusy(false);
