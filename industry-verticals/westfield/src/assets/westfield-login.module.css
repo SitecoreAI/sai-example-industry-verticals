@@ -37,20 +37,13 @@
 }
 
 .title {
-  margin: 20px 0 8px;
+  margin: 20px 0 28px;
   color: #4a4a4a;
   font:
     400 28px/37px 'WestfieldLoginRoboto',
     Roboto,
     Arial,
     sans-serif;
-}
-
-.demoNotice {
-  margin: 0 0 20px;
-  color: #626262;
-  font-size: 12px;
-  line-height: 18px;
 }
 
 .fields {
@@ -181,14 +174,6 @@
   height: 1px;
   background: #4a4a4a;
   content: '';
-}
-
-.accountHelp {
-  margin: 22px 0 0;
-  color: #626262;
-  font-size: 12px;
-  line-height: 18px;
-  overflow-wrap: anywhere;
 }
 
 .status {
