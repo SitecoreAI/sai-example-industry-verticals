@@ -305,8 +305,10 @@ const flows: DemoFlow[] = [
         title: 'Review the page and publish the completed article',
         actions: [
           'Preview Mobile (370 px) and Desktop Small (1024 px). Check the image, alternative text, links, required fields, and Section order.',
-          'Choose Actions → Publish with the agreed presenter account.',
-          'Wait for the publishing job to finish before showing the visitor result.',
+          'For your new draft article, choose Actions → Publish. Confirm the status changes to Approved.',
+          'Choose the top Publish control. Keep Page and Current language (English) selected, select Subpages to include this article’s local Data, and clear All references.',
+          'Confirm only your article and its local Data are in scope, then choose Start publish.',
+          'Choose Open publishing jobs and wait for the job to finish before showing the visitor result.',
         ],
       },
       {
