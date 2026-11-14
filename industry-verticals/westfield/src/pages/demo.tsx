@@ -146,7 +146,7 @@ const flows: DemoFlow[] = [
     title: 'Known customer information changes the offer',
     time: '5 minutes',
     goal: 'Offer a useful next step that respects each customer’s paperless preference.',
-    context: 'Home tab · Casey, then Jordan · use the sign-in password in the private deck notes',
+    context: 'Home tab · Casey, then Jordan · paste each email into both sign-in fields',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       { kind: 'say', text: 'A known customer fact helps the site choose a useful next step.' },
@@ -157,7 +157,7 @@ const flows: DemoFlow[] = [
         title: 'Sign in as Casey and show the paperless offer on Home',
         actions: [
           'From Home, choose Login → Customer.',
-          'On Sign into My Westfield, enter Casey’s email and the password from the private presenter notes. Choose SIGN IN.',
+          'On Sign into My Westfield, paste Casey’s email into both the email and password fields. Choose SIGN IN.',
           'Home opens at the top. Point out Logout in the header, then scroll to the MyWestfield section.',
           'Show “Sign up for paperless billing.”',
         ],
@@ -173,7 +173,7 @@ const flows: DemoFlow[] = [
         title: 'Sign in as Jordan and compare the same section',
         actions: [
           'Choose Logout, then Login → Customer.',
-          'Sign in with Jordan’s email and the password from the private presenter notes.',
+          'Paste Jordan’s email into both the email and password fields, then choose SIGN IN.',
           'From the top of Home, scroll to the MyWestfield section. Show “Keep your coverage in step with life.”',
           'In Page Builder, select this Home section and show its native personalization using Westfield paperless status.',
         ],
@@ -592,8 +592,8 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   The accounts and campaign are synthetic. The sign-in example does not change a
-                  policy or billing preference, and no live CRM connection is demonstrated. Keep
-                  account passwords in the private deck notes.
+                  policy or billing preference, and no live CRM connection is demonstrated. For
+                  these two demo accounts, the password matches the email address.
                 </li>
                 <li>
                   This rehearsal uses the agreed presenter account. It does not establish the
