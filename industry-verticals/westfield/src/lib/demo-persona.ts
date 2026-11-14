@@ -16,8 +16,6 @@ const demoAccounts = [
   },
 ] as const;
 
-export const demoAccountPassword = 'Sitecore1';
-
 const campaignParameters = [
   'utm_source',
   'utm_medium',
@@ -124,7 +122,7 @@ export async function signInDemoAccount(username: string, password: string): Pro
   const account = demoAccounts.find(
     (candidate) => candidate.username === username.trim().toLowerCase()
   );
-  if (!account || password !== demoAccountPassword) {
+  if (!account || password !== account.username) {
     throw new Error('The email or password is incorrect. Please try again.');
   }
 
