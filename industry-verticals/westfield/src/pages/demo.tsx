@@ -306,9 +306,9 @@ const flows: DemoFlow[] = [
         actions: [
           'Preview Mobile (370 px) and Desktop Small (1024 px). Check the image, alternative text, links, required fields, and Section order.',
           'For your new draft article, choose Actions → Publish. Confirm the status changes to Approved.',
-          'Choose the top Publish control. Keep Page and Current language (English) selected, select Subpages to include this article’s local Data, and clear All references.',
-          'Confirm only your article and its local Data are in scope, then choose Start publish.',
-          'Choose Open publishing jobs and wait for the job to finish before showing the visitor result.',
+          'Open publishing jobs and wait for the automatic publishing job to finish before showing the visitor result.',
+          'Only if no publishing job starts, choose the top Publish control. Keep Page and Current language (English) selected, select Subpages to include this article’s local Data, and clear All references.',
+          'For this fallback, confirm only your article and its local Data are in scope, choose Start publish, then wait for the job to finish.',
         ],
       },
       {
