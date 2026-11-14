@@ -1,57 +1,470 @@
 import Head from 'next/head';
-import { JSX, useRef, useState } from 'react';
+import { JSX, useId, useRef, useState } from 'react';
 import { getBrowserId } from '@sitecore-cloudsdk/core/browser';
-import { demoAccountPassword, resetDemoBrowserIdentity } from 'lib/demo-persona';
+import { resetDemoBrowserIdentity } from 'lib/demo-persona';
 
-const authoringUrl =
-  'https://pages.sitecorecloud.io/editor?tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200&organization=org_JypIqqJsbEly6gh2&sc_itemid=91e93020-4ee9-4cfa-8904-8f19c8c8e4f1&sc_lang=en&sc_site=westfield&sc_version=1';
+const siteUrl = 'https://thlt-westfield-demo.vercel.app';
+const portalUrl = 'https://portal.sitecorecloud.io/';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
-const profilesUrl =
-  'https://app.sitecorecloud.io/optimization/profiles?organization=org_JypIqqJsbEly6gh2&tenantId=76ac4984-cff8-4b3d-3071-08ded696f4f5';
-const flows = [
-  { id: 'familiar-experience', title: 'A familiar Westfield experience', time: '1 minute' },
-  { id: 'affinity', title: 'Reading builds an interest profile', time: '5 minutes' },
-  { id: 'campaign', title: 'The message continues from the ad', time: '2 minutes' },
-  { id: 'customers', title: 'Known customer information changes the offer', time: '5 minutes' },
-  { id: 'authoring', title: 'Create a page with confidence', time: '9 minutes' },
-] as const;
-const rehearsalItems = [
-  'Home, menus and mobile layout are ready to show.',
-  'The anonymous Client ID opens the correct native profile.',
-  'Each article VIEW appears before its updated affinity is presented.',
-  'Home interest changes the Home hero after the documented browsing sequence.',
-  'The Instagram campaign still selects its matching Home hero after the affinity loop.',
-  'Casey returns to the top of Home, then scrolls to the MyWestfield paperless offer.',
-  'Jordan returns to the top of Home, then scrolls to the MyWestfield coverage offer.',
-  'Logout returns to anonymous Home and restores the Login button.',
-  'Search finds the full article and its images load.',
-  'Page Builder, the blank article and permitted components are ready.',
-  'Content Hub is signed in and Westfield assets are available.',
+
+type ScriptBlock =
+  | { kind: 'say'; text: string }
+  | { kind: 'do'; id: string; title: string; actions: string[] }
+  | { kind: 'copy'; label: string; value: string; url?: boolean }
+  | { kind: 'phase'; id: string; title: string }
+  | { kind: 'result'; text: string }
+  | { kind: 'return'; title: string };
+
+type DemoFlow = {
+  id: string;
+  code: string;
+  title: string;
+  time: string;
+  goal: string;
+  context: string;
+  blocks: ScriptBlock[];
+};
+
+const flows: DemoFlow[] = [
+  {
+    id: 'familiar-experience',
+    code: 'P1',
+    title: 'A familiar Westfield experience',
+    time: '1 minute',
+    goal: 'Establish the familiar website before its message changes.',
+    context: 'Home tab · anonymous visitor · fresh public-site session',
+    blocks: [
+      { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
+      { kind: 'say', text: 'Start with the Westfield experience customers recognize.' },
+      {
+        kind: 'do',
+        id: 'P1.1',
+        title: 'Show the standard Home page and its navigation',
+        actions: [
+          'Switch to the prepared Home tab in the anonymous visitor session.',
+          'Point out “Reliable Insurance, Real Peace of Mind,” the imagery, and the shared navigation.',
+          'Open About Us and locate Articles. Point out Login → Customer, keeping sign-in for P4.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Home shows “Reliable Insurance, Real Peace of Mind.” The header offers Login.',
+      },
+      { kind: 'return', title: 'Browsing interests change the message' },
+    ],
+  },
+  {
+    id: 'affinity',
+    code: 'P2',
+    title: 'Reading builds an interest profile',
+    time: '5 minutes',
+    goal: 'Show how browsing provides a useful signal before the visitor signs in.',
+    context: 'Home and Profiles tabs · same anonymous visitor as P1 · before Instagram',
+    blocks: [
+      { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
+      {
+        kind: 'say',
+        text: 'Article visits help Sitecore infer which topics interest this visitor.',
+      },
+      {
+        kind: 'do',
+        id: 'P2.1',
+        title: 'Read the teen-driver article and show its recorded visit',
+        actions: [
+          'From Home, choose About Us → Articles.',
+          'Under Article Tags, select Auto. Open “A Guide to First-Time Auto Insurance for Your Teenager.”',
+          'Switch to the prepared native Profiles tab for this visitor. In Engagement, wait for the article VIEW.',
+          'Open Overview → Top affinities and point out the Auto interest. Read the values shown in the profile.',
+        ],
+      },
+      {
+        kind: 'say',
+        text: 'Now read advice about the home and watch that interest grow in the same profile.',
+      },
+      {
+        kind: 'do',
+        id: 'P2.2',
+        title: 'Read two Home articles and compare the profile after each visit',
+        actions: [
+          'Return to the website tab. Use the Articles breadcrumb, select Home, and open “How To Help Prevent Water Damage in Your Home or Business.”',
+          'In the same native profile, wait for this VIEW and inspect Top affinities again.',
+          'Use the Articles breadcrumb to open “How To Prepare Your Home and Family for a Spring Thunderstorm.”',
+          'Wait for the storm VIEW and Home’s second article visit. Read the current Home and Auto values rather than assuming a fixed score.',
+        ],
+      },
+      {
+        kind: 'do',
+        id: 'P2.3',
+        title: 'Return Home and connect the new message to the browsing interest',
+        actions: [
+          'Once the visits appear in the profile, return to the website and choose the Westfield logo.',
+          'Compare the Home hero with the original message from P1.',
+          'In the prepared Page Builder tab, select the Home hero and show its Home-interest experience and native condition.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The same anonymous profile records one Auto article and two Home articles. Home shows “Protection for the place you call home.”',
+      },
+      { kind: 'return', title: 'The website continues the Instagram message' },
+    ],
+  },
+  {
+    id: 'campaign',
+    code: 'P3',
+    title: 'The message continues from the ad',
+    time: '2 minutes',
+    goal: 'Continue an acquisition message from Instagram onto the website.',
+    context: 'Instagram tab · same anonymous session as P2 · no customer sign-in yet',
+    blocks: [
+      { kind: 'copy', label: 'Instagram tab', value: `${siteUrl}/instagram/index.html`, url: true },
+      {
+        kind: 'say',
+        text: 'The campaign supplies visit context while the visitor remains anonymous.',
+      },
+      {
+        kind: 'do',
+        id: 'P3.1',
+        title: 'Follow the Westfield ad to its matching Home message',
+        actions: [
+          'Switch to the prepared Instagram tab. Point out the Westfield sponsored post among unrelated friend posts.',
+          'On “A new chapter. Protection for what’s next.” choose Learn more.',
+          'Let the campaign entry open Home, then point out the matching message and imagery.',
+          'In the prepared Page Builder tab, select the Home hero and show Next chapter campaign, with UTM Campaign equal to next_chapter.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Home shows “A new chapter. Protection for what’s next.” The header still offers Login.',
+      },
+      { kind: 'return', title: 'Paperless status changes the message after sign-in' },
+    ],
+  },
+  {
+    id: 'customers',
+    code: 'P4',
+    title: 'Known customer information changes the offer',
+    time: '5 minutes',
+    goal: 'Offer a useful next step that respects each customer’s paperless preference.',
+    context: 'Home tab · Casey, then Jordan · use the sign-in password in the private deck notes',
+    blocks: [
+      { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
+      { kind: 'say', text: 'A known customer fact helps the site choose a useful next step.' },
+      { kind: 'copy', label: 'Casey email', value: 'casey@example.com' },
+      {
+        kind: 'do',
+        id: 'P4.1',
+        title: 'Sign in as Casey and show the paperless offer on Home',
+        actions: [
+          'From Home, choose Login → Customer.',
+          'On Sign into My Westfield, enter Casey’s email and the password from the private presenter notes. Choose SIGN IN.',
+          'Home opens at the top. Point out Logout in the header, then scroll to the MyWestfield section.',
+          'Show “Sign up for paperless billing.”',
+        ],
+      },
+      {
+        kind: 'say',
+        text: 'Jordan already uses paperless billing, so the same place on Home has a different message.',
+      },
+      { kind: 'copy', label: 'Jordan email', value: 'jordan@example.com' },
+      {
+        kind: 'do',
+        id: 'P4.2',
+        title: 'Sign in as Jordan and compare the same section',
+        actions: [
+          'Choose Logout, then Login → Customer.',
+          'Sign in with Jordan’s email and the password from the private presenter notes.',
+          'From the top of Home, scroll to the MyWestfield section. Show “Keep your coverage in step with life.”',
+          'In Page Builder, select this Home section and show its native personalization using Westfield paperless status.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Casey receives the paperless offer. Jordan receives the coverage message. The header shows Logout while each customer is signed in.',
+      },
+      { kind: 'return', title: 'Creating an article in Page Builder' },
+    ],
+  },
+  {
+    id: 'authoring',
+    code: 'P5',
+    title: 'Create a page with confidence',
+    time: '9 minutes',
+    goal: 'Create useful content within a prepared, consistent article structure.',
+    context: 'Page Builder tab · agreed presenter account · Westfield site · own new article',
+    blocks: [
+      { kind: 'copy', label: 'Sitecore Portal', value: portalUrl, url: true },
+      { kind: 'phase', id: 'P5.1', title: 'Create the article' },
+      { kind: 'say', text: 'The prepared structure lets the author concentrate on content.' },
+      {
+        kind: 'do',
+        id: 'P5.1.1',
+        title: 'Create an Advice Article with one blank Section',
+        actions: [
+          'Switch to the prepared Page Builder tab for Westfield.',
+          'Under advice, choose Create a page → Advice Article. Give it a unique name and press Enter.',
+          'If prompted, choose Reload tree. Expand Home → advice and select the new article.',
+          'Confirm the page structure is present with one blank Section, ready for content.',
+        ],
+      },
+      { kind: 'copy', label: 'Article title', value: 'A simple home checkup' },
+      {
+        kind: 'copy',
+        label: 'Article summary',
+        value: 'A short household checklist to help prepare questions for your insurance agent.',
+      },
+      {
+        kind: 'do',
+        id: 'P5.1.2',
+        title: 'Populate the article’s details',
+        actions: [
+          'Open Content. Under Content, set Title. Under Metadata, set Summary.',
+          'Under Article, set Topic to Home and choose today’s Publication date.',
+          'Leave Reading time blank for automatic calculation. Wait for Saved.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The new article has its own title and metadata within the prepared page structure.',
+      },
+      { kind: 'phase', id: 'P5.2', title: 'Select an approved image' },
+      { kind: 'say', text: 'Authors can choose approved images within their normal editing flow.' },
+      {
+        kind: 'do',
+        id: 'P5.2.1',
+        title: 'Find a Westfield image in the Content Hub picker',
+        actions: [
+          'In Content → Article → Article image, choose Browse media library → Content hub.',
+          'In Approved assets, choose Brand → Show all → Westfield → Close.',
+          'Open Family at home. Select the HomePageHero rendition, then Select.',
+          'In the parent media dialog, choose Add selected.',
+        ],
+      },
+      { kind: 'copy', label: 'Image alt text', value: 'A family relaxing together at home.' },
+      {
+        kind: 'do',
+        id: 'P5.2.2',
+        title: 'Describe the image and retain the selection',
+        actions: [
+          'Return to Content → Article and set Image alt text for Article image.',
+          'Wait for Saved. Reopen the article and confirm the image and alternative text remain.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The article retains the selected Westfield image and its description.',
+      },
+      { kind: 'phase', id: 'P5.3', title: 'Add and reorder Sections' },
+      { kind: 'say', text: 'A Section keeps its heading and text together.' },
+      { kind: 'copy', label: 'First Section heading', value: 'Questions for your agent' },
+      {
+        kind: 'copy',
+        label: 'First Section text',
+        value:
+          'Review the changes around your home and bring your questions to your insurance agent.',
+      },
+      {
+        kind: 'do',
+        id: 'P5.3.1',
+        title: 'Populate the starting Section and add another permitted Section',
+        actions: [
+          'Select the starting Section. In its Content tab, set Section heading and Text. Wait for Saved.',
+          'In Layers, expand headless-main → Partial design content → article-content-2.',
+          'Use Plus → Insert into. Confirm the location-specific picker offers Section and Action.',
+          'Choose Section → Assign content item. Select this article’s Data folder, then Create new → Section.',
+          'Name it Follow-up Section, press Enter, wait for creation, and choose Assign.',
+        ],
+      },
+      { kind: 'copy', label: 'Second Section heading', value: 'Start with a household checklist' },
+      {
+        kind: 'copy',
+        label: 'Second Section text',
+        value:
+          'Keep a Westfield household checkup list of changes to discuss at your next policy review.',
+      },
+      {
+        kind: 'do',
+        id: 'P5.3.2',
+        title: 'Reorder the complete Sections and confirm their saved content',
+        actions: [
+          'Populate the second Section’s heading and Text, then wait for Saved.',
+          'In Layers, select the second complete Section and use its native Move up control to place it above the first.',
+          'Wait for Saved, reopen the same article, and confirm both headings and bodies follow the saved order.',
+          'Remove empty placements from this article before publication. Keep useful components in the library.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Both complete Sections retain their own content and saved order. The article placeholder offers only its permitted components.',
+      },
+      { kind: 'phase', id: 'P5.4', title: 'Preview, publish, and find the article' },
+      { kind: 'say', text: 'Publication makes the completed content available to visitors.' },
+      {
+        kind: 'do',
+        id: 'P5.4.1',
+        title: 'Review the page and publish the completed article',
+        actions: [
+          'Preview Mobile (370 px) and Desktop Small (1024 px). Check the image, alternative text, links, required fields, and Section order.',
+          'Choose Actions → Publish with the agreed presenter account.',
+          'Wait for the publishing job to finish before showing the visitor result.',
+        ],
+      },
+      {
+        kind: 'copy',
+        label: 'Home tab for the published article',
+        value: `${siteUrl}/`,
+        url: true,
+      },
+      {
+        kind: 'do',
+        id: 'P5.4.2',
+        title: 'Find the published article through the website',
+        actions: [
+          'Switch to the visitor Home tab. Choose About Us → Articles.',
+          'Find the new title and choose Read article. Confirm its image and saved Section order.',
+          'Open the normal header Search to find words in the published article content.',
+        ],
+      },
+      { kind: 'copy', label: 'Article body search', value: 'Westfield household checkup' },
+      {
+        kind: 'do',
+        id: 'P5.4.3',
+        title: 'Find content from the article body',
+        actions: [
+          'Enter the body search phrase and submit it.',
+          'Allow the listing and search to update, then open the matching new article.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The live article retains its image and Sections and can be found through Articles and Search.',
+      },
+      { kind: 'return', title: 'Choosing a message for each visitor' },
+    ],
+  },
 ];
 
-function FlowHeading({ index }: { index: number }): JSX.Element {
-  const flow = flows[index];
+const rehearsalItems = [
+  'The fresh Home session and matching native profile are ready.',
+  'All three article visits appear in the same profile before Home changes.',
+  'The Instagram ad opens its matching Home message after the affinity loop.',
+  'Casey and Jordan receive their different offers on Home, and Logout works.',
+  'A new Advice Article starts blank and retains its independent content.',
+  'The Westfield DAM picker, permitted components, and Section reorder work.',
+  'The completed article can be published and found through Articles and Search.',
+];
+
+function CopyValue({
+  label,
+  value,
+  url = false,
+}: {
+  label: string;
+  value: string;
+  url?: boolean;
+}): JSX.Element {
+  const fieldId = useId();
+  const [status, setStatus] = useState('');
+  const [copying, setCopying] = useState(false);
+  const copy = async (): Promise<void> => {
+    setCopying(true);
+    setStatus('');
+    try {
+      await navigator.clipboard.writeText(value);
+      setStatus(`${label} copied.`);
+    } catch {
+      setStatus('Copy is unavailable. Select the text above and copy it manually.');
+    } finally {
+      setCopying(false);
+    }
+  };
   return (
-    <div className="westfield-demo__flow-heading">
-      <span className="westfield-demo__flow-number">0{index + 1}</span>
-      <div>
-        <p className="westfield-demo__eyebrow">
-          Flow 0{index + 1} · {flow.time}
-        </p>
-        <h2 id={`${flow.id}-title`}>{flow.title}</h2>
+    <div className="westfield-demo__block westfield-demo__block--copy">
+      <p className="westfield-demo__block-label">{url ? 'Copy URL' : 'Copy / paste'}</p>
+      <div className="westfield-demo__copy-heading">
+        <p id={`${fieldId}-label`}>{label}</p>
+        <button
+          type="button"
+          className="westfield-demo__copy-button"
+          aria-label={url ? `Copy URL for ${label}` : `Copy ${label}`}
+          disabled={copying}
+          onClick={() => void copy()}
+        >
+          {copying ? 'Copying…' : url ? 'Copy URL' : 'Copy text'}
+        </button>
       </div>
+      <pre
+        id={fieldId}
+        className="westfield-demo__copy-value"
+        tabIndex={0}
+        role="textbox"
+        aria-readonly="true"
+        aria-multiline="true"
+        aria-labelledby={`${fieldId}-label`}
+      >
+        {value}
+      </pre>
+      <p className="westfield-demo__copy-status" role="status" aria-live="polite">
+        {status}
+      </p>
     </div>
   );
 }
 
+function Script({ block }: { block: ScriptBlock }): JSX.Element {
+  switch (block.kind) {
+    case 'copy':
+      return <CopyValue {...block} />;
+    case 'say':
+      return (
+        <div className="westfield-demo__block westfield-demo__block--say">
+          <p className="westfield-demo__block-label">Say / point out</p>
+          <p>{block.text}</p>
+        </div>
+      );
+    case 'do':
+      return (
+        <details className="westfield-demo__block westfield-demo__block--do" id={block.id}>
+          <summary>
+            <span className="westfield-demo__block-label">{block.id} · Do</span>
+            <span>{block.title}</span>
+            <span className="westfield-demo__expand">Click-by-click</span>
+          </summary>
+          <ol>
+            {block.actions.map((action) => (
+              <li key={action}>{action}</li>
+            ))}
+          </ol>
+        </details>
+      );
+    case 'phase':
+      return (
+        <h3 className="westfield-demo__phase" id={block.id}>
+          <span>{block.id}</span> {block.title}
+        </h3>
+      );
+    case 'result':
+      return (
+        <div className="westfield-demo__block westfield-demo__block--result">
+          <p className="westfield-demo__block-label">Result check</p>
+          <p>{block.text}</p>
+        </div>
+      );
+    case 'return':
+      return (
+        <p className="westfield-demo__return">
+          <strong>Return to the deck</strong>
+          <span>{block.title}</span>
+        </p>
+      );
+  }
+}
+
 export default function DemoLaunch(): JSX.Element {
   const launching = useRef(false);
-  const [status, setStatus] = useState(
-    'Optional preparation controls. Use the prepared tabs during the presentation.'
-  );
+  const [status, setStatus] = useState('Prepare the visitor session before the presentation.');
   const [busy, setBusy] = useState<'prepare' | 'home' | 'instagram' | null>(null);
   const [clientId, setClientId] = useState<string | null>(null);
-  const [copyStatus, setCopyStatus] = useState('');
   const [error, setError] = useState(false);
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
 
@@ -61,26 +474,20 @@ export default function DemoLaunch(): JSX.Element {
     setBusy(destination);
     setError(false);
     setClientId(null);
-    setCopyStatus('');
     setStatus('Starting a fresh anonymous session…');
     try {
       await resetDemoBrowserIdentity();
       const currentClientId = getBrowserId();
-      if (!currentClientId) {
+      if (!currentClientId)
         throw new Error('The visitor session is not ready. Please prepare it again.');
-      }
       setClientId(currentClientId);
       if (destination === 'prepare') {
-        setStatus('Copy the Client ID, open Home to start its profile, then find it in Sitecore.');
+        setStatus('Copy the Client ID, open Home, then find the matching profile in Sitecore.');
         launching.current = false;
         setBusy(null);
         return;
       }
-      setStatus(
-        destination === 'instagram'
-          ? 'Anonymous session ready. Opening the Instagram campaign…'
-          : 'Anonymous session ready. Opening Westfield Home…'
-      );
+      setStatus('Anonymous session ready. Opening the website…');
       window.location.assign(destination === 'instagram' ? '/instagram/index.html' : '/');
     } catch (cause) {
       setError(true);
@@ -90,32 +497,11 @@ export default function DemoLaunch(): JSX.Element {
     }
   };
 
-  const copyClientId = async (): Promise<void> => {
-    if (!clientId) return;
-    try {
-      await navigator.clipboard.writeText(clientId);
-      setCopyStatus(
-        'Client ID copied. Open Home first, then find it in the signed-in Sitecore app.'
-      );
-    } catch {
-      setCopyStatus('Copy is unavailable. Select the Client ID above and copy it manually.');
-    }
-  };
-
-  const toggleItem = (item: string) => {
-    setCheckedItems((previous) =>
-      previous.includes(item) ? previous.filter((value) => value !== item) : [...previous, item]
-    );
-  };
-
   return (
     <>
       <Head>
-        <title>Westfield demo guide</title>
-        <meta
-          name="description"
-          content="Presenter guide for the Westfield customer experience and native authoring demo."
-        />
+        <title>Westfield presenter guide</title>
+        <meta name="description" content="Presenter reference for the Westfield demonstration." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <main className="westfield-demo" id="top">
@@ -123,704 +509,200 @@ export default function DemoLaunch(): JSX.Element {
           Skip to demo flows
         </a>
         <header className="westfield-demo__masthead">
-          <a className="westfield-demo__brand" href="/" aria-label="Westfield demo Home">
-            Westfield<span>Customer demo</span>
-          </a>
-          <a
-            className="westfield-demo__text-link"
-            href={authoringUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open Page Builder <span aria-hidden="true">↗</span>
-          </a>
+          <p className="westfield-demo__brand">
+            Westfield <span>Presenter guide</span>
+          </p>
+          <p>50-minute presentation + 10 minutes for questions</p>
         </header>
-
         <div className="westfield-demo__intro">
-          <div>
-            <p className="westfield-demo__eyebrow">Presenter guide · 22 minutes of live demos</p>
-            <h1>Present the Westfield experience.</h1>
-            <p className="westfield-demo__lede">
-              Start with the Westfield experience customers know. Browse articles to build an
-              anonymous interest profile, follow the Instagram ad, recognize two existing customers,
-              then create useful content with native authoring guardrails. These five loops occupy
-              minutes 10–32 of the 50-minute presentation. The full session includes a separate
-              10-minute question period. Prepare the direct tabs before presenting; the live
-              demonstration does not require returning to this guide.
-            </p>
-          </div>
-          <div className="westfield-demo__launch-panel">
-            <p className="westfield-demo__eyebrow">Optional preparation</p>
-            <h2>Prepare a fresh visitor session</h2>
-            <p>
-              Before presenting, use a fresh public-site browser session. Choose
-              <strong> Prepare anonymous browsing session</strong>, copy its Client ID, then choose
-              <strong> Open Home</strong> to record the first page view. Next, find the matching
-              profile in the signed-in Sitecore app. Prepare Articles and Instagram after that. Show
-              browsing interest before Instagram, then Casey and Jordan. Returning here during the
-              live demonstration is unnecessary.
-            </p>
-            <button
-              className="westfield-demo__button"
-              type="button"
-              disabled={busy !== null}
-              onClick={() => void launch('prepare')}
-            >
-              {busy === 'prepare' ? 'Preparing…' : 'Prepare anonymous browsing session'}
-              <span aria-hidden="true">→</span>
-            </button>
-            <button
-              className="westfield-demo__button westfield-demo__button--secondary"
-              type="button"
-              disabled={busy !== null}
-              onClick={() => void launch('instagram')}
-            >
-              {busy === 'instagram' ? 'Starting…' : 'Start anonymous Instagram journey'}
-              <span aria-hidden="true">→</span>
-            </button>
-            <button
-              className="westfield-demo__button westfield-demo__button--secondary"
-              type="button"
-              disabled={busy !== null}
-              onClick={() => void launch('home')}
-            >
-              {busy === 'home' ? 'Starting…' : 'Reset and open plain Home'}
-              <span aria-hidden="true">→</span>
-            </button>
-            <p
-              className={`westfield-demo__launch-status${error ? 'westfield-demo__launch-status--error' : ''}`}
-              aria-live="polite"
-              role={error ? 'alert' : 'status'}
-              aria-atomic="true"
-            >
-              {status}
-            </p>
-            {clientId ? (
-              <div className="westfield-demo__client-id">
-                <p>
-                  <strong>Current anonymous Client ID</strong>
-                </p>
-                <code>{clientId}</code>
-                <button
-                  className="westfield-demo__clear"
-                  type="button"
-                  onClick={() => void copyClientId()}
-                >
-                  Copy Client ID
-                </button>
-                <p aria-live="polite">{copyStatus}</p>
-                <a href={profilesUrl} target="_blank" rel="noreferrer">
-                  Profiles link (backup) ↗
-                </a>
-                <p className="westfield-demo__fine-print">
-                  Preparation initializes the anonymous session but sends no page view. Open Home
-                  first so its VIEW can create the profile. In your existing signed-in Sitecore tab,
-                  choose <strong>Optimization → Profiles</strong>, select
-                  <strong> Client ID</strong>, paste the full value, and press
-                  <strong> Enter</strong>. Open the matching profile. Use internal navigation first
-                  and keep the direct Profiles link as a backup. If a new tab stalls, use the
-                  existing app tab. Keep the same public-site session for browsing; customer sign-in
-                  creates a different demo identity.
-                </p>
-              </div>
-            ) : (
-              <p className="westfield-demo__fine-print">
-                Prepare the browsing session to display its Client ID. No profile data or affinity
-                scores are stored or shown by this guide.
-              </p>
-            )}
-            <div className="westfield-demo__links">
-              <a href="/" target="_blank" rel="noreferrer">
-                Open Home ↗
-              </a>
-              <a href="/advice" target="_blank" rel="noreferrer">
-                Open Articles ↗
-              </a>
-              <a href="/instagram/index.html" target="_blank" rel="noreferrer">
-                Open Instagram ↗
-              </a>
-            </div>
-            <p className="westfield-demo__fine-print">
-              This resets the visitor session only. It does not change CMS content, profiles or DAM
-              assets. Use these controls before the presentation, rather than between live loops.
-            </p>
-          </div>
+          <p className="westfield-demo__eyebrow">Five live loops · 22 minutes</p>
+          <h1>Keep the next step in view.</h1>
+          <p className="westfield-demo__lede">
+            Show the website and native Sitecore tools to the audience. Keep this reference on a
+            separate screen. Prepare the tabs first, then follow P1–P5 without returning here during
+            the presentation.
+          </p>
         </div>
-
-        <section className="westfield-demo__prepare" aria-labelledby="prepare-title">
-          <div>
-            <p className="westfield-demo__eyebrow">Before presenting</p>
-            <h2 id="prepare-title">Keep the next click ready.</h2>
+        <details className="westfield-demo__preparation">
+          <summary>Before the demo · prepare tabs, accounts, and the visitor session</summary>
+          <div className="westfield-demo__preparation-body">
+            <ol>
+              <li>
+                Keep a fresh public-site visitor session separate from the signed-in Sitecore and
+                Content Hub session. Use the same anonymous visitor for P1, P2, and P3.
+              </li>
+              <li>
+                In Sitecore Portal, open Sales Engineers 2 → thlt-demo → thlt-authoring → Westfield.
+                Prepare Page Builder and Profiles. Use the agreed presenter account and the private
+                deck notes for sign-in details.
+              </li>
+              <li>
+                Sign in to the shared DAM before opening its picker. Choose a unique name for your
+                own new article. Leave other authors’ drafts alone.
+              </li>
+            </ol>
+            <CopyValue label="Sitecore Portal" value={portalUrl} url />
+            <CopyValue label="Shared Content Hub" value={damUrl} url />
+            <div className="westfield-demo__preparation-controls">
+              <h2>Prepare the anonymous profile</h2>
+              <p>
+                Prepare once, copy the Client ID, then open Home to record its first page view. In
+                the existing Sitecore app, choose Optimization → Profiles, search Client ID, press
+                Enter, and open the matching profile. Keep that tab ready for P2.
+              </p>
+              <button
+                type="button"
+                className="westfield-demo__button"
+                disabled={busy !== null}
+                onClick={() => void launch('prepare')}
+              >
+                {busy === 'prepare' ? 'Preparing…' : 'Prepare anonymous browsing session'}
+              </button>
+              <p
+                className={error ? 'westfield-demo__error' : 'westfield-demo__prep-status'}
+                role={error ? 'alert' : 'status'}
+                aria-live="polite"
+              >
+                {status}
+              </p>
+              {clientId && <CopyValue label="Current anonymous Client ID" value={clientId} />}
+              <CopyValue label="Home tab" value={`${siteUrl}/`} url />
+              <p>
+                After Home, prepare Articles and the static Instagram feed in this visitor session.
+                Run browsing interest before Instagram, and both anonymous loops before customer
+                sign-in. Do not reset between those live loops.
+              </p>
+            </div>
+            <details className="westfield-demo__support">
+              <summary>Recovery and cleanup outside the live sequence</summary>
+              <ul>
+                <li>
+                  If Page Builder stalls, preserve saved work, refresh once or reopen it in the same
+                  signed-in browser, and close the unused tab.
+                </li>
+                <li>
+                  If a profile visit is missing, choose Engagement → Reload sessions, then inspect
+                  Overview again. Wait for the recorded visit before describing a changed affinity.
+                </li>
+                <li>
+                  If a result is still pending, say so. Use the matching hidden presenter guide as a
+                  clearly identified walkthrough, then continue the presentation.
+                </li>
+                <li>
+                  The accounts and campaign are synthetic. The sign-in example does not change a
+                  policy or billing preference, and no live CRM connection is demonstrated. Keep
+                  account passwords in the private deck notes.
+                </li>
+                <li>
+                  This rehearsal uses the agreed presenter account. It does not establish the
+                  permissions of a restricted author account.
+                </li>
+                <li>
+                  After rehearsal, unpublish only your practice article before removing it. Follow
+                  the private baseline record for restoration, preserving later author edits.
+                </li>
+                <li>Close unused tabs. Restore any temporary viewport changes.</li>
+              </ul>
+              <p>Use these visitor-session resets only before rehearsal, not between live loops.</p>
+              <div className="westfield-demo__reset-buttons">
+                <button
+                  type="button"
+                  className="westfield-demo__button westfield-demo__button--secondary"
+                  disabled={busy !== null}
+                  onClick={() => void launch('home')}
+                >
+                  {busy === 'home' ? 'Starting…' : 'Reset and open plain Home'}
+                </button>
+                <button
+                  type="button"
+                  className="westfield-demo__button westfield-demo__button--secondary"
+                  disabled={busy !== null}
+                  onClick={() => void launch('instagram')}
+                >
+                  {busy === 'instagram' ? 'Starting…' : 'Start anonymous Instagram journey'}
+                </button>
+              </div>
+            </details>
+            <details className="westfield-demo__support">
+              <summary>
+                Rehearsal checklist · {checkedItems.length} of {rehearsalItems.length}
+              </summary>
+              <fieldset className="westfield-demo__checklist">
+                <legend>Check these after trying the current flow</legend>
+                {rehearsalItems.map((item, index) => (
+                  <label key={item} htmlFor={`rehearsal-${index}`}>
+                    <input
+                      id={`rehearsal-${index}`}
+                      type="checkbox"
+                      checked={checkedItems.includes(item)}
+                      onChange={() =>
+                        setCheckedItems((previous) =>
+                          previous.includes(item)
+                            ? previous.filter((value) => value !== item)
+                            : [...previous, item]
+                        )
+                      }
+                    />
+                    <span>{item}</span>
+                  </label>
+                ))}
+              </fieldset>
+              <button
+                className="westfield-demo__clear"
+                type="button"
+                disabled={checkedItems.length === 0}
+                onClick={() => setCheckedItems([])}
+              >
+                Clear checklist
+              </button>
+            </details>
           </div>
-          <ul>
-            <li>
-              Use a fresh public-site session, separate from signed-in Sitecore and Content Hub.
-              Prepare the anonymous session, copy its Client ID, and open Home first. In the
-              existing Sitecore app, use <strong>Optimization → Profiles</strong> to search the full
-              Client ID, press <strong>Enter</strong>, and open the matching profile. Then prepare
-              Articles and the static Instagram feed; opening that feed sends no VIEW. Keep browsing
-              interest before the campaign and both anonymous examples before customer sign-in. Each
-              accepted customer sign-in starts a fresh demo identity.
-            </li>
-            <li>
-              Sign in to <strong>Sales Engineers 2 → thlt-demo → thlt-authoring</strong>. In Page
-              Builder, select the <strong>westfield</strong> site.
-            </li>
-            <li>
-              Sign in to the shared{' '}
-              <a href={damUrl} target="_blank" rel="noreferrer">
-                Content Hub
-              </a>
-              . Choose a unique article name for the authoring exercise. In Sitecore, open the
-              actual <strong>Editor</strong> link in a new tab (<strong>Meta-click</strong> on Mac)
-              and allow the canvas to load. Do not refresh it. Close unused rehearsal tabs.
-            </li>
-          </ul>
-        </section>
-
+        </details>
         <div className="westfield-demo__workspace" id="flows">
           <aside className="westfield-demo__rail">
             <nav aria-label="Demo flows">
-              <p className="westfield-demo__eyebrow">The story</p>
+              <p className="westfield-demo__eyebrow">Presentation order</p>
               <ol>
-                {flows.map((flow, index) => (
+                {flows.map((flow) => (
                   <li key={flow.id}>
                     <a href={`#${flow.id}`}>
-                      <span>0{index + 1}</span>
+                      <span>{flow.code}</span>
                       {flow.title}
                     </a>
                   </li>
                 ))}
               </ol>
             </nav>
-            <div className="westfield-demo__rail-note">
-              <strong>The point to land</strong>
-              <p>
-                Relevant experiences and consistent pages come from managed content, native
-                decisions and reusable page structure.
-              </p>
-            </div>
           </aside>
-
           <div className="westfield-demo__flows">
-            <section
-              className="westfield-demo__flow"
-              id="familiar-experience"
-              aria-labelledby="familiar-experience-title"
-            >
-              <FlowHeading index={0} />
-              <p className="westfield-demo__say">
-                “We can preserve the experience your customers recognize while giving the content
-                team a more flexible way to manage it.”
-              </p>
-              <ol className="westfield-demo__steps">
-                <li>
-                  Switch directly to the prepared <strong>Home</strong> tab. Point out the original
-                  hero, imagery, product sections and shared navigation.
-                </li>
-                <li>
-                  Open a navigation menu and point out <strong>Login → Customer</strong>. Keep
-                  customer sign-in for loop 4. Use Articles for the browsing-interest loop next.
-                </li>
-                <li>
-                  Show a narrow viewport: navigation becomes a mobile menu, the page stacks and the
-                  content remains readable. In Page Builder, the Westfield device presets include{' '}
-                  <strong>375, 420, 576, 768, 960, 1200, 1440 and 1920</strong> pixels.
-                </li>
-              </ol>
-              <div className="westfield-demo__expected">
-                <p className="westfield-demo__eyebrow">Expected result</p>
-                <p>
-                  A fresh, non-campaign Home begins{' '}
-                  <strong>Reliable Insurance, Real Peace of Mind</strong>. Menus, search and
-                  responsive layouts work without horizontal scrolling.
-                </p>
-              </div>
-              <div className="westfield-demo__links">
-                <a href="/" target="_blank" rel="noreferrer">
-                  Open Home ↗
-                </a>
-                <a href="/search" target="_blank" rel="noreferrer">
-                  Open search ↗
-                </a>
-              </div>
-              <p className="westfield-demo__fine-print">
-                Plain links keep the current visitor identity. Links to pages outside the selected
-                demo scope use #.
-              </p>
-            </section>
-
-            <section
-              className="westfield-demo__flow"
-              id="affinity"
-              aria-labelledby="affinity-title"
-            >
-              <FlowHeading index={1} />
-              <div className="westfield-demo__readiness" role="note">
-                <strong>Native browsing and customer journeys verified October 31</strong>
-                <p>
-                  A fresh anonymous visitor saw the standard Home, built the profile below through
-                  normal article navigation, then saw the Home-interest hero on return. The same
-                  visitor’s Instagram click selected the campaign hero. Casey and Jordan then
-                  received their correct first-arrival messages. The Westfield Home messages
-                  personalization is Live.
-                </p>
-              </div>
-              <p className="westfield-demo__say">
-                “Before we know this visitor’s identity, the articles they read tell us something
-                about their interests. Sitecore can use that interest to choose more relevant
-                content.”
-              </p>
-              <ol className="westfield-demo__steps">
-                <li>
-                  Keep the fresh anonymous session used for the standard Home page. Open the normal
-                  <strong> Articles</strong> page. In <strong>Article Tags</strong>, select
-                  <strong> Auto</strong> and read
-                  <strong> A Guide to First-Time Auto Insurance for Your Teenager</strong>.
-                </li>
-                <li>
-                  Switch to the matching native <strong>Profiles</strong> tab prepared with this
-                  visitor’s Client ID. Check the new VIEW in <strong>Engagement</strong>, then open
-                  <strong> Overview → Top affinities</strong>. The recorded rehearsal showed
-                  <strong> Auto: 1 view, score 1.00</strong>.
-                </li>
-                <li>
-                  Return through the article’s <strong>Articles</strong> breadcrumb. Select
-                  <strong> Home</strong> and read
-                  <strong> How To Help Prevent Water Damage in Your Home or Business</strong>.
-                  Inspect the same profile again. The recorded result was
-                  <strong> Auto: 1 view, score 0.50; Home: 1 view, score 0.50</strong>.
-                </li>
-                <li>
-                  Return through Articles and read
-                  <strong> How To Prepare Your Home and Family for a Spring Thunderstorm</strong>.
-                  Inspect the same profile once more. The recorded result was
-                  <strong> Home: 2 views, score 0.67; Auto: 1 view, score 0.33</strong>. Show how
-                  the browsing history changes the balance of interest.
-                </li>
-                <li>
-                  Wait until the storm VIEW and Home’s second view appear before returning to the
-                  website. Choose the <strong>Westfield logo</strong> to open Home. Compare the hero
-                  with the original message. In the prepared Page Builder tab, explain the native
-                  Home-interest rule and its selected content. Continue to Instagram without
-                  resetting the visitor.
-                </li>
-              </ol>
-              <div className="westfield-demo__expected">
-                <p className="westfield-demo__eyebrow">Profile growth and resulting content</p>
-                <p>
-                  The same anonymous profile records one Auto article and two Home articles. Once
-                  Home’s second view is recorded, the native rule can select
-                  <strong> Protection for the place you call home.</strong> The native profile and
-                  rule explain the change; the website does not calculate a local audience score.
-                  The fresh browsing sequence, following Instagram campaign, and both customer first
-                  arrivals passed.
-                </p>
-              </div>
-              <details className="westfield-demo__details">
-                <summary>What information does this example use?</summary>
-                <p>
-                  The configured page affinities are <code>westfield_interest:auto</code> on the
-                  teen-driver article and <code>westfield_interest:home</code> on the water and
-                  thunderstorm articles. The article Topic filter helps navigation; the separate
-                  native affinity assignment controls collection. Run this loop before Instagram so
-                  campaign context does not mask the behavior example.
-                </p>
-                <p>
-                  Profile updates are near real time. In rehearsal, updates took several seconds to
-                  about a minute. If a new VIEW is missing, use
-                  <strong> Engagement → Reload sessions</strong>, then return to
-                  <strong> Overview</strong>. If needed, return to Profiles and reopen this same
-                  profile by its Client ID. Wait for the event and updated values rather than
-                  claiming an immediate change. The scores above are observed examples, not a
-                  promised scoring formula or fixed increment.
-                </p>
-                <p>
-                  The Home decision keeps the Instagram campaign first and the Home-affinity rule
-                  second. The latter uses <strong>Top Affinity</strong> with value
-                  <strong> home</strong>, name <strong>westfield_interest</strong>, and
-                  <strong> Is true</strong>. If the fresh rehearsal or regression checks fail, use
-                  captured screens as a clearly identified walkthrough. A successful VIEW alone does
-                  not prove the selected content.
-                </p>
-              </details>
-              <div className="westfield-demo__links">
-                <a href="/advice" target="_blank" rel="noreferrer">
-                  Browse Articles ↗
-                </a>
-                <a href={profilesUrl} target="_blank" rel="noreferrer">
-                  Profiles link (backup) ↗
-                </a>
-                <a href="/search?q=water" target="_blank" rel="noreferrer">
-                  Search “water” ↗
-                </a>
-              </div>
-              <p className="westfield-demo__fine-print">
-                Full-article search remains available through the normal header. Optional body
-                searches include Yiddish for the teen-driver article and trampoline for the policy
-                review article. Search is supporting navigation rather than a separate timed loop.
-              </p>
-            </section>
-
-            <section
-              className="westfield-demo__flow"
-              id="campaign"
-              aria-labelledby="campaign-title"
-            >
-              <FlowHeading index={2} />
-              <p className="westfield-demo__say">
-                “Someone planning their next chapter sees a message that continues from the ad to
-                the website. We do not need to know who they are yet.”
-              </p>
-              <ol className="westfield-demo__steps">
-                <li>
-                  Switch directly to the prepared{' '}
-                  <a href="/instagram/index.html" target="_blank" rel="noreferrer">
-                    Instagram feed
-                  </a>{' '}
-                  tab before customer sign-in. Show the Westfield sponsored post among unrelated
-                  posts from Sam Reed and Jamie Chen.
-                </li>
-                <li>
-                  On the ad <strong>A new chapter. Protection for what’s next.</strong>, click{' '}
-                  <strong>Learn more</strong>. The campaign entry retains its attribution and opens
-                  Home.
-                </li>
-                <li>
-                  Point out the matching message and home/auto imagery. In Page Builder, select the
-                  Home hero and show its native <strong>Next chapter campaign</strong> experience:{' '}
-                  <strong>UTM Campaign → Is equal to → next_chapter</strong>.
-                </li>
-              </ol>
-              <div className="westfield-demo__expected">
-                <p className="westfield-demo__eyebrow">Expected result</p>
-                <p>
-                  Once campaign attribution is available, Home reads{' '}
-                  <strong>A new chapter. Protection for what’s next.</strong> The visitor is still
-                  anonymous. Compare it with the original Home message shown in loop 1.
-                </p>
-                <p>
-                  If the browsing-interest message remains, show the prepared native campaign rule
-                  while the profile updates. Then return to the same Home URL and reload once. In
-                  this rehearsal, the matching campaign message appeared after about two minutes;
-                  that timing and a first-document change are not guaranteed.
-                </p>
-              </div>
-              <details className="westfield-demo__details">
-                <summary>What establishes campaign context?</summary>
-                <p>
-                  The ad carries <code>instagram / social / next_chapter</code> attribution through
-                  an anonymous campaign entry. That entry waits for the native event acknowledgement
-                  before opening Home. Sitecore selects the hero treatment. A direct Home URL with
-                  campaign parameters is not the demonstrated campaign entry.
-                </p>
-              </details>
-            </section>
-
-            <section
-              className="westfield-demo__flow"
-              id="customers"
-              aria-labelledby="customers-title"
-            >
-              <FlowHeading index={3} />
-              <p className="westfield-demo__say">
-                “Once a customer signs in, their existing paperless preference changes the next
-                step. We avoid promoting something they have already done.”
-              </p>
-              <ol className="westfield-demo__steps">
-                <li>
-                  From Home, choose <strong>Login → Customer</strong>. Show the familiar{' '}
-                  <strong>Sign into My Westfield</strong> experience.
-                </li>
-                <li>
-                  Enter Casey’s email below and the password <strong>{demoAccountPassword}</strong>,
-                  then choose <strong>SIGN IN</strong>. Home opens at the top. Scroll to its
-                  MyWestfield section and show the paperless offer.
-                </li>
-                <li>
-                  Choose <strong>Logout</strong> in the header, then{' '}
-                  <strong>Login → Customer</strong>. Sign in as Jordan using{' '}
-                  <strong>{demoAccountPassword}</strong>. Home opens at the top again. Scroll to
-                  MyWestfield and show the different recommendation.
-                </li>
-                <li>
-                  In Page Builder, open <strong>Home</strong>, select the MyWestfield section, and
-                  show its native personalization. The decision reads the stored{' '}
-                  <strong>Westfield paperless status</strong> Boolean.
-                </li>
-              </ol>
-              <div className="westfield-demo__personas">
-                <article>
-                  <p className="westfield-demo__eyebrow">Casey · not enrolled</p>
-                  <h3>Offer paperless billing</h3>
-                  <code>casey@example.com</code>
-                  <p>
-                    <strong>Expected result:</strong> Sign up for paperless billing
-                  </p>
-                  <p className="westfield-demo__fine-print">Action: Explore paperless billing</p>
-                </article>
-                <article>
-                  <p className="westfield-demo__eyebrow">Jordan · already enrolled</p>
-                  <h3>Keep coverage relevant</h3>
-                  <code>jordan@example.com</code>
-                  <p>
-                    <strong>Expected result:</strong> Keep your coverage in step with life
-                  </p>
-                  <p className="westfield-demo__fine-print">Action: Find your agent</p>
-                </article>
-              </div>
-              <p className="westfield-demo__note">
-                Both accounts and the Instagram campaign are synthetic. The password is checked
-                locally; the native identity event connects the selected demo profile. This
-                illustrates relevance and does not enroll anyone or change billing, policy, or
-                consent preferences. The imported records stand in for customer information from
-                another system. Discuss CRM data at product level; this demo does not show a live
-                CRM connection or ongoing synchronization.
-              </p>
-              <div className="westfield-demo__links">
-                <a href="/login" target="_blank" rel="noreferrer">
-                  Open customer login ↗
-                </a>
-                <a href="/" target="_blank" rel="noreferrer">
-                  Open Home ↗
-                </a>
-              </div>
-            </section>
-
-            <section
-              className="westfield-demo__flow"
-              id="authoring"
-              aria-labelledby="authoring-title"
-            >
-              <FlowHeading index={4} />
-              <div className="westfield-demo__readiness" role="note">
-                <strong>Current authoring rehearsal · October 29, 2026</strong>
-                <p>
-                  Fresh Edge tabs completed the native editing flow. All 16 placeholder settings and
-                  the branch with one blank Section passed fresh checks. Page details, two separate
-                  Sections, Layers Plus insertion and whole-Section Move up were saved. The embedded
-                  Brand → Westfield picker supplied the Family at home HomePageHero image and its
-                  alternative text. Desktop and mobile preview passed. Actions → Publish approved
-                  and queued the page; its live page, Articles listing, title search and a unique
-                  body-phrase search then passed. Actual mouse drag and visual invalid-drop
-                  rejection remain unconfirmed.
-                </p>
-              </div>
-              <p className="westfield-demo__say">
-                “Authors start with the right structure, write in meaningful fields, and add only
-                the components that belong here. The page design takes care of the presentation.”
-              </p>
-              <p className="westfield-demo__note">
-                Keep authoring within 8 minutes and leave 1 minute for the transition. If the new
-                page is still publishing, show an existing published article and say the new page is
-                pending.
-              </p>
-              <ol className="westfield-demo__steps">
-                <li>
-                  In Page Builder, open <strong>Westfield → advice</strong>. Choose{' '}
-                  <strong>Create a page → Advice Article</strong>, give it a unique rehearsal name
-                  and press <strong>Enter</strong>. When prompted, choose{' '}
-                  <strong>Reload tree</strong>, expand <strong>Home → advice</strong> and select the
-                  new article. It starts with one blank <strong>Section</strong>.
-                </li>
-                <li>
-                  Open the page’s <strong>Content</strong> view. Expand <strong>Content</strong> to
-                  set <strong>Title</strong>, <strong>Metadata</strong> to set{' '}
-                  <strong>Summary</strong>, and <strong>Article</strong> to set{' '}
-                  <strong>Topic</strong> and <strong>Publication date</strong>. The image fields are
-                  also in Article. Leave <strong>Reading time</strong> blank for automatic
-                  calculation.
-                </li>
-                <li>
-                  In the <strong>Article</strong> group, for <strong>Article image</strong>, choose{' '}
-                  <strong>Browse media library → Content hub</strong>. If prompted, select{' '}
-                  <strong>Sign in with SAML</strong>. In Approved assets, choose{' '}
-                  <strong>Brand → Show all → Westfield → Close</strong>; the brand contains 12
-                  approved assets. Open <strong>Family at home</strong>, choose its{' '}
-                  <strong>HomePageHero</strong> rendition at <strong>2000 × 800</strong>, then click{' '}
-                  <strong>Select</strong>. In the parent media dialog, click{' '}
-                  <strong>Add selected</strong>. Return to the native
-                  <strong> Content</strong> tab and set <strong>Image alt text</strong> for
-                  <strong> Article image</strong>. Wait for <strong>Saved</strong>.
-                </li>
-                <li>
-                  Select the starting <strong>Section</strong>. In its right{' '}
-                  <strong>Content</strong> tab, enter <strong>Section heading</strong> and{' '}
-                  <strong>Text</strong>. Wait for <strong>Saved</strong>.
-                </li>
-                <li>
-                  In <strong>Layers</strong>, expand{' '}
-                  <strong>headless-main → Partial design content → article-content-2</strong> and
-                  use its <strong>Plus → Insert into</strong>. The location-specific picker offers
-                  <strong> Section</strong> and <strong>Action</strong>. Choose{' '}
-                  <strong>Section → Assign content item</strong>, select this article’s{' '}
-                  <strong>Data</strong> folder, then choose <strong>Create new → Section</strong>.
-                  Name it <strong>Follow-up Section</strong>, press <strong>Enter</strong> and wait
-                  for it to be created, then click <strong>Assign</strong>. Populate its heading and
-                  text, then use the native <strong>Move up</strong> control to reorder the whole
-                  Section. Remove empty placements, then wait for <strong>Saved</strong>. Open the
-                  actual <strong>Editor</strong> link in one new tab and select the same article.
-                  Confirm the page details, image and alternative text, and both complete Sections
-                  in their saved order.
-                </li>
-                <li>
-                  Preview desktop and mobile. Publish only the completed rehearsal article using{' '}
-                  <strong>Actions → Publish</strong>. With the agreed admin account, this approves
-                  the page and queues publication. Wait for the publishing job to finish, then open
-                  its live URL in a new tab. Find it in the Articles list and search for a unique
-                  phrase from its body. Allow time for the listing and search to update. Unpublish
-                  the practice page after rehearsal before removing it.
-                </li>
-              </ol>
-              <div className="westfield-demo__expected">
-                <p className="westfield-demo__eyebrow">Expected result</p>
-                <p>
-                  A new article has prepared page structure and one blank Section. Heading and text
-                  stay together as sections are added or reordered. Saved edits remain when the page
-                  is reopened. The DAM image renders, and the completed published page is
-                  discoverable.
-                </p>
-              </div>
-              <details className="westfield-demo__details">
-                <summary>Guardrails and a safe rehearsal</summary>
-                <ul>
-                  <li>
-                    Under advice, the offered page type is <strong>Advice Article</strong>.
-                  </li>
-                  <li>
-                    The article body allows <strong>Section</strong> and <strong>Action</strong>.
-                  </li>
-                  <li>Shared header, footer and page design stay outside the article exercise.</li>
-                  <li>
-                    Use only your own rehearsal page. Leave existing Test and author drafts alone.
-                  </li>
-                  <li>
-                    Remove empty placements before publishing. Keep useful components in the
-                    library.
-                  </li>
-                  <li>
-                    After presenting, unpublish your practice page before removing it from the CMS.
-                  </li>
-                </ul>
-                <p>
-                  This rehearsal uses the available admin account. It demonstrates the content model
-                  and authoring controls; permissions for a restricted author role have not been
-                  tested.
-                </p>
-              </details>
-              <div className="westfield-demo__links">
-                <a href={authoringUrl} target="_blank" rel="noreferrer">
-                  Open Advice in Page Builder ↗
-                </a>
-                <a href={damUrl} target="_blank" rel="noreferrer">
-                  Check Westfield DAM assets ↗
-                </a>
-              </div>
-            </section>
+            {flows.map((flow) => (
+              <section
+                className="westfield-demo__flow"
+                id={flow.id}
+                key={flow.id}
+                aria-labelledby={`${flow.id}-title`}
+              >
+                <div className="westfield-demo__flow-heading">
+                  <span className="westfield-demo__flow-number">{flow.code}</span>
+                  <div>
+                    <p className="westfield-demo__eyebrow">{flow.time}</p>
+                    <h2 id={`${flow.id}-title`}>{flow.title}</h2>
+                  </div>
+                </div>
+                <p className="westfield-demo__goal">{flow.goal}</p>
+                <p className="westfield-demo__context">{flow.context}</p>
+                <div className="westfield-demo__script">
+                  {flow.blocks.map((block, index) => (
+                    <Script key={`${flow.code}-${index}`} block={block} />
+                  ))}
+                </div>
+              </section>
+            ))}
           </div>
         </div>
-
-        <section className="westfield-demo__rehearsal" aria-labelledby="rehearsal-title">
-          <div>
-            <p className="westfield-demo__eyebrow">Your rehearsal</p>
-            <h2 id="rehearsal-title">Ready for the room?</h2>
-            <p>
-              Tick these after trying them in your browser. This checklist records your current
-              visit; it is not an automated test result.
-            </p>
-            <p className="westfield-demo__check-count" aria-live="polite">
-              {checkedItems.length} of {rehearsalItems.length} checked
-            </p>
-            <button
-              className="westfield-demo__clear"
-              type="button"
-              onClick={() => setCheckedItems([])}
-              disabled={checkedItems.length === 0}
-            >
-              Clear checklist
-            </button>
-          </div>
-          <fieldset>
-            <legend className="westfield-demo__sr-only">Presenter rehearsal checklist</legend>
-            {rehearsalItems.map((item, index) => (
-              <label key={item} htmlFor={`rehearsal-${index}`}>
-                <input
-                  id={`rehearsal-${index}`}
-                  type="checkbox"
-                  checked={checkedItems.includes(item)}
-                  onChange={() => toggleItem(item)}
-                />
-                <span>{item}</span>
-              </label>
-            ))}
-          </fieldset>
-        </section>
-
-        <section className="westfield-demo__verification" aria-labelledby="verification-title">
-          <div>
-            <p className="westfield-demo__eyebrow">Retained verification · October 15–16, 2026</p>
-            <h2 id="verification-title">Earlier visitor and native authoring checks</h2>
-          </div>
-          <div className="westfield-demo__verification-results">
-            <dl>
-              <div>
-                <dt>Production browser journeys verified</dt>
-                <dd>
-                  Plain Home after reset; anonymous Instagram → campaign → matching first Home;
-                  Casey’s paperless offer on first arrival; Jordan’s different offer after Casey, on
-                  first arrival and reload. Those earlier customer checks used the former{' '}
-                  <code>/paperless</code> destination. The current customer loop uses Home’s
-                  MyWestfield section and requires its own release check.
-                </dd>
-              </div>
-              <div>
-                <dt>Content and configuration checks passed</dt>
-                <dd>
-                  Six complete article copies and their images; relevant search API results;
-                  authoring configuration audit with no mismatches; editing host response; and a new
-                  Advice Article with one blank Section.
-                </dd>
-              </div>
-              <div>
-                <dt>Native editing and DAM selection verified</dt>
-                <dd>
-                  The new article’s metadata, first Section and DAM image/alternative text survived
-                  save and reopening. The body picker offered only Section and Action. A second
-                  independent Section was populated, moved with native Move up and saved; both
-                  bodies and their order were verified in native state and on the live page. The
-                  375px editing canvas remained readable.
-                </dd>
-              </div>
-              <div>
-                <dt>Native publication and discovery verified</dt>
-                <dd>
-                  Actions → Publish moved the completed article through its native workflow. The
-                  live page rendered the selected DAM image, alternative text and saved Section
-                  order. Articles → search for a unique body phrase → Read article opened that
-                  published page. Separately, the API rehearsal verified incomplete-draft rejection
-                  and scoped publication, withdrawal and recoverable cleanup.
-                </dd>
-              </div>
-              <div>
-                <dt>Historical drag coverage</dt>
-                <dd>
-                  A human-assisted whole-Section drag passed on October 16 and survived reopening
-                  the canvas. Palette drag insertion and visual invalid-drop rejection were not
-                  accepted. The current documented insertion and reorder flow uses Layers Plus and
-                  Move up. Restricted-role permissions were not tested; admin rehearsal was agreed.
-                </dd>
-              </div>
-            </dl>
-            <p>
-              These observations retain their October 15–16 dates. They do not establish today’s
-              authoring readiness; the current rehearsal notice above governs that status. The
-              presenter checklist records your own rehearsal separately.
-            </p>
-          </div>
-        </section>
         <footer className="westfield-demo__footer">
-          <p>Westfield · Presenter guide</p>
-          <a href="#top">Back to starting points ↑</a>
+          <p>Westfield · Presenter reference</p>
+          <a href="#top">Back to top</a>
         </footer>
       </main>
     </>
