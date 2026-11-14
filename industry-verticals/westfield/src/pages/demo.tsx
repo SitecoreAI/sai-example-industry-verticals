@@ -235,7 +235,7 @@ const flows: DemoFlow[] = [
         title: 'Find a Westfield image in the Content Hub picker',
         actions: [
           'In Content → Article → Article image, choose Browse media library → Content hub.',
-          'In Approved assets, choose Brand → Show all → Westfield → Close.',
+          'In Approved assets, choose Brand → Show all → Westfield. Close the Brand list if it remains open.',
           'Open Family at home. Select the HomePageHero rendition, then Select.',
           'In the parent media dialog, choose Add selected.',
         ],
