@@ -1,0 +1,26 @@
+---
+ID: "7cbe04a8-c239-4f7e-9da9-403dd5be40af"
+Parent: "9af82e4d-2eb1-42ef-a17b-f6dc88c8d7f7"
+Template: "cb01f9fc-c187-46b3-ab0b-97a8468d8303"
+Path: "/sitecore/system/Workflows/Westfield Article Publishing/Awaiting approval/Return to draft"
+SharedFields:
+- ID: "dcbebc58-6124-4100-a248-fc717d6c78d5"
+  Hint: "Next state"
+  Value: "{51F6E353-80DA-58CB-9E50-B21A448CB1BC}"
+- ID: "82a7c02f-9a55-4bfe-b494-d1713d4be9ff"
+  Hint: "Suppress Comment"
+  Value: ""
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: "__Icon"
+  Value: "Office/16x16/check.png"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: "__Sortorder"
+  Value: "20"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261115T045431Z"

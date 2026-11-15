@@ -1,0 +1,17 @@
+---
+ID: "057145ba-a155-4580-b6e9-ad1633132ce9"
+Parent: "dc131e49-0282-4955-a8a3-8ff53daccc4d"
+Template: "eb51b3bf-4c67-59f7-af50-bce1d7e28cf9"
+Path: "/sitecore/content/Westfield/westfield/Settings/Standard Values/Datasources/Section"
+SharedFields:
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: "__Default workflow"
+  Value: "{8B197BC6-815C-4306-8D6F-FF9F18A886C1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261115T045436Z"

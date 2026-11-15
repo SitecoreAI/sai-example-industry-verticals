@@ -1,0 +1,13 @@
+---
+ID: "0f88cf75-98dd-4f62-bd23-ea5c8dc1533d"
+Parent: "196b89f1-165c-4a35-968c-dff352768973"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261115T045943Z"

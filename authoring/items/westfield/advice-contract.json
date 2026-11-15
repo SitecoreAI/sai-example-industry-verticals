@@ -154,6 +154,38 @@
         }
       ],
       "displayName": "Section"
+    },
+    "ArticleAction": {
+      "id": "196b89f1-165c-4a35-968c-dff352768973",
+      "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction",
+      "sectionId": "0f88cf75-98dd-4f62-bd23-ea5c8dc1533d",
+      "displayName": "Article action",
+      "fields": [
+        {
+          "name": "Heading",
+          "id": "4f34bea3-1a15-4869-8d3b-02a580d37a7b",
+          "type": "Single-Line Text",
+          "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Heading",
+          "label": "Heading",
+          "help": "Optional short heading above the button."
+        },
+        {
+          "name": "Body",
+          "id": "2598d8ff-4b92-41aa-bd6a-3374111b4928",
+          "type": "Rich Text",
+          "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Body",
+          "label": "Supporting text",
+          "help": "Optional supporting text for this action."
+        },
+        {
+          "name": "Link",
+          "id": "da3cc842-b418-4cb0-af07-449c73a3de23",
+          "type": "General Link",
+          "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Link",
+          "label": "Button link",
+          "help": "Choose a page or enter a web address. Set the link text that should appear on the button."
+        }
+      ]
     }
   },
   "renderingFolder": {
@@ -258,6 +290,20 @@
       "defaultVariant": {
         "path": "/sitecore/content/Westfield/westfield/Presentation/Headless Variants/SearchResults/Default"
       }
+    },
+    "ArticleAction": {
+      "id": "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775",
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/ArticleAction",
+      "componentName": "CampaignAction",
+      "displayName": "Action",
+      "datasourceTemplateId": "196b89f1-165c-4a35-968c-dff352768973",
+      "datasourceTemplatePath": "/sitecore/templates/Project/Westfield/Components/ArticleAction",
+      "datasourceLocation": "query:./*[@@name='Data']",
+      "owner": "Optional page-local article action with isolated article content workflow; reuses existing CampaignAction SDK component by field name.",
+      "exports": [
+        "Default",
+        "Quiet"
+      ]
     }
   },
   "placeholder": {
@@ -268,7 +314,7 @@
     "editable": true,
     "allowedRenderingIds": [
       "c8ff5ecf-3894-50f2-93d1-0654c6a693ea",
-      "15f0d95b-ce29-45d7-8937-42016fcf3efd"
+      "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775"
     ],
     "scope": "singleItem"
   },
@@ -352,7 +398,8 @@
         "path": "/sitecore/content/Westfield/westfield/Presentation/Available Renderings/Articles",
         "renderingIds": [
           "c8ff5ecf-3894-50f2-93d1-0654c6a693ea",
-          "0dde0f9c-d855-53cd-9fe8-8ecce852d4d4"
+          "0dde0f9c-d855-53cd-9fe8-8ecce852d4d4",
+          "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775"
         ]
       },
       "Search": {
@@ -519,25 +566,25 @@
         "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/ArticleText/Content/Body"
       },
       {
-        "fieldId": "b9be144e-99fd-47e3-958d-8aaf0eb25877",
+        "fieldId": "4f34bea3-1a15-4869-8d3b-02a580d37a7b",
         "label": "Heading",
         "help": "Optional short heading above the button.",
         "requiredBeforeApproval": false,
-        "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/CampaignAction/Content/Heading"
+        "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Heading"
       },
       {
-        "fieldId": "28fe3cd7-186d-4b0f-92e0-fde2a3d54432",
+        "fieldId": "2598d8ff-4b92-41aa-bd6a-3374111b4928",
         "label": "Supporting text",
         "help": "Optional supporting text for this action.",
         "requiredBeforeApproval": false,
-        "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/CampaignAction/Content/Body"
+        "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Body"
       },
       {
-        "fieldId": "0737f1f4-31c5-4d5c-8089-3532068e916f",
+        "fieldId": "da3cc842-b418-4cb0-af07-449c73a3de23",
         "label": "Button link",
         "help": "Choose a page or enter a web address. Set the link text that should appear on the button.",
         "requiredBeforeApproval": false,
-        "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/CampaignAction/Content/Link"
+        "templateFieldPath": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Link"
       },
       {
         "fieldId": "b5849b78-238b-4237-ac26-f226f25a68df",
@@ -605,7 +652,7 @@
       "inputs": [
         "Page summary",
         "ArticleText Heading and Body in ArticleBodyLayout article-content-* placeholders",
-        "CampaignAction Heading, Body and visible Link label in the same article body placeholder"
+        "ArticleAction (CampaignAction component) Heading, Body and visible Link label in the same article body placeholder"
       ],
       "excludes": [
         "Header/footer navigation",
@@ -624,27 +671,58 @@
           "id": "51f6e353-80da-58cb-9e50-b21a448cb1bc",
           "final": false
         },
+        "Awaiting approval": {
+          "id": "9af82e4d-2eb1-42ef-a17b-f6dc88c8d7f7",
+          "final": false
+        },
         "Approved": {
           "id": "e0e37091-a101-584a-9b71-646fc5757b22",
           "final": true
         }
       },
-      "command": {
-        "name": "Publish",
-        "id": "f2c13bd1-2d9a-5553-a5fc-a5358d53a43d",
-        "from": "Draft",
-        "to": "Approved",
-        "validationActionId": "844f3e97-ca9c-501f-9041-514c9ee09fb8",
-        "maximumAllowedResult": "Warning",
-        "errorKeepsDraft": true
+      "commands": {
+        "Submit for approval": {
+          "id": "f2c13bd1-2d9a-5553-a5fc-a5358d53a43d",
+          "from": "Draft",
+          "to": "Awaiting approval",
+          "validationActionId": "844f3e97-ca9c-501f-9041-514c9ee09fb8",
+          "maximumAllowedResult": "Warning",
+          "errorKeepsState": "Draft"
+        },
+        "Approve": {
+          "id": "7522119c-be30-4782-abba-ae2c78b8b397",
+          "from": "Awaiting approval",
+          "to": "Approved",
+          "validationActionId": "17423394-07ac-4505-8aa0-45af65f3fbe5",
+          "maximumAllowedResult": "Warning",
+          "errorKeepsState": "Awaiting approval"
+        },
+        "Return to draft": {
+          "id": "7cbe04a8-c239-4f7e-9da9-403dd5be40af",
+          "from": "Awaiting approval",
+          "to": "Draft"
+        }
+      },
+      "validation": "Required article details validated before submit and approval; incomplete drafts remain saveable.",
+      "datasourceWorkflow": {
+        "id": "8b197bc6-815c-4306-8d6f-ff9f18a886c1",
+        "path": "/sitecore/system/Workflows/Westfield Article Content Review",
+        "states": {
+          "Draft": "665923c0-89e8-42ff-b48e-4bff43cc021a",
+          "Awaiting approval": "2df1f5f5-0efe-4898-8037-a4d6b34fe5c9",
+          "Approved": "5f881d5e-d2b1-4456-b38d-4b80658015ce"
+        },
+        "defaults": "Site-specific Settings/Standard Values/Datasources for Section and Article action, with _PerSiteStandardValues inheritance.",
+        "coordination": "Native Datasource Workflow Action on each page command, scope Descendants; only the article-local content workflow accepts those commands.",
+        "directPublish": false
       },
       "publication": {
         "actionId": "9a8430f2-1c7b-50ad-b0eb-9a2bd9a79c45",
         "parameters": "deep=1&smart=1&related=0&targets=experienceedge&alllanguages=0&itemlanguage=1",
-        "scope": "Article and its page-local descendants in the current language; no recursive related-item publication.",
+        "scope": "Approved article and approved local content, current language, Edge target, no related expansion.",
         "media": "Select approved Westfield DAM images. New CMS Media Library items are outside this subtree and require publication through the referenced-items UI or separate media publication."
       },
-      "default": "AdviceArticle standard values __Default workflow references this workflow. Existing authored workflow states are not reset by the definition release."
+      "default": "New Advice Articles, local Sections and article Actions enter Draft. Existing authored state is not serialized or reset by ordinary deployment."
     },
     "validation": {
       "requiredFieldsBeforeApproval": [

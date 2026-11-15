@@ -113,6 +113,42 @@
         "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Search Content",
         "scope": "singleItem",
         "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "articleDatasourceWorkflow",
+        "path": "/sitecore/system/Workflows/Westfield Article Content Review",
+        "scope": "ItemAndDescendants",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "articleRenderingLibrary",
+        "path": "/sitecore/content/Westfield/westfield/Presentation/Available Renderings/Articles",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "articleWorkflowDefaultsRoot",
+        "path": "/sitecore/content/Westfield/westfield/Settings/Standard Values",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "articleWorkflowDefaultsFolder",
+        "path": "/sitecore/content/Westfield/westfield/Settings/Standard Values/Datasources",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "sectionWorkflowDefaults",
+        "path": "/sitecore/content/Westfield/westfield/Settings/Standard Values/Datasources/Section",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "articleActionWorkflowDefaults",
+        "path": "/sitecore/content/Westfield/westfield/Settings/Standard Values/Datasources/Article action",
+        "scope": "singleItem",
+        "allowedPushOperations": "CreateAndUpdate"
       }
     ],
     "excludedFields": [

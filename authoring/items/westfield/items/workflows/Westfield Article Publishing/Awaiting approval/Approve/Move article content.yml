@@ -1,0 +1,26 @@
+---
+ID: "f1ddaab8-1084-45d1-a34a-8b841974c3b5"
+Parent: "7522119c-be30-4782-abba-ae2c78b8b397"
+Template: "def0aa0d-3446-41ae-b307-ec7ba429ce50"
+Path: "/sitecore/system/Workflows/Westfield Article Publishing/Awaiting approval/Approve/Move article content"
+SharedFields:
+- ID: "8273a3db-fac0-44d6-aed0-29e2e039e8f9"
+  Hint: "Command Item"
+  Value: "{6AEF6DAD-0587-4888-A1E0-50E55229EE55}"
+- ID: "b5757325-3263-4daf-b6cd-811629cf4794"
+  Hint: "Scope"
+  Value: "{C049953F-D744-41FA-BE67-F9F90D3C30BB}"
+- ID: "a291a22b-99e2-46bb-a27b-8ec744275396"
+  Hint: "Type"
+  Value: "Sitecore.XA.Foundation.Editing.Workflow.ApplyForDataSourceItemsAction,Sitecore.XA.Foundation.Editing"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: "__Sortorder"
+  Value: "20"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261115T045433Z"
