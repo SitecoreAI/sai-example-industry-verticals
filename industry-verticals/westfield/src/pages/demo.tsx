@@ -736,8 +736,8 @@ export default function DemoLaunch(): JSX.Element {
                   Overview again. Wait for the recorded visit before describing a changed affinity.
                 </li>
                 <li>
-                  If a result is still pending, say so. Use the matching hidden presenter guide as a
-                  clearly identified walkthrough, then continue the presentation.
+                  If a result is still pending, say so. Use this guide on a separate screen to
+                  explain the intended flow, then continue the presentation.
                 </li>
                 <li>
                   The accounts and campaign are synthetic. The sign-in example does not change a
@@ -758,8 +758,8 @@ export default function DemoLaunch(): JSX.Element {
                   the private baseline record for restoration, preserving later author edits.
                 </li>
                 <li>
-                  If the prepared Scrunch recommendation is unavailable, use the hidden presenter
-                  walkthrough and state that the live result is unavailable. Leave Prospera’s
+                  If the prepared Scrunch recommendation is unavailable, say that the live result is
+                  unavailable. Refer to P6 in this guide on a separate screen, and leave Prospera’s
                   existing recommendations and content unchanged.
                 </li>
                 <li>Close unused tabs. Restore any temporary viewport changes.</li>
