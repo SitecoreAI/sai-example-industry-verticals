@@ -7,6 +7,8 @@ const siteUrl = 'https://thlt-westfield-demo.vercel.app';
 const portalUrl = 'https://portal.sitecorecloud.io/';
 const brandResourcesUrl =
   'https://app.sitecorecloud.io/brand-context?organization=org_JypIqqJsbEly6gh2&tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200';
+const prosperaRecommendationsUrl =
+  'https://app.sitecorecloud.io/channels/collection/45177ac3175042dc9bc748d76ba0858a/sites/d4c417d9-0acf-44f9-aec8-c94730b872bb/aeo-opportunities/readability?organization=org_vDtrEzJHxeuuB9cD&tenantName=sitecoresaa7acd-agverticals97fd-agvertsc3b5';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
 const contentCopilotPrompt =
   'Write one short paragraph of 50–70 words for an advice article titled A simple home checkup. Encourage homeowners to record changes around their home and prepare questions for their independent insurance agent. Follow the selected Westfield brand kit. Do not invent coverage details or savings claims. Return only the paragraph, without a heading.';
@@ -424,6 +426,59 @@ const flows: DemoFlow[] = [
       { kind: 'return', title: 'Choosing a message for each visitor' },
     ],
   },
+  {
+    id: 'ai-search',
+    code: 'P6',
+    title: 'Review content recommendations for AI search',
+    time: '3 minutes',
+    goal: 'Use the Prospera Bank example to connect a Scrunch recommendation with the content an author can review.',
+    context:
+      'After the website-reporting discussion · Prospera recommendations and Page Builder tabs · Sales Engineers 1 · agverticals / agverts · read-only example',
+    blocks: [
+      {
+        kind: 'copy',
+        label: 'Prospera Scrunch recommendations tab',
+        value: prosperaRecommendationsUrl,
+        url: true,
+      },
+      {
+        kind: 'say',
+        text: 'This Prospera Bank example shows how Scrunch recommendations can help an author review content for AI search.',
+      },
+      {
+        kind: 'do',
+        id: 'P6.1',
+        title: 'Open a Scrunch recommendation for the Prospera home page',
+        actions: [
+          'Switch to the prepared Prospera Scrunch recommendations tab in Sales Engineers 1 → agverticals → agverts.',
+          'Confirm the site is Prospera and the category is Readability & Clarity.',
+          'On the Home row, choose Review, then find Cards · Description. Keep its Select checkbox clear.',
+          'Compare Original content and Suggested content. Point out how the suggestion makes the credit-card description clearer.',
+        ],
+      },
+      {
+        kind: 'say',
+        text: 'The author can compare the suggestion with the matching field in Page Builder before deciding whether to change it.',
+      },
+      {
+        kind: 'do',
+        id: 'P6.2',
+        title: 'Review the matching content in Page Builder',
+        actions: [
+          'Use the Open in Page Builder icon beside the Cards · Description selection checkbox.',
+          'In Page Builder’s AEO opportunities panel, point out Powered by Scrunch.',
+          'For Cards · Description, choose Show live content. Compare Recommended | Rewritten with Live content.',
+          'Choose Scroll to content and point out the outlined Features Carousel → Description field.',
+          'Leave this example unchanged. Do not choose Apply, Dismiss, or Publish.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The Prospera recommendation and its matching live field are visible in Page Builder. No content has changed.',
+      },
+      { kind: 'return', title: 'Shared content for a Westfield mobile app' },
+    ],
+  },
 ];
 
 const rehearsalItems = [
@@ -436,6 +491,7 @@ const rehearsalItems = [
   'Content Copilot uses the selected Westfield Brand Kit; the reviewed paragraph saves in the intended Section.',
   'The Westfield DAM picker, permitted components, and Section reorder work.',
   'The article moves from Draft through Awaiting approval to Approved, then appears in Articles and Search.',
+  'The Prospera Scrunch recommendation opens its matching Page Builder field without applying a change.',
 ];
 
 function CopyValue({
@@ -599,11 +655,11 @@ export default function DemoLaunch(): JSX.Element {
           <p>50-minute presentation + 10 minutes for questions</p>
         </header>
         <div className="westfield-demo__intro">
-          <p className="westfield-demo__eyebrow">Five live loops · 25 minutes</p>
+          <p className="westfield-demo__eyebrow">Six live loops · 28 minutes</p>
           <h1>Keep the next step in view.</h1>
           <p className="westfield-demo__lede">
             Show the website and native Sitecore tools to the audience. Keep this reference on a
-            separate screen. Prepare the tabs first, then follow P1–P5 without returning here during
+            separate screen. Prepare the tabs first, then follow P1–P6 without returning here during
             the presentation.
           </p>
         </div>
@@ -628,6 +684,12 @@ export default function DemoLaunch(): JSX.Element {
                 unused before P5. If your own earlier practice article uses that name, retire only
                 that practice content outside the live sequence or prepare another unused name.
                 Leave other authors’ drafts alone.
+              </li>
+              <li>
+                For P6, prepare a separate Prospera Scrunch recommendations tab in Sales Engineers 1
+                → agverticals → agverts. Confirm the Home recommendation opens its matching Page
+                Builder field. Keep the Westfield tabs available. This separate product example
+                follows the website-reporting discussion at minutes 37–40.
               </li>
             </ol>
             <CopyValue label="Sitecore Portal" value={portalUrl} url />
@@ -694,6 +756,11 @@ export default function DemoLaunch(): JSX.Element {
                 <li>
                   After rehearsal, unpublish only your practice article before removing it. Follow
                   the private baseline record for restoration, preserving later author edits.
+                </li>
+                <li>
+                  If the prepared Scrunch recommendation is unavailable, use the hidden presenter
+                  walkthrough and state that the live result is unavailable. Leave Prospera’s
+                  existing recommendations and content unchanged.
                 </li>
                 <li>Close unused tabs. Restore any temporary viewport changes.</li>
               </ul>
