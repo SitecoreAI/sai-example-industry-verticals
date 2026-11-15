@@ -5,7 +5,13 @@ import { resetDemoBrowserIdentity } from 'lib/demo-persona';
 
 const siteUrl = 'https://thlt-westfield-demo.vercel.app';
 const portalUrl = 'https://portal.sitecorecloud.io/';
+const brandResourcesUrl =
+  'https://app.sitecorecloud.io/brand-context?organization=org_JypIqqJsbEly6gh2&tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
+const contentCopilotPrompt =
+  'Write one short paragraph of 50–70 words for an advice article titled A simple home checkup. Encourage homeowners to record changes around their home and prepare questions for their independent insurance agent. Follow the selected Westfield brand kit. Do not invent coverage details or savings claims. Return only the paragraph, without a heading.';
+const contentCopilotRefinementPrompt =
+  'Make this paragraph 35–45 words. Keep the household-checkup and independent-agent message, use plain language, and follow the selected Westfield brand kit. Return only the revised paragraph.';
 
 type ScriptBlock =
   | { kind: 'say'; text: string }
@@ -189,9 +195,10 @@ const flows: DemoFlow[] = [
     id: 'authoring',
     code: 'P5',
     title: 'Create a page with confidence',
-    time: '9 minutes',
-    goal: 'Create useful content within a prepared, consistent article structure.',
-    context: 'Page Builder tab · agreed presenter account · Westfield site · own new article',
+    time: '12 minutes',
+    goal: 'Use brand guidance and AI assistance to create an article, then review it before publication.',
+    context:
+      'Page Builder and Brand resources tabs · agreed presenter account · Westfield site · own new article',
     blocks: [
       { kind: 'copy', label: 'Sitecore Portal', value: portalUrl, url: true },
       { kind: 'phase', id: 'P5.1', title: 'Create the article' },
@@ -228,6 +235,28 @@ const flows: DemoFlow[] = [
         kind: 'result',
         text: 'The new article has its own title and metadata within the prepared page structure.',
       },
+      { kind: 'phase', id: 'P5.brand', title: 'Show the Westfield brand guidance' },
+      {
+        kind: 'say',
+        text: 'Reusable brand guidance gives authors a consistent starting point for AI-assisted content.',
+      },
+      { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
+      {
+        kind: 'do',
+        id: 'P5.brand.1',
+        title: 'Show the context and writing guidance',
+        actions: [
+          'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
+          'Expand Content Guidelines, then double-click Style Guide. Point out the writing guidance and explain that this Brand Context gives Agentic Studio company background.',
+          'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
+          "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
+          'Explain that Content Copilot uses the selected Brand Kit’s writing guidance. Return to the Page Builder tab for your new article.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The separate Brand Context and Brand Kit are visible, including the Brand Kit guidance used for content optimization.',
+      },
       { kind: 'phase', id: 'P5.2', title: 'Select an approved image' },
       { kind: 'say', text: 'Authors can choose approved images within their normal editing flow.' },
       {
@@ -256,22 +285,36 @@ const flows: DemoFlow[] = [
         text: 'The article retains the selected Westfield image and its description.',
       },
       { kind: 'phase', id: 'P5.3', title: 'Add and reorder Sections' },
-      { kind: 'say', text: 'A Section keeps its heading and text together.' },
-      { kind: 'copy', label: 'First Section heading', value: 'Questions for your agent' },
       {
-        kind: 'copy',
-        label: 'First Section text',
-        value:
-          'Review the changes around your home and bring your questions to your insurance agent.',
+        kind: 'say',
+        text: 'A Section keeps its heading and text together. AI can help draft the text.',
       },
+      { kind: 'copy', label: 'First Section heading', value: 'Questions for your agent' },
       {
         kind: 'do',
         id: 'P5.3.1',
-        title: 'Populate the starting Section',
+        title: 'Set the heading and open Content Copilot for the text',
         actions: [
-          'Select the starting Section. In its Content tab, paste the First Section heading and First Section text into their matching fields.',
-          'Wait for Saved before adding the next Section.',
+          'Select the starting Section. In Content, paste the First Section heading into Heading and wait for Saved.',
+          'In Layers, select this Section’s Text. In the Text panel, choose Optimize with AI.',
+          'Keep the first Section’s Text selected. Content Copilot uses the Westfield site’s associated Brand Kit.',
         ],
+      },
+      { kind: 'copy', label: 'Content Copilot draft prompt', value: contentCopilotPrompt },
+      {
+        kind: 'do',
+        id: 'P5.3.1-ai',
+        title: 'Generate a paragraph and review it before applying the change',
+        actions: [
+          'Paste the Content Copilot draft prompt into Ask AI for content improvements, then choose Generate content. Wait until Ready! appears.',
+          'Read the proposed paragraph. Check its meaning, plain language, and independent-agent message; confirm it adds no unsupported coverage or savings claims.',
+          'Choose Keep optimized to retain the reviewed paragraph in this Section’s Text, then wait for Saved.',
+          'Reopen the same article. Confirm the paragraph remains in the first Section and the workflow status is still Draft.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Content Copilot has generated the first Section’s paragraph. The author has reviewed and saved it; the article is still a draft.',
       },
       { kind: 'copy', label: 'New Section name', value: 'Follow-up Section' },
       {
@@ -389,6 +432,8 @@ const rehearsalItems = [
   'The Instagram ad opens its matching Home message after the affinity loop.',
   'Casey and Jordan receive their different offers on Home, and Logout works.',
   'A new Advice Article starts blank and retains its independent content.',
+  'The Westfield Brand Context and Brand Kit open with the intended writing guidance.',
+  'Content Copilot uses the selected Westfield Brand Kit; the reviewed paragraph saves in the intended Section.',
   'The Westfield DAM picker, permitted components, and Section reorder work.',
   'The article moves from Draft through Awaiting approval to Approved, then appears in Articles and Search.',
 ];
@@ -554,7 +599,7 @@ export default function DemoLaunch(): JSX.Element {
           <p>50-minute presentation + 10 minutes for questions</p>
         </header>
         <div className="westfield-demo__intro">
-          <p className="westfield-demo__eyebrow">Five live loops · 22 minutes</p>
+          <p className="westfield-demo__eyebrow">Five live loops · 25 minutes</p>
           <h1>Keep the next step in view.</h1>
           <p className="westfield-demo__lede">
             Show the website and native Sitecore tools to the audience. Keep this reference on a
@@ -572,8 +617,11 @@ export default function DemoLaunch(): JSX.Element {
               </li>
               <li>
                 In Sitecore Portal, open Sales Engineers 2 → thlt-demo → thlt-authoring → Westfield.
-                Prepare Page Builder and Profiles. Use the agreed presenter account and the private
-                deck notes for sign-in details.
+                Prepare named Page Builder, Profiles, and Brand resources tabs. In Brand resources,
+                open the Westfield Brand Context and Westfield Brand Kit. In the site dashboard,
+                confirm Localization → Configuration shows the Westfield Brand kit. Confirm Content
+                Copilot is available for the new article’s Section text. Use the agreed presenter
+                account and the private deck notes for sign-in details.
               </li>
               <li>
                 Sign in to the shared DAM before opening its picker. Confirm home-checkup-demo is
@@ -639,11 +687,37 @@ export default function DemoLaunch(): JSX.Element {
                   permissions of a restricted author account.
                 </li>
                 <li>
+                  The Westfield brand resources are demo guidance based on public material, not a
+                  formally approved Westfield brand book. Brand Context supports Agentic Studio;
+                  Content Copilot uses the associated Brand Kit’s content-optimization guidance.
+                </li>
+                <li>
                   After rehearsal, unpublish only your practice article before removing it. Follow
                   the private baseline record for restoration, preserving later author edits.
                 </li>
                 <li>Close unused tabs. Restore any temporary viewport changes.</li>
               </ul>
+              <h3>Optional Content Copilot refinement</h3>
+              <CopyValue
+                label="Content Copilot refinement prompt"
+                value={contentCopilotRefinementPrompt}
+              />
+              <p>
+                If the paragraph needs a shorter version, keep the same Section’s Text selected and
+                reopen Optimize with AI. Paste the refinement prompt into Ask AI for content
+                improvements and choose Generate content. When Ready! appears, review the new
+                paragraph, then choose Keep optimized. Wait for Saved and confirm the article
+                remains Draft.
+              </p>
+              <h3>Prepared text if AI is unavailable</h3>
+              <CopyValue
+                label="First Section text fallback"
+                value="Review the changes around your home and bring your questions to your insurance agent."
+              />
+              <p>
+                State that the AI result is pending. Use this prepared text only to continue the
+                authoring demonstration; pasting it does not demonstrate AI generation.
+              </p>
               <h3>Optional review revision</h3>
               <CopyValue
                 label="Revision request comment"
