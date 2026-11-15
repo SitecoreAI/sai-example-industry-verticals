@@ -1,0 +1,20 @@
+---
+ID: "8b197bc6-815c-4306-8d6f-ff9f18a886c1"
+Parent: "05592656-56d7-4d85-aacf-30919ee494f9"
+Template: "1c0acc50-37be-4742-b43c-96a07a7410a5"
+Path: "/sitecore/system/Workflows/Westfield Article Content Review"
+SharedFields:
+- ID: "b5166b38-e4bf-4410-953c-2037f2bf6a56"
+  Hint: "Initial state"
+  Value: "{665923C0-89E8-42FF-B48E-4BFF43CC021A}"
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: "__Icon"
+  Value: "Office/32x32/document_text.png"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261115T045424Z"

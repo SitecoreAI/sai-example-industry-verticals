@@ -1,0 +1,17 @@
+---
+ID: "5e7711e5-24f4-4942-bfba-93098ea035df"
+Parent: "fcfcdd23-ea36-4635-b210-4d11200695ec"
+Template: "76da0a8d-fc7e-42b2-af1e-205b49e43f98"
+Path: "/sitecore/content/Westfield/westfield/Presentation/Available Renderings/Articles"
+SharedFields:
+- ID: "715ae6c0-71c8-4744-ab4f-65362d20ad65"
+  Hint: "Renderings"
+  Value: "{C8FF5ECF-3894-50F2-93D1-0654C6A693EA}|{0DDE0F9C-D855-53CD-9FE8-8ECCE852D4D4}|{88CF65B3-5B2E-4DD4-8E0D-D78C006D9775}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261015T044050Z"

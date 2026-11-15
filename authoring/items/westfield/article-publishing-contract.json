@@ -3,18 +3,68 @@
   "ids": {
     "": "0ebca053-6cc5-5ffb-bc6f-6c1a70d9e73a",
     "Draft": "51f6e353-80da-58cb-9e50-b21a448cb1bc",
-    "Draft/Publish": "f2c13bd1-2d9a-5553-a5fc-a5358d53a43d",
-    "Draft/Publish/Validate article": "844f3e97-ca9c-501f-9041-514c9ee09fb8",
     "Approved": "e0e37091-a101-584a-9b71-646fc5757b22",
-    "Approved/Publish page and content": "9a8430f2-1c7b-50ad-b0eb-9a2bd9a79c45"
+    "Approved/Publish page and content": "9a8430f2-1c7b-50ad-b0eb-9a2bd9a79c45",
+    "Draft/Submit for approval": "f2c13bd1-2d9a-5553-a5fc-a5358d53a43d",
+    "Draft/Submit for approval/Validate article": "844f3e97-ca9c-501f-9041-514c9ee09fb8",
+    "Awaiting approval": "9af82e4d-2eb1-42ef-a17b-f6dc88c8d7f7",
+    "Awaiting approval/Approve": "7522119c-be30-4782-abba-ae2c78b8b397",
+    "Awaiting approval/Return to draft": "7cbe04a8-c239-4f7e-9da9-403dd5be40af"
   },
-  "scope": "Advice Article only; page plus local Data descendants, current language and Edge target; related-item expansion disabled. New CMS media is a separate publish. Use approved Westfield DAM images for the novice flow.",
-  "types": "Native ValidatorsAction, PublishAction; no custom code or SPE",
-  "nativeWriteStatus": "Not applied; awaiting deployment by root",
+  "scope": "Advice Articles and their page-local Sections and article-specific Actions. Home, campaigns, and their shared CampaignAction template remain outside this workflow. Existing approved content is initialized once through the CMS and never serialized as authored workflow state.",
+  "types": "Native ValidatorsAction, Datasource Workflow Action (ApplyForDataSourceItemsAction), and PublishAction; no custom code or SPE",
+  "nativeWriteStatus": "Applied and read back through Sitecore Authoring API on 2026-11-14. Page and datasource transitions, return/resubmit, history comments, draft/review 404, and automatic publication after approval verified on owned disposable articles.",
   "sources": [
     "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/workflow/workflow-cookbook/add-commands-and-actions-to-states.html",
-    "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/workflow/workflow-reference/standard-and-custom-actions.html"
+    "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/workflow/workflow-reference/standard-and-custom-actions.html",
+    "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/data-sources/assign-a-data-source-workflow-action.html",
+    "https://doc.sitecore.com/sai/en/developers/sitecoreai/content-modeling-and-presentation/data-sources/walkthrough--defining-standard-values-for-your-sites.html"
   ],
   "publishParameters": "deep=1&smart=1&related=0&targets=experienceedge&alllanguages=0&itemlanguage=1",
-  "targetResolution": "Native publishing target Edge maps to database experienceedge. Current PublishAction resolves explicit targets as database names."
+  "targetResolution": "Native publishing target Edge maps to database experienceedge. Current PublishAction resolves explicit targets as database names.",
+  "states": {
+    "Draft": "51f6e353-80da-58cb-9e50-b21a448cb1bc",
+    "Awaiting approval": "9af82e4d-2eb1-42ef-a17b-f6dc88c8d7f7",
+    "Approved": "e0e37091-a101-584a-9b71-646fc5757b22"
+  },
+  "commands": {
+    "Submit for approval": {
+      "id": "f2c13bd1-2d9a-5553-a5fc-a5358d53a43d",
+      "from": "Draft",
+      "to": "Awaiting approval"
+    },
+    "Approve": {
+      "id": "7522119c-be30-4782-abba-ae2c78b8b397",
+      "from": "Awaiting approval",
+      "to": "Approved"
+    },
+    "Return to draft": {
+      "id": "7cbe04a8-c239-4f7e-9da9-403dd5be40af",
+      "from": "Awaiting approval",
+      "to": "Draft"
+    }
+  },
+  "datasourceWorkflow": {
+    "id": "8b197bc6-815c-4306-8d6f-ff9f18a886c1",
+    "path": "/sitecore/system/Workflows/Westfield Article Content Review",
+    "states": {
+      "Draft": "665923c0-89e8-42ff-b48e-4bff43cc021a",
+      "Awaiting approval": "2df1f5f5-0efe-4898-8037-a4d6b34fe5c9",
+      "Approved": "5f881d5e-d2b1-4456-b38d-4b80658015ce"
+    },
+    "defaults": "Site-specific Settings/Standard Values/Datasources for Section and Article action, with _PerSiteStandardValues inheritance.",
+    "coordination": "Native Datasource Workflow Action on each page command, scope Descendants; only the article-local content workflow accepts those commands.",
+    "directPublish": false
+  },
+  "articleAction": {
+    "templateId": "196b89f1-165c-4a35-968c-dff352768973",
+    "renderingId": "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775",
+    "componentName": "CampaignAction",
+    "nativeFields": [
+      "Heading",
+      "Body",
+      "Link"
+    ],
+    "reason": "Independent native template lets article Actions follow approval without enrolling Home/campaign Action content."
+  }
 }

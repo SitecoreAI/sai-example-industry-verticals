@@ -12,13 +12,13 @@ SharedFields:
   Value: "Network/16x16/earth.png"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: "__Sortorder"
-  Value: "20"
+  Value: "30"
 Languages:
 - Language: en
   Fields:
   - ID: "8c980a06-4059-4939-9c6f-a10f751ceb64"
     Hint: "Description"
-    Value: "Ready for publication. Publishing includes this article and its page-local content. Choose approved Westfield DAM images; new CMS media must be published separately."
+    Value: "Approved for publication. Publishing includes this article and its approved page-local content."
   Versions:
   - Version: 1
     Fields:

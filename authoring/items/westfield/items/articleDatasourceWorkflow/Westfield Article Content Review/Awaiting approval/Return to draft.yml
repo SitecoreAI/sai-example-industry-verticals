@@ -1,12 +1,12 @@
 ---
-ID: "f2c13bd1-2d9a-5553-a5fc-a5358d53a43d"
-Parent: "51f6e353-80da-58cb-9e50-b21a448cb1bc"
+ID: "5ffba479-d4bc-4371-a45a-db4f1d0d86f6"
+Parent: "2df1f5f5-0efe-4898-8037-a4d6b34fe5c9"
 Template: "cb01f9fc-c187-46b3-ab0b-97a8468d8303"
-Path: "/sitecore/system/Workflows/Westfield Article Publishing/Draft/Publish"
+Path: "/sitecore/system/Workflows/Westfield Article Content Review/Awaiting approval/Return to draft"
 SharedFields:
 - ID: "dcbebc58-6124-4100-a248-fc717d6c78d5"
   Hint: "Next state"
-  Value: "{E0E37091-A101-584A-9B71-646FC5757B22}"
+  Value: "{665923C0-89E8-42FF-B48E-4BFF43CC021A}"
 - ID: "82a7c02f-9a55-4bfe-b494-d1713d4be9ff"
   Hint: "Suppress Comment"
   Value: "1"
@@ -15,7 +15,7 @@ SharedFields:
   Value: "Office/16x16/check.png"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: "__Sortorder"
-  Value: "10"
+  Value: "20"
 Languages:
 - Language: en
   Versions:
@@ -23,4 +23,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: "__Created"
-      Value: "20261015T170000Z"
+      Value: "20261115T045427Z"

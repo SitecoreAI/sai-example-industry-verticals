@@ -1,0 +1,13 @@
+---
+ID: "9b414772-51b3-4a2d-b74f-ae02c8f0ba92"
+Parent: "96c461c5-192f-4a26-8e35-5bd590942f90"
+Template: "ab987746-78b0-4773-a8de-b295c493b7a4"
+Path: "/sitecore/content/Westfield/westfield/Settings/Standard Values"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: "__Created"
+      Value: "20261115T045435Z"
