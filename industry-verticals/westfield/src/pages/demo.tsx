@@ -150,7 +150,7 @@ const flows: DemoFlow[] = [
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       { kind: 'say', text: 'A known customer fact helps the site choose a useful next step.' },
-      { kind: 'copy', label: 'Casey email', value: 'casey@example.com' },
+      { kind: 'copy', label: 'Casey email and password', value: 'casey@example.com' },
       {
         kind: 'do',
         id: 'P4.1',
@@ -166,7 +166,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Jordan already uses paperless billing, so the same place on Home has a different message.',
       },
-      { kind: 'copy', label: 'Jordan email', value: 'jordan@example.com' },
+      { kind: 'copy', label: 'Jordan email and password', value: 'jordan@example.com' },
       {
         kind: 'do',
         id: 'P4.2',
@@ -196,13 +196,14 @@ const flows: DemoFlow[] = [
       { kind: 'copy', label: 'Sitecore Portal', value: portalUrl, url: true },
       { kind: 'phase', id: 'P5.1', title: 'Create the article' },
       { kind: 'say', text: 'The prepared structure lets the author concentrate on content.' },
+      { kind: 'copy', label: 'Article page name', value: 'home-checkup-demo' },
       {
         kind: 'do',
         id: 'P5.1.1',
         title: 'Create an Advice Article with one blank Section',
         actions: [
           'Switch to the prepared Page Builder tab for Westfield.',
-          'Under advice, choose Create a page → Advice Article. Give it a unique name and press Enter.',
+          'Under advice, choose Create a page → Advice Article. Paste the Article page name, then press Enter.',
           'If prompted, choose Reload tree. Expand Home → advice and select the new article.',
           'Confirm the page structure is present with one blank Section, ready for content.',
         ],
@@ -266,13 +267,22 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P5.3.1',
-        title: 'Populate the starting Section and add another permitted Section',
+        title: 'Populate the starting Section',
         actions: [
-          'Select the starting Section. In its Content tab, set Section heading and Text. Wait for Saved.',
+          'Select the starting Section. In its Content tab, paste the First Section heading and First Section text into their matching fields.',
+          'Wait for Saved before adding the next Section.',
+        ],
+      },
+      { kind: 'copy', label: 'New Section name', value: 'Follow-up Section' },
+      {
+        kind: 'do',
+        id: 'P5.3.1-add',
+        title: 'Add another permitted Section with its own content item',
+        actions: [
           'In Layers, expand headless-main → Partial design content → article-content-2.',
           'Use Plus → Insert into. Confirm the location-specific picker offers Section and Action.',
           'Choose Section → Assign content item. Select this article’s Data folder, then Create new → Section.',
-          'Name it Follow-up Section, press Enter, wait for creation, and choose Assign.',
+          'Paste the New Section name, press Enter, wait for creation, and choose Assign.',
         ],
       },
       { kind: 'copy', label: 'Second Section heading', value: 'Start with a household checklist' },
@@ -287,7 +297,7 @@ const flows: DemoFlow[] = [
         id: 'P5.3.2',
         title: 'Reorder the complete Sections and confirm their saved content',
         actions: [
-          'Populate the second Section’s heading and Text, then wait for Saved.',
+          'Paste the Second Section heading and Second Section text into their matching fields, then wait for Saved.',
           'In Layers, select the second complete Section and use its native Move up control to place it above the first.',
           'Wait for Saved, reopen the same article, and confirm both headings and bodies follow the saved order.',
           'Remove empty placements from this article before publication. Keep useful components in the library.',
@@ -539,8 +549,8 @@ export default function DemoLaunch(): JSX.Element {
                 deck notes for sign-in details.
               </li>
               <li>
-                Sign in to the shared DAM before opening its picker. Choose a unique name for your
-                own new article. Leave other authors’ drafts alone.
+                Sign in to the shared DAM before opening its picker. Confirm the suggested article
+                name, home-checkup-demo, is unused before P5. Leave other authors’ drafts alone.
               </li>
             </ol>
             <CopyValue label="Sitecore Portal" value={portalUrl} url />
