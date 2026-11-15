@@ -452,7 +452,7 @@ const flows: DemoFlow[] = [
         actions: [
           'Switch to the prepared Prospera Scrunch recommendations tab in Sales Engineers 1 → agverticals → agverts.',
           'Confirm the site is Prospera and the category is Readability & Clarity.',
-          'On the Home row, choose Review, then find Cards · Description. Keep its Select checkbox clear.',
+          'On the Home row, choose Review, then find Cards · Description. Leave Select unchanged.',
           'Compare Original content and Suggested content. Point out how the suggestion makes the credit-card description clearer.',
         ],
       },
@@ -465,7 +465,7 @@ const flows: DemoFlow[] = [
         id: 'P6.2',
         title: 'Review the matching content in Page Builder',
         actions: [
-          'Use the Open in Page Builder icon beside the Cards · Description selection checkbox.',
+          'Use the Open in Page Builder icon beside Select for the Cards · Description recommendation.',
           'In Page Builder’s AEO opportunities panel, point out Powered by Scrunch.',
           'For Cards · Description, choose Show live content. Compare Recommended | Rewritten with Live content.',
           'Choose Scroll to content and point out the outlined Features Carousel → Description field.',
