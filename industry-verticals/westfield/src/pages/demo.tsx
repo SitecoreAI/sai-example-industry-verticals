@@ -307,15 +307,42 @@ const flows: DemoFlow[] = [
         kind: 'result',
         text: 'Both complete Sections retain their own content and saved order. The article placeholder offers only its permitted components.',
       },
-      { kind: 'phase', id: 'P5.4', title: 'Preview, publish, and find the article' },
-      { kind: 'say', text: 'Publication makes the completed content available to visitors.' },
+      { kind: 'phase', id: 'P5.4', title: 'Review, approve, and publish the article' },
+      { kind: 'say', text: 'A draft goes through review before it becomes available to visitors.' },
       {
         kind: 'do',
         id: 'P5.4.1',
-        title: 'Review the page and publish the completed article',
+        title: 'Check the draft before sending it for review',
         actions: [
           'Preview Mobile (370 px) and Desktop Small (1024 px). Check the image, alternative text, links, required fields, and Section order.',
-          'For your new draft article, choose Actions → Publish. Confirm the status changes to Approved.',
+          'Return to the article and confirm its workflow status is Draft.',
+        ],
+      },
+      { kind: 'copy', label: 'Review submission comment', value: 'Ready for editorial review.' },
+      {
+        kind: 'do',
+        id: 'P5.4.1-submit',
+        title: 'Submit the article for approval',
+        actions: [
+          'Choose Actions → Submit for approval.',
+          'In Comment, paste the Review submission comment into Enter a comment, then choose Submit.',
+          'Confirm the article now shows Awaiting approval.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The article is Awaiting approval. Sending a draft for review does not publish it.',
+      },
+      { kind: 'say', text: 'Approval records that the reviewed content is ready for publication.' },
+      { kind: 'copy', label: 'Approval comment', value: 'Approved for publication.' },
+      {
+        kind: 'do',
+        id: 'P5.4.1-approve',
+        title: 'Approve the reviewed article and publish it',
+        actions: [
+          'Using the agreed presenter account for this review, choose Actions → Approve.',
+          'In Comment, paste the Approval comment into Enter a comment, then choose Submit.',
+          'Confirm the workflow status is Approved.',
           'Open publishing jobs and wait for the automatic publishing job to finish before showing the visitor result.',
           'Only if no publishing job starts, choose the top Publish control. Keep Page and Current language (English) selected, select Subpages to include this article’s local Data, and clear All references.',
           'For this fallback, confirm only your article and its local Data are in scope, choose Start publish, then wait for the job to finish.',
@@ -363,7 +390,7 @@ const rehearsalItems = [
   'Casey and Jordan receive their different offers on Home, and Logout works.',
   'A new Advice Article starts blank and retains its independent content.',
   'The Westfield DAM picker, permitted components, and Section reorder work.',
-  'The completed article can be published and found through Articles and Search.',
+  'The article moves from Draft through Awaiting approval to Approved, then appears in Articles and Search.',
 ];
 
 function CopyValue({
@@ -549,8 +576,10 @@ export default function DemoLaunch(): JSX.Element {
                 deck notes for sign-in details.
               </li>
               <li>
-                Sign in to the shared DAM before opening its picker. Confirm the suggested article
-                name, home-checkup-demo, is unused before P5. Leave other authors’ drafts alone.
+                Sign in to the shared DAM before opening its picker. Confirm home-checkup-demo is
+                unused before P5. If your own earlier practice article uses that name, retire only
+                that practice content outside the live sequence or prepare another unused name.
+                Leave other authors’ drafts alone.
               </li>
             </ol>
             <CopyValue label="Sitecore Portal" value={portalUrl} url />
@@ -615,6 +644,17 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>Close unused tabs. Restore any temporary viewport changes.</li>
               </ul>
+              <h3>Optional review revision</h3>
+              <CopyValue
+                label="Revision request comment"
+                value="Please revise the article before publication."
+              />
+              <p>
+                While your practice article is Awaiting approval, choose Actions → Return to draft.
+                In Comment, paste the Revision request comment into Enter a comment, then choose
+                Submit. Confirm Draft, make the changes, and submit for approval again before
+                following the main approval steps.
+              </p>
               <p>Use these visitor-session resets only before rehearsal, not between live loops.</p>
               <div className="westfield-demo__reset-buttons">
                 <button
