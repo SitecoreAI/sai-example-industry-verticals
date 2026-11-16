@@ -237,10 +237,14 @@ const flows: DemoFlow[] = [
         kind: 'result',
         text: 'The new article has its own title and metadata within the prepared page structure.',
       },
-      { kind: 'phase', id: 'P5.brand', title: 'Show the Westfield brand guidance' },
+      { kind: 'phase', id: 'P5.brand', title: 'Explain Brand Context and Brand Kit' },
       {
         kind: 'say',
-        text: 'Reusable brand guidance gives authors a consistent starting point for AI-assisted content.',
+        text: 'Brand Context gives AI background about Westfield: its business, audiences, products, and messaging.',
+      },
+      {
+        kind: 'say',
+        text: 'A Brand Kit organizes brand guidance into reusable rules for voice, writing, and visual style. In this article demo, Content Copilot uses the Westfield site’s kit for writing guidance.',
       },
       { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
       {
@@ -249,15 +253,16 @@ const flows: DemoFlow[] = [
         title: 'Show the context and writing guidance',
         actions: [
           'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
-          'Expand Content Guidelines, then double-click Style Guide. Point out the writing guidance and explain that this Brand Context gives Agentic Studio company background.',
+          'Expand Content Guidelines, then double-click Style Guide. Explain that Brand Context holds editable company knowledge and guidance for Agentic Studio.',
           'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
           "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
-          'Explain that Content Copilot uses the selected Brand Kit’s writing guidance. Return to the Page Builder tab for your new article.',
+          'Explain that both resources can be selected in Agentic Studio. The Brand Kit’s own Brand Context section belongs to the kit; it is separate from the Brand Context resource shown first.',
+          'Explain that Content Copilot reads three sections from the site’s associated Brand Kit: Brand Context, Tone of Voice, and Dos and Don’ts. For this task, it uses those sections and does not search the full uploaded brand documents. Return to the Page Builder tab for your new article.',
         ],
       },
       {
         kind: 'result',
-        text: 'The separate Brand Context and Brand Kit are visible, including the Brand Kit guidance used for content optimization.',
+        text: 'The separate Brand Context and Brand Kit are visible. The Brand Kit sections used by Content Copilot are identified.',
       },
       { kind: 'phase', id: 'P5.2', title: 'Select an approved image' },
       { kind: 'say', text: 'Authors can choose approved images within their normal editing flow.' },
@@ -750,8 +755,9 @@ export default function DemoLaunch(): JSX.Element {
                 </li>
                 <li>
                   The Westfield brand resources are demo guidance based on public material, not a
-                  formally approved Westfield brand book. Brand Context supports Agentic Studio;
-                  Content Copilot uses the associated Brand Kit’s content-optimization guidance.
+                  formally approved Westfield brand book. Agentic Studio can use Brand Context and
+                  Brand Kits together. Content Copilot uses the associated kit’s Brand Context, Tone
+                  of Voice, and Dos and Don’ts sections, not its full uploaded documents.
                 </li>
                 <li>
                   After rehearsal, unpublish only your practice article before removing it. Follow
