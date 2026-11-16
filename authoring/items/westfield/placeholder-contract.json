@@ -128,7 +128,9 @@
         {
           "componentName": "CampaignAction",
           "displayName": "Action",
-          "renderingId": "15f0d95b-ce29-45d7-8937-42016fcf3efd"
+          "renderingId": "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775",
+          "renderingName": "ArticleAction",
+          "datasourceTemplateId": "196b89f1-165c-4a35-968c-dff352768973"
         }
       ],
       "ownership": "Developer-owned exact singleItem definition",

@@ -445,6 +445,44 @@
       "displayName": "Section"
     },
     {
+      "componentName": "CampaignAction",
+      "renderingName": "ArticleAction",
+      "displayName": "Action",
+      "renderingId": "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Westfield/Advice/ArticleAction",
+      "datasourceTemplateId": "196b89f1-165c-4a35-968c-dff352768973",
+      "datasourceTemplatePath": "/sitecore/templates/Project/Westfield/Components/ArticleAction",
+      "fields": [
+        {
+          "name": "Heading",
+          "id": "4f34bea3-1a15-4869-8d3b-02a580d37a7b",
+          "type": "Single-Line Text",
+          "label": "Heading",
+          "help": "Optional short heading above the button."
+        },
+        {
+          "name": "Body",
+          "id": "2598d8ff-4b92-41aa-bd6a-3374111b4928",
+          "type": "Rich Text",
+          "label": "Supporting text",
+          "help": "Optional supporting text for this action."
+        },
+        {
+          "name": "Link",
+          "id": "da3cc842-b418-4cb0-af07-449c73a3de23",
+          "type": "General Link",
+          "label": "Button link",
+          "help": "Choose a page or enter a web address. Set the link text that should appear on the button."
+        }
+      ],
+      "owner": "Optional page-local article action with isolated article content workflow; reuses existing CampaignAction SDK component by field name.",
+      "datasourceLocation": "query:./*[@@name='Data']",
+      "exports": [
+        "Default",
+        "Quiet"
+      ]
+    },
+    {
       "componentName": "AdviceListing",
       "renderingId": "0dde0f9c-d855-53cd-9fe8-8ecce852d4d4",
       "renderingPath": "/sitecore/layout/Renderings/Project/Westfield/Advice/AdviceListing",
@@ -766,7 +804,7 @@
       "path": "/sitecore/content/Westfield/westfield/Presentation/Placeholder Settings/Article Content",
       "allowedRenderingIds": [
         "c8ff5ecf-3894-50f2-93d1-0654c6a693ea",
-        "15f0d95b-ce29-45d7-8937-42016fcf3efd"
+        "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775"
       ]
     },
     {
@@ -1581,9 +1619,51 @@
       "id": "a72d343f-6cde-4611-b131-06637c92bdb2",
       "path": "/sitecore/templates/Project/Westfield/Parameters/Component Parameters",
       "file": "items/templates/Westfield/Parameters/Component Parameters.yml"
+    },
+    {
+      "key": "ArticleActionRendering",
+      "id": "88cf65b3-5b2e-4dd4-8e0d-d78c006d9775",
+      "path": "/sitecore/layout/Renderings/Project/Westfield/Advice/ArticleAction",
+      "file": "items/renderings/Westfield/Advice/ArticleAction.yml"
+    },
+    {
+      "key": "ArticleActionTemplate",
+      "id": "196b89f1-165c-4a35-968c-dff352768973",
+      "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction",
+      "file": "items/templates/Westfield/Components/ArticleAction.yml"
+    },
+    {
+      "key": "ArticleActionFields",
+      "id": "0f88cf75-98dd-4f62-bd23-ea5c8dc1533d",
+      "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content",
+      "file": "items/templates/Westfield/Components/ArticleAction/Content.yml"
+    },
+    {
+      "key": "ArticleAction.Heading",
+      "id": "4f34bea3-1a15-4869-8d3b-02a580d37a7b",
+      "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Heading",
+      "file": "items/templates/Westfield/Components/ArticleAction/Content/Heading.yml"
+    },
+    {
+      "key": "ArticleAction.Body",
+      "id": "2598d8ff-4b92-41aa-bd6a-3374111b4928",
+      "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Body",
+      "file": "items/templates/Westfield/Components/ArticleAction/Content/Body.yml"
+    },
+    {
+      "key": "ArticleAction.Link",
+      "id": "da3cc842-b418-4cb0-af07-449c73a3de23",
+      "path": "/sitecore/templates/Project/Westfield/Components/ArticleAction/Content/Link",
+      "file": "items/templates/Westfield/Components/ArticleAction/Content/Link.yml"
+    },
+    {
+      "key": "ArticleActionWorkflowDefaults",
+      "id": "dd24daa5-30f6-43a3-9d5a-e24d387e442f",
+      "path": "/sitecore/content/Westfield/westfield/Settings/Standard Values/Datasources/Article action",
+      "file": "items/articleActionWorkflowDefaults/Article action.yml"
     }
   ],
-  "rootIdentityStatus": "All 117 source definition identities are verified against native master, including the exact Home Cards singleItem leaf and 22 other additive Home definitions. The existing Placeholder Settings parent remains a metadata-only singleItem scaffold, with no descendants or broad Presentation scope.",
+  "rootIdentityStatus": "The source identity inventory preserves the 117 previously verified baseline definitions and adds the seven existing ArticleAction definitions listed here. The existing Placeholder Settings parent remains a metadata-only singleItem scaffold, with no descendants or broad Presentation scope.",
   "nativeRootBindings": {
     "/sitecore/templates/Project/Westfield": {
       "id": "ab0434e0-a27e-4507-bb6b-171e2c134dc0",
@@ -1637,9 +1717,9 @@
     "fieldNamesFieldId": "75bbdf72-635f-4d72-a3d3-a9baba09d161"
   },
   "definitionCounts": {
-    "serializedItems": 117,
-    "datasourceFields": 49,
-    "components": 13,
+    "serializedItems": 124,
+    "datasourceFields": 52,
+    "components": 14,
     "pageLocalMetadataFields": 5,
     "adviceArticleFields": 3,
     "inheritedTitleField": 1,
@@ -1647,7 +1727,8 @@
     "adviceSourceAdditionItems": 21,
     "preExistingNativeScaffoldItems": 1,
     "previouslyVerifiedNativeBaselineItems": 94,
-    "homeSourceAdditionItems": 23
+    "homeSourceAdditionItems": 23,
+    "articleActionSourceAdditionItems": 7
   },
   "runtimeEvidence": {
     "canonicalLifecycleManifest": "../../../sites.manifest.json#westfield",
