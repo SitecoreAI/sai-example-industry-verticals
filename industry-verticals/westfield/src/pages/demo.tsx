@@ -10,6 +10,18 @@ const brandResourcesUrl =
 const prosperaRecommendationsUrl =
   'https://app.sitecorecloud.io/channels/collection/45177ac3175042dc9bc748d76ba0858a/sites/d4c417d9-0acf-44f9-aec8-c94730b872bb/aeo-opportunities/readability?organization=org_vDtrEzJHxeuuB9cD&tenantName=sitecoresaa7acd-agverticals97fd-agvertsc3b5';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
+const graphQlSandboxUrl = 'https://studio.apollographql.com/sandbox/explorer';
+const articleForAppQuery = `query WestfieldArticleForApp {
+  item(
+    path: "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist"
+    language: "en"
+  ) {
+    title: field(name: "Title") { value }
+    summary: field(name: "pageSummary") { value }
+    image: field(name: "HeroImage") { jsonValue }
+  }
+}`;
+
 const contentCopilotPrompt =
   'Write one short paragraph of 50–70 words for an advice article titled A simple home checkup. Encourage homeowners to record changes around their home and prepare questions for their independent insurance agent. Follow the selected Westfield brand kit. Do not invent coverage details or savings claims. Return only the paragraph, without a heading.';
 const contentCopilotRefinementPrompt =
@@ -484,6 +496,62 @@ const flows: DemoFlow[] = [
       { kind: 'return', title: 'Shared content for a Westfield mobile app' },
     ],
   },
+  {
+    id: 'shared-app-content',
+    code: 'P7',
+    title: 'Request shared content through GraphQL',
+    time: '2 minutes',
+    goal: 'Show how a mobile app can request the same published editorial content as the website.',
+    context: 'Slide 15 · Home and prepared Apollo Sandbox tabs · read-only published content',
+    blocks: [
+      { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
+      {
+        kind: 'say',
+        text: 'The same published article content can support the website and a mobile app.',
+      },
+      {
+        kind: 'do',
+        id: 'P7.1',
+        title: 'Show the published claims-checklist article',
+        actions: [
+          'From Home, choose About Us → Articles.',
+          'Open “Property Insurance Claims Checklist: What To Do Before and After a Loss.”',
+          'Point out the article title, introductory summary, and image.',
+        ],
+      },
+      {
+        kind: 'copy',
+        label: 'Apollo Sandbox API tab',
+        value: graphQlSandboxUrl,
+        url: true,
+      },
+      {
+        kind: 'say',
+        text: 'This request asks Experience Edge for the article’s title, summary, and image. It does not request the website’s page layout.',
+      },
+      { kind: 'copy', label: 'Article content query', value: articleForAppQuery },
+      {
+        kind: 'do',
+        id: 'P7.2',
+        title: 'Run the query and compare the returned content',
+        actions: [
+          'Switch to the prepared Apollo Sandbox tab connected to Westfield’s published Experience Edge content.',
+          'Replace the Operation editor contents with the Article content query. No query variables are needed.',
+          'Choose the play button labeled WestfieldArticleForApp above the Operation editor.',
+          'In the response, point out title.value, summary.value, and image.jsonValue.value. Compare the title and summary with the article, then point out the image address and alternative text.',
+        ],
+      },
+      {
+        kind: 'say',
+        text: 'An app can use these content fields in its own screens. The author maintains the content in Sitecore, while each channel controls its presentation.',
+      },
+      {
+        kind: 'result',
+        text: 'The API returns the same published article title, summary, and image used by the website. The request retrieves content without the website’s page layout.',
+      },
+      { kind: 'return', title: 'Underwriter search has different requirements' },
+    ],
+  },
 ];
 
 const rehearsalItems = [
@@ -497,6 +565,7 @@ const rehearsalItems = [
   'The Westfield DAM picker, permitted components, and Section reorder work.',
   'The article moves from Draft through Awaiting approval to Approved, then appears in Articles and Search.',
   'The Prospera Scrunch recommendation opens its matching Page Builder field without applying a change.',
+  'The prepared Experience Edge GraphQL query returns the published claims-checklist title, summary, and image.',
 ];
 
 function CopyValue({
@@ -660,11 +729,11 @@ export default function DemoLaunch(): JSX.Element {
           <p>50-minute presentation + 10 minutes for questions</p>
         </header>
         <div className="westfield-demo__intro">
-          <p className="westfield-demo__eyebrow">Six live loops · 28 minutes</p>
+          <p className="westfield-demo__eyebrow">Seven live loops · 30 minutes</p>
           <h1>Keep the next step in view.</h1>
           <p className="westfield-demo__lede">
             Show the website and native Sitecore tools to the audience. Keep this reference on a
-            separate screen. Prepare the tabs first, then follow P1–P6 without returning here during
+            separate screen. Prepare the tabs first, then follow P1–P7 without returning here during
             the presentation.
           </p>
         </div>
@@ -695,6 +764,14 @@ export default function DemoLaunch(): JSX.Element {
                 → agverticals → agverts. Confirm the Home recommendation opens its matching Page
                 Builder field. Keep the Westfield tabs available. This separate product example
                 follows the website-reporting discussion at minutes 37–40.
+              </li>
+              <li>
+                For P7, reuse the prepared Westfield Apollo Sandbox workspace in the same browser
+                profile used for rehearsal. Confirm the schema connects and run the article query
+                before presenting. Leave the connection configured for the live loop and keep its
+                settings outside this guide. Keep the Home tab available for the website comparison.
+                This two-minute loop fits within slide 15’s existing three-minute discussion at
+                minutes 40–43.
               </li>
             </ol>
             <CopyValue label="Sitecore Portal" value={portalUrl} url />
