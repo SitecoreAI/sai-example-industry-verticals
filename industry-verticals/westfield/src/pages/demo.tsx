@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { JSX, useId, useRef, useState } from 'react';
+import { FormEvent, JSX, useEffect, useId, useRef, useState } from 'react';
 import { getBrowserId } from '@sitecore-cloudsdk/core/browser';
 import { resetDemoBrowserIdentity } from 'lib/demo-persona';
 
@@ -10,7 +10,9 @@ const brandResourcesUrl =
 const prosperaRecommendationsUrl =
   'https://app.sitecorecloud.io/channels/collection/45177ac3175042dc9bc748d76ba0858a/sites/d4c417d9-0acf-44f9-aec8-c94730b872bb/aeo-opportunities/readability?organization=org_vDtrEzJHxeuuB9cD&tenantName=sitecoresaa7acd-agverticals97fd-agvertsc3b5';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
-const graphQlSandboxUrl = 'https://studio.apollographql.com/sandbox/explorer';
+const graphQlExplorerUrl = 'https://edge.sitecorecloud.io/api/graphql/ide';
+const graphQlDeliveryEndpoint = 'https://edge.sitecorecloud.io/api/graphql/v1';
+const graphQlKeyStorage = 'westfield-demo.graphql-delivery-api-key';
 const articleForAppQuery = `query WestfieldArticleForApp {
   item(
     path: "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist"
@@ -31,6 +33,7 @@ type ScriptBlock =
   | { kind: 'say'; text: string }
   | { kind: 'do'; id: string; title: string; actions: string[] }
   | { kind: 'copy'; label: string; value: string; url?: boolean }
+  | { kind: 'graphql-headers' }
   | { kind: 'phase'; id: string; title: string }
   | { kind: 'result'; text: string }
   | { kind: 'return'; title: string };
@@ -502,7 +505,7 @@ const flows: DemoFlow[] = [
     title: 'Request shared content through GraphQL',
     time: '2 minutes',
     goal: 'Show how a mobile app can request the same published editorial content as the website.',
-    context: 'Slide 15 · Home and prepared Apollo Sandbox tabs · read-only published content',
+    context: 'Slide 15 · Home and Sitecore GraphQL explorer tabs · read-only published content',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
@@ -521,23 +524,31 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'copy',
-        label: 'Apollo Sandbox API tab',
-        value: graphQlSandboxUrl,
+        label: 'Sitecore GraphQL explorer tab',
+        value: graphQlExplorerUrl,
         url: true,
       },
       {
         kind: 'say',
         text: 'This request asks Experience Edge for the article’s title, summary, and image. It does not request the website’s page layout.',
       },
+      {
+        kind: 'copy',
+        label: 'Delivery API endpoint',
+        value: graphQlDeliveryEndpoint,
+        url: true,
+      },
+      { kind: 'graphql-headers' },
       { kind: 'copy', label: 'Article content query', value: articleForAppQuery },
       {
         kind: 'do',
         id: 'P7.2',
         title: 'Run the query and compare the returned content',
         actions: [
-          'Switch to the prepared Apollo Sandbox tab connected to Westfield’s published Experience Edge content.',
-          'Replace the Operation editor contents with the Article content query. No query variables are needed.',
-          'Choose the play button labeled WestfieldArticleForApp above the Operation editor.',
+          'Switch to the Sitecore GraphQL explorer tab. Confirm the endpoint field shows the Delivery API endpoint; paste that endpoint if needed.',
+          'Choose HTTP HEADERS below the query pane and replace its contents with the complete GraphQL HTTP Headers copy card, including the saved API key.',
+          'Replace the query pane contents with the Article content query. No query variables are needed.',
+          'Choose the play button labeled Execute Query (Ctrl-Enter).',
           'In the response, point out title.value, summary.value, and image.jsonValue.value. Compare the title and summary with the article, then point out the image address and alternative text.',
         ],
       },
@@ -565,7 +576,7 @@ const rehearsalItems = [
   'The Westfield DAM picker, permitted components, and Section reorder work.',
   'The article moves from Draft through Awaiting approval to Approved, then appears in Articles and Search.',
   'The Prospera Scrunch recommendation opens its matching Page Builder field without applying a change.',
-  'The prepared Experience Edge GraphQL query returns the published claims-checklist title, summary, and image.',
+  'The saved API key and query work in Sitecore’s GraphQL explorer and return the published claims-checklist title, summary, and image.',
 ];
 
 function CopyValue({
@@ -625,10 +636,40 @@ function CopyValue({
   );
 }
 
-function Script({ block }: { block: ScriptBlock }): JSX.Element {
+function Script({
+  block,
+  graphQlApiKey,
+  onPrepareGraphQlKey,
+}: {
+  block: ScriptBlock;
+  graphQlApiKey: string;
+  onPrepareGraphQlKey: () => void;
+}): JSX.Element {
   switch (block.kind) {
     case 'copy':
       return <CopyValue {...block} />;
+    case 'graphql-headers':
+      return graphQlApiKey ? (
+        <CopyValue
+          label="GraphQL HTTP Headers"
+          value={JSON.stringify({ sc_apikey: graphQlApiKey }, null, 2)}
+        />
+      ) : (
+        <div className="westfield-demo__block westfield-demo__block--say">
+          <p className="westfield-demo__block-label">Before the demo</p>
+          <p>
+            Save the Westfield Delivery API key once in this browser. Its complete HTTP Headers copy
+            card will appear here.
+          </p>
+          <button
+            type="button"
+            className="westfield-demo__copy-button"
+            onClick={onPrepareGraphQlKey}
+          >
+            Set up API key
+          </button>
+        </div>
+      );
     case 'say':
       return (
         <div className="westfield-demo__block westfield-demo__block--say">
@@ -676,11 +717,65 @@ function Script({ block }: { block: ScriptBlock }): JSX.Element {
 
 export default function DemoLaunch(): JSX.Element {
   const launching = useRef(false);
+  const preparationRef = useRef<HTMLDetailsElement>(null);
+  const graphQlKeyInput = useRef<HTMLInputElement>(null);
+  const [graphQlApiKey, setGraphQlApiKey] = useState('');
+  const [graphQlKeyDraft, setGraphQlKeyDraft] = useState('');
+  const [graphQlKeyStatus, setGraphQlKeyStatus] = useState(
+    'Save the Westfield Delivery API key once in this browser.'
+  );
   const [status, setStatus] = useState('Prepare the visitor session before the presentation.');
   const [busy, setBusy] = useState<'prepare' | 'home' | 'instagram' | null>(null);
   const [clientId, setClientId] = useState<string | null>(null);
   const [error, setError] = useState(false);
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const savedKey = window.localStorage.getItem(graphQlKeyStorage);
+      if (savedKey) {
+        setGraphQlApiKey(savedKey);
+        setGraphQlKeyStatus('API key loaded. The complete HTTP Headers copy card is ready in P7.');
+      }
+    } catch {
+      setGraphQlKeyStatus('Browser storage is unavailable. Add the key for this visit before P7.');
+    }
+  }, []);
+
+  const saveGraphQlKey = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const key = graphQlKeyDraft.trim();
+    if (!key) return;
+    setGraphQlApiKey(key);
+    setGraphQlKeyDraft('');
+    try {
+      window.localStorage.setItem(graphQlKeyStorage, key);
+      setGraphQlKeyStatus(
+        'API key saved in this browser. The HTTP Headers copy card is ready in P7.'
+      );
+    } catch {
+      setGraphQlKeyStatus(
+        'API key ready for this visit. Keep this guide open; browser storage is unavailable.'
+      );
+    }
+  };
+
+  const clearGraphQlKey = () => {
+    setGraphQlApiKey('');
+    setGraphQlKeyDraft('');
+    try {
+      window.localStorage.removeItem(graphQlKeyStorage);
+      setGraphQlKeyStatus('API key cleared from this browser.');
+    } catch {
+      setGraphQlKeyStatus('API key cleared for this visit. Browser storage could not be updated.');
+    }
+  };
+
+  const prepareGraphQlKey = () => {
+    if (preparationRef.current) preparationRef.current.open = true;
+    graphQlKeyInput.current?.scrollIntoView({ block: 'center' });
+    graphQlKeyInput.current?.focus();
+  };
 
   const launch = async (destination: 'prepare' | 'home' | 'instagram') => {
     if (launching.current) return;
@@ -737,7 +832,7 @@ export default function DemoLaunch(): JSX.Element {
             the presentation.
           </p>
         </div>
-        <details className="westfield-demo__preparation">
+        <details className="westfield-demo__preparation" ref={preparationRef}>
           <summary>Before the demo · prepare tabs, accounts, and the visitor session</summary>
           <div className="westfield-demo__preparation-body">
             <ol>
@@ -766,14 +861,56 @@ export default function DemoLaunch(): JSX.Element {
                 follows the website-reporting discussion at minutes 37–40.
               </li>
               <li>
-                For P7, reuse the prepared Westfield Apollo Sandbox workspace in the same browser
-                profile used for rehearsal. Confirm the schema connects and run the article query
-                before presenting. Leave the connection configured for the live loop and keep its
-                settings outside this guide. Keep the Home tab available for the website comparison.
-                This two-minute loop fits within slide 15’s existing three-minute discussion at
-                minutes 40–43.
+                For P7, save the Westfield Delivery API key below in the browser used for the
+                presentation. Open Sitecore’s built-in GraphQL explorer, paste the HTTP Headers and
+                query from P7, and confirm the article response before presenting. Keep the Home tab
+                available for the website comparison. This two-minute loop fits within slide 15’s
+                existing three-minute discussion at minutes 40–43.
               </li>
             </ol>
+            <form
+              className="westfield-demo__preparation-controls westfield-demo__key-setup"
+              id="graphql-api-key-setup"
+              onSubmit={saveGraphQlKey}
+            >
+              <h2>Prepare the GraphQL API key</h2>
+              <p>
+                The key stays in this browser. P7 provides a complete HTTP Headers copy card with
+                the saved key, so no connection details need to be typed during the live demo.
+              </p>
+              <label htmlFor="westfield-graphql-api-key">Westfield Delivery API key</label>
+              <input
+                ref={graphQlKeyInput}
+                id="westfield-graphql-api-key"
+                className="westfield-demo__copy-value"
+                type="password"
+                autoComplete="off"
+                autoCapitalize="none"
+                spellCheck={false}
+                value={graphQlKeyDraft}
+                onChange={(event) => setGraphQlKeyDraft(event.target.value)}
+              />
+              <div className="westfield-demo__key-actions">
+                <button
+                  type="submit"
+                  className="westfield-demo__button"
+                  disabled={!graphQlKeyDraft.trim()}
+                >
+                  Save API key in this browser
+                </button>
+                <button
+                  type="button"
+                  className="westfield-demo__button westfield-demo__button--secondary"
+                  disabled={!graphQlApiKey && !graphQlKeyDraft}
+                  onClick={clearGraphQlKey}
+                >
+                  Clear API key
+                </button>
+              </div>
+              <p role="status" className="westfield-demo__prep-status" aria-live="polite">
+                {graphQlKeyStatus}
+              </p>
+            </form>
             <CopyValue label="Sitecore Portal" value={portalUrl} url />
             <CopyValue label="Shared Content Hub" value={damUrl} url />
             <div className="westfield-demo__preparation-controls">
@@ -969,7 +1106,12 @@ export default function DemoLaunch(): JSX.Element {
                 <p className="westfield-demo__context">{flow.context}</p>
                 <div className="westfield-demo__script">
                   {flow.blocks.map((block, index) => (
-                    <Script key={`${flow.code}-${index}`} block={block} />
+                    <Script
+                      key={`${flow.code}-${index}`}
+                      block={block}
+                      graphQlApiKey={graphQlApiKey}
+                      onPrepareGraphQlKey={prepareGraphQlKey}
+                    />
                   ))}
                 </div>
               </section>
