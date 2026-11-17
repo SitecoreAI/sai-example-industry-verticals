@@ -947,6 +947,11 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
                   Overview again. Wait for the recorded visit before describing a changed affinity.
                 </li>
                 <li>
+                  If Instagram opens Home with the previous hero, inspect the matching profile under
+                  Engagement → Properties → UTM–Campaign. Once next_chapter appears, reopen the same
+                  campaign URL once. Keep the same visitor; do not reset the session.
+                </li>
+                <li>
                   If a result is still pending, say so. Use this guide on a separate screen to
                   explain the intended flow, then continue the presentation.
                 </li>
