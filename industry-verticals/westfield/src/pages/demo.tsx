@@ -281,7 +281,7 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'A Brand Kit sets rules for voice, writing, and visual style. Content Copilot uses the site’s selected kit to guide the article’s writing.',
+        text: 'A Brand Kit gathers guidance for voice, writing, and visual style. Content Copilot uses the site’s selected kit to guide the article’s writing.',
       },
       { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
       {
@@ -293,13 +293,13 @@ const flows: DemoFlow[] = [
           'Expand Content Guidelines, then double-click Style Guide. Point out the company knowledge and guidance available to Agentic Studio.',
           'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
           "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
-          'Explain the distinction: Brand Context supplies company knowledge; Brand Kits supply brand rules. Both can be selected in Agentic Studio.',
+          'Explain their main purposes: Brand Context helps AI understand Westfield and the task; a Brand Kit guides how AI communicates for Westfield. Both can be selected in Agentic Studio.',
           'For this article, Content Copilot uses the kit’s Brand Context, Tone of Voice, and Dos and Don’ts sections. The kit’s Brand Context section is separate from the company resource shown first. Return to the new article in Page Builder.',
         ],
       },
       {
         kind: 'result',
-        text: 'The company knowledge in Brand Context and the writing rules in the Brand Kit are visible. The article’s AI guidance comes from the site’s associated kit.',
+        text: 'The Westfield background in Brand Context and the writing guidance in the Brand Kit are visible. The article’s AI guidance comes from the site’s associated kit.',
       },
       { kind: 'phase', id: 'P5.2', title: 'Select an approved image' },
       {
@@ -344,7 +344,6 @@ const flows: DemoFlow[] = [
         actions: [
           'Select the starting Section. In Content, paste the First Section heading into Heading and wait for Saved.',
           'In Layers, select this Section’s Text. In the Text panel, choose Optimize with AI.',
-          'Keep this Text selected so the generated paragraph goes into the intended Section.',
         ],
       },
       { kind: 'copy', label: 'Content Copilot draft prompt', value: contentCopilotPrompt },
@@ -356,7 +355,7 @@ const flows: DemoFlow[] = [
           'Paste the Content Copilot draft prompt into Ask AI for content improvements, then choose Generate content. Wait until Ready! appears.',
           'Read the proposed paragraph. Check its meaning, plain language, and independent-agent message; confirm it adds no unsupported coverage or savings claims.',
           'Choose Keep optimized to retain the reviewed paragraph in this Section’s Text, then wait for Saved.',
-          'Reopen the same article. Confirm the paragraph remains in the first Section and the workflow status is still Draft.',
+          'Point out the retained paragraph in the first Section and confirm the workflow status is still Draft.',
         ],
       },
       {
@@ -389,7 +388,7 @@ const flows: DemoFlow[] = [
         actions: [
           'Paste the Second Section heading and Second Section text into their matching fields, then wait for Saved.',
           'In Layers, select the second complete Section and use Move up to place it above the first.',
-          'Wait for Saved, reopen the same article, and confirm both headings and bodies follow the saved order.',
+          'Wait for Saved and confirm each Section’s heading and body moved together.',
         ],
       },
       {
