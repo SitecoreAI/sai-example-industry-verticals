@@ -134,6 +134,16 @@
 .westfield-demo__preparation-controls > .westfield-demo__block {
   margin: 18px 0;
 }
+.westfield-demo__key-setup label {
+  display: block;
+  font-weight: 700;
+}
+.westfield-demo__key-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
 .westfield-demo__button,
 .westfield-demo__copy-button {
   min-height: 42px;
