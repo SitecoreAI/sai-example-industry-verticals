@@ -44,7 +44,6 @@ const nextConfig = {
     return [
       {
         source: '/demo/westfield-demo-cheat-sheet.pdf',
-        locale: false,
         headers: [
           {
             key: 'Content-Disposition',
