@@ -3803,7 +3803,7 @@
               "heading": "A new chapter. Protection for what\u2019s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
-              "verification": "Current native two-column table and its retained message variants verified. Final direct Instagram-to-Home release and fresh-visitor acceptance are pending and will be recorded in the release handoff.",
+              "verification": "PASS at frontend c3d4afcabbd87e6ba3aa1b35ef417633ad710f88 on both canonical hosts: independent empty-cookie first HTML checks selected the native campaign Hero datasource; fresh Chrome Incognito actual ad click and same-visitor Auto-to-Home-to-Instagram browser sequence passed. Release evidence: outputs/evidence/westfield-direct-instagram-production-release-20261117.json and westfield-direct-instagram-browser-production-20261117.json.",
               "generatedUnusedCopy": {
                 "id": "b4e93245-df16-441c-84f7-c73304313125",
                 "path": "/sitecore/content/Westfield/westfield/Home/Data/Hero_var2",
@@ -3853,7 +3853,7 @@
                 }
               ],
               "tableEvidence": "work/westfield-readable-decision-20261117/home-final-two-column.json and native-campaign-value-resource.json",
-              "firstVisitBoundary": "Direct ad-to-Home uses the incoming campaign query on the first request, without a campaign-entry page, acknowledged pre-navigation VIEW, or reload. Final fresh-visitor release acceptance is pending.",
+              "firstVisitBoundary": "PASS on the released public host: a new Chrome Incognito visitor opened only the static Instagram prop, clicked the actual Learn more link, and received the campaign headline on the first Home arrival. No /demo preparation, prior Home visit, intermediary page, or refresh. A separate unchanged visitor session passed teen-driver article → Auto Home → water-damage and spring-thunderstorm articles → Home-interest Home → Instagram ad → campaign Home with zero refreshes.",
               "unusedCondition": {
                 "id": "ccecd5b4-d31b-46c1-862a-db6b23e21106",
                 "name": "Westfield next chapter arrival",
