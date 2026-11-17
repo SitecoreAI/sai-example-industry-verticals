@@ -12,7 +12,6 @@ const prosperaRecommendationsUrl =
   'https://app.sitecorecloud.io/channels/collection/45177ac3175042dc9bc748d76ba0858a/sites/d4c417d9-0acf-44f9-aec8-c94730b872bb/aeo-opportunities/readability?organization=org_vDtrEzJHxeuuB9cD&tenantName=sitecoresaa7acd-agverticals97fd-agvertsc3b5';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
 const graphQlExplorerUrl = 'https://edge.sitecorecloud.io/api/graphql/ide';
-const graphQlDeliveryEndpoint = 'https://edge.sitecorecloud.io/api/graphql/v1';
 const articleForAppQuery = `query WestfieldArticleForApp {
   item(
     path: "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist"
@@ -54,11 +53,14 @@ const flows: DemoFlow[] = [
     code: 'P1',
     title: 'A familiar Westfield experience',
     time: '1 minute',
-    goal: 'Establish the familiar website before its message changes.',
+    goal: 'Keep the Westfield experience familiar as its content becomes more relevant.',
     context: 'Home tab · anonymous visitor · fresh public-site session',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
-      { kind: 'say', text: 'Start with the Westfield experience customers recognize.' },
+      {
+        kind: 'say',
+        text: 'Start with the website Westfield customers recognize, then follow how its content adapts to the visitor.',
+      },
       {
         kind: 'do',
         id: 'P1.1',
@@ -73,6 +75,10 @@ const flows: DemoFlow[] = [
         kind: 'result',
         text: 'Home shows “Reliable Insurance, Real Peace of Mind.” The header offers Login.',
       },
+      {
+        kind: 'say',
+        text: 'Westfield can offer more relevant content within the same familiar brand experience. First, let us use browsing interest to choose the message.',
+      },
       { kind: 'return', title: 'Browsing interests change the message' },
     ],
   },
@@ -81,13 +87,13 @@ const flows: DemoFlow[] = [
     code: 'P2',
     title: 'Reading builds an interest profile',
     time: '5 minutes',
-    goal: 'Show how browsing provides a useful signal before the visitor signs in.',
+    goal: 'Use browsing interest to help an anonymous visitor find relevant advice.',
     context: 'Home and Profiles tabs · same anonymous visitor as P1 · before Instagram',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
         kind: 'say',
-        text: 'Article visits help Sitecore infer which topics interest this visitor.',
+        text: 'This visitor has not signed in. The advice they read gives Sitecore a signal about their interests.',
       },
       {
         kind: 'do',
@@ -122,12 +128,15 @@ const flows: DemoFlow[] = [
         actions: [
           'Once the visits appear in the profile, return to the website and choose the Westfield logo.',
           'Compare the Home hero with the original message from P1.',
-          'In the prepared Page Builder tab, select the Home hero and show its Home-interest experience and native condition.',
         ],
       },
       {
         kind: 'result',
         text: 'The same anonymous profile records one Auto article and two Home articles. Home shows “Protection for the place you call home.”',
+      },
+      {
+        kind: 'say',
+        text: 'Westfield can guide visitors toward relevant advice before sign-in. Next, use the message that brought a visitor to the site.',
       },
       { kind: 'return', title: 'The website continues the Instagram message' },
     ],
@@ -137,13 +146,13 @@ const flows: DemoFlow[] = [
     code: 'P3',
     title: 'The message continues from the ad',
     time: '2 minutes',
-    goal: 'Continue an acquisition message from Instagram onto the website.',
+    goal: 'Give a prospective customer a consistent message from the ad to the website.',
     context: 'Instagram tab · same anonymous session as P2 · no customer sign-in yet',
     blocks: [
       { kind: 'copy', label: 'Instagram tab', value: `${siteUrl}/instagram/index.html`, url: true },
       {
         kind: 'say',
-        text: 'The campaign supplies visit context while the visitor remains anonymous.',
+        text: 'This Instagram example uses the campaign that brought the visitor here to choose the website message.',
       },
       {
         kind: 'do',
@@ -153,12 +162,15 @@ const flows: DemoFlow[] = [
           'Switch to the prepared Instagram tab. Point out the Westfield sponsored post among unrelated friend posts.',
           'On “A new chapter. Protection for what’s next.” choose Learn more.',
           'Let the campaign entry open Home, then point out the matching message and imagery.',
-          'In the prepared Page Builder tab, select the Home hero and show Next chapter campaign, with UTM Campaign equal to next_chapter.',
         ],
       },
       {
         kind: 'result',
-        text: 'Home shows “A new chapter. Protection for what’s next.” The header still offers Login.',
+        text: 'The ad and Home both show “A new chapter. Protection for what’s next.” The visitor remains signed out.',
+      },
+      {
+        kind: 'say',
+        text: 'Westfield can continue the ad’s message on the website. Now sign in and use a customer’s known preference.',
       },
       { kind: 'return', title: 'Paperless status changes the message after sign-in' },
     ],
@@ -168,11 +180,14 @@ const flows: DemoFlow[] = [
     code: 'P4',
     title: 'Known customer information changes the offer',
     time: '5 minutes',
-    goal: 'Offer a useful next step that respects each customer’s paperless preference.',
+    goal: 'Match the service message to each customer’s existing paperless preference.',
     context: 'Home tab · Casey, then Jordan · paste each email into both sign-in fields',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
-      { kind: 'say', text: 'A known customer fact helps the site choose a useful next step.' },
+      {
+        kind: 'say',
+        text: 'After sign-in, a known customer preference helps Westfield choose a useful next step. Casey has not enrolled in paperless billing.',
+      },
       { kind: 'copy', label: 'Casey email and password', value: 'casey@example.com' },
       {
         kind: 'do',
@@ -205,6 +220,10 @@ const flows: DemoFlow[] = [
         kind: 'result',
         text: 'Casey receives the paperless offer. Jordan receives the coverage message. The header shows Logout while each customer is signed in.',
       },
+      {
+        kind: 'say',
+        text: 'Westfield can use the homepage to promote a service that fits each customer’s situation. Next, show how the team creates the content behind these experiences.',
+      },
       { kind: 'return', title: 'Creating an article in Page Builder' },
     ],
   },
@@ -213,13 +232,16 @@ const flows: DemoFlow[] = [
     code: 'P5',
     title: 'Create a page with confidence',
     time: '12 minutes',
-    goal: 'Use brand guidance and AI assistance to create an article, then review it before publication.',
+    goal: 'Give authors a repeatable way to create useful advice, with brand guidance and editorial approval.',
     context:
       'Page Builder and Brand resources tabs · agreed presenter account · Westfield site · own new article',
     blocks: [
       { kind: 'copy', label: 'Sitecore Portal', value: portalUrl, url: true },
       { kind: 'phase', id: 'P5.1', title: 'Create the article' },
-      { kind: 'say', text: 'The prepared structure lets the author concentrate on content.' },
+      {
+        kind: 'say',
+        text: 'Start with one new advice article. Its prepared structure lets the author focus on the message, image, and sections.',
+      },
       { kind: 'copy', label: 'Article page name', value: 'home-checkup-demo' },
       {
         kind: 'do',
@@ -255,11 +277,11 @@ const flows: DemoFlow[] = [
       { kind: 'phase', id: 'P5.brand', title: 'Explain Brand Context and Brand Kit' },
       {
         kind: 'say',
-        text: 'Brand Context gives AI background about Westfield: its business, audiences, products, and messaging.',
+        text: 'Brand Context gives AI background about Westfield: its business, audiences, products, and messages.',
       },
       {
         kind: 'say',
-        text: 'A Brand Kit organizes brand guidance into reusable rules for voice, writing, and visual style. In this article demo, Content Copilot uses the Westfield site’s kit for writing guidance.',
+        text: 'A Brand Kit sets rules for voice, writing, and visual style. Content Copilot uses the site’s selected kit to guide the article’s writing.',
       },
       { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
       {
@@ -268,19 +290,22 @@ const flows: DemoFlow[] = [
         title: 'Show the context and writing guidance',
         actions: [
           'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
-          'Expand Content Guidelines, then double-click Style Guide. Explain that Brand Context holds editable company knowledge and guidance for Agentic Studio.',
+          'Expand Content Guidelines, then double-click Style Guide. Point out the company knowledge and guidance available to Agentic Studio.',
           'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
           "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
-          'Explain that both resources can be selected in Agentic Studio. The Brand Kit’s own Brand Context section belongs to the kit; it is separate from the Brand Context resource shown first.',
-          'Explain that Content Copilot reads three sections from the site’s associated Brand Kit: Brand Context, Tone of Voice, and Dos and Don’ts. For this task, it uses those sections and does not search the full uploaded brand documents. Return to the Page Builder tab for your new article.',
+          'Explain the distinction: Brand Context supplies company knowledge; Brand Kits supply brand rules. Both can be selected in Agentic Studio.',
+          'For this article, Content Copilot uses the kit’s Brand Context, Tone of Voice, and Dos and Don’ts sections. The kit’s Brand Context section is separate from the company resource shown first. Return to the new article in Page Builder.',
         ],
       },
       {
         kind: 'result',
-        text: 'The separate Brand Context and Brand Kit are visible. The Brand Kit sections used by Content Copilot are identified.',
+        text: 'The company knowledge in Brand Context and the writing rules in the Brand Kit are visible. The article’s AI guidance comes from the site’s associated kit.',
       },
       { kind: 'phase', id: 'P5.2', title: 'Select an approved image' },
-      { kind: 'say', text: 'Authors can choose approved images within their normal editing flow.' },
+      {
+        kind: 'say',
+        text: 'Choose an approved Westfield image from the article’s image field, keeping asset selection within the author’s normal work.',
+      },
       {
         kind: 'do',
         id: 'P5.2.1',
@@ -319,7 +344,7 @@ const flows: DemoFlow[] = [
         actions: [
           'Select the starting Section. In Content, paste the First Section heading into Heading and wait for Saved.',
           'In Layers, select this Section’s Text. In the Text panel, choose Optimize with AI.',
-          'Keep the first Section’s Text selected. Content Copilot uses the Westfield site’s associated Brand Kit.',
+          'Keep this Text selected so the generated paragraph goes into the intended Section.',
         ],
       },
       { kind: 'copy', label: 'Content Copilot draft prompt', value: contentCopilotPrompt },
@@ -363,9 +388,8 @@ const flows: DemoFlow[] = [
         title: 'Reorder the complete Sections and confirm their saved content',
         actions: [
           'Paste the Second Section heading and Second Section text into their matching fields, then wait for Saved.',
-          'In Layers, select the second complete Section and use its native Move up control to place it above the first.',
+          'In Layers, select the second complete Section and use Move up to place it above the first.',
           'Wait for Saved, reopen the same article, and confirm both headings and bodies follow the saved order.',
-          'Remove empty placements from this article before publication. Keep useful components in the library.',
         ],
       },
       {
@@ -409,8 +433,6 @@ const flows: DemoFlow[] = [
           'In Comment, paste the Approval comment into Enter a comment, then choose Submit.',
           'Confirm the workflow status is Approved.',
           'Open publishing jobs and wait for the automatic publishing job to finish before showing the visitor result.',
-          'Only if no publishing job starts, choose the top Publish control. Keep Page and Current language (English) selected, select Subpages to include this article’s local Data, and clear All references.',
-          'For this fallback, confirm only your article and its local Data are in scope, choose Start publish, then wait for the job to finish.',
         ],
       },
       {
@@ -441,7 +463,11 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'result',
-        text: 'The live article retains its image and Sections and can be found through Articles and Search.',
+        text: 'The approved article is live with its saved image and Section order. Visitors can find it through Articles and Search.',
+      },
+      {
+        kind: 'say',
+        text: 'Westfield authors have a repeatable path from an idea to published advice, with AI assistance, approved assets, and review in the same process.',
       },
       { kind: 'return', title: 'Choosing a message for each visitor' },
     ],
@@ -451,7 +477,7 @@ const flows: DemoFlow[] = [
     code: 'P6',
     title: 'Review content recommendations for AI search',
     time: '3 minutes',
-    goal: 'Use the Prospera Bank example to connect a Scrunch recommendation with the content an author can review.',
+    goal: 'Show how an AI-search recommendation can lead to a focused editorial review, using Prospera Bank as the example.',
     context:
       'After the website-reporting discussion · Prospera recommendations and Page Builder tabs · Sales Engineers 1 · agverticals / agverts · read-only example',
     blocks: [
@@ -463,7 +489,7 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'This Prospera Bank example shows how Scrunch recommendations can help an author review content for AI search.',
+        text: 'This separate Prospera Bank example connects an AI-search recommendation with the content an author can improve.',
       },
       {
         kind: 'do',
@@ -494,7 +520,11 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'result',
-        text: 'The Prospera recommendation and its matching live field are visible in Page Builder. No content has changed.',
+        text: 'The suggested rewrite and its matching live description are visible together in Page Builder.',
+      },
+      {
+        kind: 'say',
+        text: 'Westfield could use this approach to turn an AI-search recommendation into a specific content review. Next, show how approved content can also support a future mobile app.',
       },
       { kind: 'return', title: 'Shared content for a Westfield mobile app' },
     ],
@@ -504,13 +534,13 @@ const flows: DemoFlow[] = [
     code: 'P7',
     title: 'Request shared content through GraphQL',
     time: '2 minutes',
-    goal: 'Show how a mobile app can request the same published editorial content as the website.',
+    goal: 'Show how Westfield could reuse approved website content in a future mobile app.',
     context: 'Slide 15 · Home and Sitecore GraphQL explorer tabs · read-only published content',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
         kind: 'say',
-        text: 'The same published article content can support the website and a mobile app.',
+        text: 'Westfield asked how Sitecore could support a mobile app. Start with a published article, then request its content through the built-in explorer.',
       },
       {
         kind: 'do',
@@ -530,13 +560,7 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'This request asks Experience Edge for the article’s title, summary, and image. It does not request the website’s page layout.',
-      },
-      {
-        kind: 'copy',
-        label: 'Delivery API endpoint',
-        value: graphQlDeliveryEndpoint,
-        url: true,
+        text: 'Run one prepared query for this article’s title, summary, and image.',
       },
       { kind: 'graphql-headers' },
       { kind: 'copy', label: 'Article content query', value: articleForAppQuery },
@@ -545,20 +569,20 @@ const flows: DemoFlow[] = [
         id: 'P7.2',
         title: 'Run the query and compare the returned content',
         actions: [
-          'Switch to the Sitecore GraphQL explorer tab. Confirm the endpoint field shows the Delivery API endpoint; paste that endpoint if needed.',
+          'Switch to the Sitecore GraphQL explorer tab.',
           'Choose HTTP HEADERS below the query pane and replace its contents with the complete GraphQL HTTP Headers copy card, including the API key.',
-          'Replace the query pane contents with the Article content query. No query variables are needed.',
+          'Replace the query pane contents with the Article content query.',
           'Choose the play button labeled Execute Query (Ctrl-Enter).',
-          'In the response, point out title.value, summary.value, and image.jsonValue.value. Compare the title and summary with the article, then point out the image address and alternative text.',
+          'Compare the returned title and summary with the article. Point out the matching image address and alternative text.',
         ],
       },
       {
-        kind: 'say',
-        text: 'An app can use these content fields in its own screens. The author maintains the content in Sitecore, while each channel controls its presentation.',
+        kind: 'result',
+        text: 'The response contains the same published title, summary, and image used by the article on the website.',
       },
       {
-        kind: 'result',
-        text: 'The API returns the same published article title, summary, and image used by the website. The request retrieves content without the website’s page layout.',
+        kind: 'say',
+        text: 'Westfield can maintain approved advice once and make it available to the website and a future app. Each channel can present that content in its own screens.',
       },
       { kind: 'return', title: 'Underwriter search has different requirements' },
     ],
@@ -888,6 +912,14 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
                 </li>
                 <li>Close unused tabs. Restore any temporary viewport changes.</li>
               </ul>
+              <h3>Publishing recovery</h3>
+              <p>
+                If approval does not start an automatic publishing job, choose Publish. Keep Page
+                and Current language (English) selected, select Subpages to include this article’s
+                local Data, and clear All references. Confirm that only your article and its local
+                Data are in scope, choose Start publish, and wait for completion before showing the
+                visitor result.
+              </p>
               <h3>Optional Content Copilot refinement</h3>
               <CopyValue
                 label="Content Copilot refinement prompt"
