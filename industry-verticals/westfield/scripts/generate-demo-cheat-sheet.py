@@ -18,7 +18,7 @@ from reportlab.platypus import Paragraph
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads(subprocess.check_output(['node', str(ROOT / 'scripts/demo-cheat-sheet.mjs'), 'export']))
 FLOWS = {flow['code']: flow for flow in DATA['flows']}
-if list(FLOWS) != [f'P{i}' for i in range(1, 8)]:
+if list(FLOWS) != ['B1'] + [f'P{i}' for i in range(1, 8)]:
     raise RuntimeError('Demo loops changed. Update the three-page grouping before regenerating the sheet.')
 OUTPUT = ROOT / 'public/demo/westfield-demo-cheat-sheet.pdf'
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -55,12 +55,13 @@ BOTTOMS = []
 
 
 class Page:
-    def __init__(self, number, title, subtitle):
+    def __init__(self, number, title, subtitle=None):
         self.number = number
         self.y = HEIGHT - MARGIN
         self.write('WESTFIELD / LIVE DEMO', size=10.5, leading=12, bold=True, after=5)
         self.write(safe(title), size=19, leading=21, bold=True, after=5)
-        self.write(safe(subtitle), size=10.7, leading=12.5, after=8)
+        if subtitle:
+            self.write(safe(subtitle), size=10.7, leading=12.5, after=8)
 
     def write(self, text, size=BODY_SIZE, leading=LEADING, bold=False, after=3):
         style = ParagraphStyle('text', fontName='CheatSheet-Bold' if bold else 'CheatSheet', fontSize=size,
@@ -76,7 +77,7 @@ class Page:
     def section(self, code, label, slide):
         self.y -= 3
         heading = (f'{safe(code)} / {safe(label)} <font size="10">(slide {slide})</font>'
-                   if code.startswith('P') else f'Slides {slide} / {safe(label)}')
+                   if code.startswith(('P', 'B')) else f'Slides {slide} / {safe(label)}')
         self.write(heading, size=14,
                    leading=16, bold=True, after=3)
 
@@ -96,12 +97,13 @@ class Page:
         PDF.showPage()
 
 
-page = Page(1, 'Make the visit relevant', 'Visitor results and the rules behind them')
-page.cue('Prepare profile/tabs. Keep one anonymous visitor through P1-P3.')
+page = Page(1, 'Make the visit relevant')
+page.section('B1', 'Brand guidance', 5)
+for step in FLOWS['B1']['steps']:
+    page.step(step)
+page.cue('Brand Context: Westfield/task knowledge. Brand Kit: writing guidance. Copilot uses the site kit.')
 for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest', 7), ('P3', 'Campaign context', 8), ('P4', 'Known customer information', 9)]:
     page.section(code, label, slide)
-    if code == 'P2':
-        page.cue('P2.1 article: "A Guide to First-Time Auto Insurance for Your Teenager."')
     for step in FLOWS[code]['steps']:
         page.step(step)
     if code == 'P1':
@@ -116,17 +118,15 @@ for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest
         page.cue(f'{casey} / {jordan}. Email = password. False: paperless; true: coverage. Campaign first; affinity checks Home. Restore Original.')
 page.finish()
 
-page = Page(2, 'Create and publish useful advice', 'Slide 10 / P5 / 12 minutes')
+page = Page(2, 'Create and publish useful advice', 'Slide 10 / P5 / 10 minutes')
 copy = FLOWS['P5']['copy']
 page.cue(f'<b>{safe(copy["Article page name"])}</b> / <b>{safe(copy["Article title"])}</b> / Topic: Home. Use web copy cards.')
 for step in FLOWS['P5']['steps']:
     page.step(step)
-    if step['id'] == 'P5.brand.1':
-        page.cue('<b>Brand Context:</b> company/task knowledge. <b>Brand Kit:</b> voice/style guidance. They overlap. Copilot uses the site kit.')
-    elif step['id'] == 'P5.2.1':
+    if step['id'] == 'P5.2.1':
         page.cue('Image: Family at home / HomePageHero (Westfield).')
     elif step['id'] == 'P5.3.1-ai':
-        page.cue('Review claims, then Keep optimized.')
+        page.cue('Use the Westfield site kit. Review claims, then Keep optimized.')
     elif step['id'] == 'P5.3.1-add':
         page.cue(f'Section: <b>{safe(copy["New Section name"])}</b>. Picker: Section or Action. Reorder with Move up.')
     elif step['id'] == 'P5.4.1-approve':

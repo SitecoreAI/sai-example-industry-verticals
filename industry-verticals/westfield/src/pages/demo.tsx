@@ -51,6 +51,42 @@ type DemoFlow = {
 
 const flows: DemoFlow[] = [
   {
+    id: 'brand-guidance',
+    code: 'B1',
+    title: 'Brand guidance before content creation',
+    time: '2 minutes',
+    goal: 'Give AI Westfield’s background and writing guidance before creating content.',
+    context: 'Brand resources tab · slide 5 · before the website examples',
+    blocks: [
+      { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
+      {
+        kind: 'say',
+        text: 'Brand Context helps AI understand Westfield and the task. A Brand Kit gathers guidance for voice, writing, and visual style. The resources can overlap, and both can guide Agentic Studio.',
+      },
+      {
+        kind: 'do',
+        id: 'B1.1',
+        title: 'Show Westfield’s background and writing guidance',
+        actions: [
+          'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
+          'Expand Content Guidelines, then double-click Style Guide. Point out the company knowledge and guidance available to Agentic Studio.',
+          'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
+          "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
+          'Explain that Content Copilot uses the kit associated with the Westfield site. It uses the kit’s Brand Context, Tone of Voice, and Dos and Don’ts sections for this article example. The kit’s Brand Context section is separate from the company resource shown first.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Westfield’s background and writing guidance are visible in the native brand resources before the team uses AI to draft content.',
+      },
+      {
+        kind: 'say',
+        text: 'Now see how the website experience changes for different visitors. Later, use this same Brand Kit when Content Copilot helps draft an article.',
+      },
+      { kind: 'return', title: 'Three ways to choose relevant content' },
+    ],
+  },
+  {
     id: 'familiar-experience',
     code: 'P1',
     title: 'A familiar Westfield experience',
@@ -100,7 +136,8 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P2.1',
-        title: 'Read the teen-driver article and show its recorded visit',
+        title:
+          'Read “A Guide to First-Time Auto Insurance for Your Teenager” and show its recorded visit',
         actions: [
           'From Home, choose About Us → Articles.',
           'Under Article Tags, select Auto. Open “A Guide to First-Time Auto Insurance for Your Teenager.”',
@@ -271,10 +308,9 @@ const flows: DemoFlow[] = [
     id: 'authoring',
     code: 'P5',
     title: 'Create a page with confidence',
-    time: '12 minutes',
+    time: '10 minutes',
     goal: 'Give authors a repeatable way to create useful advice, with brand guidance and editorial approval.',
-    context:
-      'Page Builder and Brand resources tabs · agreed presenter account · Westfield site · own new article',
+    context: 'Page Builder tab · agreed presenter account · Westfield site · own new article',
     blocks: [
       { kind: 'copy', label: 'Sitecore Portal', value: portalUrl, url: true },
       { kind: 'phase', id: 'P5.1', title: 'Create the article' },
@@ -314,33 +350,6 @@ const flows: DemoFlow[] = [
         kind: 'result',
         text: 'The new article has its own title and metadata within the prepared page structure.',
       },
-      { kind: 'phase', id: 'P5.brand', title: 'Explain Brand Context and Brand Kit' },
-      {
-        kind: 'say',
-        text: 'Brand Context gives AI background about Westfield: its business, audiences, products, and messages.',
-      },
-      {
-        kind: 'say',
-        text: 'A Brand Kit gathers guidance for voice, writing, and visual style. Content Copilot uses the site’s selected kit to guide the article’s writing.',
-      },
-      { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
-      {
-        kind: 'do',
-        id: 'P5.brand.1',
-        title: 'Show the context and writing guidance',
-        actions: [
-          'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
-          'Expand Content Guidelines, then double-click Style Guide. Point out the company knowledge and guidance available to Agentic Studio.',
-          'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
-          "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
-          'Explain their main purposes: Brand Context helps AI understand Westfield and the task; a Brand Kit guides how AI communicates for Westfield. Both can be selected in Agentic Studio.',
-          'For this article, Content Copilot uses the kit’s Brand Context, Tone of Voice, and Dos and Don’ts sections. The kit’s Brand Context section is separate from the company resource shown first. Return to the new article in Page Builder.',
-        ],
-      },
-      {
-        kind: 'result',
-        text: 'The Westfield background in Brand Context and the writing guidance in the Brand Kit are visible. The article’s AI guidance comes from the site’s associated kit.',
-      },
       { kind: 'phase', id: 'P5.2', title: 'Select an approved image' },
       {
         kind: 'say',
@@ -374,7 +383,7 @@ const flows: DemoFlow[] = [
       { kind: 'phase', id: 'P5.3', title: 'Add and reorder Sections' },
       {
         kind: 'say',
-        text: 'A Section keeps its heading and text together. AI can help draft the text.',
+        text: 'A Section keeps its heading and text together. The Westfield Brand Kit shown earlier guides Content Copilot’s writing. The author reviews its draft before keeping it.',
       },
       { kind: 'copy', label: 'First Section heading', value: 'Questions for your agent' },
       {
@@ -835,12 +844,14 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
           <p>50-minute presentation + 10 minutes for questions</p>
         </header>
         <div className="westfield-demo__intro">
-          <p className="westfield-demo__eyebrow">Seven live loops · 32 minutes</p>
+          <p className="westfield-demo__eyebrow">
+            Brand guidance, then seven demo loops · 32 minutes
+          </p>
           <h1>Keep the next step in view.</h1>
           <p className="westfield-demo__lede">
             Show the website and native Sitecore tools to the audience. Keep this reference on a
-            separate screen. Prepare the tabs first, then follow P1–P7 without returning here during
-            the presentation.
+            separate screen. Prepare the tabs first, then follow B1 and P1–P7 without returning here
+            during the presentation.
           </p>
           <p className="westfield-demo__download">
             <a
