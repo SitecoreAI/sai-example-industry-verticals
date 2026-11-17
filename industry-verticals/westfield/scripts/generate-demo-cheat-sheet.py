@@ -109,13 +109,13 @@ for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest
     if code == 'P1':
         pass  # The standard hero is named in P4.3's web steps.
     elif code == 'P2':
-        page.cue('Wait for each VIEW: 1 Auto + 2 Home. Home leads; the Home hero changes.')
+        page.cue('Wait for VIEWs. Auto: "Auto coverage for the road ahead." After two Home articles: "Protection for the place you call home."')
     elif code == 'P3':
         pass  # The P3 summary already states the matching campaign outcome.
     elif code == 'P4':
         casey = safe(FLOWS[code]['copy']['Casey email and password'])
         jordan = safe(FLOWS[code]['copy']['Jordan email and password'])
-        page.cue(f'{casey} / {jordan}. Email = password. False: paperless; true: coverage. Campaign first; affinity checks Home. Restore Original.')
+        page.cue(f'{casey} / {jordan}. Email = password. False: paperless; true: coverage. Campaign first. Restore Original.')
 page.finish()
 
 page = Page(2, 'Create and publish useful advice', 'Slide 10 / P5 / 10 minutes')

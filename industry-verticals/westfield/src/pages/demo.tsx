@@ -125,29 +125,34 @@ const flows: DemoFlow[] = [
     code: 'P2',
     title: 'Reading builds an interest profile',
     time: '5 minutes',
-    goal: 'Use browsing interest to help an anonymous visitor find relevant advice.',
+    goal: 'Show how an anonymous visitor’s changing interests lead to different Home messages.',
     context: 'Home and Profiles tabs · same anonymous visitor as P1 · before Instagram',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
         kind: 'say',
-        text: 'This visitor has not signed in. The advice they read gives Sitecore a signal about their interests.',
+        text: 'This visitor has not signed in. Start with Auto advice, then read two Home articles. Watch the interest profile and the homepage message change together.',
       },
       {
         kind: 'do',
         id: 'P2.1',
         title:
-          'Read “A Guide to First-Time Auto Insurance for Your Teenager” and show its recorded visit',
+          'Read “A Guide to First-Time Auto Insurance for Your Teenager,” then show Auto coverage on Home',
         actions: [
           'From Home, choose About Us → Articles.',
           'Under Article Tags, select Auto. Open “A Guide to First-Time Auto Insurance for Your Teenager.”',
           'Switch to the prepared native Profiles tab for this visitor. In Engagement, wait for the article VIEW.',
           'Open Overview → Top affinities and point out the Auto interest. Read the values shown in the profile.',
+          'Return to the website tab and choose the Westfield logo. Show “Auto coverage for the road ahead.” on Home.',
         ],
       },
       {
+        kind: 'result',
+        text: 'The native profile records the Auto article and Home shows “Auto coverage for the road ahead.”',
+      },
+      {
         kind: 'say',
-        text: 'Now read advice about the home and watch that interest grow in the same profile.',
+        text: 'Auto leads now. Read advice about the home and watch Home interest grow in this same profile.',
       },
       {
         kind: 'do',
@@ -155,7 +160,7 @@ const flows: DemoFlow[] = [
         title:
           'Read “How To Help Prevent Water Damage in Your Home or Business,” then “How To Prepare Your Home and Family for a Spring Thunderstorm.” Check the profile after each visit.',
         actions: [
-          'Return to the website tab. Use the Articles breadcrumb, select Home, and open “How To Help Prevent Water Damage in Your Home or Business.”',
+          'From Home, choose About Us → Articles. Under Article Tags, select Home and open “How To Help Prevent Water Damage in Your Home or Business.”',
           'In the same native profile, wait for this VIEW and inspect Top affinities again.',
           'Use the Articles breadcrumb to open “How To Prepare Your Home and Family for a Spring Thunderstorm.”',
           'Wait for the storm VIEW and Home’s second article visit. Read the current Home and Auto values rather than assuming a fixed score.',
@@ -164,19 +169,19 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P2.3',
-        title: 'Return Home and connect the new message to the browsing interest',
+        title: 'Return Home: the home message replaces Auto',
         actions: [
           'Once the visits appear in the profile, return to the website and choose the Westfield logo.',
-          'Compare the Home hero with the original message from P1.',
+          'Show “Protection for the place you call home.” Compare it with the earlier “Auto coverage for the road ahead.” message and the current profile values.',
         ],
       },
       {
         kind: 'result',
-        text: 'The same anonymous profile records one Auto article and two Home articles. Home shows “Protection for the place you call home.”',
+        text: 'The same anonymous profile records one Auto article and two Home articles. Home interest overtakes Auto, and the homepage changes from “Auto coverage for the road ahead.” to “Protection for the place you call home.”',
       },
       {
         kind: 'say',
-        text: 'Westfield can guide visitors toward relevant advice before sign-in. Next, use the message that brought a visitor to the site.',
+        text: 'Westfield can respond as a visitor’s interests change, before sign-in. Next, use the message that brought a visitor to the site.',
       },
       { kind: 'return', title: 'The website continues the Instagram message' },
     ],
@@ -275,10 +280,10 @@ const flows: DemoFlow[] = [
         id: 'P4.3',
         title: 'Show the campaign and browsing-interest rules, then preview their Home messages',
         actions: [
-          'Switch to the prepared Westfield Home in Page Builder tab. Stay in Editor; use the component controls rather than the top Personalize tab. On the canvas, select “Reliable Insurance, Real Peace of Mind.”',
-          'In the right panel, choose Edit personalization rules. In Westfield Home messages, point out row 1: UTM Campaign → Is equal to → next_chapter, and row 2: Top Affinity → Is true. Top Affinity is the Home-interest check used in P2.',
+          'Switch to the prepared Westfield Home in Page Builder tab. Stay in Editor; use the component controls rather than the top Personalize tab. On the canvas, select “Reliable Insurance, Real Peace of Mind.” In the right panel’s component breadcrumb, choose Hero to select the entire component.',
+          'In the right panel, choose Edit personalization rules. In Westfield Home messages, point out row 1: UTM Campaign → Is equal to → next_chapter, row 2: Top Affinity → Is true for the Home-interest check, and row 3: Top Affinity → Is equal to → auto. These are the two browsing-interest messages shown in P2.',
           'Explain that the first matching rule chooses the message. The campaign is first, so its message takes priority over browsing interest. Choose Cancel to leave the rules unchanged.',
-          'Open the component’s variant dropdown showing Original. Choose “1 UTM Campaign is equal to next_chapter” and show “A new chapter. Protection for what’s next.” Reopen the same dropdown and choose “2 Top Affinity is true” to show “Protection for the place you call home.”',
+          'Open the component’s variant dropdown showing Original. Choose “1 UTM Campaign is equal to next_chapter” and show “A new chapter. Protection for what’s next.” Reopen the same dropdown and choose “2 Top Affinity is true” to show “Protection for the place you call home.” Reopen it again and choose “3 Top Affinity is equal to auto” to show “Auto coverage for the road ahead.”',
           'Restore Original before selecting the MyWestfield section. This previews the prepared experiences; leave the live rules unchanged.',
         ],
       },
@@ -287,7 +292,7 @@ const flows: DemoFlow[] = [
         id: 'P4.4',
         title: 'Show the paperless-status rules and preview Casey’s and Jordan’s messages',
         actions: [
-          'Scroll to MyWestfield on the Page Builder canvas and select “Your Personalized Insurance Hub.” In the right panel, choose Edit personalization rules.',
+          'Scroll to MyWestfield on the Page Builder canvas and select “Your Personalized Insurance Hub.” In the right panel’s component breadcrumb, choose Feature to select the entire component, then choose Edit personalization rules.',
           'In Westfield customer recommendations, show Westfield paperless status → Is false for the paperless invitation and Is true for the coverage message. The original MyWestfield content is the fallback when neither rule matches. Choose Cancel.',
           'Open the component’s variant dropdown showing Original. Choose “1 Westfield paperless status is false” and show “Sign up for paperless billing.” Reopen the same dropdown and choose “2 Westfield paperless status is true” to show “Keep your coverage in step with life.”',
           'Restore Original. Leave the rules and content unchanged; no Save, Pause, or Publish is needed for this walkthrough.',
@@ -639,7 +644,7 @@ const flows: DemoFlow[] = [
 
 const rehearsalItems = [
   'The fresh Home session and matching native profile are ready.',
-  'All three article visits appear in the same profile before Home changes.',
+  'The Auto article VIEW selects the Auto message on Home. Two Home article VIEWs in the same profile then select the Home message.',
   'The Instagram ad opens its matching Home message after the affinity loop.',
   'Casey and Jordan receive their different offers on Home, and Logout works.',
   'Page Builder shows the campaign, browsing-interest, and paperless-status rules; each variant previews its matching message and returns to Original without changing the live setup.',
@@ -940,6 +945,11 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
                 <li>
                   If a profile visit is missing, choose Engagement → Reload sessions, then inspect
                   Overview again. Wait for the recorded visit before describing a changed affinity.
+                </li>
+                <li>
+                  If Instagram opens Home with the previous hero, inspect the matching profile under
+                  Engagement → Properties → UTM–Campaign. Once next_chapter appears, reopen the same
+                  campaign URL once. Keep the same visitor; do not reset the session.
                 </li>
                 <li>
                   If a result is still pending, say so. Use this guide on a separate screen to
