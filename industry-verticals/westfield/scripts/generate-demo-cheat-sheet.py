@@ -115,7 +115,7 @@ for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest
     elif code == 'P4':
         casey = safe(FLOWS[code]['copy']['Casey email and password'])
         jordan = safe(FLOWS[code]['copy']['Jordan email and password'])
-        page.cue(f'{casey} / {jordan}. Email = password. False: paperless; true: coverage. Campaign URL first. Restore Original.')
+        page.cue(f'{casey} / {jordan}: password = email. False: paperless; true: coverage. UTM Campaign = next_chapter first; Top Affinity = home / auto. Restore Original.')
 page.finish()
 
 page = Page(2, 'Create and publish useful advice', 'Slide 10 / P5 / 10 minutes')
