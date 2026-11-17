@@ -197,7 +197,7 @@ const flows: DemoFlow[] = [
       { kind: 'copy', label: 'Instagram tab', value: `${siteUrl}/instagram/index.html`, url: true },
       {
         kind: 'say',
-        text: 'This Instagram example uses the campaign that brought the visitor here to choose the website message.',
+        text: 'The campaign URL tells Sitecore which ad message to continue as Home opens. The visitor does not need to sign in.',
       },
       {
         kind: 'do',
@@ -281,9 +281,9 @@ const flows: DemoFlow[] = [
         title: 'Show the campaign and browsing-interest rules, then preview their Home messages',
         actions: [
           'Switch to the prepared Westfield Home in Page Builder tab. Stay in Editor; use the component controls rather than the top Personalize tab. On the canvas, select “Reliable Insurance, Real Peace of Mind.” In the right panel’s component breadcrumb, choose Hero to select the entire component.',
-          'In the right panel, choose Edit personalization rules. In Westfield Home messages, point out row 1: UTM Campaign → Is equal to → next_chapter, row 2: Top Affinity → Is true for the Home-interest check, and row 3: Top Affinity → Is equal to → auto. These are the two browsing-interest messages shown in P2.',
-          'Explain that the first matching rule chooses the message. The campaign is first, so its message takes priority over browsing interest. Choose Cancel to leave the rules unchanged.',
-          'Open the component’s variant dropdown showing Original. Choose “1 UTM Campaign is equal to next_chapter” and show “A new chapter. Protection for what’s next.” Reopen the same dropdown and choose “2 Top Affinity is true” to show “Protection for the place you call home.” Reopen it again and choose “3 Top Affinity is equal to auto” to show “Auto coverage for the road ahead.”',
+          'In the right panel, choose Edit personalization rules. In Westfield Home messages, point out row 1: Westfield next chapter arrival → Is true, row 2: Top Affinity → Is true for the Home-interest check, and row 3: Top Affinity → Is equal to → auto. Rows 2 and 3 choose the browsing-interest messages shown in P2.',
+          'Explain that the first matching rule chooses the message. Here, the campaign condition checks the incoming URL as Home opens; it does not wait for campaign data to appear in the profile. The campaign rule is first, so it takes priority over browsing interest on this arrival URL. A Home visit without the campaign parameters uses the matching interest message or Original. Choose Cancel to leave the rules unchanged.',
+          'Open the component’s variant dropdown showing Original. Choose “1 Westfield next chapter arrival is true” and show “A new chapter. Protection for what’s next.” Reopen the same dropdown and choose “2 Top Affinity is true” to show “Protection for the place you call home.” Reopen it again and choose “3 Top Affinity is equal to auto” to show “Auto coverage for the road ahead.”',
           'Restore Original before selecting the MyWestfield section. This previews the prepared experiences; leave the live rules unchanged.',
         ],
       },
@@ -645,7 +645,7 @@ const flows: DemoFlow[] = [
 const rehearsalItems = [
   'The fresh Home session and matching native profile are ready.',
   'The Auto article VIEW selects the Auto message on Home. Two Home article VIEWs in the same profile then select the Home message.',
-  'The Instagram ad opens its matching Home message after the affinity loop.',
+  'The Instagram ad opens its matching Home message on the first arrival after the affinity loop, without reloading.',
   'Casey and Jordan receive their different offers on Home, and Logout works.',
   'Page Builder shows the campaign, browsing-interest, and paperless-status rules; each variant previews its matching message and returns to Original without changing the live setup.',
   'A new Advice Article starts blank and retains its independent content.',
@@ -947,12 +947,8 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
                   Overview again. Wait for the recorded visit before describing a changed affinity.
                 </li>
                 <li>
-                  If Instagram opens Home with the previous hero, inspect the matching profile under
-                  Engagement → Properties → UTM–Campaign. Once next_chapter appears, reopen the same
-                  campaign URL once. Keep the same visitor; do not reset the session.
-                </li>
-                <li>
-                  If a result is still pending, say so. Use this guide on a separate screen to
+                  If a result is still pending or the browser shows another message, say so. Do not
+                  describe the expected result as observed. Use this guide on a separate screen to
                   explain the intended flow, then continue the presentation.
                 </li>
                 <li>
