@@ -113,7 +113,8 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P2.2',
-        title: 'Read two Home articles and compare the profile after each visit',
+        title:
+          'Read “How To Help Prevent Water Damage in Your Home or Business,” then “How To Prepare Your Home and Family for a Spring Thunderstorm.” Check the profile after each visit.',
         actions: [
           'Return to the website tab. Use the Articles breadcrumb, select Home, and open “How To Help Prevent Water Damage in Your Home or Business.”',
           'In the same native profile, wait for this VIEW and inspect Top affinities again.',
