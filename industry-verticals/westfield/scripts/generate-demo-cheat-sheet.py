@@ -136,18 +136,18 @@ for step in FLOWS['P5']['steps']:
 page.finish()
 
 page = Page(3, 'Review and reuse content', 'Slides 11-18 / retain the final 10 minutes for questions')
-page.section('11-13', 'Choose a useful measure', '11-13')
-page.write('Recap interests, campaign context, and known facts. Website views and clicks differ from confirmed paperless enrollment. Ask which outcomes and websites Westfield wants to compare.', after=7)
-page.section('P6', 'AI-search content review', 14)
+page.section('11-13', 'Content control and measurement', '11-13')
+page.write('Recap: Page Builder/Copilot create advice; profiles/rules choose messages; approved assets/workflow control publication. Ask which visitor actions show the content helps. A view or click is not confirmed paperless enrollment.', after=7)
+page.section('P6', 'Scrunch recommendations', 14)
 for step in FLOWS['P6']['steps']:
     page.step(step)
-page.cue('Separate Prospera Bank example: Cards / Description. Show live content &gt; Scroll to content. Review the suggestion in context. Leave Apply, Dismiss, and Publish unused.')
+page.cue('Separate Prospera Bank: Cards / Description. Follow the recommendation to its field: Show live content &gt; Scroll to content. Review; leave Apply, Dismiss, and Publish unused.')
 page.section('P7', 'Shared website and app content', 15)
 for step in FLOWS['P7']['steps']:
     page.step(step)
 page.cue('Article: "Property Insurance Claims Checklist: What To Do Before and After a Loss." Paste prepared headers/query into the built-in explorer and Execute Query. Match title, summary, and image. Reuse one approved item in a future mobile app.')
 page.section('16-18', 'Westfield\'s next question', '16-18')
-page.write('<b>Underwriting:</b> ask for one question, its state/insurance type, and trusted documents. Plan a separate product discussion.', after=6)
+page.write('<b>Underwriting:</b> ask which guidance would help an underwriter answer a question. Identify the state/insurance type and trusted sources for a focused product review.', after=6)
 page.write('<b>Ask:</b> "Which Sitecore capability would you like to explore further?"', after=6)
 page.write('<b>Questions:</b> keep minutes 50-60 for discussion. Capture the product question a follow-up should answer.', after=0)
 page.finish()

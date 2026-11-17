@@ -515,9 +515,9 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'Westfield authors have a repeatable path from an idea to published advice, with AI assistance, approved assets, and review in the same process.',
+        text: 'Westfield’s team can create advice, choose relevant messages, and control publication. Next, consider which visitor actions show how well that content helps.',
       },
-      { kind: 'return', title: 'Choosing a message for each visitor' },
+      { kind: 'return', title: 'Content control in SitecoreAI' },
     ],
   },
   {
@@ -537,7 +537,7 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'This separate Prospera Bank example connects an AI-search recommendation with the content an author can improve.',
+        text: 'This separate Prospera Bank example shows the path from a Scrunch recommendation to the exact field an author can review in Page Builder.',
       },
       {
         kind: 'do',
@@ -552,7 +552,7 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'The author can compare the suggestion with the matching field in Page Builder before deciding whether to change it.',
+        text: 'Open the matching field in Page Builder and compare the suggestion with the live wording. The author decides whether the change would help; this example leaves the content unchanged.',
       },
       {
         kind: 'do',
@@ -572,7 +572,7 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'Westfield could use this approach to turn an AI-search recommendation into a specific content review. Next, show how approved content can also support a future mobile app.',
+        text: 'Westfield could use this path to review a specific improvement in the right content field and decide whether to publish it. Next, show how approved content can also support a future mobile app.',
       },
       { kind: 'return', title: 'Shared content for a Westfield mobile app' },
     ],
@@ -632,7 +632,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield can maintain approved advice once and make it available to the website and a future app. Each channel can present that content in its own screens.',
       },
-      { kind: 'return', title: 'Underwriter search has different requirements' },
+      { kind: 'return', title: 'Finding relevant guidance for underwriters' },
     ],
   },
 ];
@@ -888,14 +888,14 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
                 For P6, prepare a separate Prospera Scrunch recommendations tab in Sales Engineers 1
                 → agverticals → agverts. Confirm the Home recommendation opens its matching Page
                 Builder field. Keep the Westfield tabs available. This separate product example
-                follows the website-reporting discussion at minutes 37–40.
+                follows the website-reporting discussion at minutes 38–41.
               </li>
               <li>
                 For P7, open Sitecore’s built-in GraphQL explorer and paste the complete HTTP
                 Headers block and query from P7. The headers already include the API key. Confirm
                 the article response before presenting. Keep the Home tab available for the website
                 comparison. This two-minute loop fits within slide 15’s existing three-minute
-                discussion at minutes 40–43.
+                discussion at minutes 41–44.
               </li>
             </ol>
             <CopyValue label="Sitecore Portal" value={portalUrl} url />
