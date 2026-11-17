@@ -95,6 +95,10 @@
   color: var(--demo-muted);
   font-size: 17px;
 }
+.westfield-demo__intro .westfield-demo__download {
+  margin-top: 18px;
+  font-weight: 700;
+}
 .westfield-demo__preparation {
   border-top: 1px solid var(--demo-border);
   border-bottom: 1px solid var(--demo-border);

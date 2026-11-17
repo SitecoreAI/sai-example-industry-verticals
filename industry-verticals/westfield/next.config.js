@@ -40,6 +40,21 @@ const nextConfig = {
     ],
   },
 
+  async headers() {
+    return [
+      {
+        source: '/demo/westfield-demo-cheat-sheet.pdf',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="Westfield Demo Cheat Sheet.pdf"',
+          },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
+        ],
+      },
+    ];
+  },
+
   async rewrites() {
     return [
       // healthz check

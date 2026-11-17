@@ -802,6 +802,14 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
             separate screen. Prepare the tabs first, then follow P1–P7 without returning here during
             the presentation.
           </p>
+          <p className="westfield-demo__download">
+            <a
+              href="/demo/westfield-demo-cheat-sheet.pdf"
+              download="Westfield Demo Cheat Sheet.pdf"
+            >
+              Download Kindle cheat sheet (PDF, 3 pages)
+            </a>
+          </p>
         </div>
         <details className="westfield-demo__preparation">
           <summary>Before the demo · prepare tabs, accounts, and the visitor session</summary>
