@@ -206,7 +206,7 @@ const flows: DemoFlow[] = [
         actions: [
           'Switch to the prepared Instagram tab. Point out the Westfield sponsored post among unrelated friend posts.',
           'On “A new chapter. Protection for what’s next.” choose Learn more.',
-          'Let the campaign entry open Home, then point out the matching message and imagery.',
+          'Home opens directly from the ad with its campaign details in the URL. Point out the matching message and imagery on that first arrival.',
         ],
       },
       {
@@ -648,7 +648,7 @@ const flows: DemoFlow[] = [
 const rehearsalItems = [
   'The fresh Home session and matching native profile are ready.',
   'The Auto article VIEW selects the Auto message on Home. Two Home article VIEWs in the same profile then select the Home message.',
-  'The Instagram ad opens its matching Home message on the first arrival after the affinity loop, without reloading.',
+  'The Instagram ad opens Home directly with the matching message on the first arrival after the affinity loop, without reloading.',
   'Casey and Jordan receive their different offers on Home, and Logout works.',
   'Page Builder shows the campaign, browsing-interest, and paperless-status rules; each variant previews its matching message and returns to Original without changing the live setup.',
   'A new Advice Article starts blank and retains its independent content.',

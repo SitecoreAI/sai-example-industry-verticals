@@ -3147,6 +3147,25 @@
             "referenceScope": "Home affinity rule 00861e65-3c63-4600-b766-7c981922f382; preserve until current global reference review"
           }
         ],
+        "optimizationResources": [
+          {
+            "ownerSite": "westfield",
+            "environment": "thlt-authoring",
+            "type": "customValue",
+            "id": "074dce21-e177-4621-923c-9f2f83f74001",
+            "name": "UTM Campaign",
+            "returnType": "String",
+            "tags": [
+              "Westfield"
+            ],
+            "status": "Published",
+            "url": "https://app.sitecorecloud.io/optimization/custom-values/074dce21-e177-4621-923c-9f2f83f74001?organization=org_JypIqqJsbEly6gh2&tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200",
+            "valueSource": "Current request.params.utm.campaign; returns a String or null, without reading profile history",
+            "usedBy": "Westfield Home messages row 1",
+            "sourceEvidence": "work/westfield-readable-decision-20261117/native-campaign-value-resource.json",
+            "removalScope": "This exact custom value ID is Westfield-owned; recheck usage before removal and preserve other sites' custom values."
+          }
+        ],
         "preExistingNativeScaffolds": [
           {
             "id": "11b33eb2-44e2-4447-a6ea-4a49a1972b7d",
@@ -3384,6 +3403,7 @@
             "decisionStatus": "LIVE",
             "nativeDecisionId": null,
             "nativeDecisionIdentityStatus": "Exact Optimization flow ID unverified; rule, experience, and datasource IDs are not substituted",
+            "rulesScope": "Historical 2026-10-31 configuration; the current two-String-column, three-row table is recorded in bindings.personalization.journey.campaignDecision.",
             "rules": [
               {
                 "order": 1,
@@ -3768,10 +3788,10 @@
               "demo/westfield/login-asset-provenance.json",
               "demo/westfield/instagram-asset-provenance.json"
             ],
-            "campaignDestination": "/campaign?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
-            "loginEntry": "Existing-customer Login on the campaign landing page; header and footer retain six allowed UTM parameters",
+            "campaignDestination": "/?utm_source=instagram&utm_medium=social&utm_campaign=next_chapter",
+            "loginEntry": "Existing-customer Login on the personalized Home page; header and footer retain six allowed UTM parameters",
             "campaignDecision": {
-              "name": "Westfield next chapter campaign",
+              "name": "Westfield Home messages",
               "pageItemId": "27da11a8-e0dc-42d4-9e3f-b4073306679b",
               "componentUid": "dffe19de-2a6f-533e-aa5d-5891b093c491",
               "input": "UTM Campaign",
@@ -3783,14 +3803,57 @@
               "heading": "A new chapter. Protection for what\u2019s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
-              "verification": "LIVE native rule and Page Builder variant verified; fresh preview c344ff72 first Home, plain Home control and mismatched campaign control passed. Production release evidence is recorded in the handoff.",
+              "verification": "Current native two-column table and its retained message variants verified. Final direct Instagram-to-Home release and fresh-visitor acceptance are pending and will be recorded in the release handoff.",
               "generatedUnusedCopy": {
                 "id": "b4e93245-df16-441c-84f7-c73304313125",
                 "path": "/sitecore/content/Westfield/westfield/Home/Data/Hero_var2",
                 "scope": "Absent from current Home layout after native picker assignment; preserve until broader reference review"
               },
-              "inputType": "Native Profile data attribute",
-              "firstVisitBoundary": "The earlier c344ff72 campaign-entry rehearsal selected campaign on the first Home document. Current 5f8181db preview retained the Home-interest hero initially and selected campaign after profile propagation and one reload. Neither immediate first-document selection nor a specific waiting time is guaranteed.",
+              "inputType": "Published custom value (String), read from the current request UTM campaign",
+              "customValueId": "074dce21-e177-4621-923c-9f2f83f74001",
+              "columns": [
+                {
+                  "name": "Top Affinity",
+                  "returnType": "String",
+                  "emittedAffinityName": "westfield_interest",
+                  "scopeVerification": "Westfield page tags use this affinity name; built-in Top Affinity input scope is not exposed in the UI.",
+                  "valueSource": "Native browsing profile"
+                },
+                {
+                  "name": "UTM Campaign",
+                  "returnType": "String",
+                  "customValueId": "074dce21-e177-4621-923c-9f2f83f74001",
+                  "valueSource": "Current request.params.utm.campaign"
+                }
+              ],
+              "tableRows": [
+                {
+                  "order": 1,
+                  "input": "UTM Campaign",
+                  "operator": "Is equal to",
+                  "value": "next_chapter",
+                  "experienceId": "77f8d59b-99dd-4451-9ecb-61d97905f04f",
+                  "datasourceId": "a275f458-496b-40cc-8448-454980cfc4be"
+                },
+                {
+                  "order": 2,
+                  "input": "Top Affinity",
+                  "operator": "Is equal to",
+                  "value": "home",
+                  "experienceId": "f1161705-8ce9-497b-9b41-20a517a28c3b",
+                  "datasourceId": "c7a71385-78d1-43ae-a756-fdcb5c60b953"
+                },
+                {
+                  "order": 3,
+                  "input": "Top Affinity",
+                  "operator": "Is equal to",
+                  "value": "auto",
+                  "experienceId": "b6ba4d8a-db11-44a5-9d69-98108d8baece",
+                  "datasourceId": "3becef09-c501-4c31-b0e5-e566fb0d72cf"
+                }
+              ],
+              "tableEvidence": "work/westfield-readable-decision-20261117/home-final-two-column.json and native-campaign-value-resource.json",
+              "firstVisitBoundary": "Direct ad-to-Home uses the incoming campaign query on the first request, without a campaign-entry page, acknowledged pre-navigation VIEW, or reload. Final fresh-visitor release acceptance is pending.",
               "unusedCondition": {
                 "id": "ccecd5b4-d31b-46c1-862a-db6b23e21106",
                 "name": "Westfield next chapter arrival",
@@ -3798,9 +3861,14 @@
                 "usage": "Native Usage panel: Not used in any experiences",
                 "cleanup": "Retained. Native menu exposes Duplicate/Delete and no reversible Unpublish; no permanent deletion attempted."
               },
-              "currentPreviewRegression": "At 5f8181db, campaign selected after profile propagation and reload on the same URL; first-document campaign selection was not observed. See previewVerification.campaignAndAffinityRegression."
+              "historicalVerification": {
+                "verification": "LIVE native rule and Page Builder variant verified; fresh preview c344ff72 first Home, plain Home control and mismatched campaign control passed. Production release evidence is recorded in the handoff.",
+                "firstVisitBoundary": "The earlier c344ff72 campaign-entry rehearsal selected campaign on the first Home document. Current 5f8181db preview retained the Home-interest hero initially and selected campaign after profile propagation and one reload. Neither immediate first-document selection nor a specific waiting time is guaranteed.",
+                "previewRegression": "At 5f8181db, campaign selected after profile propagation and reload on the same URL; first-document campaign selection was not observed. See previewVerification.campaignAndAffinityRegression.",
+                "scope": "These prior observations used the old Profile data campaign input and/or /campaign bridge; they do not describe the current request-UTM rule or direct ad destination."
+              }
             },
-            "campaignEntry": "Native anonymous VIEW acknowledgement before navigation to the CMS Home page; no identity or local variant selection",
+            "campaignEntry": "Direct Instagram ad link to CMS Home with UTM parameters; native middleware chooses the Home variant on that request, with no intermediate loading page, identity event, or local variant selection",
             "preparation": "/demo",
             "accountSwitch": "Logout \u2192 Login \u2192 Customer",
             "retainedCampaignQuery": "The six allowlisted UTM parameters are retained on the root Home URL; no fragment is added.",

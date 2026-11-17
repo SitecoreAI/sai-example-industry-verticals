@@ -51,8 +51,8 @@ const personalize = new BrowserPersonalizeMiddleware({
 });
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
-  // Campaign entry, presenter and synthetic sign-in are application routes, outside CMS content.
-  if (/^\/(campaign|demo|login)\/?$/.test(req.nextUrl.pathname)) {
+  // Presenter and synthetic sign-in are application routes, outside CMS content.
+  if (/^\/(demo|login)\/?$/.test(req.nextUrl.pathname)) {
     return NextResponse.next();
   }
   return defineMiddleware(multisite, redirects, personalize).exec(req, ev);
