@@ -96,8 +96,8 @@ class Page:
         PDF.showPage()
 
 
-page = Page(1, 'Make the visit relevant', '50-minute presentation + 10 minutes for questions')
-page.cue('Prepare profile/tabs first. Keep one anonymous visitor through P1-P3.')
+page = Page(1, 'Make the visit relevant', 'Visitor results and the rules behind them')
+page.cue('Prepare profile/tabs. Keep one anonymous visitor through P1-P3.')
 for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest', 7), ('P3', 'Campaign context', 8), ('P4', 'Known customer information', 9)]:
     page.section(code, label, slide)
     if code == 'P2':
@@ -105,15 +105,15 @@ for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest
     for step in FLOWS[code]['steps']:
         page.step(step)
     if code == 'P1':
-        page.cue('Home: "Reliable Insurance, Real Peace of Mind."')
+        pass  # The standard hero is named in P4.3's web steps.
     elif code == 'P2':
-        page.cue('Wait for each VIEW: 1 Auto + 2 Home. Home leads. Homepage: "Protection for the place you call home."')
+        page.cue('Wait for each VIEW: 1 Auto + 2 Home. Home leads; the Home hero changes.')
     elif code == 'P3':
-        page.cue('Ad = Home: "A new chapter. Protection for what\'s next."')
+        pass  # The P3 summary already states the matching campaign outcome.
     elif code == 'P4':
         casey = safe(FLOWS[code]['copy']['Casey email and password'])
         jordan = safe(FLOWS[code]['copy']['Jordan email and password'])
-        page.cue(f'{casey}, then {jordan}. Email = password. Header: Logout. MyWestfield: Casey paperless / Jordan coverage. Show the rule once.')
+        page.cue(f'{casey} / {jordan}. Email = password. False: paperless; true: coverage. Campaign first; affinity checks Home. Restore Original.')
 page.finish()
 
 page = Page(2, 'Create and publish useful advice', 'Slide 10 / P5 / 12 minutes')

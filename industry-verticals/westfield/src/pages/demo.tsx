@@ -6,6 +6,8 @@ import { resetDemoBrowserIdentity } from 'lib/demo-persona';
 
 const siteUrl = 'https://thlt-westfield-demo.vercel.app';
 const portalUrl = 'https://portal.sitecorecloud.io/';
+const pageBuilderHomeUrl =
+  'https://pages.sitecorecloud.io/editor?tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200&organization=org_JypIqqJsbEly6gh2&sc_itemid=27da11a8-e0dc-42d4-9e3f-b4073306679b&sc_lang=en&sc_site=westfield&sc_version=1';
 const brandResourcesUrl =
   'https://app.sitecorecloud.io/brand-context?organization=org_JypIqqJsbEly6gh2&tenantName=sitecoresaae681-thltkirklan3127-kirklandaut0200';
 const prosperaRecommendationsUrl =
@@ -180,9 +182,10 @@ const flows: DemoFlow[] = [
     id: 'customers',
     code: 'P4',
     title: 'Known customer information changes the offer',
-    time: '5 minutes',
-    goal: 'Match the service message to each customer’s existing paperless preference.',
-    context: 'Home tab · Casey, then Jordan · paste each email into both sign-in fields',
+    time: '7 minutes',
+    goal: 'Match the service message to each customer’s existing paperless preference, then show how the team chooses each message.',
+    context:
+      'Home and Page Builder tabs · Casey, then Jordan · paste each email into both sign-in fields',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
@@ -214,7 +217,6 @@ const flows: DemoFlow[] = [
           'Choose Logout, then Login → Customer.',
           'Paste Jordan’s email into both the email and password fields, then choose SIGN IN.',
           'From the top of Home, scroll to the MyWestfield section. Show “Keep your coverage in step with life.”',
-          'In Page Builder, select this Home section and show its native personalization using Westfield paperless status.',
         ],
       },
       {
@@ -223,7 +225,44 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'Westfield can use the homepage to promote a service that fits each customer’s situation. Next, show how the team creates the content behind these experiences.',
+        text: 'You have seen browsing interests, campaign context, and customer information change the message. Now see how the team chooses who sees each message in Page Builder.',
+      },
+      {
+        kind: 'copy',
+        label: 'Westfield Home in Page Builder',
+        value: pageBuilderHomeUrl,
+        url: true,
+      },
+      {
+        kind: 'do',
+        id: 'P4.3',
+        title: 'Show the campaign and browsing-interest rules, then preview their Home messages',
+        actions: [
+          'Switch to the prepared Westfield Home in Page Builder tab. Stay in Editor; use the component controls rather than the top Personalize tab. On the canvas, select “Reliable Insurance, Real Peace of Mind.”',
+          'In the right panel, choose Edit personalization rules. In Westfield Home messages, point out row 1: UTM Campaign → Is equal to → next_chapter, and row 2: Top Affinity → Is true. Top Affinity is the Home-interest check used in P2.',
+          'Explain that the first matching rule chooses the message. The campaign is first, so its message takes priority over browsing interest. Choose Cancel to leave the rules unchanged.',
+          'Open the component’s variant dropdown showing Original. Choose “1 UTM Campaign is equal to next_chapter” and show “A new chapter. Protection for what’s next.” Reopen the same dropdown and choose “2 Top Affinity is true” to show “Protection for the place you call home.”',
+          'Restore Original before selecting the MyWestfield section. This previews the prepared experiences; leave the live rules unchanged.',
+        ],
+      },
+      {
+        kind: 'do',
+        id: 'P4.4',
+        title: 'Show the paperless-status rules and preview Casey’s and Jordan’s messages',
+        actions: [
+          'Scroll to MyWestfield on the Page Builder canvas and select “Your Personalized Insurance Hub.” In the right panel, choose Edit personalization rules.',
+          'In Westfield customer recommendations, show Westfield paperless status → Is false for the paperless invitation and Is true for the coverage message. The original MyWestfield content is the fallback when neither rule matches. Choose Cancel.',
+          'Open the component’s variant dropdown showing Original. Choose “1 Westfield paperless status is false” and show “Sign up for paperless billing.” Reopen the same dropdown and choose “2 Westfield paperless status is true” to show “Keep your coverage in step with life.”',
+          'Restore Original. Leave the rules and content unchanged; no Save, Pause, or Publish is needed for this walkthrough.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'The Page Builder rules connect all three kinds of visitor information to the messages already seen on Home. The two paperless-status rules select Casey’s invitation and Jordan’s coverage message.',
+      },
+      {
+        kind: 'say',
+        text: 'The team can choose a message and its audience in Page Builder. Westfield can keep the paperless invitation relevant and give enrolled customers a useful alternative. Next, create the content behind these experiences.',
       },
       { kind: 'return', title: 'Creating an article in Page Builder' },
     ],
@@ -594,6 +633,7 @@ const rehearsalItems = [
   'All three article visits appear in the same profile before Home changes.',
   'The Instagram ad opens its matching Home message after the affinity loop.',
   'Casey and Jordan receive their different offers on Home, and Logout works.',
+  'Page Builder shows the campaign, browsing-interest, and paperless-status rules; each variant previews its matching message and returns to Original without changing the live setup.',
   'A new Advice Article starts blank and retains its independent content.',
   'The Westfield Brand Context and Brand Kit open with the intended writing guidance.',
   'Content Copilot uses the selected Westfield Brand Kit; the reviewed paragraph saves in the intended Section.',
@@ -795,7 +835,7 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
           <p>50-minute presentation + 10 minutes for questions</p>
         </header>
         <div className="westfield-demo__intro">
-          <p className="westfield-demo__eyebrow">Seven live loops · 30 minutes</p>
+          <p className="westfield-demo__eyebrow">Seven live loops · 32 minutes</p>
           <h1>Keep the next step in view.</h1>
           <p className="westfield-demo__lede">
             Show the website and native Sitecore tools to the audience. Keep this reference on a
