@@ -58,7 +58,7 @@ const flows: DemoFlow[] = [
     title: 'A familiar Westfield experience',
     time: '1 minute',
     goal: 'Keep the Westfield experience familiar as its content becomes more relevant.',
-    context: 'Home tab · anonymous visitor · fresh public-site session',
+    context: 'Slide 5 · Home tab · anonymous visitor · fresh public-site session',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
@@ -83,7 +83,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield can offer more relevant content within the same familiar brand experience. First, let us use browsing interest to choose the message.',
       },
-      { kind: 'return', title: 'Browsing interests change the message' },
+      { kind: 'return', title: 'Slide 6 · Browsing interests change the message' },
     ],
   },
   {
@@ -92,7 +92,7 @@ const flows: DemoFlow[] = [
     title: 'Reading builds an interest profile',
     time: '5 minutes',
     goal: 'Show how an anonymous visitor’s changing interests lead to different Home messages.',
-    context: 'Home and Profiles tabs · same anonymous visitor as P1 · before Instagram',
+    context: 'Slide 6 · Home and Profiles tabs · same anonymous visitor as P1 · before Instagram',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
@@ -149,7 +149,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield can respond as a visitor’s interests change, before sign-in. Next, use the message that brought a visitor to the site.',
       },
-      { kind: 'return', title: 'The website continues the Instagram message' },
+      { kind: 'return', title: 'Slide 7 · The website continues the Instagram message' },
     ],
   },
   {
@@ -158,7 +158,7 @@ const flows: DemoFlow[] = [
     title: 'The message continues from the ad',
     time: '2 minutes',
     goal: 'Give a prospective customer a consistent message from the ad to the website.',
-    context: 'Instagram tab · same anonymous session as P2 · no customer sign-in yet',
+    context: 'Slide 7 · Instagram tab · same anonymous session as P2 · no customer sign-in yet',
     blocks: [
       { kind: 'copy', label: 'Instagram tab', value: `${siteUrl}/instagram/index.html`, url: true },
       {
@@ -183,7 +183,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield can continue the ad’s message on the website. Now sign in and use a customer’s known preference.',
       },
-      { kind: 'return', title: 'Paperless status changes the message after sign-in' },
+      { kind: 'return', title: 'Slide 8 · Paperless status changes the message after sign-in' },
     ],
   },
   {
@@ -193,7 +193,7 @@ const flows: DemoFlow[] = [
     time: '7 minutes',
     goal: 'Match the service message to each customer’s existing paperless preference, then show how the team chooses each message.',
     context:
-      'Home and Page Builder tabs · Casey, then Jordan · paste each email into both sign-in fields',
+      'Slide 8 · Home and Page Builder tabs · Casey, then Jordan · paste each email into both sign-in fields',
     blocks: [
       { kind: 'copy', label: 'Home tab', value: `${siteUrl}/`, url: true },
       {
@@ -275,7 +275,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'The team can choose a message and its audience in Page Builder. Westfield can keep the paperless invitation relevant and give enrolled customers a useful alternative. Before creating the content behind these experiences, show the Westfield brand guidance that will support AI-assisted writing.',
       },
-      { kind: 'return', title: 'Westfield’s brand guidance before article creation' },
+      { kind: 'return', title: 'Slide 9 · Brand Context and Brand Kits' },
     ],
   },
   {
@@ -284,7 +284,7 @@ const flows: DemoFlow[] = [
     title: 'Brand guidance before content creation',
     time: '2 minutes',
     goal: 'Give AI Westfield’s background and writing guidance before creating content.',
-    context: 'Brand resources tab · immediately before P5 article creation',
+    context: 'Slide 9 · Brand resources tab · immediately before P5 article creation',
     blocks: [
       { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
       {
@@ -311,7 +311,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'With Westfield’s background and writing guidance in place, create an advice article and use Content Copilot to draft its first Section.',
       },
-      { kind: 'return', title: 'Creating an article in Page Builder' },
+      { kind: 'return', title: 'Slide 10 · Creating an article in Page Builder' },
     ],
   },
   {
@@ -320,7 +320,8 @@ const flows: DemoFlow[] = [
     title: 'Create a page with confidence',
     time: '10 minutes',
     goal: 'Give authors a repeatable way to create useful advice, with brand guidance and editorial approval.',
-    context: 'Page Builder tab · agreed presenter account · Westfield site · own new article',
+    context:
+      'Slide 10 · Page Builder tab · agreed presenter account · Westfield site · own new article',
     blocks: [
       { kind: 'copy', label: 'Sitecore Portal', value: portalUrl, url: true },
       { kind: 'phase', id: 'P5.1', title: 'Create the article' },
@@ -547,7 +548,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield’s team can create advice, choose relevant messages, and control publication. Next, consider which visitor actions show how well that content helps.',
       },
-      { kind: 'return', title: 'Content control in SitecoreAI' },
+      { kind: 'return', title: 'Slide 11 · Content control in SitecoreAI' },
     ],
   },
   {
@@ -557,7 +558,7 @@ const flows: DemoFlow[] = [
     time: '3 minutes',
     goal: 'Show how an AI-search recommendation can lead to a focused editorial review, using Prospera Bank as the example.',
     context:
-      'After the website-reporting discussion · Prospera recommendations and Page Builder tabs · Sales Engineers 1 · agverticals / agverts · read-only example',
+      'Slide 14 · After the website-reporting discussion · Prospera recommendations and Page Builder tabs · Sales Engineers 1 · agverticals / agverts · read-only example',
     blocks: [
       {
         kind: 'copy',
@@ -604,7 +605,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield could use this path to review a specific improvement in the right content field and decide whether to publish it. Next, show how approved content can also support a future mobile app.',
       },
-      { kind: 'return', title: 'Shared content for a Westfield mobile app' },
+      { kind: 'return', title: 'Slide 15 · Shared content for a Westfield mobile app' },
     ],
   },
   {
@@ -662,7 +663,7 @@ const flows: DemoFlow[] = [
         kind: 'say',
         text: 'Westfield can maintain approved advice once and make it available to the website and a future app. Each channel can present that content in its own screens.',
       },
-      { kind: 'return', title: 'Finding relevant guidance for underwriters' },
+      { kind: 'return', title: 'Slide 16 · Finding relevant guidance for underwriters' },
     ],
   },
 ];
