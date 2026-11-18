@@ -53,42 +53,6 @@ type DemoFlow = {
 
 const flows: DemoFlow[] = [
   {
-    id: 'brand-guidance',
-    code: 'B1',
-    title: 'Brand guidance before content creation',
-    time: '2 minutes',
-    goal: 'Give AI Westfield’s background and writing guidance before creating content.',
-    context: 'Brand resources tab · slide 5 · before the website examples',
-    blocks: [
-      { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
-      {
-        kind: 'say',
-        text: 'Brand Context helps AI understand Westfield and the task. A Brand Kit gathers guidance for voice, writing, and visual style. The resources can overlap, and both can guide Agentic Studio.',
-      },
-      {
-        kind: 'do',
-        id: 'B1.1',
-        title: 'Show Westfield’s background and writing guidance',
-        actions: [
-          'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
-          'Expand Content Guidelines, then double-click Style Guide. Point out the company knowledge and guidance available to Agentic Studio.',
-          'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
-          "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
-          'Explain that Content Copilot uses the kit associated with the Westfield site. It uses the kit’s Brand Context, Tone of Voice, and Dos and Don’ts sections for this article example. The kit’s Brand Context section is separate from the company resource shown first.',
-        ],
-      },
-      {
-        kind: 'result',
-        text: 'Westfield’s background and writing guidance are visible in the native brand resources before the team uses AI to draft content.',
-      },
-      {
-        kind: 'say',
-        text: 'Now see how the website experience changes for different visitors. Later, use this same Brand Kit when Content Copilot helps draft an article.',
-      },
-      { kind: 'return', title: 'Three ways to choose relevant content' },
-    ],
-  },
-  {
     id: 'familiar-experience',
     code: 'P1',
     title: 'A familiar Westfield experience',
@@ -309,7 +273,43 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'The team can choose a message and its audience in Page Builder. Westfield can keep the paperless invitation relevant and give enrolled customers a useful alternative. Next, create the content behind these experiences.',
+        text: 'The team can choose a message and its audience in Page Builder. Westfield can keep the paperless invitation relevant and give enrolled customers a useful alternative. Before creating the content behind these experiences, show the Westfield brand guidance that will support AI-assisted writing.',
+      },
+      { kind: 'return', title: 'Westfield’s brand guidance before article creation' },
+    ],
+  },
+  {
+    id: 'brand-guidance',
+    code: 'B1',
+    title: 'Brand guidance before content creation',
+    time: '2 minutes',
+    goal: 'Give AI Westfield’s background and writing guidance before creating content.',
+    context: 'Brand resources tab · immediately before P5 article creation',
+    blocks: [
+      { kind: 'copy', label: 'Brand resources tab', value: brandResourcesUrl, url: true },
+      {
+        kind: 'say',
+        text: 'Brand Context helps AI understand Westfield and the task. A Brand Kit gathers guidance for voice, writing, and visual style. The resources can overlap, and both can guide Agentic Studio.',
+      },
+      {
+        kind: 'do',
+        id: 'B1.1',
+        title: 'Show Westfield’s Brand Context and Brand Kit',
+        actions: [
+          'Switch to the prepared Brand resources tab. In Brand Context, open Westfield.',
+          'Expand Content Guidelines, then double-click Style Guide. Point out the company knowledge and guidance available to Agentic Studio.',
+          'Choose Design → Brand kits and open the existing Westfield kit. Open Sections → Tone of Voice.',
+          "Choose Back to sections → Dos and Dont's. Point out the plain-language guidance and the limits on coverage and savings claims.",
+          'Explain that Content Copilot uses the kit associated with the Westfield site. It uses the kit’s Brand Context, Tone of Voice, and Dos and Don’ts sections for this article example. The kit’s Brand Context section is separate from the company resource shown first.',
+        ],
+      },
+      {
+        kind: 'result',
+        text: 'Westfield’s background and writing guidance are visible in the native brand resources before the team uses AI to draft content.',
+      },
+      {
+        kind: 'say',
+        text: 'With Westfield’s background and writing guidance in place, create an advice article and use Content Copilot to draft its first Section.',
       },
       { kind: 'return', title: 'Creating an article in Page Builder' },
     ],
@@ -399,7 +399,7 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P5.3.1',
-        title: 'Set the heading and open Content Copilot for the text',
+        title: 'Open Content Copilot for the first Section',
         actions: [
           'Select the starting Section. In Content, paste the First Section heading into Heading and wait for Saved.',
           'In Layers, select this Section’s Text. In the Text panel, choose Optimize with AI.',
@@ -409,7 +409,7 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P5.3.1-ai',
-        title: 'Generate a paragraph and review it before applying the change',
+        title: 'Generate, review, and keep the paragraph',
         actions: [
           'Paste the Content Copilot draft prompt into Ask AI for content improvements, then choose Generate content. Wait until Ready! appears.',
           'Read the proposed paragraph. Check its meaning, plain language, and independent-agent message; confirm it adds no unsupported coverage or savings claims.',
@@ -425,7 +425,7 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P5.3.1-add',
-        title: 'Add another permitted Section with its own content item',
+        title: 'Add a permitted Section with its own content',
         actions: [
           'In Layers, expand headless-main → Partial design content → article-content-2.',
           'Use Plus → Insert into. Confirm the location-specific picker offers Section and Action.',
@@ -443,7 +443,7 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P5.3.2',
-        title: 'Reorder the complete Sections and confirm their saved content',
+        title: 'Reorder Sections and check their saved content',
         actions: [
           'Paste the Second Section heading and Second Section text into their matching fields, then wait for Saved.',
           'In Layers, select the second complete Section and use Move up to place it above the first.',
@@ -521,7 +521,7 @@ const flows: DemoFlow[] = [
       {
         kind: 'do',
         id: 'P5.4.2-index',
-        title: 'Refresh the Westfield website Search source and wait for Succeeded',
+        title: 'Refresh Westfield Search and wait for Succeeded',
         actions: [
           'Switch to the prepared Westfield Search source tab and confirm the heading is Westfield website.',
           'On Indexing, choose Trigger indexing.',
@@ -875,13 +875,13 @@ export default function DemoLaunch({ graphQlApiKey }: DemoLaunchProps): JSX.Elem
         </header>
         <div className="westfield-demo__intro">
           <p className="westfield-demo__eyebrow">
-            Brand guidance, then seven demo loops · 32 minutes
+            Visitor experience, then brand guidance and article creation · 32 minutes
           </p>
           <h1>Keep the next step in view.</h1>
           <p className="westfield-demo__lede">
             Show the website and native Sitecore tools to the audience. Keep this reference on a
-            separate screen. Prepare the tabs first, then follow B1 and P1–P7 without returning here
-            during the presentation.
+            separate screen. Prepare the tabs first, then follow P1–P4, B1, and P5–P7 without
+            returning here during the presentation.
           </p>
           <p className="westfield-demo__download">
             <a
