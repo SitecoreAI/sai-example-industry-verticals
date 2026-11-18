@@ -438,7 +438,7 @@ const flows: DemoFlow[] = [
         kind: 'copy',
         label: 'Second Section text',
         value:
-          'Keep a Westfield household checkup list of changes to discuss at your next policy review.',
+          'Keep an autumn household checklist of changes to discuss at your next policy review.',
       },
       {
         kind: 'do',
@@ -529,7 +529,7 @@ const flows: DemoFlow[] = [
           'Return to the visitor website tab and open the normal header Search.',
         ],
       },
-      { kind: 'copy', label: 'Article body search', value: 'Westfield household checkup' },
+      { kind: 'copy', label: 'Article body search', value: 'autumn' },
       {
         kind: 'do',
         id: 'P5.4.3',
