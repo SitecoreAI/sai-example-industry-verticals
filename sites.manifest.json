@@ -3254,7 +3254,7 @@
                 "after": "1"
               }
             ],
-            "nativeUiResult": "Full reload: Campaigns (3) and Shared layout (2) retained; six unused local groups hidden. Shared legacy Commerce \u2192 Two product teaser remains visible.",
+            "nativeUiResult": "Full reload: Campaigns (3) and Shared layout (2) retained; six unused local groups hidden. Shared legacy Commerce → Two product teaser remains visible.",
             "preserved": "All group items, owned rendering selections, Modules and globals. Shared Commerce library is outside Westfield ownership.",
             "restorePolicy": "Re-read each exact field and compare to its recorded after value before a deliberate restore; preserve later author changes. Ordinary deployment does not seed or restore these authored settings.",
             "source": "https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003502"
@@ -3280,7 +3280,7 @@
               "preserveLanguageFieldValue": "",
               "includeVirtualFolderFieldValue": "",
               "headlessSiteItemId": "6eb93467-04c2-4cb2-a55d-06a94152adcf",
-              "legacyQueryPolicy": "Drop the retired URL\u2019s query string. Active campaign and login UTM handling is unchanged.",
+              "legacyQueryPolicy": "Drop the retired URL’s query string. Active campaign and login UTM handling is unchanged.",
               "queryPreservationReason": "QA observed the installed RedirectsMiddleware appending the preserved query after #mywestfield; native query preservation is disabled for this legacy map instead of adding an app routing patch."
             },
             "subtreeRemoval": {
@@ -3345,7 +3345,7 @@
           "checkedAtUTC": "2026-10-15T02:45:18.150588+00:00",
           "verifiedScope": [
             "Home/Paperless/Instagram routes, native footer phone and media delivery",
-            "Fresh synthetic launcher identity \u2192 Instagram \u2192 native personalized initial document",
+            "Fresh synthetic launcher identity → Instagram → native personalized initial document",
             "Desktop 1440px and mobile 390px navigation/image/overflow checks",
             "Cookie-free server and first native Chrome public visit select neutral fallback"
           ],
@@ -3492,18 +3492,53 @@
           "mode": "existing-shared-dam",
           "host": "https://thlt-demo.sitecoresandbox.cloud",
           "assetIds": [
-            128420,
-            128421,
-            128422,
             128426,
-            128723,
-            128721,
-            128722,
-            128729,
-            128728,
-            128727,
+            128421,
+            130104,
             128745,
-            128746
+            130125,
+            129980,
+            129985,
+            129984,
+            128723,
+            130078,
+            130068,
+            128721,
+            129991,
+            130128,
+            128727,
+            128420,
+            128746,
+            130059,
+            128728,
+            130057,
+            130069,
+            128729,
+            129992,
+            129979,
+            130087,
+            128422,
+            129986,
+            128722,
+            129978,
+            130086,
+            129990,
+            129996,
+            129998,
+            129997,
+            130002,
+            130003,
+            130004,
+            130010,
+            130018,
+            130023,
+            130038,
+            130045,
+            130049,
+            130056,
+            130096,
+            130101,
+            130122
           ],
           "collectionIds": [
             128923,
@@ -3511,33 +3546,395 @@
             128927
           ],
           "counts": {
-            "selectedAssets": 12,
-            "uploadedAssets": 12,
-            "metadataVerifiedAssets": 12,
-            "approvalVerifiedAssets": 12,
-            "publicDeliveryVerifiedAssets": 12,
+            "selectedAssets": 47,
+            "uploadedAssets": 47,
+            "metadataVerifiedAssets": 47,
+            "approvalVerifiedAssets": 47,
+            "publicDeliveryVerifiedAssets": 47,
             "collectionsCreated": 3,
-            "cmsDamSelectionsVerified": 1,
-            "processingVerifiedAssets": 12,
+            "cmsDamSelectionsVerified": 2,
+            "processingVerifiedAssets": 47,
             "collectionMembershipsVerified": 15,
-            "collectionCoversVerified": 3
+            "collectionCoversVerified": 3,
+            "existingAssetsReused": 12,
+            "newAssetsUploaded": 35,
+            "brandVerifiedAssets": 47,
+            "cmsImageFieldsVerified": 35,
+            "cmsRichTextImageFieldsVerified": 2,
+            "currentApprovedSelectorBrandResults": 47
           },
-          "checkedAtUTC": "2026-10-15T02:45:18.150588+00:00",
+          "checkedAtUTC": "2026-11-18T01:35:00.117745+00:00",
           "connectorChanged": false,
           "inventoryPath": "industry-verticals/westfield/demo/dam-assets.json",
-          "verificationScope": "12 actual Approved assets and Original HTTP 200/source-hash matches; three collections with exact memberships/covers; one native CMS Image picker selection saved/read back, published to Edge and rendered at 1440px/390px.",
-          "cmsSelections": [
+          "verificationScope": "47 Approved Content Hub Originals assigned to Brand Westfield; every public Original GET returned200 with exact source SHA-256.35 Image/Logo and2 Rich Text image/anchor fields are published and verified in Experience Edge. Native approved-assets picker returned47 Westfield assets; Policy review Original selection/save/reopen and Page Builder rendering passed. Public release preview header/body search, article/footer images, login artwork, Instagram campaign and Casey/Jordan flows passed; exact production-alias verification is recorded in the private release evidence.",
+          "preserve": "Shared CM connector, service account, themes, Brand Kit, schema/taxonomies, access settings and unrelated assets/collections.",
+          "limitations": "Native __Thumbnail and generated current-page authoring previews require Media Library derivatives;34 are intentionally preserved. Shared connector/service account and existing collection memberships are unchanged.",
+          "brandId": 129528,
+          "brandName": "Westfield",
+          "historicalCollectionAuditAtUTC": "2026-10-15T02:45:18.150588+00:00",
+          "historicalCmsSelections": [
             {
               "assetId": 128422,
               "datasourceItemId": "fd07e14de290454d9b98f6c5d09fb1f2",
               "datasourcePath": "/sitecore/content/Westfield/westfield/Home/paperless/Data/Hero",
               "fieldId": "f89e6b13fc9a46c88df507b44e174ad4",
               "nativeDamId": "3dkxNma8Rjii0FTJb7ZCOA",
-              "status": "verified-native-picker-save-publication-live-render"
+              "status": "verified-native-picker-save-publication-live-render",
+              "currentLifecycleStatus": "retired with /paperless; retained as historical picker evidence only"
             }
           ],
-          "preserve": "Shared CM connector, service account, themes, Brand Kit, schema/taxonomies, access settings and unrelated assets/collections.",
-          "limitations": "Native Brand relations unverified. Historical service OAuth 401; no retry. Working picker SSO is separate. Existing processing created extra smart-crop links; inventory all consumers before retirement. Header logo remains native CMS media."
+          "cmsFieldBindings": [
+            {
+              "itemId": "6f44c3aa840e47088e3bd08b7cb27e19",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions",
+              "field": "HeroImage",
+              "assetIds": [
+                130068
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "509cf80a921e41919633c54d79fd4e61",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/home-auto-review-questions/Data/Policy review checklist image",
+              "field": "Body",
+              "assetIds": [
+                129978
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "400cf46d568041b890f10559877d1518",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist",
+              "field": "HeroImage",
+              "assetIds": [
+                129985
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "5d45a5c5330e46e2a9dbfe61347537d3",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/new-driver-family-conversation",
+              "field": "HeroImage",
+              "assetIds": [
+                130078
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "940e9a536fff428295aa175582ce188f",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/organize-insurance-documents",
+              "field": "HeroImage",
+              "assetIds": [
+                130125
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "5f12387ea1b945b8b2ed77d98e5649f4",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/storm-season-household-checklist",
+              "field": "HeroImage",
+              "assetIds": [
+                130069
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "970c651f631b484fba988db6ea753501",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup",
+              "field": "HeroImage",
+              "assetIds": [
+                130087
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "cb2cbe538b7a4d35940eb95195414d59",
+              "path": "/sitecore/content/Westfield/westfield/Home/advice/water-leak-home-checkup/Data/Common Causes of Water Damage to Homes and Businesses",
+              "field": "Body",
+              "assetIds": [
+                130086
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "4778e128b7bb4d2ea2b575af4d098fcd",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Account - Access MyWestfield",
+              "field": "Image",
+              "assetIds": [
+                128746
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "84b75cff88da48a68419660b05353239",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Account - File a Claim",
+              "field": "Image",
+              "assetIds": [
+                128727
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "3f8749144d634a858d6e36e3bfa839f9",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Account - Find an Agent",
+              "field": "Image",
+              "assetIds": [
+                128745
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "b4e6b1d32be1456f861a8752366acd24",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Account - Pay Your Bill",
+              "field": "Image",
+              "assetIds": [
+                128728
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "3becef09c5014c31b0e5e566fb0d72cf",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Auto interest",
+              "field": "Image",
+              "assetIds": [
+                128421
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "15afa632fe1b4e33ad6b4df89598b6de",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Benefits - A Legacy of Trust",
+              "field": "Image",
+              "assetIds": [
+                129980
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "952f453f7c0d424c83a781180e4748e8",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Benefits - Community and Connection",
+              "field": "Image",
+              "assetIds": [
+                129984
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "4cf3070049e9456fbba8be152ad752b3",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Benefits - Financial Strength",
+              "field": "Image",
+              "assetIds": [
+                129991
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "ab765ace3f934dbc821b195ce920a62a",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Coverage review",
+              "field": "Image",
+              "assetIds": [
+                128422
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "1f7b2149ad54496380dd3001048c3069",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Experience MyWestfield",
+              "field": "Image",
+              "assetIds": [
+                128422
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "69a01662aafc488c8b87f1afc7bdc570",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Hero",
+              "field": "Image",
+              "assetIds": [
+                128421
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "b4e93245df16441c84f7c73304313125",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Hero_var2",
+              "field": "Image",
+              "assetIds": [
+                128421
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "c7a7138578d143aea756fdcb5c60b953",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Home interest",
+              "field": "Image",
+              "assetIds": [
+                128421
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "fcd9772071114e829cd5e6fd776dc719",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/News - 1",
+              "field": "Image",
+              "assetIds": [
+                130104
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "544db3d3eb2f4e04aab19ee3cbe74395",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/News - 2",
+              "field": "Image",
+              "assetIds": [
+                129979
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "9612e8e42a574fbe8eb1042cbe2241bd",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/News - Westfield Announces Henning Haagen as Chief Underwriting Officer",
+              "field": "Image",
+              "assetIds": [
+                129992
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "a275f458496b40cc8448454980cfc4be",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Next chapter campaign",
+              "field": "Image",
+              "assetIds": [
+                128421
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "2be1df85fa1a49f5bcbcc637add16adf",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Paperless billing offer",
+              "field": "Image",
+              "assetIds": [
+                128422
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "9bd16295bb41458087205ec56ef59ce6",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Services - Business Insurance",
+              "field": "Image",
+              "assetIds": [
+                128723
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "608059c9fbee4d6d91a01ccf3608376a",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Services - Farm - Agribusiness",
+              "field": "Image",
+              "assetIds": [
+                128722
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "fb93167637ab487cb2c69f2829160285",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Services - Personal Insurance",
+              "field": "Image",
+              "assetIds": [
+                128721
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "6f1aaab3f524481893509245b5991c12",
+              "path": "/sitecore/content/Westfield/westfield/Home/Data/Services - Surety Bonds",
+              "field": "Image",
+              "assetIds": [
+                128729
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "08c4cc7cad044eb684d3dd72ff88b698",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Page Branches/Digital service campaign/$name/Data/Hero",
+              "field": "Image",
+              "assetIds": [
+                128422
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "5d16c42dec5a4050bfc64077f7edd83c",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Footer",
+              "field": "Logo",
+              "assetIds": [
+                128426
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "97adae5e75034908a5f58666ddb4aafa",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - Facebook",
+              "field": "Image",
+              "assetIds": [
+                129986
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "fb023ffecd76403a85a75d956bae1360",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - Instagram",
+              "field": "Image",
+              "assetIds": [
+                130057
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "24d6912de2194b2896663d1034ffa41d",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - LinkedIn",
+              "field": "Image",
+              "assetIds": [
+                130059
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "b2f6e1a41fe543afbec1ef0344eab1bd",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - YouTube",
+              "field": "Image",
+              "assetIds": [
+                130128
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            },
+            {
+              "itemId": "fff53a4bdec04f6eaf70ffbd69c4ee28",
+              "path": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Header/Data/Header",
+              "field": "Logo",
+              "assetIds": [
+                128420
+              ],
+              "status": "native-save-readback-and-published-edge-verified"
+            }
+          ],
+          "evidence": {
+            "publicOriginals": "work/westfield-dam-only-20261117/dam-original-download-verification.json",
+            "brand": "work/westfield-dam-only-20261117/existing-brand-verification.json; work/westfield-dam-only-20261117/new-brand-verification.json",
+            "nativeFieldChanges": "work/westfield-dam-only-20261117/cms-migration-journal.json",
+            "publishedFields": "work/westfield-dam-only-20261117/cms-all-published-images-verification.json",
+            "publishStatus": "work/westfield-dam-only-20261117/cms-image-publish-status.json",
+            "pickerAndCanvas": "work/westfield-dam-only-20261117/native-picker-canvas-verification.json",
+            "retirement": "work/westfield-dam-only-20261117/media-recycle-journal.json;work/westfield-dam-only-20261117/additional-media-recycle-journal.json"
+          },
+          "currentPickerVerification": {
+            "assetId": 130068,
+            "itemId": "6f44c3aa840e47088e3bd08b7cb27e19",
+            "field": "HeroImage",
+            "brandResults": 47,
+            "status": "native-picker-original-select-save-reopen-and-canvas-render-verified",
+            "preservedAlternativeTextAndDimensions": true
+          }
         },
         "definitions": {
           "status": "verified",
@@ -3566,8 +3963,8 @@
           "evidence": "work/westfield-home-native-definition-audit.json"
         },
         "media": {
-          "status": "verified",
-          "source": "native-cms-media-not-content-hub-dam",
+          "status": "Website content images use Content Hub Originals;42 obsolete Media Library images recoverably recycled;34 native authoring preview derivatives preserved.",
+          "source": "content-hub-public-originals-for-content-images",
           "cmsFolderPath": "/sitecore/content/Westfield/westfield/Media",
           "assetLibraryPath": "/sitecore/media library/Project/Westfield/westfield",
           "assetLibraryFolderId": "021d0cbd-401f-47d2-a9d1-3c8dd7a223ea",
@@ -3673,11 +4070,35 @@
               "status": "Native uploaded/read back; scoped article publication receipt owns current status."
             }
           ],
-          "verificationScope": "Four baseline native CMS media uploads/live delivery remain verified. Five additional Advice assets/folder uploaded/read back and published; all six actual article HeroImage responses 200, including reused baseline MyWestfield media. DAM selector proof is separately scoped.",
+          "verificationScope": "Historical Media Library upload records below are provenance, not current content bindings. Current ordinary Image/Logo and Rich Text image references use the Content Hub public Original links recorded in bindings.dam; authoring thumbnails remain Media Library derivatives.",
           "adviceFolder": {
             "id": "6b4dd5a1-3326-4e83-9a5a-9bef67f2b92a",
             "path": "/sitecore/media library/Project/Westfield/westfield/Advice",
             "status": "native uploaded/read-back; five assets published and actual article image delivery verified"
+          },
+          "historicalSource": "native-cms-media-not-content-hub-dam",
+          "currentContentDelivery": {
+            "host": "https://thlt-demo.sitecoresandbox.cloud",
+            "inventoryPath": "industry-verticals/westfield/demo/dam-assets.json",
+            "assetCount": 47,
+            "brandId": 129528,
+            "nativeImageFields": 35,
+            "richTextImageFields": 2,
+            "sourceReadback": "work/westfield-dam-only-20261117/cms-all-published-images-verification.json",
+            "retirementBoundary": "Recycle only exact migrated Westfield content-media IDs after live rendering and global native referrer checks. Preserve system authoring thumbnails and other sites.",
+            "retirement": {
+              "status": "recoverably-recycled-and-native-absence-verified",
+              "migratedContentImages": 30,
+              "additionalUnusedLegacyImages": 12,
+              "preservedNativePreviewImages": 34,
+              "method": "Authoring API deleteItem permanently:false, after native Navigate > Links checks with a known-positive thumbnail control. Current published website Image fields and Rich Text image links no longer refer to Media Library images.",
+              "evidence": [
+                "work/westfield-dam-only-20261117/media-recycle-journal.json",
+                "work/westfield-dam-only-20261117/additional-media-recycle-journal.json",
+                "work/westfield-dam-only-20261117/native-referrer-verification.json",
+                "work/westfield-dam-only-20261117/additional-native-referrer-verification.json"
+              ]
+            }
           }
         },
         "editing": {
@@ -3755,8 +4176,8 @@
             "jordan": "Login returned Home at #mywestfield with coverage recommendation; refresh retained it; /paperless remained neutral",
             "presentation": "Original MyWestfield presentation retained for both; no variant overrides",
             "campaignAndAffinityRegression": {
-              "browsingAffinity": "Normal teen-driver \u2192 water-damage \u2192 storm-article navigation selected Home-interest hero",
-              "campaignEntry": "Actual Instagram Learn more \u2192 acknowledged /campaign event \u2192 Home retained next_chapter UTM parameters",
+              "browsingAffinity": "Normal teen-driver → water-damage → storm-article navigation selected Home-interest hero",
+              "campaignEntry": "Actual Instagram Learn more → acknowledged /campaign event → Home retained next_chapter UTM parameters",
               "firstHomeDocument": "Home-interest hero remained; first-document campaign expectation not met in this run",
               "afterProfilePropagation": "One reload of the same Home URL selected campaign hero, approximately two minutes later",
               "nativeHeroTable": "LIVE; campaign row 1, affinity row 2; rules unchanged",
@@ -3800,7 +4221,7 @@
               "experienceId": "77f8d59b-99dd-4451-9ecb-61d97905f04f",
               "datasourceId": "a275f458-496b-40cc-8448-454980cfc4be",
               "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Next chapter campaign",
-              "heading": "A new chapter. Protection for what\u2019s next.",
+              "heading": "A new chapter. Protection for what’s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
               "verification": "PASS at frontend c3d4afcabbd87e6ba3aa1b35ef417633ad710f88 on both canonical hosts: independent empty-cookie first HTML checks selected the native campaign Hero datasource; fresh Chrome Incognito actual ad click and same-visitor Auto-to-Home-to-Instagram browser sequence passed. Release evidence: outputs/evidence/westfield-direct-instagram-production-release-20261117.json and westfield-direct-instagram-browser-production-20261117.json.",
@@ -3870,7 +4291,7 @@
             },
             "campaignEntry": "Direct Instagram ad link to CMS Home with UTM parameters; native middleware chooses the Home variant on that request, with no intermediate loading page, identity event, or local variant selection",
             "preparation": "/demo",
-            "accountSwitch": "Logout \u2192 Login \u2192 Customer",
+            "accountSwitch": "Logout → Login → Customer",
             "retainedCampaignQuery": "The six allowlisted UTM parameters are retained on the root Home URL; no fragment is added.",
             "loginArrival": "Home opens at the top; scroll to MyWestfield to show the recommendation."
           },
@@ -3903,8 +4324,8 @@
             "formerPagePath": "/paperless",
             "finalPersonalizedRulesRemoved": true,
             "neutralSharedPresentationPreserved": true,
-            "formerVerificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
-            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home\u2019s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
+            "formerVerificationScope": "Native LIVE false→offer/Default and true→enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
+            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home’s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
             "datasourceItemsRetained": false,
             "analyticsTimeoutUiMinutes": 30,
             "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
@@ -5059,139 +5480,245 @@
                 "label": "Hero",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Hero",
                 "field": "Image",
-                "mediaId": "04ed27e2-8b90-42d3-96cf-daf6f81d307f"
+                "legacyMediaId": "04ed27e2-8b90-42d3-96cf-daf6f81d307f",
+                "contentHubAssetId": 128421,
+                "nativeDamId": "_Ae_ynRWS1eV_1iXqDhMUA",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128421-home-hero?v=dd0cdc60",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Services - Business Insurance",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Services - Business Insurance",
                 "field": "Image",
-                "mediaId": "340ae39e-91ac-4e79-80f5-9ea9ca06ccd1"
+                "legacyMediaId": "340ae39e-91ac-4e79-80f5-9ea9ca06ccd1",
+                "contentHubAssetId": 128723,
+                "nativeDamId": "GgXVpAt3SP6ekCn6dBoPXQ",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128723-business-insurance?v=23d65b75",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Services - Personal Insurance",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Services - Personal Insurance",
                 "field": "Image",
-                "mediaId": "51819863-313e-407e-a9ec-a0cff2170c0c"
+                "legacyMediaId": "51819863-313e-407e-a9ec-a0cff2170c0c",
+                "contentHubAssetId": 128721,
+                "nativeDamId": "rTHKt94lS7qnXw-CZqnjpg",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128721-personal-insurance?v=cab0dcc6",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Services - Farm & Agribusiness",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Services - Farm - Agribusiness",
                 "field": "Image",
-                "mediaId": "f87be148-094a-421d-be6f-31e37e76f3ce"
+                "legacyMediaId": "f87be148-094a-421d-be6f-31e37e76f3ce",
+                "contentHubAssetId": 128722,
+                "nativeDamId": "C5djK392RTGQ106NG55Uiw",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128722-farm-and-agribusiness?v=522f7060",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Services - Surety Bonds",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Services - Surety Bonds",
                 "field": "Image",
-                "mediaId": "de2f83e1-3293-4068-a695-2efba086531b"
+                "legacyMediaId": "de2f83e1-3293-4068-a695-2efba086531b",
+                "contentHubAssetId": 128729,
+                "nativeDamId": "FYKpSi34ShG8EPUeAb__hw",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128729-surety?v=e858ca8e",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Account - Pay Your Bill",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Account - Pay Your Bill",
                 "field": "Image",
-                "mediaId": "bf341ffd-f3ae-43d0-96f0-01995dc8d2e9"
+                "legacyMediaId": "bf341ffd-f3ae-43d0-96f0-01995dc8d2e9",
+                "contentHubAssetId": 128728,
+                "nativeDamId": "jWh2g8dnRi6gwxwlAisc4Q",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128728-pay-your-bill?v=5d8dd1d6",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Account - File a Claim",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Account - File a Claim",
                 "field": "Image",
-                "mediaId": "80a50990-562d-4883-a520-b445f4613bd5"
+                "legacyMediaId": "80a50990-562d-4883-a520-b445f4613bd5",
+                "contentHubAssetId": 128727,
+                "nativeDamId": "1cvSH8UOTIWEODmbrHdOuA",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128727-file-a-claim?v=9db4746d",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Account - Find an Agent",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Account - Find an Agent",
                 "field": "Image",
-                "mediaId": "0d2cbff7-33ae-472b-99f5-ca4f20df44a3"
+                "legacyMediaId": "0d2cbff7-33ae-472b-99f5-ca4f20df44a3",
+                "contentHubAssetId": 128745,
+                "nativeDamId": "xcpYtsEITHyW5xBHM0C9gQ",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128745-find-an-agent?v=d10a79ae",
+                "status": "native-save-and-published-edge-verified"
               },
               {
-                "label": "Account - Access MyWestfield\u00ae",
+                "label": "Account - Access MyWestfield®",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Account - Access MyWestfield",
                 "field": "Image",
-                "mediaId": "91d78c52-8245-437f-a455-ff15e6d42fd5"
+                "legacyMediaId": "91d78c52-8245-437f-a455-ff15e6d42fd5",
+                "contentHubAssetId": 128746,
+                "nativeDamId": "YDzsm4KhTbGuy2SDoWssIw",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128746-log-in-to-your-account?v=2b828438",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Experience MyWestfield",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Experience MyWestfield",
                 "field": "Image",
-                "mediaId": "e7e77f20-5f33-4a7d-b33e-4976391e3ca9"
+                "legacyMediaId": "e7e77f20-5f33-4a7d-b33e-4976391e3ca9",
+                "contentHubAssetId": 128422,
+                "nativeDamId": "3dkxNma8Rjii0FTJb7ZCOA",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128422-mywestfield?v=4647cc3c",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Benefits - Financial Strength",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Benefits - Financial Strength",
                 "field": "Image",
-                "mediaId": "699f624d-12f0-4bea-8b1d-a567b6a19dac"
+                "legacyMediaId": "699f624d-12f0-4bea-8b1d-a567b6a19dac",
+                "contentHubAssetId": 129991,
+                "nativeDamId": "UCnVVzpuQUSzGPL9oxUhLQ",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/a18ad4c8b96e4c1d94bd248c199ce251?v=da31a4d4",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Benefits - A Legacy of Trust",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Benefits - A Legacy of Trust",
                 "field": "Image",
-                "mediaId": "1c1057bc-7a8b-4173-b197-558bdf1a5e0e"
+                "legacyMediaId": "1c1057bc-7a8b-4173-b197-558bdf1a5e0e",
+                "contentHubAssetId": 129980,
+                "nativeDamId": "oPhsexHYS4-5ayqVvCs13A",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/0ffa47d647af4bf39bc9e6f12b80dd3f?v=c7c651da",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Benefits - Community and Connection",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Benefits - Community and Connection",
                 "field": "Image",
-                "mediaId": "2e89187e-b543-4b8b-af27-ed48c69302c7"
+                "legacyMediaId": "2e89187e-b543-4b8b-af27-ed48c69302c7",
+                "contentHubAssetId": 129984,
+                "nativeDamId": "B2kMTMq4SBu2BFcjnrU7Mw",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/0135e718e3af4215b36574c696dfa842?v=7f41bdb9",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "News - 1",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/News - 1",
                 "field": "Image",
-                "mediaId": "0a74631f-68be-45a5-a717-e4829cfe6c9e"
+                "legacyMediaId": "0a74631f-68be-45a5-a717-e4829cfe6c9e",
+                "contentHubAssetId": 130104,
+                "nativeDamId": "pAxBDXg7R5i2Y_1VPwS38w",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/61b38d6835894d6ea7aa2e4aa061dbd4?v=9ff4dd22",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "News - 2",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/News - 2",
                 "field": "Image",
-                "mediaId": "e31fa9c9-921d-42bc-a769-0dad8bb8ef88"
+                "legacyMediaId": "e31fa9c9-921d-42bc-a769-0dad8bb8ef88",
+                "contentHubAssetId": 129979,
+                "nativeDamId": "yf1_Y6HMQgGoc4q0Cygm4g",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/895155e25db84b499c2fac5f0e743ba7?v=1ad8ed4f",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "News - Westfield Announces Henning Haagen as Chief Underwriting Officer",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/News - Westfield Announces Henning Haagen as Chief Underwriting Officer",
                 "field": "Image",
-                "mediaId": "deaa7ede-a10f-415e-959b-14ad547ef6ae"
+                "legacyMediaId": "deaa7ede-a10f-415e-959b-14ad547ef6ae",
+                "contentHubAssetId": 129992,
+                "nativeDamId": "j8HaclLmS2u31_iAJRNQ7Q",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/d398c2d2f85046ebab8f9665231766eb?v=4a372857",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Header logo",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Header/Data/Header",
                 "field": "Logo",
-                "mediaId": "894ad5a1-0e80-4c08-a2f5-d1713d822a49"
+                "legacyMediaId": "894ad5a1-0e80-4c08-a2f5-d1713d822a49",
+                "contentHubAssetId": 128420,
+                "nativeDamId": "OQHDg5LKTsGxL254qJgcEw",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128420-logo?v=6309fffb",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Footer",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Footer",
                 "field": "Logo",
-                "mediaId": "01566ecc-9bc3-4281-8c50-9ccedc59c4b0"
+                "legacyMediaId": "01566ecc-9bc3-4281-8c50-9ccedc59c4b0",
+                "contentHubAssetId": 128426,
+                "nativeDamId": "WR1fz06IRtOI0zL7Uvlevg",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/westfield-demo-128426-footer-logo?v=11d4c333",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Social - LinkedIn",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - LinkedIn",
                 "field": "Image",
-                "mediaId": "aae3ee02-dbd2-4148-93ce-bcfcbb30aca0"
+                "legacyMediaId": "aae3ee02-dbd2-4148-93ce-bcfcbb30aca0",
+                "contentHubAssetId": 130059,
+                "nativeDamId": "GEKsxAKiSd6sUNC0jYUg1Q",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/1f15f723d5f94899986780cc5235adde?v=ca93cdf0",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Social - Facebook",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - Facebook",
                 "field": "Image",
-                "mediaId": "ec559216-2210-4590-baaf-3982d74670b0"
+                "legacyMediaId": "ec559216-2210-4590-baaf-3982d74670b0",
+                "contentHubAssetId": 129986,
+                "nativeDamId": "QOgBezhwRhqkn8CyTAu0Rw",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/5f957e2b33694e8e8b02a65949b4c70a?v=b527d0e7",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Social - Instagram",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - Instagram",
                 "field": "Image",
-                "mediaId": "d21e66c6-55bb-4abd-ab1a-2c22f0262532"
+                "legacyMediaId": "d21e66c6-55bb-4abd-ab1a-2c22f0262532",
+                "contentHubAssetId": 130057,
+                "nativeDamId": "pNNgAZ5eSzCBufkMUpT9eQ",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/f5202f2b19d7407fb6086df8d421f74f?v=2cf9b405",
+                "status": "native-save-and-published-edge-verified"
               },
               {
                 "label": "Social - YouTube",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Presentation/Partial Designs/Footer/Data/Social - YouTube",
                 "field": "Image",
-                "mediaId": "767c8823-7809-44c4-99c8-d8914fb7f7a5"
+                "legacyMediaId": "767c8823-7809-44c4-99c8-d8914fb7f7a5",
+                "contentHubAssetId": 130128,
+                "nativeDamId": "MLLL3meuSqGi7EP_qBVflg",
+                "publicUrl": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/8650ed3079a74f06a8a9c9bf27ea959b?v=99d44a41",
+                "status": "native-save-and-published-edge-verified"
               }
             ],
-            "delivery": "All 22 actual image GETs returned nonempty image bodies in scoped local HTTP QA after native publication. The separate pre-publication media-import receipt does not itself prove publication.",
+            "delivery": "Current Content Hub Original downloads have source-matching bytes; native image field values and published Edge layouts verified. Historical Media Library GET receipts below are prior import provenance, not current frontend acceptance.",
             "journalEvidence": "work/westfield-home-native-media.json",
             "deliveryEvidence": "work/westfield-home-local-http-qa.json",
-            "preservation": "Existing Advice assets and the Paperless DAM Image binding were preserved; reuse/hash equality does not establish global reference exclusivity."
+            "preservation": "Content field alt text, dimensions, IDs, versions, workflows, layout placements, variants and all unrelated fields preserved; native system thumbnails retained.",
+            "historicalMediaLibraryEvidence": {
+              "folder": {
+                "id": "ba53dab0-192c-450f-bddb-47cecd768990",
+                "path": "/sitecore/media library/Project/Westfield/westfield/Home fidelity"
+              },
+              "journalEvidence": "work/westfield-home-native-media.json",
+              "deliveryEvidence": "work/westfield-home-local-http-qa.json",
+              "source": "Original import provenance; these media IDs no longer drive current image fields."
+            },
+            "currentSource": "Content Hub public Original links",
+            "checkedAtUTC": "2026-11-18T00:53:13.124196+00:00",
+            "currentDelivery": {
+              "host": "https://thlt-demo.sitecoresandbox.cloud",
+              "brandId": 129528,
+              "allImageFieldReferencesSavedAndPublished": true,
+              "frontendAcceptance": "pending release/browser QA",
+              "retirement": "Old image assets await verified live rendering before recoverable retirement."
+            }
           },
           "publication": {
             "target": "experienceedge",
@@ -5273,6 +5800,41 @@
             "retirementBoundary": "Only the eight exact preset item IDs listed here may be considered for separate authorized removal after reference/consumer review. Preserve the environment-global Devices parent, nine pre-existing presets and current default; no recursive device-root removal."
           },
           "releaseBoundary": "Frontend release and browser acceptance are recorded separately in handover evidence. This native inventory does not claim final frontend release PASS."
+        },
+        "search": {
+          "status": "native-site-source-live",
+          "name": "Westfield website",
+          "configurationId": "2cb5e7cf-0e44-4bd9-9f98-b27af8111570",
+          "sourceType": "site",
+          "origin": "https://thlt-westfield-demo.vercel.app",
+          "locale": "en",
+          "searchableFields": {
+            "title": "head > title",
+            "description": "meta description",
+            "content": "#maincontent"
+          },
+          "urlScope": "Allow /advice* and exact Home;exclude other pages, including /search and presenter routes.",
+          "schedule": {
+            "frequency": "hourly",
+            "minute": 0,
+            "timezone": "America/Chicago"
+          },
+          "fuzzySearch": true,
+          "sdk": "@sitecore-content-sdk/search@0.1.0",
+          "environmentVariable": "SITECORE_SEARCH_INDEX_ID",
+          "hostingBinding": "Public and editing projects, production and preview targets.",
+          "authorFlow": "Approve/publish article;verify live publication;native Search Indexing > Trigger indexing > Succeeded;test a distinct word from the article body.",
+          "sitemapSettings": {
+            "itemId": "7d8261433e4b4c9eb9619056ab3be30b",
+            "refreshThresholdMinutes": 0,
+            "cacheExpirationMinutes": 0,
+            "generateSitemapMediaItems": true,
+            "scope": "Westfield only;small demonstration site, with native generation on publish.",
+            "evidence": "work/westfield-dam-only-20261117/sitemap-native-refresh-fix.json"
+          },
+          "topicDateFilters": "Existing published-CMS metadata filters on Advice results;not native Search facets.",
+          "verificationScope": "Native title query, body-only query, zero-result control and rendered header/Advice keyword Search passed. New-publication and reset proofs are recorded separately with release evidence.",
+          "evidence": "work/westfield-native-search-20261117/native-source-query-proof.json"
         }
       },
       "notes": [
@@ -5280,9 +5842,10 @@
         "Only developer definitions deploy normally. Authored content, palette edits, DAM selections and Site Grouping binding are not auto-seeded.",
         "Four exact site placeholder descendants and one external-host leaf exclude shared/global roots. One pre-existing site Placeholder Settings folder is a metadata-only singleItem scaffold experiment, with no descendants or Presentation serialization; retain it on Advice-only removal.",
         "QA page and children remain native with Never publish/public 404; two var2/var3 copies are unused in current Paperless XML only, so preserve until broader reference review.",
-        "Private receipts/output evidence retain detailed QA; canonical DAM inventory records exact asset/collection/public-link ownership. No deletion authorized.",
+        "Private receipts/output evidence retain detailed QA; canonical DAM inventory records exact asset/collection/public-link ownership. No Content Hub asset or collection deletion authorized.",
         "Instagram promotes prospect home-and-auto insurance. Native Home hero campaign decision and existing customer billing-status decision are separate. Synthetic login identifies only after acceptance; source and assets stay Westfield-scoped.",
-        "Advice expansion separates serialized developer definitions from API-created designs/branch/page-local Data. Ordinary release deployment does not replay authored content. Current progress and exact owned IDs are in bindings.advice."
+        "Advice expansion separates serialized developer definitions from API-created designs/branch/page-local Data. Ordinary release deployment does not replay authored content. Current progress and exact owned IDs are in bindings.advice.",
+        "Content Hub migration2026-11-17: current image originals and Brand Westfield ownership are recorded in bindings.dam. Old Media Library records are historical until exact recoverable retirement completes. Native system __Thumbnail derivatives remain in Media Library; ordinary definition releases do not replay image values."
       ],
       "authoringThumbnails": {
         "manifest": "demo/westfield/authoring-thumbnails.json",
@@ -5292,7 +5855,15 @@
         "fieldOwnership": "Author-managed; developer module excludes __Thumbnail and __AutoThumbnails",
         "scope": "Westfield-only site/page/design/branch/component/template previews",
         "historicalInitialNativeTargets": 45,
-        "nativeTargetsScope": "Active maintained assignments; two old-page targets moved to retiredAssignments pending native removal. Shared thumbnail media retained."
+        "nativeTargetsScope": "Active maintained assignments; two old-page targets moved to retiredAssignments pending native removal. Shared thumbnail media retained.",
+        "currentAssignedAudit": {
+          "checkedAtUTC": "2026-11-18T00:18:15.890346+00:00",
+          "nativeTargets": 42,
+          "mediaAssets": 25,
+          "scope": "Distinct active __Thumbnail references in current Westfield snapshots; historical inventory totals above retain original provenance.",
+          "contentMediaOverlap": 0,
+          "storageConstraint": "Native Thumbnail type uses Media Library; no supported Content Hub public-link setter established."
+        }
       }
     },
     {
@@ -5353,5 +5924,5 @@
       ]
     }
   ],
-  "lastWestfieldAuditUTC": "2026-10-15T02:47:23.979868+00:00"
+  "lastWestfieldAuditUTC": "2026-11-18T01:35:00.117745+00:00"
 }

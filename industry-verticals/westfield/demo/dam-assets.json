@@ -1,12 +1,12 @@
 {
   "$schemaDescription": "Shared DAM source provenance and exact scoped upload/delivery inventory. Processing, actual workflow approval, public delivery and native CMS selection are separate evidence states.",
-  "version": 2,
+  "version": 3,
   "site": "westfield",
   "createdDate": "2026-10-14",
   "ownershipKey": "westfield-demo-2026-10-14",
-  "state": "verified-twelve-assets-three-collections-Westfield-brand-filter-and-one-native-CMS-selection-published-and-live",
-  "referenceAssetCount": 14,
-  "selectedDamAssetCount": 12,
+  "state": "47-approved-image-assets-native-content-and-static-bindings-verified",
+  "referenceAssetCount": 49,
+  "selectedDamAssetCount": 47,
   "frontendOnlyAssetCount": 2,
   "metadataContract": {
     "standardFields": [
@@ -21,7 +21,7 @@
         "values": [
           "Westfield"
         ],
-        "nativeMapping": "Existing native Brands relation on the 12 owned assets points to the Westfield M.Brand entity 129528. Native metadata entry only; no schema, shared Search component or other Brand values changed."
+        "nativeMapping": "Existing native Brands relation on all47 owned assets points to Westfield M.Brand129528. Existing Brand values, schema, and shared Search components are preserved."
       },
       {
         "label": "Asset role",
@@ -68,7 +68,7 @@
       "membershipVerified": true,
       "coverAssetId": 128421,
       "coverVerified": true,
-      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "coverMethod": "Existing member More actions → Set as cover image → confirmation → native cover indicator; no new binary uploaded.",
       "brandRelation": null
     },
     {
@@ -94,7 +94,7 @@
       "membershipVerified": true,
       "coverAssetId": 128420,
       "coverVerified": true,
-      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "coverMethod": "Existing member More actions → Set as cover image → confirmation → native cover indicator; no new binary uploaded.",
       "brandRelation": null
     },
     {
@@ -113,12 +113,12 @@
       "membershipVerified": true,
       "coverAssetId": 128422,
       "coverVerified": true,
-      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "coverMethod": "Existing member More actions → Set as cover image → confirmation → native cover indicator; no new binary uploaded.",
       "brandRelation": null
     }
   ],
   "ownership": {
-    "assetContentOwner": "Westfield source brand/content; fonts remain third-party typography references.",
+    "assetContentOwner": "Westfield source brand/content where used; user-supplied Instagram prop imagery retains its supplied provenance; fonts remain third-party typography references.",
     "demoConfigurationOwner": "This demo implementation",
     "writeScope": "Exact demo-owned assets/collections and the Westfield M.Brand entity 129528 recorded here; existing matching assets may be reused only after checking their owner and dependencies.",
     "cleanupScope": "Only exact IDs recorded as created by this demo, and only after checking CMS fields, public links, collection memberships, Brand relationships, theme and page references.",
@@ -141,14 +141,49 @@
         128421,
         128422,
         128426,
-        128723,
         128721,
         128722,
-        128729,
-        128728,
+        128723,
         128727,
+        128728,
+        128729,
         128745,
-        128746
+        128746,
+        129978,
+        129979,
+        129980,
+        129984,
+        129985,
+        129986,
+        129990,
+        129991,
+        129992,
+        129996,
+        129997,
+        129998,
+        130002,
+        130003,
+        130004,
+        130010,
+        130018,
+        130023,
+        130038,
+        130045,
+        130049,
+        130056,
+        130057,
+        130059,
+        130068,
+        130069,
+        130078,
+        130086,
+        130087,
+        130096,
+        130101,
+        130104,
+        130122,
+        130125,
+        130128
       ],
       "restorePolicy": "If reverting this metadata fix, remove only the Westfield Brands relation from these exact owned assets after checking later author edits. Preserve other Brand relationships and all collection memberships. Check all remaining Brand references before considering removal of the created Westfield Brand entity; this manifest does not authorize deletion."
     }
@@ -909,6 +944,1687 @@
         "approved": false,
         "cmsSelected": false
       }
+    },
+    {
+      "key": "westfield-demo.lloyd-scholz-news-photo",
+      "fileName": "westfield-lloyd-scholz-news-photo.jpg",
+      "title": "westfield-lloyd-scholz-news-photo.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Lloyd-Scholz-news-photo.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "23c3f1428a5c05f730d357925cad2b3ea475b6f0c384174b87ca50e4906426a0",
+      "bytes": 28744,
+      "dimensions": {
+        "width": 390,
+        "height": 293,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130104,
+        "assetIdentifier": "pAxBDXg7R5i2Y_1VPwS38w",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130104",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130848,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/61b38d6835894d6ea7aa2e4aa061dbd4?v=9ff4dd22",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.wind-and-hail-source-hero",
+      "fileName": "westfield-wind-and-hail-source-hero.jpg",
+      "title": "westfield-wind-and-hail-source-hero.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Wind-and-hail-source-hero.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "f89c1b7a9d8e06af03923aaeca72e80973349a22d7a7785ba6bc05d5dd224af8",
+      "bytes": 19205,
+      "dimensions": {
+        "width": 450,
+        "height": 338,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130125,
+        "assetIdentifier": "mbjxwGZQRMa1ZXPklJ0wbA",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130125",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130880,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/ad610a797c544d7ebe9f035768757650?v=d88fe03c",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.a-legacy-of-trust",
+      "fileName": "westfield-a-legacy-of-trust.svg",
+      "title": "westfield-a-legacy-of-trust.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/A-legacy-of-trust.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "6f71a1feaaf44cd90b94ea47db7d904ac538680ed79d0077d8efcab6c5f2d4ed",
+      "bytes": 2709,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129980,
+        "assetIdentifier": "oPhsexHYS4-5ayqVvCs13A",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129980",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130850,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/0ffa47d647af4bf39bc9e6f12b80dd3f?v=c7c651da",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.claims-checklist-source-hero",
+      "fileName": "westfield-claims-checklist-source-hero.jpg",
+      "title": "westfield-claims-checklist-source-hero.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Claims-checklist-source-hero.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "dd14816dc48a370927648a528594fd19a8a4cc01b5b6bd73af8ad1d1c7225cee",
+      "bytes": 18841,
+      "dimensions": {
+        "width": 450,
+        "height": 338,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129985,
+        "assetIdentifier": "otOqj42lQeqjkAHP6qA6EA",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129985",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130873,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/44cfb05d21d44f2f9cd46e91f9288cbe?v=29bc7632",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.community-and-connection",
+      "fileName": "westfield-community-and-connection.svg",
+      "title": "westfield-community-and-connection.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Community-and-connection.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "b5ad68d8f28bf3ef07b07ea8eece727f8162e3706f8e9e359a12eac39e89128b",
+      "bytes": 2493,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129984,
+        "assetIdentifier": "B2kMTMq4SBu2BFcjnrU7Mw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129984",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130853,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/0135e718e3af4215b36574c696dfa842?v=7f41bdb9",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.teen-driver-source-hero",
+      "fileName": "westfield-teen-driver-source-hero.jpg",
+      "title": "westfield-teen-driver-source-hero.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Teen-driver-source-hero.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "dcc63974295f21d699ba2a0a5198a1ded8b13bd66d69c6f94c8ec417ef7bf13f",
+      "bytes": 21425,
+      "dimensions": {
+        "width": 450,
+        "height": 338,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130078,
+        "assetIdentifier": "VoZvnWoiQMGP5iw7pEgZyA",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130078",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130879,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/b9cd7f98f68048619c8a0b16c0973ba0?v=6a328d78",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.policy-review-source-hero",
+      "fileName": "westfield-policy-review-source-hero.jpg",
+      "title": "westfield-policy-review-source-hero.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Policy-review-source-hero.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "802886a9ca191220da7e95515090a23a1ba98ccfa18f80956de8b1fafd05f9c3",
+      "bytes": 16894,
+      "dimensions": {
+        "width": 450,
+        "height": 338,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130068,
+        "assetIdentifier": "9xwP6QcXT6aVng7axSUnlg",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130068",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130868,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/24221775cff141f4879b8bc3754d41ff?v=72864eb4",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.financial-strength",
+      "fileName": "westfield-financial-strength.svg",
+      "title": "westfield-financial-strength.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Financial-strength.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "f25c97c16565a38e58ffd73000ce138a5827b194ef86dfda20412d0872d2089f",
+      "bytes": 2613,
+      "dimensions": {
+        "width": 90,
+        "height": 90,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129991,
+        "assetIdentifier": "UCnVVzpuQUSzGPL9oxUhLQ",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129991",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130871,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/a18ad4c8b96e4c1d94bd248c199ce251?v=da31a4d4",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.youtube-social-icon",
+      "fileName": "westfield-youtube-social-icon.svg",
+      "title": "westfield-youtube-social-icon.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/YouTube-social-icon.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "1a2af8844c633759600b09d4a4534b8e8e39fd384b364ee3b5183ce861c75704",
+      "bytes": 499,
+      "dimensions": {
+        "width": 29,
+        "height": 20,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130128,
+        "assetIdentifier": "MLLL3meuSqGi7EP_qBVflg",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130128",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130867,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/8650ed3079a74f06a8a9c9bf27ea959b?v=99d44a41",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.linkedin-social-icon",
+      "fileName": "westfield-linkedin-social-icon.svg",
+      "title": "westfield-linkedin-social-icon.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/LinkedIn-social-icon.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "5a915c05e8697185471f90339513e768911481f76bc2c332ceedc6a4f5f6bab6",
+      "bytes": 503,
+      "dimensions": {
+        "width": 19,
+        "height": 20,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130059,
+        "assetIdentifier": "GEKsxAKiSd6sUNC0jYUg1Q",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130059",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130872,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/1f15f723d5f94899986780cc5235adde?v=ca93cdf0",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-social-icon",
+      "fileName": "westfield-instagram-social-icon.svg",
+      "title": "westfield-instagram-social-icon.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Instagram-social-icon.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "af89434dbb65128f0ef17ab3d837a28623a0534572cee886e0c6ba7c546db86d",
+      "bytes": 1192,
+      "dimensions": {
+        "width": 20,
+        "height": 20,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130057,
+        "assetIdentifier": "pNNgAZ5eSzCBufkMUpT9eQ",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130057",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130861,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/f5202f2b19d7407fb6086df8d421f74f?v=2cf9b405",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.spring-thunderstorm-source-hero",
+      "fileName": "westfield-spring-thunderstorm-source-hero.jpg",
+      "title": "westfield-spring-thunderstorm-source-hero.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Spring-thunderstorm-source-hero.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "ec09bf7f7ca58579302302001b569502240fd4a95fbf5d351461f14e02796b0b",
+      "bytes": 32110,
+      "dimensions": {
+        "width": 450,
+        "height": 338,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130069,
+        "assetIdentifier": "imu5mz4sSkOUWfEpFP80DQ",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130069",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130860,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/7d623789b0144c87a9ded8a8d1a9e071?v=a553d5c6",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.henning-haagen-news-photo",
+      "fileName": "westfield-henning-haagen-news-photo.jpg",
+      "title": "westfield-henning-haagen-news-photo.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Henning-Haagen-news-photo.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "78cf799150e9720852f0e1af28f154c90bcbf2bd000387d8e0f9f87a0bb21d34",
+      "bytes": 27715,
+      "dimensions": {
+        "width": 390,
+        "height": 293,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129992,
+        "assetIdentifier": "j8HaclLmS2u31_iAJRNQ7Q",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129992",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130869,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/d398c2d2f85046ebab8f9665231766eb?v=4a372857",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.anthony-baldwin-news-photo",
+      "fileName": "westfield-anthony-baldwin-news-photo.jpg",
+      "title": "westfield-anthony-baldwin-news-photo.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Anthony-Baldwin-news-photo.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "0a06c013ae8e3d64db580d4983e835d028d316f9b690f3a89b902f40c7468356",
+      "bytes": 24154,
+      "dimensions": {
+        "width": 390,
+        "height": 293,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129979,
+        "assetIdentifier": "yf1_Y6HMQgGoc4q0Cygm4g",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129979",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130859,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/895155e25db84b499c2fac5f0e743ba7?v=1ad8ed4f",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.water-damage-source-hero",
+      "fileName": "westfield-water-damage-source-hero.jpg",
+      "title": "westfield-water-damage-source-hero.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Water-damage-source-hero.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "b245c02ee07226a1dab0c2bc447c45888612371fe2b79cece1332def7bcfa608",
+      "bytes": 18567,
+      "dimensions": {
+        "width": 450,
+        "height": 338,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130087,
+        "assetIdentifier": "CyaH32lbQ8GQRzr804kGPw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130087",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130878,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/09999dfaf7d745b18e7c5458bef34286?v=618bd4f2",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.facebook-social-icon",
+      "fileName": "westfield-facebook-social-icon.svg",
+      "title": "westfield-facebook-social-icon.svg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Home-fidelity/Facebook-social-icon.svg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-image"
+      ],
+      "sha256": "cd8ec1d3889fe877c3154d9eebf96af1022105e70d194a7b98ca53e80bde5e82",
+      "bytes": 314,
+      "dimensions": {
+        "width": 11,
+        "height": 20,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129986,
+        "assetIdentifier": "QOgBezhwRhqkn8CyTAu0Rw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129986",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130857,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/5f957e2b33694e8e8b02a65949b4c70a?v=b527d0e7",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.annual-policy-review-checklist",
+      "fileName": "westfield-annual-policy-review-checklist.jpg",
+      "title": "westfield-annual-policy-review-checklist.jpg",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Annual-policy-review-checklist.jpg",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-rich-text-image"
+      ],
+      "sha256": "f092521717ea144648af21e8c367b734683b0182d11577e53a3ce462b6890a30",
+      "bytes": 371918,
+      "dimensions": {
+        "width": 2250,
+        "height": 4167,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129978,
+        "assetIdentifier": "GgoFJVnvQpaikjNKlH1uxQ",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129978",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130881,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/c2030a5c3e6545a39337de17079c22f0?v=64f070d8",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.water-damage-full-infographic",
+      "fileName": "westfield-water-damage-full-infographic.png",
+      "title": "westfield-water-damage-full-infographic.png",
+      "sourceUrl": "https://edge.sitecorecloud.io/sitecoresaae681-thltkirklan3127-kirklandaut0200-0aa6/media/Project/Westfield/westfield/Advice/Water-damage-full-infographic.png",
+      "sourceStaticPaths": [],
+      "sourceKinds": [
+        "cms-rich-text-image"
+      ],
+      "sha256": "dcbe9d70395edc12f01c99bb4ca7c39ef978e3128089fa2414a606b09d1fe7bf",
+      "bytes": 201766,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130086,
+        "assetIdentifier": "rOGzdKGsSuSRT9ZFC3vu0A",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130086",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130866,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/f2f3f9fe35ce438b91d7f4998ab93098?v=7e0b1048",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.favicon",
+      "fileName": "westfield-favicon.ico",
+      "title": "westfield-favicon.ico",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/favicon.ico"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "ef176c9548d9dca87128b6077c23b9655af1f1dec1ad01c9d36b80f6423925f2",
+      "bytes": 15086,
+      "dimensions": {
+        "width": 48,
+        "height": 48,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129990,
+        "assetIdentifier": "kOc2trK7TtOx15Xc7CEQqg",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129990",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130852,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/f7dee6719fb640b48e1a08b947cf0f25?v=8e5a779f",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-posts-post1-sphere",
+      "fileName": "westfield-instagram-assets-images-posts-post1-sphere.jpg",
+      "title": "westfield-instagram-assets-images-posts-post1-sphere.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/posts/post1-sphere.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "cb5ea5804c971cab4db26c834bb21c76fc930ce5c5f967d587796d2be48c4525",
+      "bytes": 2628354,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129996,
+        "assetIdentifier": "AvnTPaFOR2W3Q1sxOiu2JA",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129996",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130862,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/d6f45aa169e2401dbd5d214d3ca170e2?v=e4294f7c",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-posts-post3-reel",
+      "fileName": "westfield-instagram-assets-images-posts-post3-reel.jpg",
+      "title": "westfield-instagram-assets-images-posts-post3-reel.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/posts/post3-reel.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "e4809a4c7c0c72c9e67986b7f4f280b75f01300651f7abb6b728d6871059ea3e",
+      "bytes": 2491643,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129998,
+        "assetIdentifier": "mMbrdXB5T5a3633dNgT5-A",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129998",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130851,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/3154f95b36894d6a98b5e3a0d3e7ddab?v=68f6e474",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-profiles-bianca",
+      "fileName": "westfield-instagram-assets-images-profiles-bianca.jpg",
+      "title": "westfield-instagram-assets-images-profiles-bianca.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/profiles/bianca.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "8e4639ae625fd8d19c9184775f10f19d285ebcb4a74ce0a21ca27c63fb7fbe7f",
+      "bytes": 1793463,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 129997,
+        "assetIdentifier": "UdiPRSL_RT2rxBJCPDQweA",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/129997",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130870,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/a9cfc8865568448587325695e4be212f?v=9087ebaa",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-profiles-emma",
+      "fileName": "westfield-instagram-assets-images-profiles-emma.jpg",
+      "title": "westfield-instagram-assets-images-profiles-emma.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/profiles/emma.jpg",
+        "public/instagram/assets/images/stories/story-1.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "4d4cc299375380013c3036dda3932b8e4341d809b08812060c6e7e39e2e27d2f",
+      "bytes": 64111,
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130002,
+        "assetIdentifier": "tcB_dMEIT-a4Cvr1zgz25Q",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130002",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130854,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/df91c727e2a64dd981e096db62623cba?v=7219ca5a",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-profiles-jamie",
+      "fileName": "westfield-instagram-assets-images-profiles-jamie.jpg",
+      "title": "westfield-instagram-assets-images-profiles-jamie.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/profiles/jamie.jpg",
+        "public/instagram/assets/images/stories/story-3.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "7d98d34e1a9f09eff46d3f848e5b05cab1f60b22b7aae11bcd452e641fc0fc35",
+      "bytes": 1556549,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130003,
+        "assetIdentifier": "ua-StlCkSZO7pfxAZa1kNw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130003",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130856,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/bd2b357cf337438ab4a73727471bf532?v=dc087353",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-profiles-meadowbrook",
+      "fileName": "westfield-instagram-assets-images-profiles-meadowbrook.jpg",
+      "title": "westfield-instagram-assets-images-profiles-meadowbrook.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/profiles/meadowbrook.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "931ef3ec493dd270c91069fa90e9fb4b56216ea532b3081bd22990f19fa1efb9",
+      "bytes": 1734486,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130004,
+        "assetIdentifier": "Z1n3Vqt4Q3aKbl7kXSWXTA",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130004",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130863,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/371f35b31f1544fe92b09fe00f869110?v=f6c8db58",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-profiles-thomas-lin",
+      "fileName": "westfield-instagram-assets-images-profiles-thomas-lin.png",
+      "title": "westfield-instagram-assets-images-profiles-thomas-lin.png",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/profiles/thomas-lin.png"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "5cf80ca4d7291139bdd819f07f7562337d5f48f40c0639aa0162e84371f8967b",
+      "bytes": 98667,
+      "dimensions": {
+        "width": 682,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130010,
+        "assetIdentifier": "P8cgpzxoSbifUlSIPnFIKQ",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130010",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130865,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/e8a7e1e37fb84e6c804e8c634c1d6cf7?v=64e949f2",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-stories-story-2",
+      "fileName": "westfield-instagram-assets-images-stories-story-2.jpg",
+      "title": "westfield-instagram-assets-images-stories-story-2.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/stories/story-2.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "9c114b8eb72644a3c6db966b2def89eb743a9ceeba542301c4467bbcb92c5174",
+      "bytes": 1624333,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130018,
+        "assetIdentifier": "mZ9lYOBzTl2WEc7ARGieyQ",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130018",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130864,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/cc5d72d0e28e4567b047487e922d6191?v=92b982ce",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-stories-story-4",
+      "fileName": "westfield-instagram-assets-images-stories-story-4.jpg",
+      "title": "westfield-instagram-assets-images-stories-story-4.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/stories/story-4.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "9e7e3e0d2d3af53056fdb013682dd78d3c59655cb7fb4eac1b3df3f733248a6c",
+      "bytes": 1821393,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130023,
+        "assetIdentifier": "8ubTt2pOTPiiZs2mEW8MQg",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130023",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130855,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/06ec9bd66fba4f6faa3a59a07b510fb9?v=8903d5fc",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-stories-story-5",
+      "fileName": "westfield-instagram-assets-images-stories-story-5.jpg",
+      "title": "westfield-instagram-assets-images-stories-story-5.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/stories/story-5.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "922b0671abd25a256b621e3d70578924035e12d8c1ea0ee0075c48cf072b6269",
+      "bytes": 1668171,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130038,
+        "assetIdentifier": "fdypkHGoSGu-t8CQUrbreg",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130038",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130877,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/11fd038b68804477a3527f94b39ddeaf?v=da4377c1",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-stories-story-6",
+      "fileName": "westfield-instagram-assets-images-stories-story-6.jpg",
+      "title": "westfield-instagram-assets-images-stories-story-6.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/stories/story-6.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "e6ec0b822afa48f54d227320e79c0d22cfc40a565f72e2c6458782a5a145eb77",
+      "bytes": 1607859,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130045,
+        "assetIdentifier": "zLNwPxn0TMSH6PTqBpstMw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130045",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130876,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/5730178900cd46ea99cdd902c3a8e633?v=532f57c3",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-assets-images-westfield-mark",
+      "fileName": "westfield-instagram-assets-images-westfield-mark.svg",
+      "title": "westfield-instagram-assets-images-westfield-mark.svg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/assets/images/westfield-mark.svg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "9cacc811969bbac9e187f14d4f52182cbd813eada39eaef9b71bb5563cc6d5eb",
+      "bytes": 713,
+      "dimensions": {
+        "width": 225,
+        "height": 225,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130049,
+        "assetIdentifier": "TFN150HLSqOrrruwEzso_Q",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130049",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130858,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/b425cfe749d84e9a82a0e7b1fe284bbd?v=e6eb85e4",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.instagram-favicon",
+      "fileName": "westfield-instagram-favicon.ico",
+      "title": "westfield-instagram-favicon.ico",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/instagram/favicon.ico"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "ebc28e9c6e1a53d3cfdcce84249cfe894a52bf3c730cbac205e3e6f3f1f9e232",
+      "bytes": 3094,
+      "dimensions": {
+        "width": 16,
+        "height": 16,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130056,
+        "assetIdentifier": "sTYHyaeySre5CtxZJpaQJw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130056",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130849,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/3c5fc81eee9846a4a5bcf716308c8e86?v=cd1b6661",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.westfield-assets-accent-pattern",
+      "fileName": "westfield-westfield-assets-accent-pattern.png",
+      "title": "westfield-westfield-assets-accent-pattern.png",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/westfield-assets/accent-pattern.png"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "1faeeafc39647c5a655d633dbe77130c441cf59a769c043b3ab7dba7d8edaf78",
+      "bytes": 387332,
+      "dimensions": {
+        "width": 964,
+        "height": 408,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130096,
+        "assetIdentifier": "Mc50MnG2TvOvmWXveRCqAw",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130096",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130875,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/355a7d4658494c2588d1d0ed3c7177e9?v=cc532991",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.westfield-login-logo-header-desktop-registered-trademark",
+      "fileName": "westfield-westfield-login-logo-header-desktop-registered-trademark.svg",
+      "title": "westfield-westfield-login-logo-header-desktop-registered-trademark.svg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/westfield/login/logo_header_desktop_registered_trademark.svg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "78b6561d3e0dc732a6a8d25b250eab4867b48276124f39ae0d73cd468a0a403f",
+      "bytes": 2542,
+      "dimensions": {
+        "width": 210,
+        "height": 30,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130101,
+        "assetIdentifier": "zHc36w34SpW6UrOHaOHp-g",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130101",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130874,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/257ffac291ac4cb4b2fc0d92d9320e42?v=da60783e",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
+    },
+    {
+      "key": "westfield-demo.westfield-login-sunset-background-image",
+      "fileName": "westfield-westfield-login-sunset-background-image.jpg",
+      "title": "westfield-westfield-login-sunset-background-image.jpg",
+      "sourceUrl": null,
+      "sourceStaticPaths": [
+        "public/westfield/login/sunset-background-image.jpg"
+      ],
+      "sourceKinds": [
+        "static-image"
+      ],
+      "sha256": "1cda4ceb98da24ef5ba1064d2a2995c2f58752d7fb05b96fdf0759453c2a91e0",
+      "bytes": 71189,
+      "dimensions": {
+        "width": 1250,
+        "height": 759,
+        "kind": "pixels"
+      },
+      "upload": {
+        "selected": true,
+        "priority": null,
+        "state": "uploaded-processed-workflow-approved-original-delivery-hash-verified",
+        "reason": "Westfield content and static images are stored in Content Hub."
+      },
+      "collections": [],
+      "native": {
+        "assetId": 130122,
+        "assetIdentifier": "_k4yx07OQoWIROiCxow-5w",
+        "approved": true,
+        "cmsSelected": false,
+        "detailUrl": "https://thlt-demo.sitecoresandbox.cloud/pages/en-US/AssetDetail/130122",
+        "metadataVerified": true,
+        "processingVerified": true,
+        "approvalStatus": "Approved",
+        "publicDeliveryVerified": true,
+        "publicLinks": [
+          {
+            "id": 130847,
+            "url": "https://thlt-demo.sitecoresandbox.cloud/api/public/content/17c320199018469182aa2ece6833a2ba?v=f5634a64",
+            "rendition": "Original",
+            "status": 200,
+            "sourceSha256Match": true
+          }
+        ],
+        "brandId": 129528,
+        "brandRelationVerified": true
+      },
+      "migrationScope": "Content/static binary storage only; native field binding and deployed-site verification are separate."
     }
   ],
   "sourceProvenance": {
@@ -925,10 +2641,10 @@
     "nativeBindingStatus": "verified-one-native-DAM-Image-selection-published-Edge-and-live-responsive-render",
     "authenticationStatus": "normal-browser-login-verified",
     "attemptCount": 2,
-    "assetsCreated": 12,
+    "assetsCreated": 47,
     "collectionsCreated": 3,
     "serviceOAuthStatus": "historical-http-401;no-retry;native-SSO-picker-works",
-    "brandRelationStatus": "Verified; Westfield M.Brand 129528 is assigned through the native Brands relation to exactly the 12 owned assets and appears in the approved-assets selector Brand filter.",
+    "brandRelationStatus": "Westfield M.Brand129528 verified on all47owned approved image assets; existing shared Brand values preserved.",
     "brand": {
       "nativeId": 129528,
       "entityDefinition": "M.Brand",
@@ -941,14 +2657,49 @@
         128421,
         128422,
         128426,
-        128723,
         128721,
         128722,
-        128729,
-        128728,
+        128723,
         128727,
+        128728,
+        128729,
         128745,
-        128746
+        128746,
+        129978,
+        129979,
+        129980,
+        129984,
+        129985,
+        129986,
+        129990,
+        129991,
+        129992,
+        129996,
+        129997,
+        129998,
+        130002,
+        130003,
+        130004,
+        130010,
+        130018,
+        130023,
+        130038,
+        130045,
+        130049,
+        130056,
+        130057,
+        130059,
+        130068,
+        130069,
+        130078,
+        130086,
+        130087,
+        130096,
+        130101,
+        130104,
+        130122,
+        130125,
+        130128
       ],
       "assignmentMethod": "Native UI property mass edit; Brands Append, all other field modes None.",
       "collectionsChanged": false,
@@ -970,23 +2721,24 @@
     "deliveryStatus": "all 4-originals-public-http200-source-hash-match",
     "nativeDamSelectionStatus": "Only MyWestfield asset 128422 selected through actual CMS DAM Image picker; saved, published and live responsive render verified. Other three core assets remain available in DAM."
   },
-  "updatedAtUTC": "2026-10-16T02:51:10.414346+00:00",
+  "updatedAtUTC": "2026-11-18T01:35:00.117745+00:00",
   "verificationCounts": {
-    "selectedAssets": 12,
-    "uploadedAssets": 12,
-    "metadataVerifiedAssets": 12,
-    "approvalVerifiedAssets": 12,
-    "publicDeliveryVerifiedAssets": 12,
+    "selectedAssets": 47,
+    "uploadedAssets": 47,
+    "metadataVerifiedAssets": 47,
+    "approvalVerifiedAssets": 47,
+    "publicDeliveryVerifiedAssets": 47,
     "collectionsCreated": 3,
-    "cmsDamSelectionsVerified": 1,
-    "processingVerifiedAssets": 12,
+    "cmsDamSelectionsVerified": 2,
+    "processingVerifiedAssets": 47,
     "collectionMembershipsVerified": 15,
     "collectionCoversVerified": 3,
-    "brandRelatedAssets": 12,
-    "approvedSelectorBrandFilterResults": 12
+    "brandRelatedAssets": 47,
+    "approvedSelectorBrandFilterResults": 47,
+    "approvedSelectorBrandFilterResultsScope": "Native CMS approved-assets picker Brand > Show all > Westfield returned47 assets;Original select/save/reopen/render passed."
   },
   "nativeWorkflowEvidencePolicy": "Approval requires actual Submit for approval and Review Approve workflow, followed by exact asset appearing in Assets library. All required actions complete for Approved banner describes readiness and is not approval evidence.",
-  "pickerSearchScope": "For all 12 Westfield assets, use the approved-assets selector Brand filter: Show all \u2192 Westfield. Exact title search remains available; the initial four-result free-text query is retained as historical evidence.",
+  "pickerSearchScope": "Use the native approved-assets selector Brand > Show all > Westfield for all47 approved images;title search and existing collections remain available.",
   "automaticProcessingNote": "Existing tenant workflow generated additional smart-crop public links after approval; no global settings or automatic links were altered. Enumerate current asset-linked public links/consumers before retirement.",
   "historicalVerification": {
     "asOfUTC": "2026-10-15T02:45:18.150588+00:00",
@@ -1017,6 +2769,154 @@
       128746
     ],
     "verified": true,
-    "verificationScope": "Native approved-assets selector page in the existing signed-in browser session. This verifies metadata and filtering; it does not claim another CMS image selection or changed connector credentials."
+    "verificationScope": "Native approved-assets selector page in the existing signed-in browser session. This verifies metadata and filtering; it does not claim another CMS image selection or changed connector credentials.",
+    "historical": true
+  },
+  "imageStorageMigration": {
+    "requestedDate": "2026-11-17",
+    "status": "Native CMS references published and read back;static reference and live browser acceptance verified on release previews. Production alias verification is recorded separately in the private release evidence.",
+    "scope": "All Westfield content and static image originals, including logos, photos, social icons, favicons, login/Home artwork, and Instagram prop imagery.",
+    "beforeCounts": {
+      "referenceAssetCount": 14,
+      "selectedDamAssetCount": 12,
+      "frontendOnlyAssetCount": 2
+    },
+    "uniqueImageAssets": 47,
+    "reusedApprovedAssets": 12,
+    "newApprovedAssets": 35,
+    "verifiedOriginalDownloads": 47,
+    "exactSourceHashMatches": 47,
+    "sourceCounts": {
+      "mediaItemIds": 28,
+      "richTextImageUrls": 2,
+      "staticImagePaths": 21
+    },
+    "approvedAndBrandVerifiedAssetIds": [
+      128420,
+      128421,
+      128422,
+      128426,
+      128721,
+      128722,
+      128723,
+      128727,
+      128728,
+      128729,
+      128745,
+      128746,
+      129978,
+      129979,
+      129980,
+      129984,
+      129985,
+      129986,
+      129990,
+      129991,
+      129992,
+      129996,
+      129997,
+      129998,
+      130002,
+      130003,
+      130004,
+      130010,
+      130018,
+      130023,
+      130038,
+      130045,
+      130049,
+      130056,
+      130057,
+      130059,
+      130068,
+      130069,
+      130078,
+      130086,
+      130087,
+      130096,
+      130101,
+      130104,
+      130122,
+      130125,
+      130128
+    ],
+    "frontendOnlyFiles": "Typography font files remain local. Inline implementation SVG controls are not content image binaries.",
+    "systemThumbnailException": "34 native __Thumbnail and generated current-page authoring previews remain in Media Library as supported system derivatives. Website image originals and delivery URLs are in Content Hub.",
+    "publicLinkPolicy": "Use the verified Original public link. New assets selected the first/latest completed active downloadOriginal link; preserve unrelated links.",
+    "retirementPolicy": "Remove old binaries only after CMS/native refs, public delivery, deployed website, and inbound references are verified. Recoverable Media Library removal is handled separately.",
+    "evidence": "Private canonical-dam-image-map.json and dam-original-download-verification.json retain source mappings and exact-hash receipts.",
+    "nativeFieldsRetain": "Preserve native image identity, dimensions, alternative text, shared content, author edits, and workflow state.",
+    "collectionsNote": "Existing three collection memberships are preserved. New assets have verified Westfield Brand; collection additions are separately recorded if applied.",
+    "retirement": {
+      "recoverablyRecycledMediaItems": 42,
+      "migratedContentMediaItems": 30,
+      "additionalUnusedLegacyImages": 12,
+      "preservedNativePreviewDerivatives": 34,
+      "nativeGlobalReferrerChecksPassed": true,
+      "method": "deleteItem permanently:false;all retired items verified absent and native preview items verified preserved."
+    }
+  },
+  "expandedPickerBrandFilter": {
+    "pageUrl": "https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets",
+    "path": [
+      "Brand",
+      "Show all",
+      "Westfield"
+    ],
+    "expectedAssetCount": 47,
+    "resultAssetIds": [
+      128420,
+      128421,
+      128422,
+      128426,
+      128721,
+      128722,
+      128723,
+      128727,
+      128728,
+      128729,
+      128745,
+      128746,
+      129978,
+      129979,
+      129980,
+      129984,
+      129985,
+      129986,
+      129990,
+      129991,
+      129992,
+      129996,
+      129997,
+      129998,
+      130002,
+      130003,
+      130004,
+      130010,
+      130018,
+      130023,
+      130038,
+      130045,
+      130049,
+      130056,
+      130057,
+      130059,
+      130068,
+      130069,
+      130078,
+      130086,
+      130087,
+      130096,
+      130101,
+      130104,
+      130122,
+      130125,
+      130128
+    ],
+    "verified": true,
+    "cmsSelectedAssetId": 130068,
+    "cmsItemId": "6f44c3aa840e47088e3bd08b7cb27e19",
+    "selection": "Original public link",
+    "saveReopenAndCanvasRenderVerified": true
   }
 }

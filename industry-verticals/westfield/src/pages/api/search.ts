@@ -1,9 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {
-  getPublishedPages,
-  searchPublishedPages,
-  validateSearchQuery,
-} from 'lib/published-content';
+import { validateSearchQuery } from 'lib/published-content';
+import { searchNativePages } from 'lib/native-search';
 import type { SearchResponse } from 'lib/published-content';
 
 export default async function handler(
@@ -28,8 +25,7 @@ export default async function handler(
   }
 
   try {
-    const pages = await getPublishedPages();
-    res.status(200).json(searchPublishedPages(pages, query));
+    res.status(200).json(await searchNativePages(query));
   } catch {
     res.status(503).json({ error: 'Search is temporarily unavailable.' });
   }

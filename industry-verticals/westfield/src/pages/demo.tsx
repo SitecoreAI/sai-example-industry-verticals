@@ -14,6 +14,8 @@ const prosperaRecommendationsUrl =
   'https://app.sitecorecloud.io/channels/collection/45177ac3175042dc9bc748d76ba0858a/sites/d4c417d9-0acf-44f9-aec8-c94730b872bb/aeo-opportunities/readability?organization=org_vDtrEzJHxeuuB9cD&tenantName=sitecoresaa7acd-agverticals97fd-agvertsc3b5';
 const damUrl = 'https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets';
 const graphQlExplorerUrl = 'https://edge.sitecorecloud.io/api/graphql/ide';
+const westfieldSearchSourceUrl =
+  'https://app.sitecorecloud.io/search/2cb5e7cf-0e44-4bd9-9f98-b27af8111570/crawl?organization=org_JypIqqJsbEly6gh2&tenantId=76ac4984-cff8-4b3d-3071-08ded696f4f5';
 const articleForAppQuery = `query WestfieldArticleForApp {
   item(
     path: "/sitecore/content/Westfield/westfield/Home/advice/home-inventory-checklist"
@@ -436,7 +438,7 @@ const flows: DemoFlow[] = [
         kind: 'copy',
         label: 'Second Section text',
         value:
-          'Keep a Westfield household checkup list of changes to discuss at your next policy review.',
+          'Keep an autumn household checklist of changes to discuss at your next policy review.',
       },
       {
         kind: 'do',
@@ -504,22 +506,42 @@ const flows: DemoFlow[] = [
         actions: [
           'Switch to the visitor Home tab. Choose About Us → Articles.',
           'Find the new title and choose Read article. Confirm its image and saved Section order.',
-          'Open the normal header Search to find words in the published article content.',
         ],
       },
-      { kind: 'copy', label: 'Article body search', value: 'Westfield household checkup' },
+      {
+        kind: 'say',
+        text: 'Now make the new advice available in search, so visitors can find it using words from the article.',
+      },
+      {
+        kind: 'copy',
+        label: 'Westfield Search source tab',
+        value: westfieldSearchSourceUrl,
+        url: true,
+      },
+      {
+        kind: 'do',
+        id: 'P5.4.2-index',
+        title: 'Refresh the Westfield website Search source and wait for Succeeded',
+        actions: [
+          'Switch to the prepared Westfield Search source tab and confirm the heading is Westfield website.',
+          'On Indexing, choose Trigger indexing.',
+          'Wait for the latest Indexing run to show Succeeded.',
+          'Return to the visitor website tab and open the normal header Search.',
+        ],
+      },
+      { kind: 'copy', label: 'Article body search', value: 'autumn' },
       {
         kind: 'do',
         id: 'P5.4.3',
         title: 'Find content from the article body',
         actions: [
           'Enter the body search phrase and submit it.',
-          'Allow the listing and search to update, then open the matching new article.',
+          'Open the matching new article and point out the paragraph containing those words.',
         ],
       },
       {
         kind: 'result',
-        text: 'The approved article is live with its saved image and Section order. Visitors can find it through Articles and Search.',
+        text: 'The approved article is live with its saved image and Section order. After the Search source refresh, visitors can find it through Articles and words from its body.',
       },
       {
         kind: 'say',
@@ -655,7 +677,7 @@ const rehearsalItems = [
   'The Westfield Brand Context and Brand Kit open with the intended writing guidance.',
   'Content Copilot uses the selected Westfield Brand Kit; the reviewed paragraph saves in the intended Section.',
   'The Westfield DAM picker, permitted components, and Section reorder work.',
-  'The article moves from Draft through Awaiting approval to Approved, then appears in Articles and Search.',
+  'The article moves from Draft through Awaiting approval to Approved and appears in Articles. Trigger indexing for the Westfield website Search source, wait for Succeeded, and find the article using words from its body.',
   'The Prospera Scrunch recommendation opens its matching Page Builder field without applying a change.',
   'The HTTP Headers copy card and query work in Sitecore’s GraphQL explorer and return the published claims-checklist title, summary, and image.',
 ];

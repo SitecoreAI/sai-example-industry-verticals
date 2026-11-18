@@ -218,7 +218,9 @@ export function validateSearchQuery(value: unknown): string {
   return query;
 }
 
-function snippet(page: PublishedPage, terms: string[]): string {
+/** Format a native Search match using the currently published article text. */
+export function searchResult(page: PublishedPage, query: string): SearchResult {
+  const terms = Array.from(new Set(normalize(query).match(/[a-z\d]+/g) || []));
   const source = page.body || page.summary;
   const normalized = normalize(source);
   const firstMatch = terms.reduce((found, term) => {
@@ -227,46 +229,11 @@ function snippet(page: PublishedPage, terms: string[]): string {
   }, -1);
   const start = firstMatch > 70 ? firstMatch - 70 : 0;
   const text = source.slice(start, start + 210);
-  return `${start ? '…' : ''}${text}${start + 210 < source.length ? '…' : ''}`;
-}
-
-/** Simple keyword matching over published native content; this is not the Sitecore Search product. */
-export function searchPublishedPages(pages: PublishedPage[], query: string): SearchResponse {
-  const terms = Array.from(new Set(normalize(query).match(/[a-z\d]+/g) || []));
-  const matches = pages
-    .map((page) => {
-      const title = normalize(page.title);
-      const summary = normalize(page.summary);
-      const topic = normalize(page.topic);
-      const body = normalize(page.body);
-      const all = `${title} ${summary} ${topic} ${body}`;
-      if (!terms.every((term) => all.includes(term))) return { page, score: 0 };
-      const score = terms.reduce(
-        (total, term) =>
-          total +
-          (title.includes(term) ? 8 : 0) +
-          (summary.includes(term) ? 4 : 0) +
-          (topic.includes(term) ? 4 : 0) +
-          (body.includes(term) ? 1 : 0),
-        0
-      );
-      return { page, score };
-    })
-    .filter((match) => match.score > 0)
-    .sort(
-      (first, second) =>
-        second.score - first.score || first.page.title.localeCompare(second.page.title, 'en')
-    );
-
   return {
-    query,
-    total: matches.length,
-    results: matches.map(({ page }) => ({
-      id: page.id,
-      title: page.title,
-      snippet: snippet(page, terms),
-      topic: page.topic,
-      url: page.url,
-    })),
+    id: page.id,
+    title: page.title,
+    snippet: `${start ? '…' : ''}${text}${start + 210 < source.length ? '…' : ''}`,
+    topic: page.topic,
+    url: page.url,
   };
 }

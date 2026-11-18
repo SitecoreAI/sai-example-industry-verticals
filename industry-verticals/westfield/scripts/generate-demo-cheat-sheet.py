@@ -131,8 +131,10 @@ for step in FLOWS['P5']['steps']:
         page.cue(f'Section: <b>{safe(copy["New Section name"])}</b>. Picker: Section or Action. Reorder with Move up.')
     elif step['id'] == 'P5.4.1-approve':
         page.cue('Draft &gt; Awaiting approval &gt; Approved. Wait for publication.')
+    elif step['id'] == 'P5.4.2-index':
+        page.cue('Westfield website &gt; Indexing &gt; Trigger indexing. Wait for Succeeded.')
     elif step['id'] == 'P5.4.3':
-        page.cue(f'Search: <b>{safe(copy["Article body search"])}</b>. Approved advice is live and discoverable.')
+        page.cue(f'Search: <b>{safe(copy["Article body search"])}</b>. Open the new article.')
 page.finish()
 
 page = Page(3, 'Review and reuse content', 'Slides 11-18 / retain the final 10 minutes for questions')
