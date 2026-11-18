@@ -17,7 +17,7 @@ The package ranges remain those supplied by the starter. The inherited lockfile 
 | ArticleBodyLayout | No datasource; native article-content placeholder | Default |
 | ArticleText (Section) | Section heading, Text (Heading, Body) | Default |
 | AdviceListing | No datasource; route Title/pageSummary and published article API | Default |
-| SearchResults | No datasource; route Title/pageSummary and published website search API | Default |
+| SearchResults | No datasource; route Title/pageSummary and native SitecoreAI Search matches | Default |
 | HomeSection | Eyebrow, Heading, Body, Link; native home-cards dynamic placeholder | Default, Services, Account, Benefits, News |
 | HomeCard | Eyebrow, Heading, Body, Image, Link | Default |
 | HomeFeature | Eyebrow, Heading, Body, Image, Link, VideoUrl | Default, Video, MyWestfield, About |
@@ -33,6 +33,20 @@ Copy the appropriate `.env.*.example` to `.env.local` and supply the authorized 
 The root deployment configuration and native Westfield definitions must be configured before deploying this head. Do not run all other verticals' content seeding against an existing shared authoring environment as part of an ordinary Westfield code release.
 
 The standard build runs component-map generation and Sitecore metadata/site/import-map generation before Next.js. The inherited `.sitecore` maps will be regenerated from this head's components during that process.
+
+## Native website search
+
+The **Westfield website** SitecoreAI Search source (`2cb5e7cf-0e44-4bd9-9f98-b27af8111570`) crawls the public site's sitemaps. Its URL rules include Home and Advice pages; Search itself, `/demo`, login, and the Instagram prop are outside the source. It indexes English page titles, meta descriptions, and the `#maincontent` article body as searchable fields. Fuzzy search is enabled.
+
+Both public and editing deployments require `SITECORE_SEARCH_INDEX_ID` for this source. The application uses the supported `@sitecore-content-sdk/search` package at version `0.1.0`. Native Search supplies matches and ranking; published CMS content supplies the displayed cards and excludes stale or unpublished pages. There is no local keyword-matching fallback. Advice's Topic and date filters continue to use published article metadata; they are separate from native Search facets.
+
+Publication and indexing are separate steps. The source runs hourly at minute 00 in `America/Chicago`. During the article demo, first finish CMS publication and verify the live article. Then open the **Westfield website** source, choose **Indexing → Trigger indexing**, and wait for the latest run to show **Succeeded** before searching the new body text. The equivalent action on the Search Sources list is **Reindex Content**. The guide includes the source URL and the exact search phrase. Initial native API checks returned eight indexed pages and passed title, body-only phrase, and zero-result queries. Frontend release and browser acceptance are recorded separately in the release handoff.
+
+## Content Hub image delivery
+
+The 47 distinct Westfield content images, logos, icons, favicons, and Instagram images are approved in the shared Content Hub and assigned to **Brand → Westfield**. Native Image fields retain their DAM identity and use verified Original Public Links; Rich Text images and frontend image references use those same links. The original image bytes, image descriptions, dimensions, and crops are preserved. The asset inventory is `demo/dam-assets.json`.
+
+Native Sitecore authoring previews use the special system `__Thumbnail` field, which is distinct from an ordinary Image field. Keep those Media Library preview derivatives: a supported external DAM setter has not been established for this field. This exception does not apply to the website's content imagery. Verify that content references have switched before recycling their old Westfield Media Library items; keep unrelated sites and the system thumbnail assets intact. Publication, image rendering, and retirement checks belong to the release handoff.
 
 ## Campaign entry and styles
 

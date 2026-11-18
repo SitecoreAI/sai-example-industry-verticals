@@ -60,7 +60,7 @@ export default function DemoAccountLogin(): JSX.Element {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className={styles.logo}
-            src="/westfield/login/logo_header_desktop_registered_trademark.svg"
+            src="https://thlt-demo.sitecoresandbox.cloud/api/public/content/257ffac291ac4cb4b2fc0d92d9320e42?v=da60783e"
             width="305"
             height="42"
             alt="Westfield"

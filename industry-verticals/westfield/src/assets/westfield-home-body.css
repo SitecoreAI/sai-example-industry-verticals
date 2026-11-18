@@ -197,7 +197,8 @@
   max-width: 100%;
   height: 100%;
   margin-left: auto;
-  background: url('/westfield-assets/accent-pattern.png') right center / cover no-repeat;
+  background: url('https://thlt-demo.sitecoresandbox.cloud/api/public/content/355a7d4658494c2588d1d0ed3c7177e9?v=cc532991')
+    right center / cover no-repeat;
   opacity: 0.5;
 }
 

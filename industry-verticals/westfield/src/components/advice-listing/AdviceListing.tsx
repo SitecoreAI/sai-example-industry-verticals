@@ -4,18 +4,13 @@ import Link from 'next/link';
 import { Image, Text, useSitecore } from '@sitecore-content-sdk/nextjs';
 import type { Field } from '@sitecore-content-sdk/nextjs';
 import type { ComponentProps } from 'lib/component-props';
-import type { PublishedArticle } from 'lib/published-content';
+import type { PublishedArticle, SearchResponse } from 'lib/published-content';
 import { nativeMediaSource } from 'lib/native-media';
 import styles from 'src/assets/westfield-advice.module.css';
 
 type ListingFields = { Title?: Field<string>; pageSummary?: Field<string> };
 type ArticlesResponse = { articles?: PublishedArticle[] };
 const PAGE_SIZE = 10;
-const normalize = (value: string): string =>
-  value
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
 const articleDate = (value: string): string => {
   if (!value) return '';
   const date = new Date(value);
@@ -32,6 +27,12 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
   const [attempt, setAttempt] = useState(0);
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
+  const [keywordAttempt, setKeywordAttempt] = useState(0);
+  const [keywordSearch, setKeywordSearch] = useState<{
+    query: string;
+    status: 'loading' | 'ready' | 'error';
+    results: SearchResponse['results'];
+  }>({ query: '', status: 'ready', results: [] });
   const [topics, setTopics] = useState<string[]>([]);
   const [startInput, setStartInput] = useState('');
   const [endInput, setEndInput] = useState('');
@@ -63,44 +64,75 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
     return () => controller.abort();
   }, [attempt]);
 
+  useEffect(() => {
+    if (!query) return;
+    const controller = new AbortController();
+    setKeywordSearch({ query, status: 'loading', results: [] });
+    fetch(`/api/search?q=${encodeURIComponent(query)}`, {
+      cache: 'no-store',
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error('Article search failed');
+        const result = (await response.json()) as SearchResponse;
+        if (!Array.isArray(result.results)) throw new Error('Invalid search response');
+        if (!controller.signal.aborted) {
+          setKeywordSearch({ query, status: 'ready', results: result.results });
+        }
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) {
+          setKeywordSearch({ query, status: 'error', results: [] });
+        }
+      });
+    return () => controller.abort();
+  }, [query, keywordAttempt]);
+
+  const keywordStatus = !query
+    ? 'ready'
+    : keywordSearch.query === query
+      ? keywordSearch.status
+      : 'loading';
+  const nativeRanks = new Map(keywordSearch.results.map((result, rank) => [result.url, rank]));
+  const resultsReady = status === 'ready' && keywordStatus === 'ready';
+
   const availableTopics = [
     ...new Set(articles.map((article) => article.topic).filter(Boolean)),
   ].sort();
-  const terms: string[] = normalize(query).match(/[a-z\d]+/g) ?? [];
   const filtered = articles
     .map((article) => {
-      const title = normalize(article.title);
-      const summary = normalize(article.summary);
-      const content = `${title} ${summary} ${normalize(article.body)} ${normalize(article.topic)}`;
       const date = articleDate(article.publishedDate);
       const matches =
-        terms.every((term) => content.includes(term)) &&
+        (!query || (keywordStatus === 'ready' && nativeRanks.has(article.url))) &&
         (!topics.length || topics.includes(article.topic)) &&
         (!dates.start || (date !== '' && date >= dates.start)) &&
         (!dates.end || (date !== '' && date <= dates.end));
-      const score = terms.reduce(
-        (total, term) => total + (title.includes(term) ? 8 : summary.includes(term) ? 4 : 1),
-        0
-      );
-      return { article, date, matches, score };
+      return { article, date, matches, rank: nativeRanks.get(article.url) ?? 0 };
     })
     .filter((item) => item.matches)
     .sort(
       (first, second) =>
-        (sort === 'newest' ? second.date.localeCompare(first.date) : second.score - first.score) ||
-        first.article.title.localeCompare(second.article.title, 'en')
+        (sort === 'newest'
+          ? second.date.localeCompare(first.date)
+          : query
+            ? first.rank - second.rank
+            : 0) || first.article.title.localeCompare(second.article.title, 'en')
     );
   const visibleArticles = filtered.slice(0, currentPage * PAGE_SIZE);
   const hasFilters = Boolean(query || topics.length || dates.start || dates.end);
 
   const search = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    setQuery(input.trim());
+    const nextQuery = input.trim();
+    setKeywordSearch({ query: nextQuery, status: nextQuery ? 'loading' : 'ready', results: [] });
+    setQuery(nextQuery);
+    setKeywordAttempt((value) => value + 1);
     setCurrentPage(1);
   };
   const clearFilters = (): void => {
     setInput('');
     setQuery('');
+    setKeywordSearch({ query: '', status: 'ready', results: [] });
     setTopics([]);
     setStartInput('');
     setEndInput('');
@@ -245,7 +277,7 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
               </form>
             </div>
           </div>
-          {status === 'ready' ? (
+          {resultsReady ? (
             <>
               <div className={styles.resultInfo}>
                 <label className={styles.sortControl} htmlFor={`${id}-sort`}>
@@ -338,10 +370,25 @@ export const Default = ({ params }: ComponentProps): JSX.Element => {
               ) : null}
             </>
           ) : null}
-          {status === 'loading' ? (
+          {status === 'loading' || (status === 'ready' && keywordStatus === 'loading') ? (
             <p className={styles.feedback} role="status">
-              Loading articles…
+              {status === 'loading' ? 'Loading articles…' : 'Searching articles…'}
             </p>
+          ) : null}
+          {status === 'ready' && keywordStatus === 'error' ? (
+            <div className={styles.feedback} role="alert">
+              <p>Search is temporarily unavailable. Please try again.</p>
+              <button
+                className={styles.retryButton}
+                type="button"
+                onClick={() => setKeywordAttempt((value) => value + 1)}
+              >
+                Try again
+              </button>
+              <button type="button" onClick={clearFilters}>
+                Clear filters
+              </button>
+            </div>
           ) : null}
           {status === 'error' ? (
             <div className={styles.feedback} role="status">

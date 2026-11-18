@@ -42,10 +42,16 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
       <SitecoreStyles layoutData={layout} />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://thlt-demo.sitecoresandbox.cloud/api/public/content/f7dee6719fb640b48e1a08b947cf0f25?v=8e5a779f"
+        />
         {metaDescription && <meta name="description" content={metaDescription} />}
         {metaKeywords && <meta name="keywords" content={metaKeywords} />}
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://thlt-demo.sitecoresandbox.cloud/api/public/content/f7dee6719fb640b48e1a08b947cf0f25?v=8e5a779f"
+        />
         {ogTitle && <meta property="og:title" content={ogTitle} />}
         {ogDescription && <meta property="og:description " content={ogDescription} />}
         {ogImage && <meta property="og:image" content={ogImage} />}
