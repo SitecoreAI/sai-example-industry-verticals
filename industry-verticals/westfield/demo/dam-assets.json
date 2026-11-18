@@ -4,7 +4,7 @@
   "site": "westfield",
   "createdDate": "2026-10-14",
   "ownershipKey": "westfield-demo-2026-10-14",
-  "state": "47-approved-image-assets-native-delivery-verified-content-static-migration-in-progress",
+  "state": "47-approved-image-assets-native-content-and-static-bindings-verified",
   "referenceAssetCount": 49,
   "selectedDamAssetCount": 47,
   "frontendOnlyAssetCount": 2,
@@ -21,7 +21,7 @@
         "values": [
           "Westfield"
         ],
-        "nativeMapping": "Existing native Brands relation on the 12 owned assets points to the Westfield M.Brand entity 129528. Native metadata entry only; no schema, shared Search component or other Brand values changed."
+        "nativeMapping": "Existing native Brands relation on all47 owned assets points to Westfield M.Brand129528. Existing Brand values, schema, and shared Search components are preserved."
       },
       {
         "label": "Asset role",
@@ -68,7 +68,7 @@
       "membershipVerified": true,
       "coverAssetId": 128421,
       "coverVerified": true,
-      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "coverMethod": "Existing member More actions → Set as cover image → confirmation → native cover indicator; no new binary uploaded.",
       "brandRelation": null
     },
     {
@@ -94,7 +94,7 @@
       "membershipVerified": true,
       "coverAssetId": 128420,
       "coverVerified": true,
-      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "coverMethod": "Existing member More actions → Set as cover image → confirmation → native cover indicator; no new binary uploaded.",
       "brandRelation": null
     },
     {
@@ -113,7 +113,7 @@
       "membershipVerified": true,
       "coverAssetId": 128422,
       "coverVerified": true,
-      "coverMethod": "Existing member More actions \u2192 Set as cover image \u2192 confirmation \u2192 native cover indicator; no new binary uploaded.",
+      "coverMethod": "Existing member More actions → Set as cover image → confirmation → native cover indicator; no new binary uploaded.",
       "brandRelation": null
     }
   ],
@@ -2721,7 +2721,7 @@
     "deliveryStatus": "all 4-originals-public-http200-source-hash-match",
     "nativeDamSelectionStatus": "Only MyWestfield asset 128422 selected through actual CMS DAM Image picker; saved, published and live responsive render verified. Other three core assets remain available in DAM."
   },
-  "updatedAtUTC": "2026-11-18T00:55:17.609622+00:00",
+  "updatedAtUTC": "2026-11-18T01:35:00.117745+00:00",
   "verificationCounts": {
     "selectedAssets": 47,
     "uploadedAssets": 47,
@@ -2729,16 +2729,16 @@
     "approvalVerifiedAssets": 47,
     "publicDeliveryVerifiedAssets": 47,
     "collectionsCreated": 3,
-    "cmsDamSelectionsVerified": 1,
+    "cmsDamSelectionsVerified": 2,
     "processingVerifiedAssets": 47,
     "collectionMembershipsVerified": 15,
     "collectionCoversVerified": 3,
     "brandRelatedAssets": 47,
-    "approvedSelectorBrandFilterResults": 12,
-    "approvedSelectorBrandFilterResultsScope": "Historical12-asset UI check;47-asset expanded-picker QA pending."
+    "approvedSelectorBrandFilterResults": 47,
+    "approvedSelectorBrandFilterResultsScope": "Native CMS approved-assets picker Brand > Show all > Westfield returned47 assets;Original select/save/reopen/render passed."
   },
   "nativeWorkflowEvidencePolicy": "Approval requires actual Submit for approval and Review Approve workflow, followed by exact asset appearing in Assets library. All required actions complete for Approved banner describes readiness and is not approval evidence.",
-  "pickerSearchScope": "For all 12 Westfield assets, use the approved-assets selector Brand filter: Show all \u2192 Westfield. Exact title search remains available; the initial four-result free-text query is retained as historical evidence.",
+  "pickerSearchScope": "Use the native approved-assets selector Brand > Show all > Westfield for all47 approved images;title search and existing collections remain available.",
   "automaticProcessingNote": "Existing tenant workflow generated additional smart-crop public links after approval; no global settings or automatic links were altered. Enumerate current asset-linked public links/consumers before retirement.",
   "historicalVerification": {
     "asOfUTC": "2026-10-15T02:45:18.150588+00:00",
@@ -2774,7 +2774,7 @@
   },
   "imageStorageMigration": {
     "requestedDate": "2026-11-17",
-    "status": "Source references prepared; CMS binding and deployed UI verification pending.",
+    "status": "Native CMS references published and read back;static reference and live browser acceptance verified on release previews. Production alias verification is recorded separately in the private release evidence.",
     "scope": "All Westfield content and static image originals, including logos, photos, social icons, favicons, login/Home artwork, and Instagram prop imagery.",
     "beforeCounts": {
       "referenceAssetCount": 14,
@@ -2841,11 +2841,82 @@
       130128
     ],
     "frontendOnlyFiles": "Typography font files remain local. Inline implementation SVG controls are not content image binaries.",
-    "systemThumbnailException": "Native __Thumbnail system derivatives remain in Media Library because the built-in field stores a native media reference; this is separate from content image storage.",
+    "systemThumbnailException": "34 native __Thumbnail and generated current-page authoring previews remain in Media Library as supported system derivatives. Website image originals and delivery URLs are in Content Hub.",
     "publicLinkPolicy": "Use the verified Original public link. New assets selected the first/latest completed active downloadOriginal link; preserve unrelated links.",
     "retirementPolicy": "Remove old binaries only after CMS/native refs, public delivery, deployed website, and inbound references are verified. Recoverable Media Library removal is handled separately.",
     "evidence": "Private canonical-dam-image-map.json and dam-original-download-verification.json retain source mappings and exact-hash receipts.",
     "nativeFieldsRetain": "Preserve native image identity, dimensions, alternative text, shared content, author edits, and workflow state.",
-    "collectionsNote": "Existing three collection memberships are preserved. New assets have verified Westfield Brand; collection additions are separately recorded if applied."
+    "collectionsNote": "Existing three collection memberships are preserved. New assets have verified Westfield Brand; collection additions are separately recorded if applied.",
+    "retirement": {
+      "recoverablyRecycledMediaItems": 42,
+      "migratedContentMediaItems": 30,
+      "additionalUnusedLegacyImages": 12,
+      "preservedNativePreviewDerivatives": 34,
+      "nativeGlobalReferrerChecksPassed": true,
+      "method": "deleteItem permanently:false;all retired items verified absent and native preview items verified preserved."
+    }
+  },
+  "expandedPickerBrandFilter": {
+    "pageUrl": "https://thlt-demo.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets",
+    "path": [
+      "Brand",
+      "Show all",
+      "Westfield"
+    ],
+    "expectedAssetCount": 47,
+    "resultAssetIds": [
+      128420,
+      128421,
+      128422,
+      128426,
+      128721,
+      128722,
+      128723,
+      128727,
+      128728,
+      128729,
+      128745,
+      128746,
+      129978,
+      129979,
+      129980,
+      129984,
+      129985,
+      129986,
+      129990,
+      129991,
+      129992,
+      129996,
+      129997,
+      129998,
+      130002,
+      130003,
+      130004,
+      130010,
+      130018,
+      130023,
+      130038,
+      130045,
+      130049,
+      130056,
+      130057,
+      130059,
+      130068,
+      130069,
+      130078,
+      130086,
+      130087,
+      130096,
+      130101,
+      130104,
+      130122,
+      130125,
+      130128
+    ],
+    "verified": true,
+    "cmsSelectedAssetId": 130068,
+    "cmsItemId": "6f44c3aa840e47088e3bd08b7cb27e19",
+    "selection": "Original public link",
+    "saveReopenAndCanvasRenderVerified": true
   }
 }

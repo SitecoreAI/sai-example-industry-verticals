@@ -3254,7 +3254,7 @@
                 "after": "1"
               }
             ],
-            "nativeUiResult": "Full reload: Campaigns (3) and Shared layout (2) retained; six unused local groups hidden. Shared legacy Commerce \u2192 Two product teaser remains visible.",
+            "nativeUiResult": "Full reload: Campaigns (3) and Shared layout (2) retained; six unused local groups hidden. Shared legacy Commerce → Two product teaser remains visible.",
             "preserved": "All group items, owned rendering selections, Modules and globals. Shared Commerce library is outside Westfield ownership.",
             "restorePolicy": "Re-read each exact field and compare to its recorded after value before a deliberate restore; preserve later author changes. Ordinary deployment does not seed or restore these authored settings.",
             "source": "https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003502"
@@ -3280,7 +3280,7 @@
               "preserveLanguageFieldValue": "",
               "includeVirtualFolderFieldValue": "",
               "headlessSiteItemId": "6eb93467-04c2-4cb2-a55d-06a94152adcf",
-              "legacyQueryPolicy": "Drop the retired URL\u2019s query string. Active campaign and login UTM handling is unchanged.",
+              "legacyQueryPolicy": "Drop the retired URL’s query string. Active campaign and login UTM handling is unchanged.",
               "queryPreservationReason": "QA observed the installed RedirectsMiddleware appending the preserved query after #mywestfield; native query preservation is disabled for this legacy map instead of adding an app routing patch."
             },
             "subtreeRemoval": {
@@ -3345,7 +3345,7 @@
           "checkedAtUTC": "2026-10-15T02:45:18.150588+00:00",
           "verifiedScope": [
             "Home/Paperless/Instagram routes, native footer phone and media delivery",
-            "Fresh synthetic launcher identity \u2192 Instagram \u2192 native personalized initial document",
+            "Fresh synthetic launcher identity → Instagram → native personalized initial document",
             "Desktop 1440px and mobile 390px navigation/image/overflow checks",
             "Cookie-free server and first native Chrome public visit select neutral fallback"
           ],
@@ -3552,7 +3552,7 @@
             "approvalVerifiedAssets": 47,
             "publicDeliveryVerifiedAssets": 47,
             "collectionsCreated": 3,
-            "cmsDamSelectionsVerified": 1,
+            "cmsDamSelectionsVerified": 2,
             "processingVerifiedAssets": 47,
             "collectionMembershipsVerified": 15,
             "collectionCoversVerified": 3,
@@ -3560,14 +3560,15 @@
             "newAssetsUploaded": 35,
             "brandVerifiedAssets": 47,
             "cmsImageFieldsVerified": 35,
-            "cmsRichTextImageFieldsVerified": 2
+            "cmsRichTextImageFieldsVerified": 2,
+            "currentApprovedSelectorBrandResults": 47
           },
-          "checkedAtUTC": "2026-11-18T00:53:13.124196+00:00",
+          "checkedAtUTC": "2026-11-18T01:35:00.117745+00:00",
           "connectorChanged": false,
           "inventoryPath": "industry-verticals/westfield/demo/dam-assets.json",
-          "verificationScope": "47 Approved Content Hub originals assigned to Brand Westfield; each public Original download returned HTTP200 with exact source SHA-256. 35 ordinary Image/Logo fields and two Rich Text image/anchor fields were saved through Authoring API, read back, scoped-published, and verified in published Experience Edge. Three collection memberships/covers and one historical picker selection retain their earlier audit scope. Frontend/browser acceptance is separate.",
+          "verificationScope": "47 Approved Content Hub Originals assigned to Brand Westfield; every public Original GET returned200 with exact source SHA-256.35 Image/Logo and2 Rich Text image/anchor fields are published and verified in Experience Edge. Native approved-assets picker returned47 Westfield assets; Policy review Original selection/save/reopen and Page Builder rendering passed. Public release preview header/body search, article/footer images, login artwork, Instagram campaign and Casey/Jordan flows passed; exact production-alias verification is recorded in the private release evidence.",
           "preserve": "Shared CM connector, service account, themes, Brand Kit, schema/taxonomies, access settings and unrelated assets/collections.",
-          "limitations": "Native system __Thumbnail fields require Media Library thumbnail derivatives; these authoring previews remain separate from Content Hub content originals. Shared connector/service account and existing collections are preserved. Frontend/browser verification and recoverable retirement of old content-media items are pending the frontend release.",
+          "limitations": "Native __Thumbnail and generated current-page authoring previews require Media Library derivatives;34 are intentionally preserved. Shared connector/service account and existing collection memberships are unchanged.",
           "brandId": 129528,
           "brandName": "Westfield",
           "historicalCollectionAuditAtUTC": "2026-10-15T02:45:18.150588+00:00",
@@ -3922,7 +3923,17 @@
             "brand": "work/westfield-dam-only-20261117/existing-brand-verification.json; work/westfield-dam-only-20261117/new-brand-verification.json",
             "nativeFieldChanges": "work/westfield-dam-only-20261117/cms-migration-journal.json",
             "publishedFields": "work/westfield-dam-only-20261117/cms-all-published-images-verification.json",
-            "publishStatus": "work/westfield-dam-only-20261117/cms-image-publish-status.json"
+            "publishStatus": "work/westfield-dam-only-20261117/cms-image-publish-status.json",
+            "pickerAndCanvas": "work/westfield-dam-only-20261117/native-picker-canvas-verification.json",
+            "retirement": "work/westfield-dam-only-20261117/media-recycle-journal.json;work/westfield-dam-only-20261117/additional-media-recycle-journal.json"
+          },
+          "currentPickerVerification": {
+            "assetId": 130068,
+            "itemId": "6f44c3aa840e47088e3bd08b7cb27e19",
+            "field": "HeroImage",
+            "brandResults": 47,
+            "status": "native-picker-original-select-save-reopen-and-canvas-render-verified",
+            "preservedAlternativeTextAndDimensions": true
           }
         },
         "definitions": {
@@ -3952,7 +3963,7 @@
           "evidence": "work/westfield-home-native-definition-audit.json"
         },
         "media": {
-          "status": "Content image references migrated and published; old Media Library items pending recoverable retirement after frontend acceptance",
+          "status": "Website content images use Content Hub Originals;42 obsolete Media Library images recoverably recycled;34 native authoring preview derivatives preserved.",
           "source": "content-hub-public-originals-for-content-images",
           "cmsFolderPath": "/sitecore/content/Westfield/westfield/Media",
           "assetLibraryPath": "/sitecore/media library/Project/Westfield/westfield",
@@ -4074,7 +4085,20 @@
             "nativeImageFields": 35,
             "richTextImageFields": 2,
             "sourceReadback": "work/westfield-dam-only-20261117/cms-all-published-images-verification.json",
-            "retirementBoundary": "Recycle only exact migrated Westfield content-media IDs after live rendering and global native referrer checks. Preserve system authoring thumbnails and other sites."
+            "retirementBoundary": "Recycle only exact migrated Westfield content-media IDs after live rendering and global native referrer checks. Preserve system authoring thumbnails and other sites.",
+            "retirement": {
+              "status": "recoverably-recycled-and-native-absence-verified",
+              "migratedContentImages": 30,
+              "additionalUnusedLegacyImages": 12,
+              "preservedNativePreviewImages": 34,
+              "method": "Authoring API deleteItem permanently:false, after native Navigate > Links checks with a known-positive thumbnail control. Current published website Image fields and Rich Text image links no longer refer to Media Library images.",
+              "evidence": [
+                "work/westfield-dam-only-20261117/media-recycle-journal.json",
+                "work/westfield-dam-only-20261117/additional-media-recycle-journal.json",
+                "work/westfield-dam-only-20261117/native-referrer-verification.json",
+                "work/westfield-dam-only-20261117/additional-native-referrer-verification.json"
+              ]
+            }
           }
         },
         "editing": {
@@ -4152,8 +4176,8 @@
             "jordan": "Login returned Home at #mywestfield with coverage recommendation; refresh retained it; /paperless remained neutral",
             "presentation": "Original MyWestfield presentation retained for both; no variant overrides",
             "campaignAndAffinityRegression": {
-              "browsingAffinity": "Normal teen-driver \u2192 water-damage \u2192 storm-article navigation selected Home-interest hero",
-              "campaignEntry": "Actual Instagram Learn more \u2192 acknowledged /campaign event \u2192 Home retained next_chapter UTM parameters",
+              "browsingAffinity": "Normal teen-driver → water-damage → storm-article navigation selected Home-interest hero",
+              "campaignEntry": "Actual Instagram Learn more → acknowledged /campaign event → Home retained next_chapter UTM parameters",
               "firstHomeDocument": "Home-interest hero remained; first-document campaign expectation not met in this run",
               "afterProfilePropagation": "One reload of the same Home URL selected campaign hero, approximately two minutes later",
               "nativeHeroTable": "LIVE; campaign row 1, affinity row 2; rules unchanged",
@@ -4197,7 +4221,7 @@
               "experienceId": "77f8d59b-99dd-4451-9ecb-61d97905f04f",
               "datasourceId": "a275f458-496b-40cc-8448-454980cfc4be",
               "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Next chapter campaign",
-              "heading": "A new chapter. Protection for what\u2019s next.",
+              "heading": "A new chapter. Protection for what’s next.",
               "originalDatasourceId": "69a01662-aafc-488c-8b87-f1afc7bdc570",
               "originalHeading": "Reliable Insurance, Real Peace of Mind",
               "verification": "PASS at frontend c3d4afcabbd87e6ba3aa1b35ef417633ad710f88 on both canonical hosts: independent empty-cookie first HTML checks selected the native campaign Hero datasource; fresh Chrome Incognito actual ad click and same-visitor Auto-to-Home-to-Instagram browser sequence passed. Release evidence: outputs/evidence/westfield-direct-instagram-production-release-20261117.json and westfield-direct-instagram-browser-production-20261117.json.",
@@ -4250,7 +4274,7 @@
                 }
               ],
               "tableEvidence": "work/westfield-readable-decision-20261117/home-final-two-column.json and native-campaign-value-resource.json",
-              "firstVisitBoundary": "PASS on the released public host: a new Chrome Incognito visitor opened only the static Instagram prop, clicked the actual Learn more link, and received the campaign headline on the first Home arrival. No /demo preparation, prior Home visit, intermediary page, or refresh. A separate unchanged visitor session passed teen-driver article \u2192 Auto Home \u2192 water-damage and spring-thunderstorm articles \u2192 Home-interest Home \u2192 Instagram ad \u2192 campaign Home with zero refreshes.",
+              "firstVisitBoundary": "PASS on the released public host: a new Chrome Incognito visitor opened only the static Instagram prop, clicked the actual Learn more link, and received the campaign headline on the first Home arrival. No /demo preparation, prior Home visit, intermediary page, or refresh. A separate unchanged visitor session passed teen-driver article → Auto Home → water-damage and spring-thunderstorm articles → Home-interest Home → Instagram ad → campaign Home with zero refreshes.",
               "unusedCondition": {
                 "id": "ccecd5b4-d31b-46c1-862a-db6b23e21106",
                 "name": "Westfield next chapter arrival",
@@ -4267,7 +4291,7 @@
             },
             "campaignEntry": "Direct Instagram ad link to CMS Home with UTM parameters; native middleware chooses the Home variant on that request, with no intermediate loading page, identity event, or local variant selection",
             "preparation": "/demo",
-            "accountSwitch": "Logout \u2192 Login \u2192 Customer",
+            "accountSwitch": "Logout → Login → Customer",
             "retainedCampaignQuery": "The six allowlisted UTM parameters are retained on the root Home URL; no fragment is added.",
             "loginArrival": "Home opens at the top; scroll to MyWestfield to show the recommendation."
           },
@@ -4300,8 +4324,8 @@
             "formerPagePath": "/paperless",
             "finalPersonalizedRulesRemoved": true,
             "neutralSharedPresentationPreserved": true,
-            "formerVerificationScope": "Native LIVE false\u2192offer/Default and true\u2192enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
-            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home\u2019s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
+            "formerVerificationScope": "Native LIVE false→offer/Default and true→enrolled/Quiet, both initial-document payloads/DOM, native Profiles campaign attribution and unknown neutral fallback verified.",
+            "retirementVerification": "Old decision remains paused; all 14 old subtree IDs are absent from master; Home final presentation is unchanged. Native 301 redirect to Home’s MyWestfield section is verified on both hosts, with legacy query deliberately dropped.",
             "datasourceItemsRetained": false,
             "analyticsTimeoutUiMinutes": 30,
             "timeoutScope": "Prefilled native Analytics UI observation; SDK Edge/CDP network defaults are separate 400ms timeouts.",
@@ -5533,7 +5557,7 @@
                 "status": "native-save-and-published-edge-verified"
               },
               {
-                "label": "Account - Access MyWestfield\u00ae",
+                "label": "Account - Access MyWestfield®",
                 "datasourcePath": "/sitecore/content/Westfield/westfield/Home/Data/Account - Access MyWestfield",
                 "field": "Image",
                 "legacyMediaId": "91d78c52-8245-437f-a455-ff15e6d42fd5",
@@ -5776,6 +5800,41 @@
             "retirementBoundary": "Only the eight exact preset item IDs listed here may be considered for separate authorized removal after reference/consumer review. Preserve the environment-global Devices parent, nine pre-existing presets and current default; no recursive device-root removal."
           },
           "releaseBoundary": "Frontend release and browser acceptance are recorded separately in handover evidence. This native inventory does not claim final frontend release PASS."
+        },
+        "search": {
+          "status": "native-site-source-live",
+          "name": "Westfield website",
+          "configurationId": "2cb5e7cf-0e44-4bd9-9f98-b27af8111570",
+          "sourceType": "site",
+          "origin": "https://thlt-westfield-demo.vercel.app",
+          "locale": "en",
+          "searchableFields": {
+            "title": "head > title",
+            "description": "meta description",
+            "content": "#maincontent"
+          },
+          "urlScope": "Allow /advice* and exact Home;exclude other pages, including /search and presenter routes.",
+          "schedule": {
+            "frequency": "hourly",
+            "minute": 0,
+            "timezone": "America/Chicago"
+          },
+          "fuzzySearch": true,
+          "sdk": "@sitecore-content-sdk/search@0.1.0",
+          "environmentVariable": "SITECORE_SEARCH_INDEX_ID",
+          "hostingBinding": "Public and editing projects, production and preview targets.",
+          "authorFlow": "Approve/publish article;verify live publication;native Search Indexing > Trigger indexing > Succeeded;test a distinct word from the article body.",
+          "sitemapSettings": {
+            "itemId": "7d8261433e4b4c9eb9619056ab3be30b",
+            "refreshThresholdMinutes": 0,
+            "cacheExpirationMinutes": 0,
+            "generateSitemapMediaItems": true,
+            "scope": "Westfield only;small demonstration site, with native generation on publish.",
+            "evidence": "work/westfield-dam-only-20261117/sitemap-native-refresh-fix.json"
+          },
+          "topicDateFilters": "Existing published-CMS metadata filters on Advice results;not native Search facets.",
+          "verificationScope": "Native title query, body-only query, zero-result control and rendered header/Advice keyword Search passed. New-publication and reset proofs are recorded separately with release evidence.",
+          "evidence": "work/westfield-native-search-20261117/native-source-query-proof.json"
         }
       },
       "notes": [
@@ -5865,5 +5924,5 @@
       ]
     }
   ],
-  "lastWestfieldAuditUTC": "2026-11-18T01:02:57.422023+00:00"
+  "lastWestfieldAuditUTC": "2026-11-18T01:35:00.117745+00:00"
 }
