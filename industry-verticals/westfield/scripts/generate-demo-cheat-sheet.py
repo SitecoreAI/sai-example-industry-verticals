@@ -99,7 +99,7 @@ class Page:
 
 
 page = Page(1, 'Make the visit relevant')
-for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest', 7), ('P3', 'Campaign context', 8), ('P4', 'Known customer information', 9)]:
+for code, label, slide in [('P1', 'Familiar Home', 5), ('P2', 'Browsing interest', 6), ('P3', 'Campaign context', 7), ('P4', 'Known customer information', 8)]:
     page.section(code, label, slide)
     for step in FLOWS[code]['steps']:
         page.step(step)
@@ -116,7 +116,7 @@ for code, label, slide in [('P1', 'Familiar Home', 6), ('P2', 'Browsing interest
 page.finish()
 
 page = Page(2, 'Create and publish useful advice', 'Brand guidance, then slide 10 / P5')
-page.section('B1', 'Brand guidance before creating')
+page.section('B1', 'Brand guidance before creating', 9)
 for step in FLOWS['B1']['steps']:
     page.step(step)
 page.cue('Brand Context: Westfield/task knowledge. Brand Kit: writing guidance. Copilot uses the site kit.')
