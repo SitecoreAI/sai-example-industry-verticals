@@ -661,9 +661,9 @@ const flows: DemoFlow[] = [
       },
       {
         kind: 'say',
-        text: 'Westfield can maintain approved advice once and make it available to the website and a future app. Each channel can present that content in its own screens.',
+        text: 'Westfield can maintain approved advice once and make it available to the website and a future app. Each channel can present that content in its own screens. Next, use slide 16 to discuss how approved internal knowledge could guide AI content creation for underwriters. This is an illustrative workflow to configure and validate with Westfield.',
       },
-      { kind: 'return', title: 'Slide 16 · Finding relevant guidance for underwriters' },
+      { kind: 'return', title: 'Slide 16 · AI content creation from internal knowledge' },
     ],
   },
 ];

@@ -150,7 +150,7 @@ for step in FLOWS['P7']['steps']:
     page.step(step)
 page.cue('Article: "Property Insurance Claims Checklist: What To Do Before and After a Loss." Paste prepared headers/query into the built-in explorer and Execute Query. Match title, summary, and image. Reuse one approved item in a future mobile app.')
 page.section('16-18', 'Westfield\'s next question', '16-18')
-page.write('<b>Underwriting:</b> ask which guidance would help an underwriter answer a question. Identify the state/insurance type and trusted sources for a focused product review.', after=6)
+page.write('<b>Underwriting (illustrative):</b> approved internal sources &gt; reusable research skill &gt; SitecoreAI draft via Marketer MCP &gt; expert review. Configure with Westfield before use.', after=6)
 page.write('<b>Ask:</b> "Which Sitecore capability would you like to explore further?"', after=6)
 page.write('<b>Questions:</b> keep minutes 50-60 for discussion. Capture the product question a follow-up should answer.', after=0)
 page.finish()
