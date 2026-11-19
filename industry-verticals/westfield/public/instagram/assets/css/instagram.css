@@ -1086,10 +1086,6 @@ img {
   font-weight: 600;
   line-height: 22px;
 }
-.westfield-campaign-band span {
-  float: right;
-}
-.westfield-campaign:focus-visible,
 .post-ad-cta:focus-visible {
   outline: 3px solid #0095f6;
   outline-offset: -3px;
